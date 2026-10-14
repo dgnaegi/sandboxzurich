@@ -23,7 +23,7 @@ Browser (Handy und PC)
 | Sprache | TypeScript, strict | Weniger Laufzeitfehler bei AI-generiertem Code |
 | Build | Vite | Schnell, einfach |
 | Physik | Rapier (WASM) | Character Controller, Kollision, zerbrechliche Objekte |
-| Pipeline | Python 3 (venv `../.venv` wiederverwenden), gltfpack, toktx | Reel-Pipeline ist schon Python |
+| Pipeline | Python 3 (eigenes `.venv`, `requirements.txt`), gltfpack, toktx | Reel-Pipeline ist schon Python |
 | Tests | Vitest (Logik), Playwright (Screenshots, FPS-Messung) | AI kann selbst prüfen |
 | Hosting | Scalingo, Static-Buildpack (nginx), Archiv-Deploy | Siehe Abschnitt «Scalingo» |
 

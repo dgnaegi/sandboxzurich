@@ -22,3 +22,9 @@ Hosting auf Scalingo optimiert: Static-Buildpack (nginx), App und Kacheln zusamm
 
 ## #7 – 2026-10-14 – bestätigt
 Handy und PC sind gleichwertige Zielplattformen. Eingabe-Abstraktion (Tastatur/Maus, Touch, Gamepad), Grafikstufen low/medium/high mit Auto-Wahl, Tests in beiden Viewports.
+
+## #8 – 2026-10-14 – bestätigt
+Projekt liegt in `/Users/danielgnagi/gtazurich` (eigenes Repo, neben `../gta6`). Grund: Die lange Reel-CLAUDE.md wird nicht mehr bei jeder Anfrage mitgeladen (Token-Budget).
+
+## #9 – 2026-10-14 – bestätigt
+Lizenz WTFPL für Code und Doku, öffentliches Repo. Daten Dritter (OSM/ODbL, swisstopo, Stadt ZH) behalten ihre Lizenz; keine proprietären Fonts oder Logos im Repo.

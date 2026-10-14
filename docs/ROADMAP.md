@@ -2,10 +2,11 @@
 
 Jedes Milestone endet mit etwas, das der User im Browser (auch auf dem Handy) ausprobieren kann.
 
-## M0 – Projektstruktur ✅/⏳
+## M0 – Projektstruktur ✅
 - [x] Unterordner `game/` mit Projektbeschreibung und Doku-Struktur
-- [ ] Entscheide bestätigen: Tech-Stack, Hosting, Repo (git init)
-- [ ] Scalingo-App und Object Storage anlegen (der User braucht dafür Accounts)
+- [x] Git-Repo `dgnaegi/gtazurich`, Lizenz WTFPL
+- [x] OSM-Bestandsaufnahme (`research/osm_stats.md`)
+- [ ] Scalingo: separater Schritt (später)
 
 ## M1 – Karte und Herumlaufen (nächster Auftrag)
 **Ziel:** Ein Gebiet in Kreis 4/5 originalgetreu, darin frei herumlaufen, flüssig auf dem Handy.

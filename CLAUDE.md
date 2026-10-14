@@ -2,7 +2,7 @@
 
 Open-World-Browsergame im GTA-3-Stil in den Zürcher Kreisen 3, 4, 5 und 9, mit Quests zu linken Wahlthemen (Wohnen, Freiraum, Verkehr, Schule). Gehostet auf Scalingo. Wird fast vollständig von AI gebaut; der Mensch testet, entscheidet und gibt Feedback.
 
-Dieses Projekt ist **getrennt vom Reel** im Elternordner (`../CLAUDE.md`). Daten und Skripte von dort dürfen gelesen und wiederverwendet werden, aber nichts im Elternordner wird verändert.
+Dieses Projekt ist **getrennt vom Reel** in `../gta6/` (lokal, nicht im Repo, eigene `CLAUDE.md`). Daten und Skripte von dort dürfen gelesen und wiederverwendet werden, aber nichts in `../gta6/` wird verändert.
 
 ## Start jeder Session (Pflicht)
 1. `docs/HANDOFF.md` lesen: aktueller Stand, nächster Schritt, offene Fragen.
@@ -53,6 +53,7 @@ Ziel: möglichst viel Fortschritt pro 5-Stunden-Fenster und Woche.
 - **Arbeit in Skripte statt in den Kontext:**
   - Daten nie mit `cat` oder Read in den Kontext laden (OSM-JSON, glb, Logs). Stattdessen ein Skript schreiben, das eine Zusammenfassung von höchstens 30 Zeilen ausgibt.
   - Bei Logs nur `tail -20` oder `grep`.
+- **Overpass:** immer über `pipeline/overpass.py` (Mirror-Fallback, User-Agent).
 - **Einmal holen, lokal cachen:** Downloads landen in `data/raw/`, Rechercheergebnisse in `research/`. Nie dieselbe Websuche oder Overpass-Abfrage wiederholen.
 - **Screenshots sparsam:**
   - Bilder kosten viel. Lieber ein Kontaktbogen mit mehreren kleinen Bildern (≤ 1600 px breit) statt einzelner Vollbilder.

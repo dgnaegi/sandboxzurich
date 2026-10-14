@@ -6,7 +6,7 @@ Ziel: Die Kreise 3, 4, 5 und 9 so originalgetreu wie möglich nachbauen, sodass 
 - Die Grenzen der Kreise 3, 4, 5 und 9 kommen aus dem OGD-Datensatz «Stadtkreise» der Stadt Zürich.
 - Bounding Box grob: 47.355–47.400 N, 8.465–8.545 E (wird mit dem Datensatz präzisiert).
 - Rand: 300 m Kulisse (nur Gebäudesilhouetten), dahinter Panorama (Uetliberg, Hochhäuser).
-- Die Reel-Daten (`../data/`) decken nur etwa 47.370–47.3935 N / 8.506–8.534 E ab und müssen erweitert werden.
+- Die Reel-Daten (`../gta6/data/`) decken nur etwa 47.370–47.3935 N / 8.506–8.534 E ab und müssen erweitert werden.
 
 ## Ebenen (Checkliste)
 

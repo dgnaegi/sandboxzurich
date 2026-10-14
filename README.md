@@ -8,7 +8,10 @@ Man läuft (später auch Velo) frei durch die Stadt. Die Quests drehen sich um T
 - **Hosting:** Scalingo (statische App inklusive Kartenkacheln)
 - **Stand:** Planung. Siehe `docs/ROADMAP.md` und `docs/HANDOFF.md`.
 
-Hervorgegangen aus dem Instagram-Reel «GTA Züri – Wohnungssuche» im Elternordner.
+Hervorgegangen aus dem Instagram-Reel «GTA Züri – Wohnungssuche».
 
 ## Quellen und Lizenzen
 Kartendaten © OpenStreetMap-Mitwirkende (ODbL), swisstopo (swissBUILDINGS3D, SWISSIMAGE), Stadt Zürich Open Data. Details in `docs/DATA_SOURCES.md`.
+
+## Lizenz
+Code und Dokumentation: [WTFPL](LICENSE). Kartendaten behalten ihre eigenen Lizenzen: OpenStreetMap ist ODbL (Namensnennung und Share-Alike für die Datenbank), swisstopo und Stadt Zürich sind OGD mit Quellenangabe. Siehe `docs/DATA_SOURCES.md`.
