@@ -44,5 +44,24 @@ Dieses Projekt ist **getrennt vom Reel** im Elternordner (`../CLAUDE.md`). Daten
 - **Lange Läufe** (Downloads, Tile-Builds) im Hintergrund starten und das Log nach `logs/` schreiben, damit ein Abbruch nachvollziehbar bleibt.
 - **Geheimnisse** (API-Keys, Scalingo-Token) nie ins Repo. Sie gehören in `.env`, und `.env` steht in `.gitignore`.
 
+## Token-Budget (Claude Max, verbindlich)
+Ziel: möglichst viel Fortschritt pro 5-Stunden-Fenster und Woche.
+- **Modellwahl für Sub-Agents:**
+  - `haiku` für mechanische Arbeit wie Ladenprüfung im Web oder Daten-Checks
+  - `sonnet` für klar umrissene Programmieraufgaben
+  - Opus (Hauptsession) nur für Architektur, schwierige Bugs und visuelle Abnahme
+- **Arbeit in Skripte statt in den Kontext:**
+  - Daten nie mit `cat` oder Read in den Kontext laden (OSM-JSON, glb, Logs). Stattdessen ein Skript schreiben, das eine Zusammenfassung von höchstens 30 Zeilen ausgibt.
+  - Bei Logs nur `tail -20` oder `grep`.
+- **Einmal holen, lokal cachen:** Downloads landen in `data/raw/`, Rechercheergebnisse in `research/`. Nie dieselbe Websuche oder Overpass-Abfrage wiederholen.
+- **Screenshots sparsam:**
+  - Bilder kosten viel. Lieber ein Kontaktbogen mit mehreren kleinen Bildern (≤ 1600 px breit) statt einzelner Vollbilder.
+  - Nur ansehen, wenn sich am Aussehen etwas geändert hat.
+- **Lange Läufe im Hintergrund, ohne Polling:** Hintergrundprozess starten und auf die Benachrichtigung warten, nicht wiederholt nachschauen.
+- **Sub-Agents nur, wenn es sich lohnt:** Jeder Agent startet ohne Vorwissen und liest Kontext neu. Sinnvoll nur für grosse, unabhängige Pakete; dann mit präzisem Auftrag, Dateizuständigkeit und kurzer Rückmeldung (≤ 15 Zeilen).
+- **Gezielt lesen:** Grosse Dateien nur abschnittsweise lesen (offset/limit, grep). Dateien, die gerade geschrieben wurden, nicht erneut lesen.
+- **Sessions kurz halten:** Ein ROADMAP-Schritt pro Session. Danach HANDOFF.md aktualisieren und eine neue Session starten (statt endlos Kontext anzuhäufen).
+- **Kurz antworten:** Statusmeldungen an den User knapp, Details stehen in den Docs.
+
 ## Koordinaten
 Wie beim Reel: lokale Meter mit Ursprung LV95 (2681400, 1248700), z0 = 408 m ü. M., x = Ost, y = Nord. Damit lassen sich die Reel-Daten direkt wiederverwenden. Im Spiel (Three.js, y = oben) gilt: `three.x = x`, `three.y = z`, `three.z = -y`.
