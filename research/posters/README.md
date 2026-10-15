@@ -1,6 +1,6 @@
 # Wildplakat-Events: Faktenbasis
 
-`events.json` enthält 131 vergangene Zürcher Kultur-Events (2022–Anfang 2026) als reine Fakten für selbst gestaltete Wildplakate. Es wurden keine Plakatbilder geladen. `raw/` hält die gecachten Rohdaten. `build_events.py` baut die Datei reproduzierbar (Auswahl und Flags stehen dort im Dict `RF`).
+`events.json` enthält 254 vergangene Zürcher Kultur-Events (2022–Anfang 2026) als reine Fakten für selbst gestaltete Wildplakate. Es wurden keine Plakatbilder geladen. `raw/` hält die gecachten Rohdaten. `build_events.py` baut die Datei reproduzierbar (Auswahl und Flags stehen dort im Dict `RF`).
 
 Schema: id, title, subtitle, date, time, venue, address, kind, lineup, price, organizer, source_url, political, approval_needed. Zusatz: note, dates (weitere Spieltermine).
 
@@ -18,6 +18,21 @@ Schema: id, title, subtitle, date, time, venue, address, kind, lineup, price, or
 - Preise fehlen bei den meisten Einträgen; für Plakate frei wählbar oder in der Quelle nachprüfen.
 - Bewusst **weggelassen**: «Newborn Sky: Women in the Democratic Army of Rojava» (2022-03-17; Nähe zu Gruppen, die teils als terroristisch eingestuft werden), «Rote Kulturtage» (2025, Beteiligung echter Parteien, verletzt CONTENT_GUIDELINES). Keine Markenkonzerte oder Sponsoren-Events.
 - Rote Fabrik ist eine reale Institution und kann als Kulisse genannt werden. Namen von Künstler:innen sind öffentliche Auftritte; vor Druck im Spiel trotzdem fiktive Plakate ohne Fotos/Logos gestalten.
+
+## Runde 2 (127 zusätzliche Events, 11 weitere Lokale)
+Neu: Gessnerallee 27 (davon 4 aus Runde 1), Moods 17, Hive Club 15, Palais Mascotte 14, Kino Xenix 13 (+3 Xenix Bar), Photobastei 10, Kanzlei Club 9, Plaza Klub 9, Theater Neumarkt 8, Bogen F 1, Provitreff 1. Erzeugt von `build_events2.py` (aufgerufen aus `build_events.py`), alle Einträge werden gegen die gecachten Rohdaten geprüft (Assertions, Wochentag-Abgleich für das Jahr).
+- **Gessnerallee**: öffentliche CMS-GraphQL-API (`cms.gessnerallee.ch/graphql`), 461 Events 2024–2026 in `raw/gessnerallee.json`; 23 ausgewählt. Talks zu Politik/Recherche-Kollektiven bewusst ausgelassen.
+- **Palais Mascotte**: Nunight-Widget-API (`event_widget_details.jsonp?id=N`), IDs 1–215 in `raw/mascotte/`. Nur Clubabende 2026 (neu eröffnet Jan 2026). Firmenanlässe weggelassen.
+- **Kino Xenix**: eigene Monats-JSONs (`static/json/*.json`) in `raw/xenix/`, 2022–2026. Auswahl: Open-Air-Reihe, Gäste-Abende, Bar-Konzerte.
+- **Moods, Theater Neumarkt, Photobastei, Kanzlei, Plaza, Hive**: Wayback-Snapshots der Start-/Programmseiten (Text in `raw/wayback/<venue>/<timestamp>.txt`, Snapshot-URL in `source_url`). Jahr per Wochentag-Abgleich.
+- **Bogen F, Provitreff**: aktuelle Website (je 1 vergangener Anlass). Provitreff: Adresse nicht auf der Seite, daher null.
+- Preise nur wo Quelle sie nennt (Plaza, Bogen F, Mascotte teils).
+- Zusätzlich `approval_needed`: `pb-2025-11-06-45JahreJug` (Ausstellung Jugendunruhen, okaj zürich). Insgesamt jetzt 16.
+
+### Nicht erreicht
+- Ziel waren ≥12 neue Lokale, erreicht sind 11. Nicht verwertbar: Zukunft (Domain verkauft), Exil (Seite weg), Klaus, Gonzo, Kasheme, Sender, Kauz (keine Programmseiten/Archive auffindbar), Helmhaus und Shedhalle-Website (JS-Seiten ohne Archiv; Shedhalle-Programm steckt in der Rote-Fabrik-API), Kaufleuten (Startseite ohne Events), Volkshaus (keine Programmdaten), Kulturhaus Helferei (JS), Petzi (nur Landesübersicht, kaum Zürich), Zürcher Theater Spektakel (keine Daten im Archiv, Daten nicht erfunden).
+- Quartierfeste Kreis 4/5, Kreis-4-Fest, Bullingerfest, Langstrasse Kultur, Flohmarkt Kanzlei: keine belegten Termine gefunden.
+- Mascotte, Neumarkt und Gessnerallee liegen im Kreis 1, Photobastei und Hive im Kreis 5. Schwerpunkt Kreis 4/5 daher nur teilweise: Kanzlei, Xenix, Plaza, Hive, Moods, Bogen F, Provitreff.
 
 ## approval_needed (Begründung)
 Alle Einträge unten sind `political` und/oder Soli-Anlässe mit Trägerschaft, die vor Verwendung durch die Kampagne geprüft werden müssen. Kein Event nennt Parteien oder Politiker:innen.
@@ -38,3 +53,4 @@ Alle Einträge unten sind `political` und/oder Soli-Anlässe mit Trägerschaft, 
 - `rf-6146` 2025-10-25 Jubiläum Solidarité sans Frontières SPAZ (political): Freiplatzaktion Zürich (40 J.), Solidarité sans Frontières (25 J.), SPAZ (20 J.): migrationspolitische Organisationen
 - `rf-6281` 2025-11-15 Kern und Schale: Konzert & Afterparty (political): Konzert «in Solidarity with Palestine», Kern und Schale: Veranstalter vor Verwendung prüfen
 Hinweis Palästina-Soli (`rf-6006`, `rf-6281`): Veranstalter sind in der Quelle nur als Clubbüro-Programm bzw. «Kern und Schale» benannt; Erlös an Gaza Sunbirds bzw. Ticketlink über Eventfrog. Empfehlung: nicht verwenden, ausser die Kampagne gibt ausdrücklich frei.
+- `pb-2025-11-06-45JahreJug` 2025-11-06 45 Jahre Jugendunruhen (exhibition): Ausstellung zu den Zürcher Jugendunruhen von okaj zürich; Inhalt vor Verwendung prüfen.

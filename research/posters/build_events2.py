@@ -276,3 +276,36 @@ def misc():
 
 def round2():
     return gessnerallee() + mascotte() + xenix() + moods() + neumarkt() + photobastei() + kanzlei() + plaza() + misc()
+
+HIVE = [  # (date, needle, kind, lineup, title)
+ ('2022-03-05','Monika Kruse','party',['Monika Kruse'],'Monika Kruse'),
+ ('2022-07-15','FJAAK','party',['FJAAK'],'FJAAK'),
+ ('2022-07-23','Boys Noize','party',['Boys Noize'],'Boys Noize'),
+ ('2022-12-02','Grundton Festival','festival',['Grundton'],'Grundton Festival'),
+ ('2022-12-16','Extrawelt','party',['Extrawelt','HS12'],'Extrawelt & HS12'),
+ ('2023-03-24','11 Jahre Mad Katz','party',['Mad Katz'],'11 Jahre Mad Katz'),
+ ('2023-08-04','Radio Slave','party',['Radio Slave'],'Radio Slave'),
+ ('2023-08-05','Eelke Kleijn','party',['Eelke Kleijn'],'Grundton w/ Eelke Kleijn'),
+ ('2023-11-04','Pan-Pot','party',['Pan-Pot','Fedele'],'Grundton w/ Pan-Pot & Fedele'),
+ ('2023-11-18','10 Jahre BaBaLu','party',['BaBaLu'],'10 Jahre BaBaLu'),
+ ('2023-11-24','Luke Slater','party',['Luke Slater'],'Mad Katz w/ Luke Slater'),
+ ('2024-02-10','18 Jahre Hive','party',['Hive Club'],'18 Jahre Hive'),
+ ('2024-11-16','Ida Engberg','party',['Ida Engberg'],'Ida Engberg'),
+ ('2024-11-22','GHEIST','party',['Gheist','HS12'],'GHEIST & HS12'),
+ ('2024-11-29','Ellen Allien','party',['Ellen Allien'],'Mad Katz w/ Ellen Allien'),
+]
+def hive():
+    idx = {}
+    for ts, L in snaps('hive'):
+        for i, l in enumerate(L):
+            m = re.match(r'^(\d\d)\.(\d\d)\.(\d{4})$', l)
+            if m and i + 1 < len(L): idx.setdefault(f'{m[3]}-{m[2]}-{m[1]}', []).append((ts, L[i+1]))
+    out = []
+    for date, needle, kind, lineup, title in HIVE:
+        ts, t = next(x for x in idx[date] if needle in x[1])
+        out.append(ev(f'hv-{date}', title, date, 'Hive Club', 'Geroldstrasse 5, 8005 Zürich', kind, lineup, wb_url('https://hiveclub.ch/', ts), 'Hive Club',
+            note='Quelle: archivierter Kalender des Clubs; Zeit/Preis dort nicht angegeben'))
+    return out
+_old_round2 = round2
+def round2():
+    return _old_round2() + hive()

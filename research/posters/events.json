@@ -281,6 +281,26 @@
   ]
  },
  {
+  "id": "hv-2022-03-05",
+  "title": "Monika Kruse",
+  "subtitle": null,
+  "date": "2022-03-05",
+  "time": null,
+  "venue": "Hive Club",
+  "address": "Geroldstrasse 5, 8005 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Monika Kruse"
+  ],
+  "price": null,
+  "organizer": "Hive Club",
+  "source_url": "https://web.archive.org/web/20220315134309/https://hiveclub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierter Kalender des Clubs; Zeit/Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
   "id": "pb-2022-03-10-SPCPhotoAw",
   "title": "SPC Photo Awards - Zurich March 2022",
   "subtitle": "Ausstellung bis 2022-03-20",
@@ -711,6 +731,26 @@
   "dates": null
  },
  {
+  "id": "hv-2022-07-15",
+  "title": "FJAAK",
+  "subtitle": null,
+  "date": "2022-07-15",
+  "time": null,
+  "venue": "Hive Club",
+  "address": "Geroldstrasse 5, 8005 Zürich",
+  "kind": "party",
+  "lineup": [
+   "FJAAK"
+  ],
+  "price": null,
+  "organizer": "Hive Club",
+  "source_url": "https://web.archive.org/web/20220709095356/https://hiveclub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierter Kalender des Clubs; Zeit/Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
   "id": "rf-3686",
   "title": "Protoje",
   "subtitle": "Warm-Up mit DJ Buzz (Boss Hi-Fi)",
@@ -729,6 +769,26 @@
   "political": false,
   "approval_needed": false,
   "note": null,
+  "dates": null
+ },
+ {
+  "id": "hv-2022-07-23",
+  "title": "Boys Noize",
+  "subtitle": null,
+  "date": "2022-07-23",
+  "time": null,
+  "venue": "Hive Club",
+  "address": "Geroldstrasse 5, 8005 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Boys Noize"
+  ],
+  "price": null,
+  "organizer": "Hive Club",
+  "source_url": "https://web.archive.org/web/20220709095356/https://hiveclub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierter Kalender des Clubs; Zeit/Preis dort nicht angegeben",
   "dates": null
  },
  {
@@ -1294,6 +1354,26 @@
   "dates": null
  },
  {
+  "id": "hv-2022-12-02",
+  "title": "Grundton Festival",
+  "subtitle": null,
+  "date": "2022-12-02",
+  "time": null,
+  "venue": "Hive Club",
+  "address": "Geroldstrasse 5, 8005 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "Grundton"
+  ],
+  "price": null,
+  "organizer": "Hive Club",
+  "source_url": "https://web.archive.org/web/20221203094458/https://hiveclub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierter Kalender des Clubs; Zeit/Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
   "id": "rf-4435",
   "title": "Protozone9 Weak.End.Opera",
   "subtitle": "mit Selma Selman, Mikołaj Sobczak und Nicholas Grafia",
@@ -1329,6 +1409,27 @@
    "2023-01-14",
    "2023-01-15"
   ]
+ },
+ {
+  "id": "hv-2022-12-16",
+  "title": "Extrawelt & HS12",
+  "subtitle": null,
+  "date": "2022-12-16",
+  "time": null,
+  "venue": "Hive Club",
+  "address": "Geroldstrasse 5, 8005 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Extrawelt",
+   "HS12"
+  ],
+  "price": null,
+  "organizer": "Hive Club",
+  "source_url": "https://web.archive.org/web/20221203094458/https://hiveclub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierter Kalender des Clubs; Zeit/Preis dort nicht angegeben",
+  "dates": null
  },
  {
   "id": "pb-2023-01-12-LucaZanier",
@@ -1450,6 +1551,26 @@
   "political": false,
   "approval_needed": false,
   "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "hv-2023-03-24",
+  "title": "11 Jahre Mad Katz",
+  "subtitle": null,
+  "date": "2023-03-24",
+  "time": null,
+  "venue": "Hive Club",
+  "address": "Geroldstrasse 5, 8005 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Mad Katz"
+  ],
+  "price": null,
+  "organizer": "Hive Club",
+  "source_url": "https://web.archive.org/web/20230323114245/https://hiveclub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierter Kalender des Clubs; Zeit/Preis dort nicht angegeben",
   "dates": null
  },
  {
@@ -1800,6 +1921,46 @@
   "dates": null
  },
  {
+  "id": "hv-2023-08-04",
+  "title": "Radio Slave",
+  "subtitle": null,
+  "date": "2023-08-04",
+  "time": null,
+  "venue": "Hive Club",
+  "address": "Geroldstrasse 5, 8005 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Radio Slave"
+  ],
+  "price": null,
+  "organizer": "Hive Club",
+  "source_url": "https://web.archive.org/web/20230811083016/https://hiveclub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierter Kalender des Clubs; Zeit/Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "hv-2023-08-05",
+  "title": "Grundton w/ Eelke Kleijn",
+  "subtitle": null,
+  "date": "2023-08-05",
+  "time": null,
+  "venue": "Hive Club",
+  "address": "Geroldstrasse 5, 8005 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Eelke Kleijn"
+  ],
+  "price": null,
+  "organizer": "Hive Club",
+  "source_url": "https://web.archive.org/web/20230811083016/https://hiveclub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierter Kalender des Clubs; Zeit/Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
   "id": "rf-4298",
   "title": "Lethargy",
   "subtitle": "Lethargy 29th edition",
@@ -2091,6 +2252,47 @@
   "dates": null
  },
  {
+  "id": "hv-2023-11-04",
+  "title": "Grundton w/ Pan-Pot & Fedele",
+  "subtitle": null,
+  "date": "2023-11-04",
+  "time": null,
+  "venue": "Hive Club",
+  "address": "Geroldstrasse 5, 8005 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Pan-Pot",
+   "Fedele"
+  ],
+  "price": null,
+  "organizer": "Hive Club",
+  "source_url": "https://web.archive.org/web/20231127170453/https://hiveclub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierter Kalender des Clubs; Zeit/Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "hv-2023-11-18",
+  "title": "10 Jahre BaBaLu",
+  "subtitle": null,
+  "date": "2023-11-18",
+  "time": null,
+  "venue": "Hive Club",
+  "address": "Geroldstrasse 5, 8005 Zürich",
+  "kind": "party",
+  "lineup": [
+   "BaBaLu"
+  ],
+  "price": null,
+  "organizer": "Hive Club",
+  "source_url": "https://web.archive.org/web/20231127170453/https://hiveclub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierter Kalender des Clubs; Zeit/Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
   "id": "tn-2023-11-19",
   "title": "«Hässlichkeit» von Moshtari Hilal",
   "subtitle": "ausverkauft",
@@ -2128,6 +2330,26 @@
   "political": false,
   "approval_needed": false,
   "note": "Quelle: archivierte Startseite (Next Events); Preise: Wahlpreismodell des Hauses (drei Preise), Betrag nicht erfasst",
+  "dates": null
+ },
+ {
+  "id": "hv-2023-11-24",
+  "title": "Mad Katz w/ Luke Slater",
+  "subtitle": null,
+  "date": "2023-11-24",
+  "time": null,
+  "venue": "Hive Club",
+  "address": "Geroldstrasse 5, 8005 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Luke Slater"
+  ],
+  "price": null,
+  "organizer": "Hive Club",
+  "source_url": "https://web.archive.org/web/20231127170453/https://hiveclub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierter Kalender des Clubs; Zeit/Preis dort nicht angegeben",
   "dates": null
  },
  {
@@ -2253,6 +2475,26 @@
   "political": false,
   "approval_needed": false,
   "note": null,
+  "dates": null
+ },
+ {
+  "id": "hv-2024-02-10",
+  "title": "18 Jahre Hive",
+  "subtitle": null,
+  "date": "2024-02-10",
+  "time": null,
+  "venue": "Hive Club",
+  "address": "Geroldstrasse 5, 8005 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Hive Club"
+  ],
+  "price": null,
+  "organizer": "Hive Club",
+  "source_url": "https://web.archive.org/web/20240229122704/https://hiveclub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierter Kalender des Clubs; Zeit/Preis dort nicht angegeben",
   "dates": null
  },
  {
@@ -3205,6 +3447,26 @@
   "dates": null
  },
  {
+  "id": "hv-2024-11-16",
+  "title": "Ida Engberg",
+  "subtitle": null,
+  "date": "2024-11-16",
+  "time": null,
+  "venue": "Hive Club",
+  "address": "Geroldstrasse 5, 8005 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Ida Engberg"
+  ],
+  "price": null,
+  "organizer": "Hive Club",
+  "source_url": "https://web.archive.org/web/20241113223856/https://hiveclub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierter Kalender des Clubs; Zeit/Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
   "id": "rf-5160",
   "title": "CARECITY _STORIES*",
   "subtitle": "4 WEITER WEBEN",
@@ -3265,6 +3527,27 @@
   "dates": null
  },
  {
+  "id": "hv-2024-11-22",
+  "title": "GHEIST & HS12",
+  "subtitle": null,
+  "date": "2024-11-22",
+  "time": null,
+  "venue": "Hive Club",
+  "address": "Geroldstrasse 5, 8005 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Gheist",
+   "HS12"
+  ],
+  "price": null,
+  "organizer": "Hive Club",
+  "source_url": "https://web.archive.org/web/20241113223856/https://hiveclub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierter Kalender des Clubs; Zeit/Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
   "id": "rf-4564",
   "title": "Unerhört!",
   "subtitle": "Jazzfestival 2024",
@@ -3282,6 +3565,26 @@
   "political": false,
   "approval_needed": false,
   "note": "unerhört! Jazzfestival 2024, Clubraum",
+  "dates": null
+ },
+ {
+  "id": "hv-2024-11-29",
+  "title": "Mad Katz w/ Ellen Allien",
+  "subtitle": null,
+  "date": "2024-11-29",
+  "time": null,
+  "venue": "Hive Club",
+  "address": "Geroldstrasse 5, 8005 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Ellen Allien"
+  ],
+  "price": null,
+  "organizer": "Hive Club",
+  "source_url": "https://web.archive.org/web/20241113223856/https://hiveclub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierter Kalender des Clubs; Zeit/Preis dort nicht angegeben",
   "dates": null
  },
  {
