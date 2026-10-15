@@ -2,101 +2,361 @@
  {
   "cls": "broadleaf",
   "file": "broadleaf_0.glb",
-  "variant": 0
+  "variant": 0,
+  "lod": 0,
+  "zb": 0.293,
+  "tris": 1748
  },
  {
   "cls": "broadleaf",
   "file": "broadleaf_1.glb",
-  "variant": 1
+  "variant": 1,
+  "lod": 0,
+  "zb": 0.312,
+  "tris": 1748
+ },
+ {
+  "cls": "broadleaf",
+  "file": "broadleaf_lod1.glb",
+  "variant": 0,
+  "lod": 1,
+  "zb": 0.273,
+  "tris": 644
  },
  {
   "cls": "cherry",
   "file": "cherry_0.glb",
-  "variant": 0
+  "variant": 0,
+  "lod": 0,
+  "zb": 0.247,
+  "tris": 1860
  },
  {
   "cls": "cherry",
   "file": "cherry_1.glb",
-  "variant": 1
+  "variant": 1,
+  "lod": 0,
+  "zb": 0.275,
+  "tris": 1860
+ },
+ {
+  "cls": "cherry",
+  "file": "cherry_lod1.glb",
+  "variant": 0,
+  "lod": 1,
+  "zb": 0.24,
+  "tris": 700
  },
  {
   "cls": "whiteblossom",
   "file": "whiteblossom_0.glb",
-  "variant": 0
+  "variant": 0,
+  "lod": 0,
+  "zb": 0.252,
+  "tris": 1820
  },
  {
   "cls": "whiteblossom",
   "file": "whiteblossom_1.glb",
-  "variant": 1
+  "variant": 1,
+  "lod": 0,
+  "zb": 0.282,
+  "tris": 1820
+ },
+ {
+  "cls": "whiteblossom",
+  "file": "whiteblossom_lod1.glb",
+  "variant": 0,
+  "lod": 1,
+  "zb": 0.233,
+  "tris": 688
  },
  {
   "cls": "plane",
   "file": "plane_0.glb",
-  "variant": 0
+  "variant": 0,
+  "lod": 0,
+  "zb": 0.344,
+  "tris": 1708
  },
  {
   "cls": "plane",
   "file": "plane_1.glb",
-  "variant": 1
+  "variant": 1,
+  "lod": 0,
+  "zb": 0.383,
+  "tris": 1708
+ },
+ {
+  "cls": "plane",
+  "file": "plane_lod1.glb",
+  "variant": 0,
+  "lod": 1,
+  "zb": 0.327,
+  "tris": 632
  },
  {
   "cls": "linden",
   "file": "linden_0.glb",
-  "variant": 0
+  "variant": 0,
+  "lod": 0,
+  "zb": 0.188,
+  "tris": 2172
  },
  {
   "cls": "linden",
   "file": "linden_1.glb",
-  "variant": 1
+  "variant": 1,
+  "lod": 0,
+  "zb": 0.209,
+  "tris": 2172
+ },
+ {
+  "cls": "linden",
+  "file": "linden_lod1.glb",
+  "variant": 0,
+  "lod": 1,
+  "zb": 0.176,
+  "tris": 816
  },
  {
   "cls": "maple",
   "file": "maple_0.glb",
-  "variant": 0
+  "variant": 0,
+  "lod": 0,
+  "zb": 0.233,
+  "tris": 1900
  },
  {
   "cls": "maple",
   "file": "maple_1.glb",
-  "variant": 1
+  "variant": 1,
+  "lod": 0,
+  "zb": 0.262,
+  "tris": 1900
+ },
+ {
+  "cls": "maple",
+  "file": "maple_lod1.glb",
+  "variant": 0,
+  "lod": 1,
+  "zb": 0.219,
+  "tris": 712
  },
  {
   "cls": "chestnut",
   "file": "chestnut_0.glb",
-  "variant": 0
+  "variant": 0,
+  "lod": 0,
+  "zb": 0.222,
+  "tris": 1552
  },
  {
   "cls": "chestnut",
   "file": "chestnut_1.glb",
-  "variant": 1
+  "variant": 1,
+  "lod": 0,
+  "zb": 0.224,
+  "tris": 1552
+ },
+ {
+  "cls": "chestnut",
+  "file": "chestnut_lod1.glb",
+  "variant": 0,
+  "lod": 1,
+  "zb": 0.212,
+  "tris": 672
  },
  {
   "cls": "birch",
   "file": "birch_0.glb",
-  "variant": 0
+  "variant": 0,
+  "lod": 0,
+  "zb": 0.312,
+  "tris": 1620
  },
  {
   "cls": "birch",
   "file": "birch_1.glb",
-  "variant": 1
+  "variant": 1,
+  "lod": 0,
+  "zb": 0.28,
+  "tris": 1620
+ },
+ {
+  "cls": "birch",
+  "file": "birch_lod1.glb",
+  "variant": 0,
+  "lod": 1,
+  "zb": 0.306,
+  "tris": 628
  },
  {
   "cls": "conifer",
   "file": "conifer_0.glb",
-  "variant": 0
+  "variant": 0,
+  "lod": 0,
+  "zb": 0.236,
+  "tris": 1536
  },
  {
   "cls": "conifer",
   "file": "conifer_1.glb",
-  "variant": 1
+  "variant": 1,
+  "lod": 0,
+  "zb": 0.236,
+  "tris": 1698
+ },
+ {
+  "cls": "conifer",
+  "file": "conifer_lod1.glb",
+  "variant": 0,
+  "lod": 1,
+  "zb": 0.277,
+  "tris": 616
+ },
+ {
+  "cls": "robinia",
+  "file": "robinia_0.glb",
+  "variant": 0,
+  "lod": 0,
+  "zb": 0.3,
+  "tris": 1200
+ },
+ {
+  "cls": "robinia",
+  "file": "robinia_1.glb",
+  "variant": 1,
+  "lod": 0,
+  "zb": 0.326,
+  "tris": 1200
+ },
+ {
+  "cls": "robinia",
+  "file": "robinia_lod1.glb",
+  "variant": 0,
+  "lod": 1,
+  "zb": 0.278,
+  "tris": 502
+ },
+ {
+  "cls": "ash",
+  "file": "ash_0.glb",
+  "variant": 0,
+  "lod": 0,
+  "zb": 0.271,
+  "tris": 1200
+ },
+ {
+  "cls": "ash",
+  "file": "ash_1.glb",
+  "variant": 1,
+  "lod": 0,
+  "zb": 0.301,
+  "tris": 1200
+ },
+ {
+  "cls": "ash",
+  "file": "ash_lod1.glb",
+  "variant": 0,
+  "lod": 1,
+  "zb": 0.251,
+  "tris": 502
+ },
+ {
+  "cls": "oak",
+  "file": "oak_0.glb",
+  "variant": 0,
+  "lod": 0,
+  "zb": 0.176,
+  "tris": 1684
+ },
+ {
+  "cls": "oak",
+  "file": "oak_1.glb",
+  "variant": 1,
+  "lod": 0,
+  "zb": 0.185,
+  "tris": 1684
+ },
+ {
+  "cls": "oak",
+  "file": "oak_lod1.glb",
+  "variant": 0,
+  "lod": 1,
+  "zb": 0.159,
+  "tris": 692
+ },
+ {
+  "cls": "beech",
+  "file": "beech_0.glb",
+  "variant": 0,
+  "lod": 0,
+  "zb": 0.234,
+  "tris": 1772
+ },
+ {
+  "cls": "beech",
+  "file": "beech_1.glb",
+  "variant": 1,
+  "lod": 0,
+  "zb": 0.226,
+  "tris": 1772
+ },
+ {
+  "cls": "beech",
+  "file": "beech_lod1.glb",
+  "variant": 0,
+  "lod": 1,
+  "zb": 0.224,
+  "tris": 696
+ },
+ {
+  "cls": "pine",
+  "file": "pine_0.glb",
+  "variant": 0,
+  "lod": 0,
+  "zb": 0.384,
+  "tris": 796
+ },
+ {
+  "cls": "pine",
+  "file": "pine_1.glb",
+  "variant": 1,
+  "lod": 0,
+  "zb": 0.409,
+  "tris": 796
+ },
+ {
+  "cls": "pine",
+  "file": "pine_lod1.glb",
+  "variant": 0,
+  "lod": 1,
+  "zb": 0.347,
+  "tris": 368
  },
  {
   "cls": "columnar",
   "file": "columnar_0.glb",
-  "variant": 0
+  "variant": 0,
+  "lod": 0,
+  "zb": 0.147,
+  "tris": 1852
  },
  {
   "cls": "columnar",
   "file": "columnar_1.glb",
-  "variant": 1
+  "variant": 1,
+  "lod": 0,
+  "zb": 0.149,
+  "tris": 1852
+ },
+ {
+  "cls": "columnar",
+  "file": "columnar_lod1.glb",
+  "variant": 0,
+  "lod": 1,
+  "zb": 0.139,
+  "tris": 720
  }
 ]

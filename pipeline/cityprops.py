@@ -32,7 +32,9 @@ def city_props(C, S, tb, H, curb):
     lines = STRtree([w["line"] for w in S["ways"]])
     out = {"trees": [], "lamps": [], "masts": [], "cars": [], "benches": [], "fountains": [], "bins": [], "bikes": []}
     for x, y, genus, crown, cat in filter(inside, C.get("trees", [])):
-        heading, ln, _ = _road_dir(S, lines, x, y)
+        _, ln, s_ = _road_dir(S, lines, x, y)
+        near = ln.interpolate(s_)
+        heading = np.arctan2(near.x - x, -(near.y - y))  # three.js Y rotation turning +z towards the carriageway
         guard = cat == "Strassenbaum" and ln.distance(Point(x, y)) < next((w["w"] for w in S["ways"] if w["line"] is ln), 8) / 2 + 3.2
         out["trees"].append(trees_dims.tree_row(C, x, y, z(x, y), genus, crown, cat, heading, guard))
     for x, y, orient in filter(inside, C.get("lights", [])):

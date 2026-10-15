@@ -1,7 +1,8 @@
 """Procedural leaf atlas (grey-scale luminance + alpha; hue comes from vertex colours).
-Layout: 4 x 2 tiles of 128 px -> 512 x 256. Tile index = row*4 + col.
+Layout: 4 x 4 tiles of 128 px -> 512 x 512. Tile index = row*4 + col.
  0 broadleaf cluster, 1 small round leaves (linden/cherry), 2 maple, 3 birch (small, pointed),
- 4 blossom, 5 conifer spray, 6 chestnut palmate, 7 chestnut candle.
+ 4 blossom, 5 conifer spray, 6 chestnut palmate, 7 chestnut candle, 8 pinnate (robinia/ash), 9 oak lobed,
+ 10 beech/hornbeam (ribbed oval), 11 opaque (bark), 12 pine needle tuft.
 Run: python3 pipeline/trees/atlas.py
 """
 import math, random
@@ -129,6 +130,57 @@ def candle(rng):
     return im
 
 
+def pinnate(rng, n_pairs=5, ll=.13, lw=.07, rachis=.84):
+    """Compound leaf: rachis with leaflet pairs (robinia / ash). Two leaves per tile."""
+    im = tile_img(); d = ImageDraw.Draw(im); S = T * SS
+    for cx, ang0 in ((.5, -1.35), (.5, -1.9)):
+        bx, by = S * (.5 + (.28 if ang0 > -1.5 else -.28)), S * .95
+        L = S * rachis * .9
+        ex, ey = bx + L * math.cos(ang0 + .0), by + L * math.sin(ang0)
+        d.line([(bx, by), (ex, ey)], fill=grey(150), width=SS * 2)
+        for i in range(n_pairs + 1):
+            t = .18 + .8 * i / n_pairs
+            px, py = bx + (ex - bx) * t, by + (ey - by) * t
+            for side in (-1, 1):
+                if i == n_pairs and side == 1:
+                    continue
+                a = ang0 + side * (1.0 if i < n_pairs else 0)
+                draw_leaf(d, px, py, S * ll * (1.15 - .35 * t), S * lw, a, rng, .35, .85)
+    return im
+
+
+def oak(rng):
+    im = tile_img(); d = ImageDraw.Draw(im); S = T * SS
+    for k in range(5):
+        cx, cy = S * rng.uniform(.25, .75), S * rng.uniform(.25, .75)
+        rot = rng.uniform(0, 6.28); Ln = S * rng.uniform(.2, .26)
+        pts = []
+        for side in (1, -1):
+            for i in range(21):
+                t = i / 20 if side == 1 else 1 - i / 20
+                w = math.sin(math.pi * t ** .8) * Ln * .27 * (1 + .45 * math.sin(t * 6.28 * 2.2))
+                x, y = t * Ln, w * side
+                pts.append((cx + x * math.cos(rot) - y * math.sin(rot), cy + x * math.sin(rot) + y * math.cos(rot)))
+        v = 255 * rng.uniform(.62, .95); d.polygon(pts, fill=grey(v))
+        d.line([(cx, cy), (cx + Ln * math.cos(rot), cy + Ln * math.sin(rot))], fill=grey(min(255, v * 1.2)), width=SS)
+    return im
+
+
+def opaque():
+    return Image.new("RGBA", (T * SS, T * SS), (255, 255, 255, 255))
+
+
+def pine(rng):
+    im = tile_img(); d = ImageDraw.Draw(im); S = T * SS
+    for i in range(90):
+        a = rng.uniform(0, 6.28); r = rng.uniform(0, .38) ** .8 * S
+        cx, cy = S * .5 + r * math.cos(a) * .9, S * .5 + r * math.sin(a) * .9
+        L = S * rng.uniform(.14, .22)
+        v = 255 * rng.uniform(.55, 1.0)
+        d.line([(cx, cy), (cx + L * math.cos(a), cy + L * math.sin(a))], fill=grey(v), width=int(SS * 1.6))
+    return im
+
+
 def build():
     rng = random.Random(7)
     tiles = [
@@ -140,8 +192,13 @@ def build():
         conifer(rng),
         cluster(rng, 7, 0.40, 0.17, 0.05, 0.5, center=(0.5, 0.5), base=0.85),
         candle(rng),
+        pinnate(rng),
+        oak(rng),
+        cluster(rng, 28, 0.2, 0.11, 0.34, 0.6, base=0.9),
+        opaque(),
+        pine(rng),
     ]
-    atlas = Image.new("RGBA", (T * 4, T * 2), (0, 0, 0, 0))
+    atlas = Image.new("RGBA", (T * 4, T * 4), (0, 0, 0, 0))
     for i, im in enumerate(tiles):
         r, g, b, a = im.split()
         # blur RGB beyond alpha edge to avoid dark fringes, then downsample

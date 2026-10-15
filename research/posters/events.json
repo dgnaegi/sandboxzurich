@@ -1,5 +1,25 @@
 [
  {
+  "id": "kz-2022-01-27",
+  "title": "Theatersport im Kanzlei Club: Metzger",
+  "subtitle": null,
+  "date": "2022-01-27",
+  "time": "20:00",
+  "venue": "Kanzlei Club",
+  "address": "Kanzleistrasse 56, 8004 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Die Metzger"
+  ],
+  "price": null,
+  "organizer": "Kanzlei Club",
+  "source_url": "https://web.archive.org/web/20220119113549/https://kanzlei.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Programmseite des Clubs; Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
   "id": "rf-3130",
   "title": "Tanzfaktor 2022",
   "subtitle": "YEAH YEAH YEAH - Zürcher Tanzfestival",
@@ -21,6 +41,48 @@
    "2022-01-28",
    "2022-01-29"
   ]
+ },
+ {
+  "id": "pz-2022-02-03",
+  "title": "Nachtseminar",
+  "subtitle": "Open Format Hip Hop House, Donnerstag für Studierende",
+  "date": "2022-02-03",
+  "time": "22:00",
+  "venue": "Plaza Klub",
+  "address": "Badenerstrasse 109, 8004 Zürich",
+  "kind": "party",
+  "lineup": [
+   "DJs (siehe Quelle)"
+  ],
+  "price": null,
+  "organizer": "Plaza Klub",
+  "source_url": "https://web.archive.org/web/20220202155459/https://www.plaza-zurich.ch/nu/events/event_list/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Eventliste des Plaza Klub",
+  "dates": null
+ },
+ {
+  "id": "pz-2022-02-04",
+  "title": "Plaze to be",
+  "subtitle": "Hip Hop R&B Afrobeats Dancehall & Latin",
+  "date": "2022-02-04",
+  "time": "23:00",
+  "venue": "Plaza Klub",
+  "address": "Badenerstrasse 109, 8004 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Klash",
+   "Whitecut",
+   "Mwp"
+  ],
+  "price": "CHF 25",
+  "organizer": "Plaza Klub",
+  "source_url": "https://web.archive.org/web/20220202155459/https://www.plaza-zurich.ch/nu/events/event_list/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Eventliste des Plaza Klub",
+  "dates": null
  },
  {
   "id": "rf-3611",
@@ -125,6 +187,26 @@
   "dates": null
  },
  {
+  "id": "kz-2022-02-24",
+  "title": "Theatersport im Kanzlei Club: HDTV",
+  "subtitle": null,
+  "date": "2022-02-24",
+  "time": "20:00",
+  "venue": "Kanzlei Club",
+  "address": "Kanzleistrasse 56, 8004 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "HDTV"
+  ],
+  "price": null,
+  "organizer": "Kanzlei Club",
+  "source_url": "https://web.archive.org/web/20220119113549/https://kanzlei.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Programmseite des Clubs; Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
   "id": "rf-2883",
   "title": "Über Wunden",
   "subtitle": "Theater von Infinite Cooperation",
@@ -153,6 +235,26 @@
   ]
  },
  {
+  "id": "xe-2022-02-28-Zugluft",
+  "title": "Zugluft",
+  "subtitle": "Konzert – Keine Reservation nötig",
+  "date": "2022-02-28",
+  "time": "20:15",
+  "venue": "Xenix Bar",
+  "address": "Kanzleistrasse 52, 8004 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Zugluft"
+  ],
+  "price": null,
+  "organizer": "Kino Xenix",
+  "source_url": "https://www.xenix.ch/programm/februar-2022/bar/zugluft/2022-02-28T20:15:00",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Xenix-Programm-JSON (static/json); Open-Air-Reihe ",
+  "dates": null
+ },
+ {
   "id": "rf-3833",
   "title": "Protozone 6: Are you coming?",
   "subtitle": "Protozone 6: Are you coming?",
@@ -179,6 +281,46 @@
   ]
  },
  {
+  "id": "pb-2022-03-10-SPCPhotoAw",
+  "title": "SPC Photo Awards - Zurich March 2022",
+  "subtitle": "Ausstellung bis 2022-03-20",
+  "date": "2022-03-10",
+  "time": null,
+  "venue": "Photobastei",
+  "address": "Sihlquai 125, 8005 Zürich",
+  "kind": "exhibition",
+  "lineup": [
+   "Swiss Photo Club"
+  ],
+  "price": null,
+  "organizer": "Photobastei",
+  "source_url": "https://web.archive.org/web/20220313025222/https://www.photobastei.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite (Ausstellungen)",
+  "dates": null
+ },
+ {
+  "id": "xe-2022-03-21-Ströiner",
+  "title": "Ströiner",
+  "subtitle": "Konzert",
+  "date": "2022-03-21",
+  "time": "20:15",
+  "venue": "Xenix Bar",
+  "address": "Kanzleistrasse 52, 8004 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Ströiner"
+  ],
+  "price": null,
+  "organizer": "Kino Xenix",
+  "source_url": "https://www.xenix.ch/programm/maerz-2022/bar/stroeiner/2022-03-21T20:15:00",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Xenix-Programm-JSON (static/json); Open-Air-Reihe ",
+  "dates": null
+ },
+ {
   "id": "rf-3538",
   "title": "John Grant",
   "subtitle": "PIER",
@@ -196,6 +338,26 @@
   "political": false,
   "approval_needed": false,
   "note": null,
+  "dates": null
+ },
+ {
+  "id": "kz-2022-04-09",
+  "title": "Konzert Mü man + Band",
+  "subtitle": null,
+  "date": "2022-04-09",
+  "time": "20:00",
+  "venue": "Kanzlei Club",
+  "address": "Kanzleistrasse 56, 8004 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Mü man + Band"
+  ],
+  "price": null,
+  "organizer": "Kanzlei Club",
+  "source_url": "https://web.archive.org/web/20220314112354/https://kanzlei.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Programmseite des Clubs; Preis dort nicht angegeben",
   "dates": null
  },
  {
@@ -219,6 +381,27 @@
   "dates": null
  },
  {
+  "id": "kz-2022-04-23",
+  "title": "Konzert SmackWTG & Chandro",
+  "subtitle": null,
+  "date": "2022-04-23",
+  "time": "20:00",
+  "venue": "Kanzlei Club",
+  "address": "Kanzleistrasse 56, 8004 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "SmackWTG",
+   "Chandro"
+  ],
+  "price": null,
+  "organizer": "Kanzlei Club",
+  "source_url": "https://web.archive.org/web/20220314112354/https://kanzlei.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Programmseite des Clubs; Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
   "id": "rf-3349",
   "title": "Nothing",
   "subtitle": "The Waltz",
@@ -237,6 +420,26 @@
   "political": false,
   "approval_needed": false,
   "note": null,
+  "dates": null
+ },
+ {
+  "id": "xe-2022-05-02-TheSouvenir",
+  "title": "The Souvenir",
+  "subtitle": null,
+  "date": "2022-05-02",
+  "time": "18:00",
+  "venue": "Kino Xenix",
+  "address": "Kanzleistrasse 52, 8004 Zürich",
+  "kind": "film",
+  "lineup": [
+   "The Souvenir"
+  ],
+  "price": null,
+  "organizer": "Kino Xenix",
+  "source_url": "https://www.xenix.ch/programm/mai-2022/art-is-life-joanna-hogg/the-souvenir/2022-05-02T18:00:00",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Xenix-Programm-JSON (static/json); Open-Air-Reihe ",
   "dates": null
  },
  {
@@ -301,6 +504,26 @@
   "dates": null
  },
  {
+  "id": "kz-2022-05-19",
+  "title": "Theatersport im Kanzlei Club: Season Finale",
+  "subtitle": null,
+  "date": "2022-05-19",
+  "time": "20:00",
+  "venue": "Kanzlei Club",
+  "address": "Kanzleistrasse 56, 8004 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Theatersport Zürich"
+  ],
+  "price": null,
+  "organizer": "Kanzlei Club",
+  "source_url": "https://web.archive.org/web/20220119113549/https://kanzlei.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Programmseite des Clubs; Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
   "id": "rf-3761",
   "title": "TAG DER OFFENEN FABRIK / QUARTIERFEST / LINKES SEEUFER FÜR ALLE",
   "subtitle": "Tag der offenen Fabrik / Quartierfest",
@@ -341,6 +564,46 @@
   "political": true,
   "approval_needed": true,
   "note": "Soli für Afghanistan: humanitärer Anlass, Trägerschaft in Quelle nicht benannt",
+  "dates": null
+ },
+ {
+  "id": "kz-2022-05-25",
+  "title": "Noumuso LIVE",
+  "subtitle": null,
+  "date": "2022-05-25",
+  "time": "20:00",
+  "venue": "Kanzlei Club",
+  "address": "Kanzleistrasse 56, 8004 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Noumuso"
+  ],
+  "price": null,
+  "organizer": "Kanzlei Club",
+  "source_url": "https://web.archive.org/web/20220524064837/https://kanzlei.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Programmseite des Clubs; Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "kz-2022-05-26",
+  "title": "Sivilian @Summerbar",
+  "subtitle": null,
+  "date": "2022-05-26",
+  "time": "16:30",
+  "venue": "Kanzlei Club",
+  "address": "Kanzleistrasse 56, 8004 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Sivilian"
+  ],
+  "price": null,
+  "organizer": "Kanzlei Club",
+  "source_url": "https://web.archive.org/web/20220524064837/https://kanzlei.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Programmseite des Clubs; Preis dort nicht angegeben",
   "dates": null
  },
  {
@@ -385,6 +648,26 @@
   "political": false,
   "approval_needed": false,
   "note": "Lesung «Albanien»",
+  "dates": null
+ },
+ {
+  "id": "pz-2022-07-04",
+  "title": "Declan McKenna",
+  "subtitle": "Only Show in Switzerland",
+  "date": "2022-07-04",
+  "time": "19:30",
+  "venue": "Plaza Klub",
+  "address": "Badenerstrasse 109, 8004 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Declan McKenna"
+  ],
+  "price": "CHF 46 (Vorverkauf)",
+  "organizer": "Plaza Klub",
+  "source_url": "https://web.archive.org/web/20220630093210/https://www.plaza-zurich.ch/nu/events/event_list/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Eventliste des Plaza Klub",
   "dates": null
  },
  {
@@ -449,6 +732,26 @@
   "dates": null
  },
  {
+  "id": "xe-2022-07-25-Exils",
+  "title": "Exils",
+  "subtitle": "Open Air",
+  "date": "2022-07-25",
+  "time": "21:30",
+  "venue": "Kino Xenix",
+  "address": "Kanzleistrasse 52, 8004 Zürich",
+  "kind": "film",
+  "lineup": [
+   "Exils"
+  ],
+  "price": null,
+  "organizer": "Kino Xenix",
+  "source_url": "https://www.xenix.ch/programm/juli-august-2022/open-air-2022/exils/2022-07-25T21:30:00",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Xenix-Programm-JSON (static/json); Open-Air-Reihe Xenix Open Air",
+  "dates": null
+ },
+ {
   "id": "rf-4083",
   "title": "ROTA",
   "subtitle": "Soli von und für die migrantische Selbstorganisation",
@@ -466,6 +769,26 @@
   "political": true,
   "approval_needed": true,
   "note": "Soli von und für ROTA, Selbstorganisation von MigrantInnen v.a. aus Türkei/Kurdistan und Naher Osten; Verbindungen/Positionen vor Verwendung prüfen",
+  "dates": null
+ },
+ {
+  "id": "xe-2022-08-08-SummerofSoul",
+  "title": "Summer of Soul",
+  "subtitle": "Open Air",
+  "date": "2022-08-08",
+  "time": "21:15",
+  "venue": "Kino Xenix",
+  "address": "Kanzleistrasse 52, 8004 Zürich",
+  "kind": "film",
+  "lineup": [
+   "Summer of Soul"
+  ],
+  "price": null,
+  "organizer": "Kino Xenix",
+  "source_url": "https://www.xenix.ch/programm/juli-august-2022/open-air-2022/summer-of-soul/2022-08-08T21:15:00",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Xenix-Programm-JSON (static/json); Open-Air-Reihe Xenix Open Air",
   "dates": null
  },
  {
@@ -521,6 +844,26 @@
   "political": false,
   "approval_needed": false,
   "note": null,
+  "dates": null
+ },
+ {
+  "id": "pz-2022-08-24",
+  "title": "Ocean Alley",
+  "subtitle": "Only Show in Switzerland",
+  "date": "2022-08-24",
+  "time": "20:00",
+  "venue": "Plaza Klub",
+  "address": "Badenerstrasse 109, 8004 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Ocean Alley"
+  ],
+  "price": "CHF 42 (Vorverkauf)",
+  "organizer": "Plaza Klub",
+  "source_url": "https://web.archive.org/web/20220820021236/https://www.plaza-zurich.ch/nu/events/event_list/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Eventliste des Plaza Klub",
   "dates": null
  },
  {
@@ -674,6 +1017,26 @@
   "dates": null
  },
  {
+  "id": "tn-2022-11-05",
+  "title": "Red",
+  "subtitle": "Ein digitales Märchen",
+  "date": "2022-11-05",
+  "time": "16:00",
+  "venue": "Theater Neumarkt",
+  "address": "Neumarkt 5, 8001 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Theater Neumarkt (Kinderstück)"
+  ],
+  "price": null,
+  "organizer": "Theater am Neumarkt",
+  "source_url": "https://web.archive.org/web/20221102104221/https://www.theaterneumarkt.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite (Next Events); Preise: Wahlpreismodell des Hauses (drei Preise), Betrag nicht erfasst",
+  "dates": null
+ },
+ {
   "id": "rf-4077",
   "title": "Invited Ghosts",
   "subtitle": "Phil Hayes und Taimashoe",
@@ -725,6 +1088,26 @@
   "dates": null
  },
  {
+  "id": "mo-2022-11-14-Kokoko",
+  "title": "Kokoko!",
+  "subtitle": "The Soundtrack of Kinshasa’s Tomorrow",
+  "date": "2022-11-14",
+  "time": null,
+  "venue": "Moods",
+  "address": "Schiffbaustrasse 6, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Kokoko!"
+  ],
+  "price": null,
+  "organizer": "Moods im Schiffbau",
+  "source_url": "https://web.archive.org/web/20221109171511/https://www.moods.ch/en",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Moods-Startseite (Programmvorschau); Preis dort nicht angegeben; Adresse allgemein bekannt (Moods im Schiffbau)",
+  "dates": null
+ },
+ {
   "id": "rf-4342",
   "title": "Boykott Fussball-WM 2022 Katar",
   "subtitle": "Eine Veranstaltung von «Vecchia Brigata» in Zusammenarbeit mit «Vorwärts» und dem Konzeptbüro Rote Fabrik",
@@ -762,6 +1145,26 @@
   "political": false,
   "approval_needed": false,
   "note": "Plattform für Kurzfilme",
+  "dates": null
+ },
+ {
+  "id": "mo-2022-11-17-DieSterne",
+  "title": "Die Sterne",
+  "subtitle": "«Hallo Euphoria Tour»",
+  "date": "2022-11-17",
+  "time": "20:30",
+  "venue": "Moods",
+  "address": "Schiffbaustrasse 6, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Die Sterne"
+  ],
+  "price": null,
+  "organizer": "Moods im Schiffbau",
+  "source_url": "https://web.archive.org/web/20221109171511/https://www.moods.ch/en",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Moods-Startseite (Programmvorschau); Preis dort nicht angegeben; Adresse allgemein bekannt (Moods im Schiffbau)",
   "dates": null
  },
  {
@@ -809,6 +1212,26 @@
   ]
  },
  {
+  "id": "mo-2022-11-19-LOncleSoul",
+  "title": "Ben (L´Oncle Soul)",
+  "subtitle": "Soul",
+  "date": "2022-11-19",
+  "time": "20:30",
+  "venue": "Moods",
+  "address": "Schiffbaustrasse 6, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Ben (L´Oncle Soul)"
+  ],
+  "price": null,
+  "organizer": "Moods im Schiffbau",
+  "source_url": "https://web.archive.org/web/20221109171511/https://www.moods.ch/en",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Moods-Startseite (Programmvorschau); Preis dort nicht angegeben; Adresse allgemein bekannt (Moods im Schiffbau)",
+  "dates": null
+ },
+ {
   "id": "rf-3587",
   "title": "Unerhört 22",
   "subtitle": "Unerhört 22 Jazzfestival",
@@ -827,6 +1250,47 @@
   "political": false,
   "approval_needed": false,
   "note": "Unerhört 22 Jazzfestival",
+  "dates": null
+ },
+ {
+  "id": "xe-2022-11-26-CHBodyPolitics",
+  "title": "CH-Body Politics: Programm 2",
+  "subtitle": "Porny Days – Mit Tula Roy, Seraina Winzeler",
+  "date": "2022-11-26",
+  "time": "18:00",
+  "venue": "Kino Xenix",
+  "address": "Kanzleistrasse 52, 8004 Zürich",
+  "kind": "film",
+  "lineup": [
+   "CH-Body Politics: Programm 2",
+   "Mit Tula Roy, Seraina Winzeler"
+  ],
+  "price": null,
+  "organizer": "Kino Xenix",
+  "source_url": "https://www.xenix.ch/programm/november-2022/porny-days-feministische-filme-der-1970er-jahre-/ch-body-politics-programm-2/2022-11-26T18:00:00",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Xenix-Programm-JSON (static/json); Open-Air-Reihe ",
+  "dates": null
+ },
+ {
+  "id": "mo-2022-11-26-Sina",
+  "title": "Sina",
+  "subtitle": "«Ziitsammläri» (Mundart-Pop)",
+  "date": "2022-11-26",
+  "time": "20:30",
+  "venue": "Moods",
+  "address": "Schiffbaustrasse 6, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Sina"
+  ],
+  "price": null,
+  "organizer": "Moods im Schiffbau",
+  "source_url": "https://web.archive.org/web/20221109171511/https://www.moods.ch/en",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Moods-Startseite (Programmvorschau); Preis dort nicht angegeben; Adresse allgemein bekannt (Moods im Schiffbau)",
   "dates": null
  },
  {
@@ -867,6 +1331,66 @@
   ]
  },
  {
+  "id": "pb-2023-01-12-LucaZanier",
+  "title": "Luca Zanier – Inventory",
+  "subtitle": "Ausstellung bis 2023-01-29",
+  "date": "2023-01-12",
+  "time": null,
+  "venue": "Photobastei",
+  "address": "Sihlquai 125, 8005 Zürich",
+  "kind": "exhibition",
+  "lineup": [
+   "Luca Zanier"
+  ],
+  "price": null,
+  "organizer": "Photobastei",
+  "source_url": "https://web.archive.org/web/20230117082642/https://www.photobastei.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite (Ausstellungen)",
+  "dates": null
+ },
+ {
+  "id": "pb-2023-01-12-Schattenre",
+  "title": "Schattenreise",
+  "subtitle": "Ausstellung bis 2023-03-12",
+  "date": "2023-01-12",
+  "time": null,
+  "venue": "Photobastei",
+  "address": "Sihlquai 125, 8005 Zürich",
+  "kind": "exhibition",
+  "lineup": [
+   "H.R. Giger"
+  ],
+  "price": null,
+  "organizer": "Photobastei",
+  "source_url": "https://web.archive.org/web/20230117082642/https://www.photobastei.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite (Ausstellungen)",
+  "dates": null
+ },
+ {
+  "id": "xe-2023-01-16-KapälläVörigim",
+  "title": "Kapällä Vörig – im Januar",
+  "subtitle": "Konzert",
+  "date": "2023-01-16",
+  "time": "20:15",
+  "venue": "Xenix Bar",
+  "address": "Kanzleistrasse 52, 8004 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Kapällä Vörig – im Januar"
+  ],
+  "price": null,
+  "organizer": "Kino Xenix",
+  "source_url": "https://www.xenix.ch/programm/januar-2023/bar/kapaellae-voerig--im-januar/2023-01-16T20:15:00",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Xenix-Programm-JSON (static/json); Open-Air-Reihe ",
+  "dates": null
+ },
+ {
   "id": "hk-2023-03-07-0",
   "title": "Apollo Brown",
   "subtitle": "«fruit of the boom»",
@@ -884,6 +1408,26 @@
   "political": false,
   "approval_needed": false,
   "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "tn-2023-03-16",
+  "title": "Le Sacre du Printemps",
+  "subtitle": null,
+  "date": "2023-03-16",
+  "time": "20:00",
+  "venue": "Theater Neumarkt",
+  "address": "Neumarkt 5, 8001 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Le Sacre du Printemps"
+  ],
+  "price": null,
+  "organizer": "Theater am Neumarkt",
+  "source_url": "https://web.archive.org/web/20230315234208/https://www.theaterneumarkt.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite (Next Events); Preise: Wahlpreismodell des Hauses (drei Preise), Betrag nicht erfasst",
   "dates": null
  },
  {
@@ -969,6 +1513,27 @@
   "dates": null
  },
  {
+  "id": "pz-2023-04-02",
+  "title": "The Answer",
+  "subtitle": "Only Show in Switzerland",
+  "date": "2023-04-02",
+  "time": "20:00",
+  "venue": "Plaza Klub",
+  "address": "Badenerstrasse 109, 8004 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "The Answer",
+   "Black Mirrors"
+  ],
+  "price": "CHF 55 (Vorverkauf)",
+  "organizer": "Plaza Klub",
+  "source_url": "https://web.archive.org/web/20230331222312/https://www.plaza-zurich.ch/nu/events/event_list/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Eventliste des Plaza Klub",
+  "dates": null
+ },
+ {
   "id": "rf-4213",
   "title": "Fabrik Slam #95",
   "subtitle": "Der letzte Poetry Slam vor der Sommerpause",
@@ -1029,6 +1594,26 @@
   "dates": null
  },
  {
+  "id": "pb-2023-06-01-EchoesofSp",
+  "title": "Echoes of Spirit",
+  "subtitle": "Ausstellung bis 2023-07-02",
+  "date": "2023-06-01",
+  "time": null,
+  "venue": "Photobastei",
+  "address": "Sihlquai 125, 8005 Zürich",
+  "kind": "exhibition",
+  "lineup": [
+   "ї [ji] collective"
+  ],
+  "price": null,
+  "organizer": "Photobastei",
+  "source_url": "https://web.archive.org/web/20230629050004/https://www.photobastei.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite (Ausstellungen)",
+  "dates": null
+ },
+ {
   "id": "rf-4136",
   "title": "ZH Dub Corner",
   "subtitle": null,
@@ -1049,6 +1634,46 @@
   "dates": null
  },
  {
+  "id": "pb-2023-06-08-AnalogeFot",
+  "title": "Analoge Fotografie «Klicks 1980 bis 2022»",
+  "subtitle": "Ausstellung bis 2023-07-02",
+  "date": "2023-06-08",
+  "time": null,
+  "venue": "Photobastei",
+  "address": "Sihlquai 125, 8005 Zürich",
+  "kind": "exhibition",
+  "lineup": [
+   "Paul Martin Padrutt"
+  ],
+  "price": null,
+  "organizer": "Photobastei",
+  "source_url": "https://web.archive.org/web/20230629050004/https://www.photobastei.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite (Ausstellungen)",
+  "dates": null
+ },
+ {
+  "id": "pz-2023-06-17",
+  "title": "The Official Pride Party",
+  "subtitle": "Lass uns darüber reden, House Pop Dance",
+  "date": "2023-06-17",
+  "time": "23:00",
+  "venue": "Plaza Klub",
+  "address": "Badenerstrasse 109, 8004 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Plaza Klub & Hive Club"
+  ],
+  "price": "CHF 30",
+  "organizer": "Plaza Klub",
+  "source_url": "https://web.archive.org/web/20230617190123/https://www.plaza-zurich.ch/nu/events/event_list/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Eventliste des Plaza Klub",
+  "dates": null
+ },
+ {
   "id": "rf-4601",
   "title": "CSD ZUREICH",
   "subtitle": "SOLIPARTY",
@@ -1066,6 +1691,28 @@
   "political": true,
   "approval_needed": true,
   "note": "Soliparty zur Demo «CSD Zureich» (queere Demo, antikapitalistisch)",
+  "dates": null
+ },
+ {
+  "id": "pz-2023-06-24",
+  "title": "Lemon",
+  "subtitle": "2000er, Charts, Hits, Techno",
+  "date": "2023-06-24",
+  "time": "23:00",
+  "venue": "Plaza Klub",
+  "address": "Badenerstrasse 109, 8004 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Croma",
+   "Rollo Tomasi",
+   "Bolleters"
+  ],
+  "price": null,
+  "organizer": "Plaza Klub",
+  "source_url": "https://web.archive.org/web/20230617190123/https://www.plaza-zurich.ch/nu/events/event_list/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Eventliste des Plaza Klub",
   "dates": null
  },
  {
@@ -1113,6 +1760,26 @@
   "dates": null
  },
  {
+  "id": "xe-2023-07-26-MeandYouandEve",
+  "title": "Me and You and Everyone We Know",
+  "subtitle": "Open Air",
+  "date": "2023-07-26",
+  "time": "21:30",
+  "venue": "Kino Xenix",
+  "address": "Kanzleistrasse 52, 8004 Zürich",
+  "kind": "film",
+  "lineup": [
+   "Me and You and Everyone We Know"
+  ],
+  "price": null,
+  "organizer": "Kino Xenix",
+  "source_url": "https://www.xenix.ch/programm/juli-august-2023/open-air-2023/me-and-you-and-everyone-we-know/2023-07-26T21:30:00",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Xenix-Programm-JSON (static/json); Open-Air-Reihe Xenix Open Air",
+  "dates": null
+ },
+ {
   "id": "rf-4772",
   "title": "DACHSBAU KONZERTE & SOLI PARTY FÜR BEN48",
   "subtitle": "Konzerte & Soli-Party für «BEN48»: Zweck in Quelle unklar, prüfen",
@@ -1155,6 +1822,47 @@
    "2023-08-12",
    "2023-08-13"
   ]
+ },
+ {
+  "id": "xe-2023-08-16-RuächeineReise",
+  "title": "Ruäch – eine Reise ins jenische Europa",
+  "subtitle": "Open Air",
+  "date": "2023-08-16",
+  "time": "21:00",
+  "venue": "Kino Xenix",
+  "address": "Kanzleistrasse 52, 8004 Zürich",
+  "kind": "film",
+  "lineup": [
+   "Ruäch – eine Reise ins jenische Europa"
+  ],
+  "price": null,
+  "organizer": "Kino Xenix",
+  "source_url": "https://www.xenix.ch/programm/juli-august-2023/open-air-2023/ruaech--eine-reise-ins-jenische-europa/2023-08-16T21:00:00",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Xenix-Programm-JSON (static/json); Open-Air-Reihe Xenix Open Air",
+  "dates": null
+ },
+ {
+  "id": "xe-2023-09-15-Klassenverhält",
+  "title": "Klassenverhältnisse am Bodensee",
+  "subtitle": "Zu Gast – Mit Ariane Andereggen und Ted Gaier",
+  "date": "2023-09-15",
+  "time": "20:00",
+  "venue": "Kino Xenix",
+  "address": "Kanzleistrasse 52, 8004 Zürich",
+  "kind": "film",
+  "lineup": [
+   "Klassenverhältnisse am Bodensee",
+   "Mit Ariane Andereggen und Ted Gaier"
+  ],
+  "price": null,
+  "organizer": "Kino Xenix",
+  "source_url": "https://www.xenix.ch/programm/september-2023/zu-gast/klassenverhaeltnisse-am-bodensee/2023-09-15T20:00:00",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Xenix-Programm-JSON (static/json); Open-Air-Reihe ",
+  "dates": null
  },
  {
   "id": "rf-4529",
@@ -1238,6 +1946,26 @@
   "political": false,
   "approval_needed": false,
   "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "kz-2023-10-07",
+  "title": "Soul Cypher Swiss",
+  "subtitle": null,
+  "date": "2023-10-07",
+  "time": "09:30",
+  "venue": "Kanzlei Club",
+  "address": "Kanzleistrasse 56, 8004 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Soul Cypher Swiss"
+  ],
+  "price": null,
+  "organizer": "Kanzlei Club",
+  "source_url": "https://web.archive.org/web/20230901142944/https://kanzlei.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Programmseite des Clubs; Preis dort nicht angegeben",
   "dates": null
  },
  {
@@ -1363,6 +2091,46 @@
   "dates": null
  },
  {
+  "id": "tn-2023-11-19",
+  "title": "«Hässlichkeit» von Moshtari Hilal",
+  "subtitle": "ausverkauft",
+  "date": "2023-11-19",
+  "time": "18:00",
+  "venue": "Theater Neumarkt",
+  "address": "Neumarkt 5, 8001 Zürich",
+  "kind": "reading",
+  "lineup": [
+   "Moshtari Hilal"
+  ],
+  "price": null,
+  "organizer": "Theater am Neumarkt",
+  "source_url": "https://web.archive.org/web/20231115234244/https://www.theaterneumarkt.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite (Next Events); Preise: Wahlpreismodell des Hauses (drei Preise), Betrag nicht erfasst",
+  "dates": null
+ },
+ {
+  "id": "tn-2023-11-22",
+  "title": "Memo von Nemo – Nachrichten aus der Tiefe",
+  "subtitle": "Ein musikalischer Tauchgang für Lebewesen ab 6 Jahren",
+  "date": "2023-11-22",
+  "time": "18:00",
+  "venue": "Theater Neumarkt",
+  "address": "Neumarkt 5, 8001 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Memo von Nemo"
+  ],
+  "price": null,
+  "organizer": "Theater am Neumarkt",
+  "source_url": "https://web.archive.org/web/20231115234244/https://www.theaterneumarkt.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite (Next Events); Preise: Wahlpreismodell des Hauses (drei Preise), Betrag nicht erfasst",
+  "dates": null
+ },
+ {
   "id": "rf-4105",
   "title": "Unerhört 23",
   "subtitle": "Space (Dedication to Irène Schweizer) / Vincent Courtois - Colin Vallon / Borderlands Trio",
@@ -1406,6 +2174,68 @@
   "dates": null
  },
  {
+  "id": "mo-2023-12-15-Shantel",
+  "title": "Shantel & Bucovina Club Soundsystem",
+  "subtitle": "BalkanEkstra: Partizani Super Sonic Live Tour",
+  "date": "2023-12-15",
+  "time": null,
+  "venue": "Moods",
+  "address": "Schiffbaustrasse 6, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Shantel & Bucovina Club Soundsystem"
+  ],
+  "price": null,
+  "organizer": "Moods im Schiffbau",
+  "source_url": "https://web.archive.org/web/20231120091133/https://www.moods.ch/en",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Moods-Startseite (Programmvorschau); Preis dort nicht angegeben; Adresse allgemein bekannt (Moods im Schiffbau)",
+  "dates": null
+ },
+ {
+  "id": "mo-2023-12-16-DubSpencer",
+  "title": "Dub Spencer & Trance Hill",
+  "subtitle": "Live in Surround Tour",
+  "date": "2023-12-16",
+  "time": null,
+  "venue": "Moods",
+  "address": "Schiffbaustrasse 6, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Dub Spencer & Trance Hill",
+   "Umberto Echo"
+  ],
+  "price": null,
+  "organizer": "Moods im Schiffbau",
+  "source_url": "https://web.archive.org/web/20231120091133/https://www.moods.ch/en",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Moods-Startseite (Programmvorschau); Preis dort nicht angegeben; Adresse allgemein bekannt (Moods im Schiffbau)",
+  "dates": null
+ },
+ {
+  "id": "kz-2023-12-21",
+  "title": "Theatersport: HDTV vs. Die Metzger",
+  "subtitle": null,
+  "date": "2023-12-21",
+  "time": "20:00",
+  "venue": "Kanzlei Club",
+  "address": "Kanzleistrasse 56, 8004 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "HDTV",
+   "Die Metzger"
+  ],
+  "price": null,
+  "organizer": "Kanzlei Club",
+  "source_url": "https://web.archive.org/web/20230530150234/https://kanzlei.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Programmseite des Clubs; Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
   "id": "rf-4586",
   "title": "Buntspecht",
   "subtitle": null,
@@ -1423,6 +2253,106 @@
   "political": false,
   "approval_needed": false,
   "note": null,
+  "dates": null
+ },
+ {
+  "id": "mo-2024-03-02-GrandMothe",
+  "title": "GMF - Grand Mother’s Funck",
+  "subtitle": "30 Years Reunion Show",
+  "date": "2024-03-02",
+  "time": null,
+  "venue": "Moods",
+  "address": "Schiffbaustrasse 6, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "GMF - Grand Mother’s Funck"
+  ],
+  "price": null,
+  "organizer": "Moods im Schiffbau",
+  "source_url": "https://web.archive.org/web/20240227205802/https://www.moods.ch/en",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Moods-Startseite (Programmvorschau); Preis dort nicht angegeben; Adresse allgemein bekannt (Moods im Schiffbau)",
+  "dates": null
+ },
+ {
+  "id": "mo-2024-03-08-LRain",
+  "title": "Currents Festival",
+  "subtitle": "Currents Festival",
+  "date": "2024-03-08",
+  "time": null,
+  "venue": "Moods",
+  "address": "Schiffbaustrasse 6, 8005 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "L'Rain"
+  ],
+  "price": null,
+  "organizer": "Moods im Schiffbau",
+  "source_url": "https://web.archive.org/web/20240227205802/https://www.moods.ch/en",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Moods-Startseite (Programmvorschau); Preis dort nicht angegeben; Adresse allgemein bekannt (Moods im Schiffbau)",
+  "dates": null
+ },
+ {
+  "id": "mo-2024-03-16-NouraMintS",
+  "title": "Noura Mint Seymali",
+  "subtitle": "Psychedelic Desert Blues",
+  "date": "2024-03-16",
+  "time": "20:30",
+  "venue": "Moods",
+  "address": "Schiffbaustrasse 6, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Noura Mint Seymali"
+  ],
+  "price": null,
+  "organizer": "Moods im Schiffbau",
+  "source_url": "https://web.archive.org/web/20240227205802/https://www.moods.ch/en",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Moods-Startseite (Programmvorschau); Preis dort nicht angegeben; Adresse allgemein bekannt (Moods im Schiffbau)",
+  "dates": null
+ },
+ {
+  "id": "tn-2024-03-16",
+  "title": "Vom Zeugenschutz des Raubwürgers",
+  "subtitle": "Uraufführung",
+  "date": "2024-03-16",
+  "time": "20:00",
+  "venue": "Theater Neumarkt",
+  "address": "Neumarkt 5, 8001 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Kevin Rittberger (Text)"
+  ],
+  "price": null,
+  "organizer": "Theater am Neumarkt",
+  "source_url": "https://web.archive.org/web/20240315234518/https://www.theaterneumarkt.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite (Next Events); Preise: Wahlpreismodell des Hauses (drei Preise), Betrag nicht erfasst",
+  "dates": null
+ },
+ {
+  "id": "pz-2024-03-22",
+  "title": "Comedy Experience with Rachman Blake",
+  "subtitle": "Comedy live on stage",
+  "date": "2024-03-22",
+  "time": "19:30",
+  "venue": "Plaza Klub",
+  "address": "Badenerstrasse 109, 8004 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Rachman Blake"
+  ],
+  "price": "CHF 55 (Vorverkauf)",
+  "organizer": "Plaza Klub",
+  "source_url": "https://web.archive.org/web/20240322163932/https://www.plaza-zurich.ch/nu/events/event_list/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Eventliste des Plaza Klub",
   "dates": null
  },
  {
@@ -1818,6 +2748,26 @@
   "dates": null
  },
  {
+  "id": "xe-2024-07-16-GimmeShelter",
+  "title": "Gimme Shelter",
+  "subtitle": "Open Air",
+  "date": "2024-07-16",
+  "time": "21:30",
+  "venue": "Kino Xenix",
+  "address": "Kanzleistrasse 52, 8004 Zürich",
+  "kind": "film",
+  "lineup": [
+   "Gimme Shelter"
+  ],
+  "price": null,
+  "organizer": "Kino Xenix",
+  "source_url": "https://www.xenix.ch/programm/juli-august-2024/open-air-2024/gimme-shelter/2024-07-16T21:30:00",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Xenix-Programm-JSON (static/json); Open-Air-Reihe Xenix Open Air",
+  "dates": null
+ },
+ {
   "id": "rf-5544",
   "title": "Annie Taylor | Überyou | Hunted Like Thieves | The High Times | Mr. Linus",
   "subtitle": "Obenuse Fest goes Rote Fabrik",
@@ -1839,6 +2789,46 @@
   "political": false,
   "approval_needed": false,
   "note": null,
+  "dates": null
+ },
+ {
+  "id": "xe-2024-08-07-OneNightinMiam",
+  "title": "One Night in Miami …",
+  "subtitle": "Open Air",
+  "date": "2024-08-07",
+  "time": "21:15",
+  "venue": "Kino Xenix",
+  "address": "Kanzleistrasse 52, 8004 Zürich",
+  "kind": "film",
+  "lineup": [
+   "One Night in Miami …"
+  ],
+  "price": null,
+  "organizer": "Kino Xenix",
+  "source_url": "https://www.xenix.ch/programm/juli-august-2024/open-air-2024/one-night-in-miami/2024-08-07T21:15:00",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Xenix-Programm-JSON (static/json); Open-Air-Reihe Xenix Open Air",
+  "dates": null
+ },
+ {
+  "id": "mo-2024-08-07-MarcosVall",
+  "title": "Marcos Valle",
+  "subtitle": "Moods Summer Special",
+  "date": "2024-08-07",
+  "time": null,
+  "venue": "Moods",
+  "address": "Schiffbaustrasse 6, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Marcos Valle"
+  ],
+  "price": null,
+  "organizer": "Moods im Schiffbau",
+  "source_url": "https://web.archive.org/web/20240713192353/https://www.moods.ch/en",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Moods-Startseite (Programmvorschau); Preis dort nicht angegeben; Adresse allgemein bekannt (Moods im Schiffbau)",
   "dates": null
  },
  {
@@ -1887,6 +2877,26 @@
   ]
  },
  {
+  "id": "tn-2024-08-22",
+  "title": "Gloria – The Right to Be Desperate",
+  "subtitle": "Ein Ausflug in die Welt der Therapie- und Beichtkultur",
+  "date": "2024-08-22",
+  "time": "20:00",
+  "venue": "Theater Neumarkt",
+  "address": "Neumarkt 5, 8001 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Gloria"
+  ],
+  "price": null,
+  "organizer": "Theater am Neumarkt",
+  "source_url": "https://web.archive.org/web/20240716002023/https://www.theaterneumarkt.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite (Next Events); Preise: Wahlpreismodell des Hauses (drei Preise), Betrag nicht erfasst",
+  "dates": null
+ },
+ {
   "id": "rf-4942",
   "title": "lila. queer festival",
   "subtitle": "lila. queer festival 2024",
@@ -1909,6 +2919,67 @@
    "2024-09-13",
    "2024-09-14"
   ]
+ },
+ {
+  "id": "ga-down",
+  "title": "DOWN (full album)",
+  "subtitle": "Mélissa Guex",
+  "date": "2024-09-27",
+  "time": "22:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Mélissa Guex"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/down",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
+  "dates": null
+ },
+ {
+  "id": "ga-la-timpa-wat-taklaew",
+  "title": "LA Timpa & WAT TAKLAEW",
+  "subtitle": "LA Timpa & WAT TAKLAEW",
+  "date": "2024-10-04",
+  "time": "21:30",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "LA Timpa",
+   "WAT TAKLAEW"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/la-timpa-wat-taklaew",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
+  "dates": null
+ },
+ {
+  "id": "ga-navy-blue",
+  "title": "Navy Blue",
+  "subtitle": "Oona Doherty",
+  "date": "2024-10-04",
+  "time": "20:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Oona Doherty"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/navy-blue",
+  "political": false,
+  "approval_needed": false,
+  "note": "Tanz; Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
+  "dates": null
  },
  {
   "id": "rf-5420",
@@ -1993,6 +3064,26 @@
   "dates": null
  },
  {
+  "id": "ga-dawuna",
+  "title": "Dawuna",
+  "subtitle": "Dawuna",
+  "date": "2024-11-07",
+  "time": "21:30",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Dawuna"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/dawuna",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
+  "dates": null
+ },
+ {
   "id": "rf-5298",
   "title": "Fabrik Slam #105",
   "subtitle": "Novemberslam in der Roten Fabrik",
@@ -2071,6 +3162,47 @@
    "2025-01-11",
    "2025-01-12"
   ]
+ },
+ {
+  "id": "pz-2024-11-15",
+  "title": "Dotan",
+  "subtitle": "Only Show in Switzerland",
+  "date": "2024-11-15",
+  "time": "19:30",
+  "venue": "Plaza Klub",
+  "address": "Badenerstrasse 109, 8004 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Dotan",
+   "Luca Fogale"
+  ],
+  "price": "CHF 48 (Vorverkauf)",
+  "organizer": "Plaza Klub",
+  "source_url": "https://web.archive.org/web/20241113225714/https://www.plaza-zurich.ch/nu/events/event_list/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Eventliste des Plaza Klub",
+  "dates": null
+ },
+ {
+  "id": "tn-2024-11-16",
+  "title": "Vanilla Sex #let's bee butterfly!",
+  "subtitle": "Chorgasse Neumarkt",
+  "date": "2024-11-16",
+  "time": "19:30",
+  "venue": "Theater Neumarkt",
+  "address": "Neumarkt 5, 8001 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Vanilla Sex"
+  ],
+  "price": null,
+  "organizer": "Theater am Neumarkt",
+  "source_url": "https://web.archive.org/web/20241115233720/https://www.theaterneumarkt.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite (Next Events); Preise: Wahlpreismodell des Hauses (drei Preise), Betrag nicht erfasst",
+  "dates": null
  },
  {
   "id": "rf-5160",
@@ -2153,6 +3285,46 @@
   "dates": null
  },
  {
+  "id": "mo-2024-11-30-SahraHalga",
+  "title": "Sahra Halgan",
+  "subtitle": "Desert Blues",
+  "date": "2024-11-30",
+  "time": null,
+  "venue": "Moods",
+  "address": "Schiffbaustrasse 6, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Sahra Halgan"
+  ],
+  "price": null,
+  "organizer": "Moods im Schiffbau",
+  "source_url": "https://web.archive.org/web/20241116032829/https://www.moods.ch/en",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Moods-Startseite (Programmvorschau); Preis dort nicht angegeben; Adresse allgemein bekannt (Moods im Schiffbau)",
+  "dates": null
+ },
+ {
+  "id": "mo-2024-12-03-DakhaBrakh",
+  "title": "DakhaBrakha",
+  "subtitle": "BalkanEkstra: Ethno Chaos",
+  "date": "2024-12-03",
+  "time": null,
+  "venue": "Moods",
+  "address": "Schiffbaustrasse 6, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "DakhaBrakha"
+  ],
+  "price": null,
+  "organizer": "Moods im Schiffbau",
+  "source_url": "https://web.archive.org/web/20241116032829/https://www.moods.ch/en",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Moods-Startseite (Programmvorschau); Preis dort nicht angegeben; Adresse allgemein bekannt (Moods im Schiffbau)",
+  "dates": null
+ },
+ {
   "id": "hk-2024-12-06-13",
   "title": "Palko! Muski!",
   "subtitle": "Albumfeier «Bon Voyage!» mit dj emina",
@@ -2171,6 +3343,66 @@
   "political": false,
   "approval_needed": false,
   "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "ga-untamed-night",
+  "title": "untamed.night",
+  "subtitle": "untamed.love",
+  "date": "2024-12-07",
+  "time": "22:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "party",
+  "lineup": [
+   "untamed.love"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/untamed-night",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
+  "dates": null
+ },
+ {
+  "id": "ga-unsightly-drag-and-friends",
+  "title": "Unsightly Drag and Friends",
+  "subtitle": "Quiplash",
+  "date": "2024-12-13",
+  "time": "20:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Quiplash"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/unsightly-drag-and-friends",
+  "political": false,
+  "approval_needed": false,
+  "note": "Drag/Performance; Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
+  "dates": null
+ },
+ {
+  "id": "ga-cold",
+  "title": "COLD",
+  "subtitle": null,
+  "date": "2025-01-15",
+  "time": "20:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Die neue Spoken-Word-Show von Fatima Moumouni & Laurin Buser"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/cold",
+  "political": false,
+  "approval_needed": false,
+  "note": "Spoken-Word-Show; Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
   "dates": null
  },
  {
@@ -2240,6 +3472,47 @@
   "dates": null
  },
  {
+  "id": "pb-2025-02-27-Künstlerpo",
+  "title": "Künstlerporträts 1985: Roth & Thomkins",
+  "subtitle": "Ausstellung bis 2025-05-11",
+  "date": "2025-02-27",
+  "time": null,
+  "venue": "Photobastei",
+  "address": "Sihlquai 125, 8005 Zürich",
+  "kind": "exhibition",
+  "lineup": [
+   "Niklaus Stauss"
+  ],
+  "price": null,
+  "organizer": "Photobastei",
+  "source_url": "https://web.archive.org/web/20250402064509/https://www.photobastei.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite (Ausstellungen)",
+  "dates": null
+ },
+ {
+  "id": "ga-sonosynthesis",
+  "title": "SONOSYNTHESIS",
+  "subtitle": "NÂR, Siavash Namehshiri, tracy september, Yasmine El Baramawy, Legion Seven, Kay Zhang",
+  "date": "2025-03-01",
+  "time": "20:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "NÂR",
+   "Siavash Namehshiri"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/sonosynthesis",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
+  "dates": null
+ },
+ {
   "id": "hk-2025-03-19-14",
   "title": "Thomas Azier",
   "subtitle": null,
@@ -2257,6 +3530,26 @@
   "political": false,
   "approval_needed": false,
   "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "tn-2025-03-19",
+  "title": "Zer0 Gravity",
+  "subtitle": "Ein Solo zwischen Gnade des Chaos und Schwerkraft des Herzens",
+  "date": "2025-03-19",
+  "time": "20:00",
+  "venue": "Theater Neumarkt",
+  "address": "Neumarkt 5, 8001 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Zer0 Gravity"
+  ],
+  "price": null,
+  "organizer": "Theater am Neumarkt",
+  "source_url": "https://web.archive.org/web/20250315234205/https://www.theaterneumarkt.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite (Next Events); Preise: Wahlpreismodell des Hauses (drei Preise), Betrag nicht erfasst",
   "dates": null
  },
  {
@@ -2298,6 +3591,26 @@
   "political": false,
   "approval_needed": false,
   "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "ga-the-limit-does-not-exist-julian-zigerli-fashionshow",
+  "title": "THE LIMIT DOES NOT EXIST",
+  "subtitle": "JULIAN ZIGERLI",
+  "date": "2025-04-12",
+  "time": "21:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Julian Zigerli"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/the-limit-does-not-exist-julian-zigerli-fashionshow",
+  "political": false,
+  "approval_needed": false,
+  "note": "Party/Performance; Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
   "dates": null
  },
  {
@@ -2358,6 +3671,26 @@
   "political": false,
   "approval_needed": false,
   "note": "Datum aus Wayback-Snapshot des Dynamo-Programms; Uhrzeit dort nicht verlässlich",
+  "dates": null
+ },
+ {
+  "id": "ga-eat-me-now",
+  "title": "Eat me Now!",
+  "subtitle": "Arlette Dellers",
+  "date": "2025-05-22",
+  "time": "20:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Arlette Dellers"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/eat-me-now",
+  "political": false,
+  "approval_needed": false,
+  "note": "Tanz/Performance; Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
   "dates": null
  },
  {
@@ -2463,6 +3796,26 @@
   "dates": null
  },
  {
+  "id": "xe-2025-07-23-BeforeSunrise",
+  "title": "Before Sunrise",
+  "subtitle": "Open Air",
+  "date": "2025-07-23",
+  "time": "21:30",
+  "venue": "Kino Xenix",
+  "address": "Kanzleistrasse 52, 8004 Zürich",
+  "kind": "film",
+  "lineup": [
+   "Before Sunrise"
+  ],
+  "price": null,
+  "organizer": "Kino Xenix",
+  "source_url": "https://www.xenix.ch/programm/juli-august-2025/open-air-2025/before-sunrise/2025-07-23T21:30:00",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Xenix-Programm-JSON (static/json); Open-Air-Reihe Xenix Open Air",
+  "dates": null
+ },
+ {
   "id": "rf-6008",
   "title": "Jazzhane Festival",
   "subtitle": "OMAR SOULEYMAN, ŸUMA, SELIN SÜMBÜLTEPE, ROSHÂNI, ZEEMUFFIN, REY&KJAVIK, İPEK İPEKÇİOĞLU, AND MORE…",
@@ -2486,6 +3839,26 @@
   "political": false,
   "approval_needed": false,
   "note": "Jazzhane Festival 2025",
+  "dates": null
+ },
+ {
+  "id": "xe-2025-08-06-GegendieWand",
+  "title": "Gegen die Wand",
+  "subtitle": "Open Air",
+  "date": "2025-08-06",
+  "time": "21:15",
+  "venue": "Kino Xenix",
+  "address": "Kanzleistrasse 52, 8004 Zürich",
+  "kind": "film",
+  "lineup": [
+   "Gegen die Wand"
+  ],
+  "price": null,
+  "organizer": "Kino Xenix",
+  "source_url": "https://www.xenix.ch/programm/juli-august-2025/open-air-2025/gegen-die-wand/2025-08-06T21:15:00",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Xenix-Programm-JSON (static/json); Open-Air-Reihe Xenix Open Air",
   "dates": null
  },
  {
@@ -2532,6 +3905,46 @@
    "2025-08-09",
    "2025-08-10"
   ]
+ },
+ {
+  "id": "ga-neutralitaetstheater-mythos-schweiz",
+  "title": "Neutralitätstheater – Mythos Schweiz auf dem Prüfstand!",
+  "subtitle": "Hannan Salamat und Fatima Moumouni",
+  "date": "2025-09-18",
+  "time": "20:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "party",
+  "lineup": [
+   "dibbasey"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/neutralitaetstheater-mythos-schweiz",
+  "political": false,
+  "approval_needed": false,
+  "note": "Disco; Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
+  "dates": null
+ },
+ {
+  "id": "ga-kommando-ajax-cemile-sahin",
+  "title": "KOMMANDO AJAX",
+  "subtitle": "Cemile Sahin",
+  "date": "2025-09-21",
+  "time": "18:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "reading",
+  "lineup": [
+   "Cemile Sahin"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/kommando-ajax-cemile-sahin",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
+  "dates": null
  },
  {
   "id": "hk-2025-10-17-17",
@@ -2634,6 +4047,26 @@
   "dates": null
  },
  {
+  "id": "ga-25th-zurich-jazznojazz-festival-2025-donnerstag",
+  "title": "25th ZURICH JAZZNOJAZZ FESTIVAL 2025",
+  "subtitle": null,
+  "date": "2025-10-30",
+  "time": "19:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "Zurich Jazznojazz Festival"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/25th-zurich-jazznojazz-festival-2025-donnerstag",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
+  "dates": null
+ },
+ {
   "id": "hk-2025-10-31-19",
   "title": "Queer Balkan Disco",
   "subtitle": "numero 16",
@@ -2651,6 +4084,66 @@
   "political": false,
   "approval_needed": false,
   "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "pb-2025-11-06-NewYork199",
+  "title": "New York 1991",
+  "subtitle": "Ausstellung bis 2025-11-23",
+  "date": "2025-11-06",
+  "time": null,
+  "venue": "Photobastei",
+  "address": "Sihlquai 125, 8005 Zürich",
+  "kind": "exhibition",
+  "lineup": [
+   "Clément Olivier Meylan"
+  ],
+  "price": null,
+  "organizer": "Photobastei",
+  "source_url": "https://web.archive.org/web/20251115193800/https://www.photobastei.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite (Ausstellungen)",
+  "dates": null
+ },
+ {
+  "id": "pb-2025-11-06-45JahreJug",
+  "title": "45 Jahre Jugendunruhen",
+  "subtitle": "Ausstellung bis 2025-11-16",
+  "date": "2025-11-06",
+  "time": null,
+  "venue": "Photobastei",
+  "address": "Sihlquai 125, 8005 Zürich",
+  "kind": "exhibition",
+  "lineup": [
+   "okaj zürich"
+  ],
+  "price": null,
+  "organizer": "Photobastei",
+  "source_url": "https://web.archive.org/web/20251115193800/https://www.photobastei.ch/",
+  "political": true,
+  "approval_needed": true,
+  "note": "Ausstellung zu den Zürcher Jugendunruhen (okaj zürich = kantonaler Dachverband der Jugendarbeit); Inhalt vor Verwendung prüfen. Quelle: archivierte Startseite (Ausstellungen)",
+  "dates": null
+ },
+ {
+  "id": "ga-songs-of-the-wayfarer",
+  "title": "Songs of the Wayfarer",
+  "subtitle": "Claire Cunningham",
+  "date": "2025-11-07",
+  "time": "20:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Claire Cunningham"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/songs-of-the-wayfarer",
+  "political": false,
+  "approval_needed": false,
+  "note": "Tanz; Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
   "dates": null
  },
  {
@@ -2720,6 +4213,26 @@
   "dates": null
  },
  {
+  "id": "mo-2025-11-27-OrchestraB",
+  "title": "Orchestra Baobab",
+  "subtitle": null,
+  "date": "2025-11-27",
+  "time": null,
+  "venue": "Moods",
+  "address": "Schiffbaustrasse 6, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Orchestra Baobab"
+  ],
+  "price": null,
+  "organizer": "Moods im Schiffbau",
+  "source_url": "https://web.archive.org/web/20251116221259/https://www.moods.ch/en",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Moods-Startseite (Programmvorschau); Preis dort nicht angegeben; Adresse allgemein bekannt (Moods im Schiffbau)",
+  "dates": null
+ },
+ {
   "id": "rf-5532",
   "title": "Unerhört!",
   "subtitle": "Jazzfestival 2025",
@@ -2763,6 +4276,26 @@
   "political": false,
   "approval_needed": false,
   "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "mo-2025-12-12-FuluMiziki",
+  "title": "Fulu Miziki",
+  "subtitle": "Afrofuturistic Punk",
+  "date": "2025-12-12",
+  "time": null,
+  "venue": "Moods",
+  "address": "Schiffbaustrasse 6, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Fulu Miziki"
+  ],
+  "price": null,
+  "organizer": "Moods im Schiffbau",
+  "source_url": "https://web.archive.org/web/20251116221259/https://www.moods.ch/en",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Moods-Startseite (Programmvorschau); Preis dort nicht angegeben; Adresse allgemein bekannt (Moods im Schiffbau)",
   "dates": null
  },
  {
@@ -2843,6 +4376,691 @@
   "political": false,
   "approval_needed": false,
   "note": "Konzert; Jahr 2026 per Wochentagsprüfung",
+  "dates": null
+ },
+ {
+  "id": "ga-wen-keng-we-meet-on-connection",
+  "title": "Wen Keng We Meet? – On Connection",
+  "subtitle": "RRRRRR Collective",
+  "date": "2026-01-29",
+  "time": "20:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "RRRRRR Collective"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/wen-keng-we-meet-on-connection",
+  "political": false,
+  "approval_needed": false,
+  "note": "Performance/Musik; Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
+  "dates": null
+ },
+ {
+  "id": "pm-5",
+  "title": "Grand Opening",
+  "subtitle": null,
+  "date": "2026-01-29",
+  "time": "18:00",
+  "venue": "Palais Mascotte",
+  "address": "Theaterstrasse 10, 8001 Zürich",
+  "kind": "party",
+  "lineup": [
+   "MS JOAN",
+   "LADY BRUCE",
+   "CJRO",
+   "ULTRAKRISSY",
+   "JULI LEE",
+   "HAUSVRAU",
+   "Special Guests"
+  ],
+  "price": null,
+  "organizer": "Palais Mascotte",
+  "source_url": "https://palaismascotte.nunight.com/nu/api/apiv1/event_widget_details.jsonp?id=5&style=0&callback=cb",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Nunight-Widget-API des Palais Mascotte (Veranstalter-Daten)",
+  "dates": null
+ },
+ {
+  "id": "pm-6",
+  "title": "Opening Friday",
+  "subtitle": null,
+  "date": "2026-01-30",
+  "time": "18:00",
+  "venue": "Palais Mascotte",
+  "address": "Theaterstrasse 10, 8001 Zürich",
+  "kind": "party",
+  "lineup": [
+   "MS. HYDE",
+   "dOP",
+   "KALABRESE",
+   "THE_KABOOM",
+   "FABULUS&PLAYLOVE. KINNARI",
+   "JULI LEE"
+  ],
+  "price": null,
+  "organizer": "Palais Mascotte",
+  "source_url": "https://palaismascotte.nunight.com/nu/api/apiv1/event_widget_details.jsonp?id=6&style=0&callback=cb",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Nunight-Widget-API des Palais Mascotte (Veranstalter-Daten)",
+  "dates": null
+ },
+ {
+  "id": "pm-7",
+  "title": "Opening Saturday",
+  "subtitle": null,
+  "date": "2026-01-31",
+  "time": "18:00",
+  "venue": "Palais Mascotte",
+  "address": "Theaterstrasse 10, 8001 Zürich",
+  "kind": "party",
+  "lineup": [
+   "ERIKA FATNA",
+   "NADARA & BAERG",
+   "BONNIE OK b2b LUKA",
+   "SINTIC b2b MRZ"
+  ],
+  "price": null,
+  "organizer": "Palais Mascotte",
+  "source_url": "https://palaismascotte.nunight.com/nu/api/apiv1/event_widget_details.jsonp?id=7&style=0&callback=cb",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Nunight-Widget-API des Palais Mascotte (Veranstalter-Daten)",
+  "dates": null
+ },
+ {
+  "id": "pm-12",
+  "title": "Club Night",
+  "subtitle": null,
+  "date": "2026-02-06",
+  "time": "22:00",
+  "venue": "Palais Mascotte",
+  "address": "Theaterstrasse 10, 8001 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Chez Damier",
+   "Kalabrese"
+  ],
+  "price": "CHF 25",
+  "organizer": "Palais Mascotte",
+  "source_url": "https://palaismascotte.nunight.com/nu/api/apiv1/event_widget_details.jsonp?id=12&style=0&callback=cb",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Nunight-Widget-API des Palais Mascotte (Veranstalter-Daten)",
+  "dates": null
+ },
+ {
+  "id": "pm-21",
+  "title": "Club Night",
+  "subtitle": null,
+  "date": "2026-02-14",
+  "time": "22:00",
+  "venue": "Palais Mascotte",
+  "address": "Theaterstrasse 10, 8001 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Toy Tonics Jam: Kapote",
+   "Arpy Brown",
+   "Juli Lee",
+   "Crjo"
+  ],
+  "price": "CHF 25",
+  "organizer": "Palais Mascotte",
+  "source_url": "https://palaismascotte.nunight.com/nu/api/apiv1/event_widget_details.jsonp?id=21&style=0&callback=cb",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Nunight-Widget-API des Palais Mascotte (Veranstalter-Daten)",
+  "dates": null
+ },
+ {
+  "id": "ga-collapse-in-5-acts-there-is-porn-of-it",
+  "title": "Collapse in 5 acts: there is porn of it",
+  "subtitle": "Simone Aughterlony",
+  "date": "2026-02-27",
+  "time": "20:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Simone Aughterlony"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/collapse-in-5-acts-there-is-porn-of-it",
+  "political": false,
+  "approval_needed": false,
+  "note": "Tanz/Performance; Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
+  "dates": null
+ },
+ {
+  "id": "pm-50",
+  "title": "Club Night",
+  "subtitle": null,
+  "date": "2026-03-05",
+  "time": "22:00",
+  "venue": "Palais Mascotte",
+  "address": "Theaterstrasse 10, 8001 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Fresh Prinz vom Bollwerk"
+  ],
+  "price": "CHF 15.-",
+  "organizer": "Palais Mascotte",
+  "source_url": "https://palaismascotte.nunight.com/nu/api/apiv1/event_widget_details.jsonp?id=50&style=0&callback=cb",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Nunight-Widget-API des Palais Mascotte (Veranstalter-Daten)",
+  "dates": null
+ },
+ {
+  "id": "pm-47",
+  "title": "Club Night",
+  "subtitle": null,
+  "date": "2026-03-07",
+  "time": "22:00",
+  "venue": "Palais Mascotte",
+  "address": "Theaterstrasse 10, 8001 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Kevin Saunderson"
+  ],
+  "price": "CHF 25",
+  "organizer": "Palais Mascotte",
+  "source_url": "https://palaismascotte.nunight.com/nu/api/apiv1/event_widget_details.jsonp?id=47&style=0&callback=cb",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Nunight-Widget-API des Palais Mascotte (Veranstalter-Daten)",
+  "dates": null
+ },
+ {
+  "id": "pb-2026-03-12-ZürichamFl",
+  "title": "Zürich am Fluss",
+  "subtitle": "Ausstellung bis 2026-03-29",
+  "date": "2026-03-12",
+  "time": null,
+  "venue": "Photobastei",
+  "address": "Sihlquai 125, 8005 Zürich",
+  "kind": "exhibition",
+  "lineup": [
+   "Urs Villiger"
+  ],
+  "price": null,
+  "organizer": "Photobastei",
+  "source_url": "https://web.archive.org/web/20260315182059/https://www.photobastei.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite (Ausstellungen)",
+  "dates": null
+ },
+ {
+  "id": "pb-2026-03-12-Assemblage",
+  "title": "Assemblagen- GAF9.10.zh Streifzüge",
+  "subtitle": "Ausstellung bis 2026-03-29",
+  "date": "2026-03-12",
+  "time": null,
+  "venue": "Photobastei",
+  "address": "Sihlquai 125, 8005 Zürich",
+  "kind": "exhibition",
+  "lineup": [
+   "GAF9.10.zh"
+  ],
+  "price": null,
+  "organizer": "Photobastei",
+  "source_url": "https://web.archive.org/web/20260315182059/https://www.photobastei.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite (Ausstellungen)",
+  "dates": null
+ },
+ {
+  "id": "pm-73",
+  "title": "CINTHIE",
+  "subtitle": null,
+  "date": "2026-03-14",
+  "time": "22:00",
+  "venue": "Palais Mascotte",
+  "address": "Theaterstrasse 10, 8001 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Cinthie",
+   "Jenny Cara",
+   "ZOZO"
+  ],
+  "price": "CHF 25.-",
+  "organizer": "Palais Mascotte",
+  "source_url": "https://palaismascotte.nunight.com/nu/api/apiv1/event_widget_details.jsonp?id=73&style=0&callback=cb",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Nunight-Widget-API des Palais Mascotte (Veranstalter-Daten)",
+  "dates": null
+ },
+ {
+  "id": "ga-fai-baba-amour-sur-mars",
+  "title": "Fai Baba & Amour sur Mars",
+  "subtitle": null,
+  "date": "2026-03-22",
+  "time": "15:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Fai Baba",
+   "Amour sur Mars"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/fai-baba-amour-sur-mars",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
+  "dates": null
+ },
+ {
+  "id": "ga-the-blackest-white-hits-of-history",
+  "title": "The Blackest White Hits of History",
+  "subtitle": "Naya de Souza @Bundaskanzlerin",
+  "date": "2026-03-27",
+  "time": "22:15",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Naya de Souza"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/the-blackest-white-hits-of-history",
+  "political": false,
+  "approval_needed": false,
+  "note": "Party/Performance; Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
+  "dates": null
+ },
+ {
+  "id": "mo-2026-03-27-StellaTheL",
+  "title": "Stella & The Longos",
+  "subtitle": "«Amour Propre»",
+  "date": "2026-03-27",
+  "time": null,
+  "venue": "Moods",
+  "address": "Schiffbaustrasse 6, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Stella & The Longos"
+  ],
+  "price": null,
+  "organizer": "Moods im Schiffbau",
+  "source_url": "https://web.archive.org/web/20260312005839/https://www.moods.ch/en",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Moods-Startseite (Programmvorschau); Preis dort nicht angegeben; Adresse allgemein bekannt (Moods im Schiffbau)",
+  "dates": null
+ },
+ {
+  "id": "pm-75",
+  "title": "HEKAYA DAYDANCE",
+  "subtitle": null,
+  "date": "2026-03-28",
+  "time": "16:00",
+  "venue": "Palais Mascotte",
+  "address": "Theaterstrasse 10, 8001 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Lexx & Ajele",
+   "Olive T.",
+   "KAYYAK",
+   "Bobby Tessa"
+  ],
+  "price": "CHF 25",
+  "organizer": "Palais Mascotte",
+  "source_url": "https://palaismascotte.nunight.com/nu/api/apiv1/event_widget_details.jsonp?id=75&style=0&callback=cb",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Nunight-Widget-API des Palais Mascotte (Veranstalter-Daten)",
+  "dates": null
+ },
+ {
+  "id": "mo-2026-04-04-Imarhan",
+  "title": "Imarhan",
+  "subtitle": "Tuareg Blues",
+  "date": "2026-04-04",
+  "time": "20:30",
+  "venue": "Moods",
+  "address": "Schiffbaustrasse 6, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Imarhan"
+  ],
+  "price": null,
+  "organizer": "Moods im Schiffbau",
+  "source_url": "https://web.archive.org/web/20260312005839/https://www.moods.ch/en",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Moods-Startseite (Programmvorschau); Preis dort nicht angegeben; Adresse allgemein bekannt (Moods im Schiffbau)",
+  "dates": null
+ },
+ {
+  "id": "mo-2026-04-09-Bahamadia",
+  "title": "Bahamadia",
+  "subtitle": "Hip Hop Zoo & Moods present",
+  "date": "2026-04-09",
+  "time": "20:30",
+  "venue": "Moods",
+  "address": "Schiffbaustrasse 6, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Bahamadia",
+   "The RuffCats Band",
+   "DJ Eclipse"
+  ],
+  "price": null,
+  "organizer": "Moods im Schiffbau",
+  "source_url": "https://web.archive.org/web/20260312005839/https://www.moods.ch/en",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Moods-Startseite (Programmvorschau); Preis dort nicht angegeben; Adresse allgemein bekannt (Moods im Schiffbau)",
+  "dates": null
+ },
+ {
+  "id": "ga-zusammensein-plaedoyer-fuer-eine-gesellschaft-der-gegense",
+  "title": "Zusammensein. Plädoyer für eine Gesellschaft der Gegenseitigkeit",
+  "subtitle": "Hadija Haruna-Oelker",
+  "date": "2026-04-16",
+  "time": "19:30",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "reading",
+  "lineup": [
+   "Hadija Haruna-Oelker"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/zusammensein-plaedoyer-fuer-eine-gesellschaft-der-gegenseitigkeit",
+  "political": false,
+  "approval_needed": false,
+  "note": "Lesung; Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
+  "dates": null
+ },
+ {
+  "id": "pm-99",
+  "title": "Toy Tonics Jam #2",
+  "subtitle": null,
+  "date": "2026-04-25",
+  "time": "22:00",
+  "venue": "Palais Mascotte",
+  "address": "Theaterstrasse 10, 8001 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Gee Lane",
+   "Cody Currie",
+   "Princess P"
+  ],
+  "price": "CHF 25.-",
+  "organizer": "Palais Mascotte",
+  "source_url": "https://palaismascotte.nunight.com/nu/api/apiv1/event_widget_details.jsonp?id=99&style=0&callback=cb",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Nunight-Widget-API des Palais Mascotte (Veranstalter-Daten)",
+  "dates": null
+ },
+ {
+  "id": "ga-the-fur-and-lace-kiki-ball",
+  "title": "The Fur and Lace Kiki Ball",
+  "subtitle": "Liquid, Prince Zulu, Princess Kinnari Laveaux",
+  "date": "2026-05-09",
+  "time": "16:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Liquid",
+   "Prince Zulu"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/the-fur-and-lace-kiki-ball",
+  "political": false,
+  "approval_needed": false,
+  "note": "Kiki Ball; Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
+  "dates": null
+ },
+ {
+  "id": "ga-groove-gala-a-playful-rave-for-everyone",
+  "title": "Groove Gala – a playful rave for everyone",
+  "subtitle": "Reut Nahum (TUUT Sade) & Kilian Haselbeck (Kil I am)",
+  "date": "2026-05-10",
+  "time": "14:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Reut Nahum",
+   "Kilia"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/groove-gala-a-playful-rave-for-everyone",
+  "political": false,
+  "approval_needed": false,
+  "note": "Rave; Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
+  "dates": null
+ },
+ {
+  "id": "ga-inside_out",
+  "title": "INSIDE_OUT",
+  "subtitle": "Kian Amadeus H. & Sarah Calörtscher",
+  "date": "2026-06-19",
+  "time": "18:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Kian Amadeus H.",
+   "Sarah Calört"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/inside_out",
+  "political": false,
+  "approval_needed": false,
+  "note": "Performance; Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
+  "dates": null
+ },
+ {
+  "id": "xe-2026-07-17-TheTrumanShow",
+  "title": "The Truman Show",
+  "subtitle": "Open Air",
+  "date": "2026-07-17",
+  "time": "21:30",
+  "venue": "Kino Xenix",
+  "address": "Kanzleistrasse 52, 8004 Zürich",
+  "kind": "film",
+  "lineup": [
+   "The Truman Show"
+  ],
+  "price": null,
+  "organizer": "Kino Xenix",
+  "source_url": "https://www.xenix.ch/programm/juli-august-2026/open-air-2026/the-truman-show/2026-07-17T21:30:00",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Xenix-Programm-JSON (static/json); Open-Air-Reihe Xenix Open Air",
+  "dates": null
+ },
+ {
+  "id": "pm-163",
+  "title": "ZURICH MUSIC WEEK X Palais maacotte",
+  "subtitle": null,
+  "date": "2026-08-06",
+  "time": "23:00",
+  "venue": "Palais Mascotte",
+  "address": "Theaterstrasse 10, 8001 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "DAAEERU",
+   "Trees of Tampa",
+   "YENI:SAM"
+  ],
+  "price": null,
+  "organizer": "Palais Mascotte",
+  "source_url": "https://palaismascotte.nunight.com/nu/api/apiv1/event_widget_details.jsonp?id=163&style=0&callback=cb",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Nunight-Widget-API des Palais Mascotte (Veranstalter-Daten)",
+  "dates": null
+ },
+ {
+  "id": "xe-2026-08-14-MidnightCowboy",
+  "title": "Midnight Cowboy",
+  "subtitle": "Open Air",
+  "date": "2026-08-14",
+  "time": "21:00",
+  "venue": "Kino Xenix",
+  "address": "Kanzleistrasse 52, 8004 Zürich",
+  "kind": "film",
+  "lineup": [
+   "Midnight Cowboy"
+  ],
+  "price": null,
+  "organizer": "Kino Xenix",
+  "source_url": "https://www.xenix.ch/programm/juli-august-2026/open-air-2026/midnight-cowboy/2026-08-14T21:00:00",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Xenix-Programm-JSON (static/json); Open-Air-Reihe Xenix Open Air",
+  "dates": null
+ },
+ {
+  "id": "pm-160",
+  "title": "TOY TONICS JAM - CODY CURRIE",
+  "subtitle": null,
+  "date": "2026-08-29",
+  "time": "22:00",
+  "venue": "Palais Mascotte",
+  "address": "Theaterstrasse 10, 8001 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Cody Currie",
+   "Palmsi",
+   "Stump Valley"
+  ],
+  "price": "CHF 20.-",
+  "organizer": "Palais Mascotte",
+  "source_url": "https://palaismascotte.nunight.com/nu/api/apiv1/event_widget_details.jsonp?id=160&style=0&callback=cb",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Nunight-Widget-API des Palais Mascotte (Veranstalter-Daten)",
+  "dates": null
+ },
+ {
+  "id": "pt-2026-09-10-baile",
+  "title": "BaileSystem Like Never Before – Special Edition",
+  "subtitle": null,
+  "date": "2026-09-10",
+  "time": "19:00",
+  "venue": "Provitreff",
+  "address": null,
+  "kind": "party",
+  "lineup": [
+   "Cleiton Rasta",
+   "Victor Cena",
+   "Swag do Complexo",
+   "Bimba",
+   "JR The G"
+  ],
+  "price": null,
+  "organizer": "Provitreff / adalu",
+  "source_url": "https://provitreff.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Website Provitreff (Aktuell), VVK über Eventfrog; Adresse nicht auf der Seite, daher offen",
+  "dates": null
+ },
+ {
+  "id": "pm-172",
+  "title": "KIKI - Day into Night",
+  "subtitle": null,
+  "date": "2026-09-12",
+  "time": "17:00",
+  "venue": "Palais Mascotte",
+  "address": "Theaterstrasse 10, 8001 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Acid Flora",
+   "Eric",
+   "Highstreeter",
+   "Samarsi"
+  ],
+  "price": "CHF 25.-",
+  "organizer": "Palais Mascotte",
+  "source_url": "https://palaismascotte.nunight.com/nu/api/apiv1/event_widget_details.jsonp?id=172&style=0&callback=cb",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Nunight-Widget-API des Palais Mascotte (Veranstalter-Daten)",
+  "dates": null
+ },
+ {
+  "id": "pm-183",
+  "title": "CLUB NIGHT: MATIJA (ALL NIGHT LONG)",
+  "subtitle": null,
+  "date": "2026-09-19",
+  "time": "22:00",
+  "venue": "Palais Mascotte",
+  "address": "Theaterstrasse 10, 8001 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Matija"
+  ],
+  "price": "CHF 20",
+  "organizer": "Palais Mascotte",
+  "source_url": "https://palaismascotte.nunight.com/nu/api/apiv1/event_widget_details.jsonp?id=183&style=0&callback=cb",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Nunight-Widget-API des Palais Mascotte (Veranstalter-Daten)",
+  "dates": null
+ },
+ {
+  "id": "ga-backslash-festival-2026",
+  "title": "Backslash Festival 2026",
+  "subtitle": null,
+  "date": "2026-10-02",
+  "time": "20:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "Backslash Festival"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://gessnerallee.ch/de/programm/backslash-festival-2026",
+  "political": false,
+  "approval_needed": false,
+  "note": "Musik/Tanz/Performance; Quelle: CMS-API gessnerallee.ch (cms.gessnerallee.ch/graphql), Programm-URL nach Slug",
+  "dates": null
+ },
+ {
+  "id": "bf-2026-10-09-dachs",
+  "title": "Dachs & Friends",
+  "subtitle": null,
+  "date": "2026-10-09",
+  "time": "20:30",
+  "venue": "Bogen F",
+  "address": "Viaduktstrasse 97, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Luuk",
+   "Mel D",
+   "Crimer",
+   "Follia"
+  ],
+  "price": "CHF 35",
+  "organizer": "Bogen F (netz:werk)",
+  "source_url": "https://www.bogenf.ch/konzerte/dachs-friends-ch",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: Website Bogen F (Konzertseite), ausverkauft",
   "dates": null
  }
 ]

@@ -11,6 +11,7 @@ import { Player } from './player/player';
 import { Pedestrians } from './world/pedestrians';
 import { HumanLib } from './world/humans';
 import { loadTrees } from './world/trees';
+import { treeField } from './world/tree_field';
 import { CAR_GEO, carMaterial, carPick, loadCars } from './world/cars';
 import { Scenes } from './world/scenes';
 import { Lawns } from './world/lawns';
@@ -57,6 +58,7 @@ async function main() {
 
   const map = new CityMap();
   await Promise.all([loadTrees(), loadCars(), loadBikes(), loadFurniture()]);
+  treeField.init(renderer, mobile, !mobile);
   const [tiles, humans] = await Promise.all([
     Tiles.load(scene, !mobile, Math.min(8, renderer.capabilities.getMaxAnisotropy())),
     HumanLib.load('/models/humans', 4, mobile ? 14 : 40),

@@ -46,7 +46,11 @@ export function buildConstruction(rows: number[][]): THREE.Object3D[] {
     }
     // site fence 2.5 m in front, banner, skip and sign
     for (let i = 0; i < Math.ceil(w / 3.5); i++) local.push(part(new THREE.BoxGeometry(3.4, 2.0, 0.04).translate(-w / 2 + 1.75 + i * 3.5, 1.0, 3.2), C(0xb0b6ba)));
-    local.push(part(new THREE.BoxGeometry(3.4, 1.2, 1.8).translate(w / 2 - 2, 0.6, 5.2), skip));
+    // skip (Absetzmulde): trapezoid hull, open top with rubble inside
+    const hull = new THREE.CylinderGeometry(1.0, 0.72, 1.2, 4, 1, true).rotateY(Math.PI / 4).scale(2.3, 1, 1.25);
+    local.push(part(hull.translate(w / 2 - 2, 0.6, 5.2), skip));
+    local.push(part(new THREE.BoxGeometry(2.3, 0.08, 1.3).translate(w / 2 - 2, 0.04, 5.2), skip));
+    local.push(part(new THREE.ConeGeometry(1.1, 0.5, 6).scale(1.4, 1, 0.8).translate(w / 2 - 2, 1.05, 5.2), C(0x7a7266)));
     local.push(part(new THREE.CylinderGeometry(0.03, 0.03, 1.6, 5).translate(-w / 2 - 0.5, 0.8, 3.6), steel));
     local.push(part(new THREE.CircleGeometry(0.32, 3).rotateZ(Math.PI / 2).translate(-w / 2 - 0.5, 1.75, 3.62), red));
     local.push(part(new THREE.CircleGeometry(0.24, 3).rotateZ(Math.PI / 2).translate(-w / 2 - 0.5, 1.75, 3.63), white));

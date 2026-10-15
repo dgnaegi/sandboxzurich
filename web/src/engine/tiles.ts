@@ -8,7 +8,7 @@ import { buildBridges, BridgeIndex, type BridgeRows } from '../world/bridges';
 import { loadWorldMaterial } from './materials';
 import { Colliders } from '../player/collision';
 import { buildProps, type PropMeta } from '../world/props';
-import { buildFarTrees, buildTrees } from '../world/trees';
+import { treeField } from '../world/tree_field';
 import type { Bikes } from '../world/bikes';
 import { buildGraffiti, buildPosters, buildSigns, buildWildPosters, type Sign } from '../world/signs';
 import { buildHouseNumbers, buildStreetSigns } from '../world/streetsigns';
@@ -51,6 +51,7 @@ export class Tiles {
 
   private constructor(readonly world: World, private scene: THREE.Scene, private shadows: boolean, readonly mat: THREE.Material) {
     this.heights = new Heights(world.heights);
+    scene.add(treeField.group);
   }
 
   static async load(scene: THREE.Scene, shadows: boolean, anisotropy: number): Promise<Tiles> {
@@ -92,6 +93,7 @@ export class Tiles {
 
   /** Hide props (cars, trees, signs …) of tiles whose centre is farther than `radius`. Cheap, call per frame. */
   cull(x: number, y: number, radius: number) {
+    treeField.update(x, y);
     for (const p of this.props.values()) {
       const d = Math.hypot(p.x - x, p.y - y);
       p.g.visible = d < radius;
@@ -127,6 +129,7 @@ export class Tiles {
       this.loaded.delete(name);
       this.props.delete(name);
       this.bridges.remove(name);
+      treeField.remove(name);
     }
     await Promise.all(jobs);
   }
@@ -153,8 +156,7 @@ export class Tiles {
       for (const o of ok) if (!o.name) o.name = label;
       if (ok.length) grp.add(...ok);
     };
-    put(near, 'trees', buildTrees(meta.trees ?? [], this.shadows));
-    put(far, 'fartrees', buildFarTrees(meta.trees ?? []));
+    treeField.add(t.name, meta.trees ?? []);   // all trees live in one distance-bucketed field (LOD0/1/impostor)
     const bikes = this.bikes?.build(meta.bikes ?? []) ?? [];
     put(props, 'props', buildProps(meta, this.shadows)); put(props, 'posters', buildPosters(meta.posters ?? [])); put(props, 'wild', buildWildPosters(meta.wild ?? []));
     put(props, 'graffiti', buildGraffiti((meta as unknown as { graffiti?: number[][] }).graffiti ?? []));

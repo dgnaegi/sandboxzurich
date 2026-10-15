@@ -121,3 +121,8 @@ Neu gebaut (Fotos/`research/v3`): Stadion Letzigrund (rote Sitze, Holzlamellen-D
 - Generator `pipeline/gen_wildposters.py` (+ `wildposter_*.py`), Gestaltungsregeln `research/posters/DESIGN.md`. Atlas 2048² RGBA (4x4 Wandstuecke 1.5 m), Events aus `research/posters/events.json`.
 - Platzierung neu in `props.wild_posters` (Brandmauern, Quartier-Venues bevorzugt). Nur Kacheln 1_-5,0_-5,1_-4,0_-4,2_-5,-1_-5 sind neu gebaut: ein Komplett-Build ist noetig, damit alle Kacheln das neue Layout haben.
 - Offen: Unterfuehrungen, Bauzaeune, Stromkaesten, Kandelaber, Viadukt-Pfeiler (keine Geometrie in Kacheldaten).
+
+## Bäume v2 (Agent «Bäume realistisch»)
+- Daten: swissSURFACE3D (`data/raw/surface3d/`, `pipeline/trees/fetch_surface3d.py`) minus swissALTI3D -> nDSM-Cache `data/build/ndsm/` (`pipeline/trees/ndsm.py`, Gebäude maskiert). `pipeline/trees_dims.py`: Höhe (nDSM p92), Kronendurchmesser (Kataster + Voronoi-nDSM), Kronenansatz (Art, Strassenbaum >= 3.4 m), Art aus Baumkataster (15 Klassen). Tile-Rows: `[x,y,z,cls,crown,h,base,flags,pitAngle]`.
+- Web: `trees.ts` (Laden, Material mit Wind/Herbstfarbe/Kronenansatz), `tree_field.ts` (globales Feld, LOD0/LOD1/Impostor), `tree_impostor.ts` (Bake zur Laufzeit), `tree_grates.ts` (Baumscheibe + Schutzbügel). Tiles.ts ruft `treeField.add/remove/update`.
+- Nur Kacheln 2_-4, 3_-4, 3_-5, 2_-5 neu gebaut; alle anderen haben alte 6-Spalten-Rows (funktionieren, aber ohne echte Höhen). TODO: übrige Kacheln einzeln neu bauen (SBZ_TILES), 2 Kacheln parallel max.

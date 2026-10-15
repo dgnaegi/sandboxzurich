@@ -9,6 +9,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "web/public/models/trees"
 ATLAS = OUT / "leaves.webp"
+ZB = 0.0
 
 # ---------------------------------------------------------------- class parameters
 # env: crown envelope (z0 crown base, shape exponent), cards: count, size, tile(s), colours (tint rgb pairs)
@@ -17,9 +18,9 @@ CLASSES = {
     "broadleaf": C(trunk=(.32, .26, .2), th=.34, tr=.028, nb=7, ztop=1.0, w=.5, shape=.65, cards=720, size=.15,
                    tiles=[0, 0, 1], col=[(.30, .46, .16), (.40, .56, .2), (.24, .38, .13)], bark=(.33, .27, .22), hole=.25),
     "cherry": C(trunk=(.3, .22, .2), th=.3, tr=.03, nb=8, ztop=.97, w=.5, shape=.55, cards=760, size=.13,
-                tiles=[4, 4, 4, 1], col=[(1., .55, .72), (1., .68, .8), (.95, .45, .62), (1., .78, .85)], bark=(.26, .18, .17), hole=.12),
+                tiles=[1, 1, 1, 0], col=[(.36, .5, .2), (.42, .54, .22), (.3, .42, .17)], bark=(.26, .18, .17), hole=.12),
     "whiteblossom": C(trunk=(.3, .25, .2), th=.3, tr=.026, nb=8, ztop=.95, w=.5, shape=.6, cards=740, size=.13,
-                      tiles=[4, 4, 4, 1], col=[(1., .97, .9), (1., .95, .86), (.95, .97, .85), (.7, .85, .45)], bark=(.3, .24, .2), hole=.15),
+                      tiles=[10, 1, 0], col=[(.36, .52, .2), (.42, .56, .22), (.3, .44, .16)], bark=(.3, .24, .2), hole=.15),
     "plane": C(trunk=(.55, .5, .4), th=.45, tr=.036, nb=7, ztop=1.0, w=.5, shape=.9, cards=700, size=.16,
                tiles=[2, 0, 0], col=[(.34, .5, .17), (.42, .58, .22), (.28, .42, .14)], bark=(.62, .6, .5), hole=.3, mottle=True),
     "linden": C(trunk=(.3, .26, .22), th=.22, tr=.03, nb=9, ztop=1.0, w=.5, shape=.5, cards=900, size=.12,
@@ -32,6 +33,16 @@ CLASSES = {
                tiles=[3, 3, 3], col=[(.4, .56, .2), (.5, .64, .24), (.34, .5, .16)], bark=(.88, .88, .84), hole=.5, weep=True, mottle="birch"),
     "conifer": C(trunk=(.28, .2, .15), th=.08, tr=.026, nb=0, ztop=1.0, w=.5, shape=1.0, cards=0, size=.3,
                  tiles=[5], col=[(.13, .27, .14), (.17, .33, .17), (.1, .22, .12)], bark=(.28, .2, .15), hole=0, cone=True),
+    "robinia": C(trunk=(.3, .25, .2), th=.38, tr=.026, nb=8, ztop=1.0, w=.5, shape=.55, cards=430, size=.23,
+                 tiles=[8, 8, 8], col=[(.44, .58, .22), (.5, .62, .26), (.38, .52, .2)], bark=(.27, .23, .2), hole=.4),
+    "ash": C(trunk=(.4, .38, .33), th=.36, tr=.028, nb=8, ztop=1.0, w=.5, shape=.65, cards=430, size=.24,
+             tiles=[8, 8], col=[(.3, .46, .17), (.37, .53, .2), (.26, .4, .15)], bark=(.46, .44, .4), hole=.3),
+    "oak": C(trunk=(.28, .22, .18), th=.22, tr=.042, nb=10, ztop=1.0, w=.5, shape=.4, cards=640, size=.16,
+             tiles=[9, 9, 0], col=[(.2, .36, .12), (.27, .44, .15), (.24, .4, .13)], bark=(.27, .22, .19), hole=.12),
+    "beech": C(trunk=(.5, .48, .45), th=.28, tr=.036, nb=9, ztop=1.0, w=.5, shape=.6, cards=700, size=.15,
+               tiles=[10, 10, 0], col=[(.24, .42, .14), (.32, .5, .18), (.2, .36, .12)], bark=(.56, .54, .5), hole=.1),
+    "pine": C(trunk=(.5, .3, .2), th=.5, tr=.03, nb=6, ztop=1.0, w=.5, shape=.7, cards=260, size=.28,
+              tiles=[12, 12], col=[(.14, .28, .15), (.18, .34, .17), (.12, .24, .13)], bark=(.58, .34, .22), hole=.05),
     "columnar": C(trunk=(.32, .26, .2), th=.18, tr=.024, nb=9, ztop=1.0, w=.5, shape=.45, cards=740, size=.12,
                   tiles=[0, 1], col=[(.28, .44, .15), (.36, .52, .18), (.22, .36, .12)], bark=(.32, .27, .22), hole=.1, narrow=True),
 }
@@ -84,7 +95,7 @@ def tube(m, pts, radii, sides, color_fn):
 def tile_uv(tile, inset=1.5 / 128):
     col, row = tile % 4, tile // 4
     u0, u1 = col / 4 + inset / 4, (col + 1) / 4 - inset / 4
-    v0, v1 = row / 2 + inset / 2, (row + 1) / 2 - inset / 2
+    v0, v1 = row / 4 + inset / 4, (row + 1) / 4 - inset / 4
     return u0, u1, v0, v1
 
 
@@ -114,11 +125,13 @@ def cards(m, centers, normals_out, sizes, tiles, colors, rng, orient=None, aspec
     m.add(P.reshape(-1, 3), N.reshape(-1, 3), Cc.reshape(-1, 3), UV.reshape(-1, 2), base.reshape(-1))
 
 
-def make_tree(cls, variant):
-    p = CLASSES[cls]
+def make_tree(cls, variant, lod=0):
+    p = dict(CLASSES[cls])
+    if lod:
+        p["cards"] = int(p["cards"] * .3); p["size"] *= 1.75; p["nb"] = max(4, p["nb"] - 3); p["lod"] = 1
     rng = np.random.default_rng(hash((cls, variant)) % (2**32) if False else (sum(map(ord, cls)) * 131 + variant * 7919))
     bark, fol = Mesh(), Mesh()
-    th, tr = p["th"] * rng.uniform(.9, 1.1), p["tr"] * rng.uniform(.9, 1.15)
+    th, tr = p["th"] * rng.uniform(.9, 1.1), p["tr"] * .75 * rng.uniform(.9, 1.15)
     bc = np.array(p["bark"])
     mot = p.get("mottle")
 
@@ -142,6 +155,8 @@ def make_tree(cls, variant):
     flare = np.linspace(1.25, 1, k) ** 3
     tube(bark, trunk_pts, tr * .8 * flare * np.linspace(1, .75, k), 7, bark_col)
     top = trunk_pts[-1]
+    global ZB
+    ZB = th * .9 if not p.get('cone') else th
 
     if p.get("cone"):
         return make_conifer(p, rng, bark, fol, top, th, variant, bark_col)
@@ -236,13 +251,13 @@ def make_conifer(p, rng, bark, fol, top, th, variant, bark_col):
     tube(bark, np.stack([np.zeros(5) + np.sin(ys * 7) * .004, ys, np.zeros(5)], 1),
          np.linspace(p["tr"] * .8, .004, 5), 6, bark_col)
     pal = np.array(p["col"])
-    n_whorl = 13
+    n_whorl = 7 if p.get('lod') else 13
     cs, nr, sz, ti, co, ori, asp = [], [], [], [], [], [], []
     for w in range(n_whorl):
         t = w / (n_whorl - 1)
         y = th + (tip - th - .03) * t
         R = .5 * (1 - t) ** .95 * (1.0 if t < .97 else .2)
-        nb = int(round(6 + 5 * (1 - t))) + (variant % 2)
+        nb = int(round(6 + 5 * (1 - t))) + (variant % 2) - (3 if p.get('lod') else 0)
         phase = rng.uniform(0, 6.28)
         for b in range(nb):
             a = phase + 2 * math.pi * b / nb + rng.uniform(-.25, .25)
@@ -257,7 +272,7 @@ def make_conifer(p, rng, bark, fol, top, th, variant, bark_col):
                 f = (q + .6) / ncard
                 c = d * L * f + [0, y - droop * f - .005, 0]
                 cs.append(c); ori.append(unit(np.array([0, 1., 0]) + d * .0 + rng.normal(size=3) * .12))
-                nr.append(unit(d + [0, .5, 0])); sz.append(max(.17, L * 1.15 / ncard * 1.5))
+                nr.append(unit(d + [0, .5, 0])); sz.append(max(.17, L * 1.15 / ncard * 1.5) * (1.5 if p.get('lod') else 1))
                 ti.append(5); asp.append(1.0)
                 co.append(pal[rng.integers(len(pal))] * rng.uniform(.8, 1.12) * (.7 + .4 * (1 - t) * 0 + .35 * f + .2 * t))
     cs, nr = np.array(cs), np.array(nr)
@@ -307,6 +322,7 @@ def normalise(bark, fol):
         cc = a[2] if a is fp else np.clip(a[2], 0, 1) ** 2.2
         N = a[1].copy(); N[:, 1] /= sy / sx; N /= np.maximum(np.linalg.norm(N, axis=1, keepdims=True), 1e-9)
         out.append((P, N, cc, a[3], a[4]))
+    out.append(((ZB - lo[1]) * sy))
     return out
 
 
@@ -315,7 +331,6 @@ def pad4(b):
 
 
 def write_glb(path, prims, name):
-    atlas = ATLAS.read_bytes()
     buf = bytearray(); views = []; accs = []
 
     def view(data, target=None):
@@ -342,23 +357,14 @@ def write_glb(path, prims, name):
         if k == 1: attrs["TEXCOORD_0"] = acc(np.round(np.clip(UV, 0, 1) * 65535).astype("<u2"), "VEC2", 5123, 34962, norm=True)
         ind = acc(I.astype("<u2"), "SCALAR", 5123, 34963)
         gprims.append({"attributes": attrs, "indices": ind, "material": k, "mode": 4})
-    img = view(atlas)
     gltf = {
         "asset": {"version": "2.0", "generator": "sandboxzurich pipeline/trees/gen_trees.py (WTFPL)"},
-        "extensionsUsed": ["EXT_texture_webp"], "extensionsRequired": ["EXT_texture_webp"],
         "scene": 0, "scenes": [{"nodes": [0]}], "nodes": [{"mesh": 0, "name": name}],
         "meshes": [{"name": name, "primitives": gprims}],
-        "materials": [
-            {"name": "bark", "pbrMetallicRoughness": {"baseColorFactor": [1, 1, 1, 1], "metallicFactor": 0, "roughnessFactor": 1}},
-            {"name": "foliage", "alphaMode": "MASK", "alphaCutoff": 0.5, "doubleSided": True,
-             "pbrMetallicRoughness": {"baseColorTexture": {"index": 0}, "metallicFactor": 0, "roughnessFactor": 1}}],
-        "textures": [{"source": 0, "sampler": 0, "extensions": {"EXT_texture_webp": {"source": 0}}}],
-        "samplers": [{"magFilter": 9729, "minFilter": 9987, "wrapS": 33071, "wrapT": 33071}],
-        "images": [{"bufferView": img, "mimeType": "image/webp"}],
+        "materials": [{"name": "bark", "pbrMetallicRoughness": {"metallicFactor": 0, "roughnessFactor": 1}},
+                      {"name": "foliage", "alphaMode": "MASK", "doubleSided": True, "pbrMetallicRoughness": {"metallicFactor": 0, "roughnessFactor": 1}}],
         "bufferViews": views, "accessors": accs, "buffers": [{"byteLength": len(buf)}],
     }
-    # EXT_texture_webp textures: keep fallback-less source in extension only
-    del gltf["textures"][0]["source"]
     js = pad4(json.dumps(gltf, separators=(",", ":")).encode()).replace(b"\x00", b" ") if False else json.dumps(gltf, separators=(",", ":")).encode()
     js += b" " * ((4 - len(js) % 4) % 4)
     bn = bytes(buf) + b"\x00" * ((4 - len(buf) % 4) % 4)
@@ -373,20 +379,20 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     manifest = []; rows = []
     for cls in CLASSES:
-        for v in (0, 1):
-            bark, fol = make_tree(cls, v)
-            prims = normalise(bark, fol)
-            f = f"{cls}_{v}.glb"
-            write_glb(OUT / f, prims, f"{cls}_{v}")
+        for v, lod in ((0, 0), (1, 0), (0, 1)):
+            bark, fol = make_tree(cls, v, lod)
+            *prims, zb = normalise(bark, fol)
+            f = f"{cls}_{v}.glb" if not lod else f"{cls}_lod1.glb"
+            write_glb(OUT / f, prims, f.replace(".glb", ""))
             tris = sum(len(p[4]) // 3 for p in prims)
             kb = (OUT / f).stat().st_size / 1024
-            manifest.append({"cls": cls, "file": f, "variant": v})
+            manifest.append({"cls": cls, "file": f, "variant": v, "lod": lod, "zb": round(float(zb), 3), "tris": tris})
             rows.append((f, tris, kb))
-            print(f"{f:20s} tris={tris:5d} kb={kb:6.1f}")
+            print(f"{f:20s} tris={tris:5d} kb={kb:6.1f} zb={zb:.2f}")
     (OUT / "manifest.json").write_text(json.dumps(manifest, indent=1))
     lines = ["# Baummodelle (pipeline/trees)", "",
              "Erzeugt per `python3 pipeline/trees/atlas.py && python3 pipeline/trees/gen_trees.py` (numpy/PIL, reproduzierbar, seeded).",
-             "Pro GLB: 1 Mesh, 2 Primitives (Rinde opak, Laub alphaMode MASK mit Atlas `leaves.webp`, im GLB eingebettet, EXT_texture_webp).",
+             "Pro GLB: 1 Mesh, 2 Primitives (Rinde, Laub). Der Blattatlas `leaves.webp` (4x4 Kacheln) wird einmal separat geladen. `_lod1` = vereinfachte Mittel-LOD.",
              "Normiert: Höhe 1, Kronendurchmesser 1, Ursprung Stammfuss, Y oben.", "",
              "| Datei | Tris | KB | Lizenz |", "|---|---|---|---|"]
     lines += [f"| {f} | {t} | {k:.0f} | eigene Erzeugung, WTFPL |" for f, t, k in rows]

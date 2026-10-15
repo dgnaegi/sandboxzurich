@@ -213,6 +213,10 @@ G = [('2026-01-14','20:00','Glistening (Remembering the Unknown)','DIVAS, Premie
 for i,(d,t,ti,su,k,l,n) in enumerate(G):
     out.append(dict(id=f'ga-{d}-{i}', title=ti, subtitle=su or None, date=d, time=t, venue='Gessnerallee', address='Gessnerallee 8, 8001 Zürich', kind=k, lineup=l, price=None,
         organizer='Gessnerallee Zürich', source_url='https://web.archive.org/web/20251015/https://gessnerallee.ch/de/programm', political=False, approval_needed=False, note=n+'; Jahr 2026 per Wochentagsprüfung', dates=None))
+from build_events2 import round2
+out += round2()
+ids = [e['id'] for e in out]
+assert len(ids) == len(set(ids)), 'duplicate ids'
 out.sort(key=lambda x: x['date'])
 json.dump(out, open(HERE / 'events.json', 'w'), ensure_ascii=False, indent=1)
 import collections
