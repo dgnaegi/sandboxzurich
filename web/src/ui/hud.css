@@ -57,6 +57,7 @@ body.touch #help { display: none; }
 #prompt { position: fixed; left: 50%; bottom: calc(80px + env(safe-area-inset-bottom)); transform: translateX(-50%); background: #000b; color: #fff; padding: 8px 14px; border-radius: 6px; font: 700 15px Barlow, sans-serif; display: none; pointer-events: none; }
 #touchbtns { position: fixed; right: calc(18px + env(safe-area-inset-right)); bottom: calc(40px + env(safe-area-inset-bottom)); display: none; gap: 14px; }
 body.touch #touchbtns { display: flex; }
+#touchbtns button.on { background: #e4007dcc; border-color: #fff; }
 #touchbtns button { width: 66px; height: 66px; border-radius: 50%; border: 3px solid #fff9; background: #0007; color: #fff; font: 28px Anton, sans-serif; }
 #btn-menu { position: fixed; right: calc(16px + env(safe-area-inset-right)); top: calc(150px + env(safe-area-inset-top)); width: 42px; height: 42px; border-radius: 8px; border: 2px solid #fff6; background: #0008; color: #fff; font-size: 22px; cursor: pointer; }
 #menu { position: fixed; inset: 0; display: none; place-items: center; background: radial-gradient(#3a2a4acc, #120d18ee); z-index: 20; }

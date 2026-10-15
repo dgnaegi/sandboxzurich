@@ -39,6 +39,9 @@ Wird am Ende jedes Arbeitsschritts überschrieben. Eine neue Session liest das z
 - Messung: Handy ≤ 251 Calls (Wiedikon), ≤ 1.27 Mio Dreiecke, 60 fps; PC ≤ 501 Calls, ≤ 3.4 Mio. Event-Requisiten werden pro Material gemergt (`world/mergestatic.ts`).
 - Tests grün (gameplay prüft jetzt «Quests aus»). Bild: `preview/zwischenstand_2026-10-15b.jpg`.
 - Nachtplan (wartet auf «los» des Users): Quellen-Recherche texturiertes Stadtmodell, Fassaden-Generator v3, Farb-/Stilnotizen für alle Adressen (Mapillary-Token erbeten), Bäume aus swissSURFACE3D, Strassen v2, Landmarks Runde 3, Nacht-QA.
+  - Ergänzt 2026-10-15 (User): **viel detaillierter.** Für alle relevanten Gebäude (Volkshaus usw.), Plätze und Restaurants/Lokale deutlich mehr Fotos suchen und sich stärker daran orientieren. Erlaubte Quellen: Commons, Mapillary, Panoramax (mit Lizenz in `research/`). Google und Websites der Läden nur zum Anschauen, nicht herunterladen und keine Logos übernehmen (DATA_SOURCES.md). Ablauf: pro Ort einen Kontaktbogen anlegen, daraus Notizen zu Farbe, Material, Fenstern und Ladenfront schreiben und erst dann modellieren. QA durch Bildvergleich Spiel vs. Referenz.
+  - Bug (User 2026-10-15): Viele Strassenmarkierungen und -objekte sind um 90° verdreht, z. B. Velo-Piktogramme. Alle Decals und Signale auf ihre Ausrichtung zur Fahrtrichtung prüfen (`streets_rules.py`, `world/decals.ts`, `world/trafficsigns.ts`) und mit Draufsicht-Screenshots kontrollieren.
+  - Erledigt, noch nicht committet: Laufen überarbeitet (Gehen 1.7, Rennen 5.0 m/s, passend zu den Animationen; Beschleunigung; ⇧-Knopf auf Touch als Umschalter).
 
 ## Offen / Nächstes
 1. Landmarks verfeinern: Prime Tower, Schiffbau, Lochergut, St. Jakob, Kalkbreite, Bullingerkirche, Kanzlei noch grob; Hardau-Farben geschätzt; Grabfelder Sihlfeld fehlen. Offen Strassen: rote Velofurten, Sperrflächen, Abbiegepfeile, Tramhaltestellen-Inseln (research/streets_audit.md). Autos fahren durch Baustellen.

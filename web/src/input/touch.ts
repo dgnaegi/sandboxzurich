@@ -6,11 +6,12 @@ export function initTouch(stick: HTMLElement, knob: HTMLElement) {
   let moveId: number | null = null, lookId: number | null = null;
   let ox = 0, oy = 0, lx = 0, ly = 0;
 
-  // on-screen buttons handle their own touches
-  for (const [id, on] of [['btn-use', () => { actions.use = true; }], ['btn-run', () => { actions.run = true; }]] as const) {
+  // on-screen buttons handle their own touches; run is a toggle so the right thumb stays free for the camera
+  const runBtn = document.getElementById('btn-run');
+  const setRun = (on: boolean) => { actions.run = on; runBtn?.classList.toggle('on', on); };
+  for (const [id, on] of [['btn-use', () => { actions.use = true; }], ['btn-run', () => setRun(!actions.run)]] as const) {
     const b = document.getElementById(id);
     b?.addEventListener('touchstart', (e) => { e.stopPropagation(); e.preventDefault(); on(); }, { passive: false });
-    if (id === 'btn-run') b?.addEventListener('touchend', (e) => { e.stopPropagation(); actions.run = false; });
   }
   const isUi = (t: EventTarget | null) => !!(t as HTMLElement | null)?.closest?.('button, #radar, #bigmap, #menu');
   const start = (e: TouchEvent) => {
@@ -48,7 +49,7 @@ export function initTouch(stick: HTMLElement, knob: HTMLElement) {
     for (const t of Array.from(e.changedTouches)) {
       if (t.identifier === moveId) {
         moveId = null; stick.style.display = 'none'; knob.style.transform = '';
-        actions.move.x = actions.move.y = 0; actions.run = false;
+        actions.move.x = actions.move.y = 0; setRun(false);
       } else if (t.identifier === lookId) lookId = null;
     }
   };
