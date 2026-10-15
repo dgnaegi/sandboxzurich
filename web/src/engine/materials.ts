@@ -98,7 +98,7 @@ export async function loadWorldMaterial(base: string, anisotropy: number, pbr = 
       .replace('#include <metalnessmap_fragment>', '#include <metalnessmap_fragment>\n' + (pbr ? 'metalnessFactor = glass * 0.4;' : ''))
       .replace('#include <lights_fragment_maps>', '#include <lights_fragment_maps>\n' + (pbr ? 'irradiance *= hemiK;' : ''))
       .replace('#include <normal_fragment_maps>', '#include <normal_fragment_maps>\n' + normalPatch(N, A3, B3, gN, pbr))
-      .replace('#include <emissivemap_fragment>', '#include <emissivemap_fragment>\ntotalEmissiveRadiance += nightEmissive(tx, floor(vLayer + 0.5), vWorld);\nif (night > 0.02) totalEmissiveRadiance += diffuseColor.rgb * nightLight(vWorld, normalize(vWN)) * night;');
+      .replace('#include <emissivemap_fragment>', '#include <emissivemap_fragment>\ntotalEmissiveRadiance += nightEmissive(tx, floor(vLayer + 0.5), vWorld);\nif (night > 0.12) totalEmissiveRadiance += diffuseColor.rgb * nightLight(vWorld, normalize(vWN)) * (night - 0.12) * 1.14;');
   };
   return mat;
 }
