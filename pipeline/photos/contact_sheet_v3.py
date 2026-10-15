@@ -12,7 +12,8 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-META = ROOT / "research" / "v3" / "photos.json"
+import os
+META = ROOT / "research" / "v3" / os.environ.get("PHOTOS_META", "photos.json")
 COLS, W, HH = 4, 400, 300
 
 

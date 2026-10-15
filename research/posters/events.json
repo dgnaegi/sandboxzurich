@@ -1,0 +1,2848 @@
+[
+ {
+  "id": "rf-3130",
+  "title": "Tanzfaktor 2022",
+  "subtitle": "YEAH YEAH YEAH - Zürcher Tanzfestival",
+  "date": "2022-01-28",
+  "time": "Türen 19:30, Beginn 20:00",
+  "venue": "Rote Fabrik (Aktionshalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Tanzfaktor 2022"
+  ],
+  "price": null,
+  "organizer": "Fabriktheater Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-01-28&to=2022-01-28",
+  "political": false,
+  "approval_needed": false,
+  "note": "YEAH YEAH YEAH Zürcher Tanzfestival",
+  "dates": [
+   "2022-01-28",
+   "2022-01-29"
+  ]
+ },
+ {
+  "id": "rf-3611",
+  "title": "Golden Dawn - A Public Affair",
+  "subtitle": "How to resist?",
+  "date": "2022-02-10",
+  "time": "Türen 18:30, Beginn 19:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "film",
+  "lineup": [
+   "Golden Dawn - A Public Affair (Film)"
+  ],
+  "price": "Kollekte",
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-02-10&to=2022-02-10",
+  "political": true,
+  "approval_needed": true,
+  "note": "Doku zum Golden-Dawn-Prozess, Filmabend mit Podium",
+  "dates": null
+ },
+ {
+  "id": "rf-3471",
+  "title": "RTFM",
+  "subtitle": "GABBERNIGHT",
+  "date": "2022-02-12",
+  "time": "23:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "party",
+  "lineup": [
+   "RTFM"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-02-12&to=2022-02-12",
+  "political": false,
+  "approval_needed": false,
+  "note": "Gabbernight",
+  "dates": null
+ },
+ {
+  "id": "rf-3472",
+  "title": "FERAL CURSE",
+  "subtitle": "presented by HAJJ & Martin Cramatte",
+  "date": "2022-02-18",
+  "time": "22:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Hajj",
+   "Martin Cramatte"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-02-18&to=2022-02-18",
+  "political": false,
+  "approval_needed": false,
+  "note": "Feral Curse",
+  "dates": null
+ },
+ {
+  "id": "rf-3760",
+  "title": "Hagger & Eva im Paradies",
+  "subtitle": "HAGGERRAVE",
+  "date": "2022-02-19",
+  "time": "23:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Hagger",
+   "Eva im Paradies"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-02-19&to=2022-02-19",
+  "political": false,
+  "approval_needed": false,
+  "note": "Haggerrave",
+  "dates": null
+ },
+ {
+  "id": "rf-3417",
+  "title": "Fabrik Slam #85",
+  "subtitle": "Die altbewährte Poetry Slam Veranstalungsreihe aka. Perle am See!",
+  "date": "2022-02-19",
+  "time": "Türen 19:30, Beginn 20:30",
+  "venue": "Rote Fabrik (Aktionshalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "reading",
+  "lineup": [
+   "Fabrik Slam #85"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-02-19&to=2022-02-19",
+  "political": false,
+  "approval_needed": false,
+  "note": "Poetry Slam",
+  "dates": null
+ },
+ {
+  "id": "rf-2883",
+  "title": "Über Wunden",
+  "subtitle": "Theater von Infinite Cooperation",
+  "date": "2022-02-25",
+  "time": "Türen 19:30, Beginn 20:00",
+  "venue": "Rote Fabrik (Fabriktheater)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Infinite Cooperation"
+  ],
+  "price": null,
+  "organizer": "Fabriktheater Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-02-25&to=2022-02-25",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": [
+   "2022-02-25",
+   "2022-02-27",
+   "2022-03-03",
+   "2022-03-04",
+   "2022-03-05",
+   "2022-03-11",
+   "2022-03-12"
+  ]
+ },
+ {
+  "id": "rf-3833",
+  "title": "Protozone 6: Are you coming?",
+  "subtitle": "Protozone 6: Are you coming?",
+  "date": "2022-03-04",
+  "time": "17:00",
+  "venue": "Rote Fabrik (Shedhalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "exhibition",
+  "lineup": [
+   "ProtoZone 6"
+  ],
+  "price": null,
+  "organizer": "Shedhalle Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-03-04&to=2022-03-04",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": [
+   "2022-03-04",
+   "2022-03-05",
+   "2022-03-06",
+   "2022-05-14",
+   "2022-05-15"
+  ]
+ },
+ {
+  "id": "rf-3538",
+  "title": "John Grant",
+  "subtitle": "PIER",
+  "date": "2022-03-22",
+  "time": "20:00",
+  "venue": "Rote Fabrik (Aktionshalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "John Grant"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-03-22&to=2022-03-22",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": null
+ },
+ {
+  "id": "rf-3817",
+  "title": "Pizza Cup Teilchenbeschleuniger",
+  "subtitle": "Mountainbike und Velo Flohmarkt",
+  "date": "2022-04-10",
+  "time": "13:00",
+  "venue": "Rote Fabrik (Aktionshalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "market",
+  "lineup": [
+   "Pizza Cup Teilchenbeschleuniger"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-04-10&to=2022-04-10",
+  "political": false,
+  "approval_needed": false,
+  "note": "Mountainbike- und Velo-Flohmarkt",
+  "dates": null
+ },
+ {
+  "id": "rf-3349",
+  "title": "Nothing",
+  "subtitle": "The Waltz",
+  "date": "2022-04-29",
+  "time": "20:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Nothing",
+   "The Waltz"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-04-29&to=2022-04-29",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": null
+ },
+ {
+  "id": "rf-3422",
+  "title": "WOZ Jubiläum",
+  "subtitle": "Jubiläum der Wochenzeitung WOZ, Medienhaus, keine Partei",
+  "date": "2022-05-07",
+  "time": "20:00",
+  "venue": "Rote Fabrik (Aktionshalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "WOZ Jubiläum (Programm siehe Quelle)"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-05-07&to=2022-05-07",
+  "political": false,
+  "approval_needed": false,
+  "note": "Jubiläum der Wochenzeitung WOZ, Medienhaus, keine Partei",
+  "dates": null
+ },
+ {
+  "id": "rf-3202",
+  "title": "mediterranean music festival",
+  "subtitle": "Smyrna-und Rebetiko-Lieder (Griechenland - Schweiz)",
+  "date": "2022-05-13",
+  "time": "Türen 19:30, Beginn 20:00",
+  "venue": "Rote Fabrik (Aktionshalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "Smyrna- und Rebetiko-Lieder (GR/CH)"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-05-13&to=2022-05-13",
+  "political": false,
+  "approval_needed": false,
+  "note": "mediterranean music festival 2022",
+  "dates": null
+ },
+ {
+  "id": "rf-3338",
+  "title": "DIIV",
+  "subtitle": "Storefront Church",
+  "date": "2022-05-19",
+  "time": "20:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "DIIV",
+   "Storefront Church"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-05-19&to=2022-05-19",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": null
+ },
+ {
+  "id": "rf-3761",
+  "title": "TAG DER OFFENEN FABRIK / QUARTIERFEST / LINKES SEEUFER FÜR ALLE",
+  "subtitle": "Tag der offenen Fabrik / Quartierfest",
+  "date": "2022-05-21",
+  "time": "19:00",
+  "venue": "Rote Fabrik",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "Rote Fabrik"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Areal)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-05-21&to=2022-05-21",
+  "political": false,
+  "approval_needed": false,
+  "note": "Tag der offenen Fabrik / Quartierfest",
+  "dates": [
+   "2022-05-21",
+   "2022-05-22"
+  ]
+ },
+ {
+  "id": "rf-3485",
+  "title": "Wir haben noch nicht vergessen: SOLI FÜR AFGHANISTAN",
+  "subtitle": "INFOABEND UND PARTY",
+  "date": "2022-05-21",
+  "time": "16:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "political",
+  "lineup": [
+   "Soli-Infoabend und Party"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-05-21&to=2022-05-21",
+  "political": true,
+  "approval_needed": true,
+  "note": "Soli für Afghanistan: humanitärer Anlass, Trägerschaft in Quelle nicht benannt",
+  "dates": null
+ },
+ {
+  "id": "rf-3184",
+  "title": "Rhizom",
+  "subtitle": "DEDICATED CLUB-CULTURE FESTIVAL, WORKING BEYOND AND ACROSS DISCIPLINES.",
+  "date": "2022-06-04",
+  "time": "20:00",
+  "venue": "Rote Fabrik (Aktionshalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "VAZEM Kollektiv"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-06-04&to=2022-06-04",
+  "political": false,
+  "approval_needed": false,
+  "note": "Rhizom, Club-Kultur-Festival",
+  "dates": [
+   "2022-06-04",
+   "2022-06-05",
+   "2022-06-06"
+  ]
+ },
+ {
+  "id": "rf-3788",
+  "title": "Lesung Franziska Tschinderle",
+  "subtitle": "Albanien - aus der Isolation in eine europäische Zukunft",
+  "date": "2022-06-24",
+  "time": "Türen 19:30, Beginn 20:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "reading",
+  "lineup": [
+   "Franziska Tschinderle"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-06-24&to=2022-06-24",
+  "political": false,
+  "approval_needed": false,
+  "note": "Lesung «Albanien»",
+  "dates": null
+ },
+ {
+  "id": "rf-3989",
+  "title": "10. dadaFestWochen",
+  "subtitle": "Why Zürich was the place to be in 1992",
+  "date": "2022-07-07",
+  "time": "Türen 19:30, Beginn 20:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "film",
+  "lineup": [
+   "dadaFestWochen: Why Zürich was the place to be in 1992"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-07-07&to=2022-07-07",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": null
+ },
+ {
+  "id": "rf-3247",
+  "title": "Offside",
+  "subtitle": "Freiluftkino - zum 39 Mal: Stadtgeschichten",
+  "date": "2022-07-14",
+  "time": "Türen 20:30, Beginn 21:30",
+  "venue": "Rote Fabrik (Am See)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "film",
+  "lineup": [
+   "Offside (Stadtgeschichten)"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-07-14&to=2022-07-14",
+  "political": false,
+  "approval_needed": false,
+  "note": "Freiluftkino Rote Fabrik, 39. Mal",
+  "dates": null
+ },
+ {
+  "id": "rf-3686",
+  "title": "Protoje",
+  "subtitle": "Warm-Up mit DJ Buzz (Boss Hi-Fi)",
+  "date": "2022-07-17",
+  "time": "18:00",
+  "venue": "Rote Fabrik (Am See)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Protoje",
+   "DJ Buzz (Boss Hi-Fi)"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-07-17&to=2022-07-17",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": null
+ },
+ {
+  "id": "rf-4083",
+  "title": "ROTA",
+  "subtitle": "Soli von und für die migrantische Selbstorganisation",
+  "date": "2022-07-30",
+  "time": "19:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "political",
+  "lineup": [
+   "ROTA (migrantische Selbstorganisation)"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-07-30&to=2022-07-30",
+  "political": true,
+  "approval_needed": true,
+  "note": "Soli von und für ROTA, Selbstorganisation von MigrantInnen v.a. aus Türkei/Kurdistan und Naher Osten; Verbindungen/Positionen vor Verwendung prüfen",
+  "dates": null
+ },
+ {
+  "id": "rf-3327",
+  "title": "Lethargy",
+  "subtitle": "Lethargy 28. Ausgabe, Freitag und Samstag",
+  "date": "2022-08-12",
+  "time": "19:00",
+  "venue": "Rote Fabrik",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "Grandbrothers",
+   "Battles",
+   "Reverend Beat-Man & The Underground",
+   "Islandman",
+   "Fango",
+   "Chloé",
+   "Ikan Hyu",
+   "Timothy J. Fairplay",
+   "Flexfab & Ziller Bas",
+   "Black Merlin",
+   "Knarf Rellöm Arkestra"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-08-12&to=2022-08-12",
+  "political": false,
+  "approval_needed": false,
+  "note": "Lethargy 28. Ausgabe, Freitag und Samstag",
+  "dates": [
+   "2022-08-12",
+   "2022-08-13",
+   "2022-08-14"
+  ]
+ },
+ {
+  "id": "rf-3917",
+  "title": "King Hannah | Pina Palau",
+  "subtitle": "Support: Pina Palau",
+  "date": "2022-08-24",
+  "time": "20:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "King Hannah",
+   "Pina Palau"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-08-24&to=2022-08-24",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": null
+ },
+ {
+  "id": "rf-3946",
+  "title": "lila. queer festival",
+  "subtitle": "lila. queer festival 2022",
+  "date": "2022-09-15",
+  "time": "19:00",
+  "venue": "Rote Fabrik (Aktionshalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "Milchjugend (Kollektiv)"
+  ],
+  "price": "CHF 20 / 30",
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-09-15&to=2022-09-15",
+  "political": false,
+  "approval_needed": false,
+  "note": "lila. queer festival 2022",
+  "dates": [
+   "2022-09-15",
+   "2022-09-16",
+   "2022-09-17"
+  ]
+ },
+ {
+  "id": "rf-4163",
+  "title": "Protozone8: Queer Trust",
+  "subtitle": "Protozone8: Queer Trust",
+  "date": "2022-09-16",
+  "time": "18:00",
+  "venue": "Rote Fabrik (Shedhalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "exhibition",
+  "lineup": [
+   "ProtoZone 8: Queer Trust"
+  ],
+  "price": null,
+  "organizer": "Shedhalle Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-09-16&to=2022-09-16",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": [
+   "2022-09-16",
+   "2022-09-17",
+   "2022-09-18",
+   "2022-09-24",
+   "2022-09-25",
+   "2022-10-01",
+   "2022-10-02",
+   "2022-10-08",
+   "2022-10-09",
+   "2022-10-15",
+   "2022-10-16",
+   "2022-10-22",
+   "2022-10-23",
+   "2022-10-29",
+   "2022-10-30",
+   "2022-11-05",
+   "2022-11-06",
+   "2022-11-12",
+   "2022-11-13",
+   "2022-11-19",
+   "2022-11-20",
+   "2022-11-26",
+   "2022-11-27",
+   "2022-12-03",
+   "2022-12-04"
+  ]
+ },
+ {
+  "id": "rf-3838",
+  "title": "Frida",
+  "subtitle": "Arab Soul from Beirut",
+  "date": "2022-09-29",
+  "time": "Türen 19:30, Beginn 20:00",
+  "venue": "Rote Fabrik (Aktionshalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Frida"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-09-29&to=2022-09-29",
+  "political": false,
+  "approval_needed": false,
+  "note": "Arab Soul from Beirut",
+  "dates": null
+ },
+ {
+  "id": "rf-4066",
+  "title": "read or die",
+  "subtitle": "Das leckere Literaturquiz diesmal im Rahmen von «Zürich liest»",
+  "date": "2022-10-26",
+  "time": "Türen 19:30, Beginn 20:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "reading",
+  "lineup": [
+   "read or die"
+  ],
+  "price": "Kollekte",
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-10-26&to=2022-10-26",
+  "political": false,
+  "approval_needed": false,
+  "note": "Literaturquiz",
+  "dates": null
+ },
+ {
+  "id": "rf-4055",
+  "title": "comma rave",
+  "subtitle": null,
+  "date": "2022-10-28",
+  "time": "23:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "party",
+  "lineup": [
+   "comma rave"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-10-28&to=2022-10-28",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": null
+ },
+ {
+  "id": "rf-3581",
+  "title": "Festival - Eröffnungsprogramm",
+  "subtitle": "Programm läuft im Kino Xenix",
+  "date": "2022-11-02",
+  "time": "Türen 19:00, Beginn 20:00",
+  "venue": "Rote Fabrik (Kino Xenix)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "film",
+  "lineup": [
+   "Orient Express Filmtage 2022: Eröffnung"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-11-02&to=2022-11-02",
+  "political": false,
+  "approval_needed": false,
+  "note": "Programm im Kino Xenix",
+  "dates": null
+ },
+ {
+  "id": "rf-4077",
+  "title": "Invited Ghosts",
+  "subtitle": "Phil Hayes und Taimashoe",
+  "date": "2022-11-10",
+  "time": "Türen 19:30, Beginn 20:00",
+  "venue": "Rote Fabrik (Fabriktheater)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Phil Hayes",
+   "Taimashoe"
+  ],
+  "price": null,
+  "organizer": "Fabriktheater Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-11-10&to=2022-11-10",
+  "political": false,
+  "approval_needed": false,
+  "note": "Invited Ghosts",
+  "dates": [
+   "2022-11-10",
+   "2022-11-12",
+   "2022-11-13",
+   "2022-11-15",
+   "2022-11-17",
+   "2022-11-18",
+   "2022-11-19",
+   "2022-11-22"
+  ]
+ },
+ {
+  "id": "rf-3584",
+  "title": "Bob Moses",
+  "subtitle": "Support: Catching Flies",
+  "date": "2022-11-12",
+  "time": "20:00",
+  "venue": "Rote Fabrik (Aktionshalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Bob Moses",
+   "Catching Flies"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-11-12&to=2022-11-12",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": null
+ },
+ {
+  "id": "rf-4342",
+  "title": "Boykott Fussball-WM 2022 Katar",
+  "subtitle": "Eine Veranstaltung von «Vecchia Brigata» in Zusammenarbeit mit «Vorwärts» und dem Konzeptbüro Rote Fabrik",
+  "date": "2022-11-16",
+  "time": "Türen 18:30, Beginn 19:00",
+  "venue": "Rote Fabrik (Quartierräume Bullinger)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "sport",
+  "lineup": [
+   "Vecchia Brigata"
+  ],
+  "price": "Kollekte",
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-11-16&to=2022-11-16",
+  "political": true,
+  "approval_needed": true,
+  "note": "Boykott Fussball-WM 2022 Katar, Film/Podium, fussballpolitisch",
+  "dates": null
+ },
+ {
+  "id": "rf-3758",
+  "title": "Offene Leinwand",
+  "subtitle": "Die beliebte Plattform für Liebhaber:innen aussergewöhnlicher Kleinproduktionen",
+  "date": "2022-11-17",
+  "time": "Türen 18:00, Beginn 20:00",
+  "venue": "Rote Fabrik (Aktionshalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "film",
+  "lineup": [
+   "Offene Leinwand"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-11-17&to=2022-11-17",
+  "political": false,
+  "approval_needed": false,
+  "note": "Plattform für Kurzfilme",
+  "dates": null
+ },
+ {
+  "id": "rf-3781",
+  "title": "mesh",
+  "subtitle": "meta rave X zima techno",
+  "date": "2022-11-18",
+  "time": "22:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "party",
+  "lineup": [
+   "meta rave",
+   "zima techno"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-11-18&to=2022-11-18",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": null
+ },
+ {
+  "id": "rf-3645",
+  "title": "Vintage Computer Festival #22",
+  "subtitle": "Digitalisierung der Maschinen im 20. und frühen 21.Jahrhundert",
+  "date": "2022-11-19",
+  "time": "11:00",
+  "venue": "Rote Fabrik (Aktionshalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "Vintage Computer Festival Zürich #22"
+  ],
+  "price": null,
+  "organizer": "shapey (Rote Fabrik)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-11-19&to=2022-11-19",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": [
+   "2022-11-19",
+   "2022-11-20"
+  ]
+ },
+ {
+  "id": "rf-3587",
+  "title": "Unerhört 22",
+  "subtitle": "Unerhört 22 Jazzfestival",
+  "date": "2022-11-25",
+  "time": "19:30",
+  "venue": "Rote Fabrik (Fabriktheater)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "HSLU Big Band",
+   "Ingrid Laubrock"
+  ],
+  "price": "CHF 45",
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-11-25&to=2022-11-25",
+  "political": false,
+  "approval_needed": false,
+  "note": "Unerhört 22 Jazzfestival",
+  "dates": null
+ },
+ {
+  "id": "rf-4435",
+  "title": "Protozone9 Weak.End.Opera",
+  "subtitle": "mit Selma Selman, Mikołaj Sobczak und Nicholas Grafia",
+  "date": "2022-12-16",
+  "time": "Türen 18:00, Beginn 19:00",
+  "venue": "Rote Fabrik (Shedhalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "exhibition",
+  "lineup": [
+   "Selma Selman",
+   "Mikołaj Sobczak",
+   "Nicholas Grafia"
+  ],
+  "price": "CHF 5 / 15 / 25",
+  "organizer": "Shedhalle Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2022-12-16&to=2022-12-16",
+  "political": false,
+  "approval_needed": false,
+  "note": "ProtoZone 9 Weak.End.Opera",
+  "dates": [
+   "2022-12-16",
+   "2022-12-17",
+   "2022-12-18",
+   "2022-12-24",
+   "2022-12-25",
+   "2022-12-26",
+   "2022-12-27",
+   "2022-12-28",
+   "2022-12-29",
+   "2022-12-30",
+   "2023-01-07",
+   "2023-01-08",
+   "2023-01-14",
+   "2023-01-15"
+  ]
+ },
+ {
+  "id": "hk-2023-03-07-0",
+  "title": "Apollo Brown",
+  "subtitle": "«fruit of the boom»",
+  "date": "2023-03-07",
+  "time": "20:30",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Apollo Brown"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20230227134025/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "hk-2023-03-18-1",
+  "title": "darkness 4eva",
+  "subtitle": "Blanche Biau + Mistress + sch_tsch",
+  "date": "2023-03-18",
+  "time": "21:30",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Blanche Biau",
+   "Mistress",
+   "sch_tsch"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20230227134025/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "rf-4489",
+  "title": "Teilchenbeschleuniger",
+  "subtitle": "PizzaCup - Der Flohmarkt für Bikes und Veloteile",
+  "date": "2023-03-26",
+  "time": "13:00",
+  "venue": "Kunstraum Walcheturm (Rote Fabrik)",
+  "address": "Walcheplatz, 8006 Zürich",
+  "kind": "market",
+  "lineup": [
+   "PizzaCup Teilchenbeschleuniger"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2023-03-26&to=2023-03-26",
+  "political": false,
+  "approval_needed": false,
+  "note": "Flohmarkt für Bikes und Veloteile (Kunstraum Walcheturm)",
+  "dates": null
+ },
+ {
+  "id": "hk-2023-03-26-2",
+  "title": "District Five",
+  "subtitle": "Residenz, monatlich",
+  "date": "2023-03-26",
+  "time": "20:45",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "District Five"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20230227134025/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "hk-2023-03-31-3",
+  "title": "Queer Balkan Disco",
+  "subtitle": "mit The Nozez",
+  "date": "2023-03-31",
+  "time": "21:30",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "party",
+  "lineup": [
+   "The Nozez"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20230227134025/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "rf-4213",
+  "title": "Fabrik Slam #95",
+  "subtitle": "Der letzte Poetry Slam vor der Sommerpause",
+  "date": "2023-04-14",
+  "time": "Türen 19:30, Beginn 20:30",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "reading",
+  "lineup": [
+   "Fabrik Slam #95"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2023-04-14&to=2023-04-14",
+  "political": false,
+  "approval_needed": false,
+  "note": "Poetry Slam",
+  "dates": null
+ },
+ {
+  "id": "rf-4617",
+  "title": "Soliparty feministischer Streik 23",
+  "subtitle": "Soliparty zum feministischen Streik",
+  "date": "2023-05-19",
+  "time": "21:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "political",
+  "lineup": [
+   "Soliparty feministischer Streik 23"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2023-05-19&to=2023-05-19",
+  "political": true,
+  "approval_needed": true,
+  "note": "Soliparty zum feministischen Streik",
+  "dates": null
+ },
+ {
+  "id": "rf-4592",
+  "title": "THE OTHER HALF",
+  "subtitle": "Langzeitdokumentation zu Flüchtlingsschicksalen",
+  "date": "2023-05-24",
+  "time": "19:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "film",
+  "lineup": [
+   "The Other Half (Doku)"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2023-05-24&to=2023-05-24",
+  "political": false,
+  "approval_needed": false,
+  "note": "Langzeitdoku Flüchtlingsschicksal",
+  "dates": null
+ },
+ {
+  "id": "rf-4136",
+  "title": "ZH Dub Corner",
+  "subtitle": null,
+  "date": "2023-06-03",
+  "time": "22:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "party",
+  "lineup": [
+   "ZH Dub Corner"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2023-06-03&to=2023-06-03",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": null
+ },
+ {
+  "id": "rf-4601",
+  "title": "CSD ZUREICH",
+  "subtitle": "SOLIPARTY",
+  "date": "2023-06-24",
+  "time": "22:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "political",
+  "lineup": [
+   "CSD Zureich"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2023-06-24&to=2023-06-24",
+  "political": true,
+  "approval_needed": true,
+  "note": "Soliparty zur Demo «CSD Zureich» (queere Demo, antikapitalistisch)",
+  "dates": null
+ },
+ {
+  "id": "rf-4270",
+  "title": "Das HU IS HU Theaterfest 2023",
+  "subtitle": "Theaterstudio Golda Eppstein",
+  "date": "2023-07-07",
+  "time": "Türen 19:00, Beginn 19:30",
+  "venue": "Rote Fabrik (Fabriktheater)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Theaterstudio Golda Eppstein"
+  ],
+  "price": null,
+  "organizer": "Fabriktheater Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2023-07-07&to=2023-07-07",
+  "political": false,
+  "approval_needed": false,
+  "note": "HU IS HU Theaterfest 2023",
+  "dates": [
+   "2023-07-07",
+   "2023-07-08",
+   "2023-07-09"
+  ]
+ },
+ {
+  "id": "rf-4771",
+  "title": "SOLISOLIRAVE",
+  "subtitle": "Soli für den Verein solisoli",
+  "date": "2023-07-22",
+  "time": "22:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "benefit",
+  "lineup": [
+   "SOLISOLIRAVE"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2023-07-22&to=2023-07-22",
+  "political": false,
+  "approval_needed": false,
+  "note": "Soli für den Verein solisoli (Trägerschaft prüfen, ob politisch)",
+  "dates": null
+ },
+ {
+  "id": "rf-4772",
+  "title": "DACHSBAU KONZERTE & SOLI PARTY FÜR BEN48",
+  "subtitle": "Konzerte & Soli-Party für «BEN48»: Zweck in Quelle unklar, prüfen",
+  "date": "2023-07-28",
+  "time": "18:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "benefit",
+  "lineup": [
+   "Dachsbau"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2023-07-28&to=2023-07-28",
+  "political": false,
+  "approval_needed": true,
+  "note": "Konzerte & Soli-Party für «BEN48»: Zweck in Quelle unklar, prüfen",
+  "dates": null
+ },
+ {
+  "id": "rf-4298",
+  "title": "Lethargy",
+  "subtitle": "Lethargy 29th edition",
+  "date": "2023-08-11",
+  "time": "19:00",
+  "venue": "Rote Fabrik",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "Lethargy"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2023-08-11&to=2023-08-11",
+  "political": false,
+  "approval_needed": false,
+  "note": "Lethargy 29th edition",
+  "dates": [
+   "2023-08-11",
+   "2023-08-12",
+   "2023-08-13"
+  ]
+ },
+ {
+  "id": "rf-4529",
+  "title": "LoRa Fest",
+  "subtitle": "Radio LoRa - 40 Jahre widerständig!",
+  "date": "2023-09-22",
+  "time": "18:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "Radio LoRa"
+  ],
+  "price": "CHF 2",
+  "organizer": "Fremdveranstalter in der Roten Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2023-09-22&to=2023-09-22",
+  "political": false,
+  "approval_needed": false,
+  "note": "40 Jahre Radio LoRa, nichtkommerzielles Lokalradio",
+  "dates": [
+   "2023-09-22",
+   "2023-09-23"
+  ]
+ },
+ {
+  "id": "rf-4963",
+  "title": "Maralam: CLASH Digitale Auferstehungen - CLASH Digital Resurrections - كلاش بعث رقمي",
+  "subtitle": "Uraufführung von Nora Amin und Irina Kastrinidis",
+  "date": "2023-09-27",
+  "time": "Türen 19:30, Beginn 20:00",
+  "venue": "Rote Fabrik (Fabriktheater)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Nora Amin",
+   "Irina Kast"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2023-09-27&to=2023-09-27",
+  "political": false,
+  "approval_needed": false,
+  "note": "Maralam: CLASH, Uraufführung",
+  "dates": null
+ },
+ {
+  "id": "rf-4804",
+  "title": "STEFAN KUTZENBERGER",
+  "subtitle": "Mit seinem neuen Roman «KILOMETER NULL»",
+  "date": "2023-09-27",
+  "time": "Türen 19:30, Beginn 20:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "reading",
+  "lineup": [
+   "Stefan Kutzenberger"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2023-09-27&to=2023-09-27",
+  "political": false,
+  "approval_needed": false,
+  "note": "Roman «Kilometer Null»",
+  "dates": null
+ },
+ {
+  "id": "hk-2023-10-05-4",
+  "title": "Bound By Endogamy",
+  "subtitle": "transhelvetiq und helsinki",
+  "date": "2023-10-05",
+  "time": "22:00",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Bound By Endogamy"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20230922070539/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "hk-2023-10-12-5",
+  "title": "moods chez sinki",
+  "subtitle": "Anna&Stoffner, Taima&Meier",
+  "date": "2023-10-12",
+  "time": "20:30",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Anna&Stoffner",
+   "Taima&Meier"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20230922070539/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "hk-2023-10-20-6",
+  "title": "PLAYMOB.IL Albumfeier",
+  "subtitle": "EP «74»",
+  "date": "2023-10-20",
+  "time": "21:30",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Playmob.il",
+   "DJ Real Madrid"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20230922070539/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "rf-4375",
+  "title": "Motorpsycho",
+  "subtitle": null,
+  "date": "2023-10-25",
+  "time": "20:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Motorpsycho"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2023-10-25&to=2023-10-25",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": null
+ },
+ {
+  "id": "rf-4540",
+  "title": "eve & rave",
+  "subtitle": "altered states",
+  "date": "2023-10-28",
+  "time": "Türen 22:00, Beginn 23:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "party",
+  "lineup": [
+   "eve & rave"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2023-10-28&to=2023-10-28",
+  "political": false,
+  "approval_needed": false,
+  "note": "altered states",
+  "dates": null
+ },
+ {
+  "id": "rf-5050",
+  "title": "Orient Express Filmtage Opening: Deutschlandlieder",
+  "subtitle": "Eine Reise durch die türkisch-deutsche Musikszene ab den 1960er-Jahren",
+  "date": "2023-11-01",
+  "time": "Türen 19:00, Beginn 20:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "film",
+  "lineup": [
+   "Deutschlandli (Orient Express Filmtage Opening)"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2023-11-01&to=2023-11-01",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": null
+ },
+ {
+  "id": "rf-4720",
+  "title": "İlhan Ersahin's İstanbul Sessions",
+  "subtitle": "Im Rahmen der Orient Express Filmtage",
+  "date": "2023-11-04",
+  "time": "Türen 19:30, Beginn 20:30",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "İlhan Ersahin's İstanbul Sessions"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2023-11-04&to=2023-11-04",
+  "political": false,
+  "approval_needed": false,
+  "note": "im Rahmen der Orient Express Filmtage",
+  "dates": null
+ },
+ {
+  "id": "rf-4105",
+  "title": "Unerhört 23",
+  "subtitle": "Space (Dedication to Irène Schweizer) / Vincent Courtois - Colin Vallon / Borderlands Trio",
+  "date": "2023-12-01",
+  "time": "Türen 19:00, Beginn 19:30",
+  "venue": "Rote Fabrik (Fabriktheater)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "Space (Lisa Ullén, Elsa Bergman, Anna Lund)",
+   "Vincent Courtois",
+   "Colin Vallon",
+   "Borderlands Trio (Stephan Crump, Kris Davis, Eric McPherson)"
+  ],
+  "price": "CHF 45",
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2023-12-01&to=2023-12-01",
+  "political": false,
+  "approval_needed": false,
+  "note": "Unerhört 23",
+  "dates": null
+ },
+ {
+  "id": "hk-2023-12-02-7",
+  "title": "Man On Man",
+  "subtitle": "«it's so fun to be gay»",
+  "date": "2023-12-02",
+  "time": "21:30",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Man On Man"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20230922070539/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "rf-4586",
+  "title": "Buntspecht",
+  "subtitle": null,
+  "date": "2024-02-02",
+  "time": "20:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Buntspecht"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-02-02&to=2024-02-02",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": null
+ },
+ {
+  "id": "hk-2024-04-19-8",
+  "title": "Pascal Gamboni",
+  "subtitle": "«c a o s – im Auge des Orkans»",
+  "date": "2024-04-19",
+  "time": "21:00",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Pascal Gamboni"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20240417041433/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "hk-2024-04-20-9",
+  "title": "AchTung Niemand",
+  "subtitle": "«Wir sind gute Menschen», Debüt-Album",
+  "date": "2024-04-20",
+  "time": null,
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "AchTung Niemand",
+   "Jürg Halter"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20240417041433/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "rf-5389",
+  "title": "Solidarity Rising",
+  "subtitle": "Biking around the World for a free Western Sahara",
+  "date": "2024-04-26",
+  "time": "Türen 19:00, Beginn 19:30",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "political",
+  "lineup": [
+   "Solidarity Rising (Sanna Ghotbi, Benjamin Ladraa)"
+  ],
+  "price": "Kollekte",
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-04-26&to=2024-04-26",
+  "political": true,
+  "approval_needed": true,
+  "note": "Info-Anlass Westsahara (Velo-Weltreise, SUKS)",
+  "dates": null
+ },
+ {
+  "id": "rf-5102",
+  "title": "Nocturnal Rave",
+  "subtitle": "Fluidity by Kunterbunt Kollektiv",
+  "date": "2024-05-11",
+  "time": "23:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Kunterbunt Kollektiv"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-05-11&to=2024-05-11",
+  "political": false,
+  "approval_needed": false,
+  "note": "Nocturnal Rave, Fluidity",
+  "dates": null
+ },
+ {
+  "id": "hk-2024-05-11-10",
+  "title": "Walter Frosch",
+  "subtitle": "Plattengefeier «Star 10110»",
+  "date": "2024-05-11",
+  "time": "21:15",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Walter Frosch",
+   "Lou",
+   "Alina Arshi"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20240417041433/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "hk-2024-05-14-11",
+  "title": "Dino Brandão",
+  "subtitle": "ausverkauft (3 Abende 13.–15.5.)",
+  "date": "2024-05-14",
+  "time": "20:30",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Dino Brandão"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20240417041433/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "rf-5347",
+  "title": "Art4Rescue",
+  "subtitle": "Mit Manillio, Michael Elsener, Danase + Special Guest, Mischgewebe",
+  "date": "2024-05-25",
+  "time": "Türen 19:00, Beginn 14:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "benefit",
+  "lineup": [
+   "Manillio",
+   "Michael Elsener",
+   "Danase"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-05-25&to=2024-05-25",
+  "political": false,
+  "approval_needed": false,
+  "note": "Art4Rescue Vol. 1, Erlös zivile Seenotrettung (SOS Méditerranée)",
+  "dates": null
+ },
+ {
+  "id": "dy-2024-05-30-0",
+  "title": "The Drowns & Pkew Pkew Pkew",
+  "subtitle": "Hardcore/Punk",
+  "date": "2024-05-30",
+  "time": null,
+  "venue": "Jugendkulturhaus Dynamo",
+  "address": "Wasserwerkstrasse 21, 8006 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "The Drowns",
+   "Pkew Pkew Pkew"
+  ],
+  "price": null,
+  "organizer": "Jugendkulturhaus Dynamo",
+  "source_url": "https://web.archive.org/web/20240601/https://www.dynamo.ch/programm",
+  "political": false,
+  "approval_needed": false,
+  "note": "Datum aus Wayback-Snapshot des Dynamo-Programms; Uhrzeit dort nicht verlässlich",
+  "dates": null
+ },
+ {
+  "id": "dy-2024-06-03-1",
+  "title": "Snuff + Versus the World",
+  "subtitle": "Hardcore/Punk",
+  "date": "2024-06-03",
+  "time": null,
+  "venue": "Jugendkulturhaus Dynamo",
+  "address": "Wasserwerkstrasse 21, 8006 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Snuff",
+   "Versus the World"
+  ],
+  "price": null,
+  "organizer": "Jugendkulturhaus Dynamo",
+  "source_url": "https://web.archive.org/web/20240601/https://www.dynamo.ch/programm",
+  "political": false,
+  "approval_needed": false,
+  "note": "Datum aus Wayback-Snapshot des Dynamo-Programms; Uhrzeit dort nicht verlässlich",
+  "dates": null
+ },
+ {
+  "id": "rf-5079",
+  "title": "Puchero",
+  "subtitle": "mmfestival in June",
+  "date": "2024-06-06",
+  "time": "Türen 19:00, Beginn 20:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "Puchero",
+   "Sebass",
+   "Aman-Rebetiko feat. Yiannis Dionysiou"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-06-06&to=2024-06-06",
+  "political": false,
+  "approval_needed": false,
+  "note": "mmfestival in June 2024 (3 Abende)",
+  "dates": null
+ },
+ {
+  "id": "dy-2024-06-06-4",
+  "title": "Sketchy & Tutti Frutti",
+  "subtitle": "Improvisationstheater",
+  "date": "2024-06-06",
+  "time": null,
+  "venue": "Jugendkulturhaus Dynamo",
+  "address": "Wasserwerkstrasse 21, 8006 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Sketchy",
+   "Tutti Frutti"
+  ],
+  "price": null,
+  "organizer": "Jugendkulturhaus Dynamo",
+  "source_url": "https://web.archive.org/web/20240601/https://www.dynamo.ch/programm",
+  "political": false,
+  "approval_needed": false,
+  "note": "Datum aus Wayback-Snapshot des Dynamo-Programms; Uhrzeit dort nicht verlässlich",
+  "dates": null
+ },
+ {
+  "id": "rf-5624",
+  "title": "ProtoZone15: Time is pressure",
+  "subtitle": null,
+  "date": "2024-06-07",
+  "time": "17:00",
+  "venue": "Rote Fabrik (Shedhalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "exhibition",
+  "lineup": [
+   "ProtoZone 15: Time is pressure"
+  ],
+  "price": "CHF 5 / 15 / 25",
+  "organizer": "Shedhalle Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-06-07&to=2024-06-07",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": [
+   "2024-06-07",
+   "2024-06-08",
+   "2024-06-09",
+   "2024-06-15",
+   "2024-06-16",
+   "2024-06-22",
+   "2024-06-23",
+   "2024-06-29",
+   "2024-06-30",
+   "2024-07-06",
+   "2024-07-07",
+   "2024-07-13",
+   "2024-07-14",
+   "2024-07-20",
+   "2024-07-21",
+   "2024-07-27",
+   "2024-07-28",
+   "2024-08-03",
+   "2024-08-04"
+  ]
+ },
+ {
+  "id": "dy-2024-06-07-2",
+  "title": "Get Dead & The Last Gang",
+  "subtitle": "Hardcore/Punk",
+  "date": "2024-06-07",
+  "time": null,
+  "venue": "Jugendkulturhaus Dynamo",
+  "address": "Wasserwerkstrasse 21, 8006 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Get Dead",
+   "The Last Gang"
+  ],
+  "price": null,
+  "organizer": "Jugendkulturhaus Dynamo",
+  "source_url": "https://web.archive.org/web/20240601/https://www.dynamo.ch/programm",
+  "political": false,
+  "approval_needed": false,
+  "note": "Datum aus Wayback-Snapshot des Dynamo-Programms; Uhrzeit dort nicht verlässlich",
+  "dates": null
+ },
+ {
+  "id": "dy-2024-06-08-3",
+  "title": "«ANARCHY IN THE CLUB»",
+  "subtitle": "Party Elektro/Hardcore/Punk",
+  "date": "2024-06-08",
+  "time": null,
+  "venue": "Jugendkulturhaus Dynamo",
+  "address": "Wasserwerkstrasse 21, 8006 Zürich",
+  "kind": "party",
+  "lineup": [
+   "«ANARCHY IN THE CLUB»"
+  ],
+  "price": null,
+  "organizer": "Jugendkulturhaus Dynamo",
+  "source_url": "https://web.archive.org/web/20240601/https://www.dynamo.ch/programm",
+  "political": false,
+  "approval_needed": false,
+  "note": "Datum aus Wayback-Snapshot des Dynamo-Programms; Uhrzeit dort nicht verlässlich",
+  "dates": null
+ },
+ {
+  "id": "rf-5104",
+  "title": "Zürich Pride Festival After",
+  "subtitle": "After-Party zum Pride Festival, nicht die Demo selbst",
+  "date": "2024-06-15",
+  "time": "23:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Zürich Pride Festival After"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-06-15&to=2024-06-15",
+  "political": false,
+  "approval_needed": false,
+  "note": "After-Party zum Pride Festival, nicht die Demo selbst",
+  "dates": null
+ },
+ {
+  "id": "rf-5139",
+  "title": "CSD soliparty",
+  "subtitle": "Antikapitalistischer CSD Zureich",
+  "date": "2024-06-22",
+  "time": "22:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "political",
+  "lineup": [
+   "Lateena",
+   "Power Puffs"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-06-22&to=2024-06-22",
+  "political": true,
+  "approval_needed": true,
+  "note": "CSD Soliparty, «Antikapitalistischer CSD Zureich»",
+  "dates": null
+ },
+ {
+  "id": "rf-5444",
+  "title": "OUTDOOR SUMMER DANCE (EXIL X CLUBBÜRO)",
+  "subtitle": "OUTDOOR SUMMER DANCE (EXIL X CLUBBÜRO)",
+  "date": "2024-06-29",
+  "time": "14:00",
+  "venue": "Rote Fabrik (Innenhof)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Exil x Clubbüro"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-06-29&to=2024-06-29",
+  "political": false,
+  "approval_needed": false,
+  "note": "Outdoor Summer Dance",
+  "dates": null
+ },
+ {
+  "id": "rf-5599",
+  "title": "Spielfest - 40 Jahre Pädagogische Aktion Zürich",
+  "subtitle": "Tag der offenen Fabrik und 40 Jahre Quartiertreff Rote Fabrik/Ludothek",
+  "date": "2024-06-30",
+  "time": "11:00",
+  "venue": "Rote Fabrik",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "Pädagogische Aktion Zürich"
+  ],
+  "price": null,
+  "organizer": "Fabriktheater Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-06-30&to=2024-06-30",
+  "political": false,
+  "approval_needed": false,
+  "note": "Spielfest 40 Jahre PAZ / Tag der offenen Fabrik",
+  "dates": null
+ },
+ {
+  "id": "rf-5544",
+  "title": "Annie Taylor | Überyou | Hunted Like Thieves | The High Times | Mr. Linus",
+  "subtitle": "Obenuse Fest goes Rote Fabrik",
+  "date": "2024-07-20",
+  "time": "17:00",
+  "venue": "Rote Fabrik (Am See)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Annie Taylor",
+   "Überyou",
+   "Hunted Like Thieves",
+   "The High Times",
+   "Mr. Linus"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-07-20&to=2024-07-20",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": null
+ },
+ {
+  "id": "rf-5489",
+  "title": "Trentemøller",
+  "subtitle": "30 Jahre Lethargy Jubiläumskonzert",
+  "date": "2024-08-08",
+  "time": "19:00",
+  "venue": "Rote Fabrik (Am See)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Trentemøller"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-08-08&to=2024-08-08",
+  "political": false,
+  "approval_needed": false,
+  "note": "30 Jahre Lethargy Jubiläumskonzert",
+  "dates": null
+ },
+ {
+  "id": "rf-5149",
+  "title": "Lethargy",
+  "subtitle": "Lethargy 30th edition (Programm laufend ergänzt)",
+  "date": "2024-08-09",
+  "time": "19:00",
+  "venue": "Rote Fabrik",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "Mezerg",
+   "Fantastic Twins"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-08-09&to=2024-08-09",
+  "political": false,
+  "approval_needed": false,
+  "note": "Lethargy 30th edition (Programm laufend ergänzt)",
+  "dates": [
+   "2024-08-09",
+   "2024-08-10",
+   "2024-08-11"
+  ]
+ },
+ {
+  "id": "rf-4942",
+  "title": "lila. queer festival",
+  "subtitle": "lila. queer festival 2024",
+  "date": "2024-09-12",
+  "time": "Türen 18:00, Beginn 21:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "Milchjugend (Kollektiv)"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-09-12&to=2024-09-12",
+  "political": false,
+  "approval_needed": false,
+  "note": "lila. queer festival 2024",
+  "dates": [
+   "2024-09-12",
+   "2024-09-13",
+   "2024-09-14"
+  ]
+ },
+ {
+  "id": "rf-5420",
+  "title": "Endegelaende (Endstation x Flugelaende)",
+  "subtitle": "Soli für \"Nightlife in Solidarity\"",
+  "date": "2024-10-12",
+  "time": "22:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "benefit",
+  "lineup": [
+   "Endstation",
+   "Flugelaende"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-10-12&to=2024-10-12",
+  "political": false,
+  "approval_needed": true,
+  "note": "Soli für «Nightlife in Solidarity»: Trägerschaft in Quelle prüfen",
+  "dates": null
+ },
+ {
+  "id": "rf-5421",
+  "title": "Haver - eve&rave Benefizparty",
+  "subtitle": "eve&rave Benefizparty",
+  "date": "2024-10-19",
+  "time": "22:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "benefit",
+  "lineup": [
+   "Haver"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-10-19&to=2024-10-19",
+  "political": false,
+  "approval_needed": false,
+  "note": "eve&rave Benefizparty",
+  "dates": null
+ },
+ {
+  "id": "rf-5526",
+  "title": "Disco Taifun Soli Veranstaltung",
+  "subtitle": "Gewinn an Kulturlegi Zürich",
+  "date": "2024-11-01",
+  "time": "21:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "benefit",
+  "lineup": [
+   "Disco Taifun"
+  ],
+  "price": null,
+  "organizer": "Fremdveranstalter in der Roten Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-11-01&to=2024-11-01",
+  "political": false,
+  "approval_needed": false,
+  "note": "Gewinn an Kulturlegi Zürich",
+  "dates": null
+ },
+ {
+  "id": "rf-5239",
+  "title": "Chelsea Wolfe",
+  "subtitle": "Support: Mary Jane Dunphe",
+  "date": "2024-11-06",
+  "time": "20:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Chelsea Wolfe",
+   "Mary Jane Dunphe"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-11-06&to=2024-11-06",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": null
+ },
+ {
+  "id": "rf-5298",
+  "title": "Fabrik Slam #105",
+  "subtitle": "Novemberslam in der Roten Fabrik",
+  "date": "2024-11-08",
+  "time": "Türen 19:30, Beginn 20:30",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "reading",
+  "lineup": [
+   "Fabrik Slam #105"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-11-08&to=2024-11-08",
+  "political": false,
+  "approval_needed": false,
+  "note": "Poetry Slam",
+  "dates": null
+ },
+ {
+  "id": "rf-4972",
+  "title": "Ätna",
+  "subtitle": "Support: Leila",
+  "date": "2024-11-15",
+  "time": "20:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Ätna",
+   "Leila"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-11-15&to=2024-11-15",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": null
+ },
+ {
+  "id": "rf-5931",
+  "title": "ProtoZone17: Stories of Those Left Behind",
+  "subtitle": null,
+  "date": "2024-11-15",
+  "time": "17:00",
+  "venue": "Rote Fabrik (Shedhalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "exhibition",
+  "lineup": [
+   "ProtoZone 17: Stories of Those Left Behind"
+  ],
+  "price": "CHF 5 / 15 / 25",
+  "organizer": "Shedhalle Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-11-15&to=2024-11-15",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": [
+   "2024-11-15",
+   "2024-11-16",
+   "2024-11-17",
+   "2024-11-23",
+   "2024-11-24",
+   "2024-11-30",
+   "2024-12-01",
+   "2024-12-07",
+   "2024-12-08",
+   "2024-12-14",
+   "2024-12-15",
+   "2024-12-21",
+   "2024-12-22",
+   "2024-12-28",
+   "2024-12-29",
+   "2025-01-05",
+   "2025-01-11",
+   "2025-01-12"
+  ]
+ },
+ {
+  "id": "rf-5160",
+  "title": "CARECITY _STORIES*",
+  "subtitle": "4 WEITER WEBEN",
+  "date": "2024-11-17",
+  "time": "Türen 14:30, Beginn 15:00",
+  "venue": "Rote Fabrik (Fabriktheater)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "CARECITY"
+  ],
+  "price": null,
+  "organizer": "Fabriktheater Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-11-17&to=2024-11-17",
+  "political": false,
+  "approval_needed": false,
+  "note": "CARECITY _STORIES* 4 WEITER WEBEN",
+  "dates": null
+ },
+ {
+  "id": "rf-5850",
+  "title": "Eating the Future",
+  "subtitle": "Films for Future Festival",
+  "date": "2024-11-19",
+  "time": "Türen 17:30, Beginn 18:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "film",
+  "lineup": [
+   "Films for Future Festival 2024"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-11-19&to=2024-11-19",
+  "political": false,
+  "approval_needed": false,
+  "note": "Eating the Future",
+  "dates": null
+ },
+ {
+  "id": "hk-2024-11-22-12",
+  "title": "DJ Marcelle",
+  "subtitle": "Tanz-Residenz",
+  "date": "2024-11-22",
+  "time": "23:59",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "party",
+  "lineup": [
+   "DJ Marcelle"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20241111025359/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "rf-4564",
+  "title": "Unerhört!",
+  "subtitle": "Jazzfestival 2024",
+  "date": "2024-11-29",
+  "time": "19:30",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "Marie Krüttli Trio"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2024-11-29&to=2024-11-29",
+  "political": false,
+  "approval_needed": false,
+  "note": "unerhört! Jazzfestival 2024, Clubraum",
+  "dates": null
+ },
+ {
+  "id": "hk-2024-12-06-13",
+  "title": "Palko! Muski!",
+  "subtitle": "Albumfeier «Bon Voyage!» mit dj emina",
+  "date": "2024-12-06",
+  "time": "22:00",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Palko! Muski!",
+   "DJ Emina"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20241111025359/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "rf-5900",
+  "title": "Double Feature: Dr. Jekyll & Mr. Hyde",
+  "subtitle": "Keshaw Manna (Den Haag) | YEAH YEAH YEAH Festival",
+  "date": "2025-01-31",
+  "time": "Türen 19:30, Beginn 20:00",
+  "venue": "Rote Fabrik (Fabriktheater)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Keshaw Manna"
+  ],
+  "price": null,
+  "organizer": "Fabriktheater Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2025-01-31&to=2025-01-31",
+  "political": false,
+  "approval_needed": false,
+  "note": "YEAH YEAH YEAH Tanzfestival",
+  "dates": [
+   "2025-01-31",
+   "2025-02-01"
+  ]
+ },
+ {
+  "id": "rf-5902",
+  "title": "Triple Threat",
+  "subtitle": "Lucy McCormick (London) | YEAH YEAH YEAH Festival",
+  "date": "2025-02-07",
+  "time": "Türen 19:30, Beginn 20:00",
+  "venue": "Rote Fabrik (Fabriktheater)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Lucy McCormick"
+  ],
+  "price": null,
+  "organizer": "Fabriktheater Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2025-02-07&to=2025-02-07",
+  "political": false,
+  "approval_needed": false,
+  "note": "Triple Threat, YEAH YEAH YEAH Festival",
+  "dates": [
+   "2025-02-07",
+   "2025-02-08"
+  ]
+ },
+ {
+  "id": "rf-6006",
+  "title": "Soli for Palestine",
+  "subtitle": "w./ Leila Moon",
+  "date": "2025-02-21",
+  "time": "22:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "political",
+  "lineup": [
+   "Leila Moon"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2025-02-21&to=2025-02-21",
+  "political": true,
+  "approval_needed": true,
+  "note": "Solipartei for Palestine, Erlös an Gaza Sunbirds (Para-Sport-Hilfswerk). Organisation prüfen",
+  "dates": null
+ },
+ {
+  "id": "hk-2025-03-19-14",
+  "title": "Thomas Azier",
+  "subtitle": null,
+  "date": "2025-03-19",
+  "time": "20:30",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Thomas Azier"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20250325210102/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "hk-2025-03-31-15",
+  "title": "Apollo Brown x Marco Polo",
+  "subtitle": "back-to-back live beat set",
+  "date": "2025-03-31",
+  "time": "20:30",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Apollo Brown",
+   "Marco Polo"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20250325210102/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "hk-2025-04-04-16",
+  "title": "DJ Marcelle",
+  "subtitle": "«nacht ist tag ist nacht»",
+  "date": "2025-04-04",
+  "time": "00:07",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "party",
+  "lineup": [
+   "DJ Marcelle"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20250325210102/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "rf-6296",
+  "title": "FLOHMI AM WASSER",
+  "subtitle": "Schon zum elften Mal könnt ihr beim Flohmi am Wasser vom Quartiertreff der Roten Fabrik direkt an schönster Lage tolle Dinge einkaufen.",
+  "date": "2025-05-18",
+  "time": "11:00",
+  "venue": "Rote Fabrik (Innenhof)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "market",
+  "lineup": [
+   "Flohmi am Wasser"
+  ],
+  "price": null,
+  "organizer": "Fremdveranstalter in der Roten Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2025-05-18&to=2025-05-18",
+  "political": false,
+  "approval_needed": false,
+  "note": "11. Ausgabe",
+  "dates": null
+ },
+ {
+  "id": "dy-2025-05-19-5",
+  "title": "JODOQ",
+  "subtitle": "EP Release-Show «Polaroid Palace»",
+  "date": "2025-05-19",
+  "time": null,
+  "venue": "Jugendkulturhaus Dynamo",
+  "address": "Wasserwerkstrasse 21, 8006 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "JODOQ"
+  ],
+  "price": null,
+  "organizer": "Jugendkulturhaus Dynamo",
+  "source_url": "https://web.archive.org/web/20250601/https://www.dynamo.ch/programm",
+  "political": false,
+  "approval_needed": false,
+  "note": "Datum aus Wayback-Snapshot des Dynamo-Programms; Uhrzeit dort nicht verlässlich",
+  "dates": null
+ },
+ {
+  "id": "dy-2025-05-21-6",
+  "title": "The World Is a Beautiful Place & I Am No Longer Afraid to Die",
+  "subtitle": null,
+  "date": "2025-05-21",
+  "time": null,
+  "venue": "Jugendkulturhaus Dynamo",
+  "address": "Wasserwerkstrasse 21, 8006 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "The World Is a Beautiful Place & I Am No Longer Afraid to Die"
+  ],
+  "price": null,
+  "organizer": "Jugendkulturhaus Dynamo",
+  "source_url": "https://web.archive.org/web/20250601/https://www.dynamo.ch/programm",
+  "political": false,
+  "approval_needed": false,
+  "note": "Datum aus Wayback-Snapshot des Dynamo-Programms; Uhrzeit dort nicht verlässlich",
+  "dates": null
+ },
+ {
+  "id": "rf-5778",
+  "title": "Solidaritätsfestival SOS Méditerranée",
+  "subtitle": "ART4RESCUE MIT TROUBAS KATER UND VIELEM MEHR!",
+  "date": "2025-05-24",
+  "time": "13:30",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "benefit",
+  "lineup": [
+   "Troubas Kater"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2025-05-24&to=2025-05-24",
+  "political": true,
+  "approval_needed": true,
+  "note": "Art4Rescue Vol. 2 für SOS Méditerranée: NGO-Anliegen Migration/Seenotrettung",
+  "dates": null
+ },
+ {
+  "id": "dy-2025-05-24-7",
+  "title": "17. Lauter Festival",
+  "subtitle": null,
+  "date": "2025-05-24",
+  "time": null,
+  "venue": "Jugendkulturhaus Dynamo",
+  "address": "Wasserwerkstrasse 21, 8006 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "17. Lauter Festival"
+  ],
+  "price": null,
+  "organizer": "Jugendkulturhaus Dynamo",
+  "source_url": "https://web.archive.org/web/20250601/https://www.dynamo.ch/programm",
+  "political": false,
+  "approval_needed": false,
+  "note": "Datum aus Wayback-Snapshot des Dynamo-Programms; Uhrzeit dort nicht verlässlich",
+  "dates": null
+ },
+ {
+  "id": "dy-2025-05-28-8",
+  "title": "Foxing",
+  "subtitle": null,
+  "date": "2025-05-28",
+  "time": null,
+  "venue": "Jugendkulturhaus Dynamo",
+  "address": "Wasserwerkstrasse 21, 8006 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Foxing"
+  ],
+  "price": null,
+  "organizer": "Jugendkulturhaus Dynamo",
+  "source_url": "https://web.archive.org/web/20250601/https://www.dynamo.ch/programm",
+  "political": false,
+  "approval_needed": false,
+  "note": "Datum aus Wayback-Snapshot des Dynamo-Programms; Uhrzeit dort nicht verlässlich",
+  "dates": null
+ },
+ {
+  "id": "rf-6328",
+  "title": "tangerine – by Göksu Kunak",
+  "subtitle": "Performative Installation",
+  "date": "2025-06-13",
+  "time": "Türen 14:00, Beginn 20:30",
+  "venue": "Rote Fabrik (Shedhalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "exhibition",
+  "lineup": [
+   "Göksu Kunak"
+  ],
+  "price": null,
+  "organizer": "Shedhalle Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2025-06-13&to=2025-06-13",
+  "political": false,
+  "approval_needed": false,
+  "note": "tangerine, performative Installation",
+  "dates": null
+ },
+ {
+  "id": "rf-6465",
+  "title": "Picante! Festival",
+  "subtitle": "CSD Zureich x Picante Afterparty, Spendensammlung für CSD-Kosten",
+  "date": "2025-06-28",
+  "time": "20:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "political",
+  "lineup": [
+   "Kimbo",
+   "Chocolate Remix",
+   "Akuaku"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2025-06-28&to=2025-06-28",
+  "political": true,
+  "approval_needed": true,
+  "note": "CSD Zureich x Picante Afterparty, Spendensammlung für CSD-Kosten",
+  "dates": null
+ },
+ {
+  "id": "rf-6008",
+  "title": "Jazzhane Festival",
+  "subtitle": "OMAR SOULEYMAN, ŸUMA, SELIN SÜMBÜLTEPE, ROSHÂNI, ZEEMUFFIN, REY&KJAVIK, İPEK İPEKÇİOĞLU, AND MORE…",
+  "date": "2025-07-26",
+  "time": "Türen 16:30, Beginn 17:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "Omar Souleyman",
+   "Ÿuma",
+   "Selin Sümbültepe",
+   "Roshâni",
+   "Zeemuffin",
+   "Rey&Kjavik",
+   "İpek İpekçioğlu"
+  ],
+  "price": "CHF 65",
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2025-07-26&to=2025-07-26",
+  "political": false,
+  "approval_needed": false,
+  "note": "Jazzhane Festival 2025",
+  "dates": null
+ },
+ {
+  "id": "rf-6476",
+  "title": "Leftfield",
+  "subtitle": "Support: Arthur Hnatek",
+  "date": "2025-08-07",
+  "time": "19:30",
+  "venue": "Rote Fabrik (Aktionshalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Leftfield",
+   "Arthur Hnatek"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2025-08-07&to=2025-08-07",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": null
+ },
+ {
+  "id": "rf-5511",
+  "title": "Lethargy",
+  "subtitle": "Lethargy Festival 2025 - 31st edition",
+  "date": "2025-08-08",
+  "time": "21:00",
+  "venue": "Rote Fabrik",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "Lethargy"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2025-08-08&to=2025-08-08",
+  "political": false,
+  "approval_needed": false,
+  "note": "Lethargy 31st edition",
+  "dates": [
+   "2025-08-08",
+   "2025-08-09",
+   "2025-08-10"
+  ]
+ },
+ {
+  "id": "hk-2025-10-17-17",
+  "title": "Blind Butcher",
+  "subtitle": "Album-Release «Hekate»",
+  "date": "2025-10-17",
+  "time": "21:00",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Blind Butcher"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20251010132955/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "rf-6094",
+  "title": "Soundsyndrom!",
+  "subtitle": null,
+  "date": "2025-10-18",
+  "time": "Türen 16:00, Beginn 17:00",
+  "venue": "Rote Fabrik (Aktionshalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Soundsyndrom!"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2025-10-18&to=2025-10-18",
+  "political": false,
+  "approval_needed": false,
+  "note": null,
+  "dates": null
+ },
+ {
+  "id": "rf-6685",
+  "title": "Fabrik Slam",
+  "subtitle": "Der letzte Fabrikslam!",
+  "date": "2025-10-24",
+  "time": "Türen 19:45, Beginn 20:30",
+  "venue": "Rote Fabrik (Aktionshalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "reading",
+  "lineup": [
+   "Fabrik Slam"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2025-10-24&to=2025-10-24",
+  "political": false,
+  "approval_needed": false,
+  "note": "Der letzte Fabrikslam",
+  "dates": null
+ },
+ {
+  "id": "hk-2025-10-24-18",
+  "title": "Muralim",
+  "subtitle": "Album-Feier",
+  "date": "2025-10-24",
+  "time": "20:30",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Muralim"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20251010132955/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "rf-6146",
+  "title": "Jubiläum Solidarité sans Frontières SPAZ",
+  "subtitle": "Freiplatzaktion Zürich (40 J.), Solidarité sans Frontières (25 J.), SPAZ (20 J.): migrationspolitische Organisationen",
+  "date": "2025-10-25",
+  "time": "17:00",
+  "venue": "Rote Fabrik (Aktionshalle)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "political",
+  "lineup": [
+   "Fête de la Solidarité (Markt, Podium, Konzert)"
+  ],
+  "price": null,
+  "organizer": "Fremdveranstalter in der Roten Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2025-10-25&to=2025-10-25",
+  "political": true,
+  "approval_needed": true,
+  "note": "Freiplatzaktion Zürich (40 J.), Solidarité sans Frontières (25 J.), SPAZ (20 J.): migrationspolitische Organisationen",
+  "dates": null
+ },
+ {
+  "id": "hk-2025-10-31-19",
+  "title": "Queer Balkan Disco",
+  "subtitle": "numero 16",
+  "date": "2025-10-31",
+  "time": "21:00",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "party",
+  "lineup": [
+   "Queer Balkan Disco"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20251010132955/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "rf-6281",
+  "title": "Kern und Schale: Konzert & Afterparty",
+  "subtitle": "Kern und Schale: In Solidarity with Palestine",
+  "date": "2025-11-15",
+  "time": "12:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "political",
+  "lineup": [
+   "47SOUL",
+   "Leila Moon",
+   "Badiaa Bouhrizi"
+  ],
+  "price": null,
+  "organizer": "Clubbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2025-11-15&to=2025-11-15",
+  "political": true,
+  "approval_needed": true,
+  "note": "Konzert «in Solidarity with Palestine», Kern und Schale: Veranstalter vor Verwendung prüfen",
+  "dates": null
+ },
+ {
+  "id": "rf-6194",
+  "title": "Films For Future Festival",
+  "subtitle": "Sehen - Verstehen - Tun",
+  "date": "2025-11-25",
+  "time": "Türen 17:30, Beginn 18:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "film",
+  "lineup": [
+   "Films For Future Festival 2025"
+  ],
+  "price": null,
+  "organizer": "Rote Fabrik (Konzept)",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2025-11-25&to=2025-11-25",
+  "political": false,
+  "approval_needed": false,
+  "note": "Sehen - Verstehen - Tun",
+  "dates": [
+   "2025-11-25",
+   "2025-11-26",
+   "2025-11-27"
+  ]
+ },
+ {
+  "id": "hk-2025-11-25-20",
+  "title": "Dino Brandão",
+  "subtitle": "Musik-Release «I love you, I leave you»",
+  "date": "2025-11-25",
+  "time": "20:45",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Dino Brandão"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20251010132955/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "rf-5532",
+  "title": "Unerhört!",
+  "subtitle": "Jazzfestival 2025",
+  "date": "2025-11-28",
+  "time": "Türen 19:30, Beginn 21:00",
+  "venue": "Rote Fabrik (Clubraum)",
+  "address": "Seestrasse 395, 8038 Zürich",
+  "kind": "festival",
+  "lineup": [
+   "Camila Nebbia",
+   "Large Ensemble der HSLU",
+   "Nils Wogram"
+  ],
+  "price": null,
+  "organizer": "Musikbüro Rote Fabrik",
+  "source_url": "https://kalender.rotefabrik.ch/api/events?from=2025-11-28&to=2025-11-28",
+  "political": false,
+  "approval_needed": false,
+  "note": "unerhört! Jazzfestival 2025",
+  "dates": [
+   "2025-11-28",
+   "2025-11-29"
+  ]
+ },
+ {
+  "id": "hk-2025-12-04-21",
+  "title": "Minami Deutsch",
+  "subtitle": "«Enzyklopädia Krautrock», mit Weite",
+  "date": "2025-12-04",
+  "time": "20:30",
+  "venue": "Helsinki Klub",
+  "address": "Geroldstrasse 35, 8005 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Minami Deutsch",
+   "Weite"
+  ],
+  "price": null,
+  "organizer": "Helsinki Klub",
+  "source_url": "https://web.archive.org/web/20251010132955/https://www.helsinkiklub.ch/",
+  "political": false,
+  "approval_needed": false,
+  "note": "Quelle: archivierte Startseite des Klubs (Programmvorschau); Preis dort nicht angegeben",
+  "dates": null
+ },
+ {
+  "id": "ga-2026-01-14-0",
+  "title": "Glistening (Remembering the Unknown)",
+  "subtitle": "DIVAS, Premiere mit Apéro und Zine Launch",
+  "date": "2026-01-14",
+  "time": "20:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "DIVAS"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://web.archive.org/web/20251015/https://gessnerallee.ch/de/programm",
+  "political": false,
+  "approval_needed": false,
+  "note": "Tanz/Performance; Jahr 2026 per Wochentagsprüfung",
+  "dates": null
+ },
+ {
+  "id": "ga-2026-01-14-3",
+  "title": "Art in Conflict: Jenseits staatlicher Strukturen – selbstorganisierte Kulturnetzwerke",
+  "subtitle": "Gesprächsreihe, artasfoundation",
+  "date": "2026-01-14",
+  "time": "17:30",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "reading",
+  "lineup": [
+   "artasfoundation"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://web.archive.org/web/20251015/https://gessnerallee.ch/de/programm",
+  "political": false,
+  "approval_needed": false,
+  "note": "Gespräch; Jahr 2026 per Wochentagsprüfung",
+  "dates": null
+ },
+ {
+  "id": "ga-2026-01-24-1",
+  "title": "Das Haus meines Geistes",
+  "subtitle": "Old Masters",
+  "date": "2026-01-24",
+  "time": "16:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "theater",
+  "lineup": [
+   "Old Masters"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://web.archive.org/web/20251015/https://gessnerallee.ch/de/programm",
+  "political": false,
+  "approval_needed": false,
+  "note": "Theater; Jahr 2026 per Wochentagsprüfung",
+  "dates": null
+ },
+ {
+  "id": "ga-2026-01-25-2",
+  "title": "Kinderkonzertreihe: Rita Roof",
+  "subtitle": null,
+  "date": "2026-01-25",
+  "time": "15:00",
+  "venue": "Gessnerallee",
+  "address": "Gessnerallee 8, 8001 Zürich",
+  "kind": "concert",
+  "lineup": [
+   "Rita Roof"
+  ],
+  "price": null,
+  "organizer": "Gessnerallee Zürich",
+  "source_url": "https://web.archive.org/web/20251015/https://gessnerallee.ch/de/programm",
+  "political": false,
+  "approval_needed": false,
+  "note": "Konzert; Jahr 2026 per Wochentagsprüfung",
+  "dates": null
+ }
+]

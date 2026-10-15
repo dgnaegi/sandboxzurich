@@ -1,0 +1,54 @@
+{
+ "landmarks": [
+  {
+   "name": "Haus zum Korn",
+   "model": "/models/landmarks/k39w3_korn.glb",
+   "x": 608.6,
+   "y": -1442.8,
+   "z": 2.13,
+   "heading": 0,
+   "hide": [
+    [
+     608.6,
+     -1440.4
+    ]
+   ]
+  },
+  {
+   "name": "Haus zum Schimmeltor",
+   "model": "/models/landmarks/k39w3_schimmeltor.glb",
+   "x": 571.5,
+   "y": -1473.4,
+   "z": 2.19,
+   "heading": 0,
+   "hide": [
+    [
+     573.8,
+     -1468.2
+    ]
+   ]
+  },
+  {
+   "name": "Letzipark",
+   "model": "/models/landmarks/k39w3_letzipark.glb",
+   "x": -1318.3,
+   "y": 236.2,
+   "z": -9.72,
+   "heading": 0,
+   "hide": [
+    [
+     -1330.4,
+     224.5
+    ],
+    [
+     -1314.7,
+     284.3
+    ],
+    [
+     -1273.7,
+     266.2
+    ]
+   ]
+  }
+ ]
+}

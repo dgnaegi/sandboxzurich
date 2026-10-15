@@ -60,11 +60,13 @@ def fixsign(q):
 
 def process(name, spec):
     f, kind, (pmin, pmax), fps = spec[:4]; win = spec[4] if len(spec) > 4 else None
-    J, D, ft = bvh.parse(f"{RAW}/{f}")
+    J, D, ft = bvh.parse(f"{RAW}/{f}"); nm = [j["name"] for j in J]
     if win: D = D[int(win[0] / ft):int(win[1] / ft)]               # take only a window (seconds) of the take
     L, W, P = bvh.fk(J, D); nf = len(D); nm = [j["name"] for j in J]
     # heading: net displacement of the hips over the whole clip -> yaw so that travel is +Z
     d = P[-1, 0] - P[0, 0]; yaw = np.arctan2(d[0], d[2]) if kind == "gait" else 0.0
+    if kind == "pose":                                           # face +Z: mean hip line (left - right) -> +X over the whole window
+        li, ri = nm.index("LeftUpLeg"), nm.index("RightUpLeg"); v = (P[:, li] - P[:, ri]).mean(0); yaw = -np.arctan2(v[2], v[0])
     c, s = np.cos(-yaw), np.sin(-yaw); Ry = np.array([[c, 0, s], [0, 1, 0], [-s, 0, c]])
     W = Ry @ W; P = P @ Ry.T
     q = fixsign(mat2quat(W))                                      # (nf,nj,4) world quats, BVH axes

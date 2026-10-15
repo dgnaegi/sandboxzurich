@@ -1,0 +1,22 @@
+{
+ "landmarks": [
+  {
+   "name": "Amtshaus Helvetiaplatz",
+   "model": "/models/landmarks/amtshaus_helvetia.glb",
+   "x": 807.9,
+   "y": -856.8,
+   "z": -1.0,
+   "heading": 0,
+   "hide": [
+    [
+     802.8,
+     -853.3
+    ],
+    [
+     813.0,
+     -815.6
+    ]
+   ]
+  }
+ ]
+}

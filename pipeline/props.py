@@ -168,27 +168,43 @@ def posters(blank_segs, tb, spacing=45.0):
     return out
 
 
-def wild_posters(blank_segs, used, tb, spacing=28.0):
-    """Clusters of fictional flyers (A2) on blank walls not used by campaign posters.
-    Rows: [x, y, z, tx, ty, sheet, rot]."""
+_WILD = None
+
+
+def _wild_pieces():
+    """Poster-wall pieces from wildposters.json: [(sheet, [x, y] of the top event's venue or None)]."""
+    global _WILD
+    if _WILD is None:
+        import json
+        from config import ROOT
+        try:
+            _WILD = [(i, p.get("xy")) for i, p in enumerate(json.load(open(ROOT / "web/public/tex/wildposters.json"))["pieces"])]
+        except Exception:
+            _WILD = [(i, None) for i in range(16)]
+    return _WILD
+
+
+def wild_posters(blank_segs, used, tb, spacing=22.0, main_dist=None):
+    """Pasted poster walls (1.5 x 1.5 m pieces of real past culture events) on blank ground-floor walls (Brandmauern),
+    denser on main streets; each wall prefers pieces whose venues are nearby. Rows: [x, y, z, tx, ty, sheet, rot]."""
     out, centres = [], []
     for s in sorted(blank_segs, key=lambda s: h32("w" + s["bid"] + str(round(s["y"])))):
-        if not tb.contains(Point(s["x"], s["y"])) or s["w"] < 2.2:
+        if not tb.contains(Point(s["x"], s["y"])) or s["w"] < 2.0:
             continue
         if any(np.hypot(s["x"] - u[0], s["y"] - u[1]) < 6 for u in used):
             continue
-        if any(np.hypot(s["x"] - c[0], s["y"] - c[1]) < spacing for c in centres):
+        sp = spacing * (0.6 if main_dist and main_dist(s["x"], s["y"]) < 25 else 1.0)
+        if any(np.hypot(s["x"] - c[0], s["y"] - c[1]) < sp for c in centres):
             continue
         centres.append((s["x"], s["y"]))
         k = h32("c" + s["bid"])
-        cols, rows = min(int(s["w"] / 0.5), 3 + k % 4), 1 + (k >> 3) % 2
-        for i in range(cols):
-            for j in range(rows):
-                kk = h32(f"{k}{i}{j}")
-                off = (i - (cols - 1) / 2) * 0.46 + ((kk % 7) - 3) * 0.015
-                out.append([round(s["x"] + s["tx"] * off, 2), round(s["y"] + s["ty"] * off, 2),
-                            round(s["z"] - 0.1 + j * 0.62 + ((kk >> 4) % 5 - 2) * 0.02, 2), round(s["tx"], 4), round(s["ty"], 4),
-                            kk % 16, round(((kk >> 8) % 9 - 4) * 0.012, 3)])
+        offs = [0.0] if s["w"] < 3.6 else [-0.8, 0.8]
+        ranked = sorted(_wild_pieces(), key=lambda p: (np.hypot(p[1][0] - s["x"], p[1][1] - s["y"]) if p[1] else 1200.0)
+                        + (h32(f"{k}{p[0]}") % 900))
+        for i, off in enumerate(offs):
+            kk = h32(f"{k}{i}")
+            out.append([round(s["x"] + s["tx"] * off, 2), round(s["y"] + s["ty"] * off, 2), round(s["z"] - 0.75 + ((kk >> 4) % 5 - 2) * 0.03, 2),
+                        round(s["tx"], 4), round(s["ty"], 4), ranked[i * 3 % len(ranked)][0], round(((kk >> 8) % 9 - 4) * 0.01, 3)])
     return out
 
 

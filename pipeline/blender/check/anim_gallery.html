@@ -1,0 +1,31 @@
+<!doctype html><meta charset="utf-8"><body style="margin:0;background:#b8bcc2">
+<script type="importmap">{"imports":{"three":"/web/node_modules/three/build/three.module.js","three/addons/":"/web/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { clone } from "three/addons/utils/SkeletonUtils.js";
+const L = new GLTFLoader(), H = "/web/public/models/humans/", A = "/web/public/models/accessories/";
+const load = (u) => new Promise((r, e) => L.load(u, r, undefined, e));
+// items: [{id, lib, clip, t, x, z, ry, acc:[{file,bone,offset,rotation,scale}]}]; cam {w,h,pos,look,fov}
+window.show = async (items, cam) => {
+  const sc = new THREE.Scene(); sc.background = new THREE.Color(0xb8bcc2);
+  sc.add(new THREE.HemisphereLight(0xffffff, 0x667788, 1.6)); const d = new THREE.DirectionalLight(0xffffff, 2); d.position.set(2, 4, 3); sc.add(d);
+  const cache = {};
+  for (const it of items) {
+    const g = cache[it.id] ||= await load(H + it.id + ".glb"), lg = cache[it.lib] ||= await load(H + "anims_" + it.lib + ".glb");
+    const o = clone(g.scene); o.position.set(it.x, it.y || 0, it.z || 0); o.rotation.y = it.ry || 0; sc.add(o);
+    const mx = new THREE.AnimationMixer(o);
+    const clip = THREE.AnimationClip.findByName(lg.animations, it.clip) || THREE.AnimationClip.findByName(g.animations, it.clip);
+    if (!clip) { console.log("missing clip", it.clip); continue; }
+    mx.clipAction(clip).play(); mx.update(it.t || 0);
+    for (const a of it.acc || []) {
+      const ag = cache[a.file] ||= await load(A + a.file), m = clone(ag.scene); m.position.fromArray(a.offset); m.rotation.set(...a.rotation, "XYZ"); if (a.scale) m.scale.setScalar(a.scale);
+      o.getObjectByName(a.bone).add(m);
+    }
+  }
+  const r = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true }); r.setSize(cam.w, cam.h); document.body.appendChild(r.domElement);
+  const c = new THREE.PerspectiveCamera(cam.fov || 30, cam.w / cam.h, 0.1, 100); c.position.fromArray(cam.pos); c.lookAt(...cam.look);
+  r.render(sc, c); return true;
+};
+window.ready = true;
+</script>

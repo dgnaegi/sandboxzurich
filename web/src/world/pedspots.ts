@@ -1,5 +1,8 @@
 import * as THREE from 'three';
-import type { Human, HumanLib } from './humans';
+import { FAMILY, type Human, type HumanLib } from './humans';
+
+/** A clip family name (humans.FAMILY) or a single clip name. */
+export const clipFor = (h: Human, a: string): string => (a in FAMILY ? h.pick(a as keyof typeof FAMILY, Math.random()) : h.has(a) ? a : 'idle');
 
 /**
  * Standing / sitting people at fixed spots taken from the tile meta: benches (sitting), fountains (standing at the rim),
@@ -60,16 +63,9 @@ export class PedSpots {
   }
 
   private take(): Human {
-    return this.pool.pop() ?? this.lib.instance(this.lib.adults[(this.n++ * 7) % this.lib.adults.length]);
-  }
-
-  private bones(h: Human, names: string[]) { return names.map((n) => h.root.getObjectByName(n)); }
-
-  private sitPose(h: Human) {
-    h.mixer.setTime(0.2);
-    const [tl, tr, cl, cr] = this.bones(h, ['thigh_l', 'thigh_r', 'calf_l', 'calf_r']);
-    const a = 1.45, b = 1.5;
-    tl?.rotateX(a); tr?.rotateX(a); cl?.rotateX(-b); cr?.rotateX(-b);
+    const h = this.pool.pop() ?? this.lib.instance(this.lib.adults[(this.n++ * 7) % this.lib.adults.length]);
+    this.lib.dress(h);
+    return h;
   }
 
   private gear(h: Human): THREE.Object3D[] {
@@ -96,23 +92,34 @@ export class PedSpots {
   }
 
   private populate(s: Spot) {
-    const person = (off: number, ry: number, anim = 'idle') => {
+    /** Deterministic 0..1 per spot and person, so a spot looks the same every time it is rebuilt. */
+    const rnd = (i: number) => ((s.k * 7 + i * 131 + 17) % 100) / 100;
+    const person = (off: number, ry: number, anim: string, i = 0) => {
       const h = this.take();
-      h.play(anim, 0); h.mixer.setTime((s.k % 7) * 0.4);
+      h.play(clipFor(h, anim), 0);
       s.people.push(h);
       this.place(h, s.x + s.ax * off, s.y + s.ay * off, s.z, ry);
       return h;
     };
+    /** Standing around: weight shifts, arms crossed, hands in pockets, looking around, texting, phoning. */
+    const loiter = (i: number, wait = false) => {
+      const r = rnd(i);
+      return r < 0.28 ? 'phone' : r < 0.4 ? 'call' : wait ? 'wait' : 'idle';
+    };
     if (s.kind === 'sit') {
       const n = 1 + (s.k % 3 === 0 ? 1 : 0);
       for (let i = 0; i < n; i++) {
-        const off = (i - (n - 1) / 2) * 0.9 + (n === 1 ? ((s.k % 5) - 2) * 0.12 : 0), h = person(off, s.ry, (s.k + i) % 2 ? 'stand_phone' : 'idle');
-        this.sitPose(h);
-        h.root.position.y -= 0.45;
+        const off = (i - (n - 1) / 2) * 0.9 + (n === 1 ? ((s.k % 5) - 2) * 0.12 : 0);
+        const h0 = this.take(), fam = n === 2 ? 'sitTalk' : 'sit';
+        h0.play(h0.pick(fam, rnd(i)), 0, Math.random() * 4);
+        s.people.push(h0);
+        // a pair on one bench turns towards each other (talking); alone: slightly random posture
+        this.place(h0, s.x + s.ax * off, s.y + s.ay * off, s.z, s.ry + (n === 2 ? (i ? 0.4 : -0.4) : (rnd(5) - 0.5) * 0.3));
       }
-    } else if (s.kind === 'smoke') { person(-0.5, s.ry); person(0.5, s.ry + Math.PI); }
-    else if (s.kind === 'work') s.gear.push(this.gear(person(0, s.ry + (s.k % 5) * 0.15, s.k % 4 === 0 ? 'stand_phone' : 'idle')));
-    else person(0, s.ry, s.kind === 'cafe' || s.k % 2 ? 'stand_phone' : 'idle');
+    } else if (s.kind === 'smoke') { person(-0.5, s.ry, 'talk', 0); person(0.5, s.ry + Math.PI, rnd(2) < 0.7 ? 'listen' : 'talk2', 1); }
+    else if (s.kind === 'work') s.gear.push(this.gear(person(0, s.ry + (s.k % 5) * 0.15, s.k % 4 === 0 ? 'call' : s.k % 3 === 0 ? 'wait' : 'idle')));
+    else if (s.kind === 'cafe') person(0, s.ry, rnd(0) < 0.45 ? 'phone' : loiter(0, true));
+    else person(0, s.ry, loiter(0));
   }
 
   private clear(s: Spot) {
@@ -139,7 +146,7 @@ export class PedSpots {
       this.live = [...keep].filter((s) => s.people.length);
     }
     for (const s of this.live) {
-      if (s.kind === 'sit' || Math.hypot(s.x - px, s.y - py) > 35) continue; // seated: frozen pose; far: frozen
+      if (Math.hypot(s.x - px, s.y - py) > 35) continue; // far: frozen
       for (const h of s.people) h.mixer.update(dt);
     }
   }

@@ -59,7 +59,7 @@ def compact(path, keep_rot=None):
     used = set()
     def mark(i):
         if i is not None: used.add(i)
-    for m in j["meshes"]:
+    for m in j.get("meshes", []):
         for p in m["primitives"]:
             for v in p["attributes"].values(): mark(v)
             mark(p.get("indices"))
@@ -68,7 +68,7 @@ def compact(path, keep_rot=None):
         for s in a["samplers"]: mark(s["input"]); mark(s["output"])
     order = sorted(used); amap = {o: n for n, o in enumerate(order)}
     newacc = [acc[o] for o in order]
-    for m in j["meshes"]:
+    for m in j.get("meshes", []):
         for p in m["primitives"]:
             p["attributes"] = {k: amap[v] for k, v in p["attributes"].items()}
             if "indices" in p: p["indices"] = amap[p["indices"]]

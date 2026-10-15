@@ -1,0 +1,82 @@
+[
+ {
+  "id": "freitag_turm",
+  "name": "Freitag Flagship Store / Container-Turm (Geroldstrasse 17-21)",
+  "kind": "landmark",
+  "lat": 47.385668,
+  "lon": 8.519407,
+  "radius": 70
+ },
+ {
+  "id": "frau_gerolds_garten",
+  "name": "Frau Gerolds Garten (Geroldstrasse 23)",
+  "kind": "landmark",
+  "lat": 47.385429,
+  "lon": 8.519044,
+  "radius": 60
+ },
+ {
+  "id": "loewenbraeu",
+  "name": "Loewenbraeu-Areal (Limmatstrasse 264)",
+  "kind": "landmark",
+  "lat": 47.388671,
+  "lon": 8.526355,
+  "radius": 140
+ },
+ {
+  "id": "westpark",
+  "name": "Westpark / Galaxus (Pfingstweidstrasse 60)",
+  "kind": "landmark",
+  "lat": 47.390684,
+  "lon": 8.514952,
+  "radius": 110
+ },
+ {
+  "id": "mobimo_tower",
+  "name": "Mobimo Tower (Turbinenstrasse 18)",
+  "kind": "landmark",
+  "lat": 47.388144,
+  "lon": 8.514344,
+  "radius": 90
+ },
+ {
+  "id": "puls5",
+  "name": "Puls 5 (Giessereistrasse)",
+  "kind": "landmark",
+  "lat": 47.390711,
+  "lon": 8.517906,
+  "radius": 110
+ },
+ {
+  "id": "zentralwaescherei",
+  "name": "Zentralwaescherei (Neue Hard 12)",
+  "kind": "landmark",
+  "lat": 47.387304,
+  "lon": 8.520579,
+  "radius": 90
+ },
+ {
+  "id": "technopark",
+  "name": "Technopark (Technoparkstrasse 1)",
+  "kind": "landmark",
+  "lat": 47.390923,
+  "lon": 8.516401,
+  "radius": 100
+ },
+ {
+  "id": "hochhaus_pfingstweid",
+  "name": "Hochhaus Pfingstweidstrasse (80 m, 2013)",
+  "kind": "landmark",
+  "lat": 47.390683,
+  "lon": 8.510236,
+  "radius": 90
+ },
+ {
+  "id": "migros_limmatplatz",
+  "name": "Migros/Klubschule Limmatplatz",
+  "kind": "landmark",
+  "lat": 47.385041,
+  "lon": 8.531619,
+  "radius": 100
+ }
+]

@@ -103,7 +103,7 @@ export function buildPosters(rows: number[][]): THREE.Object3D[] {
   return [new THREE.Mesh(g, new THREE.MeshLambertMaterial({ map: posterTex })), new THREE.Mesh(f, new THREE.MeshLambertMaterial({ color: 0x2a2d30 }))];
 }
 
-/** Fictional wild-posting flyers: rows [x, y, z, tx, ty, sheet, rot], A2 (0.42 x 0.594 m), 4x4 sheet grid. */
+/** Wild-posting walls (pasted real past events, own designs): rows [x, y, z, tx, ty, sheet, rot], 1.5 x 1.5 m RGBA pieces, 4x4 atlas. */
 let wildTex: THREE.Texture | null = null;
 
 export function buildWildPosters(rows: number[][]): THREE.Object3D[] {
@@ -111,7 +111,7 @@ export function buildWildPosters(rows: number[][]): THREE.Object3D[] {
   wildTex ??= Object.assign(new THREE.TextureLoader().load('/tex/wildposters.webp'), { colorSpace: THREE.SRGBColorSpace, anisotropy: 4 });
   const pos: number[] = [], uv: number[] = [], nrm: number[] = [], idx: number[] = [];
   rows.forEach(([x, y, z, tx, ty, sheet, rot], n) => {
-    const ox = ty, oy = -tx, b = pos.length / 3, hw = 0.21, hh = 0.297, off = 0.05 + n * 0.0008;
+    const ox = ty, oy = -tx, b = pos.length / 3, hw = 0.75, hh = 0.75, off = 0.05 + n * 0.0008;
     const c = Math.cos(rot), s = Math.sin(rot);
     for (const [u0, v0] of [[-hw, -hh], [hw, -hh], [hw, hh], [-hw, hh]]) {
       const u = u0 * c - v0 * s, v = u0 * s + v0 * c;
@@ -128,7 +128,7 @@ export function buildWildPosters(rows: number[][]): THREE.Object3D[] {
   g.setAttribute('normal', new THREE.Float32BufferAttribute(nrm, 3));
   g.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
   g.setIndex(idx);
-  return [new THREE.Mesh(g, new THREE.MeshLambertMaterial({ map: wildTex }))];
+  return [new THREE.Mesh(g, new THREE.MeshLambertMaterial({ map: wildTex, alphaTest: 0.5 }))];
 }
 
 /** Fictional graffiti tags on walls: rows [x, y, z, tx, ty, idx, scale]; 4x4 RGBA atlas. */

@@ -414,7 +414,7 @@ def build():
                    for x, y in S[k] if tb.contains(Point(x, y))] for k in ("hydrants", "bollards", "pingpong")},
             "housenumbers": [r for r in AD if tb.contains(Point(r[0], r[1]))],
             "streetsigns": [r for r in SG if tb.contains(Point(r[0], r[1]))],
-            "wild": (wild := props.wild_posters([s for s in segs if s.get("blank")], al, tb)),
+            "wild": (wild := props.wild_posters([s for s in segs if s.get("blank")], al, tb, main_dist=lambda x, y: main.distance(Point(x, y)))),
             "graffiti": props.graffiti([s for s in segs if s.get("blank")], al + wild, tb,
                                        lambda x, y: main.distance(Point(x, y))),
             "signs": sg,

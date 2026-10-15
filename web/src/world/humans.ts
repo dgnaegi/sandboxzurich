@@ -1,15 +1,42 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import * as SkeletonUtils from 'three/examples/jsm/utils/SkeletonUtils.js';
+import { dress } from './tint';
 
-/** Realistic MakeHuman/MPFB characters (CC0), exported by pipeline/blender. Animations (CMU mocap, retargeted): idle, walk, run, walk_slow, stand_phone. */
+/**
+ * Realistic MakeHuman/MPFB characters (CC0), exported by pipeline/blender. Per-figure clips (CMU mocap, retargeted): idle, walk, run, walk_slow.
+ * Shared library clips (anims_<class>.glb, class = A|B x young|old, pelvis track scaled to the figure): shift, look, stand2, wait, talk, listen,
+ * talk2, argue, call, text, crossed, crossed2, pockets, pockets2, sit, sit_talk, sit_chat (see research/humans.md R7).
+ */
 interface Entry { id: string; file: string; role: 'player' | 'npc'; sex: string; age: string; height?: number; props?: string[]; clip_speed?: ClipSpeed }
-export interface Model { scene: THREE.Object3D; clips: THREE.AnimationClip[]; age: string; height: number; props: string[]; speeds?: ClipSpeed }
+export interface Model { scene: THREE.Object3D; clips: THREE.AnimationClip[]; age: string; height: number; props: string[]; speeds?: ClipSpeed; cls: string }
+
+/** Reference figure height (m) of each library class (the figure the clips were retargeted on). */
+const LIB_REF: Record<string, number> = { A_young: 1.757, B_young: 1.467, A_old: 1.767, B_old: 1.491 };
+/** Standing / seated clip families; `pick` chooses one per person so neighbours differ. */
+export const FAMILY = {
+  idle: ['idle', 'shift', 'stand2', 'listen', 'look', 'crossed', 'pockets', 'crossed2', 'pockets2'],
+  wait: ['wait', 'shift', 'crossed', 'pockets', 'look', 'stand2', 'idle'],
+  phone: ['text'], call: ['call'], talk: ['talk', 'talk2', 'listen', 'argue'], listen: ['listen', 'stand2', 'crossed', 'shift'],
+  sit: ['sit', 'sit+text'], sitTalk: ['sit_talk', 'sit_chat'],
+} as const;
+/** Phone placement per clip (bone-local, measured with pipeline/blender/check/anim_sheet.mjs). */
+const PHONE_FIT: Record<string, { bone: string; offset: number[]; rotation: number[] }> = {
+  text: { bone: 'hand_r', offset: [-0.0072, 0.0603, -0.0133], rotation: [3.0106, -0.6798, -2.9191] },
+  call: { bone: 'hand_r', offset: [0.0428, 0.0603, -0.0133], rotation: [3.0106, -0.6798, -2.9191] },
+};
+/** Old name kept for scenes: stand_phone = texting. */
+const ALIAS: Record<string, string> = { stand_phone: 'text' };
+let scarfGeo: THREE.BufferGeometry | undefined;
+const SCARF_COLORS = [0x7a2430, 0xb8862b, 0x1d4a36, 0x3a3f66, 0xd8cdb6, 0xa5522a, 0x6b7077, 0xd9a2b0, 0x15171a];
+const LEG_NODES = /^(pelvis|spine_0\d|thigh_|calf_|foot_|ball_)/;
 interface Accessory { name: string; obj: THREE.Object3D; bone: string | null; offset: number[]; rotation: number[]; clips: THREE.AnimationClip[] }
 
 export class HumanLib {
   player!: Model;
   npcs: Model[] = [];
+  private libs = new Map<string, THREE.AnimationClip[]>();
+  private libCache = new Map<string, THREE.AnimationClip[]>();
 
   /** Loads the player and the first `first` NPC models; the rest stream in afterwards (download budget). */
   accessories = new Map<string, Accessory>();
@@ -24,9 +51,35 @@ export class HumanLib {
     // interleave ages so every subset is mixed
     const npcs = list.filter((e) => e.role !== 'player').sort((a, b) => (a.id < b.id ? -1 : 1));
     const order = [...npcs.filter((_, i) => i % 3 === 0), ...npcs.filter((_, i) => i % 3 === 1), ...npcs.filter((_, i) => i % 3 === 2)].slice(0, max);
+    await lib.loadLibs(base);
     await lib.fetch(base, [...player, ...order.slice(0, first)]);
     void lib.fetch(base, order.slice(first)).then(() => lib.loadAccessories());
     return lib;
+  }
+
+  /** Shared animation libraries (about 0.4 MB each); a failed file only means fewer clips. */
+  private async loadLibs(base: string) {
+    const loader = new GLTFLoader();
+    await Promise.all(Object.keys(LIB_REF).map(async (c) => {
+      try { this.libs.set(c, (await loader.loadAsync(`${base}/anims_${c}.glb`)).animations); } catch { /* optional */ }
+    }));
+  }
+
+  /** Library clips for a figure: rotation tracks shared, pelvis translation scaled by height / reference height. */
+  private libClips(cls: string, height: number): THREE.AnimationClip[] {
+    const src = this.libs.get(cls);
+    if (!src) return [];
+    const k = Math.round((height / LIB_REF[cls]) * 50) / 50, key = `${cls}:${k}`;
+    let out = this.libCache.get(key);
+    if (!out) {
+      out = src.map((c) => new THREE.AnimationClip(c.name, c.duration, c.tracks.map((t) => {
+        if (!t.name.endsWith('.position')) return t;
+        const v = t.values.slice(); for (let i = 0; i < v.length; i++) v[i] *= k;
+        return new THREE.VectorKeyframeTrack(t.name, t.times, v);
+      })));
+      this.libCache.set(key, out);
+    }
+    return out;
   }
 
   async loadAccessories(base = '/models/accessories') {
@@ -66,12 +119,51 @@ export class HumanLib {
     await Promise.all(list.map(async (e) => {
       const g = await loader.loadAsync(`${base}/${e.file}`);
       g.scene.traverse((o) => { if ((o as THREE.Mesh).isMesh) { o.castShadow = true; o.frustumCulled = false; } });
-      const m: Model = { scene: g.scene, clips: g.animations, age: e.age ?? 'young', height: e.height ?? 1.75, props: e.props ?? [], speeds: e.clip_speed };
+      const age = e.age ?? 'young', height = e.height ?? 1.75, cls = `${e.sex === 'm' ? 'A' : 'B'}_${age === 'old' ? 'old' : 'young'}`;
+      const own = g.animations.filter((c) => c.name !== 'stand_phone');
+      const m: Model = { scene: g.scene, clips: e.role === 'player' ? own : [...own, ...this.libClips(cls, height)], age, height, props: e.props ?? [], speeds: e.clip_speed, cls };
       if (e.role === 'player') this.player = m; else this.npcs.push(m);
     }));
   }
 
-  instance(m: Model): Human { return new Human(SkeletonUtils.clone(m.scene), m.clips, m.speeds); }
+  instance(m: Model): Human { const h = new Human(SkeletonUtils.clone(m.scene), m.clips, m.speeds); h.lib = this; h.model = m; return h; }
+
+  /** New random autumn outfit colours (jacket, trousers, shoes) for a pooled person; the player keeps her own. */
+  dress(h: Human) {
+    if (!h.model) return;
+    dress(h, h.model);
+    this.scarf(h, h.model.age !== 'child' && Math.random() < 0.22);
+  }
+
+  /** Wool scarf (snood) around the neck: one shared torus, colour from the autumn palette. */
+  private scarf(h: Human, on: boolean) {
+    let s = h.scarfObj;
+    if (!on) { if (s) s.visible = false; return; }
+    const neck = h.root.getObjectByName('neck_01');
+    if (!neck) return;
+    if (!s) {
+      scarfGeo ??= new THREE.TorusGeometry(0.068, 0.03, 6, 14).rotateX(Math.PI / 2).translate(0, 0.02, 0);
+      s = h.scarfObj = new THREE.Mesh(scarfGeo, new THREE.MeshLambertMaterial());
+      neck.add(s);
+    }
+    (s.material as THREE.MeshLambertMaterial).color.set(SCARF_COLORS[Math.floor(Math.random() * SCARF_COLORS.length)]);
+    s.visible = true;
+  }
+
+  /** Show the phone in the hand while a phone clip plays (created on first use, hidden otherwise). */
+  phoneFor(h: Human, clip: string) {
+    const fit = PHONE_FIT[clip];
+    if (!fit) { if (h.phone) h.phone.visible = false; return; }
+    if (!h.phone) {
+      const a = this.accessories.get('phone');
+      if (!a) return;
+      h.phone = SkeletonUtils.clone(a.obj); h.phone.userData.bone = '';
+    }
+    const bone = h.root.getObjectByName(fit.bone);
+    if (!bone) return;
+    if (h.phone.parent !== bone) bone.add(h.phone);
+    h.phone.position.fromArray(fit.offset); h.phone.rotation.fromArray(fit.rotation as [number, number, number]); h.phone.visible = true;
+  }
 }
 
 /** Measured ground speed (m/s) of the in-place mocap loops (manifest `clip_speed`); playback rate = v / clip speed keeps feet from sliding. */
@@ -85,15 +177,23 @@ const smooth = (a: number, b: number, v: number) => { const t = Math.min(1, Math
  */
 export class Human {
   readonly mixer: THREE.AnimationMixer;
+  /** Created lazily (a mixer binding per clip per person would be wasted on the ~25 clips nobody plays). */
   readonly actions: Record<string, THREE.AnimationAction> = {};
   private target: Record<string, number> = {};
   private weight: Record<string, number> = {};
   private gait = false;
+  private clips = new Map<string, THREE.AnimationClip>();
+  /** set by HumanLib.instance(); drives the phone prop for phone clips */
+  lib?: HumanLib;
+  phone?: THREE.Object3D;
+  model?: Model;
+  scarfObj?: THREE.Mesh;
+  current = 'idle';
 
   constructor(readonly root: THREE.Object3D, clips: THREE.AnimationClip[], private speeds: ClipSpeed = DEFAULT_SPEED) {
     this.mixer = new THREE.AnimationMixer(root);
-    for (const c of clips) { this.actions[c.name] = this.mixer.clipAction(c); this.weight[c.name] = 0; this.target[c.name] = 0; }
-    for (const a of Object.values(this.actions)) { a.play(); a.setEffectiveWeight(0); }
+    for (const c of clips) this.clips.set(c.name, c);
+    for (const n of ['idle', 'walk', 'run', 'walk_slow']) this.ensure(n);
     const upd = this.mixer.update.bind(this.mixer);
     this.mixer.update = (dt: number) => { this.blend(dt); return upd(dt); };
     this.play('idle', 0);
@@ -102,21 +202,47 @@ export class Human {
   /** Use the slow walk (older people) when walking. */
   slow = false;
 
-  /** Switch to a single clip (idle, stand_phone, ...). */
-  play(name: string, fade = 0.25, offset = 0) {
-    if (!this.actions[name]) return;
+  /** A clip exists (own or library). `a+b` = legs/pelvis/spine of a with arms, neck and head of b. */
+  has(name: string): boolean { name = ALIAS[name] ?? name; return name.includes('+') ? name.split('+').every((n) => this.clips.has(n)) : this.clips.has(name); }
+
+  /** One clip of the family chosen by `r` in [0,1); skips clips this figure lacks. */
+  pick(family: keyof typeof FAMILY, r: number): string {
+    const l = FAMILY[family].filter((n) => this.has(n));
+    return l.length ? l[Math.floor(r * l.length) % l.length] : 'idle';
+  }
+
+  private ensure(name: string): THREE.AnimationAction | null {
+    if (this.actions[name]) return this.actions[name];
+    let clip = this.clips.get(name);
+    if (!clip && name.includes('+')) {                          // mixed clip, built once per figure
+      const [a, b] = name.split('+').map((n) => this.clips.get(n));
+      if (a && b) clip = new THREE.AnimationClip(name, a.duration, [...a.tracks.filter((t) => LEG_NODES.test(t.name)), ...b.tracks.filter((t) => !LEG_NODES.test(t.name))]);
+    }
+    if (!clip) return null;
+    const act = this.actions[name] = this.mixer.clipAction(clip);
+    this.weight[name] = 0; this.target[name] = 0; act.play(); act.setEffectiveWeight(0);
+    return act;
+  }
+
+  /** Switch to a single clip (idle, wait, talk, sit, ...); offset = start time in s (default: random, so neighbours are out of phase). */
+  play(name: string, fade = 0.25, offset?: number) {
+    name = ALIAS[name] ?? name;
+    const act = this.ensure(name);
+    if (!act) return;
     if (!this.gait && this.target[name] === 1) return;
-    this.gait = false;
+    this.gait = false; this.current = name;
     for (const n in this.target) this.target[n] = n === name ? 1 : 0;
     for (const a of Object.values(this.actions)) a.timeScale = 1;
-    this.actions[name].time = offset;
+    act.time = offset ?? Math.random() * act.getClip().duration;
     if (fade <= 0) this.blend(1e3);
+    this.lib?.phoneFor(this, name);
   }
 
   /** Choose clip weights and playback rates from ground speed (m/s). */
   setSpeed(v: number) {
     const A = this.actions, sp = this.speeds;
     if (!A.walk) return;
+    if (this.phone?.visible) this.phone.visible = false;
     if (!Number.isFinite(v)) v = 0;
     const ladder: [string, number][] = [];
     if (this.slow && A.walk_slow) ladder.push(['walk_slow', sp.walk_slow ?? DEFAULT_SPEED.walk_slow!]);

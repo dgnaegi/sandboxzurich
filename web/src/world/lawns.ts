@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import type { Human, HumanLib } from './humans';
+import { clipFor } from './pedspots';
 
 /**
  * People on the grass (spots from the pipeline: [x, y, z, heading, kind]; 0 lying, 1 picnic, 2 chatting).
@@ -22,7 +23,11 @@ export class Lawns {
     for (const [x, y, z, h, kind] of rows) this.spots.push({ x, y, z, h, kind, obj: null, people: [] });
   }
 
-  private human(): Human { return this.pool.pop() ?? this.lib.instance(this.lib.adults[(this.k++ * 7) % this.lib.adults.length]); }
+  private human(): Human {
+    const h = this.pool.pop() ?? this.lib.instance(this.lib.adults[(this.k++ * 7) % this.lib.adults.length]);
+    this.lib.dress(h);
+    return h;
+  }
 
   private populate(s: Spot) {
     const g = new THREE.Group();
@@ -30,15 +35,16 @@ export class Lawns {
     g.rotation.y = -s.h;
     const lie = (dx: number, dz: number, rot: number) => {
       const h = this.human(), w = new THREE.Group();
+      h.play('idle', 0);
       h.root.rotation.set(Math.PI / 2, 0, 0); // on the back, head towards +z
       h.root.position.set(0, 0.12, -0.8);
       w.add(h.root); w.position.set(dx, 0, dz); w.rotation.y = rot;
       g.add(w); s.people.push(h);
     };
-    const stand = (dx: number, dz: number, rot: number) => {
+    const stand = (dx: number, dz: number, rot: number, anim: string) => {
       const h = this.human();
       h.root.rotation.set(0, rot, 0); h.root.position.set(dx, 0, dz);
-      h.play(Math.random() < 0.35 ? 'stand_phone' : 'idle', 0, Math.random() * 3); // many look at their phone
+      h.play(clipFor(h, anim), 0);                    // random phase per person
       g.add(h.root); s.people.push(h);
     };
     if (s.kind === 0) lie(0, 0, 0);
@@ -46,7 +52,10 @@ export class Lawns {
       const b = new THREE.Mesh(blanketGeo, BLANKETS[Math.floor(Math.abs(s.x * 7 + s.y)) % BLANKETS.length]);
       b.position.y = 0.02; g.add(b);
       lie(-0.5, 0, 0); lie(0.55, 0.1, Math.PI);
-    } else { stand(0, 0, 0); stand(0.9, -0.6, -2.2); stand(-0.8, -0.7, 2.3); }
+    } else {                                            // chatting group (also people at tram stops): two talk to each other, the third waits or looks at the phone
+      const k = Math.abs(Math.floor(s.x * 7 + s.y * 3)) % 4, j = () => (Math.random() - 0.5) * 0.3;
+      stand(0, 0, -0.8 + j(), 'talk'); stand(0.9, -0.6, 2.1 + j(), k < 2 ? 'listen' : 'talk2'); stand(-0.8, -0.7, -2.3 + j(), k % 2 ? 'phone' : k === 0 ? 'call' : 'wait');
+    }
     for (const h of s.people) { h.root.position.y += 0; h.mixer.update(Math.random()); }
     this.group.add(g);
     s.obj = g;

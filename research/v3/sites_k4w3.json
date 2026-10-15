@@ -1,0 +1,114 @@
+[
+ {
+  "id": "kaserne",
+  "name": "Alte Kaserne Zuerich",
+  "kind": "landmark",
+  "lat": 47.37548,
+  "lon": 8.53299,
+  "radius": 110
+ },
+ {
+  "id": "zeughaeuser",
+  "name": "Zeughaeuser Kasernenareal",
+  "kind": "landmark",
+  "lat": 47.377317,
+  "lon": 8.530401,
+  "radius": 90
+ },
+ {
+  "id": "amtshaus_helvetia",
+  "name": "Amtshaus Helvetiaplatz",
+  "kind": "landmark",
+  "lat": 47.3763,
+  "lon": 8.52714,
+  "radius": 80
+ },
+ {
+  "id": "peter_paul",
+  "name": "Kirche St. Peter und Paul",
+  "kind": "landmark",
+  "lat": 47.372142,
+  "lon": 8.527739,
+  "radius": 80
+ },
+ {
+  "id": "sihlpost",
+  "name": "Sihlpost",
+  "kind": "landmark",
+  "lat": 47.377288,
+  "lon": 8.535313,
+  "radius": 100
+ },
+ {
+  "id": "apollo_stauffacher",
+  "name": "Kino Apollo Stauffacherstrasse",
+  "kind": "landmark",
+  "lat": 47.374065,
+  "lon": 8.528017,
+  "radius": 70
+ },
+ {
+  "id": "zett_haus",
+  "name": "Zett-Haus",
+  "kind": "landmark",
+  "lat": 47.373878,
+  "lon": 8.530648,
+  "radius": 80
+ },
+ {
+  "id": "bezirksgebaeude",
+  "name": "Bezirksgebaeude Badenerstrasse 90",
+  "kind": "landmark",
+  "lat": 47.37431,
+  "lon": 8.52598,
+  "radius": 80
+ },
+ {
+  "id": "schulhaus_hohl",
+  "name": "Schulhaus Hohl",
+  "kind": "landmark",
+  "lat": 47.37827,
+  "lon": 8.52486,
+  "radius": 80
+ },
+ {
+  "id": "schulhaus_feld",
+  "name": "Schulhaus Feldstrasse",
+  "kind": "landmark",
+  "lat": 47.37863,
+  "lon": 8.5223,
+  "radius": 80
+ },
+ {
+  "id": "hotel_25hours",
+  "name": "25hours Hotel Langstrasse",
+  "kind": "landmark",
+  "lat": 47.38044,
+  "lon": 8.5287,
+  "radius": 80
+ },
+ {
+  "id": "zollhaus",
+  "name": "Zollhaus Zollstrasse 121",
+  "kind": "landmark",
+  "lat": 47.38156,
+  "lon": 8.52965,
+  "radius": 80
+ },
+ {
+  "id": "unia_stauffacher",
+  "name": "Unia-Haus Stauffacher",
+  "kind": "landmark",
+  "lat": 47.37237,
+  "lon": 8.528446,
+  "radius": 70
+ },
+ {
+  "id": "kollerhof",
+  "name": "Kollerhof",
+  "kind": "landmark",
+  "lat": 47.377084,
+  "lon": 8.526437,
+  "radius": 70
+ }
+]

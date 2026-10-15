@@ -82,6 +82,7 @@ export class Pedestrians {
   private take(m: Model): Human {
     const h = this.pool.get(m)?.pop() ?? this.lib.instance(m);
     (h.root.userData as { model?: Model }).model = m;
+    this.lib.dress(h);
     return h;
   }
 
