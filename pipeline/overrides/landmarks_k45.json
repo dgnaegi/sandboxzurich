@@ -1,24 +1,6 @@
 {
  "landmarks": [
   {
-   "name": "Toni-Areal",
-   "model": "/models/landmarks/toni_areal.glb",
-   "x": -348.5,
-   "y": 757.7,
-   "z": -9.35,
-   "heading": 0,
-   "hide": [
-    [
-     -352.1,
-     749.8
-    ],
-    [
-     -378.9,
-     674.7
-    ]
-   ]
-  },
-  {
    "name": "Volkshaus",
    "model": "/models/landmarks/volkshaus.glb",
    "x": 821.7,
@@ -93,32 +75,6 @@
     [
      -96.8,
      -469.1
-    ]
-   ]
-  },
-  {
-   "name": "Schiffbau",
-   "model": "/models/landmarks/schiffbau.glb",
-   "x": 150.4,
-   "y": 533.3,
-   "z": -8.05,
-   "heading": 0,
-   "hide": [
-    [
-     153.3,
-     533.4
-    ],
-    [
-     193.1,
-     500.3
-    ],
-    [
-     163.5,
-     550.7
-    ],
-    [
-     203.3,
-     583.1
     ]
    ]
   },
@@ -453,6 +409,62 @@
     [
      785.3,
      124.2
+    ]
+   ]
+  },
+  {
+   "name": "Toni-Areal",
+   "model": "/models/landmarks/toni_areal.glb",
+   "x": -348.5,
+   "y": 757.7,
+   "z": -9.35,
+   "heading": 0,
+   "hide": [
+    [
+     -352.1,
+     749.8
+    ],
+    [
+     -378.9,
+     674.7
+    ]
+   ]
+  },
+  {
+   "name": "Schiffbau",
+   "model": "/models/landmarks/schiffbau.glb",
+   "x": 150.4,
+   "y": 533.3,
+   "z": -8.05,
+   "heading": 0,
+   "hide": [
+    [
+     153.3,
+     533.4
+    ],
+    [
+     193.1,
+     500.3
+    ],
+    [
+     163.5,
+     550.7
+    ],
+    [
+     203.3,
+     583.1
+    ],
+    [
+     123.0,
+     578.8
+    ],
+    [
+     80.4,
+     586.9
+    ],
+    [
+     244.3,
+     547.7
     ]
    ]
   }

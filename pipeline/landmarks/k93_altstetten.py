@@ -20,7 +20,7 @@ def wall_tex(spandrel=(190, 188, 182), glass=(52, 62, 74), band=0.38):
     return im
 
 M = L.Model(origin=(O[0], O[1], 0.0))
-RB, RE = K.tile(8, 4, 48, 64, K.ribbon(wall="#aeb6b4", glass="#4f6f78", band=0.62, y0=0.16), seed=31, lit=0.28)
+RB, RE = K.tile(8, 4, 48, 64, K.ribbon(wall="#dadcd6", glass="#3c7b7a", mull="#eceee9", band=0.7, y0=0.14, sky=0.55, slab="#e4e5e0"), seed=31, lit=0.28)   # teal ribbon glass, slim white spandrels (photos #24, lm3)
 UW = M.mat("ribbon", rough=0.5, tex=RB, emis=RE, repeat=True)
 SB, SE = K.tile(4, 1, 96, 104, K.window(wall="#86847f", frame="#2f3335", glass="#566b78", fw=0.9, fh=0.72, top=0.12, cols=3, rows=1, sill="#6c6a66", noise=4, lit_col=(255, 224, 160)), seed=32, lit=0.7)
 SH = M.mat("shop", rough=0.8, tex=SB, emis=SE, repeat=True)
@@ -39,16 +39,13 @@ nfl = int((ZT - ZF) / FLOOR + 0.5); FL = (ZT - ZF) / nfl
 K.wall_band(M, UW, inner, ZF, ZT, 1.8, FL, nx=8, ny=4)           # recessed window bands
 for k in range(nfl + 1):                                              # projecting off-form concrete slabs
     zz = ZF + k * FL - 0.3
-    M.prism(C, hh, zz, zz + (0.75 if k in (0, nfl) else 0.55), shade(CONCR, 1.0 if k % 2 else 0.94), topcol=shade(CONCR, 0.85), tile=(6.0, 1.0))
+    M.prism(C, hh, zz, zz + (0.45 if k in (0, nfl) else 0.2), shade(hexc('#dcdcd6'), 1.0 if k % 2 else 0.96), topcol=shade(CONCR, 0.9), tile=(6.0, 1.0))
 M.cap(C, hh, ZT + 0.5, hexc("#8f8f8b"))
 cx = np.mean([p[0] for p in hh]); cy = np.mean([p[1] for p in hh])
 ux, uy = math.cos(ang), math.sin(ang); nx_, ny_ = -uy, ux
 # vertical concrete fins on both long faces (every second bay) and slit-window end cores
 Lh = math.hypot(hh[3][0] - hh[0][0], hh[3][1] - hh[0][1]); Wh = math.hypot(hh[1][0] - hh[0][0], hh[1][1] - hh[0][1])
-for sgn in (-1, 1):
-    for k in range(-9, 10):
-        px = cx + ux * k * 3.0 + nx_ * sgn * (Wh / 2 + 0.05); py = cy + uy * k * 3.0 + ny_ * sgn * (Wh / 2 + 0.05)
-        M.box(C, (px, py, (ZF + ZT) / 2), (0.35, 0.6, ZT - ZF), shade(CONCR, 0.96), rot=ang)
+# (long faces: glass ribbons with slim slab edges, no fins)
 for sgn in (-1, 1):  # stair/lift cores at the ends
     px = cx + ux * sgn * (Lh / 2 + 1.0); py = cy + uy * sgn * (Lh / 2 + 1.0)
     M.box(C, (px, py, (ZT + 3) / 2 + 0.0), (3.2, Wh * 0.45, ZT + 3 + 3.0), CONCD, rot=ang)
@@ -113,6 +110,35 @@ for e in els_:
     M.prism(CAN, pts_, zr_, zr_ + 0.22, hexc("#aab6b4"), topcol=hexc("#8b9795"), top=True, tile=(2.0, 1.0))
     for p2 in pts_[:: max(1, len(pts_) // 4)]:
         M.box(C, (p2[0], p2[1], zc_ + 1.65), (0.2, 0.2, zr_ - zc_), hexc("#6e7377"))
+# platform signs under the canopies ("3 | Zürich Altstetten | 4", black with yellow numerals) + yellow emergency lamps
+def plat_sign():
+    im = Image.new("RGB", (640, 128), (22, 24, 26)); d = ImageDraw.Draw(im); f = K.font("Barlow-Bold", 96); f2 = K.font("Barlow-Bold", 54)
+    d.text((22, 12), "3", font=f, fill=(255, 205, 40)); d.text((560, 12), "4", font=f, fill=(255, 205, 40))
+    t = "Zürich Altstetten"; d.text(((640 - f2.getlength(t)) / 2, 32), t, font=f2, fill=(244, 244, 238)); d.rectangle([2, 2, 637, 125], outline=(90, 92, 94), width=2)
+    return im
+PS_ = plat_sign(); PSG = M.mat("sign_platform", rough=0.5, tex=PS_, emis=PS_.point(lambda v: int(v * 0.5)), repeat=False)
+for e in els_:
+    t_ = e.get("tags", {})
+    if e["type"] != "way" or t_.get("building") != "roof" or "nodes" not in e: continue
+    q_ = [nodes_[n] for n in e["nodes"] if n in nodes_]
+    if len(q_) < 4: continue
+    g_ = _P(q_).buffer(0)
+    if g_.geom_type != "Polygon" or math.hypot(g_.centroid.x - O[0], g_.centroid.y - O[1]) > 130 or g_.area < 120: continue
+    rc_ = list(g_.minimum_rotated_rectangle.exterior.coords)[:4]
+    e0_, e1_ = np.array(rc_[1]) - np.array(rc_[0]), np.array(rc_[2]) - np.array(rc_[1])
+    T_ = e0_ if np.linalg.norm(e0_) >= np.linalg.norm(e1_) else e1_; Ln_ = np.linalg.norm(T_); T_ = T_ / Ln_
+    N_ = np.array([-T_[1], T_[0]]); Wd_ = min(np.linalg.norm(e0_), np.linalg.norm(e1_))
+    if Ln_ < 20: continue
+    zc_ = float(H.at(*g_.centroid.coords[0])) - ZG; zr_ = zc_ + (3.3 if t_.get("layer") != "1" else 3.6)
+    cen_ = np.array(g_.centroid.coords[0])
+    for off_ in ([0.0] if Ln_ < 55 else [-Ln_ / 3, Ln_ / 3]):
+        p_ = cen_ + T_ * off_
+        for sd in (1, -1):
+            out_ = T_ * sd; d_ = np.array([-out_[1], out_[0]])
+            K.quad_tex(M, PSG, p_ + out_ * 0.05 - d_ * 1.2, p_ + out_ * 0.05 + d_ * 1.2, zr_ - 1.0, zr_ - 0.52)
+        M.box(C, (p_[0] + N_[0] * 1.15, p_[1] + N_[1] * 1.15, zr_ - 0.5), (0.05, 0.05, 0.5), hexc("#3a3d3f"))
+        M.box(C, (p_[0] - N_[0] * 1.15, p_[1] - N_[1] * 1.15, zr_ - 0.5), (0.05, 0.05, 0.5), hexc("#3a3d3f"))
+        M.box(C, (p_[0] + T_[0] * 0.3 + N_[0] * Wd_ * 0.3, p_[1] + T_[1] * 0.3 + N_[1] * Wd_ * 0.3, zr_ - 0.12), (0.22, 0.22, 0.12), hexc("#ffc21a"))
 # platform clock on a post in front of the arcade (two faces)
 import k93_kirchen as KK
 _ck = KK.round_clock(); CKM = M.mat("clock", rough=0.5, tex=_ck, emis=_ck.point(lambda v: int(v * 0.55)), repeat=False)

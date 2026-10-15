@@ -209,7 +209,7 @@ def build():
                     ball(m, mf, p[0], p[1], 1.28, 0.27, D.hexl("#9c968a"))
     # ---- hip roof (ridge along the long axis) with eyebrow dormers + chimneys
     (cx, cy), ux, uy, L_, W_ = rect_of(Pl, 0.0)
-    oh = 0.65; rise = 6.2
+    oh = 0.45; rise = 6.2
     vx, vy = -uy, ux; hl, hw = L_ / 2 + oh, W_ / 2 + oh
     Pt = lambda s, tt, zz: (cx + ux * s + vx * tt, cy + uy * s + vy * tt, zz)
     rl = max(0.5, L_ / 2 - W_ / 2)
