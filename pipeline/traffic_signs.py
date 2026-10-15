@@ -70,6 +70,49 @@ def _place(p, d, half, along=0.0, side=1.0):
     return q, math.atan2(-d[1], -d[0])
 
 
+def oneway_only_back(t):
+    return t.get("oneway") == "-1"
+
+
+def _regime_signs(w, hw, half, oneway, L, add):
+    """Signs where a way crosses an official zone / speed-regime boundary (streets_rules.events)."""
+    import streets_rules as SR
+    from shapely.geometry import LineString
+    pts = w["pts"]
+    d0, d1 = pts[0] - pts[1], pts[-1] - pts[-2]
+    d0, d1 = d0 / (np.hypot(*d0) + 1e-9), d1 / (np.hypot(*d1) + 1e-9)
+    ln = LineString(np.vstack([pts[0] + d0 * 12, pts, pts[-1] + d1 * 12]))
+    L = ln.length - 24
+    for s, prev, new in SR.events(np.asarray(ln.coords)):
+        s -= 12.0
+        for sgn, enter, leave in ((1, new, prev), (-1, prev, new)):
+            if oneway and sgn < 0:
+                continue
+            code = None
+            if enter == "z30" and leave != "z30":
+                code = "zone30"
+            elif leave == "z30" and enter not in ("z30", "beg", "fuss"):
+                code = "zone30end"
+            elif enter == "beg" and leave != "beg":
+                code = "begegnung"
+            elif leave == "beg" and enter not in ("beg", "z30", "fuss"):
+                code = "begegnungend"
+            elif enter == "t30" and leave not in ("z30", "t30", "beg") and hw in MAIN:
+                code = "speed30"
+            elif leave in ("t30", "t20") and enter in ("", "t50") and hw in MAIN:
+                code = "speed50"
+            elif enter == "t50" and leave in ("t30", "t20"):
+                code = "speed50"
+            if not code:
+                continue
+            ss = min(max(s, 6.0), L - 6.0) + 12.0
+            a, b = ln.interpolate(max(0, ss - 1)), ln.interpolate(min(ln.length, ss + 1))
+            d = np.array([b.x - a.x, b.y - a.y]) * sgn
+            d /= np.hypot(*d) + 1e-9
+            q, h = _place(np.array(ln.interpolate(ss).coords[0]), d, half, 0.0)
+            add(q, h, code)
+
+
 def sign_rows(area, H, nodes=None, els=None):
     nodes, ways, ntags = _load(area, nodes, els)
     x0, y0, x1, y1 = area
@@ -94,26 +137,9 @@ def sign_rows(area, H, nodes=None, els=None):
         a, b = ids[0], ids[-1]
         sp = _speed(t)
         oneway = t.get("oneway") == "yes"
-        # zone 30 entry / exit and explicit 50: sign at way ends where the neighbour speed differs
-        if sp in (30, 50) and L > 25:
-            for end, n in ((0, a), (1, b)):
-                if deg[n] < 2:
-                    continue
-                others = [_speed(o["t"]) for o, _ in at_node[n] if o is not w]
-                if not others or any(s == sp for s in others):
-                    continue
-                inward = _dir(pts, 0, 1) if end == 0 else _dir(pts, len(pts) - 1, -1)
-                if sp == 30:
-                    if oneway and end == 1 or hw not in LOCAL | MAIN:
-                        continue
-                    q, h = _place(pts[0 if end == 0 else -1], inward, half, 5)  # entering traffic
-                    add(q, h, "zone30")
-                    if not oneway:  # leaving traffic gets the end sign on the opposite side
-                        q, h = _place(pts[0 if end == 0 else -1], -inward, half, -5)
-                        add(q, h, "zone30end")
-                elif t.get("maxspeed") == "50" and hw in MAIN:
-                    q, h = _place(pts[0 if end == 0 else -1], inward, half, 5)
-                    add(q, h, "speed50")
+        # Zone 30 / Begegnungszone / signalised Tempo 30 and its end: from the official zones and speed regimes
+        if hw in LOCAL | MAIN and L > 20 and not oneway_only_back(t):
+            _regime_signs(w, hw, half, oneway, L, add)
         # one-way: Einbahn at the entrance, Einfahrt verboten at the exit (facing wrong-way traffic)
         if oneway and hw in LOCAL | {"tertiary", "secondary"} and L > 20:
             if deg[a] >= 2:
@@ -171,8 +197,18 @@ def sign_rows(area, H, nodes=None, els=None):
                 d = _dir(pts, 0, 1)
             q, h = _place(nodes[n], d, _w(w["t"]) / 2, -1.0)
             add(q, h, "stop" if t["highway"] == "stop" else "vortritt")
-        elif t.get("highway") == "crossing" and t.get("crossing") in ("zebra", "marked", "uncontrolled") \
-                or t.get("crossing_ref") == "zebra":
+        elif t.get("highway") == "crossing" and t.get("crossing:markings") != "no" and t.get("crossing") in ("zebra", "marked", "uncontrolled") \
+                or t.get("crossing_ref") == "zebra" or t.get("crossing:markings") == "zebra" and t.get("crossing") != "traffic_signals":
+            import streets_rules as SR
+            R = SR.rules()
+            zone = R.zone_point(*nodes[n])
+            if zone in ("beg", "fuss"):
+                continue
+            if zone == "z30" and not R.near_school(*nodes[n], 40):
+                w0, i0 = cand[0]
+                d0 = _dir(w0["pts"], max(i0 - 1, 0), 1)
+                if R.tempo_at(np.array([nodes[n]]), np.array([d0]))[0] != 30:
+                    continue  # no Fussgängerstreifen inside Zone 30 (only on signalised T30 streets / school crossings)
             for w, i in cand[:1]:
                 hw = w["t"]["highway"]
                 if hw not in WIDTH or hw in ("service",) or deg[n] > 2:

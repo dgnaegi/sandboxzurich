@@ -1,0 +1,8 @@
+{
+  "_doc": "Terrain corrections where the DTM is interpolated under buildings/bridges: corridor (line + width) lowered to z ('min' = lowest DTM height along the line). Applied in build_testarea.py via terrain_cuts.py.",
+  "cuts": [
+    {"name": "Bahnhof Wiedikon: rail cutting under the bridge building up to the tunnel portal",
+     "line": [[490, -1346], [537, -1395], [548, -1407]], "width": 18, "blend": 3, "z": "min",
+     "source": "OSM railway cutting/tunnel (ways 111516674, 110591354), landmark k93_wiedikon"}
+  ]
+}

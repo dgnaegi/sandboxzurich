@@ -200,6 +200,22 @@ const BUILDERS: Record<string, Fn> = {
     return b.done({ tick: (dt) => { t += dt; for (const p of birds) { const head = p.g.userData.head as THREE.Object3D; head.position.y = 0.17 - Math.max(0, Math.sin(t * 5 + p.ph)) * 0.09; head.position.z = -0.1 - Math.max(0, Math.sin(t * 5 + p.ph)) * 0.04; } } });
   },
   eggonly: (b) => b.done(),
+  sign: (b, s) => { b.put(P.signBoard(s.sign ?? ['']), 0, 0); return b.done(); },
+  velos: (b, s) => {
+    const cols = [0x2a6fb0, 0xd0402a, 0x2a2a2a, 0x3a8a5a, 0xe0b040];
+    for (let i = 0; i < (s.count ?? 4); i++) b.put(P.bikeProp(cols[(i * 3 + 1) % cols.length], i % 2 === 0), 1.2 + i * 0.75, 0.3, PI / 2 + (i % 3) * 0.08);
+    if (s.sign) b.put(P.signBoard(s.sign, 0.7, 0.8), 0, 0);
+    return b.done();
+  },
+  plausch: (b, s) => {
+    const n = s.count ?? 3;
+    for (let i = 0; i < n; i++) {
+      const a = (i / n) * PI * 2, lx = Math.sin(a) * 0.95, lz = Math.cos(a) * 0.95;
+      b.human(lx, lz, faceTo(lx, lz, 0, 0), i % 3 === 1 ? 'stand_phone' : 'idle', i === 0 ? ['tote_bag'] : i === 2 ? ['shopping_bag'] : [], i * 0.9);
+    }
+    if (s.sign) b.put(P.signBoard(s.sign, 0.6, 0.7), 1.8, -0.4, 0);
+    return b.done();
+  },
   stilts: (b, s) => pathWalker(b, s, true),
   walker: (b, s) => pathWalker(b, s, false),
 };

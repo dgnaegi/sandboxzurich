@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { buildStorefronts } from './storefronts';
 
 /** Shop signs with real names (OSM), drawn into one canvas texture per tile. */
 export interface Sign { x: number; y: number; z: number; tx: number; ty: number; w: number; name: string; kind: string }
@@ -18,7 +19,18 @@ export function setSignNight(night: number) {
   for (const m of signMats) m.emissiveIntensity = 0.25 + night * (m.userData.neon ? 1.6 : 0.9);
 }
 
-export function buildSigns(signs: Sign[]): THREE.Mesh | null {
+const NEON_KINDS = ['bar', 'pub', 'nightclub', 'biergarten'], NEON_COL = ['#ff3caa', '#28e6dc', '#ff3caa', '#ffb43c'];
+
+/** Name signs (one mesh) plus the venue details of storefronts.ts (awnings, blade signs, props) as one group. */
+export function buildSigns(signs: Sign[]): THREE.Object3D | null {
+  const mesh = buildSignMesh(signs);
+  if (!mesh) return null;
+  const grp = new THREE.Group();
+  grp.add(mesh, ...buildStorefronts(signs));
+  return grp;
+}
+
+function buildSignMesh(signs: Sign[]): THREE.Mesh | null {
   if (!signs.length) return null;
   const c = document.createElement('canvas');
   c.width = TEXW;
@@ -26,12 +38,15 @@ export function buildSigns(signs: Sign[]): THREE.Mesh | null {
   const g = c.getContext('2d')!;
   const pos: number[] = [], uv: number[] = [], nrm: number[] = [], idx: number[] = [];
   signs.forEach((s, i) => {
-    const bg = BG[hash(s.name) % BG.length];
+    const neon = NEON_KINDS.includes(s.kind);
+    const bg = neon ? '#120d1a' : BG[hash(s.name) % BG.length];
     const light = bg === '#efeeea' || bg === '#d9a020';
     const y0 = i * ROW;
     g.fillStyle = bg;
     g.fillRect(0, y0, TEXW, ROW);
-    g.fillStyle = light ? '#151515' : '#ffffff';
+    const ncol = NEON_COL[hash(s.name) >> 2 & 3];
+    g.fillStyle = neon ? ncol : light ? '#151515' : '#ffffff';
+    if (neon) { g.shadowColor = ncol; g.shadowBlur = 14; }
     const text = s.name.toUpperCase();
     let size = 74;
     g.font = `700 ${size}px "Barlow Condensed", "Arial Narrow", sans-serif`;
@@ -43,6 +58,7 @@ export function buildSigns(signs: Sign[]): THREE.Mesh | null {
     g.textAlign = 'center';
     g.textBaseline = 'middle';
     g.fillText(text, TEXW / 2, y0 + ROW / 2 + 3);
+    if (neon) { g.shadowBlur = 0; g.strokeStyle = ncol; g.lineWidth = 3; g.strokeRect(6, y0 + 6, TEXW - 12, ROW - 12); }
     // quad 0.15 m in front of the wall; outward normal = (ty, -tx)
     const ox = s.ty, oy = -s.tx, hw = wm / 2, hh = wm * ROW / TEXW / 2 * 1.6;
     const cx = s.x + ox * 0.15, cy = s.y + oy * 0.15;

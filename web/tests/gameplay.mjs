@@ -1,11 +1,11 @@
-// Gameplay smoke test: walk to a parked bike, press E (mount), ride 3 s, press E (dismount), check missions start.
+// Gameplay smoke test: walk to a parked bike, press E (mount), ride 3 s, press E (dismount), check that quests stay off.
 import { chromium } from 'playwright';
 
 const BASE = process.argv[2] ?? 'http://localhost:5173';
 const browser = await chromium.launch({ args: ['--use-gl=angle'] });
 const page = await browser.newPage({ viewport: { width: 960, height: 540 } });
 page.on('pageerror', (e) => console.log('pageerror', e.message));
-await page.goto(`${BASE}/?at=785,-635,0.37&t=12:00&nopost&missions`);
+await page.goto(`${BASE}/?at=785,-635,0.37&t=12:00&nopost`);
 await page.waitForFunction(() => window.gtaReady, null, { timeout: 60000 });
 const ok = (c, msg) => console.log(c ? 'OK  ' : 'FAIL', msg);
 // put the player next to the nearest parked bike
@@ -28,9 +28,9 @@ await page.keyboard.press('KeyE');
 await page.waitForTimeout(300);
 ok(await page.evaluate(() => !window.gtaPlayer.riding), 'dismounted with E');
 console.log('stars', await page.evaluate(() => window.gtaState.stars), 'money', await page.evaluate(() => window.gtaState.money));
-// mission: step onto the Velokurier start beacon
+// quests are disabled (User 2026-10-15): the former Velokurier beacon must not start anything
 await page.evaluate(() => window.gtaPlayer.teleport(770, -893, 0));
 await page.waitForTimeout(800);
-ok(await page.evaluate(() => document.getElementById('mission').textContent.includes('Velokurier')), 'mission started at beacon');
+ok(await page.evaluate(() => document.getElementById('mission').textContent === ''), 'quests are off (no mission on the beacon)');
 await page.screenshot({ path: new URL('../../preview/gameplay.png', import.meta.url).pathname });
 await browser.close();

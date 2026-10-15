@@ -6,6 +6,7 @@ import json
 
 import numpy as np
 import shapely
+import shapely.ops
 from shapely.geometry import LineString, Point, Polygon, box
 
 import sources
@@ -61,6 +62,20 @@ def main():
         lines = [ln for ln in named_lines.get(street, []) if ln.intersects(k9)]
         if lines:  # only the stretch between Kreis 4 and Lindenplatz / Bahnhof Altstetten
             parts.append(shapely.union_all(lines).intersection(box(-2450, -900, 600, 1100)).buffer(w))
+    sites = []
+    # whole landmark sites that must be inside (User 2026-10-15): Friedhof Sihlfeld incl. Krematorium, Stadion Letzigrund
+    for e in els:
+        t = e.get("tags", {})
+        if e["type"] == "way" and (("Sihlfeld" in t.get("name", "") and t.get("landuse") == "cemetery")
+                                   or (t.get("leisure") == "stadium" and "Letzigrund" in t.get("name", ""))):
+            pts = [nodes[n] for n in e.get("nodes", []) if n in nodes]
+            if len(pts) >= 4:
+                sites.append(Polygon(pts))
+                print("site", t.get("name"), round(Polygon(pts).area))
+    main = shapely.union_all(parts)
+    for g in sites:  # site + a walkable connection to the main area (e.g. Sihlfeld quarter between Kreis 4 and the cemetery)
+        a, b = shapely.ops.nearest_points(g, main)
+        parts += [g.buffer(45), LineString([a, b]).buffer(170)]
     poly = shapely.union_all(parts).buffer(40).buffer(-40)
     if poly.geom_type == "MultiPolygon":  # keep the connected main part
         poly = max(poly.geoms, key=lambda g: g.area)

@@ -25,8 +25,23 @@ Wird am Ende jedes Arbeitsschritts überschrieben. Eine neue Session liest das z
 - Fixes: LOD für Velos und parkierte Autos (Ersatzmodelle ab `Tiles.bikeRadius`), ÖV-Haltestellen nach Distanz ausgeblendet, Bahn-Radius Handy 0.62×, Meshopt-Decoder im Bahn-Loader.
 - Bahnareal-Boden (Schotter tief) und Brücken begehbar geprüft (`tests/bridge.mjs`). gameplay/touch grün. Zwischenstand-Bild: `preview/zwischenstand_2026-10-15.jpg`.
 
+## Neu (2026-10-15, Nachmittag: Detail-Runde mit 6 Agents)
+- Landmarks als GLB (`pipeline/landmarks/`, Loader `world/landmarks3d.ts`, Manifest `data/landmarks.json` via `pipeline/landmarks/merge.py`): Letzigrund, Toni-Areal, Volkshaus, Hardau II, Bhf Hardbrücke (detailliert); Prime Tower, KVA, Viadukt, Schiffbau, Lochergut, Kalkbreite, St. Jakob, Bullingerkirche, Kanzlei, Bhf Altstetten, Bhf Wiedikon (Brücke), Kirchen Altstetten/Wiedikon, Löwenbrunnen, Krematorium + Tor Sihlfeld. `hide`-Punkte entfernen swissBUILDINGS3D-Gebäude.
+- Spielgebiet + Friedhof Sihlfeld (6.88 km², 219+82 Kacheln). `terrain_cuts.json` (Bahneinschnitt Wiedikon).
+- Gebäude: Neubauten seit 2019 aus OSM (`osm_buildings.py`), Dachfarben aus SWISSIMAGE (`ortho_roofs.py`, Mosaik `data/raw/ortho_wms/`), Wartehallen aus swissBUILDINGS3D entfernt, Nachtfenster pro Fenster (materials.ts), Fassaden-Notizen v2 (+746 Adressen).
+- Spielplätze (`playgrounds.py`, `world/playgrounds.ts`, 2572 Geräte), private Bäume aus OSM (+10'746), ruhigerer Rasen.
+- Agents: Lokale v2 (`gen_shopfronts.py`, `world/storefronts.ts`, Neon, Öffnungszeiten), Baustellen aus OGD (`sites.py`, Kräne), mehr Leute (`pedspots.ts`), 212 Easter Eggs, Strassen/Signalisation nach Luftbild + OGD-Zonen (`streets_rules.py`, `research/streets_audit.md`).
+- Tests: `tests/topdown.mjs` (Draufsicht vs. Orthofoto), neue Shot-Punkte (letzigrund, toni, volkshaus, hardau, sihlfeld, hof_hohlstrasse).
+
+### Stand nach Komplett-Build 3 (2026-10-15, 14:30)
+- 301 Kacheln (219 Spiel + 82 Kulisse), Build 75 min; GEOS-Fehler im Boden fallen auf OSM-Boden zurück.
+- Karten-Phase: Quests, Polizei, Einblendungen aus (`QUESTS`/`GAMEPLAY` in main.ts, DECISIONS #25/#26). Ladebildschirm nur «loading...».
+- Messung: Handy ≤ 251 Calls (Wiedikon), ≤ 1.27 Mio Dreiecke, 60 fps; PC ≤ 501 Calls, ≤ 3.4 Mio. Event-Requisiten werden pro Material gemergt (`world/mergestatic.ts`).
+- Tests grün (gameplay prüft jetzt «Quests aus»). Bild: `preview/zwischenstand_2026-10-15b.jpg`.
+- Nachtplan (wartet auf «los» des Users): Quellen-Recherche texturiertes Stadtmodell, Fassaden-Generator v3, Farb-/Stilnotizen für alle Adressen (Mapillary-Token erbeten), Bäume aus swissSURFACE3D, Strassen v2, Landmarks Runde 3, Nacht-QA.
+
 ## Offen / Nächstes
-1. Landmarks nach Recherche modellieren: Prime Tower (Textur falsch), Hardbrücke-Bahnhof, Viadukt, KVA-Kamin, Bhf Altstetten-Hochhaus, Reiterbahnhof Wiedikon, Kalkbreite, Lochergut, Krematorium Sihlfeld.
+1. Landmarks verfeinern: Prime Tower, Schiffbau, Lochergut, St. Jakob, Kalkbreite, Bullingerkirche, Kanzlei noch grob; Hardau-Farben geschätzt; Grabfelder Sihlfeld fehlen. Offen Strassen: rote Velofurten, Sperrflächen, Abbiegepfeile, Tramhaltestellen-Inseln (research/streets_audit.md). Autos fahren durch Baustellen.
 2. Kanzlei-Flohmarkt steht auf Rasen (sollte Asphalt-Schulhof sein) → Parks/AV-Grün dort prüfen.
 3. Gebäude mit grauem Fensterraster (z. B. neben Rosa-Luxemburg-Platz) → Stil-Zuordnung prüfen.
 4. Fahrbahn aus Amtlicher Vermessung? (DECISIONS #20, Bildvergleich nötig).

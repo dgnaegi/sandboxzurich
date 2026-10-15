@@ -132,19 +132,44 @@ def add_building(mesh, b, street_dist, neighbour=lambda x, y: False):
                 th = np.array([-n[1], n[0], 0.0]) / max(np.hypot(n[0], n[1]), 1e-6)
                 bt = np.cross(n, th)
                 uv = np.column_stack([pts @ th, pts @ bt]) / 3.0
-                roof_tint = roof_override(osm) or ROOF_TINTS[h32(b["id"] + "r") % len(ROOF_TINTS)]  # tiles vary: red, brown, weathered, grey Eternit
-                mesh.add(pts, tri, n, roof_tint, uv=uv, layer=LAYER["roof_tiles"])
+                seen = None if roof_override(osm) else ortho_tint(b.get("_roof_rgb"), "roof_tiles_grey")
+                if seen:  # observed colour on SWISSIMAGE, neutral tile texture
+                    mesh.add(pts, tri, n, seen, uv=uv, layer=LAYER["roof_tiles_grey"])
+                else:
+                    roof_tint = roof_override(osm) or ROOF_TINTS[h32(b["id"] + "r") % len(ROOF_TINTS)]  # tiles vary
+                    mesh.add(pts, tri, n, roof_tint, uv=uv, layer=LAYER["roof_tiles"])
                 roof_area = 0.5 * np.linalg.norm(np.cross(pts[tri[:, 1]] - pts[tri[:, 0]], pts[tri[:, 2]] - pts[tri[:, 0]]), axis=1).sum()
                 if roof_area > 35 and (h32(b["id"]) + k) % 3 != 0:
                     chimney(mesh, pts, k + h32(b["id"]))
             else:
-                mesh.add(pts, tri, n, (158, 155, 150), uv=pts[:, :2] / 3.0, layer=LAYER["dach_kies"])
+                mesh.add(pts, tri, n, ortho_tint(b.get("_roof_rgb"), "dach_kies") or (158, 155, 150), uv=pts[:, :2] / 3.0, layer=LAYER["dach_kies"])
                 area = 0.5 * np.linalg.norm(np.cross(pts[tri[:, 1]] - pts[tri[:, 0]], pts[tri[:, 2]] - pts[tri[:, 0]]), axis=1).sum()
                 if area > 60:
                     roof_units(mesh, pts, h32(b["id"]) + k)
         else:
             mesh.add(pts, tri, n, tint, uv=pts[:, :2] / 4.0, layer=layer)
     return segs
+
+
+_BASE = {}
+
+
+def ortho_tint(rgb, layer):
+    """Vertex tint that makes the (multiplied) texture layer show the roof colour seen on SWISSIMAGE."""
+    if rgb is None:
+        return None
+    if layer not in _BASE:
+        import json
+        from PIL import Image
+        from config import ROOT
+        meta = json.load(open(ROOT / "web" / "public" / "tex" / "layers.json"))
+        k, L, cols = meta["layers"].index(layer), meta["size"], meta["cols"]
+        im = Image.open(ROOT / "web" / "public" / "tex" / "atlas.webp").convert("RGB")
+        _BASE[layer] = np.asarray(im.crop(((k % cols) * L, (k // cols) * L, (k % cols + 1) * L, (k // cols + 1) * L))).reshape(-1, 3).mean(0)
+    c = np.asarray(rgb, np.float32)
+    c = c.mean() + (c - c.mean()) * 1.5  # orthophoto colours are hazy: restore saturation
+    t = c * 0.95 / np.maximum(_BASE[layer], 30) * 255
+    return tuple(int(v) for v in np.clip(t, 40, 255))
 
 
 def chimney(mesh, pts, seed):

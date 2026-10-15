@@ -216,33 +216,50 @@ def lawn_spots(parks, tb, H, per_m2=1 / 140.0, cap=28):
 
 
 def decals(S, tb, H, curb=0.12):
-    """Road decals: [x, y, z, heading, kind] with kind 0 bike pictogram, 1 manhole, 2 gully, 3 'ZONE 30'."""
+    """Road decals: [x, y, z, heading, kind]; kind 0 bike pictogram, 1 manhole, 2 gully, 3 'ZONE 30', 4 straight arrow,
+    5 'BUS', 6 painted '30'. Zone entries / speed regimes come from the official data (streets_rules), not OSM maxspeed."""
+    import streets
+    import streets_rules as SR
+    from shapely.geometry import box
+    SR.annotate(S)
+    streets.junction_gaps(S)
     out = []
     z = lambda x, y: round(float(H.at(x, y)) - curb + 0.012, 3)
     add = lambda p, h, k: out.append([round(p.x, 2), round(p.y, 2), z(p.x, p.y), round(float(h), 3), k]) if tb.contains(p) else None
     def heading(ln, s):
         a, b = ln.interpolate(max(0, s - 1)), ln.interpolate(min(ln.length, s + 1))
         return np.arctan2(b.x - a.x, b.y - a.y)
-    node_ways = {}
-    for w in S["ways"]:
-        for n in (w["nodes"][0], w["nodes"][-1]):
-            node_ways.setdefault(n, []).append(w)
+    near = box(*tb.bounds).buffer(30)
+    R = SR.rules()
     for wi, w in enumerate(S["ways"]):
         ln = w["line"]
-        if ln.length < 8:
+        if ln.length < 8 or not ln.intersects(near):
             continue
-        # bike pictograms on painted lanes, every ~45 m, facing the riding direction
-        for side, sgn in (("left", 1), ("right", -1)):
-            if "lane" in w["cyc"][side]:
+        L, gaps, zone = ln.length, w["gaps"], w["zone"]
+        free = lambda s: not any(g0 - 1 <= s <= g1 + 1 for g0, g1 in gaps)
+        # bike pictograms on the painted lanes: after each junction, then every ~40 m, riding direction
+        if zone not in ("beg", "fuss"):
+            for side, solid, broken in streets.bike_lane_pieces(w):
+                sgn = 1 if side == "left" else -1
                 off = ln.offset_curve(sgn * (w["w"] / 2 - 0.85))
                 if off.is_empty or off.geom_type != "LineString":
                     continue
-                for s in np.arange(15, off.length - 5, 45):
-                    add(off.interpolate(s), heading(off, s) + (np.pi if sgn > 0 else 0), 0)
+                for a, b in w["lanes"][side]:
+                    for s in list(np.arange(a + 7, b - 5, 40)):
+                        if free(s):
+                            add(off.interpolate(s * off.length / L), heading(off, s * off.length / L) + (np.pi if sgn > 0 else 0), 0)
+            for side in streets.bus_sides(w):
+                sgn = 1 if side == "left" else -1
+                off = ln.offset_curve(sgn * (w["w"] / 2 - 1.7))
+                if off.is_empty or off.geom_type != "LineString":
+                    continue
+                for s in np.arange(14, L - 8, 70):
+                    if free(s):
+                        add(off.interpolate(s * off.length / L), heading(off, s * off.length / L) + (np.pi if sgn > 0 else 0), 5)
         # manholes along the carriageway, gullies at the kerb
-        if w["hw"] != "service":
+        if w["hw"] != "service" and zone not in ("fuss",):
             k = h32(f"mh{wi}")
-            for s in np.arange(12 + k % 20, ln.length - 6, 38 + k % 17):
+            for s in np.arange(12 + k % 20, L - 6, 38 + k % 17):
                 p = ln.offset_curve(((k >> 3) % 5 - 2) * 0.6).interpolate(s) if w["w"] > 6 else ln.interpolate(s)
                 add(p, heading(ln, s), 1)
             for sgn in (1, -1):
@@ -251,13 +268,47 @@ def decals(S, tb, H, curb=0.12):
                     continue
                 for s in np.arange(8, kerb.length - 4, 22):
                     add(kerb.interpolate(s), heading(kerb, s), 2)
-        # 'ZONE 30' at entries of 30 km/h streets (end node shared with a faster street)
-        if w["maxspeed"] == "30":
-            for end, s in ((w["nodes"][0], 7.0), (w["nodes"][-1], ln.length - 7.0)):
-                if any(o is not w and o["maxspeed"] not in ("30", "20") for o in node_ways.get(end, [])) and 0 < s < ln.length:
-                    h = heading(ln, s) + (0 if end == w["nodes"][0] else np.pi)
-                    add(ln.interpolate(s), h, 3)
+        # 'ZONE 30' painted where traffic enters an official T30 zone; '30' roundel on signalised 30 stretches
+        if w["hw"] in ("service", "primary_link", "secondary_link", "tertiary_link") or L < 20:
+            continue
+        evs = w.get("events")
+        if evs is None:
+            evs = w["events"] = way_events(w)
+        for s, prev, new in evs:
+            for sgn, enter in ((1, new), (-1, prev)):  # travelling +s enters `new`, travelling -s enters `prev`
+                other = prev if sgn > 0 else new
+                if enter == "z30" and other != "z30":
+                    ss = min(max(s + sgn * 8, 5), L - 5)
+                    add(ln.interpolate(ss), heading(ln, ss) + (0 if sgn > 0 else np.pi), 3)
+                elif enter == "t30" and other not in ("z30", "t30") and w["hw"] in ("primary", "secondary", "tertiary"):
+                    ss = min(max(s + sgn * 10, 5), L - 5)
+                    add(ln.interpolate(ss), heading(ln, ss) + (0 if sgn > 0 else np.pi), 6)
+    # straight arrows before the stop line of signalised approaches that continue across the junction
+    for a in streets.signal_arms(S):
+        if not a["cont"] or a["half"] < 3.2 or not near.contains(Point(*a["p"])):
+            continue
+        t = a["t"]
+        r = np.array([t[1], -t[0]])
+        usable = a["half"] - (1.6 if streets.has_lane(a["way"], "right" if a["sgn"] > 0 else "left", a["s"]) else 0.0) - 0.25
+        lanes = max(1, int(usable // 3.1)) if not a["oneway"] else max(1, int((a["half"] * 2 - 0.5) // 3.1))
+        base = np.array(a["p"]) - t * 9.0
+        for i in range(min(lanes, 2)):
+            c = base + r * ((1.7 + 3.1 * i) if not a["oneway"] else (a["half"] - 1.7 - 3.1 * i))
+            add(Point(*c), np.arctan2(t[0], t[1]), 4)
     return out
+
+
+def way_events(w):
+    """Zone / speed regime changes along a way (extended 12 m beyond both ends): [(s, prev, new)] with s on the way."""
+    import streets_rules as SR
+    ln = w["line"]
+    c = np.asarray(ln.coords)
+    if len(c) < 2:
+        return []
+    d0, d1 = c[0] - c[1], c[-1] - c[-2]
+    d0, d1 = d0 / (np.hypot(*d0) + 1e-9), d1 / (np.hypot(*d1) + 1e-9)
+    ext = np.vstack([c[0] + d0 * 12, c, c[-1] + d1 * 12])
+    return [(s - 12.0, prev, new) for s, prev, new in SR.events(ext)]
 
 
 def outdoor_ids():
@@ -310,9 +361,9 @@ def graffiti(blank_segs, used, tb, main_dist):
     return out
 
 
-def construction(blds, segs, tb, main_dist, n_extra=3):
-    """Construction sites: scaffolding on facades of buildings marked «Im Bau» plus a few facades on main streets.
-    Rows [x, y, z, tx, ty, width, height]."""
+def construction(blds, segs, tb, main_dist, n_extra=6):
+    """Facade scaffolding: every building marked «Im Bau» (max 6 per tile) plus facades on main streets (>= 70 m apart).
+    Real sites (OGD/OSM) are added by sites.scaffold_rows(). Rows [x, y, z, tx, ty, width, height]."""
     out = []
     cand = [s for s in segs if tb.contains(Point(s["x"], s["y"]))]
     building_ids = {b["id"] for b in blds if b.get("type") == "Im Bau"}
@@ -321,12 +372,12 @@ def construction(blds, segs, tb, main_dist, n_extra=3):
         if s["bid"] in building_ids and s["bid"] not in seen:
             seen.add(s["bid"])
             out.append(s)
-    out = out[:2]
+    out = out[:6]
     main = sorted([s for s in cand if main_dist(s["x"], s["y"]) < 20 and s["w"] > 8], key=lambda s: h32("bau" + s["bid"]))
     for s in main:
-        if len(out) >= 3:
+        if len(out) >= 6 + n_extra:
             break
-        if h32("site" + s["bid"]) % 6 == 0 and all(np.hypot(s["x"] - o["x"], s["y"] - o["y"]) > 120 for o in out):
+        if h32("site" + s["bid"]) % 4 == 0 and all(np.hypot(s["x"] - o["x"], s["y"] - o["y"]) > 70 for o in out):
             out.append(s)
     return [[round(s["x"], 2), round(s["y"], 2), round(s["z"] - (3.45 if not s.get("blank") else 1.75), 2), round(s["tx"], 4),
              round(s["ty"], 4), round(min(s["w"], 16), 1), 14.0] for s in out]

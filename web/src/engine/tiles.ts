@@ -3,6 +3,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 import { Heights, type HeightData } from './heights';
 import { buildLandmarks, type LandmarkRow } from '../world/landmarks';
+import { buildPlaygrounds, type PlaygroundRow } from '../world/playgrounds';
 import { buildBridges, BridgeIndex, type BridgeRows } from '../world/bridges';
 import { loadWorldMaterial } from './materials';
 import { Colliders } from '../player/collision';
@@ -13,7 +14,7 @@ import { buildGraffiti, buildPosters, buildSigns, buildWildPosters, type Sign } 
 import { buildHouseNumbers, buildStreetSigns } from '../world/streetsigns';
 import { buildDecals } from '../world/decals';
 import { buildDoors } from '../world/doors';
-import { buildConstruction, buildFence, buildScooters } from '../world/construction';
+import { buildConstruction, buildCranes, buildFence, buildScooters, buildSites } from '../world/construction';
 import { buildAFrames, buildSacks, sackGroups } from '../world/streetlife';
 import { buildTrafficSigns, buildSignals } from '../world/trafficsigns';
 
@@ -36,6 +37,7 @@ export class Tiles {
   onLawn: (rows: number[][]) => void = () => {};
   onFountains: (rows: number[][]) => void = () => {};
   onSchools: (rows: number[][]) => void = () => {};
+  onSpots: (meta: never) => void = () => {};
   private loaded = new Map<string, THREE.Group | null>();
   private props = new Map<string, { g: THREE.Group; near: THREE.Group; far: THREE.Group; bikes: THREE.Object3D[]; lods: THREE.Object3D[]; x: number; y: number }>();
   bikes: Bikes | null = null;
@@ -164,9 +166,13 @@ export class Tiles {
     put(props, 'signals', buildSignals(m3.signals ?? []));
     const m4x = meta as unknown as { construction?: number[][]; scooters?: number[][] };
     put(props, 'construction', buildConstruction(m4x.construction ?? []));
+    const m5 = meta as unknown as { sites?: number[][]; cranes?: number[][]; workers?: number[][] };
+    put(props, 'sites', buildSites(m5.sites ?? []));
+    put(g, 'cranes', buildCranes(m5.cranes ?? [])); // cranes stay visible from afar
     const br = (meta as unknown as { bridges?: BridgeRows }).bridges;
     put(g, 'bridges', buildBridges(br));
     this.bridges.add(br, t.name);
+    put(props, 'playground', buildPlaygrounds((meta as unknown as { playground?: PlaygroundRow[] }).playground ?? []));
     put(g, 'landmarks', buildLandmarks((meta as unknown as { landmarks?: LandmarkRow[] }).landmarks ?? [])); // landmark signs stay visible from afar
     put(g, 'fence', buildFence((meta as unknown as { fence?: number[][][] }).fence ?? [])); // always visible: it closes the map
     put(props, 'scooters', buildScooters(m4x.scooters ?? []));
@@ -190,6 +196,7 @@ export class Tiles {
       this.onLawn((meta as unknown as { lawn?: number[][] }).lawn ?? []);
       this.onFountains(meta.fountains ?? []);
       this.onSchools((meta as unknown as { schools?: number[][] }).schools ?? []);
+      this.onSpots(meta as never); // benches, fountains, signs, workers -> standing/sitting people
     }
     this.scene.add(g);
     this.loaded.set(t.name, g);

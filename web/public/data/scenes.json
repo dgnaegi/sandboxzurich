@@ -123,7 +123,7 @@
 "type": "pingpong",
 "x": -2274.3,
 "y": 610.3,
-"dir": 1.89,
+"dir": 2.84,
 "egg": {
 "id": "pingpong1",
 "title": "Pingpong im Park",
@@ -134,7 +134,7 @@
 "type": "pingpong",
 "x": -378.3,
 "y": 811.6,
-"dir": 2.5,
+"dir": -2.83,
 "egg": {
 "id": "pingpong2",
 "title": "Matchball",
@@ -145,7 +145,7 @@
 "type": "pingpong",
 "x": -616.7,
 "y": -500.8,
-"dir": -1.94,
+"dir": -3.0,
 "egg": {
 "id": "pingpong3",
 "title": "Betonplatte, Stahlnetz",
@@ -156,7 +156,7 @@
 "type": "pingpong",
 "x": 768.7,
 "y": 399.8,
-"dir": -2.07,
+"dir": -1.29,
 "egg": {
 "id": "pingpong4",
 "title": "Aufschlag!",
@@ -167,7 +167,7 @@
 "type": "pingpong",
 "x": -1490.3,
 "y": 259.7,
-"dir": 1.63,
+"dir": 2.58,
 "egg": {
 "id": "pingpong5",
 "title": "Doppel ohne Partner",
@@ -363,9 +363,9 @@
 },
 {
 "type": "tourists",
-"x": -1956.8,
-"y": 1084.8,
-"dir": -1.66,
+"x": -930.5,
+"y": -1028.3,
+"dir": 1.13,
 "egg": {
 "id": "touristen1",
 "title": "Stadtführung",
@@ -374,9 +374,9 @@
 },
 {
 "type": "tourists",
-"x": -98.6,
-"y": -131.5,
-"dir": -1.19,
+"x": -1956.8,
+"y": 1084.8,
+"dir": -2.59,
 "egg": {
 "id": "touristen2",
 "title": "Reisegruppe mit Fähnchen",
@@ -385,9 +385,9 @@
 },
 {
 "type": "tourists",
-"x": -1061.8,
-"y": 903.2,
-"dir": -0.23,
+"x": -98.6,
+"y": -131.5,
+"dir": 1.89,
 "egg": {
 "id": "touristen3",
 "title": "Gruppenreise",
@@ -396,9 +396,9 @@
 },
 {
 "type": "selfie",
-"x": 600.9,
-"y": -1427.4,
-"dir": 1.07,
+"x": -1061.8,
+"y": 903.2,
+"dir": -2.69,
 "egg": {
 "id": "selfie1",
 "title": "Selfie-Moment",
@@ -407,9 +407,9 @@
 },
 {
 "type": "selfie",
-"x": 460.1,
-"y": 732.0,
-"dir": 0.45,
+"x": 600.9,
+"y": -1427.4,
+"dir": -0.87,
 "egg": {
 "id": "selfie2",
 "title": "Gruppenfoto",
@@ -418,9 +418,9 @@
 },
 {
 "type": "selfie",
-"x": 1047.3,
-"y": -1385.4,
-"dir": -1.0,
+"x": 460.1,
+"y": 732.0,
+"dir": -1.4,
 "egg": {
 "id": "selfie3",
 "title": "Perfekter Winkel",
@@ -435,9 +435,9 @@
 "CHF 2'950.– exkl. NK"
 ],
 "count": 12,
-"x": 154.9,
-"y": -997.1,
-"dir": 1.73,
+"x": -499.8,
+"y": -1314.0,
+"dir": 2.17,
 "egg": {
 "id": "besichtigung1",
 "title": "Besichtigung, Schlange 2",
@@ -452,9 +452,9 @@
 "CHF 1'890.–"
 ],
 "count": 10,
-"x": -2369.3,
-"y": 137.9,
-"dir": -2.73,
+"x": 154.9,
+"y": -997.1,
+"dir": 1.73,
 "egg": {
 "id": "besichtigung2",
 "title": "Besichtigung am Dienstag",
@@ -469,9 +469,9 @@
 "CHF 5'200.– exkl. NK"
 ],
 "count": 14,
-"x": -1032.3,
-"y": 257.7,
-"dir": 1.97,
+"x": -2354.0,
+"y": 131.6,
+"dir": -2.73,
 "egg": {
 "id": "besichtigung3",
 "title": "Wohnungs-Casting",
@@ -486,9 +486,9 @@
 "CHF 3'100.–"
 ],
 "count": 11,
-"x": 779.4,
-"y": -112.6,
-"dir": -0.51,
+"x": -1032.3,
+"y": 257.7,
+"dir": 1.97,
 "egg": {
 "id": "besichtigung4",
 "title": "Die lange Schlange",
@@ -503,9 +503,9 @@
 "CHF 2'480.–"
 ],
 "count": 9,
-"x": -1870.1,
-"y": 508.9,
-"dir": -1.02,
+"x": 779.4,
+"y": -112.6,
+"dir": -0.51,
 "egg": {
 "id": "besichtigung5",
 "title": "Treppenhaus-Stau",
@@ -518,9 +518,9 @@
 "SCHALLPLATTEN",
 "5.– / 3 für 10.–"
 ],
-"x": -1356.8,
-"y": -86.7,
-"dir": 0.66,
+"x": 932.9,
+"y": -1261.1,
+"dir": -2.71,
 "egg": {
 "id": "flohmarkt1",
 "title": "Vinyl auf dem Trottoir",
@@ -533,9 +533,9 @@
 "RARE GROOVES",
 "PREIS NACH WÜRDE"
 ],
-"x": 313.5,
-"y": -664.8,
-"dir": 0.49,
+"x": -1356.8,
+"y": -86.7,
+"dir": 0.66,
 "egg": {
 "id": "flohmarkt2",
 "title": "Plattenkiste",
@@ -548,9 +548,9 @@
 "FLOHMI",
 "ALLES MUSS WEG"
 ],
-"x": 235.3,
-"y": -1182.9,
-"dir": -0.63,
+"x": 313.5,
+"y": -664.8,
+"dir": 0.49,
 "egg": {
 "id": "flohmarkt3",
 "title": "Flohmarkt-Stand",
@@ -563,9 +563,9 @@
 "VINYL",
 "TOP ZUSTAND"
 ],
-"x": 574.0,
-"y": -1239.9,
-"dir": 2.0,
+"x": 235.3,
+"y": -1182.9,
+"dir": -0.63,
 "egg": {
 "id": "flohmarkt4",
 "title": "Vinyl-Fund",
@@ -578,9 +578,9 @@
 "BROCKI",
 "ALLES 2.–"
 ],
-"x": 151.4,
-"y": 133.3,
-"dir": 0.33,
+"x": -1687.6,
+"y": 509.6,
+"dir": 0.39,
 "egg": {
 "id": "brocki1",
 "title": "Brocki-Tisch",
@@ -593,9 +593,9 @@
 "OCCASION",
 "SOFA 40.–"
 ],
-"x": 75.2,
-"y": -1489.3,
-"dir": -2.81,
+"x": 151.4,
+"y": 133.3,
+"dir": 0.33,
 "egg": {
 "id": "brocki2",
 "title": "Occasions-Stand",
@@ -689,15 +689,71 @@
 {
 "type": "art",
 "sign": [
+"Zwei Brunnen mit Sitzbänken und je einer Figur \"Mädchen\" und \"Jüngling\""
+],
+"x": -459.2,
+"y": -950.3,
+"dir": 0.68,
+"egg": {
+"id": "kunst1",
+"title": "Kunst am Weg: «Zwei Brunnen mit Sitzbänken und je einer Figur \"Mädchen\" und \"Jüngling\"»",
+"text": "Kunst im öffentlichen Raum: kein Eintritt, kein Museumsshop. Einfach stehenbleiben."
+}
+},
+{
+"type": "art",
+"sign": [
+"Bronzeplastik"
+],
+"x": -1155.9,
+"y": -833.9,
+"dir": 0.34,
+"egg": {
+"id": "kunst2",
+"title": "«Bronzeplastik»",
+"text": "Das nächste Tram kommt in drei Minuten. Die Kunst steht seit Jahren hier."
+}
+},
+{
+"type": "art",
+"sign": [
+"Grabdenkmal Henri Dunant"
+],
+"x": -767.5,
+"y": -746.0,
+"dir": 1.41,
+"egg": {
+"id": "kunst3",
+"title": "Schau hin: «Grabdenkmal Henri Dunant»",
+"text": "Zürich hat mehr Kunst im Freien, als man beim Spazieren bemerkt. Bis jetzt."
+}
+},
+{
+"type": "art",
+"sign": [
 "Sitzende Frau"
 ],
 "x": 1462.1,
 "y": -117.0,
-"dir": 1.6,
+"dir": 1.26,
 "egg": {
-"id": "kunst1",
+"id": "kunst4",
 "title": "Kunst am Weg: «Sitzende Frau»",
 "text": "Kunst im öffentlichen Raum: kein Eintritt, kein Museumsshop. Einfach stehenbleiben."
+}
+},
+{
+"type": "art",
+"sign": [
+"Vier Löwen auf Pfeilern"
+],
+"x": 1095.5,
+"y": -1429.9,
+"dir": 2.17,
+"egg": {
+"id": "kunst5",
+"title": "«Vier Löwen auf Pfeilern»",
+"text": "Das nächste Tram kommt in drei Minuten. Die Kunst steht seit Jahren hier."
 }
 },
 {
@@ -707,11 +763,11 @@
 ],
 "x": -724.8,
 "y": -121.8,
-"dir": -1.76,
+"dir": -2.83,
 "egg": {
-"id": "kunst2",
-"title": "«Wand Ding»",
-"text": "Das nächste Tram kommt in drei Minuten. Die Kunst steht seit Jahren hier."
+"id": "kunst6",
+"title": "Schau hin: «Wand Ding»",
+"text": "Zürich hat mehr Kunst im Freien, als man beim Spazieren bemerkt. Bis jetzt."
 }
 },
 {
@@ -721,25 +777,25 @@
 ],
 "x": 930.1,
 "y": -324.2,
-"dir": 0.22,
+"dir": 2.33,
 "egg": {
-"id": "kunst3",
-"title": "Schau hin: «Wandgestaltung Unterführung Langstrasse»",
-"text": "Zürich hat mehr Kunst im Freien, als man beim Spazieren bemerkt. Bis jetzt."
+"id": "kunst7",
+"title": "Kunst am Weg: «Wandgestaltung Unterführung Langstrasse»",
+"text": "Kunst im öffentlichen Raum: kein Eintritt, kein Museumsshop. Einfach stehenbleiben."
 }
 },
 {
 "type": "art",
 "sign": [
-"Abstrakte Bepflanzung"
+"Ikarus"
 ],
-"x": -1545.8,
-"y": 476.3,
-"dir": 0.67,
+"x": -664.7,
+"y": -1156.3,
+"dir": -1.34,
 "egg": {
-"id": "kunst4",
-"title": "Kunst am Weg: «Abstrakte Bepflanzung»",
-"text": "Kunst im öffentlichen Raum: kein Eintritt, kein Museumsshop. Einfach stehenbleiben."
+"id": "kunst8",
+"title": "«Ikarus»",
+"text": "Das nächste Tram kommt in drei Minuten. Die Kunst steht seit Jahren hier."
 }
 },
 {
@@ -749,11 +805,11 @@
 ],
 "x": -2133.2,
 "y": 755.6,
-"dir": 2.52,
+"dir": 2.18,
 "egg": {
-"id": "kunst5",
-"title": "«IBM-Stengel»",
-"text": "Das nächste Tram kommt in drei Minuten. Die Kunst steht seit Jahren hier."
+"id": "kunst9",
+"title": "Schau hin: «IBM-Stengel»",
+"text": "Zürich hat mehr Kunst im Freien, als man beim Spazieren bemerkt. Bis jetzt."
 }
 },
 {
@@ -763,11 +819,11 @@
 ],
 "x": -31.4,
 "y": -701.1,
-"dir": 1.15,
+"dir": 0.08,
 "egg": {
-"id": "kunst6",
-"title": "Schau hin: «Die Saat ist aufgegangen»",
-"text": "Zürich hat mehr Kunst im Freien, als man beim Spazieren bemerkt. Bis jetzt."
+"id": "kunst10",
+"title": "Kunst am Weg: «Die Saat ist aufgegangen»",
+"text": "Kunst im öffentlichen Raum: kein Eintritt, kein Museumsshop. Einfach stehenbleiben."
 }
 },
 {
@@ -777,80 +833,24 @@
 ],
 "x": 710.0,
 "y": -1098.2,
-"dir": -0.85,
-"egg": {
-"id": "kunst7",
-"title": "Kunst am Weg: «Kandelaber»",
-"text": "Kunst im öffentlichen Raum: kein Eintritt, kein Museumsshop. Einfach stehenbleiben."
-}
-},
-{
-"type": "art",
-"sign": [
-"Anne-Sophie"
-],
-"x": -528.2,
-"y": 732.9,
-"dir": -1.83,
-"egg": {
-"id": "kunst8",
-"title": "«Anne-Sophie»",
-"text": "Das nächste Tram kommt in drei Minuten. Die Kunst steht seit Jahren hier."
-}
-},
-{
-"type": "art",
-"sign": [
-"Übertragung"
-],
-"x": 1138.8,
-"y": 76.4,
-"dir": 2.98,
-"egg": {
-"id": "kunst9",
-"title": "Schau hin: «Übertragung»",
-"text": "Zürich hat mehr Kunst im Freien, als man beim Spazieren bemerkt. Bis jetzt."
-}
-},
-{
-"type": "art",
-"sign": [
-"Befreiung"
-],
-"x": 951.7,
-"y": -1287.5,
-"dir": -0.39,
-"egg": {
-"id": "kunst10",
-"title": "Kunst am Weg: «Befreiung»",
-"text": "Kunst im öffentlichen Raum: kein Eintritt, kein Museumsshop. Einfach stehenbleiben."
-}
-},
-{
-"type": "art",
-"sign": [
-"Frau 1928"
-],
-"x": 807.5,
-"y": -1186.2,
-"dir": 2.67,
+"dir": -1.19,
 "egg": {
 "id": "kunst11",
-"title": "«Frau 1928»",
+"title": "«Kandelaber»",
 "text": "Das nächste Tram kommt in drei Minuten. Die Kunst steht seit Jahren hier."
 }
 },
 {
 "type": "art",
 "sign": [
-"Hände über der Stadt"
+"Engel mit Urne"
 ],
-"x": 1519.2,
-"y": -311.7,
-"dir": 0.53,
+"x": -949.9,
+"y": -856.3,
+"dir": -2.57,
 "egg": {
 "id": "kunst12",
-"title": "Schau hin: «Hände über der Stadt»",
+"title": "Schau hin: «Engel mit Urne»",
 "text": "Zürich hat mehr Kunst im Freien, als man beim Spazieren bemerkt. Bis jetzt."
 }
 },
@@ -859,7 +859,7 @@
 "scale": 0.35,
 "x": -275.7,
 "y": 302.2,
-"dir": -0.79,
+"dir": 1.66,
 "egg": {
 "id": "miniboeoegg1",
 "title": "Mini-Böögg",
@@ -871,7 +871,7 @@
 "scale": 0.35,
 "x": 204.9,
 "y": -352.8,
-"dir": 2.35,
+"dir": 2.19,
 "egg": {
 "id": "miniboeoegg2",
 "title": "Der kleine Böögg",
@@ -883,7 +883,7 @@
 "scale": 0.35,
 "x": 1469.2,
 "y": -724.6,
-"dir": -1.81,
+"dir": -0.87,
 "egg": {
 "id": "miniboeoegg3",
 "title": "Böögg Jr.",
@@ -893,9 +893,9 @@
 {
 "type": "miniboeoegg",
 "scale": 0.35,
-"x": -2078.2,
-"y": 220.4,
-"dir": 1.8,
+"x": -2010.1,
+"y": 342.6,
+"dir": -0.46,
 "egg": {
 "id": "miniboeoegg4",
 "title": "Heimlicher Böögg",
@@ -905,9 +905,9 @@
 {
 "type": "miniboeoegg",
 "scale": 0.35,
-"x": -2341.0,
-"y": 957.1,
-"dir": -1.08,
+"x": -22.2,
+"y": -1497.4,
+"dir": -0.37,
 "egg": {
 "id": "miniboeoegg5",
 "title": "Böögg auf Patrouille",
@@ -922,9 +922,9 @@
 "STEHEN"
 ],
 "color": "#ff3d7f",
-"x": -2546.0,
-"y": 402.4,
-"dir": -0.85,
+"x": -2569.4,
+"y": 827.9,
+"dir": -0.05,
 "egg": {
 "id": "graffiti1",
 "title": "Hier könnte Ihre Wohnung stehen",
@@ -938,9 +938,9 @@
 "GARTEN BIETE"
 ],
 "color": "#ffd21f",
-"x": -2554.7,
-"y": 750.4,
-"dir": 0.4,
+"x": -2546.0,
+"y": 402.4,
+"dir": -0.85,
 "egg": {
 "id": "graffiti2",
 "title": "Balkon gesucht",
@@ -1006,9 +1006,9 @@
 "IMMER Z'SPOT"
 ],
 "color": "#f06bff",
-"x": 1068.0,
-"y": -559.1,
-"dir": 0.64,
+"x": 1031.9,
+"y": 23.2,
+"dir": -0.84,
 "egg": {
 "id": "graffiti6",
 "title": "Züri-Mundart an der Wand",
@@ -1019,7 +1019,7 @@
 "type": "eggonly",
 "x": -354.3,
 "y": 1062.3,
-"dir": 0.01,
+"dir": 1.11,
 "egg": {
 "id": "tram1",
 "title": "Tram-Durchsage",
@@ -1030,7 +1030,7 @@
 "type": "eggonly",
 "x": -453.0,
 "y": -671.2,
-"dir": -0.84,
+"dir": 0.26,
 "egg": {
 "id": "tram2",
 "title": "Tram-Durchsage",
@@ -1041,7 +1041,7 @@
 "type": "eggonly",
 "x": -2291.1,
 "y": 378.3,
-"dir": -0.07,
+"dir": -1.88,
 "egg": {
 "id": "tram3",
 "title": "Tram-Durchsage",
@@ -1052,7 +1052,7 @@
 "type": "eggonly",
 "x": -842.8,
 "y": 832.4,
-"dir": 1.1,
+"dir": 2.2,
 "egg": {
 "id": "tram4",
 "title": "Tram-Durchsage",
@@ -1063,7 +1063,7 @@
 "type": "eggonly",
 "x": -178.4,
 "y": -837.4,
-"dir": -1.76,
+"dir": -0.66,
 "egg": {
 "id": "tram5",
 "title": "Tram-Durchsage",
@@ -1074,7 +1074,7 @@
 "type": "eggonly",
 "x": 207.7,
 "y": 394.7,
-"dir": 1.58,
+"dir": 2.68,
 "egg": {
 "id": "tram6",
 "title": "Tram-Durchsage",
@@ -1085,7 +1085,7 @@
 "type": "eggonly",
 "x": 1322.3,
 "y": -879.1,
-"dir": -0.41,
+"dir": 0.69,
 "egg": {
 "id": "tram7",
 "title": "Tram-Durchsage",
@@ -1096,7 +1096,7 @@
 "type": "eggonly",
 "x": -126.8,
 "y": 560.5,
-"dir": -0.74,
+"dir": 0.36,
 "egg": {
 "id": "tram8",
 "title": "Tram-Durchsage",
@@ -1110,9 +1110,9 @@
 "«Znüni»",
 "= Pausensnack um neun"
 ],
-"x": 42.5,
-"y": 737.0,
-"dir": -1.14,
+"x": 1032.7,
+"y": -624.0,
+"dir": 0.62,
 "egg": {
 "id": "slang1",
 "title": "Wort des Tages: Znüni",
@@ -1126,9 +1126,9 @@
 "«Gschpänli»",
 "= Freund:in, Kolleg:in"
 ],
-"x": 816.8,
-"y": -473.3,
-"dir": 0.65,
+"x": 42.5,
+"y": 737.0,
+"dir": -1.14,
 "egg": {
 "id": "slang2",
 "title": "Wort des Tages: Gschpänli",
@@ -1142,9 +1142,9 @@
 "«Pfnüsel»",
 "= Schnupfen"
 ],
-"x": 900.5,
-"y": 305.5,
-"dir": 0.82,
+"x": 816.8,
+"y": -473.3,
+"dir": 0.65,
 "egg": {
 "id": "slang3",
 "title": "Wort des Tages: Pfnüsel",
@@ -1158,9 +1158,9 @@
 "«Plausch»",
 "= Spass, Vergnügen"
 ],
-"x": -2173.2,
-"y": 321.5,
-"dir": 0.26,
+"x": 900.5,
+"y": 305.5,
+"dir": 0.82,
 "egg": {
 "id": "slang4",
 "title": "Wort des Tages: Plausch",
@@ -1174,9 +1174,9 @@
 "«Ghüder»",
 "= Abfall, Kram"
 ],
-"x": 540.2,
-"y": -526.4,
-"dir": 2.18,
+"x": -2173.2,
+"y": 321.5,
+"dir": 0.26,
 "egg": {
 "id": "slang5",
 "title": "Wort des Tages: Ghüder",
@@ -1190,9 +1190,9 @@
 "«Zvieri»",
 "= Imbiss am Nachmittag"
 ],
-"x": 385.3,
-"y": -1083.7,
-"dir": -0.74,
+"x": 540.2,
+"y": -526.4,
+"dir": 2.18,
 "egg": {
 "id": "slang6",
 "title": "Wort des Tages: Zvieri",
@@ -1203,7 +1203,7 @@
 "type": "couriers",
 "x": -346.0,
 "y": -369.4,
-"dir": 0.71,
+"dir": 1.0,
 "egg": {
 "id": "kurier1",
 "title": "Velokurier-Pause",
@@ -1212,9 +1212,9 @@
 },
 {
 "type": "couriers",
-"x": -1719.4,
-"y": 284.5,
-"dir": 2.89,
+"x": -2298.6,
+"y": 921.2,
+"dir": 0.29,
 "egg": {
 "id": "kurier2",
 "title": "Kurier-Treff",
@@ -1234,9 +1234,9 @@
 },
 {
 "type": "cargo",
-"x": 1316.8,
-"y": -588.0,
-"dir": 0.63,
+"x": 192.9,
+"y": -1425.7,
+"dir": -0.59,
 "egg": {
 "id": "lastenvelo2",
 "title": "Carvelo-Moment",
@@ -1247,7 +1247,7 @@
 "type": "eggonly",
 "x": -56.3,
 "y": -469.2,
-"dir": -0.62,
+"dir": 1.83,
 "egg": {
 "id": "velopumpe1",
 "title": "Velopumpe",
@@ -1256,9 +1256,9 @@
 },
 {
 "type": "eggonly",
-"x": -521.3,
-"y": 952.8,
-"dir": -2.65,
+"x": 778.5,
+"y": -1319.6,
+"dir": -0.91,
 "egg": {
 "id": "velopumpe2",
 "title": "Reparaturstation",
@@ -1267,9 +1267,9 @@
 },
 {
 "type": "eggonly",
-"x": 778.5,
-"y": -1319.6,
-"dir": 0.48,
+"x": -521.3,
+"y": 952.8,
+"dir": -0.04,
 "egg": {
 "id": "velopumpe3",
 "title": "Luft ist gratis",
@@ -1280,7 +1280,7 @@
 "type": "eggonly",
 "x": -323.2,
 "y": 702.2,
-"dir": 2.8,
+"dir": 1.73,
 "egg": {
 "id": "velopumpe4",
 "title": "Pumpe gefunden",
@@ -1291,7 +1291,7 @@
 "type": "eggonly",
 "x": -12.8,
 "y": -944.4,
-"dir": -1.41,
+"dir": -0.37,
 "egg": {
 "id": "uhr1",
 "title": "Öffentliche Uhr",
@@ -1300,9 +1300,9 @@
 },
 {
 "type": "eggonly",
-"x": 1041.2,
-"y": -63.4,
-"dir": 1.0,
+"x": 935.4,
+"y": -796.7,
+"dir": -1.69,
 "egg": {
 "id": "uhr2",
 "title": "Genau um Punkt",
@@ -1311,9 +1311,9 @@
 },
 {
 "type": "eggonly",
-"x": 935.4,
-"y": -796.7,
-"dir": 2.14,
+"x": 277.4,
+"y": -1583.7,
+"dir": 0.18,
 "egg": {
 "id": "uhr3",
 "title": "Zeit ist Geld",
@@ -1359,9 +1359,9 @@
 "EINLASS AB 23:00",
 "Tickets nur Abendkasse"
 ],
-"x": 1017.1,
-"y": 380.5,
-"dir": -0.83,
+"x": 1543.1,
+"y": -257.4,
+"dir": -0.75,
 "egg": {
 "id": "club3",
 "title": "Nachtschwärmer",
@@ -1370,9 +1370,9 @@
 },
 {
 "type": "duck",
-"x": 2.5,
-"y": 225.9,
-"dir": -0.71,
+"x": -668.1,
+"y": -899.4,
+"dir": 1.86,
 "egg": {
 "id": "ente1",
 "title": "Quietscheente",
@@ -1381,9 +1381,9 @@
 },
 {
 "type": "duck",
-"x": 253.9,
-"y": -525.3,
-"dir": -1.41,
+"x": -529.7,
+"y": 722.2,
+"dir": 0.92,
 "egg": {
 "id": "ente2",
 "title": "Badeente am Brunnen",
@@ -1392,9 +1392,9 @@
 },
 {
 "type": "duck",
-"x": -303.8,
-"y": 451.1,
-"dir": -2.29,
+"x": 2.5,
+"y": 225.9,
+"dir": 1.55,
 "egg": {
 "id": "ente3",
 "title": "Gelbe Ente",
@@ -1405,7 +1405,7 @@
 "type": "pigeons",
 "x": -1787.2,
 "y": 895.8,
-"dir": -2.26,
+"dir": 2.19,
 "egg": {
 "id": "tauben1",
 "title": "Tauben-Parlament",
@@ -1414,9 +1414,9 @@
 },
 {
 "type": "pigeons",
-"x": 525.9,
-"y": 492.7,
-"dir": -1.58,
+"x": -1942.6,
+"y": 595.5,
+"dir": -1.63,
 "egg": {
 "id": "tauben2",
 "title": "Krumen-Konferenz",
@@ -1425,9 +1425,9 @@
 },
 {
 "type": "pigeons",
-"x": -848.5,
-"y": 1160.5,
-"dir": 1.03,
+"x": 525.9,
+"y": 492.7,
+"dir": -0.95,
 "egg": {
 "id": "tauben3",
 "title": "Tauben-Treff",
@@ -1436,9 +1436,9 @@
 },
 {
 "type": "pigeons",
-"x": 730.8,
-"y": 135.7,
-"dir": 0.32,
+"x": -848.5,
+"y": 1160.5,
+"dir": 2.1,
 "egg": {
 "id": "tauben4",
 "title": "Stadtvögel",
@@ -1449,7 +1449,7 @@
 "type": "jass",
 "x": -653.4,
 "y": 297.2,
-"dir": 0.43,
+"dir": 1.38,
 "egg": {
 "id": "jass1",
 "title": "Jass-Runde",
@@ -1458,9 +1458,9 @@
 },
 {
 "type": "jass",
-"x": 805.3,
-"y": 608.1,
-"dir": 1.15,
+"x": 756.7,
+"y": 117.0,
+"dir": -0.79,
 "egg": {
 "id": "jass2",
 "title": "Der letzte Stich",
@@ -1470,9 +1470,9 @@
 {
 "type": "jass",
 "kind": "fondue",
-"x": -1899.9,
-"y": 331.8,
-"dir": -1.39,
+"x": 805.3,
+"y": 608.1,
+"dir": 2.1,
 "egg": {
 "id": "jass3",
 "title": "Fondue am Picknicktisch",
@@ -1481,9 +1481,9 @@
 },
 {
 "type": "toeggeli",
-"x": 300.3,
-"y": -1426.4,
-"dir": -2.13,
+"x": 1141.9,
+"y": -1205.9,
+"dir": 0.47,
 "egg": {
 "id": "toeggeli1",
 "title": "Töggelichaschte",
@@ -1492,9 +1492,9 @@
 },
 {
 "type": "toeggeli",
-"x": 1141.9,
-"y": -1205.9,
-"dir": 0.47,
+"x": 1341.5,
+"y": -586.5,
+"dir": 0.6,
 "egg": {
 "id": "toeggeli2",
 "title": "Töggeli-Turnier",
@@ -1508,9 +1508,9 @@
 "Züri Gschnätzlets",
 "mit Rösti CHF 38.–"
 ],
-"x": -133.4,
-"y": 867.7,
-"dir": -2.78,
+"x": 1228.1,
+"y": -93.0,
+"dir": -0.76,
 "egg": {
 "id": "menu1",
 "title": "Menüschild",
@@ -1524,9 +1524,9 @@
 "Kafi Luz",
 "CHF 7.50"
 ],
-"x": 1228.1,
-"y": -93.0,
-"dir": -0.76,
+"x": -133.4,
+"y": 867.7,
+"dir": -2.78,
 "egg": {
 "id": "menu2",
 "title": "Tageskarte",
@@ -1540,9 +1540,9 @@
 "Suppe + Hauptgang",
 "CHF 24.–"
 ],
-"x": 344.0,
-"y": 523.7,
-"dir": -1.0,
+"x": 382.4,
+"y": -1374.2,
+"dir": 2.58,
 "egg": {
 "id": "menu3",
 "title": "Mittagsmenü",
@@ -1556,9 +1556,9 @@
 "Rösti mit Spiegelei",
 "CHF 19.–"
 ],
-"x": 890.4,
-"y": 48.9,
-"dir": 2.0,
+"x": 344.0,
+"y": 523.7,
+"dir": -1.0,
 "egg": {
 "id": "menu4",
 "title": "Wochenhit",
@@ -1589,9 +1589,9 @@
 },
 {
 "type": "umzug",
-"x": 452.4,
-"y": -1603.8,
-"dir": -2.26,
+"x": -1709.8,
+"y": 274.0,
+"dir": -1.09,
 "egg": {
 "id": "umzug3",
 "title": "Neue Wohnung, altes Sofa",
@@ -1613,9 +1613,9 @@
 {
 "type": "atm",
 "count": 4,
-"x": -1375.2,
-"y": 190.8,
-"dir": -1.18,
+"x": 1019.3,
+"y": -127.2,
+"dir": 0.51,
 "egg": {
 "id": "atm2",
 "title": "Zahlen mit Bargeld",
@@ -1625,9 +1625,9 @@
 {
 "type": "atm",
 "count": 4,
-"x": 952.0,
-"y": -546.6,
-"dir": 0.63,
+"x": -1375.2,
+"y": 190.8,
+"dir": -1.18,
 "egg": {
 "id": "atm3",
 "title": "Geldautomat",
@@ -1636,9 +1636,9 @@
 },
 {
 "type": "glove",
-"x": 1002.5,
-"y": -1146.8,
-"dir": -1.32,
+"x": 907.0,
+"y": -1401.9,
+"dir": -3.11,
 "egg": {
 "id": "handschuh1",
 "title": "Verlorener Handschuh",
@@ -1649,7 +1649,7 @@
 "type": "glove",
 "x": -638.2,
 "y": -364.5,
-"dir": -2.43,
+"dir": 1.67,
 "egg": {
 "id": "handschuh2",
 "title": "Handschuh-Fund",
@@ -1658,9 +1658,9 @@
 },
 {
 "type": "glove",
-"x": 86.6,
-"y": -677.2,
-"dir": 0.11,
+"x": 934.8,
+"y": -542.1,
+"dir": -0.16,
 "egg": {
 "id": "handschuh3",
 "title": "Einzelner Handschuh",
@@ -1669,9 +1669,9 @@
 },
 {
 "type": "planter",
-"x": 942.6,
-"y": -1540.8,
-"dir": -0.71,
+"x": 137.0,
+"y": -573.7,
+"dir": -0.9,
 "egg": {
 "id": "pflanze1",
 "title": "Guerilla-Garten",
@@ -1680,9 +1680,9 @@
 },
 {
 "type": "planter",
-"x": 1331.5,
-"y": -255.3,
-"dir": 2.92,
+"x": -1110.4,
+"y": -1016.6,
+"dir": -1.13,
 "egg": {
 "id": "pflanze2",
 "title": "Blumentopf",
@@ -1691,9 +1691,9 @@
 },
 {
 "type": "planter",
-"x": -115.9,
-"y": 372.4,
-"dir": -2.15,
+"x": 1331.5,
+"y": -255.3,
+"dir": 1.53,
 "egg": {
 "id": "pflanze3",
 "title": "Mini-Beet",
@@ -1822,6 +1822,45 @@
 "run": true,
 "path": [
 [
+-1407.1,
+481.9
+],
+[
+-1410.9,
+472.7
+],
+[
+-1412.8,
+464.1
+],
+[
+-1403.7,
+460.1
+],
+[
+-1394.5,
+456.1
+],
+[
+-1385.4,
+452.1
+],
+[
+-1376.2,
+448.1
+]
+],
+"egg": {
+"id": "jogger1",
+"title": "Joggerin",
+"text": "Pulsuhr, Kopfhörer, Bestzeit. Das Ziel: nicht ins Tram rennen."
+}
+},
+{
+"type": "walker",
+"run": true,
+"path": [
+[
 58.6,
 -67.2
 ],
@@ -1851,48 +1890,47 @@
 ]
 ],
 "egg": {
-"id": "jogger1",
-"title": "Joggerin",
-"text": "Pulsuhr, Kopfhörer, Bestzeit. Das Ziel: nicht ins Tram rennen."
+"id": "jogger2",
+"title": "Der Morgenläufer",
+"text": "Er läuft jeden Tag die gleiche Runde. Nur bei Regen läuft er schneller."
 }
 },
 {
 "type": "walker",
-"run": true,
 "path": [
 [
--2056.8,
-552.9
+-445.5,
+-1152.4
 ],
 [
--2059.3,
-543.2
+-440.2,
+-1147.0
 ],
 [
--2058.7,
-535.0
+-436.6,
+-1140.5
 ],
 [
--2049.7,
-530.6
+-432.2,
+-1134.6
 ],
 [
--2040.7,
-526.2
+-426.9,
+-1129.2
 ],
 [
--2035.7,
-530.6
+-421.6,
+-1123.9
 ],
 [
--2033.2,
-540.3
+-416.3,
+-1118.6
 ]
 ],
 "egg": {
-"id": "jogger2",
-"title": "Der Morgenläufer",
-"text": "Er läuft jeden Tag die gleiche Runde. Nur bei Regen läuft er schneller."
+"id": "spaziergaenger1",
+"title": "Einkaufsrunde",
+"text": "Tasche in der Hand, Handy im Kopf. Der Abendeinkauf des Quartiers."
 }
 },
 {
@@ -1928,44 +1966,6 @@
 ]
 ],
 "egg": {
-"id": "spaziergaenger1",
-"title": "Einkaufsrunde",
-"text": "Tasche in der Hand, Handy im Kopf. Der Abendeinkauf des Quartiers."
-}
-},
-{
-"type": "walker",
-"path": [
-[
-211.0,
--829.0
-],
-[
-217.5,
--832.7
-],
-[
-224.0,
--836.4
-],
-[
-230.5,
--840.2
-],
-[
-237.0,
--843.9
-],
-[
-241.8,
--848.8
-],
-[
-244.8,
--855.4
-]
-],
-"egg": {
 "id": "spaziergaenger2",
 "title": "Feierabendweg",
 "text": "Sie nimmt den Umweg über den Park. Für die Seele."
@@ -1975,32 +1975,32 @@
 "type": "stilts",
 "path": [
 [
--415.0,
-328.6
+208.8,
+-827.7
 ],
 [
--422.6,
-331.9
+216.1,
+-831.9
 ],
 [
--429.9,
-336.0
+223.3,
+-836.0
 ],
 [
--437.0,
-340.3
+230.5,
+-840.2
 ],
 [
--444.1,
-344.7
+237.8,
+-844.3
 ],
 [
--451.2,
-349.1
+242.1,
+-850.5
 ],
 [
--458.3,
-353.4
+246.6,
+-857.2
 ]
 ],
 "egg": {
@@ -2008,6 +2008,1531 @@
 "title": "Noch ein Stelzenläufer",
 "text": "Zwei Stelzenläufer in einem Quartier? Das Kulturbudget wurde wieder erhöht."
 }
+},
+{
+"type": "sign",
+"sign": [
+"LETZIGRUND",
+"Start frei"
+],
+"x": -1002.2,
+"y": 14.3,
+"dir": 0.56,
+"egg": {
+"id": "z_ort1",
+"title": "Weltklasse-Rasen",
+"text": "Im August rennt hier die Weltspitze. Den Rest des Jahres rennt man dem Mietvertrag hinterher."
+}
+},
+{
+"type": "sign",
+"sign": [
+"LETZIPARK",
+"Alles da",
+"ausser Wohnungen"
+],
+"x": -1358.9,
+"y": 184.1,
+"dir": -2.75,
+"egg": {
+"id": "z_ort2",
+"title": "Alles unter einem Dach",
+"text": "Hundert Läden, ein Parkhaus, null Wohnungen. Das Dach über dem Kopf fehlt immer noch."
+}
+},
+{
+"type": "sign",
+"sign": [
+"NEUMARKT",
+"Altstetten"
+],
+"x": -2188.0,
+"y": 473.1,
+"dir": 0.42,
+"egg": {
+"id": "z_ort3",
+"title": "Neumarkt, alter Markt",
+"text": "Der Neumarkt ist neu, der Markt ist alt, und die Schlange vor der Bäckerei ist zeitlos."
+}
+},
+{
+"type": "sign",
+"sign": [
+"GLEIS 4",
+"+3 Min."
+],
+"x": -2094.5,
+"y": 705.4,
+"dir": 0.37,
+"egg": {
+"id": "z_ort4",
+"title": "Umsteigen in Altstetten",
+"text": "Gleis 4 hat Verspätung. Gleis 3 hat Verständnis. Gleis 5 hat Kaffee."
+}
+},
+{
+"type": "sign",
+"sign": [
+"LINDENPLATZ",
+"Dorf mit Tram"
+],
+"x": -2285,
+"y": 318,
+"dir": -1.29,
+"egg": {
+"id": "z_ort5",
+"title": "Dorfplatz mit Tram",
+"text": "Altstetten war einmal ein Dorf. Der Lindenplatz erinnert dich gern daran, auch wenn das Tram anderer Meinung ist."
+}
+},
+{
+"type": "sign",
+"sign": [
+"HARDTURM",
+"Bald. Bestimmt."
+],
+"x": -862.0,
+"y": 922.9,
+"dir": 2.4,
+"egg": {
+"id": "z_ort6",
+"title": "Stadionbrache",
+"text": "Jahrelang wurde über dieses Feld abgestimmt, geplant und gestritten. Das Gras hat es gelassen genommen."
+}
+},
+{
+"type": "sign",
+"sign": [
+"HARDAU",
+"Aussicht",
+"ohne Rendite"
+],
+"x": -541.0,
+"y": -545.8,
+"dir": -2.43,
+"egg": {
+"id": "z_ort7",
+"title": "Hardau von oben",
+"text": "Städtische Hochhäuser mit Aussicht über das ganze Quartier. So geht gemeinnütziges Wohnen: Aussicht ohne Rendite."
+}
+},
+{
+"type": "sign",
+"sign": [
+"PRIME TOWER",
+"36 Stockwerke",
+"0 Betten"
+],
+"x": 61.9,
+"y": 210.3,
+"dir": 2.13,
+"egg": {
+"id": "z_ort8",
+"title": "126 Meter Büro",
+"text": "Der Prime Tower hat 36 Stockwerke und kein einziges Bett. Stell dir vor, es wären Wohnungen."
+}
+},
+{
+"type": "sign",
+"sign": [
+"IM VIADUKT",
+"Brot & Bio"
+],
+"x": 724.8,
+"y": 396.6,
+"dir": 2.67,
+"egg": {
+"id": "z_ort9",
+"title": "Bogen für Bogen",
+"text": "Unter den Bögen verkaufen sie heute Brot und Bio. Früher fuhren hier nur Züge."
+}
+},
+{
+"type": "sign",
+"sign": [
+"LABYRINTHPLATZ"
+],
+"x": 1007.8,
+"y": -768.1,
+"dir": -0.95,
+"egg": {
+"id": "z_ort10",
+"title": "Labyrinth",
+"text": "Wer die Wohnungssuche hinter sich hat, findet auch hier wieder hinaus."
+}
+},
+{
+"type": "sign",
+"sign": [
+"QUARTIERZENTRUM",
+"Bäckeranlage"
+],
+"x": 605.0,
+"y": -683.6,
+"dir": 0.52,
+"egg": {
+"id": "z_ort11",
+"title": "Platz ohne Konsumzwang",
+"text": "Hier darfst du sitzen, ohne etwas zu bestellen. Seltener als eine Wohnung ohne Besichtigungsschlange."
+}
+},
+{
+"type": "sign",
+"sign": [
+"BIBLIOTHEK",
+"Ausleihe: 0.–"
+],
+"x": 609.2,
+"y": -1271.8,
+"dir": 2.83,
+"egg": {
+"id": "z_ort12",
+"title": "Lesen ist gratis",
+"text": "Bücher leihen kostet nichts. Und die Wartefrist ist kürzer als bei jeder Genossenschaft."
+}
+},
+{
+"type": "sign",
+"sign": [
+"KALKBREITE",
+"Wohnen & Tram"
+],
+"x": 414.2,
+"y": -1181.5,
+"dir": 0.8,
+"egg": {
+"id": "z_ort13",
+"title": "Wohnen überm Tramdepot",
+"text": "Im Tramdepot Kalkbreite wohnen Menschen über den Trams. Genossenschaft statt Rendite, und das Tram ist dein Wecker."
+}
+},
+{
+"type": "sign",
+"sign": [
+"ORTSMUSEUM",
+"Wiedikon"
+],
+"x": 248.5,
+"y": -1761.0,
+"dir": 1.57,
+"egg": {
+"id": "z_ort14",
+"title": "Früher war mehr Hof",
+"text": "Das Ortsmuseum zeigt, wie Wiedikon einmal aussah: mit Wiesen und Hinterhöfen."
+}
+},
+{
+"type": "sign",
+"sign": [
+"SCHMIEDE",
+"Wiedikon"
+],
+"x": 173.7,
+"y": -1575.7,
+"dir": -2.04,
+"egg": {
+"id": "z_ort15",
+"title": "Schmiede ohne Feuer",
+"text": "Hier wird nicht mehr geschmiedet, höchstens der Plan für den nächsten Quartierabend."
+}
+},
+{
+"type": "sign",
+"sign": [
+"WIEDIKON",
+"Gleis 3"
+],
+"x": 604.7,
+"y": -1413.3,
+"dir": 2.67,
+"egg": {
+"id": "z_ort16",
+"title": "Gleis 3, Wiedikon",
+"text": "Alle fahren durch, ein paar steigen aus, und der Kioskmann weiss, wie spät es wirklich ist."
+}
+},
+{
+"type": "sign",
+"sign": [
+"LÖWENBRUNNEN"
+],
+"x": 314.9,
+"y": -1563.2,
+"dir": 2.47,
+"egg": {
+"id": "z_ort17",
+"title": "Der Löwe an der Strasse",
+"text": "Der Löwe bewacht den Brunnen. Das Wasser ist gratis, das Brüllen auch."
+}
+},
+{
+"type": "sign",
+"sign": [
+"VOLKSHAUS",
+"Wir feiern"
+],
+"x": 804.0,
+"y": -935.9,
+"dir": -0.73,
+"egg": {
+"id": "z_ort18",
+"title": "Volkshaus",
+"text": "Das Volkshaus heisst so, weil man hier gemeinsam feiert, streitet und tanzt. Meistens in dieser Reihenfolge."
+}
+},
+{
+"type": "sign",
+"sign": [
+"CASINO",
+"Aussersihl"
+],
+"x": 777.9,
+"y": -1099.1,
+"dir": -0.8,
+"egg": {
+"id": "z_ort19",
+"title": "Kein Casino",
+"text": "Im Casino Aussersihl wird getanzt und gesungen, nicht gezockt. Gezockt wird bei den Mieten."
+}
+},
+{
+"type": "sign",
+"sign": [
+"AMTSHAUS",
+"Nummer ziehen"
+],
+"x": 813.5,
+"y": -848.5,
+"dir": 0.57,
+"egg": {
+"id": "z_ort20",
+"title": "Amtshaus Helvetiaplatz",
+"text": "Hinter diesen Fenstern liegen Formulare. Bitte Nummer ziehen."
+}
+},
+{
+"type": "sign",
+"sign": [
+"SOGAR",
+"Theater"
+],
+"x": 1026.1,
+"y": -30.9,
+"dir": -2.52,
+"egg": {
+"id": "z_ort21",
+"title": "Sogar!",
+"text": "Das Sogar Theater heisst Sogar. Sogar das ist Zürcher Understatement."
+}
+},
+{
+"type": "sign",
+"sign": [
+"ZOLLHAUS",
+"Wohnen & Theater"
+],
+"x": 987.6,
+"y": -263.6,
+"dir": 0.38,
+"egg": {
+"id": "z_ort22",
+"title": "Kultur im Erdgeschoss",
+"text": "Im Zollhaus wohnen Leute in einer Genossenschaft. Unten gibt es ein Theater. Kultur im Erdgeschoss statt Rendite."
+}
+},
+{
+"type": "sign",
+"sign": [
+"SIHLPOST",
+"Schalter 3"
+],
+"x": 1428.3,
+"y": -743.3,
+"dir": 2.19,
+"egg": {
+"id": "z_ort23",
+"title": "Gelbes Haus, graue Schalter",
+"text": "Die Sihlpost hat die Fassade von früher und die Warteschlange von heute."
+}
+},
+{
+"type": "sign",
+"sign": [
+"ESCHER WYSS",
+"früher: Turbinen",
+"heute: Lofts"
+],
+"x": 513.7,
+"y": 651.9,
+"dir": 2.13,
+"egg": {
+"id": "z_ort24",
+"title": "Von der Turbine zum Loft",
+"text": "Früher bauten sie hier Turbinen und Schiffe. Heute bauen sie Lofts und nennen es Zürich-West."
+}
+},
+{
+"type": "sign",
+"sign": [
+"TRAMDEPOT",
+"Hard"
+],
+"x": 363.5,
+"y": 786.2,
+"dir": -2.82,
+"egg": {
+"id": "z_ort25",
+"title": "Tramdepot Hard",
+"text": "Hier schlafen die Trams. Bald schlafen auch Menschen im Neubau daneben."
+}
+},
+{
+"type": "sign",
+"sign": [
+"URBANSURF",
+"Welle voraus"
+],
+"x": 245.3,
+"y": 118.3,
+"dir": 0.26,
+"egg": {
+"id": "z_ort26",
+"title": "Surfen in Zürich",
+"text": "Wellenreiten mitten im Industriequartier. Wenn schon kein Meer, dann wenigstens eine Betonwanne."
+}
+},
+{
+"type": "sign",
+"sign": [
+"SKATEPARK",
+"Laut erlaubt"
+],
+"x": -837.0,
+"y": 868.9,
+"dir": 2.4,
+"egg": {
+"id": "z_ort27",
+"title": "Betonwelle",
+"text": "Hier darf es laut sein: Rollen auf Beton statt Beschwerde bei der Nachbarschaft."
+}
+},
+{
+"type": "sign",
+"sign": [
+"STELLWERK"
+],
+"x": -575.7,
+"y": 142.7,
+"dir": -1.95,
+"egg": {
+"id": "z_ort28",
+"title": "Weichen stellen",
+"text": "Hier werden die Weichen gestellt. Politisch ginge das auch."
+}
+},
+{
+"type": "sign",
+"sign": [
+"WANDBRUNNEN"
+],
+"x": 737.8,
+"y": 117.5,
+"dir": -2.99,
+"egg": {
+"id": "z_ort29",
+"title": "Drei Knaben, ein Brunnen",
+"text": "Sie spielen seit Jahrzehnten dasselbe Stück. Ohne Verstärker und ohne Bewilligung."
+}
+},
+{
+"type": "sign",
+"sign": [
+"SCHWIMMANLAGE",
+"Hardau"
+],
+"x": -491.9,
+"y": -157.5,
+"dir": 0.55,
+"egg": {
+"id": "z_ort30",
+"title": "Schwimmen lernen",
+"text": "Jedes Kind soll schwimmen lernen. Wasser haben wir genug, Bahnen manchmal nicht."
+}
+},
+{
+"type": "sign",
+"sign": [
+"BROCKI",
+"Alles muss raus"
+],
+"x": -2386.5,
+"y": 787.4,
+"dir": -1.15,
+"egg": {
+"id": "z_ort31",
+"title": "Zweite Hand, erste Wahl",
+"text": "Was die einen nicht mehr brauchen, ist für die anderen ein Schatz. Und für den Dritten ein Sofa."
+}
+},
+{
+"type": "sign",
+"sign": [
+"THEATER",
+"Spirgarten"
+],
+"x": -2387.8,
+"y": 370.7,
+"dir": -0.96,
+"egg": {
+"id": "z_ort32",
+"title": "Vorhang auf",
+"text": "Hier spielt Altstetten Theater. Und manchmal Zürich."
+}
+},
+{
+"type": "sign",
+"sign": [
+"SIHL"
+],
+"x": 1623.6,
+"y": -524.5,
+"dir": 0.5,
+"egg": {
+"id": "z_ort33",
+"title": "Die Sihl",
+"text": "Ein Fluss ohne Strandbad. Aber im Sommer steht immer jemand mit Bierdose im Wasser."
+}
+},
+{
+"type": "sign",
+"sign": [
+"MIETERHÖHUNG",
+"+8 %",
+"wegen Sanierung"
+],
+"x": 279,
+"y": -1145,
+"dir": -0.58,
+"egg": {
+"id": "z_miete1",
+"title": "Aushang im Treppenhaus",
+"text": "Drei Zeilen Behördendeutsch und acht Prozent mehr. Im Treppenhaus liest das keiner, im Mietvertrag auch nicht."
+}
+},
+{
+"type": "sign",
+"sign": [
+"WG-ZIMMER",
+"12 m² · CHF 980",
+"47 Bewerbungen"
+],
+"x": 261,
+"y": 808,
+"dir": 0.38,
+"egg": {
+"id": "z_miete2",
+"title": "WG-Casting",
+"text": "Beim Casting gewinnt, wer am wenigsten Hausrat hat und am meisten Humor."
+}
+},
+{
+"type": "sign",
+"sign": [
+"ZU VERMIETEN",
+"Atelier 40 m²",
+"nur an Firmen"
+],
+"x": -34,
+"y": -578,
+"dir": -1.7,
+"egg": {
+"id": "z_miete3",
+"title": "Atelier nur für Firmen",
+"text": "Ein Atelier, das nie ein Künstler bewohnt, weil schon die Miete eine Kunstform ist."
+}
+},
+{
+"type": "sign",
+"sign": [
+"WOHNUNG GESUCHT",
+"Familie, 4 Kinder",
+"Wir sind nett"
+],
+"x": 1049,
+"y": -1402,
+"dir": -2.36,
+"egg": {
+"id": "z_miete4",
+"title": "Suchinserat im Laden",
+"text": "Familie sucht Wohnung. Kann kochen, gärtnern, Velos flicken. Hat nur leider keinen Anwalt."
+}
+},
+{
+"type": "sign",
+"sign": [
+"KÜNDIGUNG",
+"Eigenbedarf"
+],
+"x": 823,
+"y": -1111,
+"dir": -2.29,
+"egg": {
+"id": "z_miete5",
+"title": "Eigenbedarf",
+"text": "Eigenbedarf heisst: Der Vermieter braucht eine höhere Rendite. So steht es zwischen den Zeilen."
+}
+},
+{
+"type": "sign",
+"sign": [
+"TAUSCHBÖRSE",
+"3 Zi. Altbau",
+"gegen 2 Zi. günstig"
+],
+"x": 687,
+"y": -984,
+"dir": 0.43,
+"egg": {
+"id": "z_miete6",
+"title": "Wohnungstausch",
+"text": "Ein Altbau mit Charakter gegen etwas Bezahlbares. Charakter war nie das Problem."
+}
+},
+{
+"type": "sign",
+"sign": [
+"GENOSSENSCHAFT",
+"Warteliste",
+"8 Jahre"
+],
+"x": 819.9,
+"y": -889.3,
+"dir": 2.45,
+"egg": {
+"id": "z_miete7",
+"title": "Warteliste",
+"text": "Die Warteliste ist lang, aber ehrlich. Das kann nicht jeder Wohnungsmarkt von sich sagen."
+}
+},
+{
+"type": "sign",
+"sign": [
+"ZWISCHENNUTZUNG",
+"bis Abbruch"
+],
+"x": 608.6,
+"y": -1272.1,
+"dir": 2.83,
+"egg": {
+"id": "z_miete8",
+"title": "Zwischennutzung",
+"text": "Zwischennutzung heisst: Die Leute dürfen bleiben, bis der Bagger Termin hat."
+}
+},
+{
+"type": "sign",
+"sign": [
+"FRÜHER",
+"Wohnungen",
+"JETZT: Büros"
+],
+"x": 1112,
+"y": -1273,
+"dir": 1.92,
+"egg": {
+"id": "z_miete9",
+"title": "Vom Wohnhaus zum Büro",
+"text": "Früher wohnten hier Familien. Heute kommen Leute zum Arbeiten und fahren zum Schlafen wieder weg."
+}
+},
+{
+"type": "sign",
+"sign": [
+"HIER ENTSTEHT",
+"bezahlbarer",
+"Wohnraum"
+],
+"x": -423.4,
+"y": 1043.5,
+"dir": 0.05,
+"egg": {
+"id": "z_miete10",
+"title": "Hier entsteht",
+"text": "Das Schild steht schon, der Rest folgt. Vermutlich."
+}
+},
+{
+"type": "sign",
+"sign": [
+"PROVISORIUM",
+"bis auf Weiteres"
+],
+"x": 245,
+"y": -615,
+"dir": -2.68,
+"egg": {
+"id": "z_miete11",
+"title": "Provisorium",
+"text": "In Zürich hält nichts so lange wie ein Provisorium. Ausser vielleicht die Wohnungssuche."
+}
+},
+{
+"type": "sign",
+"sign": [
+"NACHZAHLUNG",
+"CHF 1'412.–"
+],
+"x": -1228.9,
+"y": -144.2,
+"dir": -2.53,
+"egg": {
+"id": "z_miete12",
+"title": "Nebenkosten",
+"text": "Die Heizkostenabrechnung ist wie das Wetter: Alle reden darüber, aber zusammen kann man etwas dagegen tun."
+}
+},
+{
+"type": "velos",
+"sign": [
+"VELOSTREIFEN",
+"40 cm"
+],
+"count": 3,
+"x": 230,
+"y": -1178,
+"dir": 0.94,
+"egg": {
+"id": "z_velo1",
+"title": "Vierzig Zentimeter Freiheit",
+"text": "Der Velostreifen ist so breit wie die Tür eines Lieferwagens. Fahr mit Humor."
+}
+},
+{
+"type": "velos",
+"sign": [
+"VELOPARKING",
+"voll"
+],
+"count": 5,
+"x": 270,
+"y": -629,
+"dir": -1.07,
+"egg": {
+"id": "z_velo2",
+"title": "Velo-Tetris",
+"text": "Zehn Velos auf sechs Plätzen: urbane Verdichtung, wie sie im Buch steht."
+}
+},
+{
+"type": "velos",
+"sign": [
+"HARDBRÜCKE",
+"bergauf"
+],
+"count": 2,
+"x": -141,
+"y": -146,
+"dir": -2.59,
+"egg": {
+"id": "z_velo3",
+"title": "Hardbrücke, bergauf",
+"text": "Hinauf mühsam, hinunter genial. Veloweg ja bitte, aber nicht nur für den Weg bergab."
+}
+},
+{
+"type": "velos",
+"sign": [
+"VELOSTATION",
+"Plätze frei"
+],
+"count": 5,
+"x": 1472.2,
+"y": -664.9,
+"dir": -2.51,
+"egg": {
+"id": "z_velo4",
+"title": "Trocken und bewacht",
+"text": "Hunderte Plätze, trocken und bewacht. Dein Velo hat es besser als manche Mieter."
+}
+},
+{
+"type": "velos",
+"sign": [
+"POST",
+"Zustellung"
+],
+"count": 3,
+"x": -2316.4,
+"y": 159.6,
+"dir": -2.73,
+"egg": {
+"id": "z_velo5",
+"title": "Postvelo",
+"text": "Leise, schnell, pünktlich. Das Postvelo wäre ein Vorbild für die ganze Verkehrspolitik."
+}
+},
+{
+"type": "velos",
+"sign": [
+"FAIR-TEILER",
+"Nimm, was du brauchst"
+],
+"count": 2,
+"x": 1272,
+"y": 101,
+"dir": -0.88,
+"egg": {
+"id": "z_velo6",
+"title": "Fair-Teiler",
+"text": "Was übrig bleibt, wird geteilt. Der Kühlschrank hat keine Öffnungszeiten."
+}
+},
+{
+"type": "sign",
+"sign": [
+"PARKING DAY",
+"1 Parkplatz",
+"= 1 Park"
+],
+"x": -635.3,
+"y": -536.9,
+"dir": -2.56,
+"egg": {
+"id": "z_frei1",
+"title": "Parking Day",
+"text": "Ein Parkplatz, drei Stühle, ein Rasenteppich. Mehr Stadt pro Quadratmeter als im ganzen Parkhaus daneben."
+}
+},
+{
+"type": "sign",
+"sign": [
+"SPIELPLATZ",
+"Hardau"
+],
+"x": -465.7,
+"y": -569.8,
+"dir": 2.12,
+"egg": {
+"id": "z_frei2",
+"title": "Spielplatz Hardau",
+"text": "Vormittags Kinder, nachmittags Kinder, abends Erwachsene mit Kindern im Kopf."
+}
+},
+{
+"type": "sign",
+"sign": [
+"KIOSK",
+"Josefwiese"
+],
+"x": 477.2,
+"y": 234.0,
+"dir": -0.55,
+"egg": {
+"id": "z_frei3",
+"title": "Josefwiese-Kiosk",
+"text": "Glace, Bier, Chips: die drei Säulen der Quartierdemokratie."
+}
+},
+{
+"type": "sign",
+"sign": [
+"PARK",
+"Pause erlaubt"
+],
+"x": 1478.9,
+"y": -152.0,
+"dir": -2.32,
+"egg": {
+"id": "z_frei4",
+"title": "Pausenplatz",
+"text": "Mittagspause zwischen Betonwand und Baum. Der Baum ist neu, die Wand ist alt."
+}
+},
+{
+"type": "sign",
+"sign": [
+"PAUSENHOF",
+"Offen bis 20 Uhr"
+],
+"x": -475.6,
+"y": -167.6,
+"dir": 0.55,
+"egg": {
+"id": "z_frei5",
+"title": "Offener Pausenhof",
+"text": "Nach der Schule gehört der Pausenhof allen. So sollte jeder Hof sein."
+}
+},
+{
+"type": "sign",
+"sign": [
+"GLEISBOGEN"
+],
+"x": -264.7,
+"y": 320.3,
+"dir": 2.08,
+"egg": {
+"id": "z_frei6",
+"title": "Gleisbogen",
+"text": "Ein Weg über den Gleisen, den niemand bestellt hat und alle benutzen."
+}
+},
+{
+"type": "sign",
+"sign": [
+"PASSERELLE",
+"Fussverkehr"
+],
+"x": -269.3,
+"y": 620.5,
+"dir": -2.91,
+"egg": {
+"id": "z_frei7",
+"title": "Passerelle",
+"text": "Eine Brücke nur für Menschen zu Fuss. Fast ein Utopieprojekt."
+}
+},
+{
+"type": "sign",
+"sign": [
+"FISCHERWEG"
+],
+"x": -340.4,
+"y": 1052.5,
+"dir": -2.9,
+"egg": {
+"id": "z_frei8",
+"title": "Fischerweg",
+"text": "Hier fischt niemand mehr, aber flaniert wird bei jedem Wetter."
+}
+},
+{
+"type": "plausch",
+"count": 3,
+"x": -2196.4,
+"y": 474.4,
+"dir": 0.97,
+"egg": {
+"id": "z_leute1",
+"title": "Schwatz an der Post",
+"text": "Drei Leute, ein Thema, null Eile. Das ist Altstetten."
+}
+},
+{
+"type": "plausch",
+"count": 3,
+"x": -2324.1,
+"y": 307.4,
+"dir": -2.86,
+"egg": {
+"id": "z_leute2",
+"title": "Büchereck",
+"text": "Eine hat das Buch gelesen, einer will es lesen, die Dritte hat den Film gesehen."
+}
+},
+{
+"type": "plausch",
+"count": 4,
+"x": -557.2,
+"y": -134.7,
+"dir": 0.55,
+"egg": {
+"id": "z_leute3",
+"title": "Vor dem Schulhaus",
+"text": "Die Eltern warten, die Kinder trödeln. Beides gehört zum Pausenzeichen."
+}
+},
+{
+"type": "plausch",
+"count": 3,
+"x": 1111,
+"y": 60,
+"dir": -1.61,
+"egg": {
+"id": "z_leute4",
+"title": "Limmatplatz-Treff",
+"text": "Man trifft sich, wo es Schatten, Kaffee und eine Bank hat. Alles drei ist hier selten beieinander."
+}
+},
+{
+"type": "queue",
+"sign": [
+"POST",
+"Nr. 87"
+],
+"count": 6,
+"x": 496.1,
+"y": -1426.1,
+"dir": 1.13,
+"egg": {
+"id": "z_szene1",
+"title": "Schlange bei der Post",
+"text": "Drei Schalter offen heisst: einer."
+}
+},
+{
+"type": "preacher",
+"sign": [
+"TRAM FAHREN",
+"statt Stau"
+],
+"x": 521.4,
+"y": -880.6,
+"dir": 2.01,
+"egg": {
+"id": "z_prediger1",
+"title": "Der Mobilitäts-Prophet",
+"text": "Er predigt, was alle wissen: Tram schlägt Stau. Das Publikum nickt und nimmt das Auto."
+}
+},
+{
+"type": "jass",
+"kind": "cards",
+"x": -569.2,
+"y": -118.7,
+"dir": 0.55,
+"egg": {
+"id": "z_jass1",
+"title": "Hardau-Jass",
+"text": "Schieber, Stöck, Wys: Wer verliert, bringt das nächste Mal den Wein."
+}
+},
+{
+"type": "tourists",
+"x": 61.3,
+"y": 231.2,
+"dir": 2.13,
+"egg": {
+"id": "z_selfie1",
+"title": "Hochhaus-Fans",
+"text": "Sie fotografieren den Prime Tower. Wir fotografieren die Baustelle daneben."
+}
+},
+{
+"type": "umzug",
+"x": 594,
+"y": -940,
+"dir": 0.43,
+"egg": {
+"id": "z_umzug1",
+"title": "Zügeltag",
+"text": "Ende September und Ende März wechselt halb Zürich die Wohnung. Alle Treppenhäuser sind dann Baustellen."
+}
+},
+{
+"type": "graffiti",
+"sign": [
+"ALLE AUF",
+"DIE DACHTERRASSE"
+],
+"color": "#ffd43d",
+"x": -32,
+"y": 11,
+"dir": -1.0,
+"egg": {
+"id": "z_wand1",
+"title": "Dachterrasse für alle",
+"text": "Die Dächer gehören auch dem Quartier, steht an der Wand. Der Hauswart ist noch nicht überzeugt."
+}
+},
+{
+"type": "graffiti",
+"sign": [
+"BRUNNEN",
+"FÜR ALLE"
+],
+"color": "#4fd0ff",
+"x": 1173.0,
+"y": -1009.7,
+"dir": -2.52,
+"egg": {
+"id": "z_wand2",
+"title": "Wasser ist kein Luxus",
+"text": "An der Hauswand hat jemand mit Schablone gearbeitet. Trinkwasser aus dem Brunnen: gratis, gesund, gerecht."
+}
+},
+{
+"type": "kiosk",
+"sign": [
+"KAFI FERTIG",
+"Fr. 6.–"
+],
+"x": 986.6,
+"y": -278.6,
+"dir": 0.38,
+"egg": {
+"id": "z_kafi1",
+"title": "Kafi fertig",
+"text": "Kaffee, Zwetschgenschnaps, Zucker. Wer «fertig» sagt, meint: noch einen."
+}
+},
+{
+"type": "menu",
+"sign": [
+"TAGESMENÜ",
+"Rösti 14.–",
+"Zimmer frei: 0"
+],
+"x": 710.6,
+"y": -829.5,
+"dir": -1.13,
+"egg": {
+"id": "z_menue1",
+"title": "Menü der Woche",
+"text": "Das Mittagsmenü ist bezahlbar. Das Zimmer darüber nicht."
+}
+},
+{
+"type": "pigeons",
+"count": 6,
+"x": -177.3,
+"y": -219.2,
+"dir": -1.01,
+"egg": {
+"id": "z_tauben1",
+"title": "Tauben am Hardplatz",
+"text": "Sie kennen jeden Fahrplan auswendig und nehmen trotzdem nie das Tram."
+}
+},
+{
+"type": "sign",
+"x": -583.0,
+"y": 139.8,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Duttweilerbrücke",
+"bis 04.2027"
+]
+},
+{
+"type": "sign",
+"x": 180.3,
+"y": 906.9,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Limmatstützmauer",
+"bis 10.2026"
+]
+},
+{
+"type": "sign",
+"x": -696.3,
+"y": 5.8,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Eichbuehlstrasse",
+"bis 07.2027"
+]
+},
+{
+"type": "sign",
+"x": 1088.2,
+"y": -5.9,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Heinrichstrasse",
+"bis 12.2026"
+]
+},
+{
+"type": "sign",
+"x": -2279.8,
+"y": 360.7,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Elektrifizierung Busli",
+"bis 10.2027"
+]
+},
+{
+"type": "sign",
+"x": 914.0,
+"y": -1655.0,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Sihlhölzlibrücke",
+"bis 08.2028"
+]
+},
+{
+"type": "sign",
+"x": 223.8,
+"y": -366.8,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Hohlstrasse Querkanal ",
+"bis 11.2026"
+]
+},
+{
+"type": "sign",
+"x": -2430.2,
+"y": 435.0,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Pocket-Park beim Roten",
+"bis 12.2026"
+]
+},
+{
+"type": "sign",
+"x": -1953.4,
+"y": 413.0,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Calanda-/Luggwegstrass",
+"bis 12.2026"
+]
+},
+{
+"type": "sign",
+"x": -2153.2,
+"y": 260.4,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Furkastrasse",
+"bis 04.2027"
+]
+},
+{
+"type": "sign",
+"x": 546.7,
+"y": -1368.7,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Baumgartnerstrasse",
+"bis 11.2026"
+]
+},
+{
+"type": "sign",
+"x": 450.4,
+"y": 207.2,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Planschbecken Josefwie",
+"bis 06.2027"
+]
+},
+{
+"type": "sign",
+"x": -134.6,
+"y": -653.8,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Zypressenstrasse",
+"bis 12.2026"
+]
+},
+{
+"type": "sign",
+"x": -475.8,
+"y": -503.6,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Hardaupark",
+"bis 11.2026"
+]
+},
+{
+"type": "sign",
+"x": -1745.7,
+"y": 316.2,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Kappeli Schulhaus / Ki",
+"bis 12.2026"
+]
+},
+{
+"type": "sign",
+"x": -254.8,
+"y": 1105.3,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Fischerweg/Hardturmstr",
+"bis 12.2026"
+]
+},
+{
+"type": "sign",
+"x": 917.4,
+"y": -1174.7,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Badenerstrasse",
+"bis 11.2026"
+]
+},
+{
+"type": "sign",
+"x": -529.1,
+"y": -874.2,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Friedhof Sihlfeld",
+"bis 12.2026"
+]
+},
+{
+"type": "sign",
+"x": -1942.0,
+"y": 443.5,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Baslerstrasse",
+"bis 06.2028"
+]
+},
+{
+"type": "sign",
+"x": 528.0,
+"y": -1361.1,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"VBZ-Personal-WC Bahnho",
+"bis 10.2026"
+]
+},
+{
+"type": "sign",
+"x": -1391.3,
+"y": 199.1,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Baslerstrasse",
+"bis 04.2027"
+]
+},
+{
+"type": "sign",
+"x": 163.5,
+"y": 378.4,
+"dir": 0.0,
+"sign": [
+"BAUSTELLE",
+"Pfingstweidstrasse",
+"bis 11.2026"
+]
+},
+{
+"type": "sign",
+"x": 333.7,
+"y": 809.9,
+"dir": 2.13,
+"sign": [
+"HOCHBAU",
+"Tramdepot + Wohnsiedlu",
+"Teilersatz und Neubau"
+]
+},
+{
+"type": "sign",
+"x": -242.6,
+"y": 697.1,
+"dir": 2.29,
+"sign": [
+"HOCHBAU",
+"Temp. Bundesverfahrens",
+"Duttweilerstrasse 5-11"
+]
+},
+{
+"type": "sign",
+"x": -271.3,
+"y": 684.0,
+"dir": 0.43,
+"sign": [
+"HOCHBAU",
+"Temp. Bundesverfahrens",
+"Duttweilerstrasse 5-11"
+]
+},
+{
+"type": "sign",
+"x": -274.9,
+"y": 695.6,
+"dir": -2.78,
+"sign": [
+"HOCHBAU",
+"Temp. Bundesverfahrens",
+"Duttweilerstrasse 5-11"
+]
+},
+{
+"type": "sign",
+"x": -306.4,
+"y": 681.1,
+"dir": -2.05,
+"sign": [
+"HOCHBAU",
+"Temp. Bundesverfahrens",
+"Duttweilerstrasse 5-11"
+]
+},
+{
+"type": "sign",
+"x": 324.1,
+"y": -1719.9,
+"dir": 0.58,
+"sign": [
+"HOCHBAU",
+"Schulanlage Gotthelfst",
+"Umbau"
+]
+},
+{
+"type": "sign",
+"x": -1483.4,
+"y": 525.1,
+"dir": 0.51,
+"sign": [
+"HOCHBAU",
+"WS Letzi Hohlstrasse 4",
+"Überbauung"
+]
+},
+{
+"type": "sign",
+"x": -597.3,
+"y": -347.2,
+"dir": -0.62,
+"sign": [
+"HOCHBAU",
+"Alterssiedlung SAW Har",
+"Inneninstandsetzung"
+]
+},
+{
+"type": "sign",
+"x": -411.1,
+"y": -399.9,
+"dir": -3.05,
+"sign": [
+"HOCHBAU",
+"Wohnsiedlung Hardau II",
+"Instandhaltung Fassade"
+]
+},
+{
+"type": "sign",
+"x": -126.9,
+"y": -330.5,
+"dir": -0.21,
+"sign": [
+"HOCHBAU",
+"Diverse Gebäude",
+"Instandsetzung Radon"
+]
+},
+{
+"type": "sign",
+"x": 975.2,
+"y": 396.0,
+"dir": -0.2,
+"sign": [
+"HOCHBAU",
+"Regionalwache Industri",
+"Anpassung Sicherheitss"
+]
+},
+{
+"type": "sign",
+"x": 1080.5,
+"y": 230.2,
+"dir": -2.08,
+"sign": [
+"HOCHBAU",
+"ZM-Pavillons",
+"Fristenverlängerung bi"
+]
+},
+{
+"type": "sign",
+"x": 499.5,
+"y": -944.5,
+"dir": -1.36,
+"sign": [
+"HOCHBAU",
+"Schulanlage Wengi",
+"Teilinstandsetzung und"
+]
+},
+{
+"type": "sign",
+"x": 612.4,
+"y": -627.0,
+"dir": -1.11,
+"sign": [
+"HOCHBAU",
+"Kunst- und Sportschule",
+"Umbau BET"
+]
+},
+{
+"type": "sign",
+"x": 350.9,
+"y": -545.6,
+"dir": -2.42,
+"sign": [
+"HOCHBAU",
+"Herman-Greulich-Strass",
+"IS und Umnutzung"
+]
+},
+{
+"type": "sign",
+"x": 1050.7,
+"y": -1254.1,
+"dir": -0.34,
+"sign": [
+"HOCHBAU",
+"Werd25",
+""
+]
+},
+{
+"type": "sign",
+"x": -1210.5,
+"y": -41.7,
+"dir": -2.87,
+"sign": [
+"HOCHBAU",
+"Alto Tower",
+""
+]
+},
+{
+"type": "sign",
+"x": -2201.2,
+"y": 383.7,
+"dir": 0.09,
+"sign": [
+"HOCHBAU",
+"Lindore",
+""
+]
 }
 ]
 }

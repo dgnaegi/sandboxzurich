@@ -1,0 +1,117 @@
+{
+ "landmarks": [
+  {
+   "name": "Stadion Letzigrund",
+   "model": "/models/landmarks/k93_stadion.glb",
+   "x": -968.9,
+   "y": -165.9,
+   "z": -9.97,
+   "heading": 0,
+   "hide": [
+    [
+     -1046.4,
+     -131.0
+    ]
+   ]
+  },
+  {
+   "name": "Bahnhof Altstetten (Hochhaus, IBM-Stengel)",
+   "model": "/models/landmarks/k93_altstetten.glb",
+   "x": -2082.0,
+   "y": 738.0,
+   "z": -12.21,
+   "heading": 0,
+   "hide": [
+    [
+     -2098.0,
+     748.7
+    ],
+    [
+     -2160.6,
+     812.6
+    ]
+   ]
+  },
+  {
+   "name": "Alte Kirche und Kirche Altstetten",
+   "model": "/models/landmarks/k93_kirche_altstetten.glb",
+   "x": -2405.0,
+   "y": 250.0,
+   "z": -0.3,
+   "heading": 0,
+   "hide": [
+    [
+     -2386.0,
+     251.1
+    ],
+    [
+     -2430.1,
+     239.1
+    ]
+   ]
+  },
+  {
+   "name": "Dreifaltigkeitskirche Wiedikon",
+   "model": "/models/landmarks/k93_dreifaltigkeit.glb",
+   "x": 457.0,
+   "y": -1185.0,
+   "z": 1.08,
+   "heading": 0,
+   "hide": [
+    [
+     458.0,
+     -1185.5
+    ]
+   ]
+  },
+  {
+   "name": "Bahnhof Wiedikon (Reiterbahnhof)",
+   "model": "/models/landmarks/k93_wiedikon.glb",
+   "x": 544.1,
+   "y": -1403.4,
+   "z": 2.11,
+   "heading": 0,
+   "hide": [
+    [
+     541.8,
+     -1396.4
+    ]
+   ]
+  },
+  {
+   "name": "Altes Krematorium Sihlfeld, Haupttor, Kapellen",
+   "model": "/models/landmarks/k93_krematorium.glb",
+   "x": -704.0,
+   "y": -757.0,
+   "z": 1.15,
+   "heading": 0,
+   "hide": [
+    [
+     -701.7,
+     -764.6
+    ],
+    [
+     -718.1,
+     -780.4
+    ],
+    [
+     -728.6,
+     -761.7
+    ],
+    [
+     -740.9,
+     -795.7
+    ]
+   ]
+  },
+  {
+   "name": "Loewenbrunnen Schmiede Wiedikon",
+   "model": "/models/landmarks/k93_schmiede.glb",
+   "x": 314.2,
+   "y": -1561.5,
+   "z": 2.25,
+   "heading": 0,
+   "hide": []
+  }
+ ]
+}

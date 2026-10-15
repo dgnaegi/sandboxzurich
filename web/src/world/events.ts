@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { mergeStatic } from './mergestatic';
 import type { Human, HumanLib } from './humans';
 import { bikeGeometries, bikeMaterial, JACKETS } from './traffic';
 
@@ -154,6 +155,7 @@ export class Events {
         });
       };
     }
+    mergeStatic(obj); // stalls, tables, banners: one draw call per material
     this.group.add(obj);
     this.live.set(e.id, { obj, people, tick });
     this.onStart(e.title);

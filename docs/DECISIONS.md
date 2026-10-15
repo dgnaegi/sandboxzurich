@@ -61,3 +61,21 @@ Strassen- und Platzschilder: Alle Widmungstafeln (OGD-Punkte, 43 im Spielgebiet)
 
 ## #20 – 2026-10-15 – vorgeschlagen
 Bodenbelag: Innenhöfe und Vorgärten nach Amtlicher Vermessung (Kanton ZH, bodenbedeckung_f): Grün → Rasen, befestigt → Hofbelag; Rest wie bisher. Fahrbahn bleibt vorerst OSM, weil die AV in der Innenstadt Trottoirs oft in «Strasse, Weg» einschliesst (Vergleich ausstehend, research/groundcover.md).
+
+## #21 – 2026-10-15 – bestätigt (User: «Letzigrund fehlt … solche Sachen sollen nicht passieren», «Toni-Areal super realistisch»)
+Landmarks als eigene GLB-Modelle (`pipeline/landmarks/`, `web/src/world/landmarks3d.ts`, Manifest `web/public/data/landmarks.json` aus `pipeline/overrides/landmarks_*.json`). Die ersetzten swissBUILDINGS3D-Gebäude werden über `hide`-Punkte im Build entfernt. Tram-/Bus-Wartehallen aus swissBUILDINGS3D (< 5 m hoch, an Haltestellen) werden verworfen; Wartehallen zeichnet `world/stops.ts`.
+
+## #22 – 2026-10-15 – vorgeschlagen
+Gebäudestand aktualisieren: swissBUILDINGS3D ist von 2019 (die Ausgabe 2026 gibt es nur als 14-GB-Gesamtdatei). `pipeline/osm_buildings.py` zieht Neubauten aus OSM hoch (IoU < 0.4 mit 2019 und GWR-Baujahr ≥ 2019 oder kaum überdeckt) und entfernt 2019-Gebäude darunter bzw. ohne OSM-Gegenstück (nur im Spielgebiet).
+
+## #23 – 2026-10-15 – vorgeschlagen
+Dachfarben aus dem Orthofoto SWISSIMAGE (swisstopo, offene Daten, WMS 0.5 m/px, `pipeline/ortho_roofs.py`): Median der helleren Hälfte der Dachpixel → Tönung einer neutralen Ziegel-Ebene `roof_tiles_grey` bzw. Kies. Orthofoto nur als Messquelle, nicht als Textur im Spiel.
+
+## #24 – 2026-10-15 – bestätigt (User: Friedhof Sihlfeld mit Krematorium)
+Spielgebiet um den Friedhof Sihlfeld + Verbindungsstreifen durch das Sihlfeld-Quartier erweitert (6.88 km², 219 Spielkacheln). Gelände-Korrekturen (Bahneinschnitt unter Gebäuden) in `pipeline/overrides/terrain_cuts.json`. Spielplätze aus OSM + Stadt-OGD (`pipeline/playgrounds.py`, `world/playgrounds.ts`).
+
+## #25 – 2026-10-15 – bestätigt (User: «deaktiviere alle Quests», «Ladebildschirm ganz neutral, nur loading...»)
+Quests/Missionen fest aus (`QUESTS = false` in main.ts, auch `?missions` wirkt nicht mehr); Code bleibt für später. Ladebildschirm neutral (nur «loading...»), kein Startbildschirm mehr; Ton startet bei der ersten Eingabe.
+
+## #26 – 2026-10-15 – bestätigt (User: «keine Polizei, keine Meldungen wie Velo-Infrastruktur … geht erstmal um Map»)
+Karten-Phase: `GAMEPLAY = false` in main.ts → keine Polizei (auch keine Polizeiautos im Verkehr), keine Sterne beim Velo-Klauen, keine Einblendungen (Easter Eggs, Anekdoten/Strassennamen, Velo-Infrastruktur, Ereignisse). Velos klauen/fahren, Velo-Tempo-Bonus und Karte bleiben. Code bleibt für später.

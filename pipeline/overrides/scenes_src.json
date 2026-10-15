@@ -1320,6 +1320,984 @@
    ],
    "n": 1,
    "min_sep": 500
+  },
+  {
+   "id": "z_ort",
+   "type": "sign",
+   "street": "face",
+   "auto": true,
+   "entries": [
+    {
+     "at": [
+      -1003,
+      13
+     ],
+     "title": "Weltklasse-Rasen",
+     "text": "Im August rennt hier die Weltspitze. Den Rest des Jahres rennt man dem Mietvertrag hinterher.",
+     "sign": [
+      "LETZIGRUND",
+      "Start frei"
+     ]
+    },
+    {
+     "at": [
+      -1336,
+      239
+     ],
+     "title": "Alles unter einem Dach",
+     "text": "Hundert Läden, ein Parkhaus, null Wohnungen. Das Dach über dem Kopf fehlt immer noch.",
+     "sign": [
+      "LETZIPARK",
+      "Alles da",
+      "ausser Wohnungen"
+     ]
+    },
+    {
+     "at": [
+      -2204,
+      437
+     ],
+     "title": "Neumarkt, alter Markt",
+     "text": "Der Neumarkt ist neu, der Markt ist alt, und die Schlange vor der Bäckerei ist zeitlos.",
+     "sign": [
+      "NEUMARKT",
+      "Altstetten"
+     ]
+    },
+    {
+     "at": [
+      -2095,
+      704
+     ],
+     "title": "Umsteigen in Altstetten",
+     "text": "Gleis 4 hat Verspätung. Gleis 3 hat Verständnis. Gleis 5 hat Kaffee.",
+     "sign": [
+      "GLEIS 4",
+      "+3 Min."
+     ]
+    },
+    {
+     "at": [
+      -2285,
+      318
+     ],
+     "title": "Dorfplatz mit Tram",
+     "text": "Altstetten war einmal ein Dorf. Der Lindenplatz erinnert dich gern daran, auch wenn das Tram anderer Meinung ist.",
+     "sign": [
+      "LINDENPLATZ",
+      "Dorf mit Tram"
+     ]
+    },
+    {
+     "at": [
+      -863,
+      924
+     ],
+     "title": "Stadionbrache",
+     "text": "Jahrelang wurde über dieses Feld abgestimmt, geplant und gestritten. Das Gras hat es gelassen genommen.",
+     "sign": [
+      "HARDTURM",
+      "Bald. Bestimmt."
+     ]
+    },
+    {
+     "at": [
+      -523,
+      -525
+     ],
+     "title": "Hardau von oben",
+     "text": "Städtische Hochhäuser mit Aussicht über das ganze Quartier. So geht gemeinnütziges Wohnen: Aussicht ohne Rendite.",
+     "sign": [
+      "HARDAU",
+      "Aussicht",
+      "ohne Rendite"
+     ]
+    },
+    {
+     "at": [
+      45,
+      221
+     ],
+     "title": "126 Meter Büro",
+     "text": "Der Prime Tower hat 36 Stockwerke und kein einziges Bett. Stell dir vor, es wären Wohnungen.",
+     "sign": [
+      "PRIME TOWER",
+      "36 Stockwerke",
+      "0 Betten"
+     ]
+    },
+    {
+     "at": [
+      718,
+      410
+     ],
+     "title": "Bogen für Bogen",
+     "text": "Unter den Bögen verkaufen sie heute Brot und Bio. Früher fuhren hier nur Züge.",
+     "sign": [
+      "IM VIADUKT",
+      "Brot & Bio"
+     ]
+    },
+    {
+     "at": [
+      1009,
+      -769
+     ],
+     "title": "Labyrinth",
+     "text": "Wer die Wohnungssuche hinter sich hat, findet auch hier wieder hinaus.",
+     "sign": [
+      "LABYRINTHPLATZ"
+     ]
+    },
+    {
+     "at": [
+      599,
+      -694
+     ],
+     "title": "Platz ohne Konsumzwang",
+     "text": "Hier darfst du sitzen, ohne etwas zu bestellen. Seltener als eine Wohnung ohne Besichtigungsschlange.",
+     "sign": [
+      "QUARTIERZENTRUM",
+      "Bäckeranlage"
+     ]
+    },
+    {
+     "at": [
+      608,
+      -1268
+     ],
+     "title": "Lesen ist gratis",
+     "text": "Bücher leihen kostet nichts. Und die Wartefrist ist kürzer als bei jeder Genossenschaft.",
+     "sign": [
+      "BIBLIOTHEK",
+      "Ausleihe: 0.–"
+     ]
+    },
+    {
+     "at": [
+      393,
+      -1202
+     ],
+     "title": "Wohnen überm Tramdepot",
+     "text": "Im Tramdepot Kalkbreite wohnen Menschen über den Trams. Genossenschaft statt Rendite, und das Tram ist dein Wecker.",
+     "sign": [
+      "KALKBREITE",
+      "Wohnen & Tram"
+     ]
+    },
+    {
+     "at": [
+      236,
+      -1761
+     ],
+     "title": "Früher war mehr Hof",
+     "text": "Das Ortsmuseum zeigt, wie Wiedikon einmal aussah: mit Wiesen und Hinterhöfen.",
+     "sign": [
+      "ORTSMUSEUM",
+      "Wiedikon"
+     ]
+    },
+    {
+     "at": [
+      175,
+      -1575
+     ],
+     "title": "Schmiede ohne Feuer",
+     "text": "Hier wird nicht mehr geschmiedet, höchstens der Plan für den nächsten Quartierabend.",
+     "sign": [
+      "SCHMIEDE",
+      "Wiedikon"
+     ]
+    },
+    {
+     "at": [
+      604,
+      -1412
+     ],
+     "title": "Gleis 3, Wiedikon",
+     "text": "Alle fahren durch, ein paar steigen aus, und der Kioskmann weiss, wie spät es wirklich ist.",
+     "sign": [
+      "WIEDIKON",
+      "Gleis 3"
+     ]
+    },
+    {
+     "at": [
+      314,
+      -1562
+     ],
+     "title": "Der Löwe an der Strasse",
+     "text": "Der Löwe bewacht den Brunnen. Das Wasser ist gratis, das Brüllen auch.",
+     "sign": [
+      "LÖWENBRUNNEN"
+     ]
+    },
+    {
+     "at": [
+      805,
+      -937
+     ],
+     "title": "Volkshaus",
+     "text": "Das Volkshaus heisst so, weil man hier gemeinsam feiert, streitet und tanzt. Meistens in dieser Reihenfolge.",
+     "sign": [
+      "VOLKSHAUS",
+      "Wir feiern"
+     ]
+    },
+    {
+     "at": [
+      784,
+      -1105
+     ],
+     "title": "Kein Casino",
+     "text": "Im Casino Aussersihl wird getanzt und gesungen, nicht gezockt. Gezockt wird bei den Mieten.",
+     "sign": [
+      "CASINO",
+      "Aussersihl"
+     ]
+    },
+    {
+     "at": [
+      810,
+      -854
+     ],
+     "title": "Amtshaus Helvetiaplatz",
+     "text": "Hinter diesen Fenstern liegen Formulare. Bitte Nummer ziehen.",
+     "sign": [
+      "AMTSHAUS",
+      "Nummer ziehen"
+     ]
+    },
+    {
+     "at": [
+      1031,
+      -24
+     ],
+     "title": "Sogar!",
+     "text": "Das Sogar Theater heisst Sogar. Sogar das ist Zürcher Understatement.",
+     "sign": [
+      "SOGAR",
+      "Theater"
+     ]
+    },
+    {
+     "at": [
+      987,
+      -265
+     ],
+     "title": "Kultur im Erdgeschoss",
+     "text": "Im Zollhaus wohnen Leute in einer Genossenschaft. Unten gibt es ein Theater. Kultur im Erdgeschoss statt Rendite.",
+     "sign": [
+      "ZOLLHAUS",
+      "Wohnen & Theater"
+     ]
+    },
+    {
+     "at": [
+      1421,
+      -738
+     ],
+     "title": "Gelbes Haus, graue Schalter",
+     "text": "Die Sihlpost hat die Fassade von früher und die Warteschlange von heute.",
+     "sign": [
+      "SIHLPOST",
+      "Schalter 3"
+     ]
+    },
+    {
+     "at": [
+      512,
+      653
+     ],
+     "title": "Von der Turbine zum Loft",
+     "text": "Früher bauten sie hier Turbinen und Schiffe. Heute bauen sie Lofts und nennen es Zürich-West.",
+     "sign": [
+      "ESCHER WYSS",
+      "früher: Turbinen",
+      "heute: Lofts"
+     ]
+    },
+    {
+     "at": [
+      371,
+      809
+     ],
+     "title": "Tramdepot Hard",
+     "text": "Hier schlafen die Trams. Bald schlafen auch Menschen im Neubau daneben.",
+     "sign": [
+      "TRAMDEPOT",
+      "Hard"
+     ]
+    },
+    {
+     "at": [
+      240,
+      98
+     ],
+     "title": "Surfen in Zürich",
+     "text": "Wellenreiten mitten im Industriequartier. Wenn schon kein Meer, dann wenigstens eine Betonwanne.",
+     "sign": [
+      "URBANSURF",
+      "Welle voraus"
+     ]
+    },
+    {
+     "at": [
+      -838,
+      870
+     ],
+     "title": "Betonwelle",
+     "text": "Hier darf es laut sein: Rollen auf Beton statt Beschwerde bei der Nachbarschaft.",
+     "sign": [
+      "SKATEPARK",
+      "Laut erlaubt"
+     ]
+    },
+    {
+     "at": [
+      -565,
+      147
+     ],
+     "title": "Weichen stellen",
+     "text": "Hier werden die Weichen gestellt. Politisch ginge das auch.",
+     "sign": [
+      "STELLWERK"
+     ]
+    },
+    {
+     "at": [
+      738,
+      119
+     ],
+     "title": "Drei Knaben, ein Brunnen",
+     "text": "Sie spielen seit Jahrzehnten dasselbe Stück. Ohne Verstärker und ohne Bewilligung.",
+     "sign": [
+      "WANDBRUNNEN"
+     ]
+    },
+    {
+     "at": [
+      -499,
+      -169
+     ],
+     "title": "Schwimmen lernen",
+     "text": "Jedes Kind soll schwimmen lernen. Wasser haben wir genug, Bahnen manchmal nicht.",
+     "sign": [
+      "SCHWIMMANLAGE",
+      "Hardau"
+     ]
+    },
+    {
+     "at": [
+      -2381,
+      785
+     ],
+     "title": "Zweite Hand, erste Wahl",
+     "text": "Was die einen nicht mehr brauchen, ist für die anderen ein Schatz. Und für den Dritten ein Sofa.",
+     "sign": [
+      "BROCKI",
+      "Alles muss raus"
+     ]
+    },
+    {
+     "at": [
+      -2371,
+      359
+     ],
+     "title": "Vorhang auf",
+     "text": "Hier spielt Altstetten Theater. Und manchmal Zürich.",
+     "sign": [
+      "THEATER",
+      "Spirgarten"
+     ]
+    },
+    {
+     "at": [
+      1592,
+      -583
+     ],
+     "title": "Die Sihl",
+     "text": "Ein Fluss ohne Strandbad. Aber im Sommer steht immer jemand mit Bierdose im Wasser.",
+     "sign": [
+      "SIHL"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "z_miete",
+   "type": "sign",
+   "street": "face",
+   "auto": true,
+   "entries": [
+    {
+     "at": [
+      279,
+      -1145
+     ],
+     "title": "Aushang im Treppenhaus",
+     "text": "Drei Zeilen Behördendeutsch und acht Prozent mehr. Im Treppenhaus liest das keiner, im Mietvertrag auch nicht.",
+     "sign": [
+      "MIETERHÖHUNG",
+      "+8 %",
+      "wegen Sanierung"
+     ]
+    },
+    {
+     "at": [
+      261,
+      808
+     ],
+     "title": "WG-Casting",
+     "text": "Beim Casting gewinnt, wer am wenigsten Hausrat hat und am meisten Humor.",
+     "sign": [
+      "WG-ZIMMER",
+      "12 m² · CHF 980",
+      "47 Bewerbungen"
+     ]
+    },
+    {
+     "at": [
+      -34,
+      -578
+     ],
+     "title": "Atelier nur für Firmen",
+     "text": "Ein Atelier, das nie ein Künstler bewohnt, weil schon die Miete eine Kunstform ist.",
+     "sign": [
+      "ZU VERMIETEN",
+      "Atelier 40 m²",
+      "nur an Firmen"
+     ]
+    },
+    {
+     "at": [
+      1049,
+      -1402
+     ],
+     "title": "Suchinserat im Laden",
+     "text": "Familie sucht Wohnung. Kann kochen, gärtnern, Velos flicken. Hat nur leider keinen Anwalt.",
+     "sign": [
+      "WOHNUNG GESUCHT",
+      "Familie, 4 Kinder",
+      "Wir sind nett"
+     ]
+    },
+    {
+     "at": [
+      823,
+      -1111
+     ],
+     "title": "Eigenbedarf",
+     "text": "Eigenbedarf heisst: Der Vermieter braucht eine höhere Rendite. So steht es zwischen den Zeilen.",
+     "sign": [
+      "KÜNDIGUNG",
+      "Eigenbedarf"
+     ]
+    },
+    {
+     "at": [
+      687,
+      -984
+     ],
+     "title": "Wohnungstausch",
+     "text": "Ein Altbau mit Charakter gegen etwas Bezahlbares. Charakter war nie das Problem.",
+     "sign": [
+      "TAUSCHBÖRSE",
+      "3 Zi. Altbau",
+      "gegen 2 Zi. günstig"
+     ]
+    },
+    {
+     "at": [
+      818,
+      -887
+     ],
+     "title": "Warteliste",
+     "text": "Die Warteliste ist lang, aber ehrlich. Das kann nicht jeder Wohnungsmarkt von sich sagen.",
+     "sign": [
+      "GENOSSENSCHAFT",
+      "Warteliste",
+      "8 Jahre"
+     ]
+    },
+    {
+     "at": [
+      606,
+      -1264
+     ],
+     "title": "Zwischennutzung",
+     "text": "Zwischennutzung heisst: Die Leute dürfen bleiben, bis der Bagger Termin hat.",
+     "sign": [
+      "ZWISCHENNUTZUNG",
+      "bis Abbruch"
+     ]
+    },
+    {
+     "at": [
+      1112,
+      -1273
+     ],
+     "title": "Vom Wohnhaus zum Büro",
+     "text": "Früher wohnten hier Familien. Heute kommen Leute zum Arbeiten und fahren zum Schlafen wieder weg.",
+     "sign": [
+      "FRÜHER",
+      "Wohnungen",
+      "JETZT: Büros"
+     ]
+    },
+    {
+     "at": [
+      -424,
+      1032
+     ],
+     "title": "Hier entsteht",
+     "text": "Das Schild steht schon, der Rest folgt. Vermutlich.",
+     "sign": [
+      "HIER ENTSTEHT",
+      "bezahlbarer",
+      "Wohnraum"
+     ]
+    },
+    {
+     "at": [
+      245,
+      -615
+     ],
+     "title": "Provisorium",
+     "text": "In Zürich hält nichts so lange wie ein Provisorium. Ausser vielleicht die Wohnungssuche.",
+     "sign": [
+      "PROVISORIUM",
+      "bis auf Weiteres"
+     ]
+    },
+    {
+     "at": [
+      -1228,
+      -143
+     ],
+     "title": "Nebenkosten",
+     "text": "Die Heizkostenabrechnung ist wie das Wetter: Alle reden darüber, aber zusammen kann man etwas dagegen tun.",
+     "sign": [
+      "NACHZAHLUNG",
+      "CHF 1'412.–"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "z_velo",
+   "type": "velos",
+   "street": "along",
+   "auto": true,
+   "entries": [
+    {
+     "at": [
+      230,
+      -1178
+     ],
+     "title": "Vierzig Zentimeter Freiheit",
+     "text": "Der Velostreifen ist so breit wie die Tür eines Lieferwagens. Fahr mit Humor.",
+     "sign": [
+      "VELOSTREIFEN",
+      "40 cm"
+     ],
+     "count": 3
+    },
+    {
+     "at": [
+      270,
+      -629
+     ],
+     "title": "Velo-Tetris",
+     "text": "Zehn Velos auf sechs Plätzen: urbane Verdichtung, wie sie im Buch steht.",
+     "sign": [
+      "VELOPARKING",
+      "voll"
+     ],
+     "count": 5
+    },
+    {
+     "at": [
+      -141,
+      -146
+     ],
+     "title": "Hardbrücke, bergauf",
+     "text": "Hinauf mühsam, hinunter genial. Veloweg ja bitte, aber nicht nur für den Weg bergab.",
+     "sign": [
+      "HARDBRÜCKE",
+      "bergauf"
+     ],
+     "count": 2
+    },
+    {
+     "at": [
+      1471,
+      -664
+     ],
+     "title": "Trocken und bewacht",
+     "text": "Hunderte Plätze, trocken und bewacht. Dein Velo hat es besser als manche Mieter.",
+     "sign": [
+      "VELOSTATION",
+      "Plätze frei"
+     ],
+     "count": 5
+    },
+    {
+     "at": [
+      -2315,
+      159
+     ],
+     "title": "Postvelo",
+     "text": "Leise, schnell, pünktlich. Das Postvelo wäre ein Vorbild für die ganze Verkehrspolitik.",
+     "sign": [
+      "POST",
+      "Zustellung"
+     ],
+     "count": 3
+    },
+    {
+     "at": [
+      1272,
+      101
+     ],
+     "title": "Fair-Teiler",
+     "text": "Was übrig bleibt, wird geteilt. Der Kühlschrank hat keine Öffnungszeiten.",
+     "sign": [
+      "FAIR-TEILER",
+      "Nimm, was du brauchst"
+     ],
+     "count": 2
+    }
+   ]
+  },
+  {
+   "id": "z_frei",
+   "type": "sign",
+   "street": "face",
+   "auto": true,
+   "entries": [
+    {
+     "at": [
+      -630,
+      -529
+     ],
+     "title": "Parking Day",
+     "text": "Ein Parkplatz, drei Stühle, ein Rasenteppich. Mehr Stadt pro Quadratmeter als im ganzen Parkhaus daneben.",
+     "sign": [
+      "PARKING DAY",
+      "1 Parkplatz",
+      "= 1 Park"
+     ]
+    },
+    {
+     "at": [
+      -467,
+      -569
+     ],
+     "title": "Spielplatz Hardau",
+     "text": "Vormittags Kinder, nachmittags Kinder, abends Erwachsene mit Kindern im Kopf.",
+     "sign": [
+      "SPIELPLATZ",
+      "Hardau"
+     ]
+    },
+    {
+     "at": [
+      479,
+      231
+     ],
+     "title": "Josefwiese-Kiosk",
+     "text": "Glace, Bier, Chips: die drei Säulen der Quartierdemokratie.",
+     "sign": [
+      "KIOSK",
+      "Josefwiese"
+     ]
+    },
+    {
+     "at": [
+      1480,
+      -151
+     ],
+     "title": "Pausenplatz",
+     "text": "Mittagspause zwischen Betonwand und Baum. Der Baum ist neu, die Wand ist alt.",
+     "sign": [
+      "PARK",
+      "Pause erlaubt"
+     ]
+    },
+    {
+     "at": [
+      -490,
+      -191
+     ],
+     "title": "Offener Pausenhof",
+     "text": "Nach der Schule gehört der Pausenhof allen. So sollte jeder Hof sein.",
+     "sign": [
+      "PAUSENHOF",
+      "Offen bis 20 Uhr"
+     ]
+    },
+    {
+     "at": [
+      -266,
+      321
+     ],
+     "title": "Gleisbogen",
+     "text": "Ein Weg über den Gleisen, den niemand bestellt hat und alle benutzen.",
+     "sign": [
+      "GLEISBOGEN"
+     ]
+    },
+    {
+     "at": [
+      -269,
+      622
+     ],
+     "title": "Passerelle",
+     "text": "Eine Brücke nur für Menschen zu Fuss. Fast ein Utopieprojekt.",
+     "sign": [
+      "PASSERELLE",
+      "Fussverkehr"
+     ]
+    },
+    {
+     "at": [
+      -340,
+      1054
+     ],
+     "title": "Fischerweg",
+     "text": "Hier fischt niemand mehr, aber flaniert wird bei jedem Wetter.",
+     "sign": [
+      "FISCHERWEG"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "z_leute",
+   "type": "plausch",
+   "street": "face",
+   "auto": true,
+   "entries": [
+    {
+     "at": [
+      -2210,
+      465
+     ],
+     "title": "Schwatz an der Post",
+     "text": "Drei Leute, ein Thema, null Eile. Das ist Altstetten.",
+     "count": 3
+    },
+    {
+     "at": [
+      -2321,
+      318
+     ],
+     "title": "Büchereck",
+     "text": "Eine hat das Buch gelesen, einer will es lesen, die Dritte hat den Film gesehen.",
+     "count": 3
+    },
+    {
+     "at": [
+      -558,
+      -136
+     ],
+     "title": "Vor dem Schulhaus",
+     "text": "Die Eltern warten, die Kinder trödeln. Beides gehört zum Pausenzeichen.",
+     "count": 4
+    },
+    {
+     "at": [
+      1111,
+      60
+     ],
+     "title": "Limmatplatz-Treff",
+     "text": "Man trifft sich, wo es Schatten, Kaffee und eine Bank hat. Alles drei ist hier selten beieinander.",
+     "count": 3
+    }
+   ]
+  },
+  {
+   "id": "z_szene",
+   "type": "queue",
+   "street": "face",
+   "auto": true,
+   "entries": [
+    {
+     "at": [
+      492,
+      -1428
+     ],
+     "title": "Schlange bei der Post",
+     "text": "Drei Schalter offen heisst: einer.",
+     "sign": [
+      "POST",
+      "Nr. 87"
+     ],
+     "count": 6
+    }
+   ]
+  },
+  {
+   "id": "z_prediger",
+   "type": "preacher",
+   "street": "face",
+   "auto": true,
+   "entries": [
+    {
+     "at": [
+      520,
+      -880
+     ],
+     "title": "Der Mobilitäts-Prophet",
+     "text": "Er predigt, was alle wissen: Tram schlägt Stau. Das Publikum nickt und nimmt das Auto.",
+     "sign": [
+      "TRAM FAHREN",
+      "statt Stau"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "z_jass",
+   "type": "jass",
+   "street": "face",
+   "auto": true,
+   "entries": [
+    {
+     "at": [
+      -570,
+      -120
+     ],
+     "title": "Hardau-Jass",
+     "text": "Schieber, Stöck, Wys: Wer verliert, bringt das nächste Mal den Wein.",
+     "kind": "cards"
+    }
+   ]
+  },
+  {
+   "id": "z_selfie",
+   "type": "tourists",
+   "street": "face",
+   "auto": true,
+   "entries": [
+    {
+     "at": [
+      60,
+      232
+     ],
+     "title": "Hochhaus-Fans",
+     "text": "Sie fotografieren den Prime Tower. Wir fotografieren die Baustelle daneben."
+    }
+   ]
+  },
+  {
+   "id": "z_umzug",
+   "type": "umzug",
+   "street": "face",
+   "auto": true,
+   "entries": [
+    {
+     "at": [
+      594,
+      -940
+     ],
+     "title": "Zügeltag",
+     "text": "Ende September und Ende März wechselt halb Zürich die Wohnung. Alle Treppenhäuser sind dann Baustellen."
+    }
+   ]
+  },
+  {
+   "id": "z_wand",
+   "type": "graffiti",
+   "street": "face",
+   "auto": true,
+   "entries": [
+    {
+     "at": [
+      -32,
+      11
+     ],
+     "title": "Dachterrasse für alle",
+     "text": "Die Dächer gehören auch dem Quartier, steht an der Wand. Der Hauswart ist noch nicht überzeugt.",
+     "sign": [
+      "ALLE AUF",
+      "DIE DACHTERRASSE"
+     ],
+     "color": "#ffd43d"
+    },
+    {
+     "at": [
+      1180,
+      -1000
+     ],
+     "title": "Wasser ist kein Luxus",
+     "text": "An der Hauswand hat jemand mit Schablone gearbeitet. Trinkwasser aus dem Brunnen: gratis, gesund, gerecht.",
+     "sign": [
+      "BRUNNEN",
+      "FÜR ALLE"
+     ],
+     "color": "#4fd0ff"
+    }
+   ]
+  },
+  {
+   "id": "z_kafi",
+   "type": "kiosk",
+   "street": "face",
+   "auto": true,
+   "entries": [
+    {
+     "at": [
+      986,
+      -280
+     ],
+     "title": "Kafi fertig",
+     "text": "Kaffee, Zwetschgenschnaps, Zucker. Wer «fertig» sagt, meint: noch einen.",
+     "sign": [
+      "KAFI FERTIG",
+      "Fr. 6.–"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "z_menue",
+   "type": "menu",
+   "street": "face",
+   "auto": true,
+   "entries": [
+    {
+     "at": [
+      716,
+      -832
+     ],
+     "title": "Menü der Woche",
+     "text": "Das Mittagsmenü ist bezahlbar. Das Zimmer darüber nicht.",
+     "sign": [
+      "TAGESMENÜ",
+      "Rösti 14.–",
+      "Zimmer frei: 0"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "z_tauben",
+   "type": "pigeons",
+   "street": "face",
+   "auto": true,
+   "entries": [
+    {
+     "at": [
+      -176,
+      -220
+     ],
+     "title": "Tauben am Hardplatz",
+     "text": "Sie kennen jeden Fahrplan auswendig und nehmen trotzdem nie das Tram.",
+     "count": 6
+    }
+   ]
   }
  ]
 }

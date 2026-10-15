@@ -2,6 +2,7 @@
 import hashlib
 
 from gen_textures import LAYERS, SHOPS
+from gen_shopfronts import BASE
 
 LAYER = {n: i for i, n in enumerate(LAYERS)}
 
@@ -114,15 +115,26 @@ def building_style(bid, btype, height, osm=None):
     return pick(h, [(46, ALT), (10, JUG), (14, GEN), (11, B50), (5, B70), (7, NEU), (5, GEW), (2, BUR)]), tint
 
 
-# POI kind (OSM shop=/amenity=) → shopfront texture
-KIND_SHOP = {"cafe": "shop_cafe", "ice_cream": "shop_cafe", "restaurant": "shop_cafe", "bar": "shop_bar", "pub": "shop_bar",
-             "nightclub": "shop_bar", "fast_food": "shop_kebab", "kiosk": "shop_kiosk", "convenience": "shop_kiosk",
-             "tobacco": "shop_kiosk", "newsagent": "shop_kiosk", "hairdresser": "shop_coiffeur", "beauty": "shop_coiffeur",
-             "bicycle": "shop_velo", "bakery": "shop_baeckerei", "pastry": "shop_baeckerei", "confectionery": "shop_baeckerei",
-             "vacant": "shop_leer"}
+# POI kind (OSM shop=/amenity=) -> shopfront type (variants a/b picked by hash, see gen_shopfronts.BASE)
+KIND_SHOP = {"cafe": "cafe", "ice_cream": "cafe", "restaurant": "restaurant", "bar": "bar", "pub": "bar", "biergarten": "bar",
+             "nightclub": "club", "fast_food": "kebab", "food_court": "kebab", "kiosk": "kiosk", "tobacco": "kiosk", "newsagent": "kiosk",
+             "convenience": "spaeti", "deli": "spaeti", "supermarket": "super", "greengrocer": "gemuese", "florist": "gemuese",
+             "hairdresser": "coiffeur", "beauty": "coiffeur", "massage": "coiffeur", "tattoo": "coiffeur",
+             "bicycle": "velo", "bakery": "baeckerei", "pastry": "baeckerei", "confectionery": "baeckerei",
+             "pharmacy": "apotheke", "doctors": "apotheke", "dentist": "apotheke", "optician": "apotheke",
+             "bank": "bank", "travel_agency": "bank", "government": "bank",
+             "clothes": "laden", "shoes": "laden", "books": "laden", "jewelry": "laden", "furniture": "laden", "music": "laden",
+             "tailor": "laden", "interior_decoration": "laden",
+             "company": "buero", "it": "buero", "architect": "buero", "graphic_design": "buero", "kindergarten": "buero",
+             "childcare": "buero", "community_centre": "buero", "car_repair": "buero",
+             "vacant": "leer"}
+FALLBACK = ["leer"] * 3 + ["buero"] * 3 + ["laden", "laden", "kiosk", "cafe", "coiffeur", "spaeti", "bank", "apotheke"]
 
 
 def shop_layer(bid, k, kind=None):
-    if kind and kind in KIND_SHOP:
-        return LAYER[KIND_SHOP[kind]]
-    return LAYER[SHOPS[(h32(bid) + k) % len(SHOPS)]]
+    base = KIND_SHOP.get(kind) if kind else None
+    h = h32(bid) + k
+    if base is None:
+        base = FALLBACK[h % len(FALLBACK)]
+    names = BASE[base]
+    return LAYER[names[(h >> 4) % len(names)]]

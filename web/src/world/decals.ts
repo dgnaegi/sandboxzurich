@@ -2,13 +2,15 @@ import * as THREE from 'three';
 
 /**
  * Road decals from the pipeline: rows [x, y, z, heading, kind]; kind 0 bike pictogram (yellow, Swiss lanes),
- * 1 manhole cover, 2 gully grate, 3 "ZONE 30" entry marking. One merged mesh per tile, atlas drawn at runtime.
+ * 1 manhole cover, 2 gully grate, 3 "ZONE 30" entry marking, 4 straight arrow, 5 BUS, 6 painted 30 roundel. One merged mesh per tile, atlas drawn at runtime.
  */
-const SIZE: [number, number][] = [[1.3, 2.2], [0.72, 0.72], [0.55, 0.36], [2.6, 3.4]]; // width, length (m)
+const SIZE: [number, number][] = [[1.3, 2.2], [0.72, 0.72], [0.55, 0.36], [2.6, 3.4], [1.1, 4.2], [1.7, 3.0], [1.8, 1.8], [1.1, 4.2]]; // width, length (m)
+const COLS = 4;
+const FLIPPED = new Set([3, 4, 5, 6, 7]); // text/arrows: canvas top = driving direction
 let atlas: THREE.Texture | null = null;
 
 function makeAtlas(): THREE.Texture {
-  const c = document.createElement('canvas'); c.width = c.height = 512;
+  const c = document.createElement('canvas'); c.width = 1024; c.height = 512;
   const g = c.getContext('2d')!;
   // 0: bicycle pictogram, yellow, drawn "lying" so it reads correctly for an approaching rider
   g.save(); g.translate(128, 128); g.strokeStyle = '#f2c200'; g.fillStyle = '#f2c200'; g.lineWidth = 9; g.lineCap = 'round';
@@ -24,14 +26,26 @@ function makeAtlas(): THREE.Texture {
   for (let a = 0; a < 12; a++) { g.beginPath(); g.moveTo(Math.cos(a * 0.524) * 40, Math.sin(a * 0.524) * 40); g.lineTo(Math.cos(a * 0.524) * 80, Math.sin(a * 0.524) * 80); g.stroke(); }
   g.restore();
   // 2: gully grate
-  g.save(); g.translate(128, 384);
+  g.save(); g.translate(640, 128);
   g.fillStyle = '#2f3134'; g.fillRect(-120, -80, 240, 160);
   g.fillStyle = '#121314'; for (let i = -100; i <= 90; i += 24) g.fillRect(i, -64, 12, 128);
   g.restore();
   // 3: ZONE 30
-  g.save(); g.translate(384, 384); g.fillStyle = '#f2f2ee'; g.textAlign = 'center'; g.textBaseline = 'middle';
+  g.save(); g.translate(896, 128); g.fillStyle = '#f2f2ee'; g.textAlign = 'center'; g.textBaseline = 'middle';
   g.font = '44px Anton, sans-serif'; g.fillText('ZONE', 0, -78);
   g.font = '150px Anton, sans-serif'; g.fillText('30', 0, 30); g.restore();
+  // 4: straight arrow (white, points up on the canvas = driving direction)
+  const arrow = (cx: number, cy: number, kind: 'f' | 'l' | 'r') => {
+    g.save(); g.translate(cx, cy); g.fillStyle = '#f2f2ee';
+    g.beginPath(); g.moveTo(0, -112); g.lineTo(52, -44); g.lineTo(20, -44); g.lineTo(20, 112); g.lineTo(-20, 112); g.lineTo(-20, -44); g.lineTo(-52, -44); g.closePath();
+    if (kind === 'f') g.fill(); g.restore();
+  };
+  arrow(128, 384, 'f');
+  // 5: BUS lettering
+  g.save(); g.translate(384, 384); g.fillStyle = '#f2f2ee'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.font = '110px Anton, sans-serif'; g.fillText('BUS', 0, 0); g.restore();
+  // 6: "30" roundel painted (Tempo 30 on the road)
+  g.save(); g.translate(640, 384); g.strokeStyle = '#f2f2ee'; g.lineWidth = 18; g.beginPath(); g.arc(0, 0, 96, 0, Math.PI * 2); g.stroke();
+  g.fillStyle = '#f2f2ee'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.font = '110px Anton, sans-serif'; g.fillText('30', 0, 6); g.restore();
   const t = new THREE.CanvasTexture(c);
   t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8;
   return t;
@@ -49,9 +63,9 @@ export function buildDecals(rows: number[][]): THREE.Object3D[] {
       const px = x + rx * u * w + fx * v * l, py = y + ry * u * w + fy * v * l;
       pos.push(px, z, -py); nrm.push(0, 1, 0);
     }
-    const cu = (kind % 2) * 0.5, cv = kind < 2 ? 0.5 : 0; // canvas row 0 = top -> v 0.5..1
-    if (kind === 3) uv.push(cu + 0.5, cv, cu, cv, cu, cv + 0.5, cu + 0.5, cv + 0.5); // text reads from the approaching side
-    else uv.push(cu, cv + 0.5, cu + 0.5, cv + 0.5, cu + 0.5, cv, cu, cv);
+    const cw = 1 / COLS, cu = (kind % COLS) * cw, cv = kind < COLS ? 0.5 : 0; // canvas row 0 = top -> v 0.5..1
+    if (FLIPPED.has(kind)) uv.push(cu + cw, cv, cu, cv, cu, cv + 0.5, cu + cw, cv + 0.5); // text reads from the approaching side
+    else uv.push(cu, cv + 0.5, cu + cw, cv + 0.5, cu + cw, cv, cu, cv);
     idx.push(b, b + 1, b + 2, b, b + 2, b + 3);
   }
   const g = new THREE.BufferGeometry();

@@ -22,6 +22,7 @@ import { setSignNight } from './world/signs';
 import { updateSacks } from './world/streetlife';
 import { Transit } from './world/transit';
 import { Railways } from './world/railways';
+import { Landmarks3D } from './world/landmarks3d';
 import { Traffic } from './world/traffic';
 import { GameState, bindHud } from './gameplay/state';
 import { Police } from './gameplay/police';
@@ -34,6 +35,9 @@ import { Menu } from './ui/menu';
 import { Audio } from './engine/audio';
 
 // Spawn: Helvetiaplatz (local metres). ?at=x,y,yaw overrides it, ?t=HH:MM sets the time (screenshot tests).
+// quests: off (User designs them later); map-first phase: no police, no theft stars, no pop-up messages (User 2026-10-15)
+const QUESTS = false;
+const GAMEPLAY = false;
 const SPAWN = { x: 760, y: -905, yaw: -0.3 };
 const STATION = { x: 1100, y: -846 }; // "Formular-Büro" on the Kasernenareal (former police barracks)
 
@@ -62,6 +66,7 @@ async function main() {
   const crowd = new Pedestrians(humans, mobile ? 16 : 36, ground);
   tiles.onPaths = (p) => crowd.addPaths(p);
   tiles.onSchools = (r) => crowd.schools.push(...r);
+  tiles.onSpots = (m) => crowd.addSpots(m);
   scene.add(crowd.group);
   const lawns = new Lawns(humans, mobile ? 8 : 20);
   tiles.onLawn = (r) => lawns.add(r);
@@ -81,9 +86,10 @@ async function main() {
   scene.add(player.mesh);
 
   const transit = new Transit(scene, ground);
+  const landmarks3d = new Landmarks3D(scene);
   const rail = new Railways(scene, tiles.mat, mobile ? 0.62 : 1); // phone: tracks within ~260 m
   const WHITE = new THREE.Color(0xf4f4f2);
-  const traffic = new Traffic(scene, ground, CAR_GEO, carMaterial, (k) => (k % 23 === 0 && CAR_GEO.police ? { type: 'police', color: WHITE } : k % 13 === 0 && CAR_GEO.taxi ? { type: 'taxi', color: k % 2 ? WHITE : new THREE.Color(0x1a1c20) } : carPick(k)));
+  const traffic = new Traffic(scene, ground, CAR_GEO, carMaterial, (k) => (k % 23 === 0 && CAR_GEO.police && GAMEPLAY ? { type: 'police', color: WHITE } : k % 13 === 0 && CAR_GEO.taxi ? { type: 'taxi', color: k % 2 ? WHITE : new THREE.Color(0x1a1c20) } : carPick(k)));
   const scenes = new Scenes(humans, ground);
   // people waiting at tram/bus stops (groups of 3 next to the track, right-hand side)
   let stops: THREE.Group | null = null;
@@ -111,7 +117,7 @@ async function main() {
     const night = (wd === 4 || wd === 5) && (h >= 21 || h <= 3) ? 0.85 : 0;
     return 0.3 + 0.7 * Math.max(f, night);
   };
-  await Promise.all([rail.load(), transit.load(), transit.loadModels(), traffic.load(), scenes.load(), events.load(), velo.load(), anecdotes.load()]);
+  await Promise.all([landmarks3d.load(), rail.load(), transit.load(), transit.loadModels(), traffic.load(), scenes.load(), events.load(), velo.load(), anecdotes.load()]);
   scene.add(events.group);
   traffic.maxCars = mobile ? 20 : 45;
   traffic.maxBikes = mobile ? 8 : 20;
@@ -120,14 +126,15 @@ async function main() {
   for (const r of pendingFountains) scenes.addEggPoints(fountainEgg, r);
   tiles.onFountains = (r) => scenes.addEggPoints(fountainEgg, r);
   const police = new Police(humans, tiles.colliders, ground);
-  scene.add(police.group);
-  // quests/missions are designed by the user later; the system stays but is off unless ?missions
+  if (GAMEPLAY) scene.add(police.group);
+  // quests/missions: all off (User 2026-10-15, designs them later); code stays, switch QUESTS to re-enable
   const missions = new Missions(state.missions, ground);
-  if (params.has('missions')) scene.add(missions.group);
+  if (QUESTS) scene.add(missions.group);
 
   // --- UI feedback --------------------------------------------------------------------------------------
   let toastTimer = 0, bigTimer = 0;
   const toast = (kicker: string, title: string, text: string) => {
+    if (!GAMEPLAY) return;
     $('toast-kicker').textContent = kicker; $('toast-title').textContent = title; $('toast-text').textContent = text;
     $('toast').classList.add('on');
     clearTimeout(toastTimer);
@@ -143,7 +150,7 @@ async function main() {
   scenes.onFound = (egg, n, total) => toast(`EASTER EGG ${n}/${total}`, egg.title, egg.text);
   anecdotes.onShow = (a, n, total) => toast(a.kind === 'street' ? 'STRASSENNAME' : `ZÜRICH-WISSEN ${n}/${total}`, a.title, a.text);
   missions.onText = (t, x, k) => { bigText(t, x, k); if (k !== 'start') audio.jingle(k === 'pass'); };
-  events.onStart = (t) => toast('IN DER STADT', t, 'Jetzt gerade – schau vorbei!');
+  // events (market, Critical Mass, demo) happen without announcement toasts (User 2026-10-15)
   missions.onReward = (chf) => { state.addMoney(chf); state.save(player.x, player.y); };
 
   const jump = (x: number, y: number, yaw = player.yaw) => {
@@ -166,15 +173,6 @@ async function main() {
   renderer.info.autoReset = false;
   initKeyboardMouse(canvas);
   initTouch($('stick'), $('knob'));
-  // title screen: wait for a key/tap (also unlocks audio), skipped in tests (?at=)
-  if (!params.has('at')) {
-    $('loading').classList.add('ready');
-    $('loading-text').textContent = mobile ? 'Tippen zum Starten' : 'Taste drücken zum Starten';
-    await new Promise<void>((ok) => {
-      const go = () => { window.removeEventListener('keydown', go); $('loading').removeEventListener('pointerdown', go); ok(); };
-      window.addEventListener('keydown', go); $('loading').addEventListener('pointerdown', go);
-    });
-  }
   $('loading').remove();
   if (params.has('map')) map.toggle(true);
   if (params.has('debug')) document.body.classList.add('debug');
@@ -192,7 +190,7 @@ async function main() {
     bikes.take(slot);
     player.mount(slot);
     audio.bikeBell();
-    if (!own) {
+    if (!own && GAMEPLAY) {
       const seen = police.nearest(player.x, player.y) < 35 || Math.random() < 0.25;
       if (seen) { state.wanted(state.stars + 1); toast('VELODIEBSTAHL', '★ Gesehen!', 'Jemand hat dich beim Velo-Klauen beobachtet.'); }
     }
@@ -257,6 +255,7 @@ async function main() {
     if (lane && !laneTipShown) { laneTipShown = true; toast('VELO-INFRASTRUKTUR', '+20 % Tempo', 'Auf Velowegen und Velostreifen kommst du schneller und sicherer voran.'); }
     player.update(dt, camera);
     crowd.max = Math.round(quality.peds * density(gameMin, weekday));
+    crowd.clock(gameMin, weekday);
     // school run Mon–Fri: 07:30–08:15, 11:45–12:15, 15:30–16:30
     crowd.schoolRun = weekday < 5 && ((gameMin >= 450 && gameMin < 495) || (gameMin >= 705 && gameMin < 735) || (gameMin >= 930 && gameMin < 990));
     crowd.update(dt, player.x, player.y);
@@ -290,9 +289,10 @@ async function main() {
     }
     transit.update(dt, transitMin, player.x, player.y);
     rail.update(dt, transitMin, player.x, player.y);
+    landmarks3d.update(player.x, player.y);
     traffic.update(dt, player.x, player.y, [{ x: player.x, y: player.y, r: 1.4 }]);
-    if (params.has('missions')) missions.update(dt, player.x, player.y, !!player.riding);
-    if (police.update(dt, player.x, player.y, state.stars)) { busted(); audio.jingle(false); }
+    if (QUESTS) missions.update(dt, player.x, player.y, !!player.riding);
+    if (GAMEPLAY && police.update(dt, player.x, player.y, state.stars)) { busted(); audio.jingle(false); }
     audio.update(dt, daytime.night, state.stars > 0, police.nearest(player.x, player.y));
     if ((frames & 63) === 0 && transit.colliders().some((v) => Math.hypot(v.x - player.x, v.y - player.y) < 25) && Math.random() < 0.3) audio.tramBell();
     state.tick(dt, police.nearest(player.x, player.y) < 50);
@@ -307,12 +307,12 @@ async function main() {
     if (acc - lastSave > 10) { lastSave = acc; state.save(player.x, player.y); }
     if (post && quality.post) post.render(); else renderer.render(scene, camera);
 
-    const blips = [...(params.has('missions') ? missions.blips() : []), ...(state.stars ? police.positions().map((p) => ({ ...p, color: frames % 20 < 10 ? '#3060ff' : '#ff3030' })) : [])];
+    const blips = [...(QUESTS ? missions.blips() : []), ...(state.stars ? police.positions().map((p) => ({ ...p, color: frames % 20 < 10 ? '#3060ff' : '#ff3030' })) : [])];
     map.drawRadar(player.x, player.y, player.yaw, player.heading, blips);
     const prompt = !player.riding && bikes.nearest(player.x, player.y) ? (mobile ? 'E = Velo nehmen' : 'E drücken: Velo nehmen') : player.riding && player.speed < 0.5 ? 'E = absteigen' : '';
     $('prompt').style.display = prompt ? 'block' : 'none';
     $('prompt').textContent = prompt;
-    $('mission').textContent = missions.hud();
+    if (QUESTS) $('mission').textContent = missions.hud();
     if (++frames % 30 === 0) {
       const i = renderer.info.render, near = map.nearestPlace(player.x, player.y);
       const mem = (performance as unknown as { memory?: { usedJSHeapSize: number } }).memory?.usedJSHeapSize ?? 0;
@@ -323,7 +323,7 @@ async function main() {
       lastStats = acc;
     }
   });
-  Object.assign(window, { gtaReady: true, gtaPlayer: player, gtaScene: scene, gtaState: state, gtaBikes: bikes, gtaEvents: events, gtaTransit: transit, gtaRail: rail }); // hooks for Playwright tests
+  Object.assign(window, { gtaReady: true, gtaPlayer: player, gtaScene: scene, gtaState: state, gtaBikes: bikes, gtaEvents: events, gtaTransit: transit, gtaRail: rail, gtaRenderer: renderer, gtaCamera: camera, gtaTiles: tiles }); // hooks for Playwright tests
 }
 
 main();

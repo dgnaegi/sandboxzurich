@@ -2,6 +2,7 @@
 import numpy as np
 import shapely
 from shapely.geometry import LineString, Point, Polygon, box
+from shapely import STRtree
 from shapely.ops import substring
 
 from config import AREA
@@ -45,7 +46,7 @@ def parse(nodes, els):
     area = box(*AREA).buffer(40)
     checks = poi_checks()
     ways, plazas, cycle, tram, parks, trees, crossings, pois, benches = [], [], [], [], [], [], [], [], []
-    extras = {"hydrants": [], "bollards": [], "pingpong": []}
+    extras = {"hydrants": [], "bollards": [], "pingpong": [], "signals": []}
     for e in els:
         t = e.get("tags", {})
         if e["type"] == "node":
@@ -57,7 +58,15 @@ def parse(nodes, els):
             if t.get("natural") == "tree":
                 trees.append(p)
             elif t.get("highway") == "crossing" or t.get("footway") == "crossing":
-                crossings.append((p, t.get("crossing", ""), e["id"]))
+                mk = t.get("crossing:markings", "")
+                kind = t.get("crossing", "")
+                if mk == "no":
+                    kind = "unmarked"
+                elif mk in ("zebra", "yes", "surface", "dashes", "lines", "ladder") or t.get("crossing_ref") == "zebra":
+                    kind = "zebra" if kind in ("", "unmarked", "traffic_signals", "uncontrolled", "marked") else kind
+                crossings.append((p, kind, e["id"]))
+            elif t.get("highway") == "traffic_signals":
+                extras["signals"].append((p, e["id"]))
             elif t.get("amenity") == "bench":
                 benches.append(p)
             elif t.get("emergency") == "fire_hydrant":
@@ -87,7 +96,7 @@ def parse(nodes, els):
         if hw in WIDTH and not tunnel and t.get("area") != "yes":
             w = _num(t.get("width"), _num(t.get("lanes"), 0) * 3.2 or WIDTH[hw])
             ways.append({"line": line, "w": w, "hw": hw, "oneway": t.get("oneway") == "yes", "name": t.get("name", ""),
-                         "maxspeed": t.get("maxspeed", ""),
+                         "maxspeed": t.get("maxspeed", ""), "tags": t,
                          "cyc": {s: t.get(f"cycleway:{s}", t.get("cycleway:both", t.get("cycleway", "")))
                                  for s in ("left", "right")}, "nodes": e["nodes"]})
         elif hw in PLAZA and not tunnel:
@@ -120,36 +129,229 @@ def dashes(line, dash, gap, start=0.0):
     return out
 
 
-def markings(S):
-    """Return (white, yellow) marking polygons."""
-    white, yellow = [], []
-    for w in S["ways"]:
-        ln = w["line"]
-        if w["hw"] in MAIN and not w["oneway"] and w["w"] >= 7:
-            white += [d.buffer(0.07, cap_style="flat") for d in dashes(ln, 3, 6, 4)]
-        for side, sgn in (("left", 1), ("right", -1)):
-            if "lane" in w["cyc"][side]:
-                off = ln.offset_curve(sgn * (w["w"] / 2 - 1.5))
-                if not off.is_empty and off.geom_type == "LineString":
-                    # Swiss Radstreifen: continuous yellow line (here long dashes with short gaps at 6 m)
-                    yellow += [d.buffer(0.08, cap_style="flat") for d in dashes(off, 6.0, 0.6)]
-    # pedestrian crossings: yellow stripes across the road at crossing nodes
-    for (x, y), kind, nid in S["crossings"]:
-        if kind in ("traffic_signals", "no", "unmarked"):
+def _tangent(ln, s):
+    a, b = ln.interpolate(max(0, s - 1)), ln.interpolate(min(ln.length, s + 1))
+    d = np.array([b.x - a.x, b.y - a.y])
+    return d / (np.hypot(*d) + 1e-9)
+
+
+def junction_gaps(S):
+    """Per way: [(s0, s1)] where side streets / driveways open into the carriageway (no centre or lane line there).
+    Continuations of the same street (parallel at the touch point) are ignored. Cached in w['gaps']."""
+    ways = [w for w in S["ways"]]
+    if all("gaps" in w for w in ways):
+        return
+    tree = STRtree([w["line"] for w in ways])
+    for w in ways:
+        ln, gaps = w["line"], []
+        for j in tree.query(ln, predicate="intersects"):
+            o = ways[j]
+            if o is w:
+                continue
+            for p in shapely.get_parts(ln.intersection(o["line"])):
+                if p.geom_type != "Point":
+                    continue
+                s = ln.project(p)
+                if abs(np.dot(_tangent(ln, s), _tangent(o["line"], o["line"].project(p)))) > 0.85:
+                    continue  # same street continues
+                oh = 1.5 if o["hw"] == "service" else o["w"] / 2
+                gaps.append((s - oh - 0.8, s + oh + 0.8))
+        gaps.sort()
+        w["gaps"] = gaps
+
+
+def _minus(iv, gaps):
+    out = []
+    for a, b in iv:
+        cur = a
+        for g0, g1 in gaps:
+            if g1 <= cur or g0 >= b:
+                continue
+            if g0 > cur:
+                out.append((cur, g0))
+            cur = max(cur, g1)
+        if cur < b:
+            out.append((cur, b))
+    return [(a, b) for a, b in out if b - a > 0.6]
+
+
+def _sub(line, a, b, L):
+    """substring of an offset curve for a range given along the original centre line (length L)."""
+    k = line.length / max(L, 1e-6)
+    return substring(line, max(0, a * k), min(line.length, b * k))
+
+
+def bike_lane_pieces(w):
+    """[(side, solid_intervals, broken_intervals)] along the centre line: solid yellow line, broken before side streets."""
+    L, out = w["line"].length, []
+    for side in ("left", "right"):
+        iv = w["lanes"].get(side, [])
+        if not iv:
             continue
-        w = next((w for w in S["ways"] if nid in w["nodes"]), None)
+        solid = _minus(iv, w["gaps"])
+        broken = []
+        for g0, g1 in w["gaps"]:  # Swiss practice: line turns broken on the approach to a junction
+            broken += [(max(g0 - 9.0, a), min(g0, b)) for a, b in iv if g0 > a and g0 - 9.0 < b]
+        broken = [(a, b) for a, b in broken if b - a > 1]
+        solid = _minus(solid, broken)
+        out.append((side, solid, broken))
+    return out
+
+
+def bus_sides(w):
+    """Sides ('left'/'right' of the way line) with a marked bus lane (OSM bus:lanes*, busway*)."""
+    t, out = w["tags"], set()
+    last = lambda v: v.split("|")[-1] if v else ""
+    first = lambda v: v.split("|")[0] if v else ""
+    if last(t.get("bus:lanes:forward", t.get("bus:lanes", t.get("lanes:bus", "")))) == "designated" or t.get("busway:right") == "lane":
+        out.add("right")
+    if last(t.get("bus:lanes:backward", "")) == "designated" or t.get("busway:left") == "lane":
+        out.add("left")
+    if t.get("bus:lanes") and first(t["bus:lanes"]) == "designated" and "|" in t["bus:lanes"] and t.get("oneway") == "yes":
+        out.add("left")
+    if w["zone"] in ("beg", "fuss") or w["w"] < 6:
+        return set()
+    return out
+
+
+def has_lane(w, side, s):
+    return any(a - 1 <= s <= b + 1 for a, b in w["lanes"].get(side, []))
+
+
+def zebra(x, y, d, half, c_n=None):
+    """Yellow Fussgängerstreifen centred at (x, y); d = unit travel direction, half = half road width."""
+    n = np.array([-d[1], d[0]])
+    out = []
+    for k in np.arange(-half + 0.25, half, 1.0):  # 0.5 m stripes, 0.5 m gaps, 3.6 m long
+        c = np.array([x, y]) + n * k
+        out.append(Polygon([c - d * 1.8 - n * 0.25, c + d * 1.8 - n * 0.25, c + d * 1.8 + n * 0.25, c - d * 1.8 + n * 0.25]))
+    return out
+
+
+def signal_arms(S):
+    """Signalised approaches (OSM highway=traffic_signals sits on the arm at the stop line):
+    [{p, t, half, way, s, sgn, cont, oneway}]  t = unit travel direction towards the junction. Cached in S."""
+    if "_arms" in S:
+        return S["_arms"]
+    by_node = {}
+    for w in S["ways"]:
+        for n in w["nodes"]:
+            by_node.setdefault(n, []).append(w)
+    ends = [(w, w["line"].interpolate(0), 1) for w in S["ways"]] + [(w, w["line"].interpolate(w["line"].length), -1) for w in S["ways"]]
+    res = []
+    for p, nid in S.get("signals", []):
+        for w in by_node.get(nid, [])[:1]:
+            ln = w["line"]
+            if w["hw"] == "service" or w.get("zone") in ("beg", "fuss") or ln.distance(Point(p)) > 2.5:
+                continue
+            s = ln.project(Point(p))
+            L = ln.length
+            if min(s, L - s) > 45:
+                continue
+            to_start = s < L - s
+            sgn = -1 if to_start else 1  # travel direction along the way
+            if w["oneway"] and sgn < 0:
+                continue
+            tv = _tangent(ln, s) * sgn
+            q = ln.interpolate(0 if to_start else L)
+            cont = False
+            for o, e, _ in ends:
+                if o is w or e.distance(q) > 3:
+                    continue
+                oo = o["line"]
+                out = _tangent(oo, 0 if oo.interpolate(0).distance(q) < 3 else oo.length)
+                if oo.interpolate(0).distance(q) >= 3:
+                    out = -out
+                if np.dot(out, tv) > 0.9:
+                    cont = True
+            res.append({"p": p, "t": tv, "half": w["w"] / 2, "way": w, "s": s, "sgn": sgn, "cont": cont,
+                        "oneway": w["oneway"]})
+    S["_arms"] = res
+    return res
+
+
+def markings(S):
+    """Return (white, yellow) marking polygons. Lines exist only where the real street has them (official zones,
+    signalised speed and bike-lane inventory of Stadt Zürich via streets_rules, OSM tags for lanes)."""
+    import streets_rules
+    streets_rules.annotate(S)
+    junction_gaps(S)
+    white, yellow = [], []
+    tram = shapely.union_all([t.buffer(2.0) for t in S["tram"]]) if S["tram"] else None
+    if tram is not None:
+        shapely.prepare(tram)
+    for w in S["ways"]:
+        ln, t = w["line"], w["tags"]
+        if w["hw"] == "service" or w["zone"] in ("beg", "fuss"):
+            continue
+        L = ln.length
+        # centre line (Leitlinie): classified streets with two-way traffic, not inside zone 30, not on the tram track
+        lanes = int(_num(t.get("lanes"), 0))
+        if w["hw"] in MAIN and not w["oneway"] and w["w"] >= 7 and w["zone"] is None and w["tempo"] != 20 and lanes != 1:
+            for a, b in _minus([(0, L)], w["gaps"] + [(L - 3, L + 3), (-3, 3)]):
+                sub = substring(ln, a, b)
+                for d in dashes(sub, 3, 6, 0.5):
+                    if tram is None or not tram.intersects(d):
+                        white.append(d.buffer(0.06, cap_style="flat"))
+        # multi-lane roads: broken lane lines between the lanes of one direction
+        if lanes >= 4 and w["hw"] in MAIN and w["zone"] is None:
+            lw = (w["w"] - 2.5) / lanes
+            for k in range(1, lanes // 2):
+                for sgn in (1, -1):
+                    off = ln.offset_curve(sgn * k * lw)
+                    if not off.is_empty and off.geom_type == "LineString":
+                        white += [d.buffer(0.06, cap_style="flat") for a, b in _minus([(0, L)], w["gaps"] + [(L - 3, L + 3), (-3, 3)])
+                                  for d in dashes(_sub(off, a, b, L), 3, 6, 0.5) if tram is None or not tram.intersects(d)]
+        # painted bike lanes: continuous yellow line, broken before junctions
+        for side, solid, broken in bike_lane_pieces(w):
+            sgn = 1 if side == "left" else -1
+            off = ln.offset_curve(sgn * (w["w"] / 2 - 1.5))
+            if off.is_empty or off.geom_type != "LineString":
+                continue
+            for a, b in solid:
+                yellow.append(_sub(off, a, b, L).buffer(0.06, cap_style="flat"))
+            for a, b in broken:
+                yellow += [d.buffer(0.06, cap_style="flat") for d in dashes(_sub(off, a, b, L), 1.5, 1.0)]
+    # bus lanes: yellow line 3.2 m from the kerb, broken at side streets
+    for w in S["ways"]:
+        for side in bus_sides(w):
+            ln, L = w["line"], w["line"].length
+            off = ln.offset_curve((1 if side == "left" else -1) * (w["w"] / 2 - 3.2))
+            if not off.is_empty and off.geom_type == "LineString":
+                yellow += [_sub(off, a, b, L).buffer(0.07, cap_style="flat") for a, b in _minus([(0, L)], w["gaps"])]
+    # pedestrian crossings (yellow in Switzerland) at mapped crossing nodes, none inside zone 30 / Begegnungszone
+    R = streets_rules.rules()
+    ways_by_node = {}
+    for w in S["ways"]:
+        for n in w["nodes"]:
+            ways_by_node.setdefault(n, []).append(w)
+    placed = []
+    for (x, y), kind, nid in S["crossings"]:
+        if kind in ("no", "unmarked", ""):
+            continue
+        w = next((w for w in ways_by_node.get(nid, []) if w["hw"] != "service" and w["w"] >= 4), None)
         if w is None:
             continue
+        zone = R.zone_point(x, y)
+        if zone in ("beg", "fuss") or (zone == "z30" and w["tempo"] != 30 and not R.near_school(x, y, 40) and kind != "traffic_signals"):
+            continue
         ln = w["line"]
-        s = ln.project(Point(x, y))
-        a, b = ln.interpolate(max(0, s - 1)), ln.interpolate(min(ln.length, s + 1))
-        d = np.array([b.x - a.x, b.y - a.y])
-        d /= np.linalg.norm(d) + 1e-9
-        n = np.array([-d[1], d[0]])
-        half = w["w"] / 2 - 0.3
-        for k in np.arange(-half + 0.25, half, 1.0):  # 0.5 m stripes, 0.5 m gaps, 4 m long
-            c = np.array([x, y]) + n * k
-            yellow.append(Polygon([c - d * 2 - n * 0.25, c + d * 2 - n * 0.25, c + d * 2 + n * 0.25, c - d * 2 + n * 0.25]))
+        d = _tangent(ln, ln.project(Point(x, y)))
+        yellow += zebra(x, y, d, w["w"] / 2 - 0.3)
+        placed.append((x, y))
+    # signalised approaches: stop line (Haltelinie) at the signal, crossing 1 m beyond it if none is mapped there
+    for a in signal_arms(S):
+        p, t, w = np.array(a["p"]), a["t"], a["way"]
+        r = np.array([t[1], -t[0]])
+        zc = p + t * 3.1
+        if not any(np.hypot(zc[0] - q[0], zc[1] - q[1]) < 9 for q in placed) and a["half"] >= 2.5:
+            yellow += zebra(zc[0], zc[1], t, a["half"] - 0.3)
+            placed.append(tuple(zc))
+        bike_side = "right" if a["sgn"] > 0 else "left"
+        inner = a["half"] - 0.25 - (1.6 if has_lane(w, bike_side, a["s"]) else 0.0)
+        lat0 = -a["half"] + 0.25 if a["oneway"] else 0.25
+        if inner > lat0 + 1:
+            white.append(LineString([p + r * lat0, p + r * inner]).buffer(0.25, cap_style="flat"))
     return shapely.union_all(white), shapely.union_all(yellow)
 
 

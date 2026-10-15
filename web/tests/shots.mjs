@@ -19,6 +19,12 @@ const POINTS = {
   rosaluxemburg: '-1463,458,-0.40&t=11:00',
   altstetten: '-2086,790,0&t=12:30',
   wiedikon: '436,-1320,0&t=18:10',
+  letzigrund: '-969,-60,3.14&t=16:00',
+  toni: '-330,600,-0.2&t=16:00',
+  volkshaus: '780,-975,0.75&t=11:00',
+  hardau: '-470,-170,3.4&t=16:00',
+  sihlfeld: '-706,-735,3.14&t=11:00',
+  hof_hohlstrasse: '-345,-70,-2.4&t=15:00',
   karte: '785,-635,0.37&map',
 };
 const VIEWPORTS = {

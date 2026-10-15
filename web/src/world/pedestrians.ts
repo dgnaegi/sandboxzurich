@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import type { Human, HumanLib, Model } from './humans';
+import { PedSpots } from './pedspots';
 
 /**
  * Ambient pedestrians on sidewalk paths around the player. Composition follows Kreis 4 statistics
@@ -11,6 +12,13 @@ interface Ped {
   lateral: number; extras: THREE.Object3D[]; dog?: { obj: THREE.Object3D; mixer: THREE.AnimationMixer }; leader?: Ped;
 }
 
+/** Crowd hot spots (local metres): x, y, radius, weight by day, weight by night (Fri/Sat nightlife). */
+const HOT: number[][] = [
+  [731, -602, 190, 0.8, 1.0], [800, -760, 160, 0.8, 1.0], [786, -890, 150, 0.7, 0.9], [755, -945, 90, 0.5, 1.0], // Langstrasse, Helvetiaplatz, Kanzlei
+  [1111, 42, 140, 0.6, 0.7], [-13, 150, 160, 0.8, 0.6], [718, 410, 100, 0.5, 0.8], [505, 215, 110, 0.5, 0.8], // Limmatplatz, Hardbrücke, Viadukt, Josefwiese
+  [-2095, 704, 150, 0.8, 0.4], [-2285, 340, 120, 0.6, 0.4], [-495, -641, 120, 0.6, 0.4], [581, -1388, 120, 0.7, 0.4], // Altstetten, Albisriederplatz, Wiedikon
+  [-1336, 239, 110, 0.5, 0.2], [1315, -640, 160, 0.8, 0.6], [393, -1202, 90, 0.5, 0.5], [-1003, 13, 130, 0.3, 0.5], // Letzipark, HB-Rand, Kalkbreite, Letzigrund
+];
 const AGE_W: [string, number][] = [['young', 0.56], ['mid', 0.33], ['old', 0.11]]; // adults only; children ride along
 
 export class Pedestrians {
@@ -24,8 +32,35 @@ export class Pedestrians {
   /** Kindergartens/schools (local metres) and whether it is school-run time now (set by main). */
   schools: number[][] = [];
   schoolRun = false;
+  /** People standing/sitting at benches, fountains, bars and construction sites (set via addSpots). */
+  readonly spots: PedSpots;
+  private hour = 12;
+  private night = false;
+  private hot = 0;
 
-  constructor(private lib: HumanLib, public max: number, private height: (x: number, y: number) => number) {}
+  constructor(private lib: HumanLib, public max: number, private height: (x: number, y: number) => number) {
+    this.spots = new PedSpots(lib, this.group);
+  }
+
+  /** Tile meta with benches / fountains / signs / workers: static people (see pedspots.ts). */
+  addSpots(meta: Parameters<PedSpots['add']>[0]) { this.spots.add(meta); }
+
+  /** Game clock: minutes since midnight and weekday (0 = Monday). Drives density, nightlife and spot activity. */
+  clock(minutes: number, weekday: number) {
+    this.hour = (minutes / 60) % 24;
+    this.night = (this.hour >= 22 || this.hour < 4) || (this.hour >= 19 && (weekday === 4 || weekday === 5));
+    this.spots.hour = this.hour; this.spots.weekday = weekday;
+  }
+
+  /** 0..1: how busy the surroundings of (x, y) are right now (Langstrasse, stations, squares). */
+  hotness(x: number, y: number): number {
+    let best = 0;
+    for (const [hx, hy, r, wd, wn] of HOT) {
+      const d = Math.hypot(x - hx, y - hy);
+      if (d < r) best = Math.max(best, (this.night ? wn : wd) * Math.pow(1 - d / r, 0.6));
+    }
+    return best;
+  }
 
   addPaths(paths: number[][][]) { this.paths.push(...paths.filter((p) => p.length >= 2)); }
 
@@ -56,15 +91,20 @@ export class Pedestrians {
   }
 
   private spawn(px: number, py: number): boolean {
-    const cands = this.paths.filter((p) => Math.hypot(p[0][0] - px, p[0][1] - py) < 140);
+    let cands = this.paths.filter((p) => Math.hypot(p[0][0] - px, p[0][1] - py) < 140);
     if (!cands.length || !this.lib.npcs.length) return false;
+    if (this.hot > 0.15 && Math.random() < 0.6) { // busy places: walkers concentrate on the paths inside the hot zone
+      const busy = cands.filter((p) => this.hotness(p[0][0], p[0][1]) > 0.25);
+      if (busy.length) cands = busy;
+    }
     let r = Math.random(), age = 'young';
     for (const [a, w] of AGE_W) { if (r < w) { age = a; break; } r -= w; }
     const m = this.model(age), h = this.take(m);
     const path = cands[Math.floor(Math.random() * cands.length)];
     const old = m.age === 'old';
     h.slow = old;
-    const speed = old ? 0.7 + Math.random() * 0.3 : 1.05 + Math.random() * 0.55;
+    const jog = !old && !this.night && Math.random() < (this.hour < 8 || (this.hour >= 17 && this.hour < 20) ? 0.07 : 0.025);
+    const speed = jog ? 3.3 + Math.random() * 0.7 : old ? 0.7 + Math.random() * 0.3 : 1.05 + Math.random() * 0.55;
     h.setSpeed(speed);
     h.mixer.setTime(Math.random() * 2);
     this.group.add(h.root);
@@ -72,7 +112,7 @@ export class Pedestrians {
       speed, x: path[0][0], y: path[0][1], tick: Math.floor(Math.random() * 3), lateral: 0, extras: [] };
     // accessories
     const add = (n: string) => { const o = this.lib.attach(h, n); if (o) p.extras.push(o); };
-    const q = Math.random();
+    const q = jog ? 1 : Math.random();
     if (old) { if (m.props.includes('walker') || q < 0.2) add('walker'); else if (m.props.includes('cane') || q < 0.55) add('cane'); }
     else if (q < 0.22) add('backpack'); else if (q < 0.37) add('shoulder_bag'); else if (q < 0.49) add('tote_bag');
     else if (q < 0.57) add(Math.random() < 0.5 ? 'shopping_bag' : 'shopping_bag_green'); else if (q < 0.61) add('stroller');
@@ -81,16 +121,27 @@ export class Pedestrians {
       if (dog) { p.dog = dog; this.group.add(dog.obj); add(dog.obj.name.includes('small') ? 'leash_small' : 'leash_medium'); }
     }
     this.peds.push(p);
+    // friends walking together: pairs and threes, many more on a night out
+    if (!old && !jog && Math.random() < (this.night ? 0.5 : 0.16 + 0.12 * this.hot)) {
+      const n = Math.random() < 0.3 ? 2 : 1;
+      for (let i = 0; i < n && this.peds.length < this.cap(); i++) {
+        const fm = this.model(Math.random() < 0.8 ? 'young' : 'mid'), fh = this.take(fm);
+        fh.setSpeed(speed); fh.mixer.setTime(Math.random() * 2); this.group.add(fh.root);
+        this.peds.push({ ...p, h: fh, lateral: (i % 2 ? -1 : 1) * (0.75 + 0.2 * (i >> 1)), extras: [], dog: undefined, leader: p, tick: p.tick + i + 1 });
+      }
+    }
     // a child walking next to an adult (never alone)
     const kids = this.lib.npcs.filter((n) => n.age === 'child');
     const nearSchool = this.schoolRun && this.schools.some((sc) => Math.hypot(sc[0] - p.x, sc[1] - p.y) < 160);
-    if (!old && kids.length && Math.random() < (nearSchool ? 0.45 : 0.09) && this.peds.length < this.max) {
+    if (!old && kids.length && Math.random() < (nearSchool ? 0.45 : 0.09) && this.peds.length < this.cap()) {
       const km = kids[Math.floor(Math.random() * kids.length)], kh = this.take(km);
       kh.setSpeed(speed); this.group.add(kh.root);
       this.peds.push({ ...p, h: kh, lateral: 0.7, extras: [], dog: undefined, leader: p });
     }
     return true;
   }
+
+  private cap() { return Math.round(this.max * (1 + 0.45 * this.hot)); }
 
   update(dt: number, px: number, py: number) {
     this.player = [px, py];
@@ -101,7 +152,12 @@ export class Pedestrians {
       if (!keep) this.release(p);
       return keep;
     });
-    while (this.peds.length < this.max && this.spawn(px, py));
+    this.hot = this.hotness(px, py);
+    // busy places get up to 45 % more people; people on spots (benches, bars, sites) share the same total
+    const total = this.cap();
+    this.spots.budget = Math.max(4, Math.round(total * 0.4));
+    this.spots.update(dt, px, py);
+    while (this.peds.length < Math.max(0, total - this.spots.count) && this.spawn(px, py));
     for (const p of this.peds) {
       if (p.leader) { p.seg = p.leader.seg; p.t = p.leader.t; p.dir = p.leader.dir; }
       else {

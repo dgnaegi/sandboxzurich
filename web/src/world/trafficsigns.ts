@@ -10,7 +10,7 @@ export type SignalRow = [number, number, number, number, string];
 const CELL = 128;
 const RED = '#d4141c', BLUE = '#0a56a8', GREY = 0x8a8f94;
 const CODES = ['speed30', 'speed50', 'zone30', 'zone30end', 'einbahn', 'einfahrt_verboten', 'fahrverbot', 'radweg', 'fussweg',
-  'fussgaenger', 'vortritt', 'stop', 'parkieren', 'blauzone', 'sackgasse', 'halteverbot', 'back'] as const;
+  'fussgaenger', 'vortritt', 'stop', 'parkieren', 'blauzone', 'sackgasse', 'halteverbot', 'begegnung', 'begegnungend', 'back'] as const;
 const SIGN_SIZE = 0.62, BOTTOM = 2.2;
 
 type G = CanvasRenderingContext2D;
@@ -50,6 +50,13 @@ const DRAW: Record<string, (g: G) => void> = {
   blauzone: (g) => { sq(g, BLUE); text(g, 'P', 64, 50, 64, '#fff'); disc(g, 0, '#fff'); g.fillStyle = '#fff'; g.fillRect(22, 84, 84, 26); text(g, 'BLAUE ZONE', 64, 98, 14, BLUE); },
   sackgasse: (g) => { sq(g, BLUE); g.fillStyle = '#fff'; g.fillRect(52, 36, 24, 74); g.fillStyle = RED; g.fillRect(30, 22, 68, 18); },
   halteverbot: (g) => { disc(g, 62, RED); disc(g, 52, BLUE); g.strokeStyle = RED; g.lineWidth = 12; g.beginPath(); g.moveTo(30, 30); g.lineTo(98, 98); g.moveTo(98, 30); g.lineTo(30, 98); g.stroke(); },
+  begegnung: (g) => {
+    sq(g, BLUE); walker(g, 44, 50, 0.95, '#fff'); walker(g, 66, 54, 0.7, '#fff');
+    g.fillStyle = '#fff'; g.beginPath(); g.roundRect(70, 44, 38, 14, 4); g.fill(); g.fillStyle = BLUE; for (const x of [80, 98]) { g.beginPath(); g.arc(x, 60, 5, 0, 7); g.fill(); }
+    g.fillStyle = '#fff'; for (const x of [80, 98]) { g.beginPath(); g.arc(x, 60, 3, 0, 7); g.fill(); }
+    g.save(); g.translate(64, 88); g.scale(0.4, 0.4); g.translate(-64, -64); ring(g, '20'); g.restore();
+  },
+  begegnungend: (g) => { DRAW.begegnung(g); g.strokeStyle = '#222'; g.lineWidth = 6; g.beginPath(); for (const o of [-14, 0, 14]) { g.moveTo(112 + o, 14); g.lineTo(16 + o, 114); } g.stroke(); },
   back: (g) => { g.fillStyle = '#8d9297'; g.fillRect(0, 0, CELL, CELL); },
 };
 

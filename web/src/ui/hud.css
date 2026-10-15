@@ -19,14 +19,10 @@ body.debug #stats { display: block; }
 #stars i.on { color: #fff; -webkit-text-stroke: 1.5px #000; }
 #stick { position: fixed; width: 120px; height: 120px; margin: -60px 0 0 -60px; border-radius: 50%; background: #fff3; border: 2px solid #fff8; display: none; pointer-events: none; }
 #knob { position: absolute; left: 35px; top: 35px; width: 50px; height: 50px; border-radius: 50%; background: #fffc; }
-#loading { position: fixed; inset: 0; display: grid; place-content: center; text-align: center; background: radial-gradient(#3a2a4a, #120d18); color: #fff; font: 56px/1 Anton, sans-serif; text-shadow: 0 4px 0 #000; }
-#loading b { color: #ff4fa0; font-weight: normal; }
-#loading small { font: 700 18px Barlow, sans-serif; margin-top: 16px; opacity: .9; }
-#loading.ready small { animation: blink 1.2s infinite; }
+#loading { position: fixed; inset: 0; display: grid; place-content: center; background: #111; color: #ccc; font: 16px/1 system-ui, sans-serif; letter-spacing: .05em; }
 @keyframes blink { 50% { opacity: .3; } }
 #controls { font: 700 14px/1.6 Barlow, sans-serif; margin-top: 28px; opacity: .75; text-shadow: none; }
 #byline { position: absolute; bottom: calc(18px + env(safe-area-inset-bottom)); left: 0; right: 0; font: 15px Anton, sans-serif; color: #ff4fa0; letter-spacing: 1px; }
-#loading { cursor: pointer; }
 #bigmap { position: fixed; inset: 0; display: none; z-index: 10; }
 #bigmap-canvas { width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; }
 #bigmap-title { position: absolute; left: 50%; transform: translateX(-50%); top: calc(12px + env(safe-area-inset-top)); color: #fff; font: 30px Anton, sans-serif; text-shadow: 0 3px 0 #000; pointer-events: none; white-space: nowrap; }

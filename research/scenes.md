@@ -26,3 +26,6 @@ Quelle: `pipeline/overrides/scenes_src.json` (fixed = handplatziert, groups = Or
 Leitplanken: keine echten Personen/Firmen/Parteien, keine Faktenbehauptungen (Kunsttexte generisch), Schilder nennen keine echten Adressen. Nicht umgesetzt: Dach-Eggs (keine Gebäudehöhen im Cache, `data/build/bld` leer).
 
 Performance: `Scenes` baut nur Szenen im Umkreis `visRadius` (max. eine pro Frame), entsorgt ab +30 m (Pfade +60 m); Mixer nur < 60 m. Eggs sind reine Daten (Fund < 9 m).
+
+## Erweiterung 2026-10-15
++73 Eggs (Gruppen z_*: Orte, Mieten/Wohnen, Velo, Freiraum, Leute, Insider) in scenes_src.json, Platzierung per `at` + `auto` (aus Gebäude heraus an die Strasse). Neue Szenentypen: sign, velos, plausch. +39 Baustellen-Infotafeln (kein Egg). Fakten in Texten (Prime Tower 126 m / 36 Stockwerke, Zügeltermine Ende März/September, Escher Wyss Turbinen und Schiffe) TODO-QUELLE für research/facts.md. Friedhof Sihlfeld liegt ausserhalb des Spielgebiets.

@@ -39,37 +39,6 @@ def plaster(h, w, base=225):
     return np.stack([g, g * 0.985, g * 0.955], -1).astype(np.uint8)
 
 
-SHOP_COLORS = [(200, 40, 40), (30, 30, 30), (40, 110, 70), (220, 170, 30), (110, 20, 40), (20, 70, 140),
-               (230, 230, 225), (90, 60, 40)]
-
-
-def shopfront(i):
-    """12 m x 4 m ground floor stretched to 512x512: sign band (blank), shop window, door."""
-    W, H = 1024, 341
-    im = Image.fromarray(plaster(H, W, 215))
-    d = ImageDraw.Draw(im)
-    bg = SHOP_COLORS[i]
-    x_door = [700, 60, 860, 420, 120, 760, 300, 860][i]
-    d.rectangle([20, 40, 1004, 104], fill=bg)  # sign band, name is drawn at runtime
-    for x0, x1 in ((40, x_door - 30), (x_door + 150, 990)):
-        if x1 - x0 < 80:
-            continue
-        d.rectangle([x0, 124, x1, 322], fill=(40, 46, 52), outline=(35, 35, 35), width=8)
-        for k in range(70):
-            c = 70 + k
-            d.line([x0 + 6, 130 + k, x1 - 6, 130 + k], fill=(c, c + 14, c + 24))
-        if i % 2:
-            for xx in range(x0 + 30, x1 - 30, 70):  # shelves / goods silhouettes
-                d.rectangle([xx, 250, xx + 40, 316], fill=random.choice([(180, 60, 50), (220, 200, 90), (70, 120, 160), (230, 230, 230)]))
-    d.rectangle([x_door, 124, x_door + 120, 336], fill=(60, 44, 36))
-    d.rectangle([x_door + 12, 136, x_door + 108, 250], fill=(70, 90, 105))
-    if i in (0, 4, 6, 2):  # striped awning
-        for k in range(20, 1000, 40):
-            d.polygon([(k, 104), (k + 40, 104), (k + 44, 126), (k + 4, 126)], fill=bg if (k // 40) % 2 else (240, 240, 235))
-    rgb = im.filter(ImageFilter.GaussianBlur(0.6)).resize((L, L), Image.LANCZOS)
-    return rgb, Image.new("L", (L, L), 0)
-
-
 def roof_tiles():
     a = np.zeros((L, L, 3), np.float32)
     y, x = np.mgrid[0:L, 0:L]
@@ -135,7 +104,11 @@ FAC = ROOT / "data" / "build" / "facades"  # sources from gen_facades.py (not sh
 FACADES = ["gruender_a", "gruender_b", "gruender_c", "jugend_a", "jugend_b", "genoss_a", "genoss_b", "genoss_c",
            "block50_a", "block50_b", "block60_a", "waschbeton_a", "waschbeton_b", "neubau_a", "neubau_b", "neubau_c",
            "gewerbe_a", "gewerbe_b", "gewerbe_c", "buero_a", "buero_b", "buero_c"]
-SHOPS = ["shop_cafe", "shop_kiosk", "shop_bar", "shop_kebab", "shop_coiffeur", "shop_velo", "shop_leer", "shop_baeckerei"]
+from gen_shopfronts import SHOP_LAYERS  # v2: procedural shopfronts (albedo, night-emissive mask, normal+roughness)
+# Index stability: the first 8 shop slots keep their old position (so tiles built earlier stay valid) and carry the
+# same kind of shop as before; all further shop layers are appended after the ground layers (no normal map there).
+SHOPS = ["shop_cafe_a", "shop_kiosk", "shop_bar_a", "shop_kebab_a", "shop_coiffeur", "shop_velo", "shop_leer", "shop_baeckerei"]
+SHOPS_EXTRA = [n for n in SHOP_LAYERS if n not in SHOPS]
 
 
 def v2(name, tint_mask=True):
@@ -149,16 +122,39 @@ def v2(name, tint_mask=True):
     return rgb, mask, nb
 
 
+def _calm_grass():
+    """Real Zürich lawns: less saturated and a bit darker than the raw grass texture."""
+    rgb, m = ground("grass", False)
+    hsv = np.asarray(rgb.convert("HSV"), np.float32)
+    hsv[..., 1] *= 0.62
+    hsv[..., 2] *= 0.86
+    return Image.fromarray(hsv.astype(np.uint8), "HSV").convert("RGB"), m
+
+
 LAYERS = {}   # order matters: facades | shops | brandmauer (normal maps up to here) | roofs + ground (flat)
 for n in FACADES:
     LAYERS[n] = lambda n=n: v2(n)
 for n in SHOPS:
-    LAYERS[n] = lambda n=n: v2(n, False)
+    LAYERS[n] = SHOP_LAYERS[n]
 LAYERS["brandmauer"] = lambda: v2("brandmauer")
 LAYERS.update({"roof_tiles": lambda: (v2("dach_ziegel", False)[0], Image.new("L", (L, L), 255)), "dach_kies": gravel,
                "roof_flat": lambda: ground("kies", False), "asphalt": asphalt,
-               "sidewalk": trottoir, "grass": lambda: ground("grass", False),
+               "sidewalk": trottoir, "grass": lambda: _calm_grass(),
                "cobble": lambda: ground("stone", mean=160), "tram_bed": tram_bed, "white": plain})
+for n in SHOPS_EXTRA:
+    LAYERS[n] = SHOP_LAYERS[n]
+
+
+def _grey_tiles():
+    """Neutral clay tiles (mean ~175) for roofs tinted with the colour measured on the orthophoto."""
+    from PIL import ImageOps
+    g = ImageOps.grayscale(v2("dach_ziegel", False)[0])
+    a = np.asarray(g, np.float32)
+    a = np.clip((a - a.mean()) * 1.3 + 175, 0, 255).astype(np.uint8)
+    return Image.fromarray(a).convert("RGB"), Image.new("L", (L, L), 255)
+
+
+LAYERS["roof_tiles_grey"] = _grey_tiles  # appended: existing layer indices stay valid
 
 
 def main():
@@ -180,7 +176,8 @@ def main():
     mask.save(OUT / "atlas_mask.png", optimize=True)
     nat.save(OUT / "atlas_n.webp", quality=90, method=6)  # R,G = normal xy, B = roughness
     json.dump({"size": L, "cols": COLS, "count": n, "layers": list(LAYERS), "facades": len(FACADES),
-               "shops_end": len(FACADES) + len(SHOPS), "normals": n_norm}, open(OUT / "layers.json", "w"))
+               "shops_end": len(FACADES) + len(SHOPS), "normals": n_norm,
+               "shops2": [n - len(SHOPS_EXTRA), n]}, open(OUT / "layers.json", "w"))
     print(n, "layers", {f: (OUT / f).stat().st_size // 1024 for f in ("atlas.webp", "atlas_mask.png", "atlas_n.webp")}, "KB")
 
 

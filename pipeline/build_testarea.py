@@ -18,8 +18,13 @@ import glb
 import addresses
 import bridges
 import plazasigns
+import playgrounds
+import sites
 import citydata
 import gastro
+import osm_buildings
+import ortho_roofs
+import terrain_cuts
 import groundcover
 import visual_overrides
 import terrain
@@ -90,6 +95,15 @@ def curbs(mesh, segs, H):
 
 
 def ground_tile(gm, S, tb, H, white, yellow, rails, bed, bays_white=None, bays_blue=None, grooves=None):
+    try:
+        return _ground_tile(gm, S, tb, H, white, yellow, rails, bed, bays_white, bays_blue, grooves)
+    except shapely.errors.GEOSException:  # rare overlay failure: retry without the AV land cover refinement
+        print("ground_tile: GEOS overlay failed, falling back to OSM-only ground", flush=True)
+        S2 = {k: v for k, v in S.items() if not k.startswith("av_")}
+        return _ground_tile(gm, S2, tb, H, white, yellow, rails, bed, bays_white, bays_blue, grooves)
+
+
+def _ground_tile(gm, S, tb, H, white, yellow, rails, bed, bays_white=None, bays_blue=None, grooves=None):
     roads = S["roads"].intersection(tb)
     plaza, parks = S["plaza"].intersection(tb), S["parks"].intersection(tb)
     walk = tb.difference(S["roads"]).difference(S["plaza"]).difference(S["parks"])
@@ -135,19 +149,47 @@ def build():
     OUT.mkdir(parents=True, exist_ok=True)
     RAW_OUT.mkdir(parents=True, exist_ok=True)
     blds = sources.buildings(margin=240)  # includes the backdrop ring outside the fence
+    nodes0, els0 = sources.osm()
+    # detailed landmark models replace swissBUILDINGS3D buildings: overrides/landmarks_*.json "hide" points
+    import glob as _g
+    hide = [Point(p) for f in _g.glob(os.path.join(os.path.dirname(__file__), "overrides", "landmarks_*.json"))
+            for e in json.load(open(f)).get("landmarks", []) for p in e.get("hide", [])]
+    # tram/bus shelters come from world/stops.ts: drop low swissBUILDINGS3D canopies right at stops
+    _st = shapely.points([nodes0[e["id"]] for e in els0 if e["type"] == "node" and e["id"] in nodes0 and (
+        (e.get("tags") or {}).get("public_transport") in ("platform", "stop_position")
+        or (e.get("tags") or {}).get("highway") == "bus_stop" or (e.get("tags") or {}).get("railway") == "tram_stop")])
+    _stt, n0 = STRtree(_st), len(blds)
+
+    def _shelter(b):
+        g = [p for k, p in b["polys"] if k == 0 and len(p) >= 3]
+        if not g or (b["h"] or 0) >= 5.0:
+            return False
+        fp = Polygon(np.asarray(g[0])[:, :2]).buffer(0)
+        return fp.area < 1200 and len(_stt.query(fp.buffer(10))) > 0
+    blds = [b for b in blds if not _shelter(b)]
+    print(f"stops: {n0 - len(blds)} shelter canopies dropped")
+    if hide:
+        n0 = len(blds)
+        blds = [b for b in blds if not any(Polygon(np.asarray(p)[:, :2]).buffer(0).contains(h)
+                                           for h in hide if abs(h.x - b["center"][0]) < 200 and abs(h.y - b["center"][1]) < 200
+                                           for k, p in b["polys"] if k == 0 and len(p) >= 3)]
+        print(f"landmarks: {n0 - len(blds)} buildings replaced by models")
     # swissALTI3D terrain; swissBUILDINGS3D ground surfaces sit 3.06 m lower on average (research/terrain.md)
     BIG = (AREA[0] - 260, AREA[1] - 260, AREA[2] + 260, AREA[3] + 260)  # play area + backdrop ring
     H = terrain.heights(BIG, HGRID, z_shift=-3.06)
-    nodes, els = sources.osm()
+    terrain_cuts.apply(H)  # rail cuttings under buildings (overrides/terrain_cuts.json)
+    nodes, els = nodes0, els0
+    blds = osm_buildings.update(blds, nodes, els, H, footprint, Polygon(POLYGON))  # post-2019 changes
     LMS = [[s["x"], s["y"], round(float(H.at(s["x"], s["y"])), 2), s["heading"], s["name"], s.get("plaque", ""), int(s.get("flowers", False))]
            for s in json.load(open(os.path.join(os.path.dirname(__file__), "overrides", "landmark_signs.json")))["signs"]]
     BR = bridges.bridge_ways(nodes, els, AREA, H)  # elevated decks + piers (research/bridges.md)
     EX = bridges.exclusion(BR)
     S = streets.parse(nodes, els)
     G = groundcover.load(BIG)  # Amtliche Vermessung land cover (research/groundcover.md)
-    S["av_green"] = G["green"].buffer(0)
-    S["av_paved"] = G["gravel"].buffer(0)
-    S["av_rail"] = G["rail"].buffer(0)
+    # snapped to 1 cm: robust overlays with the OSM-derived street polygons
+    S["av_green"] = shapely.set_precision(G["green"].buffer(0), 0.01)
+    S["av_paved"] = shapely.set_precision(G["gravel"].buffer(0), 0.01)
+    S["av_rail"] = shapely.set_precision(G["rail"].buffer(0), 0.01)
     S["ways"] = bridges.clip_ways(S["ways"], EX)  # no ground road/markings under bridge decks
     S["roads"] = S["roads"].difference(EX)
     S["plaza"] = S["plaza"].difference(EX)
@@ -168,7 +210,24 @@ def build():
     way_w = [w["w"] for w in S["ways"] if w["hw"] != "service"]
     main = shapely.union_all([w["line"] for w in S["ways"] if w["hw"] in streets.MAIN])
     C = citydata.load(BIG)
+    # private trees (courtyards, gardens) are missing in the city tree register: add OSM natural=tree
+    _ct = STRtree([Point(t[0], t[1]) for t in C.get("trees", [])]) if C.get("trees") else None
+    _n = 0
+    for e in els:
+        tg = e.get("tags") or {}
+        if e["type"] == "node" and tg.get("natural") == "tree" and e["id"] in nodes:
+            x, y = nodes[e["id"]]
+            if _ct is not None and len(_ct.query(Point(x, y).buffer(3.0))):
+                continue
+            try:
+                cr = float(str(tg.get("diameter_crown", "")).split()[0])
+            except (ValueError, IndexError):
+                cr = 7.0
+            C["trees"].append((x, y, (tg.get("genus") or tg.get("species", "")).split(" ")[0], cr, "osm"))
+            _n += 1
+    print(f"trees: {_n} private trees from OSM")
     AD, SG = addresses.address_rows(AREA, H), addresses.sign_rows(AREA, H)
+    PG = playgrounds.rows(nodes, els, H)  # real playgrounds incl. courtyards
     PS = plazasigns.rows(H)  # squares + dedication plaques at their surveyed places
     SG = [r for r in SG if not any(q[4] == r[4] and math.hypot(q[0] - r[0], q[1] - r[1]) < 12 for q in PS)] + PS
     TSG, TSL = TS.sign_rows(AREA, H, nodes, els), TS.signal_rows(AREA, H, nodes, els)
@@ -269,6 +328,8 @@ def build():
             b["shops"] = near_poi or main.distance(Point(b["center"][:2])) < 22
             b["pois"] = [(p["x"], p["y"], p["kind"]) for p in S["pois"]
                          if fp is not None and fp.distance(Point(p["x"], p["y"])) < 6]
+            fpb = footprint(b)
+            b["_roof_rgb"] = ortho_roofs.roof_rgb(fpb) if fpb is not None and fpb.geom_type == "Polygon" else None
             segs += add_building(bm, b, street_dist, neighbour_fn(b["id"]))
             if fp is not None and not fp.is_empty:
                 for p in getattr(fp, "geoms", [fp]):
@@ -298,7 +359,11 @@ def build():
                 if seg.geom_type == "Polygon" and not seg.is_empty:
                     colliders.append(np.round(np.asarray(seg.exterior.coords)[:-1], 2).tolist())
         sg = props.signs(S, [s for s in segs if not s.get("blank")], tb)
+        SM = sites.tile_meta(tb, H)  # real construction sites (Stadt Zürich OGD), research/sites.md
+        colliders += SM.pop("colliders")
         meta = {
+            **SM,
+            "playground": [r for r in PG if tb.contains(Point(r[0], r[1]))],
             "colliders": colliders,
             "hmap": hmap(tb),
             "fence": fz,
@@ -308,7 +373,7 @@ def build():
             "lawn": props.lawn_spots(S["parks"], tb, H) + (tr := props.terraces(sg, S["roads"], OUTDOOR, H, inside_any))[1],
             "terraces": tr[0],
             "decals": props.decals(S, tb, H, CURB),
-            "construction": props.construction(blds, segs, tb, lambda x, y: main.distance(Point(x, y))),
+            "construction": props.construction(blds, segs, tb, lambda x, y: main.distance(Point(x, y))) + sites.scaffold_rows(tb, segs),
             "scooters": [[x, y, round(float(H.at(x, y)), 2), h, c] for x, y, h, c in
                          props.scooters(props.walk_paths(S["roads"], S["plaza"], tb), tb)],
             "schools": [[round(r[0], 1), round(r[1], 1)] for r in C.get("schools", []) if tb.contains(Point(r[0], r[1]))],

@@ -15,7 +15,11 @@ COLOURS = [  # first match in the note wins (order: specific before generic)
 
 
 def load():
-    notes = json.load(open(ROOT / "research" / "buildings" / "visual_notes.json"))
+    notes = {}
+    for fn in ("visual_notes_v2.json", "visual_notes.json"):  # v1 listed last: it wins on duplicates, v2 only adds
+        f = ROOT / "research" / "buildings" / fn
+        if f.exists():
+            notes.update(json.load(open(f)))
     out = {}
     for addr, note in notes.items():
         if addr.startswith("_"):
