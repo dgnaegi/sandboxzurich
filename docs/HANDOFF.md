@@ -116,3 +116,8 @@ Neu gebaut (Fotos/`research/v3`): Stadion Letzigrund (rote Sitze, Holzlamellen-D
 - Vergleich `preview/lm5_<id>.jpg`, Gesamtbogen `preview/lm5_k39.jpg` (isolierte Modellansicht, kein Kachelbuild).
 - Kacheln mit neuen hide-Punkten (Neubau noetig): -13_2,-9_2,-8_-6,-8_0,-8_1,-7_0,-7_1,-1_-7,0_-10,0_-9,1_-9,1_-8,2_-9,2_-8,3_-8.
 - Offen: Fassadendetails nach Fotos im Spiel pruefen (Zwingli-Statue/Brunnen vereinfacht, Letzipark-Dach grau, Bethaus-Turm geschaetzt); Crowne Plaza, Aemtler-Schulhaus, Altstetten-Hochhaus 80 m mangels Fotos nicht gebaut.
+
+## Wildplakate v2 (Agent-Stand)
+- Generator `pipeline/gen_wildposters.py` (+ `wildposter_*.py`), Gestaltungsregeln `research/posters/DESIGN.md`. Atlas 2048² RGBA (4x4 Wandstuecke 1.5 m), Events aus `research/posters/events.json`.
+- Platzierung neu in `props.wild_posters` (Brandmauern, Quartier-Venues bevorzugt). Nur Kacheln 1_-5,0_-5,1_-4,0_-4,2_-5,-1_-5 sind neu gebaut: ein Komplett-Build ist noetig, damit alle Kacheln das neue Layout haben.
+- Offen: Unterfuehrungen, Bauzaeune, Stromkaesten, Kandelaber, Viadukt-Pfeiler (keine Geometrie in Kacheldaten).
