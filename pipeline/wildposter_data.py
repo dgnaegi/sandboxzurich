@@ -45,7 +45,7 @@ def load():
 def xy(ev):
     """Local metres of the venue (coarse, street keyword), or None."""
     from pyproj import Transformer
-    a = (ev.get("address", "") + " " + ev.get("venue", "")).lower()
+    a = ((ev.get("address") or "") + " " + (ev.get("venue") or "")).lower()
     for k, (la, lo) in STREETS.items():
         if k in a:
             x, y = Transformer.from_crs(4326, 2056, always_xy=True).transform(lo, la)
@@ -60,20 +60,20 @@ MONTHS = ["JAN", "FEB", "MÄR", "APR", "MAI", "JUN", "JUL", "AUG", "SEP", "OKT",
 def date_parts(ev):
     """(weekday, 'dd.mm.', year-or-'') from ISO date; falls back to the raw string."""
     import datetime
-    m = re.match(r"(\d{4})-(\d\d)-(\d\d)", ev.get("date", "") or "")
+    m = re.match(r"(\d{4})-(\d\d)-(\d\d)", (ev.get("date") or "") or "")
     if not m:
-        return "", ev.get("date", "") or "", ""
+        return "", (ev.get("date") or "") or "", ""
     d = datetime.date(int(m[1]), int(m[2]), int(m[3]))
     return DAYS[d.weekday()], f"{d.day}.{d.month:02d}.", str(d.year)
 
 
 def year(ev):
-    m = re.match(r"(\d{4})", ev.get("date", "") or "")
+    m = re.match(r"(\d{4})", (ev.get("date") or "") or "")
     return int(m[1]) if m else 2020
 
 
 def kind_of(ev):
-    k = (ev.get("kind", "") + " " + ev.get("title", "")).lower()
+    k = ((ev.get("kind") or "") + " " + (ev.get("title") or "")).lower()
     for style, keys in (("flohmarkt", ("flohmarkt", "markt", "trödel", "bazar")), ("theater", ("theater", "lesung", "reading", "tanz", "slam", "kabarett", "oper", "performance", "film")),
                         ("neon", ("club", "party", "rave", "dj", "techno", "nacht", "disco")), ("lineup", ("konzert", "concert", "benefit", "live", "festival", "open air", "band", "gig"))):
         if any(w in k for w in keys):

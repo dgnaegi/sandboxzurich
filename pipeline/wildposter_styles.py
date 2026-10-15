@@ -52,9 +52,9 @@ def title_block(d, text, name, x, y, maxw, size, fill, lead=1.0, upper=True, anc
 
 def info_lines(ev):
     wd, dm, yr = D.date_parts(ev)
-    when = " ".join(x for x in (wd, dm + yr if yr else dm, ev.get("time", "")) if x)
-    where = ", ".join(x for x in (ev.get("venue", ""), ev.get("address", "")) if x)
-    return when, where, ev.get("price", ""), ev.get("organizer", "")
+    when = " ".join(x for x in (wd, dm + yr if yr else dm, (ev.get("time") or "")) if x)
+    where = ", ".join(x for x in ((ev.get("venue") or ""), (ev.get("address") or "")) if x)
+    return when, where, (ev.get("price") or ""), (ev.get("organizer") or "")
 
 
 def grain(im, rnd, amt=10):
