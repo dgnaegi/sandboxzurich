@@ -53,7 +53,7 @@ def techno():
 def migros():
     sign = text_painter([(0, 1024, "MIGROS", "#f2eee6", "#e8731c", (255, 150, 60))], size=28)
     block("migros_limmatplatz", "Migros-Hochhaus Limmatplatz", ["ID_BC82F91E"], wall="#dcdad4", wall_tex=tex_concrete("#d4d3cd", panel=(2, 2), seed=3), frame="#e6e6e2", glass="#34414c", cols=2, rows=2,
-          bay=3.8, hole_w=2.2, hole_h=1.5, sill=0.9, fh=3.4, eg_h=5.0, tol=6.0, minA=150, simp=2.5, corn="#bfbdb6", roof="#8a8a86", sign=sign, deep_z=3.0, seed=18)
+          bay=5.0, hole_w=3.2, hole_h=1.5, sill=0.9, fh=3.4, eg_h=5.0, tol=6.0, minA=400, simp=3.5, corn="#bfbdb6", roof="#8a8a86", sign=sign, deep_z=2.0, seed=18)
 
 
 if __name__ == "__main__":

@@ -6,6 +6,7 @@ from shapely.geometry import Point, Polygon
 from shapely.strtree import STRtree
 
 from styles import h32
+import trees_dims
 
 # tree classes for the renderer: 0 broadleaf, 1 cherry (pink blossom), 2 white blossom (apple, pear, hawthorn),
 # 3 plane, 4 lime/linden, 5 maple, 6 chestnut (white candles), 7 birch, 8 conifer, 9 columnar (hornbeam/poplar)
@@ -31,9 +32,9 @@ def city_props(C, S, tb, H, curb):
     lines = STRtree([w["line"] for w in S["ways"]])
     out = {"trees": [], "lamps": [], "masts": [], "cars": [], "benches": [], "fountains": [], "bins": [], "bikes": []}
     for x, y, genus, crown, cat in filter(inside, C.get("trees", [])):
-        cls = GENUS.get(genus, 0)
-        cr = min(max(crown, 2.0), 22.0)
-        out["trees"].append([x, y, z(x, y), cls, round(cr, 1), round(min(cr * 1.25 + 3, 30), 1)])
+        heading, ln, _ = _road_dir(S, lines, x, y)
+        guard = cat == "Strassenbaum" and ln.distance(Point(x, y)) < next((w["w"] for w in S["ways"] if w["line"] is ln), 8) / 2 + 3.2
+        out["trees"].append(trees_dims.tree_row(C, x, y, z(x, y), genus, crown, cat, heading, guard))
     for x, y, orient in filter(inside, C.get("lights", [])):
         on_road = roads.contains(Point(x, y))
         heading, ln, _ = _road_dir(S, lines, x, y)

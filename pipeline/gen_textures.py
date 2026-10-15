@@ -11,6 +11,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 
 from config import REEL, ROOT
+import ground_tex as GT  # procedural ground layers (asphalt, sidewalk, cobble, curb, gutter) + normal/roughness
 
 TEX = REEL.parent / "assets" / "tex"
 OUT = ROOT / "web" / "public" / "tex"
@@ -138,9 +139,9 @@ for n in SHOPS:
     LAYERS[n] = SHOP_LAYERS[n]
 LAYERS["brandmauer"] = lambda: v2("brandmauer")
 LAYERS.update({"roof_tiles": lambda: (v2("dach_ziegel", False)[0], Image.new("L", (L, L), 255)), "dach_kies": gravel,
-               "roof_flat": lambda: ground("kies", False), "asphalt": asphalt,
-               "sidewalk": trottoir, "grass": lambda: _calm_grass(),
-               "cobble": lambda: ground("stone", mean=160), "tram_bed": tram_bed, "white": plain})
+               "roof_flat": lambda: ground("kies", False), "asphalt": lambda: (asphalt(), GT.asphalt())[1],  # old call kept: it advances the shared rng so later layers stay identical
+               "sidewalk": lambda: (trottoir(), GT.trottoir())[1], "grass": lambda: _calm_grass(),
+               "cobble": GT.cobble, "tram_bed": tram_bed, "white": plain})
 for n in SHOPS_EXTRA:
     LAYERS[n] = SHOP_LAYERS[n]
 
@@ -162,6 +163,11 @@ from gen_facades3 import FACADES3  # noqa: E402
 for _n in FACADES3:
     LAYERS[_n] = lambda n=_n: v2(n)
 
+# Ground layers appended last (indices of everything earlier stay valid); their normal+roughness slots follow the v3 facades.
+LAYERS["curb"] = GT.curb
+LAYERS["gutter"] = GT.gutter
+GROUND_N = ["asphalt", "sidewalk", "cobble", "curb", "gutter"]
+
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
@@ -171,12 +177,13 @@ def main():
     mask = Image.new("L", (COLS * L, rows * L))
     n_norm = len(FACADES) + len(SHOPS) + 1  # layers that carry a normal map
     f3 = list(LAYERS).index(FACADES3[0])
-    nrows = (n_norm + len(FACADES3) + COLS - 1) // COLS
+    g0 = n_norm + len(FACADES3)  # first ground normal slot
+    nrows = (g0 + len(GROUND_N) + COLS - 1) // COLS
     nat = Image.new("RGB", (COLS * L, nrows * L), (128, 128, 255))
     for k, (name, fn) in enumerate(LAYERS.items()):
         c, m, *nb = fn()
         if nb:
-            j = k if k < n_norm else n_norm + k - f3 if k >= f3 else None  # v3 facades: normal slots after the first n_norm
+            j = g0 + GROUND_N.index(name) if name in GROUND_N else k if k < n_norm else n_norm + k - f3 if k >= f3 else None  # v3 facades: normal slots after the first n_norm
             if j is not None:
                 nat.paste(nb[0], ((j % COLS) * L, (j // COLS) * L))
         rgb.paste(c, ((k % COLS) * L, (k // COLS) * L))
@@ -187,7 +194,8 @@ def main():
     json.dump({"size": L, "cols": COLS, "count": n, "layers": list(LAYERS), "facades": len(FACADES),
                "shops_end": len(FACADES) + len(SHOPS), "normals": n_norm, "normals3": len(FACADES3),
                "shops2": [list(LAYERS).index(SHOPS_EXTRA[0]), list(LAYERS).index(SHOPS_EXTRA[0]) + len(SHOPS_EXTRA)],
-               "facades3": [f3, f3 + len(FACADES3)]}, open(OUT / "layers.json", "w"))
+               "facades3": [f3, f3 + len(FACADES3)],
+               "ground_n": [list(LAYERS).index(g) for g in GROUND_N]}, open(OUT / "layers.json", "w"))
     print(n, "layers", {f: (OUT / f).stat().st_size // 1024 for f in ("atlas.webp", "atlas_mask.png", "atlas_n.webp")}, "KB")
 
 

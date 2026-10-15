@@ -9,21 +9,21 @@ def build():
     setup()
     U = unary_union([bid(p)["fp"] for p in IDS]); c = U.centroid; ox, oy = round(c.x, 1), round(c.y, 1); oz = ground(ox, oy)
     m = Model("westpark"); rng = np.random.default_rng(9)
-    mw = m.mat("wall", tex_concrete("#aeb0ab", panel=(2, 2), seed=4), rough=0.95)
-    ga = D.glass_atlas_g(frame="#c9ccca", glass="#3d4d5a", sky="#9bb2c2", cols=2, rows=2, seed=3, lit_p=0.12, curtains=False,
+    mw = m.mat("wall", tex_concrete("#b4b8bc", panel=(2, 2), seed=4), rough=0.95)
+    ga = D.glass_atlas_g(frame="#b4b8bc", glass="#6a7d90", sky="#c5d6e4", cols=2, rows=2, seed=3, lit_p=0.05, curtains=False,
                          sign=text_painter([(0, 1024, "DIGITEC GALAXUS", "#f2f2ee", "#2a2c2e", (200, 200, 190))], size=22))
     mg = m.mat("glass", *ga, rough=0.3); mf = m.mat("flat", solid(W4))
-    PIER = hexl("#9a9c97"); hide = []
+    PIER = hexl("#a9adb1"); hide = []
     for p in IDS:
         v = [(z - oz, localize(g, ox, oy)) for z, g in volumes(p)]
         for z0, z1, S, R in bands(v, -3.0):
             for S1 in polys_of(S):
                 def hole(u0, u1, f0, f1, fi, L):
-                    uc = (u0 + u1) / 2; w = (u1 - u0) - 0.5; return D.rect_pts(uc - w / 2, f0 + 0.5, uc + w / 2, f0 + 3.0)
+                    uc = (u0 + u1) / 2; w = min(2.3, (u1 - u0) - 0.25); return D.rect_pts(uc - w / 2, f0 + 0.55, uc + w / 2, f0 + 3.15)
                 def egh(u0, u1, f0, f1, fi, L):
                     return D.rect_pts(u0 + 0.3, f0 + 0.15, u1 - 0.3, f0 + 3.9)
-                facade(m, (mw, mg, mf), S1, z0, z1, None, fh=3.55, bayw=3.6, hole=hole, depth=0.35, wall_col=W4, reveal_col=PIER, rng=rng, wmod=(3.0, 3.0), floor_bands=(hexl('#9fa29e'), 0.08, 0.45),
-                       eg_h=4.6 if z0 < 0.5 else None, eg_hole=egh, base=-3.0, cornice=(hexl("#8f918c"), 0.25, 0.5), deep_z=5.0)
+                facade(m, (mw, mg, mf), S1, z0, z1, None, fh=3.9, bayw=2.7, hole=hole, depth=0.25, wall_col=W4, reveal_col=PIER, rng=rng, wmod=(3.0, 3.0), floor_bands=(hexl('#b4b8bc'), 0.1, 0.4),
+                       eg_h=4.5 if z0 < 0.5 else None, eg_hole=egh, base=-3.0, cornice=(hexl("#8f918c"), 0.25, 0.5), deep_z=3.0)
                 roofs(m, mf, S1.difference(unary_union([g for z, g in v if z > z1 + 1e-6]).buffer(0.05)) if any(z > z1 + 1e-6 for z, g in v) else S1, z1, hexl("#7c7e7a"))
         hide += hide_pts([p])
     # entrance Pfingstweidstrasse 60b: canopy + lettering on the edge closest to the address point

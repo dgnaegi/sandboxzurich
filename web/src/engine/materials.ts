@@ -12,7 +12,7 @@ export function setNight(v: number): void { nightUniform.value = v; }
 export const hemiK = { value: 1 };
 
 export async function loadWorldMaterial(base: string, anisotropy: number, pbr = false): Promise<THREE.Material> {
-  const meta = await (await fetch(`${base}/layers.json`)).json() as { size: number; cols: number; count: number; facades: number; shops_end: number; normals: number; normals3?: number; facades3?: [number, number]; layers?: string[]; shops2?: [number, number] };
+  const meta = await (await fetch(`${base}/layers.json`)).json() as { size: number; cols: number; count: number; facades: number; shops_end: number; normals: number; normals3?: number; facades3?: [number, number]; layers?: string[]; shops2?: [number, number]; ground_n?: number[] };
   const [rgb, mask, nimg] = await Promise.all([loadImage(`${base}/atlas.webp`), loadImage(`${base}/atlas_mask.png`), loadImage(`${base}/atlas_n.webp`)]);
   const L = meta.size, n = meta.count;
   const pix = (img: HTMLImageElement) => {
@@ -34,7 +34,8 @@ export async function loadWorldMaterial(base: string, anisotropy: number, pbr = 
     }
   }
   // normal array (R,G = normal xy, B = roughness, unused with Lambert): only the layers that have one
-  const nn = meta.normals + (meta.normals3 ?? 0), nd = new Uint8Array(L * L * 4 * nn), np_ = pix(nimg);
+  const gN = meta.ground_n ?? [];   // ground layers with normal+roughness slots after the v3 facades
+  const nn = meta.normals + (meta.normals3 ?? 0) + gN.length, nd = new Uint8Array(L * L * 4 * nn), np_ = pix(nimg);
   for (let k = 0; k < nn; k++) {
     const ox = (k % meta.cols) * L, oy = Math.floor(k / meta.cols) * L;
     for (let y = 0; y < L; y++) {
@@ -60,6 +61,7 @@ export async function loadWorldMaterial(base: string, anisotropy: number, pbr = 
   const [A3, B3] = (meta.facades3 ?? [9999, 9999]).map((v) => v.toFixed(1));
 
   const mat: THREE.Material = pbr ? new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.9, metalness: 0 }) : new THREE.MeshLambertMaterial({ vertexColors: true });
+  const GB = (meta.normals + (meta.normals3 ?? 0)).toFixed(1);
   const li = (name: string) => (meta.layers?.indexOf(name) ?? -1).toFixed(1);
   const AS = li('asphalt'), G0 = li('sidewalk'), G1 = li('white');
   mat.onBeforeCompile = (sh) => {
@@ -72,19 +74,27 @@ export async function loadWorldMaterial(base: string, anisotropy: number, pbr = 
       .replace('#include <beginnormal_vertex>', '#include <beginnormal_vertex>\nvWN = normalize(mat3(modelMatrix) * objectNormal);')
       .replace('#include <begin_vertex>', '#include <begin_vertex>\nvTex = uv;\nvLayer = uv1.x;\nvWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;');
     sh.fragmentShader = sh.fragmentShader
-      .replace('#include <common>', '#include <common>\nuniform highp sampler2DArray atlas;\nuniform highp sampler2DArray normalAtlas;\nuniform float night;\nuniform float hemiK;\nvarying vec2 vTex;\nvarying float vLayer;\nvarying vec3 vWorld;\nvarying vec3 vWN;\n' + nightFn(F, S, shopHours(meta, F), (meta.shops2?.[0] ?? 9999).toFixed(1), (meta.shops2?.[1] ?? 9999).toFixed(1), A3, B3))
+      .replace('#include <common>', '#include <common>\nuniform highp sampler2DArray atlas;\nuniform highp sampler2DArray normalAtlas;\nuniform float night;\nuniform float hemiK;\nvarying vec2 vTex;\nvarying float vLayer;\nvarying vec3 vWorld;\nvarying vec3 vWN;\n' + groundSlotFn(gN, GB) + GROUND_FN + nightFn(F, S, shopHours(meta, F), (meta.shops2?.[0] ?? 9999).toFixed(1), (meta.shops2?.[1] ?? 9999).toFixed(1), A3, B3))
       .replace('#include <color_fragment>',
         'vec4 tx = texture(atlas, vec3(vTex, floor(vLayer + 0.5)));\n' +
         'float fl3 = step(' + A3 + ' - 0.5, vLayer) * step(vLayer, ' + B3 + ' - 0.5);\n' +
         'diffuseColor.rgb *= tx.rgb * mix(vec3(1.0), vColor.rgb * mix(1.0, 1.35, fl3), tx.a);\n' +
         'diffuseColor.rgb *= 1.0 - 0.3 * step(abs(vLayer - ' + AS + '), 0.5);     // asphalt darker\n' +
+        // ground: world-space macro variation (breaks the 2.5-5 m texture repeat) + rotated low-frequency detail sample (PC)
+        'if (groundSlot(floor(vLayer + 0.5)) > -0.5) {\n' +
+        '  vec2 wp = vWorld.xz;\n' +
+        '  float m = vn2(wp / 31.0) * 0.55 + vn2(wp / 8.5 + 3.7) * 0.3 + vn2(wp / 2.3 + 9.1) * 0.15;\n' +
+        '  float h2 = vn2(wp / 47.0 + 21.0);\n' +
+        '  diffuseColor.rgb *= (0.84 + 0.32 * m) * vec3(1.0 + 0.05 * (h2 - 0.5), 1.0, 1.0 - 0.05 * (h2 - 0.5));\n' +
+        (pbr ? '  if (abs(vWN.y) > 0.5) {\n    vec3 t2 = vec3(mat2(0.8, 0.6, -0.6, 0.8) * vTex * 0.43 + 0.37, floor(vLayer + 0.5));\n    float dl = dot(textureLod(atlas, t2, 2.0).rgb - textureLod(atlas, t2, 9.0).rgb, vec3(0.333));\n    diffuseColor.rgb *= 1.0 + 0.9 * dl;\n  }\n' : '') +
+        '}\n' +
         // glass = unmasked dark texels on wall faces of facade layers (same test as the night windows)
         'float glass = 0.0;\n' +
         'if (abs(vWN.y) < 0.5 && (vLayer < ' + F + ' - 0.5 || fl3 > 0.5)) glass = glassMask(tx);')
-      .replace('#include <roughnessmap_fragment>', '#include <roughnessmap_fragment>\n' + (pbr ? 'roughnessFactor = mix(vLayer > ' + G0 + ' - 0.5 && vLayer < ' + G1 + ' + 0.5 ? 0.93 : 0.82, 0.16, glass);' : ''))
+      .replace('#include <roughnessmap_fragment>', '#include <roughnessmap_fragment>\n' + (pbr ? 'roughnessFactor = mix(vLayer > ' + G0 + ' - 0.5 && vLayer < ' + G1 + ' + 0.5 ? 0.93 : 0.82, 0.16, glass);\n{ float gs = groundSlot(floor(vLayer + 0.5)); if (gs > -0.5) roughnessFactor = texture(normalAtlas, vec3(vTex, gs)).b; }' : ''))
       .replace('#include <metalnessmap_fragment>', '#include <metalnessmap_fragment>\n' + (pbr ? 'metalnessFactor = glass * 0.4;' : ''))
       .replace('#include <lights_fragment_maps>', '#include <lights_fragment_maps>\n' + (pbr ? 'irradiance *= hemiK;' : ''))
-      .replace('#include <normal_fragment_maps>', '#include <normal_fragment_maps>\n' + normalPatch(N, A3, B3))
+      .replace('#include <normal_fragment_maps>', '#include <normal_fragment_maps>\n' + normalPatch(N, A3, B3, gN, pbr))
       .replace('#include <emissivemap_fragment>', '#include <emissivemap_fragment>\ntotalEmissiveRadiance += nightEmissive(tx, floor(vLayer + 0.5), vWorld);');
   };
   return mat;
@@ -92,9 +102,20 @@ export async function loadWorldMaterial(base: string, anisotropy: number, pbr = 
 
 /** Wall normal map: tangent frame from the (vertical) wall normal and world up, so no tangent attribute is needed.
  *  T = up x N (texture u), B = up (texture v up); skipped for ground/roofs and non-vertical faces. */
-const normalPatch = (N: string, A: string, B: string) => `
+const groundSlotFn = (gN: number[], base: string) => `float groundSlot(float l){\n${gN.map((l, i) => `  if (abs(l - ${l}.0) < 0.5) return ${base} + ${i}.0;`).join('\n')}\n  return -1.0;\n}`;
+
+const normalPatch = (N: string, A: string, B: string, gN: number[], pbr: boolean) => `
 {
   float nl = floor(vLayer + 0.5);
+  float gs = groundSlot(nl);
+  if (gs > -0.5 && ${pbr ? 'true' : 'false'}) {   // procedural ground (asphalt, trottoir, Pflaster, curb): normal map, PC only
+    vec2 xy = (texture(normalAtlas, vec3(vTex, gs)).rg * 2.0 - 1.0) * 0.9;
+    vec3 wn = normalize(vWN);
+    vec3 pw;
+    if (abs(wn.y) > 0.5) pw = vec3(xy.x, sqrt(max(1.0 - dot(xy, xy), 0.05)) * sign(wn.y), -xy.y);   // u = world x, v = world north (-z)
+    else { vec3 T = normalize(cross(vec3(0.0, 1.0, 0.0), wn)); pw = T * xy.x + vec3(0.0, 1.0, 0.0) * xy.y + wn * sqrt(max(1.0 - dot(xy, xy), 0.05)); }
+    normal = normalize((viewMatrix * vec4(pw, 0.0)).xyz) * faceDirection;
+  }
   float ni = nl < ${N} ? nl : (nl > ${A} - 0.5 && nl < ${B} - 0.5 ? ${N} + nl - ${A} : -1.0);
   if (ni > -0.5 && abs(vWN.y) < 0.5) {
     vec3 wn = normalize(vWN);
@@ -151,6 +172,13 @@ vec3 nightEmissive(vec4 tx, float ly, vec3 wp){
   float shade = 0.7 + 0.5 * cu.y;                       // brighter towards the sill: reads as a lit room, not a flat panel
   return warm * (dark * on * (0.045 + 0.04 * h2) * shade * night);
 }`;
+
+/** Cheap value noise for the world-space ground variation. */
+const GROUND_FN = `
+float vh2(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+float vn2(vec2 p){ vec2 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f);
+  return mix(mix(vh2(i), vh2(i + vec2(1.0, 0.0)), f.x), mix(vh2(i + vec2(0.0, 1.0)), vh2(i + vec2(1.0, 1.0)), f.x), f.y); }
+`;
 
 function loadImage(url: string): Promise<HTMLImageElement> {
   return new Promise((ok, fail) => {

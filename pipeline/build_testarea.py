@@ -44,6 +44,7 @@ from mesh import Heights, Mesh, drape
 from styles import LAYER, h32
 
 CURB = 0.12  # carriageway is lowered by this much
+GUT = 0.30  # Rinnstein width
 RAW_OUT = OUT.parent.parent.parent / "data" / "build" / "tiles_raw"
 
 
@@ -94,8 +95,13 @@ def curbs(mesh, segs, H):
         d = b - a
         n = np.array([-d[1], d[0], 0]) / np.hypot(*d)  # road is on the left
         L = np.hypot(*d)
-        mesh.add(pts, np.array([[0, 2, 1], [0, 3, 2]], np.uint32), n, (180, 177, 170),
-                 uv=np.array([[0, 0], [L, 0], [L, 0.1], [0, 0.1]]), layer=LAYER["white"])
+        mesh.add(pts, np.array([[0, 2, 1], [0, 3, 2]], np.uint32), n, (255, 255, 255),  # procedural granite (ground_tex.curb), tint = none
+                 uv=np.array([[0, 0], [L, 0], [L, CURB], [0, CURB]]), layer=LAYER["curb"])
+        if L > 0.3:  # Rinnstein: 3 rows of setts, 0.3 m wide, along the curb foot
+            q = np.array([[a[0], a[1], za - CURB + 0.004], [b[0], b[1], zb - CURB + 0.004],
+                          [b[0] + n[0] * GUT, b[1] + n[1] * GUT, zb - CURB + 0.004], [a[0] + n[0] * GUT, a[1] + n[1] * GUT, za - CURB + 0.004]], np.float32)
+            mesh.add(q, np.array([[0, 1, 2], [0, 2, 3]], np.uint32), np.array([0, 0, 1.0]), (255, 255, 255),
+                     uv=np.array([[0, 0], [L, 0], [L, GUT], [0, GUT]]), layer=LAYER["gutter"])
 
 
 def ground_tile(gm, S, tb, H, white, yellow, rails, bed, bays_white=None, bays_blue=None, grooves=None):
