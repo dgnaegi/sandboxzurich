@@ -287,6 +287,7 @@ async function main() {
     // school run Mon–Fri: 07:30–08:15, 11:45–12:15, 15:30–16:30
     crowd.schoolRun = clk.day < 5 && ((clk.min >= 450 && clk.min < 495) || (clk.min >= 705 && clk.min < 735) || (clk.min >= 930 && clk.min < 990));
     crowd.update(dt, player.x, player.y, player.driving);
+    scenes.min = clk.min;
     scenes.update(dt, player.x, player.y);
     anecdotes.update(dt, player.x, player.y);
     lawns.update(dt, player.x, player.y);

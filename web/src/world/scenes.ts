@@ -54,15 +54,27 @@ export class Scenes {
     e.built = null;
   }
 
+  /** Game time (minutes since midnight), set by main each frame. */
+  min = 720;
+
+  /** Scenes tied to a time on their sign (viewing queue «BESICHTIGUNG 17:00») only exist from 40 min before to 35 min after. */
+  private active(def: SceneDef): boolean {
+    const m = def.sign?.join(' ').match(/BESICHTIGUNG (\d{1,2}):(\d{2})/);
+    if (!m) return true;
+    const t = Number(m[1]) * 60 + Number(m[2]);
+    return this.min >= t - 40 && this.min <= t + 35;
+  }
+
   update(dt: number, px: number, py: number) {
     let built = 0;
     for (const e of this.entries) {
       const d = Math.hypot(e.x - px, e.y - py);
+      const on = this.active(e.def);
       if (!e.built) {
-        if (d < this.visRadius && built < 1) { this.spawn(e); built++; }
+        if (on && d < this.visRadius && built < 1) { this.spawn(e); built++; }
         continue;
       }
-      if (d > this.visRadius + (e.def.path ? 60 : 30)) { this.drop(e); continue; }
+      if (!on || d > this.visRadius + (e.def.path ? 60 : 30)) { this.drop(e); continue; }
       const b = e.built, near = d < 60;
       if (b.world || near) b.tick?.(dt);
       if (near || b.world) {
