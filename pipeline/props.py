@@ -99,12 +99,18 @@ def signs(S, segs, tb):
 
 
 def pavement_depth(S, sg):
-    """Metres from the facade to the nearest carriageway edge (room for terraces); None if far/unknown."""
-    try:
-        d = Point(sg["x"] + sg["ty"] * 0.3, sg["y"] - sg["tx"] * 0.3).distance(S["roads"])
-    except Exception:
-        return None
-    return round(d, 1) if d < 9.0 else None
+    """Metres of paved pavement in front of the facade strip: grows until a carriageway or a lawn/park is hit (None if > 9)."""
+    free = S.get("_sf_blocked")
+    if free is None:
+        free = S["_sf_blocked"] = shapely.union_all([g for g in (S["roads"], S.get("parks")) if g is not None])
+        shapely.prepare(free)
+    nx, ny, hw = sg["ty"], -sg["tx"], min(sg["w"] / 2, 2.5)
+    for d in np.arange(0.5, 9.01, 0.5):
+        strip = shapely.geometry.Polygon([(sg["x"] + sg["tx"] * u + nx * v, sg["y"] + sg["ty"] * u + ny * v)
+                                          for u, v in ((-hw, 0.35), (hw, 0.35), (hw, d), (-hw, d))])
+        if free.intersects(strip):
+            return round(float(d) - 0.5, 1)
+    return None
 
 
 def walk_paths(roads, plaza, tb):

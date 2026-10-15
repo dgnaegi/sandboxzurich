@@ -183,7 +183,7 @@ export function buildStorefronts(signs: VenueSign[] | undefined): THREE.Object3D
     const h = hash(s.name), p = frame(s), k = s.kind, wide = Math.min(s.w, 5.2), look = lookOf(s);
     const isBar = BARS.includes(k);
     if (look.fc) framing(b, p, s, look.fc);
-    if (look.aw && wide > 2.4) awning(b, p, -wide / 2, wide / 2, new THREE.Color(look.aw), look.stripes);
+    if (look.aw && wide > 2.4 && (s.pd ?? 9) >= 0.9) awning(b, p, -wide / 2, wide / 2, new THREE.Color(look.aw), look.stripes);
     const edge = s.w / 2 - 0.35;
     if (look.blade || isBar || k === 'pharmacy' || (!s.v && ((k === 'restaurant' && h % 3 === 0) || (k === 'fast_food' && h % 2 === 1)))) {
       const real = look.blade || !!s.v;

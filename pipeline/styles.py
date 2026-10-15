@@ -2,7 +2,8 @@
 import hashlib
 
 from gen_textures import LAYERS, SHOPS
-from gen_shopfronts import BASE
+from gen_shopfronts import BASE, SPECS
+SPECS_WIN = {f"shop_{k}": v.get("win") for k, v in SPECS.items()}
 
 LAYER = {n: i for i, n in enumerate(LAYERS)}
 LAYER_NAME = {i: n for n, i in LAYER.items()}
@@ -197,10 +198,16 @@ KIND_SHOP = {"cafe": "cafe", "ice_cream": "cafe", "restaurant": "restaurant", "b
 FALLBACK = ["leer"] * 3 + ["buero"] * 3 + ["laden", "laden", "kiosk", "cafe", "coiffeur", "spaeti", "bank", "apotheke"]
 
 
-def shop_layer(bid, k, kind=None):
+def shop_layer(bid, k, kind=None, win=None):
+    """Shopfront atlas layer; `win` (photo notes: gross|klein|Sprossen) selects the window variant (_c small, _d glazing bars)."""
     base = KIND_SHOP.get(kind) if kind else None
     h = h32(bid) + k
     if base is None:
         base = FALLBACK[h % len(FALLBACK)]
     names = BASE[base]
-    return LAYER[names[(h >> 4) % len(names)]]
+    want = {"klein": "klein", "Sprossen": "sprossen"}.get(win or "")
+    alt = [n for n in names if want and SPECS_WIN.get(n) == want]
+    if alt:
+        return LAYER[alt[(h >> 4) % len(alt)]]
+    plain = [n for n in names if not n.endswith(("_c", "_d"))] or names
+    return LAYER[plain[(h >> 4) % len(plain)]]

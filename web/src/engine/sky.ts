@@ -44,7 +44,11 @@ export function createSky(sunDir: THREE.Vector3): THREE.Mesh {
           c += vec3(0.5, 0.6, 0.9) * pow(max(md, 0.0), 60.0) * 0.15 * stars;
         }
         c = mix(c, cloudCol, cl * 0.85);
+        #ifdef ENV
+        c = mix(c, horizon * vec3(0.34, 0.31, 0.27), smoothstep(0.02, -0.25, vDir.y));   // dark warm ground bounce for the environment probe
+        #else
         if (vDir.y < 0.0) c = horizon;
+        #endif
         gl_FragColor = vec4(c, 1.0);
         #include <tonemapping_fragment>
         #include <colorspace_fragment>

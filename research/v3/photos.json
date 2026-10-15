@@ -1842,7 +1842,8 @@
     "year": 2025,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 24
    },
    {
     "file": "data/raw/photos/v3/schiffbau/cm_Werfthalle_der_Flensburger_Schiffbau_Gesellschaft_in_Flensbu.jpg",
@@ -3022,7 +3023,8 @@
     "year": 2011,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 25
    },
    {
     "file": "data/raw/photos/v3/st_jakob/cm__Occupy_Stauffacher_Paradeplatz_Aussersihl_Kirche_St_Jakob_S.jpg",
@@ -3037,7 +3039,8 @@
     "year": 2011,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 25
    },
    {
     "file": "data/raw/photos/v3/st_jakob/cm__Occupy_Stauffacher_Paradeplatz_Aussersihl_Kirche_St_Jakob_S.jpg",
@@ -3052,7 +3055,8 @@
     "year": 2011,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 25
    },
    {
     "file": "data/raw/photos/v3/st_jakob/cm__Occupy_Stauffacher_Paradeplatz_Aussersihl_Kirche_St_Jakob_S.jpg",
@@ -3067,7 +3071,8 @@
     "year": 2011,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 25
    },
    {
     "file": "data/raw/photos/v3/st_jakob/cm__Occupy_Stauffacher_Paradeplatz_Aussersihl_Kirche_St_Jakob_S.jpg",
@@ -3082,7 +3087,8 @@
     "year": 2011,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 25
    },
    {
     "file": "data/raw/photos/v3/st_jakob/cm__Occupy_Stauffacher_Paradeplatz_Aussersihl_Kirche_St_Jakob_S.jpg",
@@ -3097,7 +3103,8 @@
     "year": 2011,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 25
    },
    {
     "file": "data/raw/photos/v3/st_jakob/cm__Occupy_Stauffacher_Paradeplatz_Aussersihl_Kirche_St_Jakob_S.jpg",
@@ -3112,7 +3119,8 @@
     "year": 2011,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 25
    },
    {
     "file": "data/raw/photos/v3/st_jakob/cm__Occupy_Stauffacher_Paradeplatz_Aussersihl_Kirche_St_Jakob_S.jpg",
@@ -3127,7 +3135,8 @@
     "year": 2011,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 25
    },
    {
     "file": "data/raw/photos/v3/st_jakob/cm__Occupy_Stauffacher_Paradeplatz_Aussersihl_Kirche_St_Jakob_S.jpg",
@@ -3142,7 +3151,8 @@
     "year": 2011,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 25
    }
   ]
  },
@@ -3340,7 +3350,8 @@
     "heading": null,
     "year": 2017,
     "night": false,
-    "dist_m": 75
+    "dist_m": 75,
+    "dup_of": 9
    },
    {
     "file": "data/raw/photos/v3/bullingerkirche/px_4977f71a-3cd.jpg",
@@ -4315,7 +4326,8 @@
     "year": 2011,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 30
    },
    {
     "file": "data/raw/photos/v3/bhf_hardbruecke/cm_Bahnhof_Z_rich_Hardbr_cke_4042672298_jpg.jpg",
@@ -4578,7 +4590,8 @@
     "heading": 215.11382977045,
     "year": 2025,
     "night": false,
-    "dist_m": 51
+    "dist_m": 51,
+    "dup_of": 10
    },
    {
     "file": "data/raw/photos/v3/volkshaus/ml_1394100677849564.jpg",
@@ -5869,7 +5882,8 @@
     "heading": null,
     "year": 2026,
     "night": false,
-    "dist_m": 23
+    "dist_m": 23,
+    "dup_of": 2
    },
    {
     "file": "data/raw/photos/v3/letzigrund/cm_Fabienne_Hoenke_wins_the_200_meter_race_at_the_2026_Wanda_Di.jpg",
@@ -5883,7 +5897,8 @@
     "heading": null,
     "year": 2026,
     "night": false,
-    "dist_m": 23
+    "dist_m": 23,
+    "dup_of": 2
    },
    {
     "file": "data/raw/photos/v3/letzigrund/cm_Nicola_Olyslagers_wins_the_High_Jump_at_the_Wanda_Diamond_Le.jpg",
@@ -5925,7 +5940,8 @@
     "heading": null,
     "year": 2026,
     "night": false,
-    "dist_m": 24
+    "dist_m": 24,
+    "dup_of": 6
    },
    {
     "file": "data/raw/photos/v3/letzigrund/cm_Z_rich_January_2026_Letzigrund_2_jpg.jpg",
@@ -6252,7 +6268,8 @@
     "heading": 298.5778431387,
     "year": 2025,
     "night": false,
-    "dist_m": 103
+    "dist_m": 103,
+    "dup_of": 11
    },
    {
     "file": "data/raw/photos/v3/bhf_altstetten/ml_1340714347662524.jpg",
@@ -7912,7 +7929,8 @@
     "year": 2026,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 12
    },
    {
     "file": "data/raw/photos/v3/krematorium_sihlfeld/cm_Robert_Billeter_1857_1917_Politiker_Stadtpr_sident_von_Z_ric.jpg",
@@ -8180,7 +8198,8 @@
     "year": 2026,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 10
    },
    {
     "file": "data/raw/photos/v3/krematorium_haupttor/cm_Hans_Markwalder_1882_1951_Bildhauer_Skulptur_1915_Friedhof_S.jpg",
@@ -8195,7 +8214,8 @@
     "year": 2026,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 10
    },
    {
     "file": "data/raw/photos/v3/krematorium_haupttor/cm_Hans_Markwalder_1882_1951_Bildhauer_Skulptur_1915_Friedhof_S.jpg",
@@ -8210,7 +8230,8 @@
     "year": 2026,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 10
    },
    {
     "file": "data/raw/photos/v3/krematorium_haupttor/cm_Otto_Kappeler_1884_1949_Bildhauer_Skulptur_1916_Friedhof_Sih.jpg",
@@ -8240,7 +8261,8 @@
     "year": 2026,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 14
    },
    {
     "file": "data/raw/photos/v3/krematorium_haupttor/cm_Otto_Kappeler_1884_1949_Bildhauer_Skulptur_1916_Friedhof_Sih.jpg",
@@ -8255,7 +8277,8 @@
     "year": 2026,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 14
    },
    {
     "file": "data/raw/photos/v3/krematorium_haupttor/cm_Otto_Kappeler_1884_1949_Bildhauer_Skulptur_1916_Friedhof_Sih.jpg",
@@ -8270,7 +8293,8 @@
     "year": 2026,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 14
    },
    {
     "file": "data/raw/photos/v3/krematorium_haupttor/cm_Friedhof_Sihlfeld_Eingang_Haltestelle_Altes_Krematorium_jpg.jpg",
@@ -11655,7 +11679,8 @@
     "heading": null,
     "year": 2014,
     "night": false,
-    "dist_m": 55
+    "dist_m": 55,
+    "dup_of": 16
    },
    {
     "file": "data/raw/photos/v3/lindenplatz/cm_Historical_landmark_plate_for_Krone_in_Altstetten_in_Z_rich_.jpg",
@@ -13154,7 +13179,8 @@
     "heading": null,
     "year": 2019,
     "night": false,
-    "dist_m": 33
+    "dist_m": 33,
+    "dup_of": 16
    },
    {
     "file": "data/raw/photos/v3/turbinenplatz/cm_Kindergarten_West_Park_jpg.jpg",
@@ -13196,7 +13222,8 @@
     "heading": null,
     "year": 2019,
     "night": false,
-    "dist_m": 56
+    "dist_m": 56,
+    "dup_of": 19
    },
    {
     "file": "data/raw/photos/v3/turbinenplatz/cm_Technopark_Z_rich_jpg.jpg",
@@ -13279,7 +13306,8 @@
     "year": 2019,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 19
    },
    {
     "file": "data/raw/photos/v3/turbinenplatz/cm_Puls_5_Giessereihalle_Z_rich_West_Switzerland_Ank_Kumar_Info.jpg",
@@ -13294,7 +13322,8 @@
     "year": 2019,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 19
    },
    {
     "file": "data/raw/photos/v3/turbinenplatz/cm_Puls_5_Giessereihalle_Z_rich_West_Switzerland_Ank_Kumar_Info.jpg",
@@ -13309,7 +13338,8 @@
     "year": 2019,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 19
    },
    {
     "file": "data/raw/photos/v3/turbinenplatz/cm_Puls_5_Giessereihalle_Z_rich_West_Switzerland_Ank_Kumar_Info.jpg",
@@ -13324,7 +13354,8 @@
     "year": 2019,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 19
    },
    {
     "file": "data/raw/photos/v3/turbinenplatz/cm_Escher_Wyss_Turbinenplatz_2011_08_08_13_55_58_jpg.jpg",
@@ -13858,7 +13889,8 @@
     "year": 2011,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 30
    },
    {
     "file": "data/raw/photos/v3/stauffacher/cm__Occupy_Stauffacher_Paradeplatz_Aussersihl_Kirche_St_Jakob_S.jpg",
@@ -13873,7 +13905,8 @@
     "year": 2011,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 30
    },
    {
     "file": "data/raw/photos/v3/stauffacher/cm__Occupy_Stauffacher_Paradeplatz_Aussersihl_Kirche_St_Jakob_S.jpg",
@@ -13888,7 +13921,8 @@
     "year": 2011,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 30
    },
    {
     "file": "data/raw/photos/v3/stauffacher/cm__Occupy_Stauffacher_Paradeplatz_Aussersihl_Kirche_St_Jakob_S.jpg",
@@ -13903,7 +13937,8 @@
     "year": 2011,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 30
    },
    {
     "file": "data/raw/photos/v3/stauffacher/cm__Occupy_Stauffacher_Paradeplatz_Aussersihl_Kirche_St_Jakob_S.jpg",
@@ -13918,7 +13953,8 @@
     "year": 2011,
     "night": false,
     "dist_m": null,
-    "via": "search"
+    "via": "search",
+    "dup_of": 30
    }
   ]
  },
@@ -14218,7 +14254,8 @@
     "heading": null,
     "year": 2017,
     "night": false,
-    "dist_m": 9
+    "dist_m": 9,
+    "dup_of": 18
    },
    {
     "file": "data/raw/photos/v3/bullingerplatz/cm_Tram_Museum_Z_rich_Tag_der_historischen_Busse_FBW_51_UV_20_A.jpg",

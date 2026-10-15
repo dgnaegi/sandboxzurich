@@ -301,12 +301,20 @@ def make(spec, seed):
         if x1 - x0 < 0.5:
             continue
         y0, y1 = (1.5, 3.55) if not sp.get("no_windows") else (1.9, 2.7)
+        if sp.get("win") == "klein":  # small punched windows (notes: shopwindow = klein)
+            y0, y1 = 2.05, 3.3
         c.r(x0, y0, x1, y1, sp["frame"], 0, 165)
         sub = Cv(x1 - x0 - 0.14, y1 - y0 - 0.14, (30, 30, 30))
         sub.m.paste(Image.new("L", sub.m.size, 0))
         sp["interior"](sub, random.Random(seed + int(x0 * 10)))
         c.paste(sub, x0 + 0.07, y0 + 0.07)
         c.reflect(x0 + 0.07, y0 + 0.07, x1 - 0.07, y1 - 0.07, 0.2)
+        if sp.get("win") == "sprossen":  # glazing bars (notes: shopwindow = Sprossen)
+            mx = x0 + 0.55
+            while mx < x1 - 0.3:
+                c.r(mx - 0.02, y0, mx + 0.02, y1, sp["frame"], 0, 170)
+                mx += 0.55
+            c.r(x0, (y0 + y1) / 2 - 0.02, x1, (y0 + y1) / 2 + 0.02, sp["frame"], 0, 170)
         for mx in (3, 6, 9):  # mullions at the bay edges
             if x0 + 0.3 < mx < x1 - 0.3:
                 c.r(mx - 0.035, y0, mx + 0.035, y1, sp["frame"], 0, 170)
@@ -369,10 +377,16 @@ SPECS = {
     "apotheke": dict(wall=(230, 232, 230), fascia=(40, 150, 100), riser=(120, 130, 126), frame=(60, 76, 70), interior=in_apotheke),
     "bank": dict(wall=(206, 208, 210), fascia=(60, 70, 90), riser=(90, 96, 104), frame=(50, 56, 66), interior=in_bank),
 }
+# window variants picked by notes (styles.shop_layer): c = small windows, d = glazing bars
+SPECS["restaurant_c"] = dict(SPECS["restaurant_a"], win="klein", wall=(224, 214, 196))
+SPECS["restaurant_d"] = dict(SPECS["restaurant_b"], win="sprossen", fascia=(34, 62, 48))
+SPECS["cafe_c"] = dict(SPECS["cafe_b"], win="sprossen")
+SPECS["bar_c"] = dict(SPECS["bar_b"], win="klein")
+SPECS["laden_c"] = dict(SPECS["laden_a"], win="klein")
 SHOP_LAYERS = {f"shop_{k}": (lambda s=s, i=i: make(s, 100 + i)) for i, (k, s) in enumerate(SPECS.items())}
 BASE = {}  # base type -> layer names (variants)
 for _n in SHOP_LAYERS:
-    BASE.setdefault(_n[5:].rsplit("_", 1)[0] if _n[-2:] in ("_a", "_b") else _n[5:], []).append(_n)
+    BASE.setdefault(_n[5:].rsplit("_", 1)[0] if _n[-2:] in ("_a", "_b", "_c", "_d") else _n[5:], []).append(_n)
 
 if __name__ == "__main__":
     import numpy as np

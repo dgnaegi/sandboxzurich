@@ -8,7 +8,10 @@ export function setNight(v: number): void { nightUniform.value = v; }
  * One shared material for all tile geometry: a texture array (facades, shopfronts, roofs, ground)
  * selected per vertex (uv1.x), UVs in repeats (uv), vertex colour = tint applied where the mask (alpha) is set.
  */
-export async function loadWorldMaterial(base: string, anisotropy: number): Promise<THREE.Material> {
+/** Scale of the hemisphere light on the world material (IBL replaces most of it when an environment map is set). */
+export const hemiK = { value: 1 };
+
+export async function loadWorldMaterial(base: string, anisotropy: number, pbr = false): Promise<THREE.Material> {
   const meta = await (await fetch(`${base}/layers.json`)).json() as { size: number; cols: number; count: number; facades: number; shops_end: number; normals: number; normals3?: number; facades3?: [number, number]; layers?: string[]; shops2?: [number, number] };
   const [rgb, mask, nimg] = await Promise.all([loadImage(`${base}/atlas.webp`), loadImage(`${base}/atlas_mask.png`), loadImage(`${base}/atlas_n.webp`)]);
   const L = meta.size, n = meta.count;
@@ -56,21 +59,30 @@ export async function loadWorldMaterial(base: string, anisotropy: number): Promi
   const F = meta.facades.toFixed(1), S = meta.shops_end.toFixed(1), N = meta.normals.toFixed(1);
   const [A3, B3] = (meta.facades3 ?? [9999, 9999]).map((v) => v.toFixed(1));
 
-  const mat = new THREE.MeshLambertMaterial({ vertexColors: true });
+  const mat: THREE.Material = pbr ? new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.9, metalness: 0 }) : new THREE.MeshLambertMaterial({ vertexColors: true });
+  const li = (name: string) => (meta.layers?.indexOf(name) ?? -1).toFixed(1);
+  const AS = li('asphalt'), G0 = li('sidewalk'), G1 = li('white');
   mat.onBeforeCompile = (sh) => {
     sh.uniforms.atlas = { value: tex };
     sh.uniforms.night = nightUniform;
+    sh.uniforms.hemiK = hemiK;
     sh.uniforms.normalAtlas = { value: ntex };
     sh.vertexShader = sh.vertexShader
       .replace('#include <common>', '#include <common>\n#ifndef USE_UV1\nattribute vec2 uv1;\n#endif\nvarying vec2 vTex;\nvarying float vLayer;\nvarying vec3 vWorld;\nvarying vec3 vWN;')
       .replace('#include <beginnormal_vertex>', '#include <beginnormal_vertex>\nvWN = normalize(mat3(modelMatrix) * objectNormal);')
       .replace('#include <begin_vertex>', '#include <begin_vertex>\nvTex = uv;\nvLayer = uv1.x;\nvWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;');
     sh.fragmentShader = sh.fragmentShader
-      .replace('#include <common>', '#include <common>\nuniform highp sampler2DArray atlas;\nuniform highp sampler2DArray normalAtlas;\nuniform float night;\nvarying vec2 vTex;\nvarying float vLayer;\nvarying vec3 vWorld;\nvarying vec3 vWN;\n' + nightFn(F, S, shopHours(meta, F), (meta.shops2?.[0] ?? 9999).toFixed(1), (meta.shops2?.[1] ?? 9999).toFixed(1), A3, B3))
+      .replace('#include <common>', '#include <common>\nuniform highp sampler2DArray atlas;\nuniform highp sampler2DArray normalAtlas;\nuniform float night;\nuniform float hemiK;\nvarying vec2 vTex;\nvarying float vLayer;\nvarying vec3 vWorld;\nvarying vec3 vWN;\n' + nightFn(F, S, shopHours(meta, F), (meta.shops2?.[0] ?? 9999).toFixed(1), (meta.shops2?.[1] ?? 9999).toFixed(1), A3, B3))
       .replace('#include <color_fragment>',
         'vec4 tx = texture(atlas, vec3(vTex, floor(vLayer + 0.5)));\n' +
         'float fl3 = step(' + A3 + ' - 0.5, vLayer) * step(vLayer, ' + B3 + ' - 0.5);\n' +
-        'diffuseColor.rgb *= tx.rgb * mix(vec3(1.0), vColor.rgb * mix(1.0, 1.35, fl3), tx.a);')
+        'diffuseColor.rgb *= tx.rgb * mix(vec3(1.0), vColor.rgb * mix(1.0, 1.35, fl3), tx.a);\n' +
+        'diffuseColor.rgb *= 1.0 - 0.3 * step(abs(vLayer - ' + AS + '), 0.5);     // asphalt darker\n' +
+        // glass = unmasked dark texels on wall faces of facade layers (same test as the night windows)
+        'float glass = 0.0;\n' +
+        'if (abs(vWN.y) < 0.5 && (vLayer < ' + F + ' - 0.5 || fl3 > 0.5)) glass = (1.0 - tx.a) * (1.0 - smoothstep(0.18, 0.34, dot(tx.rgb, vec3(0.299, 0.587, 0.114))));')
+      .replace('#include <roughnessmap_fragment>', '#include <roughnessmap_fragment>\n' + (pbr ? 'roughnessFactor = mix(vLayer > ' + G0 + ' - 0.5 && vLayer < ' + G1 + ' + 0.5 ? 0.93 : 0.82, 0.16, glass);\nmetalnessFactor = glass * 0.4;' : ''))
+      .replace('#include <lights_fragment_maps>', '#include <lights_fragment_maps>\n' + (pbr ? 'irradiance *= hemiK;' : ''))
       .replace('#include <normal_fragment_maps>', '#include <normal_fragment_maps>\n' + normalPatch(N, A3, B3))
       .replace('#include <emissivemap_fragment>', '#include <emissivemap_fragment>\ntotalEmissiveRadiance += nightEmissive(tx, floor(vLayer + 0.5), vWorld);');
   };
@@ -122,12 +134,15 @@ vec3 nightEmissive(vec4 tx, float ly, vec3 wp){
   // one texture repeat = 4 bays x 4 storeys (pipeline/facade.py): switch whole windows, keyed per building block
   vec3 cell = vec3(floor(vTex * 4.0), floor(wp.x / 37.0) * 7.0 + floor(wp.z / 41.0) * 13.0);
   float h = hash31(cell), h2 = hash31(cell + 17.0);
-  float on = step(h, 0.35 * night);                               // ~35 % of windows at full night
+  float on = step(h, 0.3 * night);                                // ~30 % of windows at full night
   float luma = dot(tx.rgb, vec3(0.299, 0.587, 0.114));
   float dark = 1.0 - smoothstep(0.18, 0.34, luma);
   dark *= 1.0 - tx.a;                              // unmasked + dark = glass
-  vec3 warm = mix(vec3(1.0, 0.6, 0.28), vec3(1.0, 0.8, 0.5), h2);
-  return warm * (dark * on * (0.16 + 0.12 * h2) * night);
+  vec3 warm = mix(vec3(1.0, 0.55, 0.22), vec3(1.0, 0.72, 0.4), h2);   // ~0xffd9a0 after tone mapping, stays orange instead of washing out to beige
+  float cool = step(0.93, hash31(cell + 3.0));                       // the odd bluish TV window
+  warm = mix(warm, vec3(0.45, 0.6, 1.0), cool);
+  float shade = 0.7 + 0.5 * fract(vTex.y * 4.0);                       // brighter towards the sill: reads as a lit room, not a flat panel
+  return warm * (dark * on * (0.05 + 0.05 * h2) * shade * night);
 }`;
 
 function loadImage(url: string): Promise<HTMLImageElement> {

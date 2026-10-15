@@ -61,6 +61,9 @@ Parallele Agents mit eigener Dateizuständigkeit (Aufträge siehe Ergebnisse): (
 Selbst erledigt: Laufen (Commit db8ee26); OSM-Parks nur noch Rasen, wo AV grün sagt (Kanzlei-Schulhof jetzt befestigt, `build_testarea.py`); OSM-Multipolygon-Gebäude im Abgleich (`osm_buildings.py`) → Westpark/Galaxus Pfingstweidstr. 60 und Technopark wurden fälschlich als «abgerissen» entfernt.
 
 - (G) Rendering v2 fertig: AgX, natürliche Tageszeit-Palette, Sonnenstand Oktober, Schatten-Snapping, Nebel ab 55 m (`preview/render_v2_before/after.jpg`). Nächste Runde (nach Fassaden-Agent): MeshStandard + IBL (PMREM vom Himmel) für Glas/Fenster/Autos, Asphalt-Rauheit, SMAA am PC, Nachtfenster nicht als beige Blöcke.
+- Stand 2026-10-15 ~20 Uhr: fertig und committet: Mocap (#29), Rendering v2, Karte v2 + Uhr-Panel (#28), Strassen v2 (#27), Auto klauen/fahren (#30), Automodelle v3 (#31), Fassaden v3 (#32, Notizen erst 109 Adressen), Ladenfront-Recherche (206 Lokale), Ladenfronten v3 (Laufzeit-Stil). Landmark-/Platz-Recherche `research/v3/` (39 Orte, 1119 Fotos). Röntgenplatz-Koordinaten in `overrides/places.json` korrigiert.
+- Laufend: Landmarks K4/5 + K9/3 Runde 3 (`preview/lm3_*`), Plätze (`places_detail.py`, `preview/plaza3_*`), Ladenfronten Runde 2 (Terrassen nicht auf Rasen, Fassadenfarbe aus Ladenfoto, EG-Breite), Fassaden-Notizen via Panoramax, Rendering v3 (IBL/Materialien).
+- Danach (Hauptsession): Texturen neu (`gen_facades.py neubau_b`, `gen_facades3.py`, `gen_textures.py`), Komplett-Build, QA-Kontaktbogen, Perf Handy/PC.
 ## Offen / Nächstes
 1. Landmarks verfeinern: Prime Tower, Schiffbau, Lochergut, St. Jakob, Kalkbreite, Bullingerkirche, Kanzlei noch grob; Hardau-Farben geschätzt; Grabfelder Sihlfeld fehlen. Offen Strassen: rote Velofurten, Sperrflächen, Abbiegepfeile, Tramhaltestellen-Inseln (research/streets_audit.md). Autos fahren durch Baustellen.
 2. ~~Kanzlei-Flohmarkt auf Rasen~~ erledigt (OSM-Parks ∩ AV-grün).

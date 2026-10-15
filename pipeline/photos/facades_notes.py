@@ -55,7 +55,7 @@ def main():
                 continue
             im = (cand.get(addr, {}).get("imgs") or [{}])[0]
             if im:
-                v["quelle"] = f"mapillary:{im['id']}"
+                v["quelle"] = f"{im.get('src', 'mapillary')}:{im['id']}"
             out[addr] = v
     meta = {"_meta": "v3 (2026-10-15): Fassaden aus Mapillary-Fotos (CC BY-SA 4.0, ab 2020), von Hand gelesen; Felder siehe pipeline/photos/facades_notes.py. "
                      "Leere Felder = nicht sichtbar/unsicher. Credits: CREDITS_v3.md"}
@@ -66,10 +66,10 @@ def main():
         by.setdefault(im["by"], []).append(im["id"])
     lines = ["# Credits visual_notes_v3", "",
              "Fassadenangaben (Farbe, Material, Fensterformen) wurden von Hand aus Strassenfotos auf Mapillary gelesen; es wurden keine Bilder "
-             "ins Spiel uebernommen. Fotos: Mapillary-Beitragende, CC BY-SA 4.0 (https://www.mapillary.com).", "",
+             "ins Spiel uebernommen. Fotos: Mapillary- und Panoramax-Beitragende, CC BY-SA 4.0 (https://www.mapillary.com, https://panoramax.xyz).", "",
              f"{len(out)} Adressen, {len(used)} mit Mapillary-Bild. Beitragende (Anzahl Bilder, Beispiel-ID):", ""]
     for u, ids in sorted(by.items(), key=lambda kv: -len(kv[1])):
-        lines.append(f"- {u}: {len(ids)} (https://www.mapillary.com/app/?pKey={ids[0]})")
+        lines.append(f"- {u}: {len(ids)} (Bild-ID {ids[0]})")
     (D / "CREDITS_v3.md").write_text("\n".join(lines) + "\n")
     print(len(out), "addresses ->", D / "visual_notes_v3.json")
 

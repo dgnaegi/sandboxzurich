@@ -55,7 +55,7 @@ export class Tiles {
   static async load(scene: THREE.Scene, shadows: boolean, anisotropy: number): Promise<Tiles> {
     const [world, mat] = await Promise.all([
       fetch(`${BASE}/world.json`).then((r) => r.json() as Promise<World>),
-      loadWorldMaterial('/tex', anisotropy),
+      loadWorldMaterial('/tex', anisotropy, shadows)   // shadows = desktop tier = PBR + IBL,
     ]);
     return new Tiles(world, scene, shadows, mat);
   }

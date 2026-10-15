@@ -124,6 +124,9 @@ def load():
             style = "NEU"
         if tint or style:
             out[(m.group(1).strip(), m.group(2))] = {"tint": tint, "style": style, "v3": parse_text(note)}
+    import shopfronts_v3
+    for k, v in shopfronts_v3.facade_tints().items():  # venue photo notes: wall tint of the whole house, only where no other note exists
+        out.setdefault(k, v)
     for k, v in load_v3().items():  # photo-checked structured notes beat everything
         out[k] = {"tint": v.get("rgb"), "style": None, "v3": v, "photo": True}
     return out

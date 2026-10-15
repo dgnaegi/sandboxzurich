@@ -12,7 +12,7 @@ const ctx = await browser.newContext(phone ? { ...devices['iPhone 13'], viewport
 const page = await ctx.newPage();
 page.on('pageerror', (e) => console.log('pageerror', e.message));
 for (const [p, at] of Object.entries(P)) for (const [t, hm] of Object.entries(T)) {
-  await page.goto(`${BASE}/?at=${at}&t=${hm}`);
+  await page.goto(`${BASE}/?at=${at}&t=${hm}`, { timeout: 120000 });
   await page.waitForFunction(() => window.sbxReady, null, { timeout: 90000 });
   await page.waitForTimeout(2500);
   await page.screenshot({ path: `${OUT}${p}_${t}.png` });

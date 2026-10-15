@@ -69,3 +69,30 @@ def notes_for(poi):
         p = Point(poi["x"], poi["y"])
         r = next((q for q in c["rows"] if _norm(q["name"]) == nm and p.distance(Point(q["x"], q["y"])) < 40), None)
     return compact(r) if r else None
+
+
+def shop_notes(poi):
+    """Window/door notes for the shopfront texture choice (styles.shop_layer, facade._wall): {"w": gross|klein|Sprossen, "d": mitte|corner}."""
+    c = notes_for(poi)
+    if not c:
+        return None
+    r = _load()["id"].get(str(poi.get("osm")))
+    d = (r or {}).get("door")
+    return {"w": c.get("w"), "d": d if d in ("mitte", "corner") else None}
+
+
+def facade_tints():
+    """{(street, nr): {"tint": rgb, ...}} whole-building wall tint from shops_v3 facade_color (light enough to be wall, not socle)."""
+    out = {}
+    for r in _load()["rows"]:
+        hx = _hex(r.get("facade_color"))
+        m = re.match(r"(.+?)\s+(\d+[a-zA-Z]?)\s*(,.*)?$", (r.get("address") or "").strip())
+        if not hx or not m:
+            continue
+        rgb = [int(hx[i:i + 2], 16) for i in (1, 3, 5)]
+        lum = (0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]) / 255
+        if lum < 0.42:
+            continue
+        rgb = tuple(int(c * 0.8 + 255 * 0.2) for c in rgb)  # estimated from a distance: pull slightly towards white
+        out[(m.group(1).strip(), m.group(2))] = {"tint": rgb, "style": None, "v3": {}}
+    return out

@@ -1,7 +1,8 @@
 import * as THREE from 'three';
 import type { createRenderer } from './renderer';
 import { HORIZON, ZENITH } from './sky';
-import { nightUniform } from './materials';
+import { nightUniform, hemiK } from './materials';
+import { SkyProbe } from './env';
 import { gradeA, gradeB, gradeC, bloom } from './grading';
 
 type Ctx = ReturnType<typeof createRenderer>;
@@ -35,6 +36,7 @@ const K: Key[] = [
 
 const LAT = THREE.MathUtils.degToRad(47.37), DECL = THREE.MathUtils.degToRad(-8.5)   // mid October;
 const sstep = (a: number, b: number, x: number) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+const ctx_env = (scene: THREE.Scene, v: number) => { scene.environmentIntensity = v; };
 const c1 = new THREE.Color(), c2 = new THREE.Color();
 const lerpCol = (out: THREE.Color, a: number, b: number, t: number) => out.setHex(a).lerp(c2.setHex(b), t);
 
@@ -59,6 +61,7 @@ export class Daytime {
   private moonDir = new THREE.Vector3();
   private sunV = new THREE.Vector3();
   private tmp = new THREE.Vector3();
+  private probe: SkyProbe | null = null;
 
   constructor(private ctx: Ctx) {
     if (!ctx.mobile) {   // PC only: 4 warm lights around the player (cheap stand-in for street lamps)
@@ -69,6 +72,10 @@ export class Daytime {
       }
     }
     this.set(startMinutes());
+    if (!ctx.mobile) {   // IBL from the sky: desktop tier only (phones keep the hemisphere light + Lambert)
+      this.probe = new SkyProbe(ctx.renderer, ctx.scene, ctx.skyMat);
+      this.set(startMinutes(), true);
+    }
   }
 
   /** Place the lamp lights around the player (call once per frame next to followSun). */
@@ -79,7 +86,7 @@ export class Daytime {
     }
   }
 
-  set(minutes: number): void {
+  set(minutes: number, forceProbe = false): void {
     const { sun, hemi, scene, renderer, skyMat, sunDir } = this.ctx;
     const hr = (((minutes / 60) % 24) + 24) % 24;
 
@@ -140,6 +147,12 @@ export class Daytime {
     (sun.shadow as THREE.LightShadow & { intensity: number }).intensity = Math.min(0.85, sunW / 1.4);   // lighter, softer shadows
     skyMat.uniforms.sun.value.set(east, sinE, -north).normalize();
 
+    // image-based light: day = full sky, night = a little cool ambience; the hemisphere light only fills what IBL does not reach
+    if (this.probe) {
+      this.probe.update(minutes, forceProbe);
+      ctx_env(this.ctx.scene, 0.35 + 0.75 * (1 - this.night));
+      hemiK.value = 0.3;
+    }
     for (const l of this.lamps) l.intensity = 9 * sstep(0.35, 0.9, this.night);
   }
 }

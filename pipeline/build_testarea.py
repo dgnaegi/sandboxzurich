@@ -29,6 +29,7 @@ import ortho_roofs
 import terrain_cuts
 import groundcover
 import visual_overrides
+import shopfronts_v3
 import terrain
 import traffic_signs as TS
 from gwr import gwr_for_building
@@ -342,7 +343,7 @@ def build():
             fp = footprint(b)
             near_poi = fp is not None and len(poi_pts) and bool(shapely.dwithin(poi_pts, fp, 4).any())
             b["shops"] = near_poi or main.distance(Point(b["center"][:2])) < 22
-            b["pois"] = [(p["x"], p["y"], p["kind"]) for p in S["pois"]
+            b["pois"] = [(p["x"], p["y"], p["kind"], shopfronts_v3.shop_notes(p)) for p in S["pois"]
                          if fp is not None and fp.distance(Point(p["x"], p["y"])) < 6]
             fpb = footprint(b)
             b["_roof_rgb"] = ortho_roofs.roof_rgb(fpb) if fpb is not None and fpb.geom_type == "Polygon" else None

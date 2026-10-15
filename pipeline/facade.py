@@ -13,14 +13,26 @@ from styles import LAYER_NAME, h32, roof_override, BAY_W, FLOOR_H, LAYER, SHOP_H
 ROOF_TINTS = [(255, 255, 255), (235, 205, 190), (205, 175, 160), (185, 170, 165), (150, 150, 155), (245, 225, 210)]
 
 
-def nearest_kind(b, mid, r=9.0):
-    """POI kind (cafe, bar, kiosk …) closest to this wall, from b["pois"] = [(x, y, kind)]."""
+def nearest_poi(b, mid, r=9.0):
+    """Closest POI (x, y, kind, notes) to this wall, from b["pois"] = [(x, y, kind[, photo notes])]; None if none within r."""
     best, bd = None, r
-    for x, y, kind in b.get("pois", []):
-        d = float(np.hypot(x - mid[0], y - mid[1]))
+    for p in b.get("pois", []):
+        d = float(np.hypot(p[0] - mid[0], p[1] - mid[1]))
         if d < bd:
-            best, bd = kind, d
+            best, bd = p, d
     return best
+
+
+def nearest_kind(b, mid, r=9.0):
+    """POI kind (cafe, bar, kiosk …) closest to this wall."""
+    p = nearest_poi(b, mid, r)
+    return p[2] if p else None
+
+
+# width (m) of the shopfront of a venue; the rest of the ground floor stays ordinary wall / house entrance
+SHOP_W = {"restaurant": 7.0, "cafe": 5.5, "bar": 6.0, "pub": 7.0, "nightclub": 7.0, "biergarten": 7.0, "fast_food": 4.5, "kiosk": 3.6,
+          "tobacco": 3.6, "newsagent": 3.6, "convenience": 5.0, "supermarket": 11.0, "bakery": 5.0, "pastry": 4.5, "ice_cream": 4.0,
+          "clothes": 6.0, "shoes": 5.0, "pharmacy": 6.0, "bank": 8.0, "hairdresser": 4.5, "beauty": 4.5, "bicycle": 6.0, "greengrocer": 5.5}
 
 
 def base_z(b):
@@ -35,7 +47,7 @@ def _tri2d(poly):
     return xy, t
 
 
-def _wall(mesh, a, n, tint, layer, z0, shop, shop_lay, tile_h=FLOOR_H):
+def _wall(mesh, a, n, tint, layer, z0, shop, shop_lay, tile_h=FLOOR_H, shop_at=None):
     """Vertical wall: map to (u metres, z), split at the shop line, add with facade UVs."""
     nh = np.array([n[0], n[1]]) / np.hypot(n[0], n[1])
     t = np.array([-nh[1], nh[0]])  # right-hand direction when facing the wall
@@ -50,16 +62,28 @@ def _wall(mesh, a, n, tint, layer, z0, shop, shop_lay, tile_h=FLOOR_H):
     su = bays / 4.0 / width  # texture repeats per metre, integer number of bays
     nrm = np.array([nh[0], nh[1], 0.0])
     parts = []
+    span = (u0, u1)
     if shop:
         low = P.intersection(box(u0 - 1, z0 - 50, u1 + 1, z0 + SHOP_H))
-        parts.append((low, shop_lay, z0, SHOP_H, (255, 255, 255)))
+        # shopfront only over the venue's width (centred on its POI), the rest of the ground floor is ordinary wall
+        ws = min(width, shop_at[2]) if shop_at else width
+        if shop_at and width - ws >= 2.0:
+            uc = float(np.dot([shop_at[0], shop_at[1]], t))
+            span = (min(max(uc - ws / 2, u0), u1 - ws), 0.0)
+            span = (span[0], span[0] + ws)
+            sl = low.intersection(box(span[0], z0 - 50, span[1], z0 + SHOP_H))
+            parts.append((sl, shop_lay, z0, SHOP_H, (255, 255, 255), span, shop_at[3]))
+            parts.append((low.difference(sl), layer, z0, tile_h, tint))
+        else:
+            parts.append((low, shop_lay, z0, SHOP_H, (255, 255, 255)))
         parts.append((P.difference(low), layer, z0 + SHOP_H, tile_h, tint))
     else:
         # darker plinth zone (Sockel) like on real Zürich houses, same texture continues above
         plinth = P.intersection(box(u0 - 1, z0 - 50, u1 + 1, z0 + 0.7))
         parts.append((plinth, layer, z0, tile_h, tuple(np.array(tint) * 0.68)))
         parts.append((P.difference(plinth), layer, z0, tile_h, tint))
-    for geom, lay, zb, hv, col in parts:
+    for part in parts:
+        geom, lay, zb, hv, col = part[:5]
         for poly in getattr(geom, "geoms", [geom]):
             if poly.geom_type != "Polygon" or poly.area < 0.05:
                 continue
@@ -71,9 +95,16 @@ def _wall(mesh, a, n, tint, layer, z0, shop, shop_lay, tile_h=FLOOR_H):
             tri = tri.astype(np.uint32)
             cr = np.cross(pts[tri[:, 1]] - pts[tri[:, 0]], pts[tri[:, 2]] - pts[tri[:, 0]]) @ nrm
             tri[cr < 0] = tri[cr < 0][:, ::-1]
-            uv = np.column_stack([(uz[:, 0] - u0) * su, -(uz[:, 1] - zb) / hv])
+            if len(part) > 5:  # venue shopfront: its own bay count over its own width, optionally mirrored (door side)
+                sa, sb = part[5]
+                bs = max(1, round((sb - sa) / 3.0))
+                uu = (uz[:, 0] - sa) * bs / 4.0 / (sb - sa)
+                uu = bs / 4.0 - uu if part[6] else uu
+                uv = np.column_stack([uu, -(uz[:, 1] - zb) / hv])
+            else:
+                uv = np.column_stack([(uz[:, 0] - u0) * su, -(uz[:, 1] - zb) / hv])
             mesh.add(pts, tri, nrm, col, uv=uv, layer=lay)
-    return (u0, u1, t, nh, d, width, su, z0 + (SHOP_H if shop else 0.0), tile_h)
+    return (u0, u1, t, nh, d, width, su, z0 + (SHOP_H if shop else 0.0), tile_h, span)
 
 
 def add_building(mesh, b, street_dist, neighbour=lambda x, y: False):
@@ -123,8 +154,21 @@ def add_building(mesh, b, street_dist, neighbour=lambda x, y: False):
             shop = shop_ok and street_dist(mid[0] + n[0] * 3, mid[1] + n[1] * 3) < 9 and a[:, 2].min() < z0 + 1.5
             # party wall: another building stands right in front → blank fire wall (Brandmauer), no windows
             party = not shop and neighbour(mid[0] + n[0] * 1.2, mid[1] + n[1] * 1.2)
-            kind = nearest_kind(b, mid) if shop else None
-            seg = _wall(mesh, a, n, tint, LAYER.get("brandmauer", layer) if party else layer, z0, shop, shop_layer(b["id"], k, kind), tile_h)
+            poi = nearest_poi(b, mid) if shop else None
+            kind = poi[2] if poi else None
+            nt = (poi[3] if len(poi) > 3 else None) or {} if poi else {}
+            shop_at = None
+            if shop:
+                hh = h32(b["id"] + str(k))
+                if poi:
+                    wmax = SHOP_W.get(kind, 6.0)
+                    px, py = poi[0], poi[1]
+                else:  # no venue known: a small shop at a hashed place on the wall
+                    wmax = 4.5 + hh % 4
+                    px, py = mid[0] + (((hh >> 5) % 100) / 100 - 0.5) * 6 * -n[1], mid[1] + (((hh >> 5) % 100) / 100 - 0.5) * 6 * n[0]
+                flip = nt.get("d") == "corner" and ((hh >> 3) & 1) or (nt.get("d") != "corner" and (hh >> 3) % 4 == 0)
+                shop_at = (px, py, wmax, bool(flip))
+            seg = _wall(mesh, a, n, tint, LAYER.get("brandmauer", layer) if party else layer, z0, shop, shop_layer(b["id"], k, kind, nt.get("w")), tile_h, shop_at)
             k += 1
             if trim and seg and not party and seg[5] > 3.0:
                 facade_trim.cornice(mesh, seg, eave, tuple(min(255, c * 1.04) for c in tint))
@@ -140,9 +184,10 @@ def add_building(mesh, b, street_dist, neighbour=lambda x, y: False):
                              "w": float(w), "bid": b["id"], "blank": True})
             if shop and seg and seg[5] > 3.5:
                 u0, u1, t, nh, d, w = seg[:6]
-                c = (u0 + u1) / 2 * t + d * nh
+                ua, ub = seg[9]
+                c = (ua + ub) / 2 * t + d * nh
                 segs.append({"x": float(c[0]), "y": float(c[1]), "z": z0 + 3.45, "tx": float(t[0]), "ty": float(t[1]),
-                             "w": float(w), "bid": b["id"]})
+                             "w": float(ub - ua), "bid": b["id"]})
             continue
         if kind == 2 or abs(n[2]) >= 0.3:
             sloped = abs(n[2]) < 0.94
