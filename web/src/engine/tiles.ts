@@ -13,6 +13,7 @@ import type { Bikes } from '../world/bikes';
 import { buildGraffiti, buildPosters, buildSigns, buildWildPosters, type Sign } from '../world/signs';
 import { buildHouseNumbers, buildStreetSigns } from '../world/streetsigns';
 import { buildDecals } from '../world/decals';
+import { buildPlaces, type PlaceMeta } from '../world/places_detail';
 import { buildDoors } from '../world/doors';
 import { buildConstruction, buildCranes, buildFence, buildScooters, buildSites } from '../world/construction';
 import { buildAFrames, buildSacks, sackGroups } from '../world/streetlife';
@@ -172,6 +173,7 @@ export class Tiles {
     const br = (meta as unknown as { bridges?: BridgeRows }).bridges;
     put(g, 'bridges', buildBridges(br));
     this.bridges.add(br, t.name);
+    put(props, 'places', buildPlaces((meta as unknown as { places?: PlaceMeta }).places, this.shadows));
     put(props, 'playground', buildPlaygrounds((meta as unknown as { playground?: PlaygroundRow[] }).playground ?? []));
     put(g, 'landmarks', buildLandmarks((meta as unknown as { landmarks?: LandmarkRow[] }).landmarks ?? [])); // landmark signs stay visible from afar
     put(g, 'fence', buildFence((meta as unknown as { fence?: number[][][] }).fence ?? [])); // always visible: it closes the map
@@ -196,7 +198,7 @@ export class Tiles {
       this.onLawn((meta as unknown as { lawn?: number[][] }).lawn ?? []);
       this.onFountains(meta.fountains ?? []);
       this.onSchools((meta as unknown as { schools?: number[][] }).schools ?? []);
-      this.onSpots(meta as never); // benches, fountains, signs, workers -> standing/sitting people
+      this.onSpots({ ...meta, benches: [...(meta.benches ?? []), ...((meta as unknown as { places?: { seats?: number[][] } }).places?.seats ?? [])] } as never); // benches, fountains, signs, workers -> standing/sitting people
     }
     this.scene.add(g);
     this.loaded.set(t.name, g);

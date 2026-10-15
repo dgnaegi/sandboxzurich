@@ -27,8 +27,8 @@ const K: Key[] = [
   { h: 10.0, ...DAY },
   { h: 15.5, ...DAY },
   { h: 17.2, zen: 0x4a7cc0, hor: 0xe8d0b8, sun: 0xffe0b8, sunI: 3.0, hs: 0xc4d0e4, hg: 0x7c6e58, hI: 1.4, cLo: 0xf0dccc, cHi: 0xfff4ea, exp: 1.04, night: 0, stars: 0, g: GG },
-  { h: 18.1, zen: 0x4064aa, hor: 0xf4b078, sun: 0xffa660, sunI: 2.4, hs: 0xb8bcd8, hg: 0x7a5c4c, hI: 1.3, cLo: 0xf4b090, cHi: 0xffd8b8, exp: 1.1, night: 0.05, stars: 0, g: GG },
-  { h: 18.8, zen: 0x303e80, hor: 0xe87c50, sun: 0xff7030, sunI: 1.4, hs: 0x9aa0cc, hg: 0x5c4448, hI: 1.25, cLo: 0xe08870, cHi: 0xf4b090, exp: 1.16, night: 0.25, stars: 0, g: GG },
+  { h: 18.1, zen: 0x4064aa, hor: 0xf4b078, sun: 0xffa660, sunI: 2.4, hs: 0xccc6c4, hg: 0x7a6250, hI: 1.3, cLo: 0xf4b090, cHi: 0xffd8b8, exp: 1.1, night: 0.05, stars: 0, g: GG },
+  { h: 18.8, zen: 0x303e80, hor: 0xe87c50, sun: 0xff7030, sunI: 1.4, hs: 0xaeaab8, hg: 0x5e4c46, hI: 1.25, cLo: 0xe08870, cHi: 0xf4b090, exp: 1.16, night: 0.25, stars: 0, g: GG },
   { h: 19.5, zen: 0x1a2458, hor: 0x8c5c78, sun: 0xc05a50, sunI: 0.35, hs: 0x6c78b0, hg: 0x2a2434, hI: 1.25, cLo: 0x70507a, cHi: 0xa06c88, exp: 1.3, night: 0.7, stars: 0.4, g: GG },
   { h: 20.4, ...NIGHT },
   { h: 24, ...NIGHT },
@@ -150,8 +150,8 @@ export class Daytime {
     // image-based light: day = full sky, night = a little cool ambience; the hemisphere light only fills what IBL does not reach
     if (this.probe) {
       this.probe.update(minutes, forceProbe);
-      ctx_env(this.ctx.scene, 0.35 + 0.75 * (1 - this.night));
-      hemiK.value = 0.3;
+      ctx_env(this.ctx.scene, 0.6 + 0.5 * (1 - this.night));
+      hemiK.value = 0.4;
     }
     for (const l of this.lamps) l.intensity = 9 * sstep(0.35, 0.9, this.night);
   }

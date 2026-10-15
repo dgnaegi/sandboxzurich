@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { HORIZON, ZENITH } from '../engine/sky';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
@@ -84,16 +85,18 @@ export const carMaterial = (() => {
   const m = new THREE.MeshLambertMaterial({ vertexColors: true });
   m.onBeforeCompile = (sh) => {
     sh.uniforms.uCarDay = carDay;
+    sh.uniforms.uSkyZ = { value: ZENITH };   // live sky colours (updated by Daytime): reflections follow the time of day
+    sh.uniforms.uSkyH = { value: HORIZON };
     sh.vertexShader = sh.vertexShader
       .replace('#include <common>', '#include <common>\nattribute float _paint;\nvarying float vGloss;')
       .replace('#include <color_vertex>', 'vColor = vec4(1.0);\nvColor.rgb *= color.rgb;\nvGloss = _paint > 0.5 ? 0.10 : _paint;\n#ifdef USE_INSTANCING_COLOR\nvColor.rgb *= mix(vec3(1.0), instanceColor.rgb, step(0.5, _paint));\n#endif');
     sh.fragmentShader = sh.fragmentShader
-      .replace('#include <common>', '#include <common>\nvarying float vGloss;\nuniform float uCarDay;')
+      .replace('#include <common>', '#include <common>\nvarying float vGloss;\nuniform float uCarDay;\nuniform vec3 uSkyZ;\nuniform vec3 uSkyH;')
       .replace('#include <opaque_fragment>', `{
   vec3 vd = normalize(vViewPosition);
   float fr = pow(1.0 - clamp(dot(normal, vd), 0.0, 1.0), 3.0);
   vec3 rw = inverseTransformDirection(reflect(-vd, normal), viewMatrix);
-  vec3 env = mix(vec3(0.16, 0.15, 0.14), vec3(0.55, 0.68, 0.88), smoothstep(-0.05, 0.5, rw.y));
+  vec3 env = mix(uSkyH * vec3(0.3, 0.28, 0.25), mix(uSkyH, uSkyZ, smoothstep(0.0, 0.8, rw.y)) * 1.1, smoothstep(-0.05, 0.25, rw.y));
   outgoingLight += env * vGloss * (0.35 + 2.2 * fr) * uCarDay;
 }
 #include <opaque_fragment>`);

@@ -11,7 +11,7 @@ export class SkyProbe {
   private rt: THREE.WebGLRenderTarget | null = null;
   private last = -1e9;
 
-  constructor(private renderer: THREE.WebGLRenderer, private target: THREE.Scene, sky: THREE.ShaderMaterial) {
+  constructor(renderer: THREE.WebGLRenderer, private target: THREE.Scene, sky: THREE.ShaderMaterial) {
     this.pmrem = new THREE.PMREMGenerator(renderer);
     const m = new THREE.ShaderMaterial({
       side: THREE.BackSide, depthWrite: false, depthTest: false, fog: false, defines: { ENV: 1 },

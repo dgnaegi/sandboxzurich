@@ -80,8 +80,9 @@ export async function loadWorldMaterial(base: string, anisotropy: number, pbr = 
         'diffuseColor.rgb *= 1.0 - 0.3 * step(abs(vLayer - ' + AS + '), 0.5);     // asphalt darker\n' +
         // glass = unmasked dark texels on wall faces of facade layers (same test as the night windows)
         'float glass = 0.0;\n' +
-        'if (abs(vWN.y) < 0.5 && (vLayer < ' + F + ' - 0.5 || fl3 > 0.5)) glass = (1.0 - tx.a) * (1.0 - smoothstep(0.18, 0.34, dot(tx.rgb, vec3(0.299, 0.587, 0.114))));')
-      .replace('#include <roughnessmap_fragment>', '#include <roughnessmap_fragment>\n' + (pbr ? 'roughnessFactor = mix(vLayer > ' + G0 + ' - 0.5 && vLayer < ' + G1 + ' + 0.5 ? 0.93 : 0.82, 0.16, glass);\nmetalnessFactor = glass * 0.4;' : ''))
+        'if (abs(vWN.y) < 0.5 && (vLayer < ' + F + ' - 0.5 || fl3 > 0.5)) glass = glassMask(tx);')
+      .replace('#include <roughnessmap_fragment>', '#include <roughnessmap_fragment>\n' + (pbr ? 'roughnessFactor = mix(vLayer > ' + G0 + ' - 0.5 && vLayer < ' + G1 + ' + 0.5 ? 0.93 : 0.82, 0.16, glass);' : ''))
+      .replace('#include <metalnessmap_fragment>', '#include <metalnessmap_fragment>\n' + (pbr ? 'metalnessFactor = glass * 0.4;' : ''))
       .replace('#include <lights_fragment_maps>', '#include <lights_fragment_maps>\n' + (pbr ? 'irradiance *= hemiK;' : ''))
       .replace('#include <normal_fragment_maps>', '#include <normal_fragment_maps>\n' + normalPatch(N, A3, B3))
       .replace('#include <emissivemap_fragment>', '#include <emissivemap_fragment>\ntotalEmissiveRadiance += nightEmissive(tx, floor(vLayer + 0.5), vWorld);');
@@ -117,6 +118,12 @@ function shopHours(meta: { facades: number; shops_end: number; layers?: string[]
 /** Layers: facades [0,F), shopfronts [F,S), then brandmauer, roofs, ground. Windows light up per cell (world hash). */
 const nightFn = (F: string, S: string, hours: string, E: string, E2: string, A3: string, B3: string) => `
 ${hours}
+// glass = unmasked, dark and neutral/blue texels (a dark brown/red wall is not glass: that was the beige-block bug at night)
+float glassMask(vec4 tx){
+  float luma = dot(tx.rgb, vec3(0.299, 0.587, 0.114));
+  float neutral = smoothstep(0.0, 0.06, tx.b - tx.r * 0.8 + 0.03) * (1.0 - smoothstep(0.25, 0.5, max(tx.r, max(tx.g, tx.b)) - min(tx.r, min(tx.g, tx.b)) + 0.0));
+  return (1.0 - tx.a) * (1.0 - smoothstep(0.18, 0.34, luma)) * neutral;
+}
 float hash31(vec3 p){ p = fract(p * vec3(0.1031, 0.1030, 0.0973)); p += dot(p, p.yxz + 33.33); return fract((p.x + p.y) * p.z); }
 vec3 nightEmissive(vec4 tx, float ly, vec3 wp){
   bool fac3 = ly > ${A3} - 0.5 && ly < ${B3} - 0.5;                              // v3 facades (appended after the roofs)
@@ -135,14 +142,14 @@ vec3 nightEmissive(vec4 tx, float ly, vec3 wp){
   vec3 cell = vec3(floor(vTex * 4.0), floor(wp.x / 37.0) * 7.0 + floor(wp.z / 41.0) * 13.0);
   float h = hash31(cell), h2 = hash31(cell + 17.0);
   float on = step(h, 0.3 * night);                                // ~30 % of windows at full night
-  float luma = dot(tx.rgb, vec3(0.299, 0.587, 0.114));
-  float dark = 1.0 - smoothstep(0.18, 0.34, luma);
-  dark *= 1.0 - tx.a;                              // unmasked + dark = glass
+  float dark = glassMask(tx);
   vec3 warm = mix(vec3(1.0, 0.55, 0.22), vec3(1.0, 0.72, 0.4), h2);   // ~0xffd9a0 after tone mapping, stays orange instead of washing out to beige
   float cool = step(0.93, hash31(cell + 3.0));                       // the odd bluish TV window
   warm = mix(warm, vec3(0.45, 0.6, 1.0), cool);
-  float shade = 0.7 + 0.5 * fract(vTex.y * 4.0);                       // brighter towards the sill: reads as a lit room, not a flat panel
-  return warm * (dark * on * (0.05 + 0.05 * h2) * shade * night);
+  vec2 cu = fract(vTex * 4.0);
+  dark *= smoothstep(0.1, 0.25, cu.x) * smoothstep(0.9, 0.75, cu.x) * smoothstep(0.12, 0.3, cu.y) * smoothstep(0.88, 0.7, cu.y);   // only the opening, not the whole bay
+  float shade = 0.7 + 0.5 * cu.y;                       // brighter towards the sill: reads as a lit room, not a flat panel
+  return warm * (dark * on * (0.045 + 0.04 * h2) * shade * night);
 }`;
 
 function loadImage(url: string): Promise<HTMLImageElement> {
