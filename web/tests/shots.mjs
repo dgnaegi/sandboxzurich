@@ -25,14 +25,14 @@ const POINTS = {
   hardau: '-470,-170,3.4&t=16:00',
   sihlfeld: '-706,-735,3.14&t=11:00',
   hof_hohlstrasse: '-345,-70,-2.4&t=15:00',
-  roentgenplatz: '715,106,1.22&t=13:00',
+  roentgenplatz: '738,111,1.16&t=11:00',
   primetower: '21,157,0.35&t=13:00',
   viadukt: '430,188,0.52&t=13:00',
   stjakob: '950,-1184,0.00&t=13:00',
   lochergut: '81,-958,0.35&t=13:00',
   hardbruecke: '28,40,0&t=13:00',
   schiffbau: '150,463,0.00&t=13:00',
-  kalkbreite: '424,-1275,-0.35&t=13:00',
+  kalkbreite: '340,-1170,2.1&t=13:00',
   karte: '785,-635,0.37&map',
 };
 const VIEWPORTS = {
