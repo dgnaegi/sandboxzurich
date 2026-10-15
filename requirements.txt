@@ -2,3 +2,9 @@ requests
 numpy
 shapely
 pyproj
+mapbox_earcut
+pillow
+tifffile
+imagecodecs
+lxml
+pyogrio

@@ -1,0 +1,21 @@
+CENTER local x=766 y=133 r=110
+buildings 65; tagged:
+  (783,131) {'addr:housenumber': '56', 'addr:street': 'Röntgenstrasse', 'building': 'apartments', 'building:levels': '5', 'roof:shape': 'hipped', 'start_date': '1926'}
+  (786,147) {'building': 'apartments', 'building:levels': '5', 'roof:shape': 'hipped', 'start_date': '1926'}
+  (790,118) {'addr:housenumber': '164', 'addr:street': 'Josefstrasse', 'building': 'apartments', 'building:levels': '5', 'roof:shape': 'hipped', 'start_date': '1926'}
+  (796,161) {'building': 'apartments', 'building:levels': '5', 'roof:shape': 'hipped', 'start_date': '1926'}
+  (802,112) {'addr:housenumber': '162', 'addr:street': 'Josefstrasse', 'building': 'apartments', 'building:levels': '5', 'roof:shape': 'hipped', 'start_date': '1926'}
+  (743,169) {'addr:housenumber': '59', 'addr:street': 'Röntgenstrasse', 'building': 'apartments', 'building:levels': '5', 'roof:shape': 'hipped', 'start_date': '1919..1920'}
+  (722,125) {'building': 'apartments', 'building:levels': '5', 'roof:shape': 'hipped', 'start_date': '1927'}
+  (723,116) {'building': 'apartments', 'building:levels': '5', 'roof:shape': 'hipped', 'start_date': '1927'}
+  (731,165) {'addr:housenumber': '170', 'addr:street': 'Josefstrasse', 'building': 'apartments', 'building:levels': '5', 'roof:shape': 'hipped', 'start_date': '1919..1920'}
+  (780,187) {'addr:housenumber': '66', 'addr:street': 'Röntgenstrasse', 'building': 'apartments', 'building:levels': '5', 'roof:shape': 'hipped'}
+  (805,174) {'building': 'apartments', 'building:levels': '5', 'roof:shape': 'pyramidal', 'start_date': '1926'}
+  (743,186) {'addr:housenumber': '61', 'addr:street': 'Röntgenstrasse', 'building': 'apartments', 'building:levels': '5', 'roof:shape': 'hipped', 'start_date': '1919..1920'}
+  (707,137) {'building': 'apartments', 'building:levels': '5', 'roof:shape': 'hipped', 'start_date': '1927'}
+  (717,174) {'building': 'apartments', 'building:levels': '5', 'roof:shape': 'gabled', 'start_date': '1919..1920'}
+named shops/amenity: CouCou [cafe](780,181); Coop [supermarket](791,87); MAME [cafe](809,102); Ganes Coiffeur [hairdresser](778,192); Stiftung Frauenhaus Zürich [social_facility](832,143); The Art of Wine [wine](810,78); LEKKA [art](813,77); Friends Corner [restaurant](836,88); Damas [restaurant](826,67); Cabinet Vintage [clothes](853,78); S K Trading [convenience](803,35)
+counts: natural=tree:50, amenity=parking:26, amenity=bench:8, amenity=bicycle_parking:6, barrier=bollard:4, leisure=picnic_table:3, amenity=waste_basket:2, amenity=cafe:2, amenity=restaurant:2, barrier=kerb:2, barrier=gate:1, amenity=drinking_water:1, amenity=parking_space:1, amenity=motorcycle_parking:1, amenity=social_facility:1, highway=crossing:1, barrier=hedge:1
+surfaces: {'asphalt': 39, 'pebblestone': 1, 'concrete': 2}
+streets: Quellenstrasse, Röntgenplatz, Röntgenstrasse, Fabrikstrasse, Josefstrasse
+heritage 40: Wohnsiedlung Industrie II, Roter Block [kommunal,1919](741,219); Wohnsiedlung Industrie II, Roter Block [kommunal,1919](727,228); Wohnsiedlung Industrie II, Roter Block [kommunal,1919](728,158); Wohnsiedlung Industrie II, Roter Block [kommunal,1919](712,169); Wohnsiedlung Industrie II, Roter Block [kommunal,1919](751,170); Wohnsiedlung Industrie II, Roter Block [kommunal,1919](751,186); Wohnsiedlung Industrie II, Roter Block [kommunal,1919](752,203);  [kommunal,1911](797,204);  [kommunal,1911](813,231);  [kommunal,1911](807,220); Wohnsiedlung Röntgenhof [kommunal,1925](827,221); Wohnsiedlung Röntgenhof [kommunal,1925](818,206); Wohnsiedlung Röntgenhof [kommunal,1925](810,193); Wohnsiedlung Röntgenhof [kommunal,1925](800,177); Wohnsiedlung Röntgenhof [kommunal,1925](792,164); Wohnsiedlung Röntgenhof [kommunal,1925](783,148); Wohnsiedlung Röntgenhof [kommunal,1927](725,110); Wohnsiedlung Röntgenhof [kommunal,1927](724,131)

@@ -29,3 +29,15 @@ Jede Quelle, die ins Spiel einfliesst, steht hier mit Lizenz. Neue Quellen zuers
 - `../gta6/data/` enthält OSM, LOD2, Ortho und DEM für ein kleineres Gebiet (Kreis 4/5).
 - Skripte zum Wiederverwenden: `../gta6/src/fetch_osm.py`, `../gta6/src/parse_citygml.py`, `../gta6/src/fetch_ortho.py`, `../gta6/src/prep_osm.py`.
 - Recherche zu Orten: `../gta6/research/locations.md`.
+
+## Heruntergeladen (Stand 2026-10-14, Details in `research/raw_inventory.md`)
+Skripte: `pipeline/fetch_osm.py`, `fetch_swisstopo.py`, `fetch_stadtzh.py`; Ablage `data/raw/` (nicht im Repo).
+
+| Datensatz | Ablage | Lizenz |
+|---|---|---|
+| OSM Gesamtabfrage Kreise 3/4/5/9 + 300 m | `data/raw/osm/kreise.json` | ODbL, © OpenStreetMap-Mitwirkende |
+| swissALTI3D 0.5 m (GeoTIFF) | `data/raw/alti3d/` | OGD swisstopo, Quellenangabe |
+| swissBUILDINGS3D 3.0 (CityGML, 2 Blätter nur FileGDB) | `data/raw/sb3d/` | OGD swisstopo, Quellenangabe |
+| SWISSIMAGE 10 cm: nur Item-Liste, keine Bilder | `data/raw/swissimage_items.json` | OGD swisstopo, Quellenangabe |
+| Stadt Zürich: Baumkataster, Brunnen, Velonetzplanung, Fuss- und Velowegnetz, Verkehrszonen, Stadtkreise, öffentliche Beleuchtung (ewz), Sitzbankkataster, Abfallgefässe, ZüriWC, Strassenparkplätze (OGD + DAV) | `data/raw/stadtzh/*.geojson` | je CC0 (laut CKAN `license_id`), Quelle «Stadt Zürich» angeben |
+| Fussgängerstreifen, Tempo-30 (Kanton ZH, OGDZHWFS) | nicht geladen (OSM liefert Fussgängerstreifen, Tempo-30 über `geo_verkehrszonen`) | CC0 |

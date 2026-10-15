@@ -1,0 +1,13 @@
+import { chromium, devices } from 'playwright';
+const b = await chromium.launch({ args: ['--use-gl=angle'] });
+const ctx = await b.newContext({ ...devices['iPhone 13'], viewport: { width: 844, height: 390 } });
+const p = await ctx.newPage();
+const sizes = new Map();
+p.on('response', async (r) => { try { const buf = await r.body().catch(() => Buffer.alloc(Number(r.headers()['content-length'] ?? 0))); const u = new URL(r.url()).pathname; const k = u.replace(/\/t_-?\d+_-?\d+\.(glb|json)$/, '/t_*.$1').replace(/\/r_-?\d+_-?\d+\.glb$/, '/r_*.glb').replace(/^\/(node_modules|src|@)\/.*/, '/[$1 dev modules]'); sizes.set(k, (sizes.get(k) ?? 0) + buf.length); } catch {} });
+await p.goto('http://localhost:5173/?at=785,-635,0.37');
+await p.waitForFunction(() => window.gtaReady, null, { timeout: 90000 });
+await p.waitForTimeout(3000);
+const rows = [...sizes].sort((a, b) => b[1] - a[1]);
+console.log('total MB', (rows.reduce((s, r) => s + r[1], 0) / 1e6).toFixed(1));
+for (const [k, v] of rows.slice(0, 22)) console.log((v / 1e6).toFixed(2).padStart(6), k);
+await b.close();

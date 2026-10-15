@@ -1,0 +1,235 @@
+{
+ "units": "metres, bone-local (three.js Object3D under the bone) or character-root-local when bone=null",
+ "reference_rig": "npc_01",
+ "items": [
+  {
+   "name": "backpack",
+   "file": "backpack.glb",
+   "bone": "spine_03",
+   "offset": [
+    0,
+    -0.0167,
+    -0.2055
+   ],
+   "rotation": [
+    -2.9778,
+    0,
+    -3.1416
+   ],
+   "tint": "#44546a",
+   "note": "on the back; follows torso"
+  },
+  {
+   "name": "shoulder_bag",
+   "file": "shoulder_bag.glb",
+   "bone": "pelvis",
+   "offset": [
+    -0.24,
+    -0.0885,
+    -0.1071
+   ],
+   "rotation": [
+    -2.7894,
+    0,
+    -3.1416
+   ],
+   "tint": "#6a4a38",
+   "note": "worn on the right hip, strap rises to the shoulder"
+  },
+  {
+   "name": "tote_bag",
+   "file": "tote_bag.glb",
+   "bone": "spine_03",
+   "offset": [
+    0.23,
+    0.036,
+    -0.0954
+   ],
+   "rotation": [
+    -2.9778,
+    0,
+    -3.1416
+   ],
+   "note": "left shoulder, hangs behind the arm"
+  },
+  {
+   "name": "shopping_bag",
+   "file": "shopping_bag.glb",
+   "bone": "hand_r",
+   "offset": [
+    0.0061,
+    0.0281,
+    0.0017
+   ],
+   "rotation": [
+    2.4845,
+    -0.8933,
+    -0.5026
+   ],
+   "note": "kraft paper bag, no logo; tint optional"
+  },
+  {
+   "name": "shopping_bag_green",
+   "file": "shopping_bag_green.glb",
+   "bone": "hand_l",
+   "offset": [
+    -0.0061,
+    0.0281,
+    0.0017
+   ],
+   "rotation": [
+    2.4845,
+    0.8933,
+    0.5026
+   ],
+   "note": "fabric bag, no logo"
+  },
+  {
+   "name": "umbrella_closed",
+   "file": "umbrella_closed.glb",
+   "bone": "hand_r",
+   "offset": [
+    0.0091,
+    0.0189,
+    0.0041
+   ],
+   "rotation": [
+    2.4845,
+    -0.8933,
+    -0.5026
+   ],
+   "tint": "#2b3a55"
+  },
+  {
+   "name": "cane",
+   "file": "cane.glb",
+   "bone": "hand_r",
+   "offset": [
+    0.0091,
+    0.0189,
+    0.0041
+   ],
+   "rotation": [
+    2.4845,
+    -0.8933,
+    -0.5026
+   ],
+   "note": "walking stick for old NPCs, tip reaches the ground"
+  },
+  {
+   "name": "phone",
+   "file": "phone.glb",
+   "bone": "hand_r",
+   "offset": [
+    -0.0072,
+    0.0603,
+    -0.0133
+   ],
+   "rotation": [
+    3.0106,
+    -0.6798,
+    -2.9191
+   ],
+   "pose": "phone",
+   "note": "valid for the stand_phone animation"
+  },
+  {
+   "name": "stroller",
+   "file": "stroller.glb",
+   "bone": null,
+   "offset": [
+    0,
+    0.8949,
+    -0.2862
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "tint": "#3d5a6e",
+   "note": "character-root-local; pushed in front, handle at the hands; use with idle/walk of an adult"
+  },
+  {
+   "name": "walker",
+   "file": "walker.glb",
+   "bone": null,
+   "offset": [
+    0,
+    0.8949,
+    -0.1062
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "note": "rollator, handles at the hands; best with walk_slow"
+  },
+  {
+   "name": "dog_small",
+   "file": "dog_small.glb",
+   "bone": null,
+   "offset": [
+    -0.5,
+    0,
+    -0.53
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "note": "root-local, left front; clip walk (1 s loop), idle = do not play",
+   "anim": "walk"
+  },
+  {
+   "name": "dog_medium",
+   "file": "dog_medium.glb",
+   "bone": null,
+   "offset": [
+    -0.6,
+    0,
+    -0.63
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "anim": "walk"
+  },
+  {
+   "name": "leash_small",
+   "file": "leash_small.glb",
+   "bone": "hand_l",
+   "offset": [
+    0.003,
+    0.0558,
+    -0.0055
+   ],
+   "rotation": [
+    2.4845,
+    0.8933,
+    0.5026
+   ],
+   "note": "pairs with dog_small at its manifest offset"
+  },
+  {
+   "name": "leash_medium",
+   "file": "leash_medium.glb",
+   "bone": "hand_l",
+   "offset": [
+    0.003,
+    0.0558,
+    -0.0055
+   ],
+   "rotation": [
+    2.4845,
+    0.8933,
+    0.5026
+   ],
+   "note": "pairs with dog_medium at its manifest offset"
+  }
+ ]
+}

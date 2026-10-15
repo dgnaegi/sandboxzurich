@@ -1,0 +1,102 @@
+[
+ {
+  "cls": "broadleaf",
+  "file": "broadleaf_0.glb",
+  "variant": 0
+ },
+ {
+  "cls": "broadleaf",
+  "file": "broadleaf_1.glb",
+  "variant": 1
+ },
+ {
+  "cls": "cherry",
+  "file": "cherry_0.glb",
+  "variant": 0
+ },
+ {
+  "cls": "cherry",
+  "file": "cherry_1.glb",
+  "variant": 1
+ },
+ {
+  "cls": "whiteblossom",
+  "file": "whiteblossom_0.glb",
+  "variant": 0
+ },
+ {
+  "cls": "whiteblossom",
+  "file": "whiteblossom_1.glb",
+  "variant": 1
+ },
+ {
+  "cls": "plane",
+  "file": "plane_0.glb",
+  "variant": 0
+ },
+ {
+  "cls": "plane",
+  "file": "plane_1.glb",
+  "variant": 1
+ },
+ {
+  "cls": "linden",
+  "file": "linden_0.glb",
+  "variant": 0
+ },
+ {
+  "cls": "linden",
+  "file": "linden_1.glb",
+  "variant": 1
+ },
+ {
+  "cls": "maple",
+  "file": "maple_0.glb",
+  "variant": 0
+ },
+ {
+  "cls": "maple",
+  "file": "maple_1.glb",
+  "variant": 1
+ },
+ {
+  "cls": "chestnut",
+  "file": "chestnut_0.glb",
+  "variant": 0
+ },
+ {
+  "cls": "chestnut",
+  "file": "chestnut_1.glb",
+  "variant": 1
+ },
+ {
+  "cls": "birch",
+  "file": "birch_0.glb",
+  "variant": 0
+ },
+ {
+  "cls": "birch",
+  "file": "birch_1.glb",
+  "variant": 1
+ },
+ {
+  "cls": "conifer",
+  "file": "conifer_0.glb",
+  "variant": 0
+ },
+ {
+  "cls": "conifer",
+  "file": "conifer_1.glb",
+  "variant": 1
+ },
+ {
+  "cls": "columnar",
+  "file": "columnar_0.glb",
+  "variant": 0
+ },
+ {
+  "cls": "columnar",
+  "file": "columnar_1.glb",
+  "variant": 1
+ }
+]

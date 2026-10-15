@@ -1,0 +1,51 @@
+[
+ {
+  "type": "hatch",
+  "file": "hatch.glb",
+  "length": 4.37,
+  "width": 1.79,
+  "height": 1.47
+ },
+ {
+  "type": "wagon",
+  "file": "wagon.glb",
+  "length": 4.76,
+  "width": 1.82,
+  "height": 1.48
+ },
+ {
+  "type": "small",
+  "file": "small.glb",
+  "length": 3.61,
+  "width": 1.63,
+  "height": 1.5
+ },
+ {
+  "type": "sedan",
+  "file": "sedan.glb",
+  "length": 4.79,
+  "width": 1.85,
+  "height": 1.45
+ },
+ {
+  "type": "suv",
+  "file": "suv.glb",
+  "length": 4.58,
+  "width": 1.84,
+  "height": 1.68
+ },
+ {
+  "type": "van",
+  "file": "van.glb",
+  "length": 4.97,
+  "width": 1.9,
+  "height": 1.98
+ },
+ {
+  "type": "sport",
+  "file": "sport.glb",
+  "length": 4.61,
+  "width": 1.85,
+  "height": 1.31
+ }
+]

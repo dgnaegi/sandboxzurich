@@ -1,0 +1,16 @@
+{
+ "backpack": {"bone": "spine_03", "delta": [0, -0.05, 0.2], "tint": "#44546a", "note": "on the back; follows torso"},
+ "shoulder_bag": {"bone": "pelvis", "delta": [0.24, -0.12, 0.07], "tint": "#6a4a38", "note": "worn on the right hip, strap rises to the shoulder"},
+ "tote_bag": {"bone": "spine_03", "delta": [-0.23, 0.02, 0.1], "note": "left shoulder, hangs behind the arm"},
+ "shopping_bag": {"bone": "hand_r", "anchor": "palm_r", "delta": [0, 0.03, 0], "note": "kraft paper bag, no logo; tint optional"},
+ "shopping_bag_green": {"bone": "hand_l", "anchor": "palm_l", "delta": [0, 0.03, 0], "note": "fabric bag, no logo"},
+ "umbrella_closed": {"bone": "hand_r", "anchor": "palm_r", "delta": [0, 0.04, 0], "tint": "#2b3a55"},
+ "cane": {"bone": "hand_r", "anchor": "palm_r", "delta": [0, 0.04, 0], "note": "walking stick for old NPCs, tip reaches the ground"},
+ "phone": {"bone": "hand_r", "anchor": "palm_r", "delta": [0, 0.0, -0.01], "rot": [-0.6, 3.14159, 0], "pose": "phone", "note": "valid for the stand_phone animation"},
+ "stroller": {"bone": null, "anchor": "hands", "delta": [0, 0, -0.2], "tint": "#3d5a6e", "note": "character-root-local; pushed in front, handle at the hands; use with idle/walk of an adult"},
+ "walker": {"bone": null, "anchor": "hands", "delta": [0, 0, -0.02], "note": "rollator, handles at the hands; best with walk_slow"},
+ "dog_small": {"bone": null, "delta": [-0.5, 0, -0.53], "anim": "walk", "note": "root-local, left front; clip walk (1 s loop), idle = do not play"},
+ "dog_medium": {"bone": null, "delta": [-0.6, 0, -0.63], "anim": "walk"},
+ "leash_small": {"bone": "hand_l", "anchor": "palm_l", "delta": [0, 0, 0], "note": "pairs with dog_small at its manifest offset"},
+ "leash_medium": {"bone": "hand_l", "anchor": "palm_l", "delta": [0, 0, 0], "note": "pairs with dog_medium at its manifest offset"}
+}

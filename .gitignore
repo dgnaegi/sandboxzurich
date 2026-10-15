@@ -19,3 +19,22 @@ __pycache__/
 .env
 .env.*
 .DS_Store
+
+# generated tiles (pipeline output)
+web/public/tiles/
+
+# caches and research scratch data (regenerable)
+data/cache/
+research/**/work/*.pkl
+research/**/work/*.json
+preview/ref_*.jpg
+
+# no images in the repo (User 2026-10-15): screenshots, references, textures stay local
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.tif
+*.tiff
+*.ktx2

@@ -1,0 +1,347 @@
+osm,name,osm_type,lat,lon,opening_hours,cuisine,outdoor_seating,website,contact:website,addr:street,addr:housenumber,addr:postcode,addr:city,description,brand,shop,amenity,craft,drink:beer,takeaway,wheelchair,phone,email,smoking,reservation,note,check_date,opening_hours:covid19,other_tags
+6498189281,Klar,node,47.375498,8.5288485,,,,,,Rotwandstrasse,52,8004,Zürich,,,,,,,,no,,,,,,2024-08-24,,"{""office"": ""advertising_agency""}"
+6498631234,J.B. Labat,node,47.3782917,8.5259583,"Tu-Fr 11:30-19:00, Sa 11:00-17:00",,,https://www.labat.ch/,,,,,,,,alcohol,,,,,yes,,,,,,2024-08-24,,{}
+2052663807,Lovis Architekt*innen,node,47.3777899,8.5281593,,,,,,Dienerstrasse,21,8004,Zürich,,,,,,,,,,,,,,,,"{""office"": ""architect""}"
+4838789805,neff neumann architekten,node,47.3765176,8.5244933,,,,https://www.neffneumann.ch,,Kernstrasse,37,8004,Zürich,,,,,,,,,+41 44 248 36 00,,,,,2026-05-26,,"{""addr:country"": ""CH"", ""office"": ""architect""}"
+10891371968,patatoffel,node,47.3768179,8.528149,,,,,,Hohlstrasse,9,,,,,,,,,,,,,,,,,,"{""office"": ""architect""}"
+2424887405,Les Complices*,node,47.3760631,8.5245967,,,,https://lescomplices.ch/,,Anwandstrasse,9,8004,,,,,arts_centre,,,,no,+41 43 243 88 77,info@les-complices.ch,,,,,,{}
+6023189166,Mieterinnen- und Mieterverband,node,47.3791809,8.5291029,"Mo-Fr 09:00-12:00, 13:30-17:00",,,https://mieterverband.ch/mv-zh/,,Tellstrasse,31,8004,Zürich,,,,,,,,yes,+41 44 296 90 20,info@mvzh.ch,,,,,,"{""level"": ""0"", ""office"": ""association"", ""source"": ""local knowledge""}"
+12478357748,KaBa,node,47.3759194,8.5249335,"Mo-Tu,Th,Sa-Su off; We,Fr 11:00-18:00",,,https://ka-ba.ch,,,,,,,,bag,,,,,no,,,,,,2025-01-06,,{}
+11216071002,Schirm-Fredi,node,47.3771683,8.5260546,Mo-Fr 10:00-19:00; Sa 10:00-18:00,,,https://schirmfredi.ch,,Langstrasse,69,8004,Zürich,"Fachgeschäft für Schirme, Lederwaren und Reiseartikel
+Wir bieten eine grosse Auswahl an Schirmen, Koffer, Taschen und sonstige Reise Accessoires.
+Geäck Reparatur Service: Wir reparieren fast alle gängigen Gepäckstücke (Mo-Do 10:00-16:00)",,bag,,,,,yes,+41 76 510 28 27,schirmfredi@gmail.com,,,,2023-09-24,,"{""leatherware:repair"": ""yes"", ""luggage:repair"": ""yes"", ""opening_hours:description"": ""Mo-Fr 10-19 Uhr; Sa 10-18 Uhr"", ""repair"": ""yes""}"
+309921040,John Baker,node,47.3764107,8.5263373,Mo-Fr 06:30-18:00; Sa 08:00-16:00; Su 08:00-14:00,,,https://johnbaker.ch/helvetiapl/,,Molkenstrasse,15,8004,Zürich,,,bakery,,,,,no,+41 44 281 92 92,john@johnbaker.ch,,,,2026-08-12,,"{""addr:country"": ""CH"", ""alt_name"": ""John Baker Helvetiaplatz"", ""branch"": ""Zürich Helvatiaplatz"", ""check_date:opening_hours"": ""2026-08-12""}"
+14175317258,Oni Bakery,node,47.376965,8.5262173,,,,,,,,,,,,bakery,,,,,,,,,,,,,{}
+920508290,After Dark,node,47.3765798,8.5281669,"Mo-Th 16:30-24:00, Fr 16:30-03:00, Sa 18:00-03:00",,,https://afterdark-bar.ch/,,Ankerstrasse,119,,,,,,bar,,,,no,,,,,,2023-09-24,,{}
+936942732,Art 4 Bar,node,47.3774238,8.5292763,,,no,,,,,,,,,,bar,,,,no,,,,,,2024-08-19,,"{""indoor_seating"": ""yes""}"
+871794824,B9,node,47.37789,8.5261031,,,,,,Kernstrasse,60,8004,Zürich,,,,bar,,,,,,,,,,,,"{""check_date:opening_hours"": ""2026-10-14"", ""opening_hours:signed"": ""no""}"
+1016012582,Bagatelle §93,node,47.3781259,8.5266623,Tu-We 21:00+; Th-Sa 20:00+,,,https://www.bagatelle93.ch/,,,,,,,,,bar,,,,no,,,,,,2023-09-24,,{}
+1235083734,Bar 63 chez Sylvia,node,47.3792854,8.5260935,,,yes,https://bar63.ch/,,,,,,,,,bar,,,,no,,,,,,2023-05-12,,{}
+3242600651,Bar OTRO,node,47.3784483,8.5287399,"Mo,Su off; Tu-Th 17:00-24:00; Fr-Sa 17:00-01:00",,yes,https://www.otro.bar/,,,,,,,,,bar,,,,no,,,,,,2025-04-14,,"{""indoor_seating"": ""yes"", ""level"": ""0""}"
+3926102925,Barizzi,node,47.3776951,8.5274497,,,yes,,,Brauerstrasse,34,8004,Zürich,,,,bar,,,,no,,,,,,2023-06-02,,"{""addr:country"": ""CH""}"
+10946818680,Barteca,node,47.3776158,8.5271268,,brazilian,,,,,,,,,,,bar,,,,yes,,,,,,2023-06-02,,{}
+317454772,Brick,node,47.3754357,8.5244774,,,,http://brickbar.ch/,,Langstrasse,21,8004,Zürich,,,,bar,,,,limited,,,,,,,,"{""addr:country"": ""CH""}"
+10596153317,Caipi-Bar,node,47.379245,8.5257472,,,yes,,,Dienerstrasse,68,8004,Zürich,,,,bar,,,,,,,isolated,,,,,"{""internet_access"": ""wlan"", ""level"": ""0""}"
+9893260543,Carol,node,47.3778553,8.5284761,,,,,,,,,,,,,bar,,,,,,,,,,,,{}
+914703164,Daniel H.,node,47.3754267,8.5293032,Tu-Th 11:00-00:00; Fr 11:00-02:00; Sa 19:00-02:00,,yes,https://www.danielh.ch/,,Müllerstrasse,51,8004,Zürich,,,,bar,,,,no,,,,,,,,"{""addr:country"": ""CH"", ""indoor_seating"": ""yes""}"
+1320113401,Don Miguel,node,47.3761788,8.5286665,,,yes,,,Müllerstrasse,72,8004,Zürich,,,,bar,,,,no,,,,,,2026-10-12,,"{""addr:country"": ""CH"", ""check_date:opening_hours"": ""2026-10-12"", ""opening_hours:signed"": ""no""}"
+914703104,E.X. 4,node,47.3757372,8.5288666,,,,https://www.ex4bar.ch/,,Müllerstrasse,63,,,,,,bar,,,,no,,,,,,2024-08-24,,{}
+6223031358,Fat Tony,node,47.380048,8.5277818,Mo-Sa 11:00+,pizza,yes,,,,,,,,,,bar,,,,no,,,outside,,,2024-08-24,,{}
+1232849946,Gamper Bar,node,47.3792989,8.525277,,,yes,,,Dienerstrasse,75,8004,Zürich,,,,bar,,,,no,,,,,,2023-09-29,,"{""addr:country"": ""CH""}"
+5083782849,Glamour Bar,node,47.3758798,8.5294424,Mo-Fr 14:00-23:00,,,http://www.glamour-bar.ch/,,,,,,,,,bar,,,,no,,,,,,2024-08-09,,{}
+1235083841,Golden Gate Bar,node,47.3799979,8.5267203,,,yes,http://www.goldengate-bar.ch/,,Schöneggstrasse,15,8004,Zürich,,,,bar,,,,,,,,,,2024-08-24,,"{""indoor_seating"": ""yes""}"
+14277803199,Ipanema Bar,node,47.3763636,8.5284099,,,,,,,,,,,,,bar,,,,,,,,,,,,"{""check_date:opening_hours"": ""2026-10-12"", ""opening_hours:signed"": ""no""}"
+12754797447,J.B. LABAT,node,47.37872,8.5287053,,,,,,,,,,,,,bar,,,,,,,,,,2025-04-14,,{}
+1240044684,Ka3an,node,47.3787218,8.5298173,Tu 19:30-24:00; Th 20:00-24:00; Fr-Sa 21:00-04:00,,,http://ka3an.ch/,,Militärstrasse,84,,,Karaoke bar,,,bar,,,,no,+41765262155,,,,,2025-04-14,,{}
+869269170,Karaoke 4 You Thai Kitchen,node,47.3765186,8.5251237,Mo off; Tu-Sa 11:00-18:00; Su 12:00-18:00,,,,,,,,Zürich,,,,bar,,,,yes,,,,,,2023-05-23,,{}
+362915349,Kir Royal,node,47.3768022,8.52612,"Tu,We 17:00-24:00, Th 17:00-02:00, Fr 17:00-04:00, Sa 19:00-04:00",,,https://www.kirroyal.ch/,,Langstrasse,62,8004,Zürich,,,,bar,,,,no,,,,,,2026-08-28,,"{""check_date:opening_hours"": ""2026-08-28""}"
+2112530380,Klaus,node,47.3789337,8.5273866,,,,https://hausvonklaus.ch/,,Langstrasse,112,8004,Zürich,,,,bar,,,,limited,,info@postanklaus.ch,,,,,,"{""operator"": ""Klaus und Freunde GmbH"", ""toilets:wheelchair"": ""no""}"
+1232849945,La Strega,node,47.3795604,8.5252038,,,,,,,,,,,,,bar,,,,no,,,,,,2024-06-14,,{}
+656616749,Lambada Bar Club,node,47.3784465,8.5268634,,,,,,Dienerstrasse,43,,Zürich,,,,bar,,,,yes,,,,,,2024-09-17,,{}
+12974074101,Late Bloomers,node,47.3777927,8.5285273,Tu-Th 17:00-00:00; Fr-Sa 17:00-02:00,,,https://latebloomersthebar.com/,,Dienerstrasse,20,8004,,,,,bar,,,,,,info@latebloomersthebar.com,,,,,,{}
+920508508,Leeward,node,47.377004,8.5259322,,,,,,,,,,,,,bar,,,,limited,,,,,,2025-06-24,,{}
+656623537,Longstreet Bar Club,node,47.3781306,8.5269419,We-Sa 20:00+,,,,,Langstrasse,92,,,,,,bar,,,,no,,,,,,2026-07-12,,{}
+936942901,Love Story,node,47.3764724,8.5284217,,,,,,Ankerstrasse,116,,,,,,bar,,,,,,,,,,2024-08-19,,{}
+656810963,Lugano Bar,node,47.378784,8.5273116,Mo-Fr 05:00-29:00; Sa-Su 00:00-24:00,,,,,Langstrasse,108,,,,,,bar,,,,no,,,,,,2026-07-12,,{}
+1241219838,Macuto's Bar,node,47.3786157,8.5265819,,,,,,,,,,,,,bar,,,,,,,,,,2023-04-09,,{}
+1235083770,Midway,node,47.3793966,8.5262654,,,,,,,,,,,,,bar,,,,no,+41 44 291 93 79,,,,,2023-04-09,,{}
+5077193368,Milieu,node,47.3776185,8.5275974,,,yes,https://www.milieuzuerich.ch/,,,,,,,,,bar,,,,limited,,,,,,2023-06-02,,{}
+656719956,Monroe,node,47.3774661,8.5279076,We-Sa 17:00+,,no,https://monroe.zuerich/,,Brauerstrasse,26,,,,,,bar,,,,no,,,,,,2023-06-02,,{}
+1241219845,Negresco,node,47.3780116,8.5277525,,,,,,,,,,,,,bar,,,,no,,,,,,2023-09-24,,{}
+656664543,Norden,node,47.3767507,8.5284977,"Mo-Th 17:00-24:00; Fr,Sa 17:00-02:00",,yes,https://www.norden-bar.ch/,,Ankerstrasse,123,,,,,,bar,,,,limited,,info@norden-bar.ch,,,,2024-08-19,,"{""indoor_seating"": ""yes""}"
+4424003110,Olé Olé Bar,node,47.3800296,8.5280643,,,,https://oleolebar.ch/,,Langstrasse,138,8004,Zürich,,,,bar,,,,no,,,,,,2024-09-17,,"{""addr:country"": ""CH"", ""name:de"": ""Olé Olé Bar""}"
+5829856430,Passion cocktail bar,node,47.3781604,8.5300866,,,,,,Kanonengasse,33,8004,Zürich,,,,bar,,,,,,,,,,,,{}
+13307980101,Peeeng,node,47.377102,8.5260063,We-Fr 17:00-02:00; Sa 15:00-02:00,,,https://www.peeeng.ch/,,Langstrasse,67,8004,,,,,bar,,,,,,,,,,,,"{""contact:instagram"": ""peeeng.ch""}"
+656518918,Puschkin Club,node,47.376864,8.5278177,,,,,,Müllerstrasse,92,8004,Zürich,,,,bar,,,,no,,,,,,,,{}
+9893261276,Rasputin,node,47.3768356,8.5274675,,,,,,,,,,,,,bar,,,,,,,,,,,,{}
+656711884,Red Light,node,47.3774727,8.5273976,,,yes,,,,,,,,,,bar,,,,,,,,,,,,{}
+11709381774,Roter Delfin,node,47.3756628,8.5249834,Mo-Fr 11:30-00:00; Sa 10:00-00:00; Su 10:00-22:00,,,https://roterdelfin.ch/,,Langstrasse,31,8004,Zürich,,,,bar,,,,,+41 44 291 00 88,,,,,,,"{""addr:country"": ""CH""}"
+656541296,Roxy,node,47.3796168,8.5261794,Mo-Sa 18:00-02:00,,,https://www.roxymusikbar.ch/,,Zinistrasse,7,,,,,,bar,,,,no,,mail@roxymusikbar.ch,,,,2023-05-12,,"{""contact:instagram"": ""roxy_musikbar""}"
+1240044636,Strauss,node,47.379674,8.5278486,"Mo-Th 10:00-26:00, Fr-Sa 10:00-28:00, Su 13:00-22:00",,no,https://www.musik-hall-strauss.ch/,,Langstrasse,132,,,,,,bar,,,,no,,,,,,2026-05-30,,"{""indoor_seating"": ""yes"", ""internet_access"": ""wlan""}"
+1240044507,Sudaka,node,47.3794533,8.5282622,,,,,,,,,,Latin-American Izakaya,,,bar,,,,no,,,,,,2024-07-21,,{}
+1241219989,Thai Tirak,node,47.3781726,8.5277611,"Mo-Tu,Su off; We 17:00-25:00; Th 17:00-28:00; Fr-Sa 17:00+",portuguese,,,,Dienerstrasse,28,,,International Karaoke,,,bar,,,,no,,,,,,2023-09-24,,{}
+1567061990,The Mixt,node,47.3755383,8.529159,,,yes,,,Müllerstrasse,55,8004,Zürich,,,,bar,,,,no,,,,,,2024-08-24,,"{""addr:country"": ""CH""}"
+1235083514,The Spot Bar,node,47.379506,8.5260401,,,yes,https://www.kaiserfranz.li/,,Rolandstrasse,22,,Zürich,,,,bar,,,,no,,,,,,2023-05-12,,"{""brewery"": ""various"", ""internet_access"": ""wlan""}"
+1235083798,Tipsy Tiger,node,47.3798446,8.5276503,Mo-Tu 16:00-01:00; We-Th 16:00-02:00; Fr-Sa 16:00-04:00,,yes,https://tipsytiger.ch/,,Langstrasse,133,8004,Zürich,,,,bar,,,,yes,+41 44 320 13 33,drinks@tipsytiger.ch,,,,2024-08-24,,"{""addr:country"": ""CH"", ""indoor_seating"": ""yes""}"
+1235083674,Toro Bar,node,47.3803358,8.5261534,,,yes,https://www.torobar.com/,,,,,,,,,bar,,,,yes,,,,,,2024-08-24,,"{""indoor_seating"": ""yes""}"
+10316382317,Tropical Bar,node,47.3800581,8.5266162,,,no,https://www.salsa.ch/venues/tropical-bar-zurich,,Schöneggstrasse,15,8004,Zürich,,,,bar,,,,limited,,,,,,2024-08-24,,"{""indoor_seating"": ""yes""}"
+9676271554,Wunderbar,node,47.3778051,8.5267439,,,,,https://www.wunderbar-zuerich.com/,,,,,,,,bar,,,,,,,,,,,,"{""contact:city"": ""Zürich"", ""contact:email"": ""wunderbar@urbanagency.ch"", ""contact:housenumber"": ""84"", ""contact:phone"": ""+41 79 939 95 50"", ""contact:postcode"": ""8004"", ""contact:street"": ""Langstrasse""}"
+11216070996,Zwllings Bar,node,47.3792121,8.5282699,,,,,,,,,,,,,bar,,,,,,,,,,2023-09-24,,{}
+656629799,raedli,node,47.3772164,8.5276576,"Tu 16:00-00:00; We 16:00-25:00, Th 16:00-26:00, Fr,Sa 17:00-28:00",,yes,https://www.raed.li/,,Kurzgasse,4,8004,Zürich,,,,bar,,,,yes,,,outside,,"caution regarding the opening hours after midnight, this needs commas instead of semicolons, see https://wiki.openstreetmap.org/wiki/Key:opening_hours#Closing_after_midnight about the difference",,,"{""brewery"": ""amboss""}"
+11992812113,Cuban Nails,node,47.3792932,8.5298604,,,,https://cubannails.ch,,,,,,,,beauty,,,,,no,,,,,,2024-06-19,,"{""beauty"": ""nails""}"
+10567748103,Gold Diva,node,47.3769273,8.5283671,,,,,,,,,,,,beauty,,,,,,,,,,,,,{}
+12138506372,Longfinger Cosmetics,node,47.375051,8.5278933,,,,,,,,,,,,beauty,,,,,no,,,,,,2024-08-24,,"{""beauty"": ""nails""}"
+2717037990,Lovely Brows,node,47.3766352,8.5255652,Mo-Fr 10:00-20:00; Sa 10:00-18:00,,,,,,,,,,,beauty,,,,,no,,,,,,2026-05-26,,"{""check_date:opening_hours"": ""2026-05-26""}"
+10891371969,Sara Tischhauser,node,47.3767933,8.5283356,,,,,,,,,,,,beauty,,,,,,+41763953965,,,,,,,{}
+10889806815,Zürich Nails by Samantha,node,47.3786648,8.5279301,,,,,,,,,,,,beauty,,,,,no,,,,,,2023-05-12,,"{""beauty"": ""nails""}"
+6580342183,EGO Movement,node,47.3797117,8.5297653,Mo-Fr 11:00-19:00; Sa 10:00-18:00; PH off,,,https://www.egomovement.com,,Lagerstrasse,100,,,,,bicycle,,,,,yes,+41 43 557 65 56,info@egomovement.com,,,,2024-08-09,,"{""check_date:opening_hours"": ""2023-10-06"", ""service:bicycle:cleaning"": ""no"", ""service:bicycle:pump"": ""no""}"
+1241205926,Flamme Rouge,node,47.3758379,8.529372,We-Fr 13:00-18:00; Sa 10:00-17:00; PH off,,,https://www.flammerouge.ch/,,Rotwandstrasse,64,8004,Zürich,,Stijn Cycles;Surly;Singular Cycles;Genesis Bikes;Otso Cycles;Salsa;All-City;Niner;Aarious;Ritchey Bikes,bicycle,,,,,no,+41 76 519 59 53,mail@flammerouge.ch,,,,2025-07-16,,"{""operator"": ""Christoph Vetter"", ""payment:cards"": ""yes"", ""payment:cash"": ""yes"", ""service:bicycle:Bicycle_Sales_and_Service"": ""yes"", ""service:bicycle:cleaning"": ""no"", ""service:bicycle:diy"": ""no"", ""service:bicycle:mtb"": ""yes"", ""service:bicycle:parts"": ""yes"", ""service:bicycle:pump"": ""yes"", ""service:bic"
+7531030473,Meo Bici Velos,node,47.3793,8.52494,"Tu-Fr 09:00-12:00,13:30-18:30; Sa 09:00-12:00,13:30-16:00",,,http://meobici.ch/,,Nietengasse,5,8004,Zürich,"Meo Bici bietet handwerklich hergestellte Renn- und Stadtvelos als Massanfertigung an:
+Stadtvelo
+Rennvelo
+Gigolovelo
+Carbonvelo
+Reparaturen
+Velo aufpumpen: 0.50 CHF",,bicycle,,,,,limited,+41 44 242 34 92,meo@bluewin.ch,,,,2024-11-07,,"{""opening_hours:description"": ""Di-Fr 9-12,13:30-18:30 Uhr; Sa 9-12,13:30-16 Uhr"", ""operator"": ""Nello Meo"", ""repair"": ""yes"", ""service:bicycle:repair"": ""yes"", ""service:bicycle:retail"": ""yes""}"
+11216070983,Siech Cycles,node,47.3768532,8.5261728,"Mo,Su off; Tu-Fr 10:00-19:00; Sa 10:00-17:00",,,https://siech-cycles.ch,,,,,,,,bicycle,,,,,yes,,,,,,2026-01-15,,"{""check_date:opening_hours"": ""2026-01-15""}"
+5416711054,Stromvelo.ch,node,47.3782975,8.530229,"Mo-Fr 10:00-12:30,13:15-18:15; Sa 10:00-16:00",,,https://stromvelo.ch/,,Kanonengasse,35,8004,Zürich,,,bicycle,,,,,no,+41 44 552 04 53,zuerich_city@stromvelo.ch,,,,2026-05-25,,"{""check_date:opening_hours"": ""2026-05-25""}"
+11685184270,VeloKliniK,node,47.3799523,8.5291382,Mo-Fr 11:00-19:00,,,https://velo-klinik.ch,,Lagerstrasse,104,,,,,bicycle,,,,,yes,+41 78 776 60 89,info@velo-klinik.ch,,,,2024-08-09,,"{""service:bicycle:cleaning"": ""yes"", ""service:bicycle:repair"": ""yes"", ""service:bicycle:retail"": ""no"", ""service:bicycle:second_hand"": ""no""}"
+10689492505,Buchhandlung im Volkshaus,node,47.3754527,8.5272696,Mo 12:00-19:00; Tu-Th 10:00-19:00; Fr 09:00-19:00; Sa 10:00-17:00,,,https://www.volkshausbuch.ch/,,,,,,,,books,,,,,yes,+41 44 2414232,info@volkshausbuch.ch,,,,2024-06-19,,{}
+10189026000,Hochparterre Bücher,node,47.3803861,8.525947,Mo-Fr 09:30-18:30; Sa 09:30-17:00,,,https://www.hochparterre-buecher.ch/,,Schöneggstrasse,27,8004,Zürich,,,books,,,,,limited,+41 44 271 25 00,,,,,2026-06-24,,"{""addr:country"": ""CH"", ""books"": ""architecture;design"", ""operator"": ""Hochparterre AG"", ""operator:wikipedia"": ""de:Hochparterre (Zeitschrift und Verlag)""}"
+2298795776,Libreria Italiana,node,47.3772881,8.5274662,Mo-Fr 14:00-18:30; Sa 10:00-16:00,,,http://libreriaitaliana.ch/,,Hohlstrasse,30,8004,Zürich,,,books,,,,,limited,,,,,,2023-10-27,,"{""addr:country"": ""CH""}"
+10830942472,Bar Butter,node,47.3789061,8.527821,We 08:00-18:00; Th-Fr 08:00-20:00; Sa 09:00-18:00; Su 09:00-17:00,,,,,,,,,,,,cafe,,,,no,,,,,,2023-05-12,,{}
+11216071007,Barista Coffee Roasters,node,47.3764477,8.5261472,,coffee_shop,,,,,,,,,,,cafe,,,,,,,,,,,,"{""check_date:opening_hours"": ""2026-08-12"", ""opening_hours:signed"": ""no""}"
+656649586,Green Mango Internet Cafe Bar,node,47.3774342,8.5265204,,,,,,,,,,,,,cafe,,,,no,,,,,,2026-07-12,,"{""internet_access"": ""yes""}"
+656643167,Kiosk Semal,node,47.376537,8.5282242,,,,,,Ankerstrasse,119,,,,,,cafe,,,,no,,,,,,2026-10-12,,"{""check_date:opening_hours"": ""2026-10-12"", ""opening_hours:signed"": ""no""}"
+7531078063,Miró Manufactura de café,node,47.3786,8.52572,Mo-Fr 08:00-18:00; Sa 09:00-18:00; Su 09:00-17:00,breakfast;cake;coffee_shop,,https://mirocoffee.co/,,Brauerstrasse,58,,,,,,cafe,,,,yes,+41 43 548 35 37,,,,,2026-04-11,,"{""toilets:wheelchair"": ""yes""}"
+8785595317,Ombak Coffee,node,47.3765341,8.5250702,Mo-Fr 07:30-17:00; Sa 08:30-17:00,coffee_shop,,http://omniacoffee.ch,,Stauffacherstrasse,105,8004,,,,,cafe,,,,no,+41 76 689 09 10,,,,,2023-05-23,,{}
+869269142,Treff-Point Kiosk,node,47.3766138,8.5256584,,,yes,,,,,,,,,,cafe,,,,no,,,,,,2026-08-12,,"{""check_date:opening_hours"": ""2026-08-12"", ""opening_hours:signed"": ""no""}"
+10795377100,YAMAS,node,47.378705,8.5316585,"Mo-Th 11:30-14:00,18:00-23:00; Fr 11:30-14:00,18:00-24:00; Sa 11:00-24:00; Su off",greek,yes,http://www.yamas.ch/,,Lagerstrasse,48,8004,Zürich,,,,cafe,,,,,,,,,,,,{}
+9343150799,happybeck,node,47.3792182,8.5275828,,,,,,,,,,,,,cafe,,,,,,,,,,,,{}
+656739301,Colmadon,node,47.377576,8.526593,,,,,,,,,,,,cannabis,,,,,no,,,,,,2023-04-09,,{}
+11216071001,Werners Head Shop,node,47.3776057,8.526376,,,,,,,,,,,,cannabis,,,,,no,,,,,,2023-09-24,,{}
+11980641581,Der Schreiner,node,47.3793124,8.524773,,,,,,,,,,,,,,carpenter,,,,,,,,,2024-06-14,,{}
+10956921190,Sula,node,47.3792674,8.5299204,Mo-Fr 09:00-17:00,,,https://sulaworld.com,,Lagerstrasse,93,8004,Zürich,,,carpet,,,,,no,+41 43 541 42 44,info@sulaworld.com,,,,2024-06-19,,"{""addr:country"": ""CH""}"
+8568706769,PLAYground education,node,47.3778028,8.5255753,Mo-Fr 07:00-19:00,,,https://www.playground-edu.ch/,,Hohlstrasse,52,8004,Zürich,,,,childcare,,,,,+41 43 399 55 44,play@playground-edu.ch,,,,,,"{""addr:country"": ""CH""}"
+1069585307,Xenix,node,47.3752543,8.5261232,"Mo-Fr, Su 16:00+; Sa 11:00+",,,https://www.xenix.ch,,Kanzleistrasse,52,8004,Zürich,,,,cinema,,,,yes,+41 44 242 04 11,kasse@xenix.ch,,,,2026-05-26,,"{""addr:country"": ""CH"", ""wikidata"": ""Q15136000"", ""wikimedia_commons"": ""Category:Kino Xenix (Zürich)""}"
+8194922103,Abito Allora,node,47.3789255,8.531786,Mo-Fr 11:00-19:00; Sa 10:00-18:00,,,,,Europaallee,43,8004,Zürich,,,clothes,,,,,,,,,,,,,"{""second_hand"": ""only""}"
+11216071006,Aelita,node,47.376671,8.5260514,Mo-Fr 10:00-19:00; Sa 10:00-18:00; Su off,,,,,,,,,,,clothes,,,,,,,,,,,2026-08-28,,"{""check_date:opening_hours"": ""2026-08-28""}"
+11216071012,Andrea Hinnen,node,47.3755956,8.5287038,"Mo,Su off; Tu-Fr 12:00-19:00; Sa 12:00-17:00",,,https://andreahinnen.com,,,,,,,,clothes,,,,,no,+41 79 594 84 02,,,,,2024-08-24,,{}
+4549433191,Claudia Güdel,node,47.3756529,8.5280389,"Mo,Su off; Tu-Fr 11:00-19:00; Sa 11:00-17:00",,,,,,,,,,,clothes,,,,,no,,,,,,2023-09-24,,{}
+5149569237,Eva Bräutigam,node,47.3795912,8.5299907,Tu-Fr 10:00-18:00; Sa 09:00-18:00; Mo 13:00-19:00,,,https://www.evabraeutigam.ch/,,Lagerstrasse,96,,,,,clothes,,,,,yes,,,,,,2026-10-02,,"{""check_date:opening_hours"": ""2026-10-02""}"
+11685184269,Fashnpie,node,47.3799182,8.529234,Mo-Fr 11:00-19:00; Sa 10:00-18:00; Su off,,,,,,,,,,,clothes,,,,,yes,,,,,,2024-08-09,,{}
+10567748099,Fifty-9,node,47.3769856,8.5280599,,,,,,,,,,,,clothes,,,,,,,,,,,,,{}
+5770202453,Fight-world.ch,node,47.3770935,8.5289037,Mo-Fr 10:30-20:00; Sa 10:30-17:00,,,,,Kanonengasse,7a,8004,Zürich,,,clothes,,,,,yes,,,,,,2026-02-02,,"{""addr:country"": ""CH"", ""check_date:opening_hours"": ""2026-02-02""}"
+4496708115,Hera,node,47.3753336,8.5294275,,,,,,Müllerstrasse,45,8004,,,,clothes,,,,,yes,,,,,,,,{}
+10921196040,Jeanspoint,node,47.3755317,8.524898,Mo-Fr 09:30-19:00; Sa 09:00-19:00; Su off,,,,,,,,,,,clothes,,,,,yes,,,,,,2023-05-23,,{}
+5149570033,Jo Brauer,node,47.3798049,8.5296487,Mo-Fr 11:00-19:00; Sa 10:00-18:00,,,https://www.jobrauer.com/,,Lagerstrasse,100,,,,,clothes,,,,,yes,,,,,,2024-08-09,,"{""check_date:opening_hours"": ""2024-05-25""}"
+5416711053,Josy,node,47.3783537,8.53012,Mo-Sa 09:30-20:30,,,,,Militärstrasse,75,,,,,clothes,,,,,limited,,,,,,2025-06-11,,"{""check_date:opening_hours"": ""2025-06-11""}"
+11216071008,Kazu,node,47.3766255,8.5286534,"""by appointment only""",,,https://kazu.swiss,,,,,,,,clothes,,,,,no,+41 43 268 05 75,,,,,2026-10-06,,"{""check_date:opening_hours"": ""2026-10-06""}"
+4866350522,Kevin in the Woods,node,47.3794133,8.5303884,Mo-Fr 11:00-19:00; Sa 09:00-18:00,,,https://kevininthewoods.com/,,Lagerstrasse,82,,,,,clothes,,,,,yes,,,,,,2026-10-02,,"{""check_date:opening_hours"": ""2026-10-02""}"
+10921196042,Longside,node,47.3761719,8.5253613,Mo-Fr 10:15-18:30; Sa 10:15-17:00,,,,,,,,,,,clothes,,,,,no,,,,,,2026-05-26,,"{""check_date:opening_hours"": ""2026-05-26""}"
+1241219685,Love Me Two Times,node,47.3783173,8.5275497,Tu-Fr 11:00-19:00; Sa 11:00-17:30,,,https://www.lovemetwotimes.ch,,Dienerstrasse,32,8004,Zürich,,,clothes,,,,,no,,,,,,2025-09-12,,"{""clothes"": ""vintage;second-hand;fashion"", ""contact:instagram"": ""https://www.instagram.com/lovemetwotimes_zurich/"", ""operator"": ""Sero Demir"", ""payment:cashless"": ""yes"", ""payment:credit_cards"": ""yes"", ""payment:twint"": ""yes"", ""second_hand"": ""only""}"
+4838594329,Marco Di Renzo,node,47.3796242,8.5274649,Mo-Sa 09:00-20:00,,,https://www.marcodirenzo.ch/,,Langstrasse,125,8004,Zürich,,,clothes,,,,,yes,,,,,,2025-01-24,,"{""addr:country"": ""CH"", ""check_date:opening_hours"": ""2025-01-24""}"
+7044403087,Marta Flohmarkt,node,47.3785,8.52592,Mo-Fr 10:30-19:00; Sa 10:30-17:30,,,https://www.marta-flohmarkt.ch/,,Brauerstrasse,58,,,,,clothes,,,,,yes,+41 44 524 99 97,,,,,2023-09-29,,{}
+3078522845,My Fashion Fox,node,47.3752043,8.5246537,,,,,,,,,,,,clothes,,,,,yes,,,,,,2023-05-23,,{}
+12138506366,Saint James,node,47.3751392,8.5288391,,,,,,,,,,,,clothes,,,,,no,,,,,,2024-08-24,,{}
+1240990738,Urbany's,node,47.3786477,8.5279834,,,,https://urbanys.com,,,,,,,,clothes,,,,,no,,,,,,2023-04-21,,{}
+10891371970,fiona-K,node,47.3768021,8.5282647,,,,,,,,,,,,clothes,,,,,,,,,,,,,{}
+4843837963,yay kids,node,47.3793462,8.5305645,Mo-Fr 11:00-19:00; Sa 10:00-18:00,,,,,Lagerstrasse,76,8004,Zürich,,,clothes,,,,,,,,,,,,,"{""addr:country"": ""CH""}"
+9171916009,House of Satoshi,node,47.3799254,8.5279897,Mo-Fr 10:00-18:00; Sa 13:00-16:00,,,https://www.house-of-satoshi.ch/,,Langstrasse,136,8004,Zürich,,,,community_centre,,,,no,+41 76 7616530,hello@house-of-satoshi.ch,,,,2026-05-11,,"{""atm"": ""separate"", ""check_date:currency:XBT"": ""2026-05-11"", ""check_date:opening_hours"": ""2026-05-11"", ""club"": ""social"", ""community_centre"": ""club_home"", ""contact:instagram"": ""https://www.instagram.com/house_of_satoshi/"", ""contact:linkedin"": ""https://www.linkedin.com/company/house-of-satoshi/"", ""con"
+12754797446,Studio For Food Culture,node,47.3783726,8.5289588,,,,,,,,,,,,,community_centre,,,,,,,,,,2025-04-14,,"{""community_centre"": ""cultural_centre""}"
+6592084080,Gbanga,node,47.3790116,8.5294656,,,,https://gbanga.com,,Militärstrasse,90,8004,Zürich,,,,,,,,,,,,,,2023-08-01,,"{""level"": ""1"", ""office"": ""company"", ""wikidata"": ""Q5529307"", ""wikipedia"": ""en:Gbanga""}"
+5418324620,Google,node,47.3793085,8.5307904,,,,,,Gustav-Gull-Platz,1,8004,,,Google,,,,,,yes,,,,,,,,"{""alt_name"": ""Google EURG"", ""brand:wikidata"": ""Q95"", ""check_date:opening_hours"": ""2026-09-23"", ""office"": ""company"", ""opening_hours:signed"": ""no""}"
+8194922105,Leonteq,node,47.3786858,8.5321273,,,,https://ch.leonteq.com/,,Europaallee,39,8004,Zürich,,,,,,,,,,,,,,,,"{""office"": ""company"", ""official_name"": ""Leonteq Securities AG""}"
+8786742581,Notice Design,node,47.3799232,8.528276,,,,https://www.notice.design/,,,,,,,,,,,,,,,,,,,2023-06-22,,"{""office"": ""company""}"
+12754776145,Public Eye,node,47.3778391,8.5289228,,,,,,Dienerstrasse,12,,,,,,,,,,,,,,,,2025-04-14,,"{""office"": ""company""}"
+11941534779,Simplificator AG,node,47.3765106,8.5251559,,,,https://www.simplificator.com/,,Stauffacherstrasse,101,8004,Zürich,,,,,,,,,+41445004750,,,,,,,"{""office"": ""company""}"
+12754776146,UMANO,node,47.3778391,8.5289228,,,,,,Dienerstrasse,12,,,,,,,,,,,,,,,,2025-04-14,,"{""office"": ""company""}"
+13540274646,katrahama GmbH,node,47.379914,8.5279835,Mo-Fr 08:00-16:00,,,https://katrahama.ch/,,,136,8004,Zürich,,,,,,,,,+41 76 611 32 23,,,,,,,"{""addr:place"": ""Langstrasse"", ""office"": ""company""}"
+10957734670,IT World ZH,node,47.3791121,8.5290195,"Mo-Fr 09:30-12:30,14:00-19:00; Sa 10:00-17:00",,,https://itworldzh.ch,,Tellstrasse,31,8004,Zürich,"PC-, Laptop- und Macreparaturen
+Webdesign
+Netzwerkeinrichtung
+Server- und Domaineneinrichtung",,computer,,,,,yes,+41 43 317 91 00,info@itworldzh.ch,,,,2026-04-18,,"{""check_date:opening_hours"": ""2026-04-18"", ""computer:repair"": ""yes"", ""level"": ""0"", ""office"": ""it"", ""opening_hours:description"": ""Mo-Fr 09:30-12:30,14:00-19:00, Sa-So 10:00-17:00"", ""repair"": ""yes"", ""wheelchair:description"": ""Eingang Seite Tellstrasse ist rollstuhlgängig""}"
+11216070998,24 Shop,node,47.3782181,8.5267329,,,,,,,,,,"Kiosk, Tabak",,convenience,,,,,no,,,,,,2023-09-24,,{}
+12754794883,COOP,node,47.3791643,8.5288892,Mo-Sa 07:00-21:00,,,https://www.coop.ch,,Militärstrasse,106,,,,,convenience,,,,,yes,,,,,,2026-04-18,,"{""check_date:opening_hours"": ""2026-04-18"", ""operator"": ""Coop"", ""organic"": ""yes"", ""payment:cash"": ""yes"", ""payment:credit_cards"": ""yes"", ""payment:debit_cards"": ""yes"", ""source"": ""survey""}"
+9893261278,Champions Shop,node,47.3773891,8.5275844,,,,,,,,,,,,convenience,,,,,yes,,,,,,2023-06-02,,{}
+656657191,Comestibles Granada,node,47.3769917,8.5279758,,,,,,,,,,,,convenience,,,,,,,,,,,,,{}
+387613338,Denner Express,node,47.3795994,8.5270327,Mo-Th 08:00-20:00; Fr-Sa 08:00-22:00,,,https://www.denner.ch/,,Sihlhallenstrasse,5-7,8004,Zürich,,,convenience,,,,,yes,,,,,,2023-04-21,,"{""addr:country"": ""CH""}"
+10567748100,El Campesino,node,47.3770143,8.5283455,,,,,,,,,,,,convenience,,,,,,,,,,,,,{}
+387613313,Express Shop,node,47.3795322,8.527758,24/7,,,,,,,,,,,convenience,,,,,no,,,,,,2026-07-12,,{}
+11216071003,La Platanera,node,47.3772089,8.5260849,,,,,,,,,,Especialidades Latinoamericanas,,convenience,,,,,yes,,,,,,2023-09-24,,{}
+11216070999,Lollypop,node,47.3780002,8.5268609,,,,,,,,,,,,convenience,,,,,no,,,,,,2023-09-24,,{}
+1240044645,Migrolino,node,47.3794361,8.5295215,Mo-Sa 06:00-22:00,,,https://www.migrolino.ch/de/standorte/migrolino-zuerich-lagerstrasse/,,Lagerstrasse,101,8004,Zürich,,Migrolino,convenience,,,,,yes,,,,,,2024-06-19,,"{""addr:country"": ""CH"", ""alt_name"": ""Migrolino Lagerstrasse"", ""branch"": ""Zürich Lagerstrasse"", ""brand:wikidata"": ""Q56745088"", ""check_date:opening_hours"": ""2024-02-14"", ""operator"": ""Genossenschaft Migros Zürich""}"
+4518003937,Migrolino fresh,node,47.3798182,8.5279232,Su-Th 06:00-23:00; Fr-Sa 00:00-24:00,,,https://www.migrolino.ch/de/standorte/migrolino-zuerich-langstrasse-away/,,Langstrasse,134,8004,Zürich,,Migrolino fresh,convenience,,,,,yes,+41 44 350 27 23,,,,,2024-08-24,,"{""addr:country"": ""CH"", ""alt_name"": ""Migrolino Langstrasse"", ""branch"": ""Zürich Langstrasse"", ""brand:wikidata"": ""Q56745088"", ""operator"": ""Genossenschaft Migros Zürich""}"
+848938939,shop-in-shop,node,47.3750677,8.5248796,Mo-Th 09:30-27:00; Fr-Sa 09:30-29:00; Su 10:30-24:00,,,,,,,,,,,convenience,,,,,yes,,,,,,2023-05-23,,{}
+11980641580,Mitton,node,47.3794322,8.5253787,,italian,,,,,,,,,,deli,,,,,no,,,,,,2024-06-14,,{}
+10827725256,Textil-Reinigung,node,47.3797327,8.527251,Mo-Fr 07:30-19:30; Sa 07:30-18:00; Su off,,,,,,,,,,,dry_cleaning,,,,,limited,,,,,,2024-08-24,,{}
+11963250714,apeVape,node,47.3790206,8.5271986,,,,,,,,,,,,e-cigarette,,,,,,,,,,,,,{}
+301222947,Pusterla Elektronik AG,node,47.3778418,8.5258089,Mo-Fr 09:00-18:30; Sa 09:00-16:00,,,https://www.pusterlacom.ch,,Kernstrasse,55,8004,Zürich,"Elektronische und Elektromechanische Baukomponenten, Computer und -Zubehör, Video/Audio-, Sicherheits-,  Netzwerk-, Veranstaltungs-, Hausinstallationstechnik, Modellbau etc.
+Dienstleistungen: Spezialanfertigungen, Reparaturen und Neuentwicklungen",,electronics,,,,,limited,+41 44 241 56 77,info@pusterla.ch,,,,2026-10-14,,"{""check_date:opening_hours"": ""2026-10-14"", ""electronics:repair"": ""yes"", ""opening_hours:description"": ""Mo-Fr 9-18.30 Uhr, Sa 9-16 Uhr"", ""repair"": ""yes""}"
+9893261275,Erotic Shop,node,47.3772316,8.5274129,,,,,,,,,,,,erotic,,,,,,,,,,,,,{}
+10567748101,Monika K,node,47.3772116,8.5279927,,,,,,,,,,,,erotic,,,,,no,,,,,,2023-06-02,,{}
+11246759771,Männerzone,node,47.3777026,8.5260325,Tu 12:00-18:30; Fr 12:00-18:30; Sa 12:00-16:00,,,https://www.maennerzone.com,,,,,,,,erotic,,,,,,+41 43 243 30 43,,,,,,,"{""lgbtq"": ""primary""}"
+11685177068,Die Macherei,node,47.3798457,8.5294186,Mo-Fr 11:00-19:00; Sa 10:00-18:00; Su off,,,https://diemacherei.ch,,,,,,,,fashion_accessories,,,,,yes,,,,,,2024-08-09,,"{""level"": ""0""}"
+14019839153,Allegrotto,node,47.3776837,8.5264,Mo-We 11:00-23:00; Th-Su 00:00-24:00,pizza;burger;indian;sri_lankan;salad;kebab;chicken,no,https://allegrotto-zurich.ch/,,Langstrasse,81,8004,Zürich,,,,fast_food,,,only,no,,,,,,,,"{""delivery"": ""yes"", ""indoor_seating"": ""no"", ""level"": ""0""}"
+656634932,Biergarten,node,47.3769346,8.5272308,"Mo-Fr 08:30-24:00, Sa-Su 09:30-24:00",,,https://biergarten8004.ch/,,Hohlstrasse,25,,,,,,fast_food,,,,,,,,,,,,"{""alt_name"": ""Schneider Weisse Biergarten""}"
+3078526134,Bilo Bistro,node,47.3764202,8.5283268,,,no,,,Ankerstrasse,116,8004,Zürich,,,,fast_food,,,,no,,,,,,2024-08-19,,"{""addr:country"": ""CH""}"
+4869996367,Chickeria,node,47.3777738,8.5264426,Su-Th 10:00-22:00; Fr-Sa 10:00-02:00,chicken,,https://chickeria.ch/details/chickeria-zuerich-langstrasse/,,Langstrasse,83,8004,Zürich,,Chickeria,,fast_food,,,yes,no,,,,,,2023-09-24,,"{""addr:country"": ""CH"", ""alt_name"": ""Chickeria Langstrasse"", ""branch"": ""Zürich Langstrasse"", ""operator"": ""Genossenschaft Migros Ostschweiz"", ""start_date"": ""2017-12-15""}"
+9893260545,Huncho,node,47.3771779,8.5290073,,burger,,https://www.instagram.com/huncho.ch/,,Kanonengasse,7,8004,Zürich,,,,fast_food,,,only,no,,,,,,2025-04-12,,"{""addr:country"": ""CH""}"
+13920868271,Kanton Slice,node,47.3778013,8.5268763,"Tu-Th,Su 17:00-22:00; Fr-Sa 17:00-01:00",pizza,no,https://kantonslice.ch/,,,,,,access via elevator in the entrance area of Hungry Duck,,,fast_food,,,only,yes,,,,,,,,"{""delivery"": ""yes"", ""indoor_seating"": ""no"", ""level"": ""-1""}"
+1240181038,La Capricciosa,node,47.3794128,8.5280071,Mo-Fr 10:00-21:00; Sa 17:00-22:00,italian,no,https://www.lacapricciosa.ch/,,Militärstrasse,117,,,,,,fast_food,,,only,,+41 76 464 62 75,,,,,2026-09-14,,"{""check_date:opening_hours"": ""2026-09-14"", ""indoor_seating"": ""no""}"
+11992812114,La Isla Bonita,node,47.3797897,8.5286284,"Mo,Su off; Tu-Sa 18:00-24:00",mexican,yes,,,,,,,,,,fast_food,,,,yes,,,,,,2024-06-19,,"{""level"": ""0""}"
+656765445,Oder Wat,node,47.3775725,8.5257388,,german,yes,,,Hohlstrasse,49,,,,,,fast_food,,,,no,,,,,"Sign ""Schweizer Weinstube"" also still present",,,"{""contact:instagram"": ""oderwat_imbiss""}"
+1240990722,Officina dos Sabores,node,47.3791641,8.527304,"Mo-We 11:00-21:00, Th,Su 11:00-22:00, Fr,Sa 11:00-03:00",,,,,,,,,,,,fast_food,,,,,,,,,,,,{}
+2867994617,Palestine Grill,node,47.3781481,8.5269898,Mo-Sa 11:30-00:00; Su 14:00-21:00,falafel,,https://www.palestinegrill.com/,,Langstrasse,92,8004,Zürich,,,,fast_food,,,yes,yes,+41 44 291 00 24,palestinegrill@mrsamigo.com,,,,2024-03-02,,{}
+5803645581,Phuket Thai Food,node,47.3802073,8.5263721,Mo-Sa 10:00-22:00; Su 12:00-22:00,thai,yes,https://www.phuket-thai-zuerich.ch/,,Schöneggstrasse,21,,,,,,fast_food,,,,yes,+41 44 241 57 63,,,,,2024-08-24,,"{""indoor_seating"": ""yes""}"
+9893261279,Piro,node,47.3779438,8.5265762,,,,,,,,,,,,,fast_food,,,,yes,,,,,,2023-09-24,,{}
+1240990725,Rosita's,node,47.3793553,8.5297102,"Mo-Th 10:00-17:00, Fr 10:00-17:00, Fr 22:00-04:00, Sa 22:00-04:00",,,,,Lagerstrasse,95,,,,,,fast_food,,,,no,,,,,,2026-10-03,,"{""addr:floor"": ""EG"", ""check_date:opening_hours"": ""2026-10-03"", ""level"": ""0"", ""payment:cash"": ""yes"", ""payment:credit_cards"": ""yes"", ""payment:debit_cards"": ""yes""}"
+1241219738,Rotana,node,47.3787145,8.5267193,,,,,,,,,,,,,fast_food,,,,yes,,,,,,2023-04-09,,{}
+11975740106,Spaccio,node,47.376758,8.5257606,"Mo-Th 11:30-14:00,17:00-22:00, Fr-Sa 11:30-24:00",pizza,,https://www.spaccio.pizza/,,Langstrasse,61,8004,Zürich,,,,fast_food,,,yes,,,,,,,,,"{""addr:country"": ""CH"", ""branch"": ""Zürich Langstrasse"", ""level"": ""0""}"
+10889806814,Swiss Fried Chicken,node,47.3788213,8.5276299,,,,https://swiss-fried-chicken.com,,,,,,,,,fast_food,,,,yes,+41 43 557 22 23,,,,,2024-06-07,,{}
+11216070982,Taste of Africa,node,47.379434,8.5279472,,,no,,,,,,,Restaurant/Take-away/Catering,,,fast_food,,,,no,,,,,,2023-09-24,,"{""indoor_seating"": ""yes""}"
+12714134817,Tipsy Tiger,node,47.3799226,8.5277248,,burger,,,,,,,,,,,fast_food,,,yes,,,,,,,,,"{""payment:coins"": ""yes"", ""payment:contactless"": ""yes"", ""payment:notes"": ""yes""}"
+8785727518,Zum goldenen Taschenbrot,node,47.3788366,8.5291393,Tu-Th 11:00-22:00; Fr 11:00-22:30; Sa 12:00-22:30,kebab,no,,https://zumgoldenentaschenbrot.ch/,Militärstrasse,91,8004,Zürich,,,,fast_food,,,,no,,,,,,2026-10-02,,"{""check_date:opening_hours"": ""2026-10-02"", ""contact:phone"": ""+41 44 585 36 36"", ""diet:vegan"": ""only"", ""indoor_seating"": ""yes""}"
+7064004373,Zürich Fried Chicken,node,47.3751013,8.5285248,,burger;chicken,,https://zurich-fried-chicken.com/,,Bäckerstrasse,43,8004,Zürich,,,,fast_food,,,yes,no,,,,,,2024-08-19,,"{""alt_name"": ""ZFC Aussersihl"", ""branch"": ""Zürich Aussersihl"", ""short_name"": ""ZFC""}"
+11216071014,strasserthun,node,47.375723,8.5279007,,,,https://strasserthun.ch,,,,,,,,flooring,,,,,no,+41 33 334 24 24,,,,,2023-09-24,,{}
+10946818681,Norkind,node,47.3776586,8.5270407,Mo-Fr 10:00-18:00; Sa 10:00-17:00; Su off,,,https://norkind.ch,,,,,,,,furniture,,,,,,+41 44 461 12 12,,,,,2023-06-02,,{}
+915410105,schindlersalmerón,node,47.3765121,8.5290785,,,,https://www.schindlersalmeron.com/,,Zeughausstrasse,67,,,,,,,furniture,,,no,,,,,,2026-05-25,,{}
+4208949390,Kaboom,node,47.3784064,8.5273385,Mo-Fr 10:00-19:00; Sa 10:00-16:00,,,https://shop.kabooom.ch,,Dienerstrasse,36,8004,Zürich,,,games,,,,,no,+41 44 240 02 15,info@kabooom.ch,,,,,,"{""addr:country"": ""CH""}"
+5254232211,Kreisschulpflege Limmattal,node,47.3770259,8.5264319,"Mo-Th 08:00-11:30, 13:30-16:30; Fr 08:00-11:30, 13:30-16:00",,,https://www.stadt-zuerich.ch/ksp-limmattal/,,Hohlstrasse,35,8004,Zürich,,,,,,,,,,,,,,,,"{""government"": ""education"", ""office"": ""government"", ""operator"": ""Stadt Zürich, SSD, Schulkreis Limmattal""}"
+9255553977,Wolf Studio GmbH,node,47.3787663,8.5259385,Mo-Fr 09:00-17:00,,,https://www.wolfstudio.ch/,,Brauerstrasse,58,8004,Zürich,"Wolf Studio ist ein Designbüro für visuelle Kommunikation. 1999 gegründet und über 15 Jahre in Paris tätig, arbeitet Wolf Studio heute international vernetzt von Zürich aus. In Zusammenarbeit mit Fotografen und Illustratoren, Textern und Redakteuren, Über",,,,graphic_design,,,,+41 44 508 18 77,contact@wolfstudio.ch,,,,,,{}
+4416196409,Amiro,node,47.3766925,8.528773,,,,,,Ankerstrasse,124,8004,Zürich,,,hairdresser,,,,,,,,,,,,,"{""addr:country"": ""CH""}"
+12133693603,Ana Dolis,node,47.380149,8.526988,,,,,,,,,,,,hairdresser,,,,,no,,,,,,2024-08-24,,{}
+7590602015,Barber-2,node,47.3773479,8.5267026,,,,,,Hohlstrasse,36,8004,Zürich,,,hairdresser,,,,,no,,,,,"name is written like this at the location, a former logo partially scratched off with ""‐2"" added, barber still functional",2024-06-14,,"{""branch"": ""Zürich Langstrasse""}"
+915410107,Biondo's Cut,node,47.3756908,8.5303074,,,,,,Zeughausstrasse,41,,,,,hairdresser,,,,,no,,,,,,,,"{""unisex"": ""yes""}"
+656507351,Carribean Hairstyle,node,47.3775702,8.5272431,,,,,,Brauerstrasse,29,,,,,hairdresser,,,,,limited,,,,,,2023-06-02,,{}
+11992812115,Chicago Beauty Salon,node,47.3776251,8.5295165,,,,,,,,,,,,hairdresser,,,,,no,+41 43 322 00 45,,,,,2024-08-19,,"{""female:signed"": ""no"", ""male:signed"": ""no""}"
+11216071010,Coiffeur Giacomo,node,47.3757625,8.5292778,"Tu,Th 08:00-13:00, We,Fr 09:00-13:00, Sa 08:00-16:00, Tu-Fr 14:00-18:30; Su,Mo off",,,,,,,,,,,hairdresser,,,,,no,+41 76 467 27 76,,,,,2026-05-25,,"{""check_date:opening_hours"": ""2026-05-25"", ""female"": ""yes"", ""male"": ""yes""}"
+915410089,Coiffeur Hejar,node,47.3766655,8.5288733,,,,,,Zeughausstrasse,69,,,,,hairdresser,,,,,no,,,,,,2023-09-24,,{}
+4011633098,Coiffeur Salam,node,47.3771743,8.5322011,Mo-Fr 08:30-21:00; Sa 08:30-18:00; Su off,,,,,Militärstrasse,36,,,,,hairdresser,,,,,yes,+41 44 203 26 10,,,,,2024-10-27,,"{""female"": ""yes"", ""male"": ""yes""}"
+12133693608,Coiffure Salon Flory,node,47.3790353,8.5248659,,,,,,,,,,,,hairdresser,,,,,no,,,,,,2024-08-24,,{}
+10601778121,Emporio,node,47.3780881,8.5290707,,,,,,Zwinglistrasse,17,,,,,hairdresser,,,,,no,,,,,,2025-04-14,,{}
+11216071011,Ginger,node,47.3756637,8.5287968,,,,https://gingerhair.ch,,,,,,,,hairdresser,,,,,no,,,,,,2024-08-24,,"{""female:signed"": ""no"", ""male:signed"": ""no""}"
+12133693610,Gutastilo,node,47.3791922,8.5245725,,,,,,,,,,,,hairdresser,,,,,no,,,,,,2024-08-24,,{}
+871794844,HaarGarage,node,47.3777478,8.5259695,Mo-Tu off; We-Fr 11:00-18:30; Sa 10:00-16:00; Su off,,,https://www.haargarage.ch/,,Hohlstrasse,48,8004,Zürich,Damen & Herren Salon,,hairdresser,,,,,yes,+41 44 241 48 48,info@haargarage.ch,,,,2024-08-24,,"{""female"": ""yes"", ""male"": ""yes"", ""payment:cash"": ""yes"", ""payment:credit_cards"": ""yes"", ""payment:debit_cards"": ""yes"", ""payment:twint"": ""yes""}"
+12754793543,KALIN,node,47.3786295,8.5286567,"Mo,Su off; Tu-Th 10:00-19:00; Fr-Sa 10:00-21:00",,,,,Tellstrasse,17,,,,,hairdresser,,,,,no,+41 76 367 57 17,,,,,2025-04-14,,"{""brand:wikidata"": ""Q115013410""}"
+915410098,King's Hairshop,node,47.3758109,8.5301451,,,,,,Zeughausstrasse,45,,,,,hairdresser,,,,,no,,,,,,2023-06-02,,{}
+1240990753,Luv Hair and Make up,node,47.3787047,8.5282254,Tu-Fr 12:00-21:00,,,http://www.luv28.ch,,Zwinglistrasse,28,,,,,hairdresser,,,,,no,+41 44 291 22 66,,,,,2024-06-07,,{}
+5282153478,Manu,node,47.3785789,8.5296136,Mo-Fr 09:00-20:00; Sa 09:00-18:00; PH off,,,,,Militärstrasse,85,,,,,hairdresser,,,,,no,,,,,,2025-04-14,,"{""level"": ""0""}"
+1240044573,Mels Hair Studio,node,47.3786245,8.5300818,,,,https://mels-hairstudio.ch,,Militärstrasse,76,,,,,hairdresser,,,,,yes,+41 78 312 01 22,info@mels-hairstudio.ch,,,,2025-04-14,,"{""internet_access"": ""no""}"
+9893260544,Nara,node,47.3769859,8.5283951,,,,,,,,,,,,hairdresser,,,,,no,,,,,,2023-06-02,,{}
+6902002985,Neymar Coiffeur,node,47.3794687,8.5278877,"Mo,Th 09:30-14:00,16:30-20:00",,,,,Militärstrasse,115,8004,Zürich,,,hairdresser,,,,,no,,,,,,2026-03-16,,"{""female"": ""yes"", ""male"": ""yes""}"
+12138506371,Stadler,node,47.375153,8.5280449,,,,,,,,,,,,hairdresser,,,,,no,,,,,,2024-08-24,,{}
+11216071023,Velvet Glam,node,47.3762562,8.5294719,,,,https://velvetglam.ch,,,,,,,,hairdresser,,,,,no,,,,,,2026-07-12,,"{""female:signed"": ""no"", ""male:signed"": ""no""}"
+12133693611,hairstories,node,47.3793625,8.5245108,,,,https://hairstories.ch,,,,,,,,hairdresser,,,,,no,,,,,,2024-08-24,,{}
+11216071013,lavie home,node,47.3756846,8.5279605,,,,https://lavie-home.ch,,,,,,,,household_linen,,,,,no,,,,,,2023-09-24,,{}
+5081232798,Gelati Tellhof,node,47.3785869,8.5288486,"Su-Th,PH 12:00-22:00; Fr,Sa 12:00-22:00",,yes,https://www.gelati-tellhof.ch,,Tellstrasse,,8004,Zürich,,,,ice_cream,,,,limited,,,,,,2026-10-03,,"{""check_date:opening_hours"": ""2026-10-03"", ""indoor_seating"": ""yes"", ""level"": ""0""}"
+3926182143,Vegelateria,node,47.3760905,8.5288241,Mo-Sa 11:00-21:00,,yes,https://vegelateria.ch/,,Müllerstrasse,64,8004,Zürich,,,,ice_cream,,,,yes,,,,,,2026-07-12,,"{""addr:country"": ""CH"", ""diet:vegan"": ""only""}"
+10891371967,Studio Melograno,node,47.376828,8.5280226,,,,,,,,,,,,interior_decoration,,,,,,,,,,,,,{}
+7724613812,The Atelier,node,47.3750251,8.5286128,,,,,,,,,,,,interior_decoration,,,,,no,,,,,,2024-08-24,,{}
+12948881831,Netzbarkeit,node,47.376644,8.5245813,,,,,,Kernstrasse,37,8004,Zürich,Agentur für digitale Kommunikation,,,,,,,,+41 44 400 50 45,info@netzbarkeit.ch,,,,,,"{""office"": ""it""}"
+9992397570,Scigility Switzerland AG,node,47.3788767,8.5314108,,,,https://scigility.com/,,Europaallee,41,8004,Zürich,,,,,,,,,,,,,,,,"{""office"": ""it""}"
+5643617050,Christian uhrenschmuck24.ch,node,47.3762658,8.5254188,Mo-Fr 09:00-18:30; Sa 09:00-17:00,,,https://www.uhrenschmuck24.ch/helvetiaplatz,,Langstrasse,47,8004,Zürich,,,jewelry,,,,,limited,,,,,,2024-09-17,,"{""addr:country"": ""CH"", ""operator"": ""Christian AG"", ""payment:american_express"": ""yes"", ""payment:cards"": ""yes"", ""payment:cash"": ""yes"", ""payment:credit_cards"": ""yes"", ""payment:debit_cards"": ""yes"", ""payment:mastercard"": ""yes"", ""payment:visa"": ""yes"", ""toilets:wheelchair"": ""no""}"
+12138506368,Trixmix,node,47.3750384,8.5289803,,,,,,,,,,,,jewelry,,,,,limited,,,,,,2024-08-24,,{}
+12380295963,Gregory Clan,node,47.3792829,8.5270216,"""Mo-Fr 07:45-12:00; 13:00-16:45 by appointment by phone""",,,https://gregoryclan.ch,,Langstrasse,115,8004,Zürich,"the furniture factory:
+Innenarchitektur, Innenausbau
+Holzprodukte für Küche, Office und Wohnraum
+Massivmöbel auf Mass
+Reparaturen Holz und Möbel",,,,joiner,,,,+41 43 500 33 53,dylan@gregoryclan.ch,,,,,,"{""furniture:repair"": ""yes"", ""opening_hours:description"": ""Nach telefonischer Vereinbarung: Mo-Fr 7:45-12 und 13-16:45"", ""operator"": ""Dylan Gregory"", ""repair"": ""yes""}"
+8422874121,Sartori,node,47.376313,8.5249673,,,,,,,,,,,,,,joiner,,,,,,,,,,,{}
+12312961469,Schreinerei Severin Meier,node,47.3767759,8.5290328,Mo-Fr 08:00-18:00,,,https://www.severinmeier.ch,,Zeughausstrasse,60,8004,Zürich,"Frisch und schön. Bett, Tisch, Schrank und vieles mehr... Dabei muss nicht immer alles aus Holz, aber hochwertig und beständig sein. Für spezielle Bedürfnisse und ausgefallene Ideen sind wir genauso da wie für die saubere Reparatur.",,,,joiner,,,,+41 44 515 35 34,schreinerei@severinmeier.ch,,,,,,"{""furniture:repair"": ""yes"", ""opening_hours:description"": ""Mo-Fr 8-18 Uhr"", ""operator"": ""Severin Meier"", ""repair"": ""yes""}"
+10828214801,Kindergarten und Hort Brauer 1+2,node,47.3790048,8.525479,,,,,,,,,,,,,kindergarten,,,,,,,,,,,,"{""isced:level"": ""0""}"
+5299186755,Kinderhaus Bozza Lukashof,node,47.3787559,8.5261256,,,,http://www.kinderhaus-am-stauffacher.ch/,,Dienerstrasse,57/59,8004,Zürich,,,,kindergarten,,,,,,,,,,2023-10-27,,"{""operator"": ""Kinderhaus Bozza""}"
+914702928,Kinderkrippe Schneeflocke,node,47.3750593,8.5296882,,,,https://www.kinderkrippeschneeflocke.ch/,,Müllerstrasse,43,,,,,,kindergarten,,,,yes,,,,,,2023-05-05,,{}
+4896466767,Asmin,node,47.3788263,8.527341,,,,,,Langstrasse,110,8005,Zürich,,,kiosk,,,,,no,,,,,,2026-07-12,,"{""addr:country"": ""CH""}"
+1240044530,Kiosk Kanonen Gasse,node,47.3783368,8.5301662,,,,,,,,,,,,kiosk,,,,,no,,,,,,2026-05-25,,"{""check_date:opening_hours"": ""2026-05-25"", ""opening_hours:signed"": ""no""}"
+10095152137,Kiosk Schönegg,node,47.379719,8.5273333,Mo-Sa 11:00-23:00; PH off,,,,,,,,,,,kiosk,,,,,limited,,,,,,2024-08-24,,{}
+10601778122,Ufo,node,47.3780307,8.5291864,,,,,,Zwinglistrasse,15,,,,,kiosk,,,,,,,,,,,2025-04-14,,{}
+4749159173,advokatur kanonengasse,node,47.3785247,8.5302733,,,,https://www.kanonengasse.ch/,,Militärstrasse,76,8021,Zürich,,,,,,,,yes,+41 43 322 12 12,,,,,,,"{""level"": ""2"", ""office"": ""lawyer""}"
+12252306817,Criz,node,47.3793382,8.5281488,Tu-Fr 12:00-18:30; Sa 11:00-16:00,,,https://www.criz.ch,,Militärstrasse,115,8004,Zürich,Gestaltung und Produktion von Leder-Accessoires sowie Taschen in eigener Manufaktur.,,leather,,,,,,+41 43 268 44 11,criz@criz.ch,,,,,,"{""leatherware:repair"": ""yes"", ""operator"": ""Christoph Züger"", ""repair"": ""yes""}"
+1235083851,Holliger Motos,node,47.3800606,8.5271786,"Nov 01-Feb 28: Mo-Fr 08:00-12:00,13:30-18:00; Nov 01-Feb 28: Sa 10:00-16:00; Nov 01-Feb 28: Su off; Mar 01-Oct 31: Mo-Fr 08:00-12:00,13:30-18:00; Mar 01-Oct 31: Sa-Su off",,,,,,,,,,,motorcycle,,,,,no,,,,,,2024-08-24,,{}
+3784323173,Moto-Center Karle - Kawasaki,node,47.3791565,8.5295154,"Mo-Fr 08:00-12:00,13:00-18:00",,,https://karle.ch/,,Militärstrasse,90,8004,Zürich,,,motorcycle,,,,,no,+41 44 241 34 68,,,,,2026-10-02,,"{""check_date:opening_hours"": ""2026-10-02"", ""operator"": ""Karle Motos""}"
+1235083528,Stiefenhofer Motos,node,47.3802269,8.5254496,"Mo-Fr 09:00-12:00, Mo,We-Fr 14:00-18:00",,,,,,,,,,,motorcycle,,,,,no,,,,,,2024-08-24,,{}
+3932358336,Jamarico,node,47.3763634,8.5254955,"Tu-Fr 11:00-14:00, Sa 10:00-18:00, Tu-Fr 14:30-19:00",,,,,Stauffacherstrasse,95,8004,Zürich,,,music,,,,,no,,,,,,2026-08-12,,"{""addr:country"": ""CH"", ""alt_name"": ""Jama Music"", ""check_date:opening_hours"": ""2026-08-12"", ""contact:instagram"": ""jama_music""}"
+10794073116,Panthera Records,node,47.3792307,8.5245015,,,,,,Brauerstrasse,80,8004,Zürich,,,music,,,,,no,,,,,,2024-08-24,,"{""contact:email"": ""fuhrmann12@gmail.com"", ""contact:facebook"": ""MarcFuhrmannPanthera"", ""contact:phone"": ""+41 44 271 99 11""}"
+4549432191,Zero Zero Rare Groove,node,47.3756086,8.5281164,Mo-Fr 12:00-18:30; Sa 10:00-17:00; Su off,,,,,,,,,,,music,,,,,no,,,,,,2023-09-24,,{}
+3784325956,Drums Only,node,47.37896,8.528894,"Mo-Fr 10:00-12:00,13:30-18:30; Sa 10:00-16:00",,,https://drumsonly.ch/,,Militärstrasse,105,8004,Zürich,,,musical_instrument,,,,,,+41 44 242 39 42,,,,,2023-09-24,,"{""level"": ""-1""}"
+656594290,Republik Magazin,node,47.3793783,8.5274204,,,,https://www.republik.ch,,Sihlhallenstrasse,1,8004,Zürich,,Republik,,,,,,no,,,,,,2026-02-04,,"{""office"": ""newspaper""}"
+12512257502,Blumenkohlektiv,node,47.3799746,8.5257143,,,,,,,,,,,,,,,,,,,,,,,,,"{""office"": ""ngo""}"
+5297598013,Alte Kaserne,node,47.3768417,8.5290425,,,,https://www.altekaserne.com/,,Kanonengasse,16,8004,Zürich,,,,nightclub,,,,,,info@altekaserne.com,,,,2023-10-27,,"{""operator"": ""Pino Music""}"
+5128008060,Club Wunderbox,node,47.3777528,8.5267229,,,,,https://www.wunderboxclub.ch/,,,,,,,,nightclub,,,,,,,,,"node was placed in wrong building, therefore its history contains a takeaway that was not in these rooms",2023-06-02,,"{""contact:city"": ""Zürich"", ""contact:email"": ""info@urbanagency.ch"", ""contact:housenumber"": ""84"", ""contact:phone"": ""+41 79 721 08 61"", ""contact:postcode"": ""8004"", ""contact:street"": ""Langstrasse"", ""old_name"": ""Perle"", ""old_operator"": ""Hiltl""}"
+7059418846,El Presidente,node,47.3776194,8.5266191,,,,,,Langstrasse,80,8004,Zürich,,,,nightclub,,,,no,,,,,,2026-07-12,,{}
+4496703517,Gonzo,node,47.3800608,8.5277447,We-Sa 23:00-04:00,,,https://gonzoclub.ch/,,Langstrasse,135,8004,,,,,nightclub,,,,,,,,,,2023-09-29,,"{""name:de"": ""Gonzo""}"
+1241219598,Locarno 2000,node,47.3785573,8.5266914,,,,,,Dienerstrasse,45,,,,,,nightclub,,,,no,,,,,,2023-10-27,,{}
+869269133,Privé,node,47.3768493,8.5250528,,,,https://www.club-prive.ch/,,,,,,,,,nightclub,,,,,,,,,possibly basement too,,,"{""level"": ""0""}"
+13400753409,Schneiderei,node,47.3791838,8.5272461,Fr-Sa 22:00-04:00,,,https://schneiderei-club.ch,,Langstrasse,117,8004,Zürich,,,,nightclub,,,,,,info@schneiderei-verein.ch,,,,,,"{""alt_name"": ""Schneiderei Club"", ""contact:facebook"": ""https://www.facebook.com/vereinschneiderei/"", ""contact:instagram"": ""https://www.instagram.com/schneiderei_club/"", ""min_age"": ""21"", ""operator"": ""liegen.schafft.kultur GmbH""}"
+313898344,Medbase Apotheke Helvetiaplatz,node,47.376059,8.5252233,Mo-Fr 08:00-19:00; Sa 09:00-17:00,,,https://www.topwell.ch/medbaseapothekezuerichhelvetiapl/,,Langstrasse,39,8004,Zürich,,Medbase,,pharmacy,,,,yes,,,,,,2026-05-26,,"{""addr:country"": ""CH"", ""alt_name"": ""Topwell Apotheke Helvetiaplatz"", ""branch"": ""Zürich Helvetiaplatz"", ""brand:wikidata"": ""Q50038690"", ""check_date:opening_hours"": ""2026-05-26"", ""dispensing"": ""yes"", ""old_name"": ""Helvetiaplatz Apotheke"", ""operator"": ""Medbase Apotheken""}"
+656616207,Paracelsus-Apotheke,node,47.3793647,8.5276523,Mo-Fr 08:00-18:30; Sa 09:00-17:00,,,https://www.apotheke-paracelsus.ch/,,Langstrasse,122,8004,Zürich,,,,pharmacy,,,,no,,,,,,2025-12-17,,"{""addr:country"": ""CH"", ""check_date:opening_hours"": ""2025-12-17""}"
+9255550508,GRUSSFORMAT,node,47.3787926,8.5259566,Mo-Fr 09:00-17:00,,,http://www.grussformat.ch,,Brauerstrasse,58,8004,Zürich,Wir bieten  qualitativ hochwertigen Postkartendruck  sowie unsere eigene  Postkarten-Edition : überraschendes Bildmaterial zeitgenössischer Künstler. Alle Postkarten werden zu erschwinglichen Preisen in hochwertiger Offset-Qualität in der Schweiz gedruckt,,,,photographer,,,,+41 44 508 18 77,hello@grussformat.ch,,,,,,{}
+656535507,Amazonia Bar,node,47.3797682,8.5267148,"Mo-Th 09:00-02:00, Fr-Su 09:00-05:00",,no,https://amazonia-bar.ch/,,Sihlhallenstrasse,11,,,,,,pub,,,,,,,,,,,,"{""indoor_seating"": ""yes""}"
+5803645580,Bar Rossi,node,47.3794846,8.5272309,"Mo-Th 17:00+; Fr 17:00-04:00, Sa 20:00-04:00",,yes,https://www.bar-rossi.ch/,,,,,,,,,pub,,,,no,,,,,,2024-06-14,,{}
+1235083455,Old Gregory Pub,node,47.3799256,8.5274015,Su-We 12:00-24:00; Th 12:00-02:00; Fr-Sa 12:00-06:00,,no,https://www.oldgregorypub.ch/,,Schöneggstrasse,6,8004,Zürich,,,,pub,,,,no,+41 44 241 22 02,,,,,2024-08-24,,"{""addr:country"": ""CH"", ""indoor_seating"": ""yes"", ""operator"": ""Holenstein Gastro""}"
+7038861915,Rum 97,node,47.3783549,8.5268233,,,,,,Langstrasse,97,,Zürich,,,,pub,,,,no,,,,,,2023-09-24,,{}
+310788830,Sport,node,47.3756046,8.5245573,"Mo-We 08:00-24:00, Th 08:00-01:00, Fr,Sa 08:00-02:00",,yes,https://www.sport-bar.ch/,,,,,,,,,pub,,,,no,,,,,,,,"{""alt_name"": ""Sportbar""}"
+582263740,Total Bar,node,47.3787873,8.5288027,,,,https://www.totalbar.ch,,Tellstrasse,19,8004,Zürich,,,,pub,,,,no,,,,,,2025-04-14,,"{""brewery"": ""various"", ""payment:cards"": ""no"", ""payment:cash"": ""yes"", ""payment:credit_cards"": ""no"", ""payment:debit_cards"": ""no""}"
+495576109,Xenix Bar,node,47.375227,8.5260558,"Mo 16:00+; Tu-Fr 12:00+; Sa,Su 11:30+",,yes,,,,,8004,Zürich,,,,pub,,,,yes,,,,,,,,{}
+10957734671,Atelier Grünenwald,node,47.3792348,8.5296625,"Mo-Fr 09:00-18:00; Sa ""by appointment""",,,https://www.ateliergruenenwald.com/,,Lagerstrasse,93,,,"Möbelrestaurierung, Polsterarbeiten, Antiquitätenpflege",,repair,,,,,no,+41 79 738 97 51,gottfried.gruenenwald455@bluewin.ch,,,,2026-03-28,,"{""furniture:repair"": ""yes"", ""operator"": ""Gottfried Grünenwald"", ""phone:mobile"": ""+41 79 401 83 47""}"
+334300587,Aargauerhof,node,47.3773665,8.526169,"Mo,We-Th,Sa 11:00-23:00; Tu,Fr 10:00-23:00; Su 16:00-22:00",regional;swiss,,https://restaurant-aargauerhof.ch/,,Hohlstrasse,43,,,,,,restaurant,,,,no,+41 44 242 46 16,,,,,2024-08-24,,"{""operator"": ""Beffa Gastro""}"
+914703086,Accademia del Gusto,node,47.375334,8.5286575,"Mo-Fr 11:30-15:00,18:30-24:00; Sa 18:00-24:00",italian,no,https://www.accademiadelgusto.ch/,,Rotwandstrasse,48,,,,,,restaurant,,,,no,,,,,,2026-05-25,,"{""check_date:opening_hours"": ""2026-05-25"", ""indoor_seating"": ""yes""}"
+656649674,Ach'i,node,47.3770439,8.5287783,"Mo-Fr 11:00-14:30, 18:00-22:00; Sa 12:00-22:00; Su 17:00-22:00",asian,no,https://www.achi.restaurant/,,Brauerstrasse,4,8004,Zürich,,,,restaurant,,,,yes,+41 44 542 88 85,,,,,2024-06-19,,"{""addr:country"": ""CH"", ""indoor_seating"": ""yes"", ""note:covid19"": ""Take Away verfügbar im Restaurant Khujug an der Schöneggstrasse 5"", ""website:menu"": ""https://www.yumpu.com/xx/document/read/68736431/achi-menu-2024/3""}"
+1442004393,Ah-Hua,node,47.3760904,8.5278522,"Tu-Fr 11:30-14:30,17:30-22:30; Sa,Su 12:00-22:30",thai,,https://www.ah-hua.ch/,,Ankerstrasse,110,8004,Zürich,,,,restaurant,,,yes,yes,+41 44 240 38 88,,,,,2026-10-12,,"{""diet:meat"": ""yes"", ""diet:vegetarian"": ""yes""}"
+1235083613,Biondi,node,47.3793855,8.5258658,,,yes,,,,,,,,,,restaurant,,,,no,,,,,,2023-05-12,,{}
+656628375,Bossa Nova,node,47.3770748,8.5274942,Tu-Th 18:30-22:00; Fr-Sa 18:30-23:00; Su 12:30-15:00,brazilian,,https://bossanovasteakhouse.ch/,,Hohlstrasse,18,8004,Zürich,,,,restaurant,,,,,,,,,,,,"{""addr:country"": ""CH""}"
+656646048,Brasserie Café de Paris,node,47.376328,8.527878,"Mo-Fr 11:30-14:00,18:00-23:30; Sa 18:00-23:30",french,no,https://www.brasseriedeparis.ch/,,Ankerstrasse,113,8004,Zürich,,,,restaurant,,,,limited,,,,,,,,"{""addr:country"": ""CH"", ""indoor_seating"": ""yes"", ""operator"": ""Prinzenpark AG""}"
+10921196041,Brenso,node,47.375571,8.5249235,We-Sa 12:00-24:00,italian,,https://www.brenso.ch,,,,,,,,,restaurant,,,,no,+41 77 254 11 41,eat@brenso.ch,,,,2023-05-23,,{}
+311607525,Casa Helvetia,node,47.3765292,8.5259639,"Su-Th 09:00-24:00, Fr,Sa 09:00-07:00",,,,,Stauffacherstrasse,96,8004,Zürich,,,,restaurant,,,,,,,,,,,,"{""addr:country"": ""CH""}"
+11244280030,Casi Casa,node,47.3800736,8.5289015,Mo-Th 09:00-00:00; Fr-Sa 09:00-01:00; Su 10:00-00:00,latin_american,,https://www.casicasa.ch/,,Lagerstrasse,104,8004,Zürich,,,,restaurant,,,,,+41 44 212 12 19,,,,,,,"{""level"": ""0""}"
+808458835,Celia,node,47.3758647,8.5251128,Mo-Sa 11:30-24:00; Su 17:00-24:00,italian,yes,https://celia-restaurant.com,,Langstrasse,35,8004,Zürich,,,,restaurant,,,,no,+41 44 240 04 75,restaurant.celia@hispeed.ch,,,,2024-09-17,,"{""addr:country"": ""CH"", ""website:menu"": ""https://api2.lunchgate.ch//digital-menu/dm/menu/09fd2fe837bf1df718dfcc2538d0a1da""}"
+2008369716,Centro,node,47.3760181,8.5277705,,italian,,,,Ankerstrasse,108,,,,,,restaurant,,,,yes,,,,,,2024-08-19,,{}
+11358468756,Charlatan Restodisco,node,47.3798514,8.5284862,,,,https://restodisco.ch/,,,,,,,,,restaurant,,,,yes,,,,,,2024-06-19,,"{""toilets:wheelchair"": ""yes""}"
+4260117131,Cima Curry,node,47.3776729,8.5295685,Mo-Su 11:00-22:00,indian,no,https://cimacurry.ch/,,Kanonengasse,19,,Zürich,,,,restaurant,,,yes,no,+41 44 241 16 30,,,,,2026-02-02,,"{""check_date:opening_hours"": ""2026-02-02"", ""delivery"": ""yes"", ""diet:vegetarian"": ""yes"", ""indoor_seating"": ""yes""}"
+13353852440,Cindy's Bistro,node,47.3772862,8.5291308,"Mo-We 11:00-24:00, Th-Su 11:00-04:00",african,,https://cindys-bistro.ch/,,Kanonengasse,9,,,,,,restaurant,,,,,,,,,,2026-02-02,,"{""check_date:opening_hours"": ""2026-02-02""}"
+914703134,D'Aurora,node,47.3751694,8.528416,"Mo-Fr 11:30-15:00, 18:30+; Sa 18:00+",italian,yes,https://www.daurora.ch/,,Rotwandstrasse,42,8004,Zürich,,,,restaurant,,,,no,,,,,,2026-09-19,,"{""indoor_seating"": ""yes""}"
+1235083774,Eichhörnli,node,47.3796942,8.525707,"Mo,Su off; Tu-Fr 12:00-14:00,18:30-23:30; Sa 18:30-23:30",regional,,https://www.restaurant-eichhoernli.ch/,,,,,,,,,restaurant,,,,no,,,,,,2024-06-14,,{}
+312530452,Fribourger Stübli,node,47.375039,8.5281814,Tu-Su 18:00+,regional;swiss,,https://www.fribourger-fondue-stuebli.ch/,,Rotwandstrasse,38,,,,,,restaurant,,,,no,,,,,,2024-08-24,,"{""diet:vegan"": ""no"", ""diet:vegetarian"": ""yes""}"
+582265531,Gambrinus,node,47.3787576,8.5270372,Mo-Fr 09:00-24:00; Sa-Su 10:00-24:00,regional,,https://gambrinus-langstrasse.ch/,,Langstrasse,103,8004,Zürich,,,,restaurant,,,,no,,,,,,2023-05-12,,"{""operator"": ""Beffa Gastro""}"
+803245796,Gamper,node,47.3791312,8.5250934,"We 12:00-14:00, 18:00-22:00; Tu 12:00-14:00, 18:00-23:00; Fr 12:00-14:00, 17:00-24:00; Sa 16:00-24:00",,yes,https://www.gamper-restaurant.ch/,,Nietengasse,1,8004,Zürich,,,,restaurant,,,,yes,,,,,,2023-09-29,,"{""addr:country"": ""CH""}"
+5429035472,Gaucho,node,47.3798059,8.5257791,"Tu-Fr 11:30-14:00, 18:30-23:00; Sa 18:30-23:00",steak_house,,https://gaucho.ch/restaurant/,,Nietengasse,18,8004,Zürich,,,,restaurant,,,,limited,+41 44 321 18 18,restaurant@gaucho.ch,,,,2024-06-14,,"{""addr:country"": ""CH""}"
+346245377,Gotthard Bar,node,47.3769125,8.5258364,Mo-We 17:00-02:00; Th 17:00-04:00; Fr 17:00-04:30; Sa 19:00-04:30,,,http://www.gotthard-bar.ch,,Langstrasse,63,,,,,,restaurant,,,,no,,,,,,2026-05-29,,"{""check_date:opening_hours"": ""2026-05-29"", ""contact:instagram"": ""gotthardbar_zh"", ""internet_access"": ""wlan""}"
+1241219823,Hongxi,node,47.3777904,8.5296685,"Mo-Fr 11:30-14:00,17:30-22:00; Sa 11:30-22:00; Su 12:00-21:00",chinese,,http://www.hongxi-restaurant.ch,,Zwinglistrasse,3,8004,,,,,restaurant,,,,no,+41 43 549 20 20,,,,,2025-04-14,,{}
+12652457762,Hungry Duck,node,47.3777441,8.526895,Mo-Sa 11:00-16:00; Tu-We 17:00-24:00; Th 17:00-01:00; Fr-Sa 17:00-02:00; Su 17:00-23:00,asian;wings,no,https://hungryduck.ch/,,Brauerstrasse,37,8004,Zürich,,,,restaurant,,,yes,yes,+41 76 455 88 55,,,,,,,"{""all_you_can_eat"": ""yes"", ""indoor_seating"": ""yes"", ""old_name"": ""Happy Panda""}"
+12754797445,Karmi's,node,47.3780429,8.5296209,Mo-Fr 10:00-22:00,,no,,,,,,,Wein- & Steakbistro,,,restaurant,,,,no,+41 44 241 91 45,,,,,2025-05-01,,"{""indoor_seating"": ""yes"", ""internet_access"": ""wlan"", ""internet_access:fee"": ""no"", ""payment:cash"": ""yes"", ""payment:credit_cards"": ""yes"", ""payment:debit_cards"": ""yes""}"
+1235083458,Khujug,node,47.3798297,8.5270667,"Mo-Fr 11:00-14:30, 18:00-23:00; Sa 12:00-23:00; Su 17:00-22:30",chinese,yes,https://www.khujug.restaurant/,,,,,,,,,restaurant,,,,limited,+41 41 888 05 58,,,,,2024-08-24,,"{""diet:vegetarian"": ""yes"", ""indoor_seating"": ""yes""}"
+12133693609,Knödl,node,47.3791622,8.5246394,,,,,,,,,,,,,restaurant,,,,no,,,,,,2024-08-24,,{}
+1137687375,Lele,node,47.3784747,8.530352,"Mo-We 11:30-15:00,17:00-00:00; Th 11:30-15:00,17:00-02:00; Fr 11:30-15:00,17:00-04:00; Sa 18:00-04:00",italian,yes,https://www.restaurantlele.ch/,,,,,,,,,restaurant,,,,limited,,,,,,2024-06-19,,"{""indoor_seating"": ""yes""}"
+13052489329,Maru,node,47.3789711,8.5267429,,,,,,,,,,,,,restaurant,,,,,,,,,,,,{}
+1240990708,Morgenstern da Mario,node,47.3784276,8.5284216,,italian,,https://morgenstern-zh.ch,,Zwinglistrasse,27,,,,,,restaurant,,,,no,+41 44 242 68 30,morgenstern.zh@bluewin.ch,,,,2025-04-14,,{}
+1083769431,Neela,node,47.3779493,8.5298119,"Mo 11:00-14:30; Tu-Fr 11:00-14:30, 17:30-22:30; Sa-Su 17:00-22:30",sri_lankan,,https://neela.ch/,,Kanonengasse,29,8004,,,,,restaurant,,,,no,+41 44 242 71 11,,,,,2025-04-14,,"{""old_name"": ""Le Chef"", ""website:menu"": ""https://neela.ch/wp-content/uploads/2022/04/Neela_Abendkarte.pdf""}"
+4424003112,Now We Go Vegan,node,47.3789404,8.5267275,,vietnamese,yes,,,Rolandstrasse,9,8004,Zürich,,,,restaurant,,,,yes,,,,,,2023-05-12,,"{""diet:vegan"": ""yes""}"
+13128080855,OMA MAO,node,47.3804002,8.5250743,Tu-Fr 11:00-14:00,asian,,https://omamao.ch/,,Feldstrasse,142,8004,Zürich,,,,restaurant,,,yes,,,,,,,,,"{""diet:vegan"": ""yes"", ""drive_through"": ""no""}"
+1240990728,Oder Wat,node,47.3783341,8.5286082,,,,,,Tellstrasse,10,,,,,,restaurant,,,,,,,,,,,,"{""check_date:opening_hours"": ""2026-10-03"", ""opening_hours:signed"": ""no""}"
+914703174,Osteria Santo Bevitore,node,47.3754803,8.5284806,"Mo-Fr 11:30-14:00,18:00-23:00; Sa 18:00-23:45",italian,yes,https://www.osteria-santobevitore.ch/,,Rotwandstrasse,49,8004,Zürich,,,,restaurant,,,yes,no,+41 442426161,,,yes,,2024-08-19,,"{""indoor_seating"": ""yes""}"
+10267138041,PUTPUTakeaway,node,47.3764992,8.5252048,"Mo 11:30-14:30; Tu-Fr 11:30-14:30,17:30-21:00",japanese,,http://www.putput.ch/,,Stauffacherstrasse,101,8004,Zürich,,,,restaurant,,,,yes,,,,,,2023-05-23,,"{""addr:country"": ""CH""}"
+1016012577,Pho 50,node,47.3764802,8.5252621,"Mo-Fr 10:30-14:30, Mo-Su 17:00-22:00; PH 17:00-22:00",vietnamese,,https://www.pho50.ch/,,Stauffacherstrasse,101,8004,Zürich,,,,restaurant,,,yes,yes,,,,,,2023-05-23,,"{""addr:country"": ""CH""}"
+4655092589,Pho Mai,node,47.3755405,8.528631,,vietnamese,yes,,,,,,,,,,restaurant,,,,no,,,,,,2024-08-04,,"{""payment:cards"": ""yes"", ""payment:cash"": ""yes""}"
+1240180975,Pizzeria Milano,node,47.3791536,8.5283971,"Mo-Sa 11:00-14:00,18:00-24:00",italian,yes,https://www.restaurant-milano.ch/,,Militärstrasse,109,8004,Zürich,,,,restaurant,,,,yes,+41 44 241 88 17,,,,,2025-12-29,,"{""check_date:opening_hours"": ""2025-12-29"", ""diet:vegetarian"": ""yes"", ""indoor_seating"": ""yes""}"
+327453260,Ristorante Italia,node,47.3763729,8.5292946,"Mo-Fr 11:30-14:00, 18:00-24:00; Sa-Su 18:00-23:00",italian,yes,https://www.ristorante-italia.ch/,,Zeughausstrasse,61,8004,Zürich,,,,restaurant,,,,limited,+41 43 233 88 44,,,,,,,"{""indoor_seating"": ""yes"", ""opening_hours:kitchen"": ""Mo-We 11:30-13:30, 18:30-22:00; Th-Fr 11:30-13:30, 18:30-22:30; Sa-Su 18:30-22:30; Su 18:00-22:00"", ""toilets:wheelchair"": ""yes""}"
+848938990,SO Pizza,node,47.3752425,8.5250339,"Mo-Th 12:00-13:30, 18:00-22:00; Fr 12:00-13:30, 18:00-23:00; Sa 18:00-23:00; Su 18:00-22:00",pizza,,https://www.so.pizza/,,Langstrasse,20,8004,Zürich,,,,restaurant,,,yes,no,,,,,,2023-05-23,,"{""addr:country"": ""CH""}"
+656824967,Schweizerdegen El Papi,node,47.3784958,8.5271796,,,yes,,,Dienerstrasse,40,,,,,,restaurant,,,,no,,,,,,,,"{""alt_name"": ""Restaurant Schweizerdegen""}"
+13685409175,Shokudo Izakaya,node,47.3757121,8.5292497,"Mo-Sa 11:30-14:00,18:00-22:00; Su off",,,https://shokudo.ch,,Rotwandstrasse,62,,,,,,restaurant,,,,limited,+41 43 322 00 53,info@shokudo.ch,,,,2026-03-27,,"{""addr:floor"": ""O"", ""internet_access"": ""no"", ""level"": ""0"", ""payment:cash"": ""yes"", ""payment:credit_cards"": ""yes"", ""payment:debit_cards"": ""yes""}"
+10647472305,Simon Says Taste Taiwan,node,47.3787381,8.5277431,"Mo off; Tu-Fr 11:30-13:30,18:00-21:15; Sa 11:30-21:45; Su 17:30-21:00",taiwanese,,https://simonsaystaiwan.ch/,,,,,,,,,restaurant,,,,no,+41 44 241 63 88,,,,,2024-06-07,,{}
+1241219769,Stella Alpina,node,47.3787987,8.5265659,,,yes,,,,,,,,,,restaurant,,,,limited,,,,,,,,{}
+2395154664,Stereo,node,47.3777854,8.5272463,,,,,,Brauerstrasse,36,8004,Zürich,,,,restaurant,,,,no,,,,,,,,{}
+656699893,Stubä,node,47.3779077,8.5270821,,,yes,https://www.stube.me/,,Brauerstrasse,42,8004,Zürich,,,,restaurant,,,,no,,,,,,2023-06-02,,"{""addr:country"": ""CH""}"
+1360794125,Tabula Rasa,node,47.377911,8.5294772,,regional,,http://www.zumgoldenenfass.ch/,,Zwinglistrasse,7,8004,Zürich,,,,restaurant,,,,no,,,,,,2025-04-14,,"{""addr:country"": ""CH""}"
+1243596474,Tanukiya,node,47.3782008,8.5292404,,japanese;ramen;udon,,https://www.tanukiya.ch,,Zwinglistrasse,12,8004,Zürich,,,,restaurant,,,,,,,,,,2025-10-14,,"{""diet:vegetarian"": ""yes""}"
+311607628,Tenz Momo,node,47.3775516,8.5262968,"Mo-Th 11:30-14:00,17:30-23:00; Fr 11:30-14:00,17:30-24:00; Sa 16:00-24:00; Su off",tibetan,yes,https://www.tenz.ch,,Hohlstrasse,44,8004,Zürich,,,,restaurant,,,,no,+41 76 816 80 44,langstrasse@tenz.ch,,,,2023-09-24,,"{""capacity"": ""70""}"
+1240044657,Thach,node,47.3786741,8.5299156,"Mo-Sa 11:00-14:00,18:00-22:00",asian,no,https://tach.ch,,Militärstrasse,84,,,,,,restaurant,,,,yes,+41 43 243 37 27,restaurant@thach.ch,,,,2025-04-14,,"{""diet:vegan"": ""yes"", ""diet:vegetarian"": ""yes"", ""indoor_seating"": ""yes"", ""internet_access"": ""no"", ""payment:cash"": ""yes"", ""payment:credit_cards"": ""yes"", ""payment:debit_cards"": ""yes""}"
+656654442,Thai-Food-Corner,node,47.3769262,8.5284802,,thai,yes,,,Brauerstrasse,3,,,,,,restaurant,,,,no,,,,,,2024-08-19,,{}
+656508776,The Bite,node,47.3773121,8.5277904,"Mo-Th 17:30-23:00; Fr 17:30-23:30; Sa 10:00-14:00, 17:30-23:30; Su 10:00-14:00, 17:30-23:00",burger,,https://www.thebite.ch/,,Brauerstrasse,15,8004,Zürich,,,,restaurant,,,,no,+41 44 242 30 00,info@thebite.ch,,,,2023-06-02,,{}
+1035744153,The Sacred,node,47.3760618,8.5288696,Mo-Sa 11:00-21:00,cake;tea;coffee_shop,yes,https://vegelateria.ch/,,Müllerstrasse,64,8004,Zürich,,,,restaurant,,,,yes,,,,,,2026-07-12,,"{""addr:country"": ""CH"", ""diet:vegan"": ""only"", ""diet:vegetarian"": ""only""}"
+5945878069,The Yard,node,47.3759287,8.5276269,,chinese,,https://theyard.ch,,Bäckerstrasse,62,8004,Zürich,,,,restaurant,,,,no,+41 44 291 92 83,,,,,2024-08-19,,"{""wheelchair:description"": ""2 Stufen beim Eingang""}"
+656703086,Trübli Bar,node,47.3765636,8.5290029,,,,,,Zeughausstrasse,67,,,,,,restaurant,,,,no,,,,,,2023-09-24,,{}
+5976303007,Tsukada Gaijin Izakaya,node,47.3778441,8.5295709,"Mo-Fr 11:30-14:00,17:00-22:00; Sa-Su 17:00-22:00",japanese,,,,Zwinglistrasse,3,8004,,,,,restaurant,,,,no,,,,,,2025-04-14,,{}
+3578338893,Veganitas,node,47.3775824,8.5276791,,,yes,https://www.veganitas.com/,,Brauerstrasse,30,8004,Zürich,,,,restaurant,,,,yes,,,,,,2023-06-02,,"{""addr:country"": ""CH"", ""diet:vegan"": ""yes""}"
+1360843969,Viet-Thai,node,47.3780557,8.5299364,"Mo-Fr 11:00-14:00,18:00-22:00; Sa 18:00-22:00",asian,,http://www.viet-thai.ch/,,Kanonengasse,31,8004,,,,,restaurant,,,,no,+41 44 241 11 80,,,,,2025-04-14,,"{""payment:cash"": ""yes"", ""payment:credit_cards"": ""yes"", ""payment:debit_cards"": ""yes""}"
+656516103,Volkshaus,node,47.3755766,8.5271252,"Mo-We 08:00-23:30; Th,Fr 08:00-01:00, Sa 09:00-01:00, Su 10:00-23:30",,,https://www.restaurantvolkshaus.ch/,,Stauffacherstrasse,60,8004,Zürich,,,,restaurant,,,,limited,,,,,,2024-06-19,,"{""addr:country"": ""CH"", ""toilets:wheelchair"": ""yes""}"
+12133693612,Yilong Asia,node,47.3798335,8.5250002,"Mo-Fr 11:15-14:00,17:00-22:30; Sa,Su 17:00-22:30",asian,,,,,,,,,,,restaurant,,,yes,no,,,,,,2025-12-09,,"{""check_date:opening_hours"": ""2025-12-09""}"
+3013422856,Ynos,node,47.3789304,8.5314462,Mo-We 11:30-23:00; Th-Sa 11:30-00:00,greek,,http://www.ynos.ch/,,Europaallee,47,8004,Zürich,,,,restaurant,,,,yes,+41 44 536 44 44,,,,,2024-08-09,,"{""addr:country"": ""CH"", ""level"": ""0""}"
+803245834,Za'atar,node,47.3790069,8.5249463,"Tu-Fr 11:00-14:00, 17:00-23:00; Sa-Su 17:00-23:00",lebanese,yes,https://www.zaatar.ch,,Brauerstrasse,74,8004,Zürich,,,,restaurant,,,,no,+41 43 243 80 33;+41 76 792 21 31,,,,,2024-08-24,,"{""addr:country"": ""CH"", ""alt_name"": ""Zaatar""}"
+1360830654,Zeughaushof,node,47.3778272,8.5304532,"Mo,We-Fr 09:00-14:00; Tu 09:00-14:00,19:00-24:00; Sa-Su,PH off",international,,https://www.hopzueri.ch/,,Kanonengasse,20,8004,Zürich,,,,restaurant,,,,yes,,,,,,2025-01-06,,"{""operator"": ""HOP! Züri""}"
+10921196039,Antonio Schlüssel-und Schuhservice,node,47.375259,8.5247041,"Mo-Fr 08:00-12:00,13:00-18:30; Sa 08:00-16:00; Su off",,,,,,,,,,,shoe_repair,,,,,yes,,,,,,2023-05-23,,{}
+1240181002,Schuhmacherei Eva Kirchhofer,node,47.379362,8.5280928,"Mo-We,Su off; Th-Fr 10:30-18:30; Sa 11:00-16:00",,,https://schuhmacherin.ch,,Militärstrasse,115,8004,Zürich,"Schuh-Reparaturen, Umgestaltungen, spezielle Wünsche",,,,shoemaker,,,no,+41 79 886 12 47,,,,,2025-12-29,,"{""check_date:opening_hours"": ""2025-12-29"", ""opening_hours:description"": ""Do und Fr 10:30-18:30 Uhr; Sa 11-16 Uhr"", ""repair"": ""yes"", ""shoes:repair"": ""yes""}"
+12754794882,RECON,node,47.3784603,8.5298334,Mo-Sa 12:00-19:00,,,,,Militärstrasse,81,,,,,shoes,,,,,no,,,,,,2025-04-14,,"{""addr:floor"": ""g"", ""internet_access"": ""no"", ""level"": ""0"", ""source"": ""survey""}"
+4314055601,Budosport Nippon,node,47.3791238,8.5263851,Mo-Fr 09:00-19:00; Sa 10:00-17:00,,,http://www.budo.ch,,Rolandstrasse,15,8004,,,,sports,,,,,yes,,,,,,2023-05-12,,"{""source"": ""survey"", ""sport"": ""martial_arts""}"
+3841887704,Fabrikat,node,47.37859,8.5301125,Mo-Fr 11:00-19:00; Sa 11:00-17:00,,,https://www.fabrikat.ch/,,,,,,,,stationery,,,,,,+41 44 542 46 44,shop@fabrikat.ch,,,,,,{}
+310789178,Coop,node,47.3770779,8.5264444,Mo-Sa 07:00-22:00,,,,,Hohlstrasse,35,8004,Zürich,,Coop,supermarket,,,,,yes,,,,,,2024-06-01,,"{""addr:country"": ""CH"", ""alt_name"": ""Coop Hohlstrasse"", ""branch"": ""Zürich Hohlstrasse"", ""brand:wikidata"": ""Q432564"", ""operator"": ""Coop Genossenschaft"", ""payment:credit_cards"": ""yes"", ""payment:debit_cards"": ""yes""}"
+10162233917,Sala-Thai,node,47.3788027,8.5280298,Mo-Fr 10:00-19:00; Sa 10:00-18:00,thai,,https://sala-thai.ch,,Zwinglistrasse,32,8004,,,,supermarket,,,,,no,,,,,,2024-06-07,,{}
+12138506367,Don't Say No,node,47.3750883,8.5289125,,,,,,,,,,,,tattoo,,,,,no,,,,,,2024-08-24,,{}
+12133693604,ECO TCA Consulting,node,47.3801513,8.5264669,,,,,,,,,,,,,,,,,,,,,,,2024-08-24,,"{""office"": ""tax_advisor""}"
+2178135077,Volkshaus,node,47.3755831,8.5274442,,,,https://www.volkshaus.ch/,,Stauffacherstrasse,60,8004,Zürich,,,,theatre,,,,limited,,,,,,2024-06-19,,"{""addr:country"": ""CH"", ""operator"": ""Volkshausstiftung Zürich"", ""operator:de"": ""Volkshausstiftung Zürich""}"
+5679794324,Feldenkrais Studio Andreas Kleemann,node,47.3767407,8.5260892,"Mo-Fr 10:00-20:00,Sa 10:00-16:00",,,https://feldenkrais.studio,,Langstrasse,62,8004,Zürich,,,,,,,,limited,+41 76 516 65 16,,,,,2023-09-24,,"{""healthcare"": ""coach"", ""healthcare:speciality"": ""feldenkrais_methode"", ""level"": ""2"", ""office"": ""therapist"", ""operator"": ""Andreas Kleemann"", ""payment:cash"": ""yes"", ""payment:cryptocurrencies"": ""yes"", ""payment:invoice"": ""yes"", ""start_date"": ""2017""}"
+10889806813,Snushus,node,47.3790607,8.5272395,,,,https://snushus.ch,,,,,,,,tobacco,,,,,,,,,,,2024-06-07,,"{""operator"": ""John""}"
+12754794142,weiss traductions,node,47.3785624,8.5292974,,,,,,Militärstrasse,87a,,,,,,,,,,no,,,,,,2025-04-14,,"{""office"": ""translator""}"
+5282153481,Atlântico,node,47.3785148,8.5297274,Mo-Fr 09:00-18:00; Sa-Su off,,,,,,,,,,,travel_agency,,,,,no,,,,,,2023-10-27,,{}
+5282153482,viajes.ch,node,47.3786027,8.5295641,Mo-Fr 09:30-18:30; Sa 10:00-16:00,,,,,Militärstrasse,87,,,,,travel_agency,,,,,no,+41 44 241 24 41; +41 76 242 24 41,,,,,2025-04-14,,"{""level"": ""0""}"
+12138506365,Meg 4 Beauty,node,47.3751728,8.5287768,,,,,,,,,,,,wigs,,,,,no,,,,,,2024-08-24,,{}

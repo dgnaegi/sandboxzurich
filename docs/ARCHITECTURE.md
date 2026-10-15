@@ -45,7 +45,7 @@ game/
     src/player/         Character Controller, Kamera-Folgen
     src/gameplay/       Sterne, Polizei, Zerstörung, Quests
     src/ui/             HUD, Radar, Menüs (Stil wie im Reel)
-  tests/                Playwright-Szenarien, feste Kamerapunkte
+    tests/              Playwright-Szenarien, feste Kamerapunkte (#12)
   preview/              Screenshots für den User
   logs/                 Logs langer Läufe
 ```

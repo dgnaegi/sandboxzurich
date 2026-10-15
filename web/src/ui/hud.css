@@ -1,0 +1,74 @@
+@font-face { font-family: Anton; src: url(/fonts/Anton-Regular.ttf); font-display: swap; }
+@font-face { font-family: "Barlow Condensed"; font-weight: 700; src: url(/fonts/BarlowCondensed-Bold.ttf); font-display: swap; }
+@font-face { font-family: Barlow; font-weight: 700; src: url(/fonts/Barlow-Bold.ttf); font-display: swap; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: #1b2023; touch-action: none; user-select: none; -webkit-user-select: none; }
+#view { display: block; width: 100vw; height: 100vh; height: 100dvh; }
+#hud { position: fixed; inset: 0; pointer-events: none; font: 700 14px/1.3 Barlow, system-ui, sans-serif; color: #fff; text-shadow: 0 2px 3px #000c; }
+#radar { position: absolute; left: calc(14px + env(safe-area-inset-left)); top: calc(14px + env(safe-area-inset-top)); width: 170px; height: 170px; border-radius: 50%; pointer-events: auto; cursor: pointer; box-shadow: 0 0 0 4px #000a, 0 4px 14px #0008; }
+#place { position: absolute; left: calc(18px + env(safe-area-inset-left)); top: calc(196px + env(safe-area-inset-top)); }
+#place-name { font: 26px/1 Anton, sans-serif; letter-spacing: .5px; text-transform: uppercase; -webkit-text-stroke: 1px #000; }
+#place-kreis { font: 700 14px "Barlow Condensed", sans-serif; opacity: .9; text-transform: uppercase; }
+#help { position: absolute; right: calc(14px + env(safe-area-inset-right)); bottom: calc(10px + env(safe-area-inset-bottom)); opacity: .8; font-size: 12px; }
+#stats { position: absolute; left: calc(12px + env(safe-area-inset-left)); bottom: calc(10px + env(safe-area-inset-bottom)); font: 11px ui-monospace, monospace; opacity: .7; display: none; }
+body.debug #stats { display: block; }
+#topright { position: absolute; right: calc(16px + env(safe-area-inset-right)); top: calc(12px + env(safe-area-inset-top)); text-align: right; font-family: Anton, sans-serif; line-height: 1; }
+#clock { font-size: 26px; color: #fff; -webkit-text-stroke: 1.5px #000; paint-order: stroke fill; }
+#money { font-size: 38px; color: #2fbf4a; -webkit-text-stroke: 2px #0a2a10; paint-order: stroke fill; letter-spacing: 1px; margin-top: 4px; }
+#stars { margin-top: 6px; font-size: 30px; letter-spacing: 2px; }
+#stars i { font-style: normal; color: #00000055; -webkit-text-stroke: 1.5px #fff; paint-order: stroke fill; }
+#stars i.on { color: #fff; -webkit-text-stroke: 1.5px #000; }
+#stick { position: fixed; width: 120px; height: 120px; margin: -60px 0 0 -60px; border-radius: 50%; background: #fff3; border: 2px solid #fff8; display: none; pointer-events: none; }
+#knob { position: absolute; left: 35px; top: 35px; width: 50px; height: 50px; border-radius: 50%; background: #fffc; }
+#loading { position: fixed; inset: 0; display: grid; place-content: center; text-align: center; background: radial-gradient(#3a2a4a, #120d18); color: #fff; font: 56px/1 Anton, sans-serif; text-shadow: 0 4px 0 #000; }
+#loading b { color: #ff4fa0; font-weight: normal; }
+#loading small { font: 700 18px Barlow, sans-serif; margin-top: 16px; opacity: .9; }
+#loading.ready small { animation: blink 1.2s infinite; }
+@keyframes blink { 50% { opacity: .3; } }
+#controls { font: 700 14px/1.6 Barlow, sans-serif; margin-top: 28px; opacity: .75; text-shadow: none; }
+#byline { position: absolute; bottom: calc(18px + env(safe-area-inset-bottom)); left: 0; right: 0; font: 15px Anton, sans-serif; color: #ff4fa0; letter-spacing: 1px; }
+#loading { cursor: pointer; }
+#bigmap { position: fixed; inset: 0; display: none; z-index: 10; }
+#bigmap-canvas { width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; }
+#bigmap-title { position: absolute; left: 50%; transform: translateX(-50%); top: calc(12px + env(safe-area-inset-top)); color: #fff; font: 30px Anton, sans-serif; text-shadow: 0 3px 0 #000; pointer-events: none; white-space: nowrap; }
+#bigmap-title span { color: #f5c518; }
+#bigmap-legend { position: absolute; left: 50%; transform: translateX(-50%); bottom: calc(14px + env(safe-area-inset-bottom)); color: #fff; font: 700 14px Barlow, sans-serif; background: #000a; padding: 6px 12px; border-radius: 6px; pointer-events: none; white-space: nowrap; }
+.dot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; border: 2px solid #000; vertical-align: -2px; }
+.dot.y { background: #f5c518; }
+#bigmap button { font: 26px Anton, sans-serif; color: #fff; background: #000b; border: 2px solid #fff6; border-radius: 8px; width: 48px; height: 48px; cursor: pointer; }
+#bigmap-close { position: absolute; right: calc(14px + env(safe-area-inset-right)); top: calc(12px + env(safe-area-inset-top)); }
+#bigmap-zoom { position: absolute; right: calc(14px + env(safe-area-inset-right)); bottom: calc(14px + env(safe-area-inset-bottom)); display: flex; flex-direction: column; gap: 8px; }
+body.touch #help { display: none; }
+@media (max-width: 900px), (max-height: 500px) {
+  #radar { width: 112px; height: 112px; }
+  #place { top: calc(136px + env(safe-area-inset-top)); }
+  #place-name { font-size: 19px; }
+  #money { font-size: 26px; } #clock { font-size: 18px; } #stars { font-size: 20px; }
+  #bigmap-title { font-size: 22px; }
+  #bigmap-legend { font-size: 12px; }
+}
+#toast { position: fixed; left: 50%; top: 13%; transform: translate(-50%, -10px); opacity: 0; transition: opacity .4s, transform .4s; text-align: center; pointer-events: none; color: #fff; text-shadow: 0 3px 0 #000; max-width: 90vw; }
+#toast.on { opacity: 1; transform: translate(-50%, 0); }
+#toast-kicker { font: 18px Anton, sans-serif; color: #f5c518; letter-spacing: 1px; }
+#toast-title { font: 44px/1.05 Anton, sans-serif; text-transform: uppercase; -webkit-text-stroke: 1.5px #000; }
+#toast-text { font: 700 17px Barlow, sans-serif; margin-top: 6px; }
+@media (max-width: 900px), (max-height: 500px) { #toast-title { font-size: 28px; } #toast-text { font-size: 14px; } }
+#mission { position: fixed; left: 50%; transform: translateX(-50%); top: calc(14px + env(safe-area-inset-top)); color: #fff; font: 22px Anton, sans-serif; text-shadow: 0 2px 0 #000; pointer-events: none; white-space: nowrap; }
+#bigtext { position: fixed; left: 50%; top: 52%; transform: translate(-50%, -50%); text-align: center; pointer-events: none; display: none; max-width: 86vw; }
+#bigtext-title { font: 64px/1 Anton, sans-serif; color: #f5c518; -webkit-text-stroke: 2px #000; paint-order: stroke fill; text-shadow: 0 4px 0 #000; }
+#bigtext.fail #bigtext-title { color: #e2453c; }
+#bigtext.pass #bigtext-title { color: #2fbf4a; }
+#bigtext-text { font: 700 19px Barlow, sans-serif; color: #fff; text-shadow: 0 2px 3px #000; margin-top: 10px; }
+#prompt { position: fixed; left: 50%; bottom: calc(80px + env(safe-area-inset-bottom)); transform: translateX(-50%); background: #000b; color: #fff; padding: 8px 14px; border-radius: 6px; font: 700 15px Barlow, sans-serif; display: none; pointer-events: none; }
+#touchbtns { position: fixed; right: calc(18px + env(safe-area-inset-right)); bottom: calc(40px + env(safe-area-inset-bottom)); display: none; gap: 14px; }
+body.touch #touchbtns { display: flex; }
+#touchbtns button { width: 66px; height: 66px; border-radius: 50%; border: 3px solid #fff9; background: #0007; color: #fff; font: 28px Anton, sans-serif; }
+#btn-menu { position: fixed; right: calc(16px + env(safe-area-inset-right)); top: calc(150px + env(safe-area-inset-top)); width: 42px; height: 42px; border-radius: 8px; border: 2px solid #fff6; background: #0008; color: #fff; font-size: 22px; cursor: pointer; }
+#menu { position: fixed; inset: 0; display: none; place-items: center; background: radial-gradient(#3a2a4acc, #120d18ee); z-index: 20; }
+.m-page { text-align: center; max-width: 560px; padding: 20px; color: #fff; font: 16px/1.5 Barlow, sans-serif; }
+.m-page h1 { font: 48px Anton, sans-serif; margin: 0 0 16px; } .m-page h1 b { color: #ff4fa0; font-weight: normal; }
+.m-page h2 { font: 32px Anton, sans-serif; margin: 0 0 10px; }
+.m-page button { display: block; width: 260px; margin: 10px auto; padding: 12px; font: 22px Anton, sans-serif; color: #fff; background: #000a; border: 2px solid #fff5; border-radius: 8px; cursor: pointer; }
+.m-page button:hover { border-color: #f5c518; color: #f5c518; }
+@media (max-width: 900px), (max-height: 500px) { #bigtext-title { font-size: 38px; } #mission { font-size: 16px; } #btn-menu { top: calc(100px + env(safe-area-inset-top)); } }
+#bubble { position: fixed; display: none; transform: translate(-50%, -100%); background: #fff; color: #111; font: 700 14px Barlow, sans-serif; padding: 5px 10px; border-radius: 12px; pointer-events: none; box-shadow: 0 2px 6px #0006; white-space: nowrap; }
+#bubble::after { content: ''; position: absolute; left: 50%; bottom: -6px; border: 6px solid transparent; border-top-color: #fff; border-bottom: 0; transform: translateX(-50%); }

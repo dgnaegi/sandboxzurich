@@ -1,0 +1,132 @@
+[
+ {
+  "name": "fountain_trough",
+  "file": "fountain_trough.glb",
+  "tris": 198,
+  "size": [
+   2.28,
+   1.78,
+   0.98
+  ]
+ },
+ {
+  "name": "fountain_round",
+  "file": "fountain_round.glb",
+  "tris": 320,
+  "size": [
+   1.56,
+   1.83,
+   1.6
+  ]
+ },
+ {
+  "name": "fountain_drink",
+  "file": "fountain_drink.glb",
+  "tris": 224,
+  "size": [
+   0.533,
+   1.095,
+   0.56
+  ]
+ },
+ {
+  "name": "bench_slat",
+  "file": "bench_slat.glb",
+  "tris": 264,
+  "size": [
+   1.9,
+   0.882,
+   0.539
+  ]
+ },
+ {
+  "name": "bench_metal",
+  "file": "bench_metal.glb",
+  "tris": 216,
+  "size": [
+   1.8,
+   0.887,
+   0.582
+  ]
+ },
+ {
+  "name": "bin",
+  "file": "bin.glb",
+  "tris": 184,
+  "size": [
+   0.447,
+   0.96,
+   0.47
+  ]
+ },
+ {
+  "name": "hydrant",
+  "file": "hydrant.glb",
+  "tris": 230,
+  "size": [
+   0.3,
+   0.81,
+   0.29
+  ]
+ },
+ {
+  "name": "pingpong",
+  "file": "pingpong.glb",
+  "tris": 96,
+  "size": [
+   2.74,
+   0.91,
+   2.097
+  ]
+ },
+ {
+  "name": "lamp_cable",
+  "file": "lamp_cable.glb",
+  "tris": 190,
+  "size": [
+   0.7,
+   0.662,
+   0.56
+  ]
+ },
+ {
+  "name": "lamp_mast",
+  "file": "lamp_mast.glb",
+  "tris": 104,
+  "size": [
+   0.4,
+   6.72,
+   1.77
+  ]
+ },
+ {
+  "name": "lamp_classic",
+  "file": "lamp_classic.glb",
+  "tris": 280,
+  "size": [
+   0.52,
+   4.37,
+   0.6
+  ]
+ },
+ {
+  "name": "bollard",
+  "file": "bollard.glb",
+  "tris": 72,
+  "size": [
+   0.166,
+   0.9,
+   0.166
+  ]
+ },
+ {
+  "name": "sign_pole",
+  "file": "sign_pole.glb",
+  "tris": 74,
+  "size": [
+   0.08,
+   3.34,
+   0.08
+  ]
+ }
+]

@@ -1,0 +1,522 @@
+osm_id,name,status,new_name,address,source_url,checked
+n298172595,Plaza Bar,ok,,"Badenerstrasse 109, 8004 Zürich",https://www.zuerich.com/de/besuchen/bars-lounges/plaza-bar,2026-10-14
+n298172592,Plaza Klub,ok,,"Badenerstrasse 109, 8004 Zürich",https://www.zuerich.com/de/besuchen/bars-lounges/plaza-klub,2026-10-14
+n848939013,Queen Idia African Restaurant,ok,,Badenerstrasse 125,https://zuri.net/de/zurich/afrikanische-restaurants/queen-idia-4392.htm,2026-10-14
+n6864254158,Roots of Himalaya,ok,,Badenerstrasse 155,https://zuri.net/de/zurich/essen/roots-of-himalaya-12126.htm,2026-10-14
+n10560490884,Bar Lupo,ok,,"Badenerstrasse 155, 8004 Zürich",https://indagare.com/restaurant/bar-lupo,2026-10-14
+n3287516229,Nooch,unclear,,Badenerstrasse 101,,2026-10-14
+n2051292454,Tiny Fish,unclear,,Badenerstrasse 157,,2026-10-14
+n1393811819,La Taqueria,unclear,,Badenerstrasse 138,,2026-10-14
+n313212546,Yuma,unclear,,Badenerstrasse 120,,2026-10-14
+n2953822533,Houdini,ok,,Badenerstrasse 173,https://zuri.net/de/zurich/bars/houdini-3404.htm,2026-10-14
+n2953822534,Houdini,ok,,Badenerstrasse 173,https://zuri.net/de/zurich/bars/houdini-3404.htm,2026-10-14
+n3019163163,BachserMärt Kalkbreite,ok,,Badenerstrasse 171,https://zuri.net/de/zurich/lebensmittelmaerkte/bachsermart-kalkbreite-5875.htm,2026-10-14
+n936942686,Coop Vitality,ok,,"Badenerstrasse 15, 8004 Zürich",https://onedoc.ch/en/pharmacy/zurich/e7h0/coop-vitality-stauffacher,2026-10-14
+n651273252,Coop,unclear,,Badenerstrasse 15,,2026-10-14
+n4845976792,Coop to go,unclear,,Badenerstrasse 15,,2026-10-14
+n8194979190,Roots of Himalaya,unclear,,Badenerstrasse 175,,2026-10-14
+n3024205605,Bebek,unclear,,Badenerstrasse 171,,2026-10-14
+n10691349204,Love at the Bus Stop,unclear,,Badenerstrasse 153,,2026-10-14
+n301815421,McDonald's,unclear,,Badenerstrasse 21,,2026-10-14
+n10819998587,Sanbert,unclear,,Badenerstrasse 138,,2026-10-14
+n656810963,Lugano Bar,ok,,Langstrasse 108,https://zuri.net/de/zurich/bars-in-restaurants/lugano-bar-11599.htm,2026-10-14
+n2112530380,Klaus,ok,Haus von Klaus,Langstrasse 112,https://zuri.net/de/zurich/nightlife/haus-von-klaus-3534.htm,2026-10-14
+n13400753409,Schneiderei,ok,Schneiderei Club,Langstrasse 117,https://zuri.net/de/zurich/nightlife/schneiderei-club-19459.htm,2026-10-14
+n582265531,Gambrinus,ok,,Langstrasse 103,https://zuri.net/de/zurich/swiss-kitchen/gambrinus-11573.htm,2026-10-14
+n313212365,Suan Long,ok,,Langstrasse 11,https://zuri.net/de/zurich/essen/suan-long-11723.htm,2026-10-14
+n656754116,Baba Baos,ok,,Langstrasse 10,https://zuri.net/de/zurich/bistros/baba-baos-17833.htm,2026-10-14
+n2915847505,Pho Vietnam,unclear,,Langstrasse 13,,2026-10-14
+n808458794,Peking Garden,unclear,,Langstrasse 13,,2026-10-14
+n1240044636,Strauss,unclear,,Langstrasse 132,,2026-10-14
+n334300587,Aargauerhof,ok,,"Hohlstrasse 43, 8004 Zürich",https://www.myswitzerland.com/en-ae/experiences/food-wine/restaurant/restaurant-aargauerhof/,2026-10-14
+n4283611289,Schönau,ok,,Hohlstrasse 78,https://zuri.net/de/zurich/outdoor-restaurants/schonau-12420.htm,2026-10-14
+n656765445,Oder Wat,unclear,,Hohlstrasse 49,https://zuri.net/de/zurich/outdoor-restaurants/schonau-12420.htm,2026-10-14
+n656628375,Bossa Nova,ok,,Hohlstrasse 18,https://zuri.net/de/zurich/all-restaurants/bossa-nova-25892.htm,2026-10-14
+n11459207929,ViCAFE Rösterei & Kaffeebar,ok,,"Hohlstrasse 418, 8048 Zürich",https://europeancoffeetrip.com/cafe/vicafe-zurich/,2026-10-14
+n4857867456,Riki Ramen Bā,ok,,Kasernenstrasse 2,https://zuri.net/de/zurich/japanische-restaurants/riki-ramen-bā-24310.htm,2026-10-14
+n11775729223,Bang On,ok,,Kasernenstrasse 15,https://zuri.net/de/zurich/bistros/bang-on-5087.htm,2026-10-14
+n9352194479,Nüni,unclear,,Hohlstrasse 430,,2026-10-14
+n311607628,Tenz Momo,unclear,,Hohlstrasse 44,,2026-10-14
+n362926817,Restaurant B,unclear,,Hohlstrasse 67,,2026-10-14
+n656634932,Biergarten,unclear,,Hohlstrasse 25,,2026-10-14
+n737145375,marktküche,ok,,"Feldstrasse 98, 8004 Zürich",https://guide.michelin.com/en/zurich-region/zurich/restaurant/marktkuche,2026-10-14
+n6284033411,Burgermeister,ok,,"Kasernenstrasse 77b, 8004 Zürich",https://www.zuerich.com/en/visit/restaurants/burgermeister,2026-10-14
+n475991816,60 Seconds to Napoli,ok,,"Kasernenstrasse 77a, 8004 Zürich",https://zuri.net/en/zurich/pizza-pasta.thm/60-seconds-to-napoli-24465.htm,2026-10-14
+n582820194,Hafenkneipe,ok,,"Militärstrasse 12, 8004 Zürich",https://www.zuerich.com/de/besuchen/bars-lounges/hafenkneipe,2026-10-14
+n3078522543,Cartel - Crazy Burrito Shack,ok,,"Militärstrasse 14, 8004 Zürich",https://zuri.net/de/zurich/all-restaurants/cartell-militarstrasse-11886.htm,2026-10-14
+n4591306589,Commercial. The Project,ok,,"Feldstrasse 61, 8004 Zürich",https://caffeatlas.com/commercial-the-project-zurich,2026-10-14
+n13128080855,OMA MAO,unclear,,Feldstrasse 142,,2026-10-14
+n848761305,velohenderson,unclear,,Feldstrasse 59,,2026-10-14
+n2407959952,ACTIV Fitness Forum,moved,,"Badenerstrasse 9 (laut zuri.net, nicht 120)",https://zuri.net/en/zurich/gym/activ-fitness-8976.htm,2026-10-14
+n10040276161,Chemiserie+,ok,,"Badenerstrasse 123, 8004 Zürich",https://zuri.net/en/zurich/second-hand/chemiserie+-mode-recycling-19046.htm,2026-10-14
+n5277869465,SauterCopy,unclear,,Badenerstrasse 110,,2026-10-14
+n11228026394,Heavy Weight Music,unclear,,Feldstrasse 119,,2026-10-14
+n2298795776,Libreria Italiana,ok,,"Hohlstrasse 30, 8004 Zürich",https://zuri.net/de/zurich/buchhandlungen/libreria-italiana-6403.htm,2026-10-14
+n5285898021,Mode Boutique USA,unclear,,Badenerstrasse 144,https://zuri.net/de/zurich/boutiques?page=17,2026-10-14
+n5285898020,Haarrock,ok,,"Badenerstrasse 144, 8004 Zürich",https://zuri.net/en/zurich/hairdressing-salons/haarrock-zurich-12952.htm,2026-10-14
+n4915582755,Surfari Surf Shop,ok,,"Badenerstrasse 18, 8004 Zürich",https://zuri.net/de/zurich/sporting-goods/surfari-surf-shop-17418.htm,2026-10-14
+n848938868,Cut & Color,ok,,"Langstrasse 12, 8004 Zürich",https://zuri.net/de/zurich/coiffeursalons/cutcolor-12528.htm,2026-10-14
+n4896466767,Asmin,unclear,,"Langstrasse 110, 8004 Zürich",,2026-10-14
+n12380295963,Gregory Clan,unclear,,"Langstrasse 115, 8004 Zürich",,2026-10-14
+n656616207,Paracelsus-Apotheke,ok,,"Langstrasse 122, 8004 Zürich",https://zuri.net/de//gesundheit/paracelsus-apotheke-9113.htm,2026-10-14
+n4838594329,Marco Di Renzo,unclear,,"Langstrasse 125, 8004 Zürich",https://www.marcodirenzo.ch/,2026-10-14
+n1235083798,Tipsy Tiger,ok,,"Langstrasse 133, 8004 Zürich",https://www.barnews.ch/en/bars-lokale/tipsy-tiger-zurich/13303/,2026-10-14
+n4496703517,Gonzo,ok,,"Langstrasse 135, 8004 Zürich",https://www.zuerich.com/de/besuchen/bars-lounges/gonzo-club,2026-10-14
+n4424003110,Olé Olé Bar,ok,,"Langstrasse 138, 8004 Zürich",https://www.zuerich.com/en/visit/bars-lounges/ole-ole-bar,2026-10-14
+n7273882085,Cinchona Bar,ok,,"Langstrasse 150, 8004 Zürich",https://www.zuerich.com/en/visit/bars-lounges/cinchona-bar,2026-10-14
+n4898166176,Neni,ok,,"Langstrasse 150, 8004 Zürich",https://www.25hours-hotels.com/en/restaurants-bars/zurich/neni-zuerich,2026-10-14
+n848938990,SO Pizza,ok,,"Langstrasse 20, 8004 Zürich",https://inyourpocket.com/switzerland/zurich/venues/so-pizza,2026-10-14
+n9171916009,House of Satoshi,ok,,"Langstrasse 136, 8004 Zürich",https://zuri.net/de/zurich/computer-verkauf-und-support/house-of-satoshi-17899.htm,2026-10-14
+n10736711635,Flora Dora,ok,,"Langstrasse 14, 8004 Zürich",https://www.stadt-zuerich.ch/de/lebenslagen/unterstuetzung-und-beratung/persoenliche-beratung/sexarbeitende/floradora.html,2026-10-14
+n317454772,Brick,unclear,,"Langstrasse 21, 8004 Zürich",https://zuri.net/de//nightlife/brick-4410.htm,2026-10-14
+n11709381774,Roter Delfin,ok,,"Langstrasse 31, 8004 Zürich",https://joinpearl.co/restaurants/zurich/roter-delfin,2026-10-14
+n808458835,Celia,ok,,"Langstrasse 35, 8004 Zürich",https://intravel.net/zurich/restaurants-cafes/celia,2026-10-14
+n313898344,Medbase Apotheke Helvetiaplatz,ok,,"Langstrasse 39, 8004 Zürich",https://onedoc.ch/en/pharmacy/zurich/e25x/medbase-apotheke-zurich-helvetiaplatz,2026-10-14
+n848938980,Burgermeister,ok,,"Langstrasse 6, 8004 Zürich",https://www.zuerich.com/en/visit/restaurants/burgermeister,2026-10-14
+n11975740106,Spaccio,ok,,"Langstrasse 61, 8004 Zürich",https://zuri.net/de/zurich/italienische-restaurants/spaccio-25870.htm,2026-10-14
+n362915349,Kir Royal,ok,,"Langstrasse 62, 8004 Zürich",https://inyourpocket.com/switzerland/zurich/venues/kir-royal,2026-10-14
+n346245377,Gotthard Bar,ok,,"Langstrasse 63, 8004 Zürich",https://www.myswitzerland.com/en-ch/experiences/food-wine/restaurant/gotthard-bar/,2026-10-14
+n13307980101,Peeeng,ok,,"Langstrasse 67, 8004 Zürich",https://zuri.net/de/zurich/bars/peeeng-25869.htm,2026-10-14
+n5643617050,Christian uhrenschmuck24.ch,ok,,"Langstrasse 47, 8004 Zürich",https://www.uhrenschmuck24.ch/en/helvetiaplatz,2026-10-14
+n5679794324,Feldenkrais Studio Andreas Kleemann,ok,,"Langstrasse 62, 8004 Zürich",https://search.ch/tel/zuerich/langstrasse-62/feldenkrais-studio-andreas-kleemann.en.html,2026-10-14
+n11216071002,Schirm-Fredi,ok,,"Langstrasse 69, 8004 Zürich",https://zuri.net/de/zurich/lederwaren-reiseartikel/schirm-fredi-4727.htm,2026-10-14
+n10736711636,Casino Fashion,unclear,,"Langstrasse 8, 8004 Zürich",,2026-10-14
+n7059418846,El Presidente,unclear,,"Langstrasse 80, 8004 Zürich",,2026-10-14
+n14019839153,Allegrotto,unclear,,"Langstrasse 81, 8004 Zürich",https://allegrotto-zurich.ch/,2026-10-14
+n4869996367,Chickeria,ok,,"Langstrasse 83, 8004 Zürich",https://intravel.net/zurich/restaurants-cafes/chickeria,2026-10-14
+n5128008062,Raum 84,ok,,"Langstrasse 84, 8004 Zürich",https://zuri.net/de/zurich/bars/raum-84-18429.htm,2026-10-14
+n656623537,Longstreet Bar Club,ok,,"Langstrasse 92, 8004 Zürich",https://www.zuerich.com/en/visit/bars-lounges/longstreet,2026-10-14
+n2867994617,Palestine Grill,ok,,"Langstrasse 92, 8004 Zürich",https://www.zuerich.com/en/visit/restaurants/palestine-grill,2026-10-14
+n7038861915,Rum 97,unclear,,"Langstrasse 97, 8004 Zürich",,2026-10-14
+n320117205,Helvetia,ok,,"Stauffacherquai 1, 8001 Zürich",https://www.zuerich.com/en/visit/place/hotel-restaurant-helvetia,2026-10-14
+n4857867455,Helvetia,ok,,"Stauffacherquai 1, 8001 Zürich",https://www.zuerich.com/en/visit/place/hotel-restaurant-helvetia,2026-10-14
+n5624735722,Helvetia Pool Bar,ok,,"Stauffacherquai 1, 8001 Zürich",https://www.zuerich.com/en/visit/place/hotel-restaurant-helvetia,2026-10-14
+n4877305838,Tauchsport Käser,ok,,"Stauffacherquai 54, 8004 Zürich",https://www.padi.com/de/tauchcenter/schweiz/tsk-zurich/,2026-10-14
+n5683747663,Klangwandel,ok,,"Stauffacherstrasse 16, 8004 Zürich",https://zuri.net/de//shopping/klangwandel-by-fux-ag-6610.htm,2026-10-14
+n5713463891,Fux AG Multimedia Solutions,ok,,"Stauffacherstrasse 16, 8004 Zürich",https://zuri.net/en/zurich/audio-video/klangwandel-by-fux-ag-6610.htm,2026-10-14
+n8116668927,Ivan Frisör & Barbier,ok,,"Stauffacherstrasse 16, 8004 Zürich",https://zuri.net/en/zurich/hairdressing-salons/ivan-frisor-barbier-14955.htm,2026-10-14
+n8116668928,Beceren,unclear,,"Stauffacherstrasse 16, 8004 Zürich",,2026-10-14
+n3163049061,Bang & Olufsen,unclear,,"Stauffacherstrasse 16, 8004 Zürich",https://www.itreseller.ch/Artikel/86582/Klangwandel_schliesst_Laden_im_Viadukt_in_Zuerich_wird_von_Fux_uebernommen.html,2026-10-14
+n10267138041,PUTPUTakeaway,unclear,,"Stauffacherstrasse 101, 8004 Zürich",,2026-10-14
+n1016012577,Pho 50,unclear,,"Stauffacherstrasse 101, 8004 Zürich",,2026-10-14
+n11941534779,Simplificator AG,unclear,,"Stauffacherstrasse 101, 8004 Zürich",,2026-10-14
+n13479459201,Guesthouse für Dich,ok,,"Stauffacherstrasse 141, 8004 Zürich",https://ae.hotels.com/es/ho3264473792/guesthouse-furdich-zurich-suiza,2026-10-14
+n503668298,Kafi für Dich,ok,,"Stauffacherstrasse 141, 8004 Zürich",https://ae.hotels.com/es/ho3264473792/guesthouse-furdich-zurich-suiza,2026-10-14
+n4866343122,Sitio,ok,,"Stauffacherstrasse 178, 8004 Zürich",https://zuri.net/en/zurich/interior/sitio-6778.htm,2026-10-14
+n13479374901,TSUGI Bakery,unclear,,"Stauffacherstrasse 178, 8004 Zürich",https://zuri.net/de/zurich/baeckereien-konditoreien/tsugi-bakery-und-cafe-19085.htm,2026-10-14
+n10572116908,Bildhalle,ok,,"Stauffacherquai 56, 8004 Zürich",https://zuri.net/de/zurich/galerien/bildhalle-3933.htm,2026-10-14
+n848761371,Zebra Bistro,ok,,"Stauffacherstrasse 147, 8004 Zürich",https://zuri.net/de/zurich/french-restaurants/zebra-bistro-12376.htm,2026-10-14
+n315862440,EquiTable,ok,,"Stauffacherstrasse 163, 8004 Zürich",https://www.zuerich.com/en/visit/restaurants/equi-table,2026-10-14
+n10964786867,Nanimale Glacéria,ok,,"Stauffacherstrasse 180, 8004 Zürich",https://zuri.net/de/zurich/die-besten-glace/nanimale-glaceria-18583.htm,2026-10-14
+n4518003937,Migrolino fresh,unclear,,"Langstrasse 134, 8004 Zürich",,2026-10-14
+n8785595317,Ombak Coffee,ok,,"Stauffacherstrasse 105, 8004 Zürich",https://caffeatlas.com/ombak-coffee-zurich-zurich,2026-10-14
+n12289004665,rosa quartier gmbh,ok,,"Stauffacherstrasse 119, 8004 Zürich",https://zuri.net/de/zurich/shopping/rosa-quartier-gmbh-17989.htm,2026-10-14
+n5924367485,Mythos,ok,,"Stauffacherstrasse 35, 8004 Zürich",https://zuri.net/de/zurich/online-reservieren/mythos-12044.htm,2026-10-14
+n8624993784,Rosso Arancio,ok,,"Stauffacherstrasse 37, 8004 Zürich",https://www.zuerich.com/en/visit/restaurants/rosso-arancio,2026-10-14
+n316839692,Masala,ok,,"Stauffacherstrasse 27, 8004 Zürich",https://www.myswitzerland.com/en/experiences/food-wine/restaurant/restaurant-masala/,2026-10-14
+n301815427,Berg-Apotheke by Medbase,ok,,"Stauffacherstrasse 26, 8004 Zürich",https://zuri.net/de/zurich/apotheken-drogerien/berg-apotheke-by-medbase-9066.htm,2026-10-14
+n4956927819,Kräuterhaus,unclear,,"Stauffacherstrasse 26, 8004 Zürich",https://www.berg-apotheke.ch/,2026-10-14
+n4848816880,Bäckerei Hug,unclear,,"Stauffacherstrasse 28, 8004 Zürich",https://www.baeckerei-hug.ch/filialen/standorte/zuer,2026-10-14
+n869977914,Molino,unclear,,"Stauffacherstrasse 31, 8004 Zürich",https://zuri.net/de/zurich/italienische-restaurants/pizzeria-ristorante-molino-11345.htm,2026-10-14
+n10839579044,Wax Inn,ok,,"Stauffacherstrasse 35, 8004 Zürich",https://zuri.net/de/zurich/kosmetiksalons/wax-inn-13125.htm,2026-10-14
+n10052484127,Michelle Tamar,unclear,,"Stauffacherstrasse 153, 8004 Zürich",https://zuri.net/de/zurich/second-hand/michelle-tamar-19049.htm,2026-10-14
+n313212818,Coop Pronto,ok,,"Badenerstrasse 120, 8004 Zürich",https://www.local.ch/de/q/zurich/convencience-shop,2026-10-14
+n313026968,Coop,ok,,"Badenerstrasse 244, 8004 Zürich",https://zuri.net/en//shopping/coop-supermarkt-5609.htm,2026-10-14
+n9870919804,Denner Express,unclear,,"Badenerstrasse 296, 8004 Zürich",https://www.pressetext.com/news/20230227002,2026-10-14
+n7470979033,Vögele Reisen,unclear,,"Badenerstrasse 141, 8004 Zürich",https://www.voegele-reisen.ch/,2026-10-14
+n429513096,Blumen Haab,unclear,,"Badenerstrasse 230, 8004 Zürich",,2026-10-14
+n5325690373,Tenz,ok,,"Badenerstrasse 256, 8004 Zürich",https://www.myswitzerland.com/en-us/experiences/food-wine/restaurant/tenz-lochergut,2026-10-14
+n5325690372,mit&ohne,ok,,"Badenerstrasse 248, 8004 Zürich",https://www.enprimeurclub.com/restaurants/mitohne-zurich-restaurant,2026-10-14
+n8194979186,Blex Blech + Buch,unclear,,"Badenerstrasse 177, 8004 Zürich",,2026-10-14
+n8194979188,Making Little Things,ok,,"Badenerstrasse 177, 8004 Zürich",https://zuri.net/de//shopping/making-little-things-4553.htm,2026-10-14
+n848938968,Coiffeur Tablo,ok,,"Badenerstrasse 138, 8004 Zürich",https://zuri.net/de/zurich/coiffeursalons/coiffeur-tablo-12987.htm,2026-10-14
+n8194979187,Weera Pura,unclear,,"Badenerstrasse 177, 8004 Zürich",,2026-10-14
+n7414287130,Reseda,unclear,,"Badenerstrasse 230, 8004 Zürich",,2026-10-14
+n4838594399,Budgetdisplay,unclear,,"Badenerstrasse 230, 8004 Zürich",,2026-10-14
+n12754794883,COOP,unclear,,"Militärstrasse 106, 8004 Zürich",https://www.local.ch/de/q/zuerich/markt,2026-10-14
+n1240180975,Pizzeria Milano,ok,,"Militärstrasse 109, 8004 Zürich",https://zuri.net/de/zurich/italienische-restaurants/restaurant-milano-11343.htm,2026-10-14
+n1240044684,Ka3an,unclear,,"Militärstrasse 84, 8004 Zürich",,2026-10-14
+n4011633094,Nep,ok,,"Militärstrasse 24, 8004 Zürich",https://restaurantguru.it/Nep-Asian-Kitchen-Zurich,2026-10-14
+n1240044573,Mels Hair Studio,unclear,,"Militärstrasse 76, 8004 Zürich",https://zuri.net/en/zurich/hairdressing-salons/coiffeurgeschaft-rosy-12832.htm,2026-10-14
+n3784323173,Moto-Center Karle - Kawasaki,unclear,Karle Motos,"Militärstrasse 90, 8004 Zürich",https://zuri.net/de/zurich/motorbikes/karle-motos-8640.htm,2026-10-14
+n3784325956,Drums Only,ok,,"Militärstrasse 105, 8004 Zürich",https://zuri.net/de/zurich/musical-instruments/drums-only-14753.htm,2026-10-14
+n12252306817,Criz,ok,,"Militärstrasse 115, 8004 Zürich",https://zuri.net/en/zurich/shopping/criz-lederwerkstatt-4742.htm,2026-10-14
+n1240044657,Thach,ok,,"Militärstrasse 84, 8004 Zürich",https://zuri.net/de/zurich/essen/thach-asian-food-12004.htm,2026-10-14
+n8785727518,Zum goldenen Taschenbrot,ok,,"Militärstrasse 91, 8004 Zürich",https://zuri.net/de//essen/zum-goldenen-taschenbrot-19044.htm,2026-10-14
+n1240181038,La Capricciosa,unclear,,"Militärstrasse 117, 8004 Zürich",,2026-10-14
+n4550939256,Cheesecake Love,unclear,,"Militärstrasse 16, 8004 Zürich",https://cheesecakelove.ch,2026-10-14
+n1240044645,Migrolino,ok,,"Lagerstrasse 101, 8004 Zürich",https://www.migrolino.ch/de/standorte/migrolino-zuerich-lagerstrasse/,2026-10-15
+n10689492505,Buchhandlung im Volkshaus,ok,,"Stauffacherstrasse 60, 8004 Zürich",https://www.volkshausbuch.ch/,2026-10-15
+n6498631234,J.B. Labat,ok,,"Brauerstrasse 51, 8004 Zürich",https://www.labat.ch/,2026-10-15
+n12478357748,KaBa,unclear,,keine Adresse auf ka-ba.ch gefunden,https://ka-ba.ch,2026-10-15
+n13920868271,Kanton Slice,ok,,"Brauerstrasse 37, 8004 Zürich",https://kantonslice.ch/,2026-10-15
+n3841887704,Fabrikat,ok,,"Militärstrasse 76, 8004 Zürich",https://www.fabrikat.ch/,2026-10-15
+n10189026000,Hochparterre Bücher,ok,,"Schöneggstrasse 27, 8004 Zürich",https://www.hochparterre-buecher.ch/,2026-10-15
+n11685184270,VeloKliniK,unclear,,keine Adresse auf velo-klinik.ch (Standorte ohne Strasse),https://velo-klinik.ch,2026-10-15
+n301223922,Denner Express,unclear,,Denner Express Molkenstrasse 8 nicht gefunden,https://www.denner.ch/,2026-10-15
+n10795568405,Blumenhalle,unclear,,Blumenhalle Molkenstrasse 17 nicht gefunden,https://www.blumenhalle.ch/,2026-10-15
+n309921040,John Baker,ok,,"Molkenstrasse 15, 8004 Zürich",https://zuri.net/de/zurich/bakeries-and-pastry-shops/john-baker-helvetiaplatz-18135.htm,2026-10-15
+n3578338893,Veganitas,ok,,"Brauerstrasse 30, 8004 Zürich",https://www.zuerich.com/de/besuchen/restaurants/veganitas,2026-10-15
+n656699893,Stubä,ok,,"Brauerstrasse 42, 8004 Zürich",https://zuri.net/en/zurich/sandwiches/stuba-12417.htm,2026-10-15
+n12652457762,Hungry Duck,ok,,"Brauerstrasse 37, 8004 Zürich",https://www.myswitzerland.com/en/experiences/food-wine/restaurant/gastrobar-hungry-duck/,2026-10-15
+n8912884300,Bierwerk Züri,ok,,"Gustav-Gull-Platz 10, 8004 Zürich",https://www.zuerich.com/de/besuchen/bars-lounges/bierwerk-zueri-tankbierbar,2026-10-15
+n6580342183,EGO Movement,ok,,"Lagerstrasse 100, 8004 Zürich",https://zuri.net/de/zurich/bikes/e-bike-ego-movement-store-18197.htm,2026-10-15
+n5416711054,Stromvelo.ch,unclear,,Stromvelo Kanonengasse 35 nicht bestätigt,https://stromvelo.ch/,2026-10-15
+n1243596474,Tanukiya,ok,,"Zwinglistrasse 12, 8004 Zürich",https://zuri.net/de/zurich/essen/tanukiya-24452.htm,2026-10-15
+n1240990708,Morgenstern da Mario,ok,,"Zwinglistrasse 27, 8004 Zürich",https://joinpearl.co/restaurants/zurich/morgenstern-da-mario,2026-10-15
+n1241219823,Hongxi,unclear,,Hongxi Zwinglistrasse 3 nicht bestätigt,http://www.hongxi-restaurant.ch,2026-10-15
+n915410107,Biondo's Cut,unclear,,"Biondo's Cut: Zeughausstrasse 41 nicht bestätigt, Salon-Adresse laut Treatwell Rennweg 12",https://www.treatwell.ch/it/salone/biondo-s-cut-im-fashion-hair/reviews/pagina-19,2026-10-15
+n915410098,King's Hairshop,unclear,,King's Hairshop Zeughausstrasse 45 nicht gefunden,,2026-10-15
+n656649674,Ach'i,ok,,"Brauerstrasse 4, 8004 Zürich",https://www.achi.restaurant/,2026-10-15
+n1235083458,Khujug,unclear,,"Khujug: Website nennt Brauerstrasse 4, Footer widersprüchlich (Ach'i)",https://www.khujug.restaurant/,2026-10-15
+n656508776,The Bite,ok,,"Brauerstrasse 15, 8004 Zürich",https://www.thebite.ch/,2026-10-15
+n656646048,Brasserie Café de Paris,ok,,"Ankerstrasse 113, 8004 Zürich",https://www.brasseriedeparis.ch/,2026-10-15
+n1442004393,Ah-Hua,ok,,"Ankerstrasse 110, 8004 Zürich",https://www.myswitzerland.com/en/experiences/food-wine/restaurant/ah-hua/,2026-10-15
+n5803645580,Bar Rossi,ok,,"Sihlhallenstrasse 3, 8004 Zürich",https://www.bar-rossi.ch/,2026-10-15
+n1137687375,Lele,ok,,"Militärstrasse 76, 8004 Zürich",https://www.restaurantlele.ch/,2026-10-15
+n327453260,Ristorante Italia,ok,,"Zeughausstrasse 61, 8004 Zürich",https://www.ristorante-italia.ch/,2026-10-15
+n803245796,Gamper,ok,,"Nietengasse 1, 8004 Zürich",https://www.gamper-restaurant.ch/,2026-10-15
+n5429035472,Gaucho,ok,,"Nietengasse 18, 8004 Zürich",https://gaucho.ch/restaurant/,2026-10-15
+n803245834,Za'atar,ok,,"Brauerstrasse 74, 8004 Zürich",https://www.zaatar.ch,2026-10-15
+n1241205926,Flamme Rouge,ok,,"Rotwandstrasse 64, 8004 Zürich",https://www.flammerouge.ch/,2026-10-15
+n7531030473,Meo Bici Velos,ok,,"Nietengasse 5, 8004 Zürich",https://zuri.net/de/zurich/bikes/meo-bici-velos-6053.htm,2026-10-15
+n12754796334,Soul City,ok,,"Dienerstrasse 10, 8004 Zürich",https://soulcity-zurich.ch,2026-10-15
+n12974074101,Late Bloomers,ok,,"Dienerstrasse 20, 8004 Zürich",https://latebloomersthebar.com/,2026-10-15
+n1241219685,Love Me Two Times,ok,,"Dienerstrasse 32, 8004 Zürich",https://www.lovemetwotimes.ch,2026-10-15
+n4208949390,Kaboom,ok,,"Dienerstrasse 36, 8004 Zürich",https://shop.kabooom.ch,2026-10-15
+n10956921190,Sula,unclear,,keine Adresse auf sulaworld.com,https://sulaworld.com,2026-10-15
+n5149570033,Jo Brauer,unclear,,keine Adresse auf jobrauer.com (OSM Lagerstrasse 100 nicht bestätigt),https://www.jobrauer.com/,2026-10-15
+n5149569237,Eva Bräutigam,ok,,"Lagerstrasse 96, 8004 Zürich",https://www.evabraeutigam.ch/,2026-10-15
+n10957734671,Atelier Grünenwald,moved,Atelier Grünenwald,"Tellstrasse 38, 8004 Zürich",https://www.ateliergruenenwald.com/,2026-10-15
+n10795377100,YAMAS,ok,,"Lagerstrasse 48, 8004 Zürich",http://www.yamas.ch/,2026-10-15
+n11244280030,Casi Casa,ok,,"Lagerstrasse 104, 8004 Zürich",https://www.casicasa.ch/,2026-10-15
+n3013422856,Ynos,unclear,,keine Adresse auf ynos.ch,http://www.ynos.ch/,2026-10-15
+n4056185257,Grün Reinigung GmbH,unclear,,keine Adresse auf gruenreinigung.ch (OSM Europaallee 41),https://www.gruenreinigung.ch/,2026-10-15
+n8194922104,Changemaker,unclear,,keine Adresse auf changemaker.ch,https://www.changemaker.ch,2026-10-15
+n11216071013,lavie home,unclear,,keine Adresse auf lavie-home.ch,https://lavie-home.ch,2026-10-15
+n4866350522,Kevin in the Woods,unclear,,keine Adresse auf kevininthewoods.com,https://kevininthewoods.com/,2026-10-15
+n656719956,Monroe,ok,,"Brauerstrasse 26, 8004 Zürich",https://intravel.net/zurich/nightlife/monroe,2026-10-15
+n656664543,Norden,unclear,,"Website 403, Adresse nicht bestätigt",https://www.norden-bar.ch/,2026-10-15
+n920508290,After Dark,unclear,,Website nicht erreichbar,https://afterdark-bar.ch/,2026-10-15
+n914703134,D'Aurora,ok,,"Rotwandstrasse 42, 8004 Zürich",https://www.daurora.ch/,2026-10-15
+n914703086,Accademia del Gusto,ok,,"Rotwandstrasse 48, 8004 Zürich",https://www.accademiadelgusto.ch/,2026-10-15
+n914703174,Osteria Santo Bevitore,unclear,,keine Adresse auf osteria-santobevitore.ch,https://www.osteria-santobevitore.ch/,2026-10-15
+n13685409175,Shokudo Izakaya,ok,,"Rotwandstrasse 62, 8004 Zürich",https://shokudo.ch,2026-10-15
+n582263740,Total Bar,ok,,"Tellstrasse 19, 8004 Zürich",https://www.totalbar.ch,2026-10-15
+n310788830,Sport,ok,,"Kanzleistrasse 76, 8004 Zürich",https://www.sport-bar.ch/,2026-10-15
+n5077193368,Milieu,ok,,"Brauerstrasse 30a, 8004 Zürich",https://www.milieuzuerich.ch/,2026-10-15
+n656541296,Roxy,ok,,"Zinistrasse 7, 8004 Zürich",https://www.roxymusikbar.ch/,2026-10-15
+n1235083841,Golden Gate Bar,ok,,"Schöneggstrasse 15, 8004 Zürich (zuri.net: Restaurant Golden Gate)",https://zuri.net/de/zurich/alle-restaurants/restaurant-golden-gate-12309.htm,2026-10-15
+n12312961469,Schreinerei Severin Meier,unclear,,keine Adresse auf severinmeier.ch,https://www.severinmeier.ch,2026-10-15
+n915410105,schindlersalmerón,unclear,,keine Adresse auf schindlersalmeron.com,https://www.schindlersalmeron.com/,2026-10-15
+n310789178,Coop,ok,,"Hohlstrasse 35, 8004 Zürich (Verzeichnis, Coop Supermarkt)",https://www.oeffnungszeitenbuch.de/filiale/Zuerich-Coop%2520Supermarkt-4546434E.html,2026-10-15
+n1235083734,Bar 63 chez Sylvia,ok,,"Rolandstrasse 19, 8004 Zürich",https://bar63.ch/,2026-10-15
+n1235083674,Toro Bar,ok,,"Schöneggstrasse 25, 8004 Zürich",https://www.torobar.com/,2026-10-15
+n869269133,Privé,ok,,"Stauffacherstrasse 106, 8004 Zürich",https://www.club-prive.ch/,2026-10-15
+n1016012582,Bagatelle §93,unclear,,keine Adresse auf bagatelle93.ch,https://www.bagatelle93.ch/,2026-10-15
+n3242600651,Bar OTRO,unclear,,keine Adresse auf otro.bar,https://www.otro.bar/,2026-10-15
+n11358468756,Charlatan Restodisco,unclear,,restodisco.ch ohne Adresse; danielh.ch-Abruf nannte Lagerstrasse 119 (widersprüchlich),https://restodisco.ch/,2026-10-15
+n10921196041,Brenso,ok,,"Hohlstrasse 363, 8004 Zürich (nur zuri.net-Verzeichnis, PLZ laut Verzeichnis)",https://zuri.net/de/zurich/italienische-restaurants/brenso-18600.htm,2026-10-15
+n5128008060,Club Wunderbox,unclear,,"Website 404, Adresse nicht bestätigt",https://www.wunderboxclub.ch/,2026-10-15
+n5083782849,Glamour Bar,unclear,,Domain nicht erreichbar,http://www.glamour-bar.ch/,2026-10-15
+n9676271554,Wunderbar,unclear,,Domain nicht erreichbar,https://www.wunderbar-zuerich.com/,2026-10-15
+n1235083514,The Spot Bar,unclear,,keine Adresse auf kaiserfranz.li (The Spot Bar),https://www.kaiserfranz.li/,2026-10-15
+n1083769431,Neela,ok,,"Kanonengasse 29, 8004 Zürich",https://neela.ch/,2026-10-15
+n4260117131,Cima Curry,ok,,"Kanonengasse 19, 8004 Zürich",https://cimacurry.ch/,2026-10-15
+n1360843969,Viet-Thai,ok,,"Kanonengasse 31, 8004 Zürich",https://www.viet-thai.ch/,2026-10-15
+n13353852440,Cindy's Bistro,unclear,,keine Adresse auf cindys-bistro.ch,https://cindys-bistro.ch/,2026-10-15
+n1360830654,Zeughaushof,unclear,,keine Adresse auf hopzueri.ch,https://www.hopzueri.ch/,2026-10-15
+n914703104,E.X. 4,ok,,"Müllerstrasse 63, 8004 Zürich",https://www.ex4bar.ch/,2026-10-15
+n914703164,Daniel H.,unclear,,"danielh.ch-Abruf lieferte fremde Adresse, nicht verwertbar",https://www.danielh.ch/,2026-10-15
+n936942732,Art 4 Bar,unclear,,Art 4 Bar: keine Treffer,,2026-10-15
+n10946818680,Barteca,unclear,,Barteca: nur Verzeichnis intravel.net nennt Brauerstrasse 29,https://intravel.net/zurich/restaurants-cafes/barteca,2026-10-15
+n6896222370,Campo,unclear,,"Campo am Helvetiaplatz, keine Hausnummer gefunden",https://www.inyourpocket.com/Switzerland/zurich/venues/campo,2026-10-15
+n9893260543,Carol,unclear,,Carol Bar: keine Treffer,,2026-10-15
+n6223031358,Fat Tony,ok,,"Langstrasse 135, 8004 Zürich",https://www.zuerich.com/de/besuchen/bars-lounges/fat-tony,2026-10-15
+n14277803199,Ipanema Bar,unclear,,"Ipanema Bar: intravel nennt Müllerstrasse 78 (nicht Langstrasse), nur eine Quelle",https://intravel.net/zurich/nightlife/ipanema-bar,2026-10-15
+n1232849945,La Strega,ok,,"Nietengasse 9, 8004 Zürich",https://zuri.net/de/zurich/bars/la-strega-4296.htm,2026-10-15
+n920508508,Leeward,unclear,,Leeward Bar: keine Treffer,,2026-10-15
+n1241219838,Macuto's Bar,unclear,,Macuto's Bar: nur Verzeichnis intravel nennt Dienerstrasse 51,https://intravel.net/zurich/nightlife/macutos-bar,2026-10-15
+n1235083770,Midway,unclear,,Midway Bar: keine Treffer,,2026-10-15
+n1241219845,Negresco,ok,,"Dienerstrasse 27, 8004 Zürich",https://zuri.net/de/zurich/nightlife/negresco-bar-4302.htm,2026-10-15
+n9893261276,Rasputin,unclear,,Rasputin Bar: keine Treffer in Zürich,,2026-10-15
+n656711884,Red Light,unclear,,Red Light Bar: nur Drittverzeichnis intravel nennt Brauerstrasse 27,https://intravel.net/zurich/nightlife/red-light-bar,2026-10-15
+n1240044507,Sudaka,unclear,,Sudaka Bar: keine Treffer,,2026-10-15
+n495576109,Xenix Bar,ok,,"Kanzleistrasse 52, 8004 Zürich (zuri.net nennt 56)",https://www.zuerich.com/de/besuchen/bars-lounges/xenix-bar,2026-10-15
+n11216070996,Zwllings Bar,unclear,,Zwllings Bar: keine Treffer,,2026-10-15
+n9893261279,Piro,unclear,,Piro: nur Verzeichnis intravel nennt Brauerstrasse 45,https://intravel.net/zurich/restaurants-cafes/piro,2026-10-15
+n14175317258,Oni Bakery,ok,,"Langstrasse 64, 8004 Zürich",https://zuri.net/de/zurich/bakeries-and-pastry-shops/oni-bakery-25876.htm,2026-10-15
+n11216070982,Taste of Africa,unclear,,Taste of Africa: keine Adresse gefunden,https://wanderlog.com/place/details/4110739,2026-10-15
+n1241219769,Stella Alpina,unclear,,Stella Alpina Zürich: keine Treffer,,2026-10-15
+n4655092589,Pho Mai,ok,,"Rotwandstrasse 51, 8004 Zürich",https://joinpearl.co/restaurants/zurich/pho-mai,2026-10-15
+n12133693612,Yilong Asia,unclear,,"Yi Long Lin Asia laut zuri.net Magnusstrasse 16, Name weicht ab",https://zuri.net/de/zurich/essen/yi-long-lin-asia-18357.htm,2026-10-15
+n1240990725,Rosita's,ok,,"Lagerstrasse 95, 8004 Zürich",https://zuri.net/de//essen/rositas-food-und-drinks-17466.htm,2026-10-15
+n1235083613,Biondi,unclear,,Biondi Zürich: keine Treffer,,2026-10-15
+n12754797445,Karmi's,unclear,,Karmi's Langstrasse: keine Treffer,,2026-10-15
+n12133693609,Knödl,ok,,"Brauerstrasse 78, 8004 Zürich",https://www.enprimeurclub.com/restaurants/knodl-zurich-restaurant,2026-10-15
+n13052489329,Maru,ok,,"Rolandstrasse 9, Zürich (zweiter Standort, PLZ nicht genannt)",https://www.hogapage.de/nachrichten/wirtschaft/gastronomie/maru-er%C3%B6ffnet-zweiten-standort-in-z%C3%BCrich/,2026-10-15
+n1240990722,Officina dos Sabores,unclear,,"Officina dos Sabores: nur Lieferdienste, keine Adresse",https://www.ubereats.com/ch/dish/fislisbach-ag/brigadeiro,2026-10-15
+n12714134817,Tipsy Tiger,ok,,"Langstrasse 133, 8004 Zürich",https://www.barnews.ch/en/bars-lokale/tipsy-tiger-zurich/13303/,2026-10-15
+n11992812114,La Isla Bonita,unclear,,"La Isla Bonita Langstrasse: keine Treffer (nur Badenerstrasse 595, Massage)",,2026-10-15
+n11216070983,Siech Cycles,ok,,"Langstrasse 64, 8004 Zürich (Verzeichnis; gleiche Nr. wie Oni Bakery prüfen)",https://zuri.net/de/zurich/shopping/siech-cycles-18771.htm,2026-10-15
+n10889806814,Swiss Fried Chicken,ok,,"Zwinglistrasse 43, 8004 Zürich",https://swiss-fried-chicken.com,2026-10-15
+n7064004373,Zürich Fried Chicken,moved,Zürich Fried Chicken,"Niederdorfstrasse 41, 8001 Zürich",https://zurich-fried-chicken.com/,2026-10-15
+n914703152,The Yard,ok,,"Bäckerstrasse 62, 8004 Zürich",https://hotel.theyard.ch/,2026-10-15
+n5945878069,The Yard,ok,,"Bäckerstrasse 62, 8004 Zürich",https://theyard.ch,2026-10-15
+n13337022513,Studio Felix Doll,unclear,,felixdoll.com ohne Adresse,https://felixdoll.com,2026-10-15
+n11242086162,Maison Shift,unclear,,maisonshift.ch ohne Adresse,https://maisonshift.ch,2026-10-15
+n301222947,Pusterla Elektronik AG,ok,,"Kernstrasse 55, Zürich (PLZ nicht angegeben)",https://www.pusterlacom.ch,2026-10-15
+n656629799,raedli,ok,,"Kurzgasse 4, 8004 Zürich",https://www.raed.li/,2026-10-15
+n1035744153,The Sacred,ok,,"Müllerstrasse 64, 8004 Zürich",https://vegelateria.ch/,2026-10-15
+n3926182143,Vegelateria,ok,,"Müllerstrasse 64, 8004 Zürich",https://vegelateria.ch/,2026-10-15
+n10830942472,Bar Butter,ok,,"Zwinglistrasse 38, 8004 Zürich",https://zuri.net/de/zurich/top-brunch-und-fruehstueck/bar-butter-24081.htm,2026-10-15
+n1235083455,Old Gregory Pub,ok,,"Schöneggstrasse 6, 8004 Zürich",https://www.oldgregorypub.ch/,2026-10-15
+n4891858486,Hotel Gregory,ok,,"Schöneggstrasse 6, 8004 Zürich",https://www.hotel-gregory.ch/,2026-10-15
+n4891858485,Gregory Night Club,unclear,,,https://www.gregory-nightclub.ch/,2026-10-15
+n5803645581,Phuket Thai Food,ok,,"Schöneggstrasse 21, 8004 Zürich",https://www.phuket-thai-zuerich.ch/,2026-10-15
+n656594290,Republik Magazin,ok,,"Sihlhallenstrasse 1, 8004 Zürich",https://www.republik.ch,2026-10-15
+n5297598013,Alte Kaserne,unclear,,,https://www.altekaserne.com/,2026-10-15
+n656535507,Amazonia Bar,unclear,,,https://amazonia-bar.ch/,2026-10-15
+n10316382317,Tropical Bar,unclear,,,https://www.salsa.ch/venues/tropical-bar-zurich,2026-10-15
+n312530452,Fribourger Stübli,ok,,"Rotwandstrasse 38, 8004 Zürich",https://www.fribourger-fondue-stuebli.ch/,2026-10-15
+n14180550552,Kupper Modern,ok,,"Zwinglistrasse 10, 8004 Zürich",https://kupper-modern.com,2026-10-15
+n1360837870,Kunstraum Walcheturm,ok,,"Kanonengasse 20, 8004 Zürich",https://www.walcheturm.ch/,2026-10-15
+n1069585307,Xenix,unclear,,,https://www.xenix.ch,2026-10-15
+n5083154970,KINOKONI Zürich,unclear,,,https://zurich.kinokoni.ch/,2026-10-15
+n9255550508,GRUSSFORMAT,unclear,,,http://www.grussformat.ch,2026-10-15
+n7531078063,Miró Manufactura de café,unclear,,,https://mirocoffee.co/,2026-10-15
+w1308758476,Galerie Stephan Witschi,moved,,"Limmatstrasse 214, 8005 Zürich",https://www.stephanwitschi.ch/,2026-10-15
+w1308758474,LORA,unclear,,,https://www.lora.ch/,2026-10-15
+n656644574,Egoist Cabaret Nightclub,ok,,"Ankerstrasse 115, 8004 Zürich",http://egoist-club.ch/en,2026-10-15
+n1235083774,Eichhörnli,ok,,"Nietengasse 16, 8004 Zürich",https://www.restaurant-eichhoernli.ch/,2026-10-15
+n5081232798,Gelati Tellhof,ok,,"Tellstrasse 20, 8004 Zürich",https://www.gelati1998.ch/de/tellhof/,2026-10-15
+n7044403087,Marta Flohmarkt,renamed,MARTA,"Brauerstrasse 58, 8004 Zürich",https://www.martacircular.com/,2026-10-15
+n4244127192,mad AVENUE,unclear,,,https://www.madhairstyling.ch/,2026-10-15
+n8786742581,Notice Design,unclear,,,https://www.notice.design/,2026-10-15
+n11844509220,K18a,unclear,,,https://k18a.ch,2026-10-15
+n11844509218,unfolded,ok,,"Kanonengasse 18a, 8004 Zürich",https://unfolded.ch,2026-10-15
+n14078708701,Clube Social Summergarte,unclear,,,http://summergarte.ch,2026-10-15
+n4838789805,neff neumann architekten,unclear,,,https://www.neffneumann.ch,2026-10-15
+n3959468697,Yalda,ok,,"Gustav-Gull-Platz 2, 8004 Zürich",https://www.yalda.ch/,2026-10-15
+n309916732,Trip Inn,ok,,"Hohlstrasse 18, 8004 Zürich",https://tripinn-hotels.com/zurich/,2026-10-15
+n871794844,HaarGarage,ok,,"Hohlstrasse 48, 8004 Zürich",https://www.haargarage.ch/,2026-10-15
+n6761865567,Miss Miu,ok,,"Europaallee 48, 8004 Zürich",https://www.miss-miu.ch/zuerich-europaallee,2026-10-15
+n10889806813,Snushus,ok,,"Langstrasse 113, 8004 Zürich",https://snushus.ch,2026-10-15
+n11216071011,Ginger,ok,,"Rotwandstrasse 53, 8004 Zürich",https://gingerhair.ch,2026-10-15
+n1240990753,Luv Hair and Make up,ok,,"Zwinglistrasse 28, 8004 Zürich",http://www.luv28.ch,2026-10-15
+n10162233917,Sala-Thai,ok,,"Zwinglistrasse 32, 8004 Zürich",https://sala-thai.ch,2026-10-15
+n4314055601,Budosport Nippon,ok,,"Rolandstrasse 15, 8004 Zürich",http://www.budo.ch,2026-10-15
+n10946818681,Norkind,unclear,,,https://norkind.ch,2026-10-15
+n11992812113,Cuban Nails,moved,,"Seilergraben 15, 8001 Zürich",https://cubannails.com/,2026-10-15
+n11685177068,Die Macherei,ok,,"Lagerstrasse 102, 8004 Zürich",https://diemacherei.ch,2026-10-15
+n12133693611,hairstories,ok,,"Magnusstrasse 4, 8004 Zürich",https://hairstories.ch,2026-10-15
+w1308758478,Gül,ok,,"Tellstrasse 22, 8004 Zürich",http://www.guel.ch,2026-10-15
+n10957734670,IT World ZH,unclear,,,https://itworldzh.ch,2026-10-15
+n6023189166,Mieterinnen- und Mieterverband,unclear,,,https://mieterverband.ch/mv-zh/,2026-10-15
+n12848280617,Studio Breath Academy,unclear,,,https://breath-academy.ch,2026-10-15
+n10647472305,Simon Says Taste Taiwan,ok,,"Zwinglistrasse 39, 8004 Zürich",https://simonsaystaiwan.ch/,2026-10-15
+n1567061990,The Mixt,ok,,"Müllerstrasse 55, 8004 Zürich",https://www.local.ch/de/q/zurich/cigares,2026-10-15
+n656518918,Puschkin Club,unclear,,,https://www.local.ch/de/q/zurich/club,2026-10-15
+n1320113401,Don Miguel,unclear,,,,2026-10-15
+n656616749,Lambada Bar Club,ok,,"Dienerstrasse 43, 8004 Zürich",https://intravel.net/zurich/nightlife/lambada-bar,2026-10-15
+n1241219598,Locarno 2000,unclear,,,,2026-10-15
+n6902002985,Neymar Coiffeur,unclear,,,https://zuri.net/en//beauty/neymar-coiffeur-17887.htm,2026-10-15
+n656638136,Red Lips Cabaret Bar,ok,,"Hohlstrasse 47, 8004 Zürich",https://zuri.net/de/zurich/bars/red-lips-18996.htm,2026-10-15
+n5297598014,Ambulatorium Kanonengasse,ok,,"Kanonengasse 18, 8004 Zürich",https://www.onedoc.ch/de/gruppenpraxis/zurich/exor/ambulatorium-kanonengasse,2026-10-15
+n5297598016,Ambulatorium Kanonengasse,ok,,"Kanonengasse 18, 8004 Zürich",https://www.onedoc.ch/de/gruppenpraxis/zurich/exor/ambulatorium-kanonengasse,2026-10-15
+n5297598015,Ambulatorium Kanonengasse,unclear,,,https://www.onedoc.ch/de/gruppenpraxis/zurich/exor/ambulatorium-kanonengasse,2026-10-15
+n10570514549,Stadtspital Zürich Europaallee,ok,,"Gustav-Gull-Platz 5, 8004 Zürich",https://med.uzh.ch/de/studium/klinikkatalog/spitaeler/spspitaleuropaallee.html,2026-10-15
+n871794862,Renos Relax,ok,,"Brauerstrasse 16, 8004 Zürich",https://www.renosrelax.ch/,2026-10-15
+n11246759771,Männerzone,ok,,"Hohlstrasse 48, 8004 Zürich",https://www.maennerzone.com,2026-10-15
+n1240990738,Urbany's,moved,,"Räffelstrasse 25, 8045 Zürich",https://urbanys.com,2026-10-15
+n11216071014,strasserthun,unclear,,,https://strasserthun.ch,2026-10-15
+n1240181002,Schuhmacherei Eva Kirchhofer,unclear,,,https://schuhmacherin.ch,2026-10-15
+n5297598011,Holz und Korb,unclear,,,https://www.holzundkorb.ch/,2026-10-15
+n11216071008,Kazu,unclear,,,https://kazu.swiss,2026-10-15
+n1360794125,Tabula Rasa,unclear,,,http://www.zumgoldenenfass.ch/,2026-10-15
+n10601778121,Emporio,unclear,,,,2026-10-15
+n3078526134,Bilo Bistro,ok,,"Ankerstrasse 116, 8004 Zürich",https://zuri.net/de/zurich/bistros/bilo-bistro-restaurant-25860.htm,2026-10-15
+n936942901,Love Story,unclear,,,,2026-10-15
+n1235083528,Stiefenhofer Motos,ok,,"Magnusstrasse 24, 8004 Zürich",https://coparking.ch/en/moto-repair-shop/96,2026-10-15
+n1235083851,Holliger Motos,unclear,,,,2026-10-15
+n387613338,Denner Express,ok,,"Sihlhallenstrasse 5-7, 8004 Zürich",https://www.local.ch/en/q/zurich/denner,2026-10-15
+n915410089,Coiffeur Hejar,ok,,"Zeughausstrasse 69, 8004 Zürich",https://zuri.net/de/zurich/coiffeursalons/coiffeur-hejar-12442.htm,2026-10-15
+n656507351,Carribean Hairstyle,unclear,,,,2026-10-15
+n7590602015,Barber-2,unclear,,,,2026-10-15
+n915410096,Studio 45,unclear,,,,2026-10-15
+n4011633098,Coiffeur Salam,unclear,,,,2026-10-15
+n12754776144,yoga anker,unclear,,,,2026-10-15
+n12754776145,Public Eye,unclear,,,,2026-10-15
+n12754776146,UMANO,unclear,,,,2026-10-15
+n11992812115,Chicago Beauty Salon,ok,,"Kanonengasse 19, 8004 Zürich",https://zuri.net/de/zurich/coiffeursalons/chicago-beauty-salon-12488.htm,2026-10-15
+n11216071010,Coiffeur Giacomo,unclear,,,https://zuri.net/de/zurich/coiffeursalons/coiffeur-giacomo-12629.htm,2026-10-15
+n4416196409,Amiro,unclear,,,,2026-10-15
+n12754793543,KALIN,unclear,,,,2026-10-15
+n12133693608,Coiffure Salon Flory,unclear,,,,2026-10-15
+n12133693610,Gutastilo,unclear,,,,2026-10-15
+n9893260544,Nara,unclear,,,,2026-10-15
+n12133693603,Ana Dolis,unclear,,,,2026-10-15
+n656649586,Green Mango Internet Cafe Bar,ok,,"Hohlstrasse 36, Zürich",Stadt Zürich OGD Gastwirtschaftsbetriebe 2025,2026-10-15
+n1241219738,Rotana,ok,,"Dienerstrasse 50, Zürich",Stadt Zürich OGD Gastwirtschaftsbetriebe 2025,2026-10-15
+n869269142,Treff-Point Kiosk,ok,,"Stauffacherstrasse 98, Zürich",Stadt Zürich OGD Gastwirtschaftsbetriebe 2025,2026-10-15
+n9343150799,happybeck,ok,,"Langstrasse 120, Zürich",Stadt Zürich OGD Gastwirtschaftsbetriebe 2025,2026-10-15
+n2008369716,Centro,ok,,"Ankerstrasse 108, Zürich",Stadt Zürich OGD Gastwirtschaftsbetriebe 2025,2026-10-15
+n656643167,Kiosk Semal,ok,,"Ankerstrasse 119, Zürich",Stadt Zürich OGD Gastwirtschaftsbetriebe 2025,2026-10-15
+n656654442,Thai-Food-Corner,ok,,"Brauerstrasse 3, Zürich",Stadt Zürich OGD Gastwirtschaftsbetriebe 2025,2026-10-15
+n3926102925,Barizzi,ok,,"Brauerstrasse 34, Zürich",Stadt Zürich OGD Gastwirtschaftsbetriebe 2025,2026-10-15
+n2395154664,Stereo,ok,,"Brauerstrasse 36, Zürich",Stadt Zürich OGD Gastwirtschaftsbetriebe 2025,2026-10-15
+n656824967,Schweizerdegen El Papi,ok,,"Dienerstrasse 40, Zürich",Stadt Zürich OGD Gastwirtschaftsbetriebe 2025,2026-10-15
+n1232849946,Gamper Bar,ok,,"Dienerstrasse 75, Zürich",Stadt Zürich OGD Gastwirtschaftsbetriebe 2025,2026-10-15
+n5829856430,Passion cocktail bar,ok,,"Kanonengasse 33, Zürich",Stadt Zürich OGD Gastwirtschaftsbetriebe 2025,2026-10-15
+n871794824,B9,ok,,"Kernstrasse 60, Zürich",Stadt Zürich OGD Gastwirtschaftsbetriebe 2025,2026-10-15
+n4070417589,Bank,ok,,"Molkenstrasse 15, Zürich",Stadt Zürich OGD Gastwirtschaftsbetriebe 2025,2026-10-15
+n656516103,Volkshaus,ok,,"Stauffacherstrasse 60, Zürich",Stadt Zürich OGD Gastwirtschaftsbetriebe 2025,2026-10-15
+n656703086,Trübli Bar,ok,,"Zeughausstrasse 67, Zürich",Stadt Zürich OGD Gastwirtschaftsbetriebe 2025,2026-10-15
+n11216070998,24 Shop,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n12133693602,A&G Service,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n11216071006,Aelita,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n11216071012,Andrea Hinnen,unclear,,"Rotwandstrasse 53, 8004 Zürich (nur Footer der Website; Shop nicht bestätigt)",https://andreahinnen.com,2026-10-15
+n10921196039,Antonio Schlüssel-und Schuhservice,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n5282153481,Atlântico,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n11216071007,Barista Coffee Roasters,unclear,,"Kanonengasse (OSM, Nr. fehlt); Websuche ohne Treffer",Websuche Barista Coffee Roasters Zürich,2026-10-15
+n13952161540,Baumann Koelliker Gruppe,unclear,,"Badenerstrasse 329, 8040 Zürich (Hauptsitz laut Website, nicht Standort)",https://baumann-koelliker-gruppe.ch/,2026-10-15
+n12512257502,Blumenkohlektiv,unclear,,,Websuche Blumenkohlektiv: kein Treffer,2026-10-15
+w252342116,Brauergarten,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+w56004911,Bäckeranlage,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n9008352917,Caissette à livres,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n9893261278,Champions Shop,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n4549433191,Claudia Güdel,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n656739301,Colmadon,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n656657191,Comestibles Granada,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n12133693607,Corner Services,unclear,,,https://www.ufc.ch/de/locations/store/429/corner-services-zrich (404),2026-10-15
+n5418324619,Cosmopolitan Apartments,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n2583985945,Denkmal der Arbeit,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n11980641581,Der Schreiner,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n12138506367,Don't Say No,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n12133693604,ECO TCA Consulting,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n10567748100,El Campesino,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n9893261275,Erotic Shop,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n1391309505,Evangelisch Methodistische Kirche,ok,,"Stauffacherstrasse 54, 8004 Zürich",https://zuerich-4.emk-schweiz.ch/,2026-10-15
+n387613313,Express Shop,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n11685184269,Fashnpie,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n10567748099,Fifty-9,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n2583985942,Fuchs,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n13725108955,GDS.FM,ok,,"Müllerstrasse 70, 8004 Zürich",https://gds.fm,2026-10-15
+n11216071000,Glennys Net Corner,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n10567748103,Gold Diva,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n6661380870,Gustav-Gull-Platz,unclear,,,https://www.publibike.ch/ (nicht verifiziert),2026-10-15
+n2463960533,Helvetiaplatz,unclear,,,https://www.zuercher-maerkte.ch/helvetiaplatz.html (nicht verifiziert),2026-10-15
+n11002386362,Helvetiaplatz,unclear,,,https://www.publibike.ch/ (nicht verifiziert),2026-10-15
+n4563424065,Islamisches Zentrum,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n12754797447,J.B. LABAT,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n11950611166,Je Vous Propose,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n10921196040,Jeanspoint,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n12754761727,KUPPER MODERN,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+w56004914,Kanzleiwiese,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n869269170,Karaoke 4 You Thai Kitchen,unclear,,,"Websuche: nur Wanderlog ""4You"", keine Adresse",2026-10-15
+n973938666,Kasernenareal,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+w1343977835,Kasernenareal,ok,,"Kasernenareal, 8004 Zürich",https://www.zh.ch/de/news-uebersicht/medienmitteilungen/2020/01/weiterentwicklung-kasernenareal-zuerich.html,2026-10-15
+w4533222,Kasernenwiese,ok,,"Kasernenwiese, 8004 Zürich",https://www.zh.ch/de/news-uebersicht/medienmitteilungen/2020/01/weiterentwicklung-kasernenareal-zuerich.html,2026-10-15
+w28943682,Kasernenwiese,ok,,"Kasernenwiese, 8004 Zürich",https://www.zh.ch/de/news-uebersicht/medienmitteilungen/2020/01/weiterentwicklung-kasernenareal-zuerich.html,2026-10-15
+n1240044530,Kiosk Kanonen Gasse,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n10095152137,Kiosk Schönegg,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n4579779848,Kosmische-Granit-Pyramide,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n4581800304,Kugellager oder runde Steine (II),unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n11216071003,La Platanera,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+w121597493,Labyrinthplatz,unclear,,,https://www.labyrinthplatz.ch/ (keine Adresse auf Seite),2026-10-15
+n11216070999,Lollypop,unclear,,,,2026-10-15
+n12138506372,Longfinger Cosmetics,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n10921196042,Longside,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n2717037990,Lovely Brows,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n12138506365,Meg 4 Beauty,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n11980641580,Mitton,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n10567748101,Monika K,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n3078522845,My Fashion Fox,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n10963019384,Nani City Hotel,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n11980641579,Prontophot,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n7043797394,Rothaus,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n12138506366,Saint James,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n10891371969,Sara Tischhauser,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n8422874121,Sartori,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n12138506371,Stadler,unclear,,,Websuche ohne Treffer,2026-10-15
+n12754797446,Studio For Food Culture,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n10891371967,Studio Melograno,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n1360776653,Summergarte im Zeughaushof,unclear,,"Saisonbetrieb laut Website (Winterpause bis 1.5.2027), Adresse fehlt",https://www.summergarte.ch/,2026-10-15
+n10827725256,Textil-Reinigung,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n7724613812,The Atelier,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n12138506368,Trixmix,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n11216071023,Velvet Glam,unclear,,,https://velvetglam.ch (Domain nicht erreichbar),2026-10-15
+n12133693606,W.V.R,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n11216071001,Werners Head Shop,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n4549432191,Zero Zero Rare Groove,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n335568980,Zürich Helvetiaplatz,unclear,,,https://www.mobility.ch/ (nicht verifiziert),2026-10-15
+n335568981,Zürich Helvetiaplatz / Langstrasse,unclear,,,https://www.mobility.ch/ (nicht verifiziert),2026-10-15
+n5445691502,Zürich Lagerstrasse / Langstrasse,unclear,,,https://www.mobility.ch/ (nicht verifiziert),2026-10-15
+n4410334413,Zürich Müllerstrasse,unclear,,,https://www.mobility.ch/ (nicht verifiziert),2026-10-15
+n10889806815,Zürich Nails by Samantha,unclear,,,Websuche Nagelstudio Langstrasse: kein Treffer,2026-10-15
+n11963250714,apeVape,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n10891371970,fiona-K,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n7402704136,märli garten,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n848938939,shop-in-shop,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n12754771024,yoga studio zürich,unclear,,,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n13540274646,katrahama GmbH,ok,,"Zwinglistrasse 35, 8004 Zürich",https://katrahama.ch/,2026-10-15
+n2424887405,Les Complices*,unclear,,Anwandstrasse 9,https://lescomplices.ch/ (nicht verifiziert),2026-10-15
+n920508503,Swiss Star Guesthouse District 4,unclear,,"Talstrasse 66, 8001 Zürich (Kind of a Hotel; Swiss-Star-Standort nicht bestätigt)",https://swiss-star.com/,2026-10-15
+n9255553977,Wolf Studio GmbH,unclear,,"Zertifikat der Website abgelaufen, Adresse nicht prüfbar",https://www.wolfstudio.ch/,2026-10-15
+n10794073116,Panthera Records,unclear,,Brauerstrasse 80,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n914703161,Yoga City,unclear,,Bäckerstrasse 40,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n2052663807,Lovis Architekt*innen,unclear,,Dienerstrasse 21,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n1241219989,Thai Tirak,unclear,,Dienerstrasse 28 (OSM); Websuche ohne Treffer,Websuche Thai Tirak Dienerstrasse 28,2026-10-15
+n11216070997,Havana Galerie,unclear,,Dienerstrasse 30,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n10596153317,Caipi-Bar,unclear,,Dienerstrasse 68 (OSM); Websuche ohne Treffer,Websuche Caipi Bar Dienerstrasse 68,2026-10-15
+n8704527465,Heilsarmee Wohnen und Begleiten,ok,,"Dienerstrasse 76, Zürich",https://xn--wohnen-zrich-klb.heilsarmee.ch/,2026-10-15
+n8194922105,Leonteq,unclear,,"Europaallee 39 (OSM), auf Website keine Adresse",https://www.leonteq.com/,2026-10-15
+n9992397570,Scigility Switzerland AG,renamed,Navique AG,"Europaallee 41, 8021 Zürich",https://www.navique.com/,2026-10-15
+n8194922103,Abito Allora,unclear,,Europaallee 43,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+w73306059,Missionaries of Charity,unclear,,"Feldstrasse 136 (OSM), nicht auf Stadtseite bestätigt",https://www.stadt-zuerich.ch/sd/de/index/erschliessung/izs/wohnen/notunterkuenfte.html (keine Treffer),2026-10-15
+n5418324620,Google,unclear,,Gustav-Gull-Platz 1,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n6761865573,Unblur the World,unclear,,Gustav-Gull-Platz 12,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n4869996382,Personenmeldeamt Zürich West,unclear,,Website nennt nur Personenmeldeamt Süd (Stadthaus),https://www.stadt-zuerich.ch/services-pma,2026-10-15
+n10891371968,patatoffel,unclear,,Hohlstrasse 9,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n11844509219,n_ceramics,ok,,"Kanonengasse 18a, 8004 Zürich",https://nadiagraf.com,2026-10-15
+n9893260545,Huncho,ok,,"Kanonengasse 7, 8004 Zürich",https://zuri.net/de/zurich/burger-steaks/huncho-19105.htm,2026-10-15
+n5770202453,Fight-world.ch,unclear,,Kanonengasse 7a,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+w56004913,Kanzlei Turnhalle,unclear,,Kanzleistrasse 54,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+w28943550,Durchgangszentrum Polizeikaserne,unclear,,"Kasernenstrasse 29 (OSM), nicht bestätigt",https://www.stadt-zuerich.ch/sd/de/index/erschliessung/izs/wohnen/notunterkuenfte.html (keine Treffer),2026-10-15
+n12948881831,Netzbarkeit,unclear,,Kernstrasse 37,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n6580366336,Google,unclear,,Lagerstrasse 100,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n10877414546,Coiffeur Saleh,unclear,,"Lagerstrasse 32 (OSM); Websuche nennt Salon Saleh in Kreis 1, Adresse nicht bestätigt",Websuche Coiffeur Saleh Lagerstrasse 32 (Treatwell),2026-10-15
+n5418325621,opia,unclear,,Lagerstrasse 72,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n4843837963,yay kids,unclear,,Lagerstrasse 76,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n8704527466,Heilsarmee Wohnen und Begleiten,ok,,"Magnusstrasse 14, Zürich",https://xn--wohnen-zrich-klb.heilsarmee.ch/,2026-10-15
+n656566476,Regionalwache Aussersihl,unclear,,Militärstrasse 105,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n8203162120,Gassencafé Sunestube,moved,,"Konradstrasse 62, 8005 Zürich (Pfarrer-Sieber-Huus)",https://www.swsieber.ch/was-wir-tun/auffangen/gassencafe/,2026-10-15
+n5416711053,Josy,unclear,,Militärstrasse 75,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n4749159173,advokatur kanonengasse,unclear,,"Militärstrasse 76 (OSM), Website nennt nur Kreis 4",https://www.kanonengasse.ch/,2026-10-15
+n12754794882,RECON,unclear,,Militärstrasse 81,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n5282153478,Manu,unclear,,"Militärstrasse 85 (OSM); Websuche nur Coiffeur Rosy an Militärstrasse 76, Manu nicht gefunden",Websuche Coiffeur Militärstrasse Zürich,2026-10-15
+n5282153482,viajes.ch,unclear,,Militärstrasse 87,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+w73306002,Kasama,unclear,,Militärstrasse 87a,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n12754794142,weiss traductions,unclear,,Militärstrasse 87a,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n6592084080,Gbanga,unclear,,Adresse auf Website nicht genannt,https://gbanga.com,2026-10-15
+n10691351556,Deus Ex Machina,unclear,,"Molkenstrasse 22 (OSM), Store-Seite nicht abrufbar",https://deuscustoms.eu/blogs/blog/store-deus-zurich (404),2026-10-15
+n10900421299,Heilsarmee Wohnen und Begleiten,ok,,"Molkenstrasse 6, 8004 Zürich",https://meinplatz.ch/de/standorte/wohnheim-molkenstrasse-6,2026-10-15
+n4496708115,Hera,unclear,,Müllerstrasse 45,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n12160488708,Primero,ok,,"Müllerstrasse 71, 8004 Zürich",https://incontro-verein.ch/unsere-arbeit/,2026-10-15
+w107469115,Holliger Automobile,unclear,,Neufrankengasse 7,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+w73305997,Holliger Automobile,unclear,,Neufrankengasse 9,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n4424003112,Now We Go Vegan,unclear,,"Rolandstrasse 9, 8004 Zürich (Listing); eine Quelle sagt temporär geschlossen",Websuche Now We Go Vegan Rolandstrasse 9,2026-10-15
+n6498189281,Klar,unclear,,Rotwandstrasse 52,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n12160511961,Imbiss54,unclear,,Adresse auf Website nicht genannt (Öffnung Fr 9-15 Uhr),https://netz4.ch/imbiss54-2/,2026-10-15
+n11894473301,"Hammam & Spa, Stadtbad Zürich",ok,,"Stauffacherstrasse 60, 8004 Zürich",https://www.stadtbadzuerich.ch/,2026-10-15
+n3479479308,Stadbad Zürich,ok,,"Stauffacherstrasse 60, 8004 Zürich",https://www.stadtbadzuerich.ch/,2026-10-15
+n2178135077,Volkshaus,unclear,,Stauffacherstrasse 60,https://www.volkshaus.ch/ (nicht verifiziert),2026-10-15
+n3932358336,Jamarico,unclear,,Stauffacherstrasse 95,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n311607525,Casa Helvetia,ok,,"Stauffacherstrasse 96, 8004 Zürich",https://zuri.net/de/zurich/all-restaurants/casa-helvetia-25871.htm,2026-10-15
+w425288506,"Praxis Stahel und Burkhardt, Centre for Prenatal Diagnostics",unclear,,Stauffacherstrasse 96,https://www.prenataldiagnostics.ch (nicht verifiziert),2026-10-15
+n1240990728,Oder Wat,unclear,,Tellstrasse 10 (OSM); Imbiss Oder Wat laut zuri.net an Hohlstrasse 49,https://zuri.net/de/zurich/alle-take-aways/oder-wat-imbiss-24296.htm,2026-10-15
+w1449647894,Kontakt- und Anlaufstelle Kaserne,unclear,,Zeughausstrasse 10,https://www.stadt-zuerich.ch/sd/de/index/unterstuetzung/drogen/kontaktundanlaufstellen.html (nicht verifiziert),2026-10-15
+n5297598012,Arche Für Familien,ok,,"Zeughausstrasse 60, 8004 Zürich",https://www.archezuerich.ch/arche-fuer-familien,2026-10-15
+n905150772,EasyHotel Zürich,unclear,,Zwinglistrasse 14,http://de.easyhotel.com/hotels/zuerich.html (nicht verifiziert),2026-10-15
+n10601778122,Ufo,unclear,,Zwinglistrasse 15,Websuche/WebFetch ohne Treffer (Budget-Lauf 7),2026-10-15
+n5976303007,Tsukada Gaijin Izakaya,unclear,,"Zwinglistrasse 3 (OSM); Websuche nicht gefunden, Gaijin Izakaya an anderer Adresse",Websuche Tsukada Gaijin Izakaya,2026-10-15

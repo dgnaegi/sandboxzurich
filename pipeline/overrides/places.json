@@ -1,0 +1,191 @@
+{
+ "_doc": "Jump points on the GTA map. 'osm' = name looked up in OSM (preferred); 'cross' = intersection of two streets; 'll' = [lat, lon] fallback (approximate, check against OSM).",
+ "places": [
+  {
+   "name": "Helvetiaplatz",
+   "sub": "Kreis 4 · Langstrasse",
+   "osm": "Helvetiaplatz",
+   "ll": [
+    47.3762,
+    8.5258
+   ],
+   "yaw": 0.3
+  },
+  {
+   "name": "Langstrasse",
+   "sub": "Kreis 4 · Ecke Militärstrasse",
+   "cross": [
+    "Langstrasse",
+    "Militärstrasse"
+   ],
+   "ll": [
+    47.379,
+    8.5265
+   ],
+   "yaw": 0.37
+  },
+  {
+   "name": "Bäckeranlage",
+   "sub": "Kreis 4 · Werd",
+   "osm": "Bäckeranlage",
+   "ll": [
+    47.3778,
+    8.5235
+   ],
+   "yaw": 0.0
+  },
+  {
+   "name": "Kanzlei",
+   "sub": "Kreis 4 · Flohmarkt am Samstag",
+   "osm": "Kanzleiareal",
+   "ll": [
+    47.3755,
+    8.5242
+   ],
+   "yaw": -0.5
+  },
+  {
+   "name": "Hohlstrasse",
+   "sub": "Kreis 4 · Hard",
+   "cross": [
+    "Hohlstrasse",
+    "Langstrasse"
+   ],
+   "ll": [
+    47.3775,
+    8.525
+   ],
+   "yaw": -1.1
+  },
+  {
+   "name": "Kasernenareal",
+   "sub": "Kreis 4",
+   "osm": "Kasernenareal",
+   "ll": [
+    47.3775,
+    8.533
+   ],
+   "yaw": 0.0
+  },
+  {
+   "name": "Hardbrücke",
+   "sub": "Kreis 5 · Escher Wyss",
+   "osm": "Zürich Hardbrücke",
+   "ll": [
+    47.3851,
+    8.517
+   ],
+   "yaw": 0.0
+  },
+  {
+   "name": "Prime Tower",
+   "sub": "Kreis 5",
+   "osm": "Prime Tower",
+   "ll": [
+    47.3863,
+    8.5172
+   ],
+   "yaw": 0.0
+  },
+  {
+   "name": "Josefwiese",
+   "sub": "Kreis 5 · Gewerbeschule",
+   "osm": "Josefwiese",
+   "ll": [
+    47.388,
+    8.5225
+   ],
+   "yaw": 0.0
+  },
+  {
+   "name": "Röntgenplatz",
+   "sub": "Kreis 5",
+   "osm": "Röntgenplatz",
+   "ll": [
+    47.3846,
+    8.53
+   ],
+   "yaw": 0.0
+  },
+  {
+   "name": "Lochergut",
+   "sub": "Kreis 4 · Hard",
+   "osm": "Lochergut",
+   "ll": [
+    47.3747,
+    8.5157
+   ],
+   "yaw": 0.0
+  },
+  {
+   "name": "Friedhof Sihlfeld",
+   "sub": "Kreis 3 · mit altem Krematorium",
+   "osm": "Friedhof Sihlfeld",
+   "ll": [
+    47.3745,
+    8.5085
+   ],
+   "yaw": 0.0
+  },
+  {
+   "name": "Idaplatz",
+   "sub": "Kreis 3 · Sihlfeld",
+   "osm": "Idaplatz",
+   "ll": [
+    47.3709,
+    8.5195
+   ],
+   "yaw": 0.0
+  },
+  {
+   "name": "Bahnhof Wiedikon",
+   "sub": "Kreis 3 · Alt-Wiedikon",
+   "osm": "Zürich Wiedikon",
+   "ll": [
+    47.3714,
+    8.5235
+   ],
+   "yaw": 0.0
+  },
+  {
+   "name": "Albisriederplatz",
+   "sub": "Kreis 4/9",
+   "osm": "Albisriederplatz",
+   "ll": [
+    47.3786,
+    8.51
+   ],
+   "yaw": 0.0
+  },
+  {
+   "name": "Letzigrund",
+   "sub": "Kreis 9 · Altstetten",
+   "osm": "Stadion Letzigrund",
+   "ll": [
+    47.3828,
+    8.504
+   ],
+   "yaw": 0.0
+  },
+  {
+   "name": "Lindenplatz",
+   "sub": "Kreis 9 · Altstetten",
+   "osm": "Lindenplatz",
+   "ll": [
+    47.388,
+    8.484
+   ],
+   "yaw": 0.0
+  },
+  {
+   "name": "Bahnhof Altstetten",
+   "sub": "Kreis 9",
+   "osm": "Zürich Altstetten",
+   "ll": [
+    47.3914,
+    8.4889
+   ],
+   "yaw": 0.0
+  }
+ ]
+}

@@ -1,0 +1,216 @@
+{
+ "units": "m",
+ "front": "-Z",
+ "up": "+Y",
+ "origin": "module centre, rail top (y=0)",
+ "display": "material \"display\" on node \"display\": UV 0..1, aspect ~3.7:1 (front destination sign, sits on sloped cap)",
+ "modules": {
+  "cobra_kopf": {
+   "file": "cobra_kopf.glb",
+   "length": 7.8,
+   "triangles": 394,
+   "has_display": true
+  },
+  "cobra_zwischen": {
+   "file": "cobra_zwischen.glb",
+   "length": 5.2,
+   "triangles": 174,
+   "has_display": false
+  },
+  "cobra_mittel": {
+   "file": "cobra_mittel.glb",
+   "length": 10.0,
+   "triangles": 498,
+   "has_display": false
+  },
+  "flexity_kopf": {
+   "file": "flexity_kopf.glb",
+   "length": 6.9,
+   "triangles": 386,
+   "has_display": true
+  },
+  "flexity_mittel": {
+   "file": "flexity_mittel.glb",
+   "length": 6.8,
+   "triangles": 350,
+   "has_display": false
+  },
+  "flexity_zwischen": {
+   "file": "flexity_zwischen.glb",
+   "length": 4.4,
+   "triangles": 246,
+   "has_display": false
+  },
+  "trolley_vorne": {
+   "file": "trolley_vorne.glb",
+   "length": 9.2,
+   "triangles": 454,
+   "has_display": true
+  },
+  "trolley_hinten": {
+   "file": "trolley_hinten.glb",
+   "length": 8.4,
+   "triangles": 418,
+   "has_display": false
+  },
+  "trolley_gelenk": {
+   "file": "trolley_gelenk.glb",
+   "length": 1.1,
+   "triangles": 168,
+   "has_display": false
+  }
+ },
+ "vehicles": {
+  "tram_cobra": {
+   "length": 36.0,
+   "sequence": [
+    {
+     "module": "cobra_kopf",
+     "file": "cobra_kopf.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 3.9
+    },
+    {
+     "module": "cobra_zwischen",
+     "file": "cobra_zwischen.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 10.4
+    },
+    {
+     "module": "cobra_mittel",
+     "file": "cobra_mittel.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 18.0
+    },
+    {
+     "module": "cobra_zwischen",
+     "file": "cobra_zwischen.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 25.6
+    },
+    {
+     "module": "cobra_kopf",
+     "file": "cobra_kopf.glb",
+     "rotateY180": 1,
+     "z_center_from_front": 32.1
+    }
+   ],
+   "joints_z_from_front": [
+    7.8,
+    13.0,
+    23.0,
+    28.2
+   ],
+   "bogie_z_local": {
+    "cobra_kopf": [
+     -1.6
+    ],
+    "cobra_mittel": [
+     0.0
+    ]
+   },
+   "note": "rotateY180 modules: bogie z sign flips; pantograph head y=5.45 on cobra_mittel; line 8 / Glattal"
+  },
+  "tram_flexity": {
+   "length": 43.0,
+   "sequence": [
+    {
+     "module": "flexity_kopf",
+     "file": "flexity_kopf.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 3.45
+    },
+    {
+     "module": "flexity_mittel",
+     "file": "flexity_mittel.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 10.3
+    },
+    {
+     "module": "flexity_zwischen",
+     "file": "flexity_zwischen.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 15.9
+    },
+    {
+     "module": "flexity_mittel",
+     "file": "flexity_mittel.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 21.5
+    },
+    {
+     "module": "flexity_zwischen",
+     "file": "flexity_zwischen.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 27.1
+    },
+    {
+     "module": "flexity_mittel",
+     "file": "flexity_mittel.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 32.7
+    },
+    {
+     "module": "flexity_kopf",
+     "file": "flexity_kopf.glb",
+     "rotateY180": 1,
+     "z_center_from_front": 39.55
+    }
+   ],
+   "joints_z_from_front": [
+    6.9,
+    13.7,
+    18.1,
+    24.9,
+    29.3,
+    36.1
+   ],
+   "bogie_z_local": {
+    "flexity_kopf": [
+     -1.2
+    ],
+    "flexity_mittel": [
+     0.0
+    ]
+   },
+   "note": "pantograph head y=5.45 on flexity_zwischen"
+  },
+  "trolleybus": {
+   "length": 18.7,
+   "sequence": [
+    {
+     "module": "trolley_vorne",
+     "file": "trolley_vorne.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 4.6
+    },
+    {
+     "module": "trolley_gelenk",
+     "file": "trolley_gelenk.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 9.75
+    },
+    {
+     "module": "trolley_hinten",
+     "file": "trolley_hinten.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 14.5
+    }
+   ],
+   "joints_z_from_front": [
+    9.2,
+    10.3
+   ],
+   "axles_z_local": {
+    "trolley_vorne": [
+     -2.9,
+     2.8
+    ],
+    "trolley_hinten": [
+     2.3
+    ]
+   },
+   "note": "poles on trolley_hinten reach y=5.55, tips 3.2 m behind module end; wire spacing 0.6 m, wire y~5.5"
+  }
+ }
+}

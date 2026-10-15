@@ -1,0 +1,21 @@
+CENTER local x=-41 y=-496 r=100
+buildings 33; tagged:
+  (-33,-462) {'addr:housenumber': '150', 'addr:street': 'Sihlfeldstrasse', 'building': 'apartments', 'building:levels': '5', 'start_date': '1928'}
+  (-86,-520) {'addr:housenumber': '1', 'addr:street': 'Bullingerstrasse', 'building': 'apartments', 'building:levels': '4', 'start_date': '1931'}
+  (-39,-444) {'addr:housenumber': '152', 'addr:street': 'Sihlfeldstrasse', 'building': 'apartments', 'building:levels': '5', 'roof:shape': 'gabled', 'start_date': '1928'}
+  (-86,-529) {'addr:housenumber': '95', 'addr:street': 'Zypressenstrasse', 'building': 'apartments', 'building:levels': '4', 'start_date': '1931'}
+  (-3,-448) {'building': 'apartments', 'building:levels': '5', 'start_date': '1928'}
+  (-45,-427) {'addr:housenumber': '154', 'addr:street': 'Sihlfeldstrasse', 'building': 'apartments', 'building:levels': '5', 'roof:shape': 'gabled', 'start_date': '1928'}
+  (-72,-559) {'addr:housenumber': '94', 'addr:street': 'Zypressenstrasse', 'building': 'apartments', 'building:levels': '5'}
+  (-15,-562) {'building': 'apartments', 'building:levels': '6', 'start_date': '1980..1982'}
+  (-111,-510) {'addr:housenumber': '3', 'addr:street': 'Bullingerstrasse', 'building': 'yes', 'building:levels': '1'}
+  (-95,-543) {'addr:housenumber': '93', 'addr:street': 'Zypressenstrasse', 'building': 'apartments', 'building:levels': '4', 'start_date': '1931'}
+  (-64,-570) {'addr:housenumber': '228', 'addr:street': 'Kanzleistrasse', 'building': 'apartments', 'building:levels': '6'}
+  (-94,-433) {'addr:housenumber': '4a', 'addr:street': 'Bullingerstrasse', 'building': 'church', 'name': 'Bullingerkirche', 'start_date': '1925'}
+  (-107,-555) {'addr:housenumber': '91', 'addr:street': 'Zypressenstrasse', 'building': 'apartments', 'building:levels': '4', 'start_date': '1931'}
+  (-47,-405) {'addr:housenumber': '158', 'addr:street': 'Sihlfeldstrasse', 'building': 'apartments', 'building:levels': '5', 'roof:shape': 'gabled', 'start_date': '1928'}
+named shops/amenity: Fontana Apotheke [pharmacy](-34,-464); Café du Bonheur [restaurant](-21,-470); Barranco [restaurant](-55,-543); Arztpraxis Bullingerplatz [doctors](11,-482); An Chay [restaurant](-79,-565); Rathaus Hard [townhall](-103,-447); Coiffeur Le Bigoudi [hairdresser](-50,-577); Promusig [musical_instrument](-16,-586)
+counts: natural=tree:91, amenity=parking:29, amenity=bench:14, highway=street_lamp:9, barrier=kerb:7, amenity=bicycle_parking:6, amenity=waste_basket:3, amenity=restaurant:3, amenity=drinking_water:3, barrier=block:2, leisure=pitch:2, amenity=recycling:2, amenity=fountain:1, amenity=post_box:1, amenity=bicycle_repair_station:1, amenity=pharmacy:1, amenity=bicycle_rental:1, amenity=doctors:1, man_made=tower:1, leisure=playground:1, amenity=townhall:1, highway=crossing:1
+surfaces: {'asphalt': 36, 'paving_stones': 1}
+streets: Bullingerplatz, Sihlfeldstrasse, Zypressenstrasse, Stauffacherstrasse, Bullingerstrasse, Kanzleistrasse
+heritage 30: Wohnsiedlung Bullingerhof [kommunal,1931](-105,-507); Bullingerkirche (Kirchgemeinde Hard) [kommunal,1945](-9,-518); Bullingerkirche (Kirchgemeinde Hard) [kommunal,1945](-14,-531); Wohnsiedlung Bullingerhof [kommunal,1931](-91,-513); Wohnsiedlung Bullingerhof [kommunal,1931](-104,-558); Wohnsiedlung Bullingerhof [kommunal,1931](-93,-546); Wohnsiedlung Bullingerhof [kommunal,1931](-82,-532); Bullingerkirche (Kirchgemeinde Hard) [kommunal,1922](-82,-470); Bullingerkirche (Kirchgemeinde Hard) [kommunal,1953](-104,-450);  [kommunal,1910](-67,-573);  [kommunal,1910](-51,-545);  [kommunal,1910](-50,-557); None [kommunal,1929](-39,-461); None [kommunal,1929](-42,-446); None [kommunal,1929](-45,-432); None [kommunal,1929](-47,-422); None [kommunal,1929](-50,-407); None [kommunal,1929](-13,-470)

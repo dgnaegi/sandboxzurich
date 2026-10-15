@@ -1,0 +1,188 @@
+## altstetten_bhf
+-2223 645 Doppel-Mehrfamilienhaus 1909 Nein
+-2229 635 Doppel-Mehrfamilienhaus 1909 Nein
+-2337 691  1880 Nein
+-2133 795 Bahnhof Altstetten 1965 Nein
+-2075 770 Bahnhof Altstetten 1965 Nein
+-2093 812 Bahnhof Altstetten 1967 Nein
+-2086 832 Bahnhof Altstetten 1967 Nein
+## lindenplatz
+-2287 347 Quartierzentrum Lindenplatz 1951 Ja
+-2245 340 Büro, Wohn- und Geschäftshaus 1959 Ja
+-2258 346 Büro, Wohn- und Geschäftshaus 1959 Ja
+-2353 339 Quartierzentrum Lindenplatz 1955 Ja
+-2292 329 Quartierzentrum Lindenplatz 1951 Ja
+-2204 329 Büro- und Geschäftshaus, Mehrfamilienhaus 1957 Nein
+-2312 401 Büro- und Geschäftshaus, Mehrfamilienhaus 1947 Nein
+-2191 324 Büro- und Geschäftshaus, Mehrfamilienhaus 1957 Nein
+-2369 385 Quartierzentrum Lindenplatz 1955 Ja
+-2349 366 Quartierzentrum Lindenplatz 1955 Ja
+-2330 405 Büro- und Geschäftshaus, Mehrfamilienhaus 1947 Nein
+-2583 220 Mehrfamilienhaus 1955 Nein
+-2325 321 Quartierzentrum Lindenplatz 1958 Ja
+-2244 371  1911 Nein
+-2255 387  1911 Nein
+-2484 440 Gasthof Krone 1827 Ja
+-2283 181 Schulhaus Altstetterstrasse 1908 Nein
+-2624 351 Schulhaus Altstetten 1875 Nein
+-2598 383  1834 Nein
+-2340 363 Quartierzentrum Lindenplatz 1773 Nein
+-2393 303 Ref. Pfarrhaus Altstetten 1910 Nein
+-2427 244 Neue Reformierte Kirche Altstetten und Kirchgemeindehaus 1938 Nein
+-2416 282 Neue Reformierte Kirche Altstetten und Kirchgemeindehaus 1938 Nein
+-2389 255 Alte Kirche Altstetten 1700 Nein
+-2527 423 Gasthof Krone 1911 Ja
+-2437 307 Ländliches Wohnhaus mit Schopf 1874 Ja
+-2430 323  1880 Nein
+-2540 246 Bauernhaus 1838 Nein
+-2560 256 Bauernhaus None Nein
+-2622 428 Schulhaus Dachslern 1895 Nein
+-2634 406 Schulhaus Dachslern 1895 Nein
+-2301 169 Schulhaus Altstetterstrasse 1908 Nein
+-2247 350 Büro, Wohn- und Geschäftshaus 1959 Ja
+-2305 355 Quartierzentrum Lindenplatz 2001 Nein
+-2433 303 Ländliches Wohnhaus mit Schopf 1874 Ja
+-2413 325 Ref. Pfarrhaus Altstetten 1860 Nein
+-2516 265 Spirgartenstrasse 16/18 1847 Nein
+-2323 247 Altstetterstrasse 164/164a 1895 Nein
+-2340 251 Altstetterstrasse 164/164a 1895 Nein
+-2503 275 Spirgartenstrasse 16/18 1821 Nein
+-2514 280 Spirgartenstrasse 16/18 1827 Nein
+## wiedikon_bhf
+694 -1382 Werdhof 1955 Nein
+540 -1273 Geschäftshaus Ankerhof 1956 Nein
+571 -1273  1897 Ja
+657 -1570 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1937 Nein
+646 -1557 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1937 Ja
+636 -1544 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1937 Nein
+616 -1557 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1937 Nein
+607 -1570 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1937 Nein
+597 -1584 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1937 Nein
+682 -1540 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1938 Nein
+671 -1526 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1938 Nein
+661 -1513 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1938 Nein
+681 -1466 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1938 Nein
+672 -1480 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1938 Nein
+665 -1490 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1938 Nein
+628 -1473 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1940 Ja
+617 -1459 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1940 Ja
+664 -1453 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1940 Ja
+655 -1466 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1940 Ja
+647 -1477 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1940 Nein
+624 -1423 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1940 Nein
+605 -1437 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1940 Nein
+609 -1512 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1942 Nein
+598 -1499 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1942 Nein
+587 -1485 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1942 Nein
+609 -1531 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1942 Nein
+564 -1470 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1946 Nein
+550 -1408 Bahnhof Wiedikon 1927 Nein
+428 -1610 Geschäftshaus Zum Froschauer mit Druckerei 1923 Ja
+736 -1385 Miethäuser Morgartenstrasse 1938 Nein
+724 -1401 Miethäuser Morgartenstrasse 1938 Nein
+513 -1288  1896 Nein
+503 -1278  1895 Nein
+495 -1269  1895 Nein
+487 -1260 Mehrfamilienhaus 1895 Nein
+458 -1204 Elisabethenkirche 1911 Ja
+437 -1184 Elisabethenkirche 1911 Ja
+447 -1195 Elisabethenkirche 1912 Ja
+458 -1231 Tramdepot 1945 Nein
+675 -1230 Waschhaus 1863 Nein
+603 -1205  1892 Ja
+541 -1391 Bahnhof Wiedikon 1927 Nein
+467 -1317 Bahnhof Wiedikon 1927 Nein
+531 -1401 Bahnhof Wiedikon 1927 Nein
+454 -1325 Bahnhof Wiedikon 1927 Nein
+410 -1181 Tramdepot 1939 Nein
+409 -1155 Wohn- und Geschäftshaus 1897 Nein
+466 -1330 Seebahneinschnitt 1925 Nein
+530 -1390 Bahnhof Wiedikon 1927 Nein
+519 -1410 Bahnhof Wiedikon 1927 Nein
+577 -1361 None 1896 Nein
+420 -1590 Dietzingerstrasse 2, 4 1894 Nein
+582 -1604 Werdstrasse 127, 129 1904 Nein
+588 -1595 Werdstrasse 127, 129 1910 Nein
+402 -1607 Dietzingerstrasse 6/8/10 1895 Nein
+412 -1598 Dietzingerstrasse 2, 4 1895 Nein
+## schmiede
+694 -1382 Werdhof 1955 Nein
+691 -1611 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1937 Nein
+724 -1592 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1937 Nein
+714 -1579 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1937 Nein
+703 -1567 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1937 Nein
+761 -1585 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1937 Nein
+744 -1582 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1937 Nein
+678 -1596 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1937 Nein
+668 -1583 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1937 Nein
+657 -1570 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1937 Nein
+646 -1557 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1937 Ja
+636 -1544 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1937 Nein
+616 -1557 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1937 Nein
+607 -1570 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1937 Nein
+597 -1584 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1937 Nein
+735 -1534 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1938 Nein
+721 -1545 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1938 Nein
+682 -1540 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1938 Nein
+671 -1526 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1938 Nein
+661 -1513 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1938 Nein
+681 -1466 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1938 Nein
+672 -1480 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1938 Nein
+665 -1490 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1938 Nein
+726 -1513 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1938 Nein
+715 -1522 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1938 Nein
+702 -1532 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1938 Nein
+628 -1473 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1940 Ja
+617 -1459 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1940 Ja
+664 -1453 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1940 Ja
+655 -1466 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1940 Ja
+647 -1477 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1940 Nein
+624 -1423 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1940 Nein
+605 -1437 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1940 Nein
+609 -1512 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1942 Nein
+598 -1499 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1942 Nein
+587 -1485 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1942 Nein
+609 -1531 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1942 Nein
+564 -1470 Geschäftshäuser und Wohnüberbauung Schimmelstrasse 1946 Nein
+550 -1408 Bahnhof Wiedikon 1927 Nein
+428 -1610 Geschäftshaus Zum Froschauer mit Druckerei 1923 Ja
+733 -1660 Volkspark Sihlhölzli 1930 Nein
+657 -1700 Volkspark Sihlhölzli: Musikpavillon 1933 Nein
+630 -1655 Brandwache 1935 Nein
+724 -1401 Miethäuser Morgartenstrasse 1938 Nein
+775 -1494  1895 Nein
+541 -1391 Bahnhof Wiedikon 1927 Nein
+531 -1401 Bahnhof Wiedikon 1927 Nein
+628 -1629 Brandwache 1935 Nein
+668 -1643 Brandwache 1935 Nein
+530 -1390 Bahnhof Wiedikon 1927 Nein
+519 -1410 Bahnhof Wiedikon 1927 Nein
+577 -1361 None 1896 Nein
+420 -1590 Dietzingerstrasse 2, 4 1894 Nein
+582 -1604 Werdstrasse 127, 129 1904 Nein
+588 -1595 Werdstrasse 127, 129 1910 Nein
+## badener_mid
+-1683 81 Lager- und Gewerbehaus "Fluregg" 1948 Ja
+-1673 91 Lager- und Gewerbehaus "Fluregg" 1948 Ja
+-1644 77 Lager- und Gewerbehaus "Fluregg" 1948 Nein
+-1792 209 Schulhaus Kappeli 1935 Nein
+-1743 164 Alusisse Geschäftshochhaus und Autogarage 1961 Nein
+-1743 207 Alusisse Geschäftshochhaus und Autogarage 1961 Nein
+-1799 -384 None 1926 Nein
+-1647 42 Lager- und Gewerbehaus "Fluregg" 1948 Ja
+-1556 157 Industriegleis Flurstrasse 1923 Nein
+-1600 75 Industriegleis Flurstrasse 1923 Nein
+-1656 -10 Industriegleis Flurstrasse 1923 Nein
+-1749 -153 Industriegleis Flurstrasse 1923 Nein
+-1836 -288 Industriegleis Flurstrasse 1923 Nein
+-1872 -343 Industriegleis Flurstrasse 1923 Nein
+-1891 -362 Industriegleis Flurstrasse 1923 Nein
+-1918 -380 Industriegleis Flurstrasse 1923 Nein
+-1862 -124 Industriegleis Flurstrasse 1923 Nein
+-1862 -101 Industriegleis Flurstrasse 1923 Nein
+-1855 -48 Industriegleis Flurstrasse 1923 Nein
+-1831 6 Industriegleis Flurstrasse 1923 Nein
+-1783 -220 Industriegleis Flurstrasse 1923 Nein
+-1784 -275 Industriegleis Flurstrasse 1923 Nein
+-1812 -258 Industriegleis Flurstrasse 1923 Nein
+-1657 -92 Industriegleis Flurstrasse 1923 Nein

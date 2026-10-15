@@ -1,0 +1,329 @@
+import * as THREE from 'three';
+import { createRenderer } from './engine/renderer';
+import { createPost } from './engine/post';
+import { Quality } from './engine/quality';
+import { Daytime, startMinutes } from './engine/daytime';
+import { Tiles } from './engine/tiles';
+import { initKeyboardMouse } from './input/keyboard';
+import { initTouch } from './input/touch';
+import { consumeUse } from './input/actions';
+import { Player } from './player/player';
+import { Pedestrians } from './world/pedestrians';
+import { HumanLib } from './world/humans';
+import { loadTrees } from './world/trees';
+import { CAR_GEO, carMaterial, carPick, loadCars } from './world/cars';
+import { Scenes } from './world/scenes';
+import { Lawns } from './world/lawns';
+import { Events, WEEKDAYS } from './world/events';
+import { Bikes, loadBikes } from './world/bikes';
+import { loadFurniture } from './world/props';
+import { updateSignals } from './world/trafficsigns';
+import { setSignNight } from './world/signs';
+import { updateSacks } from './world/streetlife';
+import { Transit } from './world/transit';
+import { Railways } from './world/railways';
+import { Traffic } from './world/traffic';
+import { GameState, bindHud } from './gameplay/state';
+import { Police } from './gameplay/police';
+import { Missions } from './gameplay/missions';
+import { VeloInfra } from './gameplay/velo';
+import { Anecdotes } from './gameplay/anecdotes';
+import { buildStops } from './world/stops';
+import { GtaMap } from './ui/map';
+import { Menu } from './ui/menu';
+import { Audio } from './engine/audio';
+
+// Spawn: Helvetiaplatz (local metres). ?at=x,y,yaw overrides it, ?t=HH:MM sets the time (screenshot tests).
+const SPAWN = { x: 760, y: -905, yaw: -0.3 };
+const STATION = { x: 1100, y: -846 }; // "Formular-Büro" on the Kasernenareal (former police barracks)
+
+async function main() {
+  const $ = (id: string) => document.getElementById(id)!;
+  const canvas = $('view') as HTMLCanvasElement;
+  const mobile = matchMedia('(pointer: coarse)').matches;
+  const params = new URLSearchParams(location.search);
+  const R = createRenderer(canvas, mobile);
+  const { renderer, scene, camera, followSun } = R;
+  const daytime = new Daytime(R);
+
+  const map = new GtaMap();
+  await Promise.all([loadTrees(), loadCars(), loadBikes(), loadFurniture()]);
+  const [tiles, humans] = await Promise.all([
+    Tiles.load(scene, !mobile, Math.min(8, renderer.capabilities.getMaxAnisotropy())),
+    HumanLib.load('/models/humans', 4, mobile ? 14 : 40),
+    map.load(),
+    document.fonts.load('26px Anton'),
+  ]);
+  const ground = (x: number, y: number) => tiles.ground(x, y);
+  const bikes = new Bikes(scene);
+  tiles.bikes = bikes;
+  tiles.treeRadius = mobile ? 110 : 170;
+  tiles.bikeRadius = mobile ? 110 : 150;
+  const crowd = new Pedestrians(humans, mobile ? 16 : 36, ground);
+  tiles.onPaths = (p) => crowd.addPaths(p);
+  tiles.onSchools = (r) => crowd.schools.push(...r);
+  scene.add(crowd.group);
+  const lawns = new Lawns(humans, mobile ? 8 : 20);
+  tiles.onLawn = (r) => lawns.add(r);
+  const fountainEgg = { id: 'brunnen', title: 'Brunnenwasser', text: 'Über 1200 Brunnen, fast alle mit Trinkwasser. Prost, Zürich!' };
+  const pendingFountains: number[][][] = [];
+  tiles.onFountains = (r) => pendingFountains.push(r);
+  scene.add(lawns.group);
+
+  const state = new GameState();
+  const saved = state.load();
+  bindHud(state);
+  const at = params.get('at')?.split(',').map(Number);
+  const [sx, sy, syaw] = at && at.length >= 2 ? at : saved?.x ? [saved.x, saved.y!, 0] : [SPAWN.x, SPAWN.y, SPAWN.yaw];
+  await tiles.update(sx, sy);
+  const player = new Player(sx, sy, tiles, humans.instance(humans.player));
+  player.teleport(sx, sy, syaw ?? 0);
+  scene.add(player.mesh);
+
+  const transit = new Transit(scene, ground);
+  const rail = new Railways(scene, tiles.mat, mobile ? 0.62 : 1); // phone: tracks within ~260 m
+  const WHITE = new THREE.Color(0xf4f4f2);
+  const traffic = new Traffic(scene, ground, CAR_GEO, carMaterial, (k) => (k % 23 === 0 && CAR_GEO.police ? { type: 'police', color: WHITE } : k % 13 === 0 && CAR_GEO.taxi ? { type: 'taxi', color: k % 2 ? WHITE : new THREE.Color(0x1a1c20) } : carPick(k)));
+  const scenes = new Scenes(humans, ground);
+  // people waiting at tram/bus stops (groups of 3 next to the track, right-hand side)
+  let stops: THREE.Group | null = null;
+  void fetch('/data/transit.json').then((r) => r.json()).then((d) => {
+    scene.add(stops = buildStops(d, ground));
+    for (const l of d.lines) for (const st of l.stops) {
+      let s = st.s;
+      for (let i = 0; i + 1 < l.pts.length; i++) {
+        const [ax, ay] = l.pts[i], [bx, by] = l.pts[i + 1], L = Math.hypot(bx - ax, by - ay);
+        if (s > L) { s -= L; continue; }
+        const t = s / L, x = ax + (bx - ax) * t, y = ay + (by - ay) * t, h = Math.atan2(bx - ax, by - ay);
+        const px = x + Math.cos(h) * 3.2, py = y - Math.sin(h) * 3.2;
+        if (!tiles.colliders.inside(px, py)) lawns.add([[px, py, ground(px, py), h - Math.PI / 2, 2]]);
+        break;
+      }
+    }
+  });
+  const events = new Events(humans, ground, mobile);
+  const velo = new VeloInfra();
+  const anecdotes = new Anecdotes();
+  const npc = (await (await fetch('/data/npc.json')).json()) as { hourly: number[] };
+  // passer-by density by hour (Statistik Stadt Zürich proxy) + Fri/Sat nightlife on the Langstrasse
+  const density = (min: number, wd: number) => {
+    const h = Math.floor(min / 60) % 24, f = npc.hourly[h] ?? 0.5;
+    const night = (wd === 4 || wd === 5) && (h >= 21 || h <= 3) ? 0.85 : 0;
+    return 0.3 + 0.7 * Math.max(f, night);
+  };
+  await Promise.all([rail.load(), transit.load(), transit.loadModels(), traffic.load(), scenes.load(), events.load(), velo.load(), anecdotes.load()]);
+  scene.add(events.group);
+  traffic.maxCars = mobile ? 20 : 45;
+  traffic.maxBikes = mobile ? 8 : 20;
+  scene.add(scenes.group);
+  scenes.visRadius = crowd.visRadius = mobile ? 70 : 120;
+  for (const r of pendingFountains) scenes.addEggPoints(fountainEgg, r);
+  tiles.onFountains = (r) => scenes.addEggPoints(fountainEgg, r);
+  const police = new Police(humans, tiles.colliders, ground);
+  scene.add(police.group);
+  // quests/missions are designed by the user later; the system stays but is off unless ?missions
+  const missions = new Missions(state.missions, ground);
+  if (params.has('missions')) scene.add(missions.group);
+
+  // --- UI feedback --------------------------------------------------------------------------------------
+  let toastTimer = 0, bigTimer = 0;
+  const toast = (kicker: string, title: string, text: string) => {
+    $('toast-kicker').textContent = kicker; $('toast-title').textContent = title; $('toast-text').textContent = text;
+    $('toast').classList.add('on');
+    clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(() => $('toast').classList.remove('on'), 5000);
+  };
+  const bigText = (title: string, text: string, kind: string) => {
+    const el = $('bigtext');
+    el.className = kind; el.style.display = 'block';
+    $('bigtext-title').textContent = title; $('bigtext-text').textContent = text;
+    clearTimeout(bigTimer);
+    bigTimer = window.setTimeout(() => { el.style.display = 'none'; }, kind === 'start' ? 6000 : 4500);
+  };
+  scenes.onFound = (egg, n, total) => toast(`EASTER EGG ${n}/${total}`, egg.title, egg.text);
+  anecdotes.onShow = (a, n, total) => toast(a.kind === 'street' ? 'STRASSENNAME' : `ZÜRICH-WISSEN ${n}/${total}`, a.title, a.text);
+  missions.onText = (t, x, k) => { bigText(t, x, k); if (k !== 'start') audio.jingle(k === 'pass'); };
+  events.onStart = (t) => toast('IN DER STADT', t, 'Jetzt gerade – schau vorbei!');
+  missions.onReward = (chf) => { state.addMoney(chf); state.save(player.x, player.y); };
+
+  const jump = (x: number, y: number, yaw = player.yaw) => {
+    void tiles.update(x, y).then(() => {
+      for (let r = 0, a = 0; r < 60; r += 0.5, a += 0.9) { // nearest spot outside buildings
+        const px = x + Math.cos(a) * r, py = y + Math.sin(a) * r;
+        if (!tiles.colliders.inside(px, py)) { player.teleport(px, py, yaw); break; }
+      }
+    });
+  };
+  map.onJump = (x, y) => { player.dismount(); jump(x, y); };
+  const audio = new Audio();
+  const menu = new Menu();
+  menu.onMute = (m) => audio.setMuted(m);
+  menu.onMap = () => map.toggle(true);
+
+  const post = !mobile && !params.has('nopost') ? createPost(renderer, scene, camera) : null;
+  const quality = new Quality(renderer, mobile, !!post);
+  menu.onQuality = (q) => quality.force(q);
+  renderer.info.autoReset = false;
+  initKeyboardMouse(canvas);
+  initTouch($('stick'), $('knob'));
+  // title screen: wait for a key/tap (also unlocks audio), skipped in tests (?at=)
+  if (!params.has('at')) {
+    $('loading').classList.add('ready');
+    $('loading-text').textContent = mobile ? 'Tippen zum Starten' : 'Taste drücken zum Starten';
+    await new Promise<void>((ok) => {
+      const go = () => { window.removeEventListener('keydown', go); $('loading').removeEventListener('pointerdown', go); ok(); };
+      window.addEventListener('keydown', go); $('loading').addEventListener('pointerdown', go);
+    });
+  }
+  $('loading').remove();
+  if (params.has('map')) map.toggle(true);
+  if (params.has('debug')) document.body.classList.add('debug');
+
+  // --- interaction: bikes -------------------------------------------------------------------------------
+  const use = () => {
+    if (player.riding) {
+      const left = player.dismount();
+      if (left) bikes.drop(left.x, left.y, left.z, left.h, left.color);
+      return;
+    }
+    const slot = bikes.nearest(player.x, player.y);
+    if (!slot) return;
+    const own = slot.mesh === bikes.dropped;
+    bikes.take(slot);
+    player.mount(slot);
+    audio.bikeBell();
+    if (!own) {
+      const seen = police.nearest(player.x, player.y) < 35 || Math.random() < 0.25;
+      if (seen) { state.wanted(state.stars + 1); toast('VELODIEBSTAHL', '★ Gesehen!', 'Jemand hat dich beim Velo-Klauen beobachtet.'); }
+    }
+  };
+
+  const busted = () => {
+    player.dismount();
+    police.clear();
+    const fine = Math.round(state.money * 0.1);
+    state.addMoney(-fine);
+    state.wanted(0);
+    bigText('VERHAFTET', `Ab ins Formular-Büro: 47 Formulare in dreifacher Ausführung. Busse CHF ${fine}.`, 'fail');
+    missions.end();
+    jump(STATION.x, STATION.y);
+  };
+
+  // speech bubbles: passers-by greet now and then
+  const GREET_DAY = ['Grüezi!', 'Hallo zusammen!', 'Salü!', 'Ciao!', 'Schönen Tag!', 'Gehen wir noch etwas trinken?'];
+  const GREET_NIGHT = ['Guten Abend!', 'Gute Nacht!', 'Noch eins trinken gehen?'];
+  let honkT = 0, laneTipShown = false;
+  let bubbleT = 4, bubbleObj: THREE.Object3D | null = null, bubbleLeft = 0;
+  const bubble = $('bubble');
+  const vproj = new THREE.Vector3();
+  const updateBubble = (dt: number) => {
+    bubbleT -= dt; bubbleLeft -= dt;
+    if (bubbleT <= 0) {
+      bubbleT = 6 + Math.random() * 8;
+      const n = crowd.nearest(player.x, player.y);
+      if (n && n.d < 5) {
+        const list = daytime.night > 0.5 ? GREET_NIGHT : GREET_DAY;
+        bubble.textContent = list[Math.floor(Math.random() * list.length)];
+        bubbleObj = n.obj; bubbleLeft = 2.5;
+      }
+    }
+    if (bubbleObj && bubbleLeft > 0) {
+      vproj.setFromMatrixPosition(bubbleObj.matrixWorld); vproj.y += 2.1; vproj.project(camera);
+      bubble.style.display = vproj.z < 1 ? 'block' : 'none';
+      bubble.style.left = `${(vproj.x * 0.5 + 0.5) * innerWidth}px`; bubble.style.top = `${(-vproj.y * 0.5 + 0.5) * innerHeight}px`;
+    } else bubble.style.display = 'none';
+  };
+
+  // --- main loop ----------------------------------------------------------------------------------------
+  // game calendar: 24 real minutes = 1 day; starts on a Friday unless ?day=0..6 (Mo..So)
+  let gameMin = startMinutes(), transitMin = gameMin, weekday = Number(params.get('day') ?? 4) % 7;
+  const clock = new THREE.Clock();
+  let frames = 0, acc = 0, lastStream = 0, lastStats = 0, lastSave = 0;
+  renderer.setAnimationLoop(() => {
+    const raw = clock.getDelta(), dt = Math.min(raw, 0.1);
+    acc += dt;
+    quality.tick(raw);
+    renderer.info.reset();
+    if (map.open) { map.drawBig(player.x, player.y); return; }
+    if (menu.open) return;
+    gameMin += dt;                        // 1 game minute per real second
+    if (gameMin >= 1440) { gameMin -= 1440; weekday = (weekday + 1) % 7; }
+    transitMin = (transitMin + dt / 60) % 1440; // vehicles run on real time
+    if (consumeUse()) use();
+    // cycling infrastructure: faster and shown on the radar while riding
+    const lane = player.riding ? velo.at(player.x, player.y) : null;
+    player.boost = lane ? 1.2 : 1;
+    map.overlay = player.riding ? velo.lines.map((l) => l.p) : [];
+    if (lane && !laneTipShown) { laneTipShown = true; toast('VELO-INFRASTRUKTUR', '+20 % Tempo', 'Auf Velowegen und Velostreifen kommst du schneller und sicherer voran.'); }
+    player.update(dt, camera);
+    crowd.max = Math.round(quality.peds * density(gameMin, weekday));
+    // school run Mon–Fri: 07:30–08:15, 11:45–12:15, 15:30–16:30
+    crowd.schoolRun = weekday < 5 && ((gameMin >= 450 && gameMin < 495) || (gameMin >= 705 && gameMin < 735) || (gameMin >= 930 && gameMin < 990));
+    crowd.update(dt, player.x, player.y);
+    scenes.update(dt, player.x, player.y);
+    anecdotes.update(dt, player.x, player.y);
+    lawns.update(dt, player.x, player.y);
+    updateBubble(dt);
+    events.update(dt, weekday, gameMin, player.x, player.y);
+    // moving vehicles push the player aside (no damage, comic GTA bump); blocked cars honk
+    honkT -= dt;
+    for (const v of traffic.positions()) {
+      if (v.kind !== 'car') continue;
+      if (honkT <= 0) {
+        const fx = Math.cos(v.heading), fy = Math.sin(v.heading), rx = player.x - v.x, ry = player.y - v.y;
+        const ahead = rx * fx + ry * fy, side = Math.abs(-rx * fy + ry * fx);
+        if (ahead > 2 && ahead < 8 && side < 1.2) { audio.honk(); honkT = 3 + Math.random() * 3; }
+      }
+      const c = Math.cos(v.heading), s = Math.sin(v.heading);
+      for (const o of [-1.3, 0, 1.3]) {
+        const cx = v.x + c * o, cy = v.y + s * o, dx = player.x - cx, dy = player.y - cy, d = Math.hypot(dx, dy);
+        if (d < 1.25 && d > 1e-3) { player.x = cx + (dx / d) * 1.25; player.y = cy + (dy / d) * 1.25; }
+      }
+    }
+    for (const v of [...transit.colliders(), ...rail.colliders()]) {
+      const c = Math.cos(v.heading), s = Math.sin(v.heading), dx = player.x - v.x, dy = player.y - v.y;
+      const along = dx * c + dy * s, across = -dx * s + dy * c, hl = v.len / 2 + 0.3, hw = v.width / 2 + 0.35;
+      if (Math.abs(along) < hl && Math.abs(across) < hw) {
+        const push = (hw - Math.abs(across)) * Math.sign(across || 1);
+        player.x += -s * push; player.y += c * push;
+      }
+    }
+    transit.update(dt, transitMin, player.x, player.y);
+    rail.update(dt, transitMin, player.x, player.y);
+    traffic.update(dt, player.x, player.y, [{ x: player.x, y: player.y, r: 1.4 }]);
+    if (params.has('missions')) missions.update(dt, player.x, player.y, !!player.riding);
+    if (police.update(dt, player.x, player.y, state.stars)) { busted(); audio.jingle(false); }
+    audio.update(dt, daytime.night, state.stars > 0, police.nearest(player.x, player.y));
+    if ((frames & 63) === 0 && transit.colliders().some((v) => Math.hypot(v.x - player.x, v.y - player.y) < 25) && Math.random() < 0.3) audio.tramBell();
+    state.tick(dt, police.nearest(player.x, player.y) < 50);
+    updateSignals(acc);
+    if ((frames & 15) === 0) { setSignNight(daytime.night); updateSacks(weekday, gameMin); }
+    daytime.set(gameMin);
+    daytime.follow(player.mesh.position);
+    followSun(player.mesh.position);
+    tiles.cull(player.x, player.y, quality.detailRadius);
+    if (stops && (frames & 15) === 0) for (const o of stops.children) o.visible = Math.hypot(o.position.x - player.x, -o.position.z - player.y) < quality.detailRadius; // shelters: 5 calls each
+    if (acc - lastStream > 1) { lastStream = acc; void tiles.update(player.x, player.y); }
+    if (acc - lastSave > 10) { lastSave = acc; state.save(player.x, player.y); }
+    if (post && quality.post) post.render(); else renderer.render(scene, camera);
+
+    const blips = [...(params.has('missions') ? missions.blips() : []), ...(state.stars ? police.positions().map((p) => ({ ...p, color: frames % 20 < 10 ? '#3060ff' : '#ff3030' })) : [])];
+    map.drawRadar(player.x, player.y, player.yaw, player.heading, blips);
+    const prompt = !player.riding && bikes.nearest(player.x, player.y) ? (mobile ? 'E = Velo nehmen' : 'E drücken: Velo nehmen') : player.riding && player.speed < 0.5 ? 'E = absteigen' : '';
+    $('prompt').style.display = prompt ? 'block' : 'none';
+    $('prompt').textContent = prompt;
+    $('mission').textContent = missions.hud();
+    if (++frames % 30 === 0) {
+      const i = renderer.info.render, near = map.nearestPlace(player.x, player.y);
+      const mem = (performance as unknown as { memory?: { usedJSHeapSize: number } }).memory?.usedJSHeapSize ?? 0;
+      $('stats').textContent = `${Math.round(30 / (acc - lastStats))} fps · ${i.calls} calls · ${(i.triangles / 1000).toFixed(0)}k tris · q${quality.level} · ${(mem / 1e6) | 0} MB JS`;
+      $('place-name').textContent = near?.name ?? '';
+      $('place-kreis').textContent = map.kreisAt(player.x, player.y);
+      $('clock').textContent = `${WEEKDAYS[weekday]} ${String(Math.floor(gameMin / 60)).padStart(2, '0')}:${String(Math.floor(gameMin % 60)).padStart(2, '0')}`;
+      lastStats = acc;
+    }
+  });
+  Object.assign(window, { gtaReady: true, gtaPlayer: player, gtaScene: scene, gtaState: state, gtaBikes: bikes, gtaEvents: events, gtaTransit: transit, gtaRail: rail }); // hooks for Playwright tests
+}
+
+main();

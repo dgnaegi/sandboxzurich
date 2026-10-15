@@ -1,0 +1,5316 @@
+{
+"anecdotes": [
+{
+"id": "a0",
+"title": "Langstrasse heisst lange Strasse",
+"text": "Willkommen an der Langstrasse. Sie ist länger, als sie aussieht.",
+"x": 720.8,
+"y": -790.4,
+"r": 20
+},
+{
+"id": "a1",
+"title": "Aussersihl war Arbeiterviertel mit Anlaufstelle für Zuzüger",
+"text": "Aussersihl: Hier haben Fabrikarbeiter Zürich mitgebaut.",
+"x": 720.8,
+"y": -790.4,
+"r": 20
+},
+{
+"id": "a2",
+"title": "Erminia Cella und das Restaurant Cooperativo",
+"text": "Das Cooperativo war früher ein Ort für Leute, die nicht schweigen wollten. Heute gibt es hier nur noch Erinnerung.",
+"x": 1186.2,
+"y": -753.9,
+"r": 9
+},
+{
+"id": "a3",
+"title": "Olé Olé Bar und die UNESCO-Petition (2026)",
+"text": "Petition für Welterbe-Status läuft. Unterschreiben kann man an der Bar, nicht im Kopf.",
+"x": 720.8,
+"y": -790.4,
+"r": 20
+},
+{
+"id": "a4",
+"title": "Olé Olé als bekannteste Kult-Bar der Strasse",
+"text": "Unter der Woche ist es hier gemütlich. Am Wochenende nicht mehr.",
+"x": 720.8,
+"y": -790.4,
+"r": 20
+},
+{
+"id": "a5",
+"title": "Total Bar, Tellstrasse 19 (Ex-Besetzung)",
+"text": "Total Bar: Im Schatten der Langstrasse, mit Bahnarmaturen auf dem Klo.",
+"x": 927.0,
+"y": -578.2,
+"r": 9
+},
+{
+"id": "a6",
+"title": "Langstrassenfest seit 1996",
+"text": "Langstrassenfest: Alle zwei Jahre, alle Sprachen, ein Strassenzug.",
+"x": 720.8,
+"y": -790.4,
+"r": 20
+},
+{
+"id": "a7",
+"title": "Hohlenweg und Römerstrasse über die Militärbrücke",
+"text": "Hohlenweg: Schon die Römer kamen hier durch. Heute müssen Sie nur am Ampel warten.",
+"x": -229.7,
+"y": -104.4,
+"r": 20
+},
+{
+"id": "a8",
+"title": "Don Bosco Kirche an Hohl- und Feldstrasse",
+"text": "Don Bosco: Kirche, Mission, Quartier. Der Turm ist grösser als die Bar daneben.",
+"x": 427.5,
+"y": -747.7,
+"r": 20
+},
+{
+"id": "a9",
+"title": "Street Art an der Langstrasse (Wände, keine Namen)",
+"text": "Diese Wand ist nicht vollgekritzelt. Sie ist ein Plakat, das nicht bezahlt wurde.",
+"x": 720.8,
+"y": -790.4,
+"r": 20
+},
+{
+"id": "a10",
+"title": "Denkmal der Arbeit von Karl Geiser (1964)",
+"text": "Denkmal der Arbeit: Wer hier arbeitet, hat den Platz verdient.",
+"x": 678.9,
+"y": -869.3,
+"r": 20
+},
+{
+"id": "a11",
+"title": "Volkshaus: erstes alkoholfreies Volkshaus der Schweiz (1910)",
+"text": "Volkshaus 1910: Alkoholfrei, politisch und mit Badi im Keller.",
+"x": 678.9,
+"y": -869.3,
+"r": 20
+},
+{
+"id": "a12",
+"title": "Die Katakombe: Buchladen-Keller mit Lesungen",
+"text": "Katakombe: Hier wird nicht gebeichtet, nur gelesen.",
+"x": 805.3,
+"y": -936.9,
+"r": 20
+},
+{
+"id": "a13",
+"title": "FC-Zürich-Balkon im Volkshaus",
+"text": "Meister! Oder zumindest Balkon-Star für einen Tag.",
+"x": 805.3,
+"y": -936.9,
+"r": 20
+},
+{
+"id": "a14",
+"title": "Volkshaus-Fassade rot (2021)",
+"text": "Rot war nicht immer Farbe. Früher war es grüngrau. Früher war vieles grüngrau.",
+"x": 805.3,
+"y": -936.9,
+"r": 20
+},
+{
+"id": "a15",
+"title": "Volkshaus-Hamam (2012)",
+"text": "Hamam mitten in der Stadt. Die Badi im Keller hat Konkurrenz bekommen.",
+"x": 805.3,
+"y": -936.9,
+"r": 20
+},
+{
+"id": "a16",
+"title": "Amtshaus schwebend (SRF 2019)",
+"text": "Dieses Haus steht auf Stelzen. Es hat sich nie bewegt, nur einmal gefühlt.",
+"x": 805.6,
+"y": -855.2,
+"r": 20
+},
+{
+"id": "a17",
+"title": "Xenix-Monatsplakate",
+"text": "Plakat des Monats: Nicht zum Kaufen. Nur zum Hängen.",
+"x": 730.1,
+"y": -973.7,
+"r": 20
+},
+{
+"id": "a18",
+"title": "Xenix-Open-Air im Juli und August",
+"text": "Open-Air im Juli: Film läuft, Bier kostet. Schlafen wird schwer.",
+"x": 670.0,
+"y": -963.8,
+"r": 20
+},
+{
+"id": "a19",
+"title": "Flohmarkt Kanzlei: Samstag seit Anfang der 1980er",
+"text": "Flohmarkt am Samstag: Alles hat hier schon mal jemandem gehört.",
+"x": 706.3,
+"y": -944.3,
+"r": 9
+},
+{
+"id": "a20",
+"title": "Tram 8 und Bus 32 am Helvetiaplatz",
+"text": "Nächster Halt: Helvetiaplatz. Wer kann, steigt hier für den Flohmarkt aus.",
+"x": 678.9,
+"y": -869.3,
+"r": 20
+},
+{
+"id": "a21",
+"title": "Helvetiaplatz-Wochenmarkt (Dienstag und Freitag)",
+"text": "Dienstag und Freitag: Der Platz riecht nach Zwiebeln.",
+"x": 678.9,
+"y": -869.3,
+"r": 20
+},
+{
+"id": "a22",
+"title": "Ni una menos (2019)",
+"text": "Ni una menos. Nicht eine weniger. Der Platz merkt sich das.",
+"x": 678.9,
+"y": -869.3,
+"r": 20
+},
+{
+"id": "a23",
+"title": "Gedichte-Buch 1971 auf dem Platz",
+"text": "Gratis Buch, Lastwagen als Bühne. Der Platz hat schon Literatur gemacht.",
+"x": 678.9,
+"y": -869.3,
+"r": 20
+},
+{
+"id": "a24",
+"title": "Hof-Kanzleiplatz: Hinweis auf Schulhaus",
+"text": "Hier lernt man nicht nur Mathe. Auch Kino und Trödel gehören dazu.",
+"x": 670.0,
+"y": -963.8,
+"r": 20
+},
+{
+"id": "a25",
+"title": "Kanzlei Club und Theatersport (Disco-Kultur)",
+"text": "Theatersport um Mitternacht. Das Publikum macht den Rest.",
+"x": 706.3,
+"y": -944.3,
+"r": 9
+},
+{
+"id": "a26",
+"title": "Piazza-Cella-Dissonanz: Helvetiaplatz gegen Langstrasse",
+"text": "Stauffacher: Hier trennen sich Tram, Demo und Feierabend.",
+"x": 720.8,
+"y": -790.4,
+"r": 20
+},
+{
+"id": "a27",
+"title": "Militärkaserne 1873–1876 (Johann Jakob Müller)",
+"text": "Kaserne, 1876 gebaut. Kasernen sind hier nicht mehr für Soldaten da, sondern für Schüler.",
+"x": 1035.6,
+"y": -740.8,
+"r": 20
+},
+{
+"id": "a28",
+"title": "Militär 1975: Volksabstimmung ins Reppischtal",
+"text": "1975 hat Zürich abgestimmt. 1987 sind die Soldaten gegangen. Das Areal wartet seit 50 Jahren.",
+"x": 1035.6,
+"y": -740.8,
+"r": 20
+},
+{
+"id": "a29",
+"title": "Gessnerallee-Initiative 1978 knapp abgelehnt",
+"text": "1978: Knapp verloren. Die Kaserne blieb. Der Park blieb hypothetisch.",
+"x": 1274.6,
+"y": -1135.1,
+"r": 20
+},
+{
+"id": "a30",
+"title": "Exerzierwiese: früher Festplatz, dann Militär",
+"text": "Früher wurde hier getanzt, heute wird hier gejoggt. Das Gras hat den Wechsel gut verkraftet.",
+"x": 1109.4,
+"y": -877.2,
+"r": 20
+},
+{
+"id": "a31",
+"title": "Theaterhaus Gessnerallee in den Kasernenstallungen",
+"text": "Früher Pferde, heute Stücke. Die Bühne hat mehr Hufe als früher.",
+"x": 1274.6,
+"y": -1135.1,
+"r": 20
+},
+{
+"id": "a32",
+"title": "Kanonengasse: Grenze des Kasernenareals (Name ungeklärt)",
+"text": "Kanonengasse. Früher Munition, heute Kaffee. Die Richtung stimmt.",
+"x": 925.7,
+"y": -798.7,
+"r": 20
+},
+{
+"id": "a33",
+"title": "Militärstrasse: Kasernenname und Cooperativo",
+"text": "Militärstrasse. Heute kein Militär, nur Velofahrer, die Lieferwagen ausweichen.",
+"x": 898.9,
+"y": -523.9,
+"r": 20
+},
+{
+"id": "a34",
+"title": "Zeughaus Aussersihl und die Kanonen (unbestätigt)",
+"text": "Kanonen gab's hier nie. Nur Schulbänke.",
+"x": 925.7,
+"y": -798.7,
+"r": 20
+},
+{
+"id": "a35",
+"title": "Bäckeranlage: Alemannen-Friedhof unter dem Park",
+"text": "Unter der Wiese liegen Alemannen. Bitte nicht graben.",
+"x": 470.4,
+"y": -645.9,
+"r": 20
+},
+{
+"id": "a36",
+"title": "Bäckeranlage: Koordinaten und Name",
+"text": "Bäckeranlage. Die Bäckerei ist weg, der Name blieb.",
+"x": 470.4,
+"y": -645.9,
+"r": 20
+},
+{
+"id": "a37",
+"title": "Ankerstrasse: Heilsarmee-Haus (1927–1928)",
+"text": "Heilsarmee: Anker, Saal, Kaffee. Mehr braucht man nicht, um anzukommen.",
+"x": 685.5,
+"y": -1041.4,
+"r": 20
+},
+{
+"id": "a38",
+"title": "Dienerstrasse: Name-Herkunft ungeklärt",
+"text": "Dienerstrasse. Kein Diener in Sicht, nur Lieferdienste.",
+"x": 632.3,
+"y": -492.9,
+"r": 20
+},
+{
+"id": "a39",
+"title": "Langstrasse-Tramwagen im Stadtbild",
+"text": "Langstrasse heute: Tram, Bar, Kebab.",
+"x": 720.8,
+"y": -790.4,
+"r": 20
+},
+{
+"id": "a40",
+"title": "Kebab-Taxi-Gespräch (Zitat der Petition)",
+"text": "Kebab, Taxi, Gespräch um zwei Uhr. Das gibt's nur hier.",
+"x": 720.8,
+"y": -790.4,
+"r": 20
+},
+{
+"id": "a41",
+"title": "Langstrasse als anderes Schweiz",
+"text": "Eine andere Schweiz, nur drei Strassen weiter.",
+"x": 720.8,
+"y": -790.4,
+"r": 20
+},
+{
+"id": "a42",
+"title": "Umbau der Langstrasse und Gentrifizierung",
+"text": "Früher war's billig. Jetzt ist's teuer. Der Kebab ist gleich geblieben.",
+"x": 720.8,
+"y": -790.4,
+"r": 20
+},
+{
+"id": "s1",
+"kind": "street",
+"title": "Luggwegstrasse",
+"text": "Flurname «Lukenwäg» (15. Jahrhundert), vermutlich aus «lugg», d. h. locker abgeleitet. Der Luggenweg wäre somit ein Weg auf lockerem, vielleicht kiesigsandigem Grund.",
+"x": -2127.9,
+"y": -158.4,
+"r": 10
+},
+{
+"id": "s2",
+"kind": "street",
+"title": "Max-Högger-Strasse",
+"text": "Max Högger (1881-1966): Oberst, Platzkommandant von Zürich im Zweiten Weltkrieg.",
+"x": -2082.9,
+"y": 1011.3,
+"r": 10
+},
+{
+"id": "s3",
+"kind": "street",
+"title": "Gessnerbrücke",
+"text": "Die ursprüngliche Gessnerbrücke wurde 1885 von der Gemeinde Aussersihl als Eisenkonstruktion errichtet und ist 1933 und 2006 durch Betonbrücken ersetzt worden. Sie ist benannt nach Salomon Gessner (1730-1788). Gessner war ein …",
+"x": 1439.6,
+"y": -865.6,
+"r": 10
+},
+{
+"id": "s4",
+"kind": "street",
+"title": "Sihlquai",
+"text": "Um 1877 im Zusammenhang mit der Anlage des Industriequartiers ausgebaute und umbenannte Quaistrasse längs der Sihl und der Limmat. Zuvor hiess der bestehende Weg Kreuelstrasse nach der dortigen Gegend, die schon im 14. …",
+"x": 1581.7,
+"y": -479.5,
+"r": 10
+},
+{
+"id": "s5",
+"kind": "street",
+"title": "Schweizergasse",
+"text": "Strasse im neuen, in den 1860er Jahren angelegten Bahnhofquartier. Ihr Name ist wohl eine Reverenz an den Schweizerischen Bundesstaat, unter dessen Kantonen der Stand Zürich seit 1351 an erster Stelle genannt wird, vielleicht …",
+"x": 1519.4,
+"y": -814.4,
+"r": 10
+},
+{
+"id": "s6",
+"kind": "street",
+"title": "Badenerstrasse",
+"text": "Name der alten Landstrasse von Zürich nach Baden. Vermutlich geht die Strasse auf die Römerzeit zurück. Im 18. Jahrhundert wurde sie ausgebaut und galt um 1780 als wichtige Hauptstrasse.",
+"x": 865.4,
+"y": -1193.1,
+"r": 10
+},
+{
+"id": "s7",
+"kind": "street",
+"title": "Stauffacherstrasse",
+"text": "Werner Stauffacher war der Sage nach der Schwyzer Abgesandte beim Rütlischwur (um 1300).",
+"x": 1047.2,
+"y": -1401.9,
+"r": 10
+},
+{
+"id": "s8",
+"kind": "street",
+"title": "Limmatplatz",
+"text": "Um 1880 angelegter repräsentativer Platz, Kreuzungspunkt der namensgebenden Limmatstrasse als einer baumbesetzten Allee und der Langstrasse. Erste Bauten am Limmatplatz entstanden ab 1881. Prägend wurde die Bebauung und die …",
+"x": 1158.2,
+"y": 103.5,
+"r": 10
+},
+{
+"id": "s9",
+"kind": "street",
+"title": "Hohlstrasse",
+"text": "Ursprünglich Hohlweg (1424), ein durch die lange Benutzung durch Fuhrwerke sowie abfliessendes Regenwasser in das umgebende Gelände eingeschnittener (ausgehöhlter) Weg.",
+"x": 325.6,
+"y": -446.0,
+"r": 10
+},
+{
+"id": "s10",
+"kind": "street",
+"title": "Rotwandstrasse",
+"text": "Benannt nach dem wegen seiner Farbe zur roten Wand genannten Haus, das die Gemeinde Aussersihl 1813 erwarb. Es diente als Schulhaus, später auch als Armenhaus und Gemeindegefängnis, das 1873 abgetragen wurde.",
+"x": 924.1,
+"y": -945.6,
+"r": 10
+},
+{
+"id": "s11",
+"kind": "street",
+"title": "Kanonengasse",
+"text": "Strasse in Aussersihl hinter der Militärkaserne, die von 1864 bis 1875 aufgeführt wurde. Die neue Kaserne war auch für andere benachbarte Strassen namensgebend (Militärstrasse, Zeughausstrasse usw.).",
+"x": 989.5,
+"y": -710.4,
+"r": 10
+},
+{
+"id": "s12",
+"kind": "street",
+"title": "Militärstrasse",
+"text": "Strasse in Zürich-Aussersihl bei der Kaserne, die zwischen 1864 und 1875 erbaut wurde. Das Militär war auch namensgebend für andere benachbarte Strassen (Kanonengasse, Zeughausstrasse usw.).",
+"x": 1298.0,
+"y": -890.0,
+"r": 10
+},
+{
+"id": "s13",
+"kind": "street",
+"title": "Lagerstrasse",
+"text": "Strasse in Aussersihl, bei der nach 1860 Eisenbahnwerkstätten und der sogenannte Rohmaterialienbahnhof mit zahlreichen Lagerhäusern entstand.",
+"x": 923.4,
+"y": -451.5,
+"r": 10
+},
+{
+"id": "s14",
+"kind": "street",
+"title": "Zeughausstrasse",
+"text": "Teil der alten Hohlstrasse oder Hohlgasse, der wegen der 1866 erbauten Zeughäuser auf dem Kasernenareal in Zeughausstrasse umbenannt wurde.",
+"x": 997.7,
+"y": -864.5,
+"r": 10
+},
+{
+"id": "s15",
+"kind": "street",
+"title": "Lutherstrasse",
+"text": "Martin Luther (1483-1546): Deutscher Theologe und Reformator. Ihm wurde die Strasse bei der Kirche St. Jakob in Zürich-Aussersihl gewidmet.",
+"x": 967.7,
+"y": -1102.5,
+"r": 10
+},
+{
+"id": "s16",
+"kind": "street",
+"title": "Bäckerstrasse",
+"text": "Benannt nach dem Eckhaus Pfistern, Badenerstrasse 20-Bäckerstrasse 1. Das Wort «Pfister» geht auf das lateinische pistor zurück, was Bäcker oder Müller bedeutet. In diesem Haus wurde denn auch bis 1957 eine Bäckerei betrieben.",
+"x": 969.8,
+"y": -1037.6,
+"r": 10
+},
+{
+"id": "s17",
+"kind": "street",
+"title": "Langstrasse",
+"text": "Alte Verbindung, die von Wiedikon her durch das Sihlfeld hin zur Limmat führt und die um 1900 zu einer Hauptstrasse von Aussersihl wurde. Die Strasse führte über die Ortsgegend Langfurren, weshalb sie bis 1869 auch …",
+"x": 587.5,
+"y": -1069.7,
+"r": 10
+},
+{
+"id": "s18",
+"kind": "street",
+"title": "Stauffacherbrücke",
+"text": "1899 baute die Firma Fietz & Leuthold AG, basierend auf dem Entwurf von Robert Maillart und nach Plänen von Stadtbaumeister Gustav Gull, diese Betonbrücke. Das Bauwerk ist mit Granit- und Sandstein verkleidet und auf den vier …",
+"x": 1124.2,
+"y": -1440.0,
+"r": 10
+},
+{
+"id": "s19",
+"kind": "street",
+"title": "Sihlstrasse",
+"text": "Strasse, die vom mittelalterlichen Rennwegtor durch die im 17. Jahrhundert entstandene und befestigte Vorstadt zur Sihlporte und weiter zur Brücke über die Sihl führte. Die Sihlporte und das Rennwegtor waren bis zur Schleifung …",
+"x": 1337.4,
+"y": -1237.5,
+"r": 10
+},
+{
+"id": "s20",
+"kind": "street",
+"title": "Postbrücke",
+"text": "Um 1930 von der Firma Theodor Bertschinger erstellte Eisenbetonbrücke, die zu der 1927-1930 von den Gebrüdern Bräm erbauten Sihlpost führt. Die Ausbauten stehen im Zusammenhang mit dem Bau der Quer- und der Perronhalle im …",
+"x": 1596.9,
+"y": -679.0,
+"r": 10
+},
+{
+"id": "s21",
+"kind": "street",
+"title": "Eisgasse",
+"text": "Benannt nach der Eisapparate- und Eishandlung C. A. Bauer an der Eisgasse 10 in Aussersihl 1869-1876, die gemäss eigener Werbung auch den Export von Eis betrieb. Das Eismagazin wurde 1911 zu einer Werkstatt umgebaut und 1955 …",
+"x": 1148.7,
+"y": -668.7,
+"r": 10
+},
+{
+"id": "s22",
+"kind": "street",
+"title": "Müllerstrasse",
+"text": "Strasse zur Liegenschaft von Landwirt Heinrich Müller an der Ecke Müllerstrasse, Kasernenstrasse, die 1886 abgetragen wurde.",
+"x": 858.2,
+"y": -812.4,
+"r": 10
+},
+{
+"id": "s23",
+"kind": "street",
+"title": "Rebgasse",
+"text": "Im Haus zum Limmattal (1838-1931), Bäckerstrasse 6, Ecke Rebgasse, befand sich die Weinhandlung des Johann Melchior Ochsner mit Verkaufslokal an der Badenerstrasse 14.",
+"x": 1060.4,
+"y": -1091.1,
+"r": 10
+},
+{
+"id": "s24",
+"kind": "street",
+"title": "Glasmalergasse",
+"text": "Benannt nach dem Gewerbe des Glasmalers Karl Andreas Wehrli (1843-1902), welcher der Gemeinde kostenlos das Land zum Bau der Strasse abtrat. Karl Wehrli schuf unter anderem Glasfenster in Kirchen.",
+"x": 1032.9,
+"y": -1058.9,
+"r": 10
+},
+{
+"id": "s25",
+"kind": "street",
+"title": "Tellstrasse",
+"text": "Wilhelm Tell (um 1300): Strasse in Aussersihl bei der Militärkaserne, benannt nach Wilhelm Tell, dem legendären Held der eidgenössischen Befreiungstradition, der um 1300 das Land Uri vom tyrannischen Landvogt Rudolf Gessler …",
+"x": 901.0,
+"y": -629.5,
+"r": 10
+},
+{
+"id": "s26",
+"kind": "street",
+"title": "Selnaustrasse",
+"text": "Hauptstrasse im sogenannten Selnauquartier, das ab 1850/60 durch Überbauung entstand; der dort zuvor seit langem bestehende Weg hiess im Selnau. Er führte zum ehemaligen, 1256 gegründeten und 1525 aufgehobenen Kloster Selnau, …",
+"x": 1154.0,
+"y": -1469.6,
+"r": 10
+},
+{
+"id": "s27",
+"kind": "street",
+"title": "Püntstrasse",
+"text": "Flurname «Pünt» (um 1450): «Pünt» oder «Bünt» bezeichnet ein umzäuntes, privat genutzes und mit der Zeit auch in Privatbesitz übergegangenes Grundstück, z. B. einen Garten oder eine Wiese. Dies im Unterschied zur gemeinsam …",
+"x": -2350.6,
+"y": -1019.5,
+"r": 10
+},
+{
+"id": "s28",
+"kind": "street",
+"title": "Kornhausstrasse",
+"text": "Auf der rechten Limmatseite gelegene Strasse zum ehemaligen Kornhaus beim Limmatplatz.",
+"x": 1363.4,
+"y": 326.8,
+"r": 10
+},
+{
+"id": "s29",
+"kind": "street",
+"title": "Gessnerallee",
+"text": "Salomon Gessner (1730-1788): Maler und Dichter von Idyllen. Die als Allee angelegte ehemalige Promenade von der Sihlporte in den Schützenplatz führte zum 1793 errichteten Denkmal von Salomon Gessner. Durch den Bau des 1847 …",
+"x": 1553.6,
+"y": -743.4,
+"r": 10
+},
+{
+"id": "s30",
+"kind": "street",
+"title": "Uraniastrasse",
+"text": "Urania ist der Name der griechischen Muse der Sternkunde. Sie war Namensgeberin für die Genossenschaft Urania, die neben der 1864 eröffneten Eidgenössischen Sternwarte der ETH von Gottfried Semper, die der Öffentlichkeit nicht …",
+"x": 1684.8,
+"y": -1035.6,
+"r": 10
+},
+{
+"id": "s31",
+"kind": "street",
+"title": "Sihlporte",
+"text": "Benannt nach dem 1662 unter Hans Georg Werdmüller errichteten und mit dem Abbruch der Schanzen ab 1834 abgetragenen Stadttor der barocken Stadtbefestigung.",
+"x": 1361.6,
+"y": -1255.1,
+"r": 10
+},
+{
+"id": "s32",
+"kind": "street",
+"title": "Hardstrasse",
+"text": "Strasse in Aussersihl, die bei ihrer Anlage ab etwa 1860 vom Flussübergang nach Wipkingen in das grosse Landgut Hardau an der Gabelung der Badenerstrasse und der Albisriederstrasse führte. Als «Hard» bezeichnet wurde von …",
+"x": -162.7,
+"y": -184.1,
+"r": 10
+},
+{
+"id": "s33",
+"kind": "street",
+"title": "Zollbrücke",
+"text": "Die Brücke wurde 1857/58 von der Nordostbahn als Verbindung zwischen dem Haupt- und dem Güterbahnhof erstellt und 1861 dem öffentlichen Verkehr übergeben. 1907 wurde die ursprüngliche Brücke durch einen Neubau ersetzt. Den …",
+"x": 1659.0,
+"y": -520.8,
+"r": 10
+},
+{
+"id": "s34",
+"kind": "street",
+"title": "Zwinglistrasse",
+"text": "Ulrich Zwingli (1484-1531): Pfarrer am Grossmüster und Rerformator.\r\nZwingli, von Wildhaus im Toggenburg, wurde 1519 Leutpriester am Grossmünster in Zürich, wo er die kirchlichen Traditionen in Frage stellte, die sich nicht …",
+"x": 958.7,
+"y": -651.1,
+"r": 10
+},
+{
+"id": "s35",
+"kind": "street",
+"title": "Dienerstrasse",
+"text": "Jakob Diener (1820-1882): Baumeister Jakob Diener aus Männedorf gründete um 1840 ein eigenes Baugeschäft und wurde bekannt durch den Bau der Eisenbahnbrücke Wipkingen 1853-1856 und den Bau des Hauptbahnhofs Zürich 1865-1871. …",
+"x": 889.4,
+"y": -685.4,
+"r": 10
+},
+{
+"id": "s36",
+"kind": "street",
+"title": "Brauerstrasse",
+"text": "Ab den 1860er Jahren bebaute Strasse in Aussersihl, die zunächst nach der benachbarten Hohlstrasse Neue Hohlgasse, ab 1869 dann Brauerstrasse genannt wurde. Namengebend war die Bierbrauerei an der Brauerstrasse 26. Diese wurde …",
+"x": 851.4,
+"y": -730.7,
+"r": 10
+},
+{
+"id": "s37",
+"kind": "street",
+"title": "Ankerstrasse",
+"text": "Vermutlich Hinweis auf das Wappen von Aussersihl, das in Silber einen schwarzen Anker zeigt.",
+"x": 637.1,
+"y": -1111.3,
+"r": 10
+},
+{
+"id": "s38",
+"kind": "street",
+"title": "Reitergasse",
+"text": "Einer der fünf Verbindungswege zwischen der Militärstrasse und der Lagerstrasse beim Kasernenareal in Aussersihl. Zunächst hiessen diese Wege schlicht Quergasse I, Quergasse II usw. Mit dem Bau der Kasernenanlagen wurden sie …",
+"x": 1274.7,
+"y": -787.5,
+"r": 10
+},
+{
+"id": "s39",
+"kind": "street",
+"title": "Birmensdorferstrasse",
+"text": "Strasse von Zürich über Wiedikon auf die Waldegg und weiter nach Birmensdorf. Die Birmensdorferstrasse in Wiedikon wurde 1846-1847 erstellt, sie war die erste durchgehende Strassenverbindung Wiedikons, und sie erschloss diese …",
+"x": -1137.3,
+"y": -1718.0,
+"r": 10
+},
+{
+"id": "s40",
+"kind": "street",
+"title": "Talwiesenstrasse",
+"text": "Strasse durch die ehemaligen Wiesen in der Talmulde zwischen Bühlhügel und Uetliberghang.",
+"x": -395.0,
+"y": -1696.6,
+"r": 10
+},
+{
+"id": "s41",
+"kind": "street",
+"title": "Hafnerstrasse",
+"text": "Benannt nach dem Hafnermeister Johann Konrad Oechslin (1815-1887), der seine Werkstätte an der Hafnerstrasse 31 besass und von 1872 bis 1877 Bauherr von mehreren der ersten Wohnhäuser an der Hafnerstrasse war.",
+"x": 1345.6,
+"y": -383.6,
+"r": 10
+},
+{
+"id": "s42",
+"kind": "street",
+"title": "Fierzgasse",
+"text": "Johann Heinrich Fierz (1813-1877): Textilindustrieller, Nationalrat und Präsident des von ihm gegründeten Aktienbauvereins. Der Aktienbauverein erstellte im Limmatquartier eine Siedlung von ursprünglich fünf, heute noch vier …",
+"x": 1193.3,
+"y": -64.9,
+"r": 10
+},
+{
+"id": "s43",
+"kind": "street",
+"title": "Baumgasse",
+"text": "Strässchen beim Klingenpark im Industriequartier. Der Park geht auf die Gartenanlage der Schweizer Landesausstellung und ihrer Landwirtschaftsabteilung von 1883 zurück, und auch der Name Baumgasse dürfte sich auf diese …",
+"x": 1435.8,
+"y": -192.7,
+"r": 10
+},
+{
+"id": "s44",
+"kind": "street",
+"title": "Neugasse",
+"text": "Ab 1878 angelegte neue Strasse im Industriequartier, die zu den um 1880 erbauten Häusern zum Neugut und zum Neuhof führt. Zunächst sollte die Strasse Neugutstrasse heissen, aber eine solche gab es bereits in der Enge, weshalb …",
+"x": 923.1,
+"y": -112.2,
+"r": 10
+},
+{
+"id": "s45",
+"kind": "street",
+"title": "Neufrankengasse",
+"text": "Der Name «Neufrankenthal» für die Gegend in Zürich-Aussersihl unterhalb der Langstrasse und westlich der Bahnlinie, wo um 1870 erst ein Wohnhaus stand, sowie die Benennung der dortigen Strasse als Neufrankenthalstrasse wurde …",
+"x": 858.3,
+"y": -427.0,
+"r": 10
+},
+{
+"id": "s46",
+"kind": "street",
+"title": "Schöneggstrasse",
+"text": "Benannt nach dem 1877/78 erbauten und 1941 abgetragenen Wohnhaus zur Schönegg, Schöneggstrasse 2, bei dem die Strasse an die Langstrasse in Aussersihl anknüpft. Im Jahr 1882 gab es an der Schöneggstrasse ferner neue Häuser mit …",
+"x": 677.3,
+"y": -367.1,
+"r": 10
+},
+{
+"id": "s47",
+"kind": "street",
+"title": "Kernstrasse",
+"text": "Johann Konrad Kern (1808-1888): Schweizer Politiker und Diplomat. Der aus dem Thurgau stammende Kern spielte eine wichtige Rolle bei der Gründung des Schweizer Bundesstaates von 1848. Von 1857 bis 1883 war er …",
+"x": 599.2,
+"y": -868.5,
+"r": 10
+},
+{
+"id": "s48",
+"kind": "street",
+"title": "Feldstrasse",
+"text": "Strasse durch das sogenannte Sihlfeld, das flache Schwemmland zwischen dem Sihlfluss und der Hard gegen die Limmat hin. Das Sihlfeld oder Feld diente den Bauern von Wiedikon und Aussersihl bis gegen Ende des 19. Jahrhunderts …",
+"x": 427.5,
+"y": -747.7,
+"r": 10
+},
+{
+"id": "s49",
+"kind": "street",
+"title": "St. Peterstrasse",
+"text": "1866 beschloss der Stadtrat als Verbindung vom Weinplatz zur Bahnhofstrasse eine an der Kirche St. Peter vorbei führende Peterstrasse zu errichten, doch die Gemeindeversammlung lehnte das Projekt 1868 ab. Am 29. Augst 1868 …",
+"x": 1590.2,
+"y": -1458.6,
+"r": 10
+},
+{
+"id": "s50",
+"kind": "street",
+"title": "Nüschelerstrasse",
+"text": "Die Altzürcher Familie Nüscheler bewohnte von 1698 bis 1948 die Häuser zum Neuegg, Pelikanstrasse 19, und Grünenhof, Talacker 32, im Talackerquartier.",
+"x": 1381.9,
+"y": -1162.5,
+"r": 10
+},
+{
+"id": "s51",
+"kind": "street",
+"title": "Bullingerplatz",
+"text": "Heinrich Bullinger (1504-1575): Reformator. Heinrich Bullinger wurde nach Zwinglis Tod Grossmünsterpfarrer und damit Antistes, Leiter, der Zürcher Kirche 1531-1575. Unter Bullingers Beteiligung kam 1536 in Basel das Erste …",
+"x": -29.8,
+"y": -518.0,
+"r": 10
+},
+{
+"id": "s52",
+"kind": "street",
+"title": "Talstrasse",
+"text": "Zweite Längsstrasse im Talackerquartier. Der vor den Mauern der mittelalterlichen Stadt und tiefer als diese gelegene «Talacker» wird im Jahr 1259 erstmals erwähnt. Er bestand aus Äckern, Reben und Gärten. Im 17. Jahrhundert …",
+"x": 1357.0,
+"y": -1280.9,
+"r": 10
+},
+{
+"id": "s53",
+"kind": "street",
+"title": "St. Jakobstrasse",
+"text": "Strasse, die ursprünglich zum 1821 eingeweihten und 1898 aufgehobenen Friedhof Sankt Jakob in Aussersihl führte. An der Stelle des 1844 errichteten Bet- und Abdankungshauses steht seit 1901 die Kirche Sankt Jakob. Sankt Jakob …",
+"x": 882.8,
+"y": -1127.3,
+"r": 10
+},
+{
+"id": "s54",
+"kind": "street",
+"title": "Breitensteinstrasse",
+"text": "Ehemaliger Weiler an der Limmat, um Breitensteinstrasse 67, der nach einem Findling, dem breiten Stein, benannt worden sei.",
+"x": -229.9,
+"y": 1175.7,
+"r": 10
+},
+{
+"id": "s55",
+"kind": "street",
+"title": "Geroldstrasse",
+"text": "Männlicher Vorname.",
+"x": 213.7,
+"y": 205.7,
+"r": 10
+},
+{
+"id": "s56",
+"kind": "street",
+"title": "Hardbrücke",
+"text": "Die Brücke als Verbindung zwischen der Hardstrasse und dem Hardplatz über das Bahnareal wurde im Hinblick auf die Eröffnung des Güterbahnhofes von 1897 gebaut. Sie wurde anfangs Hardstrassenüberführung genannt. «Hard» …",
+"x": -106.0,
+"y": -100.7,
+"r": 10
+},
+{
+"id": "s57",
+"kind": "street",
+"title": "Wipkingerbrücke",
+"text": "Die ursprüngliche Wipkingerbrücke wurde 1871 als eiserne Fachwerkbrücke gebaut und 1901 durch die jetzige Stahlbetonbrücke ersetzt, die vom Tiefbauamt der Stadt Zürich bei den Firmen Fietz & Leuthold sowie der …",
+"x": 507.5,
+"y": 840.6,
+"r": 10
+},
+{
+"id": "s58",
+"kind": "street",
+"title": "Duttweilerbrücke",
+"text": "Gottlieb Duttweiler (1888-1962): Unternehmer und Politiker. Gottlieb Duttweiler leitete mit der 1925 in Zürich gegründeten Migros eine Revolution im Schweizer Detailhandel ein. Seine fahrenden Läden, deren Sortiment sich auf …",
+"x": -558.9,
+"y": 369.8,
+"r": 10
+},
+{
+"id": "s59",
+"kind": "street",
+"title": "Altstetterstrasse",
+"text": "Altstetten, heute Quartier Altstetten, 1249 «Altstettin superiori» bzw. «in villa Altstetin inferiori», bezeichnet nach alten, d. h. römischen Hofstätten.",
+"x": -2234.0,
+"y": 651.1,
+"r": 10
+},
+{
+"id": "s60",
+"kind": "street",
+"title": "Meier-Bosshard-Strasse",
+"text": "Johann Jakob Meier-Bosshard (1838-1928): Posthalter in Altstetten, Stifter des Meier-Bosshard-Fonds, welcher die Heilung von Lungenkranken, die Unterstützung von schwachen, aber bildungsfähigen Kindern und die Berufsbildung …",
+"x": -2327.2,
+"y": 532.5,
+"r": 10
+},
+{
+"id": "s61",
+"kind": "street",
+"title": "Baslerstrasse",
+"text": "Benannt «in Anbetracht der vielseitigen Beziehungen zwischen Basel und Zürich und als sinniger Ausklang der Freundschaftswoche im Jahre 1953», wie es im Benennungsbeschluss des Stadtrates heisst.",
+"x": -2131.8,
+"y": 535.1,
+"r": 10
+},
+{
+"id": "s62",
+"kind": "street",
+"title": "Agnesstrasse",
+"text": "Agnes Amberg (1936-1991): Spitzenköchin. Amberg absolvierte die renommierte Pariser Kochschule «Cordon bleu» und galt mit 18 Gault-Millau-Punkten als beste Köchin der Schweiz. 1968 übernahm sie von Elisabeth Fülscher deren …",
+"x": -300.4,
+"y": -614.3,
+"r": 10
+},
+{
+"id": "s63",
+"kind": "street",
+"title": "Elsastrasse",
+"text": "Elsa Felicya Gasser-Pfau (1896-1967): Ökonomin, Wirtschaftsjournalistin und Managerin. Führte die ersten Selbstbedienungsläden in der Schweiz ein (1948). Geboren in Krakau, kam Elsa Pfau 1913 nach Zürich, um …",
+"x": -127.8,
+"y": -757.6,
+"r": 10
+},
+{
+"id": "s64",
+"kind": "street",
+"title": "Denzlerstrasse",
+"text": "Konrad Denzler (1844-1897): Pfarrer in Aussersihl von 1883 bis 1897.",
+"x": -301.3,
+"y": -681.0,
+"r": 10
+},
+{
+"id": "s65",
+"kind": "street",
+"title": "Zurlindenstrasse",
+"text": "Benannt nach der 1396 erstmals bezeugten und im 19. Jahrhundert ausgestorbenen Familie Zurlinden aus Wiedikon, die in einem Haus zur Linde gelebt haben soll.",
+"x": -93.1,
+"y": -1108.8,
+"r": 10
+},
+{
+"id": "s66",
+"kind": "street",
+"title": "Friedaustrasse",
+"text": "Frei gewählter Name, wohl in Anspielung auf den benachbarten Friedhof Sihlfeld.",
+"x": -467.4,
+"y": -825.7,
+"r": 10
+},
+{
+"id": "s67",
+"kind": "street",
+"title": "Aemtlerstrasse",
+"text": "Strasse in Wiedikon, die zu dem und entlang dem ab 1877 angelegten Friedhof Sihlfeld führt und deshalb Friedhofgasse hiess. Weil es auch in der Stadt Zürich bereits eine Strasse dieses Namens gab, erfolgte 1892 vor der …",
+"x": -614.4,
+"y": -746.5,
+"r": 10
+},
+{
+"id": "s68",
+"kind": "street",
+"title": "Hardaustrasse",
+"text": "Der Name geht auf das Landgut zur Hardau an der Badenerstrasse 378 (1770-1979) zurück, des bedeutenden Zürcher Staatsmanns Hans Caspar Hirzel (1746-1827), genannt Statthalter Hirzel beim Rech. «Hardau» bezeichnet einen als …",
+"x": -546.6,
+"y": -756.8,
+"r": 10
+},
+{
+"id": "s69",
+"kind": "street",
+"title": "Zypressenstrasse",
+"text": "Die Zypresse steht seit der Antike für die Unterwelt und symbolisiert die Langlebigkeit. Deshalb wird der Baum häufig zur Friedhofsbepflanzung verwendet.\r\nDer ursprüngliche Namen der Strasse war Zentralfriedhofstrasse. Er …",
+"x": -282.0,
+"y": -760.8,
+"r": 10
+},
+{
+"id": "s70",
+"kind": "street",
+"title": "Fritschistrasse",
+"text": "Benjamin Fritschi (1842-1916): Lehrer, Journalist, Politiker und Vorkämpfer der ersten Stadtvereinigung von 1893, dem Zusammenschluss der Stadt Zürich mit ihren Vororten. Fritschi war Lehrer u. a. in Höngg und Unterstrass …",
+"x": -287.5,
+"y": -914.8,
+"r": 10
+},
+{
+"id": "s71",
+"kind": "street",
+"title": "Weststrasse",
+"text": "Strasse in Wiedikon, die bis zum Jahr der ersten Zürcher Eingemeindung 1892/93 Zürcherstrasse hiess. Der neue Name war wohl, nach dem Vorbild anderer Grossstädte, der Lage der Strasse im Westen der Stadt und am damaligen Rand …",
+"x": 53.2,
+"y": -1062.9,
+"r": 10
+},
+{
+"id": "s72",
+"kind": "street",
+"title": "Eschwiesenstrasse",
+"text": "Flurname: Wiese bei einer Esche oder einem Eschengehölz.",
+"x": -36.9,
+"y": -1264.2,
+"r": 10
+},
+{
+"id": "s73",
+"kind": "street",
+"title": "Elisabethenstrasse",
+"text": "Elisabeth Thommen (1888-1960): Journalistin und Redakteurin. Ab 1933 war Thommen ständige Mitarbeiterin bei Radio Beromünster. 1938-1953 leitete sie die populäre Sendung «Die Stunde für die Frau». Es gelang ihr, Frauen aus …",
+"x": 504.1,
+"y": -1265.7,
+"r": 10
+},
+{
+"id": "s74",
+"kind": "street",
+"title": "Grüngasse",
+"text": "Um 1880 angelegte Privatstrasse in Aussersihl, die 1889 zur öffentlichen Strasse erklärt wurde. Der Name wurde wohl von den ersten noch privaten Eigentümern der Strasse gewählt, vielleicht weil der Weg damals in einer wenig …",
+"x": 777.4,
+"y": -1304.5,
+"r": 10
+},
+{
+"id": "s75",
+"kind": "street",
+"title": "Cramerstrasse",
+"text": "Heinrich Cramer-von Wyss (1829-1906). Oberst Cramer besass in dieser Gegend von Aussersihl Liegenschaften und liess um 1880 die nach ihm benannte Strasse erstellen. Den Grundbesitz hatte seine Gattin in die Ehe gebracht, Anna …",
+"x": 731.5,
+"y": -1184.7,
+"r": 10
+},
+{
+"id": "s76",
+"kind": "street",
+"title": "Pflanzschulstrasse",
+"text": "Ursprünglich ein Feldweg in Aussersihl, an dem als eines der ersten Gebäude das 1867 erbaute und 1933 abgetragene Haus zur Pflanzschule, Pflanzschulstrasse 33, lag. Der Weg wurde 1882 zur Strasse ausgebaut. Der verbreitete …",
+"x": 255.3,
+"y": -900.5,
+"r": 10
+},
+{
+"id": "s77",
+"kind": "street",
+"title": "Wengistrasse",
+"text": "Niklaus von Wengi (um 1485-1549): Schultheiss von Solothurn. Er verhinderte 1533 beim Aufstand der Reformierten in Solothurn den Ausbruch eines offenen Bürgerkriegs.",
+"x": 398.0,
+"y": -947.9,
+"r": 10
+},
+{
+"id": "s78",
+"kind": "street",
+"title": "Kalkbreitestrasse",
+"text": "Der Flurname bezeichnet einen gut gelegenen Acker, eine so genannte «Breiti», in welchem verwertbare Kalksteine vorgefunden wurden. Da sich neben der Kalkbreite eine Kiesgrube und an der Badenerstrasse ein Kalkofen befanden, …",
+"x": 279.3,
+"y": -1144.6,
+"r": 10
+},
+{
+"id": "s79",
+"kind": "street",
+"title": "Zweierstrasse",
+"text": "Der Strassenname geht zurück auf den 1478 in dieser Gegend erwähnten Flurnamen «Zwigeren», was «Zweigarten» meinte, nämlich einen Baumgarten zum Zweien oder Pfropfen von Bäumen; der Weg hiess bereits 1783 Zweiergässli. Eine …",
+"x": 499.4,
+"y": -1309.7,
+"r": 10
+},
+{
+"id": "s80",
+"kind": "street",
+"title": "Verena-Conzett-Strasse",
+"text": "Verena Conzett-Knecht (1861-1947): Druckereiunternehmerin, Gewerkschafterin und Frauenrechtlerin. Sie war die erste Präsidentin des 1890 gegründeten Schweizerischen Arbeiterinnenverbandes und initiierte die Gründung des …",
+"x": 766.4,
+"y": -1490.0,
+"r": 10
+},
+{
+"id": "s81",
+"kind": "street",
+"title": "Werdstrasse",
+"text": "Strasse, die in die Gegend des Sihlhölzlis führte, wo sich die Sihl bis 1902 in die zwei Arme der wilden und der zahmen Sihl teilte und damit ein Werd bildete. Werd bezeichnete im alten Sprachgebrauch eine Insel oder …",
+"x": 527.6,
+"y": -1648.4,
+"r": 10
+},
+{
+"id": "s82",
+"kind": "street",
+"title": "Hallwylstrasse",
+"text": "Hans von Hallwyl (um 1434-1504): Kommandant der Vorhut der Berner Truppen in der Schlacht bei Murten 1476.",
+"x": 823.8,
+"y": -1539.5,
+"r": 10
+},
+{
+"id": "s83",
+"kind": "street",
+"title": "Weberstrasse",
+"text": "Julius Weber (1853-1886): Gemeindeingenieur und Baupolizeiverordneter von Aussersihl 1877 bis 1886. \r\nJulius Weber erwarb sich bedeutende Verdienste um die bauliche Entwicklung der stark wachsenden Zürcher Vorortsgemeinde, …",
+"x": 926.2,
+"y": -1511.5,
+"r": 10
+},
+{
+"id": "s84",
+"kind": "street",
+"title": "Eichbühlstrasse",
+"text": "Flurname «Eichbüel», mit Eichen bestandener Hügel, Erhöhung.",
+"x": -399.6,
+"y": -171.8,
+"r": 10
+},
+{
+"id": "s85",
+"kind": "street",
+"title": "Eglistrasse",
+"text": "Emil Egli (1848-1908): Professor für Kirchengeschichte an der theologischen Fakultät der Universität Zürich von 1889 bis 1908. Egli erforschte die schweizerische Reformationsgeschichte, war Pfarrer in Aussersihl, beteiligte …",
+"x": -483.4,
+"y": -96.5,
+"r": 10
+},
+{
+"id": "s86",
+"kind": "street",
+"title": "Knüslistrasse",
+"text": "Vermutlich nach Heinrich Knüsli (1831-1896), Landwirt und Friedensrichter. Die Strasse befindet sich in unmittelbarer Nähe des Gutes der Knüsli an der Badenerstrasse 440. Die Knüsli sind eine im 19. Jahrhundert aus Leimbach …",
+"x": -599.1,
+"y": -19.7,
+"r": 10
+},
+{
+"id": "s87",
+"kind": "street",
+"title": "Gugolzstrasse",
+"text": "Benannt nach dem von den Gebrüdern Gugolz 1855 erbauten und bis 1893 bewirtschaftenen Gut, Hohlstrasse 313, das 1931 abgetragen wurde.",
+"x": -273.2,
+"y": -181.9,
+"r": 10
+},
+{
+"id": "s88",
+"kind": "street",
+"title": "Norastrasse",
+"text": "Weiblicher Vorname. Ursprünglich hatte der damalige Hauptanstösser, die Autobestandteil-Fabrik Junker & Ferber, vorgeschlagen, die Strasse nach ihrem vormaligen Firmennamen Nova-Werke AG mit «Novastrasse» zu benennen. Der …",
+"x": -671.6,
+"y": -434.5,
+"r": 10
+},
+{
+"id": "s89",
+"kind": "street",
+"title": "Bienenstrasse",
+"text": "Tiername: Hinweis auf Bienenstände, die sich früher dort befanden.",
+"x": -760.1,
+"y": -296.0,
+"r": 10
+},
+{
+"id": "s90",
+"kind": "street",
+"title": "Bullingerstrasse",
+"text": "Heinrich Bullinger (1504-1575): Reformator. Heinrich Bullinger wurde nach Zwinglis Tod Grossmünsterpfarrer und damit Antistes, Leiter, der Zürcher Kirche 1531-1575. Unter Bullingers Beteiligung kam 1536 in Basel das Erste …",
+"x": -671.8,
+"y": -183.5,
+"r": 10
+},
+{
+"id": "s91",
+"kind": "street",
+"title": "Selnaubrücke",
+"text": "Zur Erschliessung des 1853 durch die Stadt Zürich von der Gemeinde Enge erworbenen Gebietes in der Selnau zum Zwecke des Baues des Bezirksgebäudes, das 1857 an der Selnaustrasse 9 eröffnet wurde, ist 1854 eine eiserne …",
+"x": 1368.3,
+"y": -1526.5,
+"r": 10
+},
+{
+"id": "s92",
+"kind": "street",
+"title": "Segnesstrasse",
+"text": "Péz Segnes (oder Segnas) und Segnespass, Alpenübergang zwischen Graubünden und Glarus von Flims nach Elm (2627 m ü. M.).",
+"x": -2342.1,
+"y": 467.7,
+"r": 10
+},
+{
+"id": "s93",
+"kind": "street",
+"title": "Würzgrabenstrasse",
+"text": "Graben bei der Würtzenwies. Der Flurname Würtzenwies taucht erstmals um 1560 auf und könnte einen nassen, meist mooshaltigen Boden beschreiben, in dem sich die Wurzelstöcke eines einstigen Baumbestandes erhalten haben. Denkbar …",
+"x": -1788.9,
+"y": 992.9,
+"r": 10
+},
+{
+"id": "s94",
+"kind": "street",
+"title": "Calandastrasse",
+"text": "Bergkette in den Kantonen Graubünden und St. Gallen, nordwestlich von Chur (2806 m. ü. M.).",
+"x": -2069.0,
+"y": 420.7,
+"r": 10
+},
+{
+"id": "s95",
+"kind": "street",
+"title": "Saumackerstrasse",
+"text": "Saum mit der Bedeutung Rand oder Grenze, d. h. ein Acker, der beispielsweise an den Waldrand grenzt. Die Saumackerstrasse grenzt zudem südöstlich an Albisrieden.",
+"x": -2247.7,
+"y": -95.3,
+"r": 10
+},
+{
+"id": "s96",
+"kind": "street",
+"title": "Buckhauserstrasse",
+"text": "Flurname «Bockhuser» (1544), «Bockhüserli» (1600), d. h. Grundstück beim Haus am Buck (Hügel, Bodenerhebung).",
+"x": -1794.6,
+"y": 41.4,
+"r": 10
+},
+{
+"id": "s97",
+"kind": "street",
+"title": "Flurstrasse",
+"text": "Eine über die freie Wiesenflur führende Strasse.",
+"x": -1749.8,
+"y": -138.9,
+"r": 10
+},
+{
+"id": "s98",
+"kind": "street",
+"title": "Pfingstweidstrasse",
+"text": "Die Pfingstweide war jener Teil der städtischen Weiden, auf die der Hirte um Pfingsten das Vieh zuerst hineintrieb, bevor er sie später in die grosse, weiter unterhalb gelegene Weide liess.",
+"x": -1091.2,
+"y": 975.4,
+"r": 10
+},
+{
+"id": "s99",
+"kind": "street",
+"title": "Bändlistrasse",
+"text": "Flurname «Im Bändli», ein mit Korbweiden (Bänder- oder Bändlistöcken) bewachsenes Grundstück.",
+"x": -1831.3,
+"y": 1114.4,
+"r": 10
+},
+{
+"id": "s100",
+"kind": "street",
+"title": "Meierwiesenstrasse",
+"text": "Flurname: Wiese, die früher einem Meier gehörte.",
+"x": -2010.8,
+"y": 1101.8,
+"r": 10
+},
+{
+"id": "s101",
+"kind": "street",
+"title": "Bernerstrasse Nord",
+"text": "Entlang der Autobahn A1 verlaufender nördlicher Ast der Bernerstrasse.",
+"x": -1410.1,
+"y": 1060.1,
+"r": 10
+},
+{
+"id": "s102",
+"kind": "street",
+"title": "Ottostrasse",
+"text": "Männlicher Vorname.",
+"x": 593.6,
+"y": 157.8,
+"r": 10
+},
+{
+"id": "s103",
+"kind": "street",
+"title": "Radgasse",
+"text": "Benannt vermutlich nach dem abgekürzten Vornamen von Konrad Schneebeli (1806-1878), der hier Grundeigentümer war und 1857/58 ein erstes Wohnhaus errichtete, das Haus zum Vorbahnhof, Konradstrasse 9. Um 1875 legte er auch die …",
+"x": 1545.8,
+"y": -408.5,
+"r": 10
+},
+{
+"id": "s104",
+"kind": "street",
+"title": "Röntgenstrasse",
+"text": "Wilhelm Conrad Röntgen (1845-1923): Deutscher Physiker. Röntgen entdeckte 1895 die nach ihm benannten Röntgenstrahlen und erhielt dafür 1901 als Erster den Nobelpreis für Physik. Er studierte zwischen 1865 und 1869 in Zürich, …",
+"x": 777.3,
+"y": 355.1,
+"r": 10
+},
+{
+"id": "s105",
+"kind": "street",
+"title": "Fabrikstrasse",
+"text": "Strasse bei der ehemaligen Gasfabrik im Industriequartier von Aussersihl. Die Gasbeleuchtung in Zürich nahm 1856 ihren Anfang mit einer Produktionsanlage auf dem Platzspitz. 1866/67 wurde diese auf ein Grundstück an der Limmat …",
+"x": 703.1,
+"y": 75.0,
+"r": 10
+},
+{
+"id": "s106",
+"kind": "street",
+"title": "Quellenstrasse",
+"text": "Name einer durch Weinhändler Jacques Geiger erstellten Privatstrasse in Aussersihl; dessen Vorschlag Malagastrasse gefiel der Baukommission und dem Gemeinderat Aussersihl nicht. Worauf sich die Quelle im Strassennamen bezieht, …",
+"x": 794.9,
+"y": -22.7,
+"r": 10
+},
+{
+"id": "s107",
+"kind": "street",
+"title": "Beethovenstrasse",
+"text": "Ludwig van Beethoven (1770-1827): Deutscher Komponist und Klaviervirtuose. Beethoven führte die Musik der Wiener Klassik zu ihrer höchsten Entwicklung und hat der Romantik den Weg bereitet.",
+"x": 1423.3,
+"y": -1729.1,
+"r": 10
+},
+{
+"id": "s108",
+"kind": "street",
+"title": "Zentralstrasse",
+"text": "Strasse, die ursprünglich im Zentrum von Wiedikon zwischen Birmensdorfer- und Zweierstrasse lag. Sie wurde ab 1895 bis an die Badenerstrasse verlängert, um damit die Grundstücke des Quartiers mit der besten Verkehrsanbindung …",
+"x": 214.3,
+"y": -1343.6,
+"r": 10
+},
+{
+"id": "s109",
+"kind": "street",
+"title": "Freilagerstrasse",
+"text": "1926-2007 befand sich hier das Zollfreilager der Zürcher Freilager AG. 2008 wurde das Gebiet in eine Wohnzone umgezont, auf der 800 Wohnungen und 200 Studentenzimmer entstanden.",
+"x": -1788.0,
+"y": -698.7,
+"r": 10
+},
+{
+"id": "s110",
+"kind": "street",
+"title": "Letzigraben",
+"text": "Eine «Letzi», kurz für Letzigraben, war sowohl ein militärischer Schutzwall mit Wassergraben, als auch eine Abgrenzung im Weideland. Der 1352 erwähnte, bis zum Hardturm reichende Letzigraben bildete die Grenze der Allmend der …",
+"x": -1056.5,
+"y": -400.0,
+"r": 10
+},
+{
+"id": "s111",
+"kind": "street",
+"title": "Technoparkstrasse",
+"text": "Strasse entlang dem 1993 eröffneten Technopark. Der Technopark ist ein von der gleichnamigen Stiftung getragenes Zentrum, das die Zusammenarbeit von technologischer Forschung und Produktion sowie die Förderung innovativer …",
+"x": -66.6,
+"y": 528.5,
+"r": 10
+},
+{
+"id": "s112",
+"kind": "street",
+"title": "Förrlibuckstrasse",
+"text": "Flurname «Förlibuck», buckelförmige Erhöhung mit Föhrenbestand.",
+"x": -306.4,
+"y": 870.1,
+"r": 10
+},
+{
+"id": "s113",
+"kind": "street",
+"title": "St. Annagasse",
+"text": "Gasse bei der 1345 zuerst erwähnten und 1912 abgetragenen Sankt-Anna-Kapelle, St. Annagasse 10. Den heutigen Namen trägt die Gasse spätestens seit dem Ende des 18. Jahrhunderts. Die Heilige Anna, die Mutter Marias, genoss seit …",
+"x": 1566.4,
+"y": -1247.1,
+"r": 10
+},
+{
+"id": "s114",
+"kind": "street",
+"title": "Flössergasse",
+"text": "Gasse, die wie die benachbarte Holzgasse zu einem Lagerplatz für das auf der Sihl hergeflösste Holz führte. Für die Holzversorgung im alten Zürich war diese Transportmöglichkeit von grosser Bedeutung. Sie wurde 1866 …",
+"x": 1217.8,
+"y": -1638.1,
+"r": 10
+},
+{
+"id": "s115",
+"kind": "street",
+"title": "Sihlamtsstrasse",
+"text": "Strasse im Selnauquartier, die um 1865 angelegt wurde. Sie beginnt beim 1864 für das ehemalige Sihlamt neu erbauten Amtsgebäude, Selnaustrasse 17. Das städtische Sihlamt war für die Verwaltung des Sihlwaldes zuständig und …",
+"x": 1161.6,
+"y": -1522.1,
+"r": 10
+},
+{
+"id": "s116",
+"kind": "street",
+"title": "Gerechtigkeitsgasse",
+"text": "Einsatz für die Gerechtigkeit war Aufgabe des Bezirksgerichts Zürich, das von 1859 bis 1916 im damals neuen Bezirksgebäude an der Selnaustrasse 9 tagte. Das Gericht sollte auch für die Wahrung des Friedens sorgen, weshalb die …",
+"x": 1086.8,
+"y": -1659.0,
+"r": 10
+},
+{
+"id": "s117",
+"kind": "street",
+"title": "Holzgasse",
+"text": "Gasse, die wie die benachbarte Flössergasse zu einem Lagerplatz für das auf der Sihl hergeflösste Holz führte. Für die Holzversorgung im alten Zürich war diese Transportmöglichkeit von grosser Bedeutung. Sie wurde 1866 …",
+"x": 1098.9,
+"y": -1613.1,
+"r": 10
+},
+{
+"id": "s118",
+"kind": "street",
+"title": "Glärnischstrasse",
+"text": "Benannt nach dem Gebirgsmassiv im Glarnerland mit dem Vrenelisgärtli (2904 M. ü. M.) als seinem höchsten Gipfel. In der Enge wurden um 1880/90 mehrere neue Strassen um den damals angelegten Alpenquai am Zürichsee nach …",
+"x": 1582.8,
+"y": -1728.1,
+"r": 10
+},
+{
+"id": "s119",
+"kind": "street",
+"title": "Herostrasse",
+"text": "Benannt nach der dort zwischen 1920 und 1930 ansässigen Hero Biscuits AG, eines Zweigbetriebs der in der Nahrungsmittelindustrie tätigen Hero, 1886 als Konservenfabrik für Früchte und Gemüse unter dem Namen Henckell, Zeiler & …",
+"x": -2261.5,
+"y": 1101.8,
+"r": 10
+},
+{
+"id": "s120",
+"kind": "street",
+"title": "Wasserwerkstrasse",
+"text": "Teilstück der alten Zürcherstrasse, die rechts der Limmat von Zürich über Wipkingen nach Höngg und weiter nach Wettingen führte. 1892 wurde die Strecke von Unterstrass bis zum Bahndamm von Wipkingen in Wasserwerkstrasse …",
+"x": 1516.4,
+"y": 149.0,
+"r": 10
+},
+{
+"id": "s121",
+"kind": "street",
+"title": "Hardgutstrasse",
+"text": "Haus zum Hardgut (vor 1812-1949), Hardgutstrasse 30. «Hard» bezeichnet einen als Weide benutzten, lichten Wald.",
+"x": -1192.1,
+"y": -160.2,
+"r": 10
+},
+{
+"id": "s122",
+"kind": "street",
+"title": "Erlachstrasse",
+"text": "Rudolf von Erlach (gest. 1360): Anführer der Berner in der für sie siegreich verlaufenen Schlacht bei Laupen 1339.",
+"x": 541.9,
+"y": -1664.3,
+"r": 10
+},
+{
+"id": "s123",
+"kind": "street",
+"title": "Mühlezelgstrasse",
+"text": "Flurname «Mülizälgli», ein Hinweis auf einst dort gelegene Getreidefelder der 1230 erstmals urkundlich erwähnten ehemaligen Mühle am Albisrieder Dorfbach, Wydlerweg 19.",
+"x": -1824.1,
+"y": -760.2,
+"r": 10
+},
+{
+"id": "s124",
+"kind": "street",
+"title": "Eyhof",
+"text": "Flurname «Ey», «Ei», Nebenform von «Au», bedeutet feuchtes Gelände.",
+"x": -2015.0,
+"y": -1389.1,
+"r": 10
+},
+{
+"id": "s125",
+"kind": "street",
+"title": "Motorenstrasse",
+"text": "Von der Anwohnerschaft gewählter Name, wohl in Erinnerung an die damaligen Industriebetriebe im Quartier.",
+"x": 935.7,
+"y": 135.1,
+"r": 10
+},
+{
+"id": "s126",
+"kind": "street",
+"title": "Fellenbergstrasse",
+"text": "Philipp Emanuel von Fellenberg (1771-1844): Berner Pädagoge und Politiker. Fellenberg war beteiligt am Aufbau des bernischen Schulwesens und gründete in Hofwil bei Münchenbuchsee einen Musterbetrieb mit speziellen …",
+"x": -2116.4,
+"y": -970.9,
+"r": 10
+},
+{
+"id": "s127",
+"kind": "street",
+"title": "Freihofstrasse",
+"text": "Im Haus zum Freihof (1833-1958), Badenerstrasse 544, wurde die Gaststätte Freihof betrieben. Im Neubau von 1959 ist sie wieder eröffnet worden.",
+"x": -1195.1,
+"y": 90.3,
+"r": 10
+},
+{
+"id": "s128",
+"kind": "street",
+"title": "Ginsterstrasse",
+"text": "Strauchname: wohlriechender, aber giftiger Strauch der Art Schmetterlingsblütler.",
+"x": -1719.0,
+"y": -966.7,
+"r": 10
+},
+{
+"id": "s129",
+"kind": "street",
+"title": "Martastrasse",
+"text": "Marta von Meyenburg (1882-1972): Wegbereiterin der Sozialarbeit und Berufsbildung in der Schweiz, Mitgründerin der Sozialen\r\nFrauenschule Zürich. Marta von Meyenburg war zusammen mit Mentona Moser und Maria Fierz eine …",
+"x": -209.8,
+"y": -972.8,
+"r": 10
+},
+{
+"id": "s130",
+"kind": "street",
+"title": "Idastrasse",
+"text": "Ida Schneider (1869-1968): Mitbegründerin der Schweizerischen Pflegerinnenschule in Zürich. Schneider besuchte das Lehrerinnenseminar in Zürich, wo sie dann eine Krankenpflegeausbildung im Schwesternhaus des Roten Kreuzes …",
+"x": -116.4,
+"y": -1162.4,
+"r": 10
+},
+{
+"id": "s131",
+"kind": "street",
+"title": "Bremgartnerstrasse",
+"text": "Strasse, auf der man über Birmensdorf nach Bremgarten im Kanton Aargau gelangt.",
+"x": 239.1,
+"y": -1372.5,
+"r": 10
+},
+{
+"id": "s132",
+"kind": "street",
+"title": "Talacker",
+"text": "Strasse, die im Jahr 1661 im Zusammenhang mit dem Bau der neuen und erweiterten Stadtbefestigung erstellt wurde. Das betroffene Gebiet hiess bereits im Jahr 1259 «Talacker», es bestand damals und noch im 16. Jahrhundert aus …",
+"x": 1525.0,
+"y": -1438.9,
+"r": 10
+},
+{
+"id": "s133",
+"kind": "street",
+"title": "Kronenstrasse",
+"text": "Benannt nach dem im 18. Jahrhunderts erbauten Haus zur Krone, heute Schaffhauserstrasse 1, einem angesehenen Gasthaus. Auf dem Weg in die Stadt kehrten hier früher Landleute ein oder auch Fuhrleute aus Schwaben, die Kernen auf …",
+"x": 1675.7,
+"y": 440.6,
+"r": 10
+},
+{
+"id": "s134",
+"kind": "street",
+"title": "Nordstrasse",
+"text": "Ab etwa 1870 angelegte neue Erschliessungstrasse, die von Unterstrass her Richtung Wipkingen führt. Bis 1878 hiess sie Langgasse, seither Nordstrasse. Die Namensänderung erfolgte wohl, weil es auch andernorts, zum Beispiel in …",
+"x": 1675.4,
+"y": 103.4,
+"r": 10
+},
+{
+"id": "s135",
+"kind": "street",
+"title": "Rousseaustrasse",
+"text": "Jean-Jacques Rousseau (1712-1778): Genfer Schriftsteller, politischer Philosoph und Naturforscher der Aufklärung.",
+"x": 1276.3,
+"y": 594.8,
+"r": 10
+},
+{
+"id": "s136",
+"kind": "street",
+"title": "Bachofnerstrasse",
+"text": "Heinrich Bachofner (1828-1897): Sekundarlehrer in Zürich, der die Gründung des Evangelischen Lehrerseminars Unterstrass 1869 veranlasste, 1869-1897 dessen erster Direktor, 1883-1886 treibende Kraft bei der Gründung der …",
+"x": 1313.8,
+"y": 836.5,
+"r": 10
+},
+{
+"id": "s137",
+"kind": "street",
+"title": "Schubertstrasse",
+"text": "Franz Schubert (1797-1828): Wiener Komponist der frühen Romantik, der neben seinen Opern, Sinfonien und Messen auch den kleineren lyrischen Werken, wie Liedern und Klavierstücken, breiten Raum in seinem Schaffen einräumte.",
+"x": 1368.3,
+"y": 737.6,
+"r": 10
+},
+{
+"id": "s138",
+"kind": "street",
+"title": "Hotzestrasse",
+"text": "Heinrich Hotz (1828-1892): Lehrer in Unterstrass von 1851 bis 1892. Der aus Richterswil stammende Heinrich Hotz nannte sich Henri Hotze wie sein Verwandter, der österreichische General Johann Konrad Friedrich Freiherr von …",
+"x": 1680.6,
+"y": 925.7,
+"r": 10
+},
+{
+"id": "s139",
+"kind": "street",
+"title": "Schaffhauserstrasse",
+"text": "Alte Landstrasse von Zürich Richtung Schaffhausen, die seit 1272 in den Quellen als Heerstrasse oder bei Zürich auch als untere Strasse bezeichnet wird. Als die untere Strasse gab sie der Gemeinde Unterstrass den Namen. Die …",
+"x": 1687.1,
+"y": 1073.3,
+"r": 10
+},
+{
+"id": "s140",
+"kind": "street",
+"title": "Rothstrasse",
+"text": "Hans Roth (1831-1891): Seidenfabrikant, Gemeindepräsident von Hirslanden 1856-1864 und Kantonsrat 1861-1869. Hans Roth war Mitglied der Gemeinnützigen Gesellschaft des Wahlkreises Neumünster und Mitbegründer des in dieser …",
+"x": 1667.7,
+"y": 1088.4,
+"r": 10
+},
+{
+"id": "s141",
+"kind": "street",
+"title": "Fellenbergweg",
+"text": "Philipp Emanuel von Fellenberg (1771-1844): Berner Pädagoge und Politiker. Fellenberg war beteiligt am Aufbau des bernischen Schulwesens und gründete in Hofwil bei Münchenbuchsee einen Musterbetrieb mit speziellen …",
+"x": -1687.3,
+"y": -1114.8,
+"r": 10
+},
+{
+"id": "s142",
+"kind": "street",
+"title": "Rütschistrasse",
+"text": "Salomon Rütschi-Bleuler (1817-1894): Seidenindustrieller, Gemeinderat (1867-1874) und Kantonsrat (1861-1866), Wohltäter. Rütschi gründete die Firma Salomon Rütschi & Co., Seidenstoff-Fabrikation, mit welcher er zu einem …",
+"x": 1204.2,
+"y": 1059.2,
+"r": 10
+},
+{
+"id": "s143",
+"kind": "street",
+"title": "Brahmsstrasse",
+"text": "Johannes Brahms (1833-1897): Deutscher Komponist, Pianist und Dirigent. Brahms gehört zu den bedeutendsten Komponisten der zweiten Hälfte des 19. Jahrhunderts. Er dirigierte mehrmals in Zürich, u. a. anlässlich der Einweihung …",
+"x": -958.3,
+"y": -630.1,
+"r": 10
+},
+{
+"id": "s144",
+"kind": "street",
+"title": "Gutstrasse",
+"text": "Die ursprüngliche Gutstrasse war eine Verbindungsstrasse von der Albisriederstrasse an den Weiler Im Gut. Dieser bestand aus zwei Bauernhäusern und drei Ökonomiegebäuden, die links und rechts der heutigen Fellenbergstrasse auf …",
+"x": -1293.7,
+"y": -794.4,
+"r": 10
+},
+{
+"id": "s145",
+"kind": "street",
+"title": "Campanellaweg",
+"text": "Campanella ist die italienische Bezeichnung für Glockenblume. Da im selben Gemeinderatsbeschluss von 1933 noch weitere Altstetter Strassen nach Blumenarten benannt werden und der Campanellaweg zuvor Dahlienweg hiess, ist diese …",
+"x": -1194.2,
+"y": -230.8,
+"r": 10
+},
+{
+"id": "s146",
+"kind": "street",
+"title": "Imfeldsteig",
+"text": "Franz Xaver Imfeld (1853-1909): Ingenieur-Topograf. Er war einer der bedeutendsten Panoramazeichner, Reliefkünstler, Kartografen und Planer von Bergbahnen der Schweiz. Imfeld lebte seit 1886 in Zürich-Hottingen und ist hier …",
+"x": 1159.1,
+"y": 476.3,
+"r": 10
+},
+{
+"id": "s147",
+"kind": "street",
+"title": "Stationsstrasse",
+"text": "Strasse zum ehemaligen, 1891 eröffneten Bahnhof Wiedikon an der Seebahnstrasse 118. Mit der Tieferlegung der zwischen 1875 und 1927 oberirdisch geführten Eisenbahn vom Hauptbahnhof in die Enge, der linksufrigen Seebahnlinie, …",
+"x": 271.2,
+"y": -1237.1,
+"r": 10
+},
+{
+"id": "s148",
+"kind": "street",
+"title": "Nussbaumstrasse",
+"text": "Baumname.",
+"x": -245.8,
+"y": -1472.4,
+"r": 10
+},
+{
+"id": "s149",
+"kind": "street",
+"title": "Bristenstrasse",
+"text": "Berg im Im Kanton Uri, südlich von Amsteg (3073 m ü. M.).",
+"x": -2152.9,
+"y": 620.7,
+"r": 10
+},
+{
+"id": "s150",
+"kind": "street",
+"title": "Hönggerrampe",
+"text": "Strassenrampe von der Bernerstrasse Nord auf die Europabrücke. Der Name Höngg geht auf «Hoinga» (820) zurück und bezeichnet die auf der Höhe wohnenden Leute.",
+"x": -1707.5,
+"y": 1139.2,
+"r": 10
+},
+{
+"id": "s151",
+"kind": "street",
+"title": "Giessereistrasse",
+"text": "Strasse bei der ehemaligen Giesserei der Maschinenfabrik Escher-Wyss.",
+"x": -56.1,
+"y": 710.9,
+"r": 10
+},
+{
+"id": "s152",
+"kind": "street",
+"title": "Steinmühleplatz",
+"text": "Durch Abbruch von fünf Häusern zwischen der Urania- und der Sihlstrasse an den heute im Steinmühleplatz aufgegangenen Verlängerungen der Steinmühlegasse und der Hornergasse wurde 1936 ein Platz angelegt, welcher der 1928 …",
+"x": 1556.3,
+"y": -1133.1,
+"r": 10
+},
+{
+"id": "s153",
+"kind": "street",
+"title": "Steinmühlegasse",
+"text": "Eine 1890 dem allgemeinen Verkehr zugänglich gemachte Strasse, die die Verbindung von der Sihlstrasse über den damaligen Sihlkanal hin zur Löwenstrasse herstellte. Dort am Sihlkanal lag noch bis zum Abbruch der Gebäude im Jahr …",
+"x": 1448.7,
+"y": -1124.7,
+"r": 10
+},
+{
+"id": "s154",
+"kind": "street",
+"title": "Gerbergasse",
+"text": "Teil des in den 1860er Jahren neu gestalteten Bahnofquartiers, benannt nach der seit 1830 an der Gasse angesiedelten Gerberei von Johannes Fierz. An der Gerbergasse gab es um 1865 nur zwei Gebäude: die Gerberei (abgetragen …",
+"x": 1532.3,
+"y": -991.4,
+"r": 10
+},
+{
+"id": "s155",
+"kind": "street",
+"title": "Bahnhofstrasse",
+"text": "Boulevard, der entlang der früheren Stadtmauer und an Stelle des zur Mauer gehörenden Stadtgrabens - des Fröschengrabens - von der Schifflände über den Paradeplatz zum Zürcher Hauptbahnhof führt. Nach dem Entscheid, den …",
+"x": 1654.3,
+"y": -1110.2,
+"r": 10
+},
+{
+"id": "s156",
+"kind": "street",
+"title": "Oetenbachgasse",
+"text": "Benannt nach dem einstigen Dominikanerinnenkloster Oetenbach, das in der zweiten Hälfte des 13. Jahrhunderts vom Mündungsgebiet des so geheissenen Oetenbachs, dem heutigen Hornbach in Riesbach, in die Stadt verlegt wurde. Die …",
+"x": 1674.6,
+"y": -1109.5,
+"r": 10
+},
+{
+"id": "s157",
+"kind": "street",
+"title": "Albisriederstrasse",
+"text": "Führt nach Albisrieden, früher Rieden unter dem Albis: «Riete» (10. Jahrhundert), «Riedirn» (1225), d. h. Siedlung bei den Riedern. Riedt oder Riedtli ist ein häufig vorkommender Flurname, der etwa für einen feuchten Boden, …",
+"x": -2337.3,
+"y": -1003.9,
+"r": 10
+},
+{
+"id": "s158",
+"kind": "street",
+"title": "Mathysweg",
+"text": "Eine seit dem 16. Jahrhundert in Albisrieden nachgewiesene Familie. In Wiedikon war dieser Familienname ebenfalls verbreitet.",
+"x": -2426.5,
+"y": -426.3,
+"r": 10
+},
+{
+"id": "s159",
+"kind": "street",
+"title": "Hönggerstrasse",
+"text": "Wipkinger Teilstück der alten Zürcherstrasse, die rechts der Limmat von Zürich über Wipkingen nach Höngg und weiter nach Wettingen führte. Im Jahr 1892 wurde, um Verwechslungen mit anderen Zürcherstrassen auszuschliessen, das …",
+"x": 574.4,
+"y": 907.4,
+"r": 10
+},
+{
+"id": "s160",
+"kind": "street",
+"title": "Wipkingerplatz",
+"text": "Der Gemeindename «Wibichinga», der seit den 9. Jahrhundert nachgewiesen ist, erinnert an die Ansiedlung der Leute des Alemannen Wibicho.",
+"x": 555.6,
+"y": 939.4,
+"r": 10
+},
+{
+"id": "s161",
+"kind": "street",
+"title": "Dammstrasse",
+"text": "Beim Damm handelt es sich um den Bahndamm für die Strecke von Zürich über den Bahntunnel Wipkingen-Oerlikon nach Winterthur. Er wurde 1853-1856 im Industriequartier und in Wipkingen aufgeschüttet und mit der Eisenbahnbrücke …",
+"x": 895.9,
+"y": 845.1,
+"r": 10
+},
+{
+"id": "s162",
+"kind": "street",
+"title": "Laubiweg",
+"text": "Eine seit dem 17. Jahrhundert in Wipkingen nachgewiesene Familie. Der Laubiweg lag zurzeit der Benennung auf ehemaligem Wipkinger Gebiet (heute Zürich-Unterstrass).",
+"x": 1413.4,
+"y": 1140.0,
+"r": 10
+},
+{
+"id": "s163",
+"kind": "street",
+"title": "Wissmannstrasse",
+"text": "Johann Jakob Wissmann (1843-1903): Pfarrer zu St. Peter von 1888 bis 1903. Wissmann war ein bedeutender Vertreter der freisinnigen Theologie, aktiv im Schweizerischen Verein für ein freies Christentum, Kirchen- und …",
+"x": 1479.9,
+"y": 1114.9,
+"r": 10
+},
+{
+"id": "s164",
+"kind": "street",
+"title": "Oskar-Bider-Strasse",
+"text": "Oskar Bider (1891-1919): Schweizer Flugpionier. Er verstarb bei einem Flugzeugabsturz am 7. Juli 1919 in Dübendorf.",
+"x": 1565.3,
+"y": 1190.9,
+"r": 10
+},
+{
+"id": "s165",
+"kind": "street",
+"title": "Altstetterplatz",
+"text": "Altstetten, heute Quartier Altstetten, 1249 «Altstettin superiori» bzw. «in villa Altstetin inferiori», bezeichnet nach alten, d. h. römischen Hofstätten.",
+"x": -2062.8,
+"y": 749.6,
+"r": 10
+},
+{
+"id": "s166",
+"kind": "street",
+"title": "Holzwiesweg",
+"text": "Der Flurname «Holzwiesen» (1415) deutet darauf hin, dass es dort einmal ein Gehölz gegeben hat.",
+"x": -1526.3,
+"y": -798.1,
+"r": 10
+},
+{
+"id": "s167",
+"kind": "street",
+"title": "Freigutstrasse",
+"text": "Um 1860 angelegte Strasse im neuen Selnauquartier, beim Freigut, Freigutstrasse 31, gelegen und nach diesem benannt. Das Freigut oder Freien Gut hinwiederum erhielt seinem Namen durch den Bauherrn und ersten Besitzer des …",
+"x": 1045.4,
+"y": -1669.9,
+"r": 10
+},
+{
+"id": "s168",
+"kind": "street",
+"title": "Roggenstrasse",
+"text": "Getreideart. Hinweis auf die sich in der Nähe befindliche einstige Stadtmühle, Sihlquai 306, die heutige Swissmill.",
+"x": 637.0,
+"y": 471.5,
+"r": 10
+},
+{
+"id": "s169",
+"kind": "street",
+"title": "Feldgütliweg",
+"text": "Weg in Aussersihl, der zum 1864 erbauten und 1990 abgetragenen Wohnhaus zum Feldgütli, Feldgütliweg 8, führte. Andere Namen für die dortige Gegend an der Strasse nach Altstetten waren auch Oberfeldegg und Feldegg, alles Namen, …",
+"x": 570.2,
+"y": -1192.9,
+"r": 10
+},
+{
+"id": "s170",
+"kind": "street",
+"title": "Haslerstrasse",
+"text": "Benannt nach den Gebrüdern Johannes Hasler-Hausheer (1846-1902) und Johann Jakob Hasler-Mäder (1848-1905), Landwirte, die hier Grundeigentümer waren.",
+"x": 106.2,
+"y": -1160.3,
+"r": 10
+},
+{
+"id": "s171",
+"kind": "street",
+"title": "Meinrad-Lienert-Strasse",
+"text": "Meinrad Lienert (1865-1933): Schriftsteller. Rechtsstudium in Heidelberg, Zürich und München. 1891-1896 Notar des Bezirksrats Einsiedeln, 1893-1897 Redaktor des «Einsiedler Anzeigers». 1899-1925 wohnte Meinrad Lienert, …",
+"x": 126.1,
+"y": -1036.7,
+"r": 10
+},
+{
+"id": "s172",
+"kind": "street",
+"title": "Strassburgstrasse",
+"text": "Zu Ehren der befreundeten Stadt Strassburg, wohin die Zürcher seit 1456 zur Bekräftigung regelmässig per Schiff die so genannte Hirsebreifahrt unternehmen. Dabei musste die Fahrt innert eines Tages anstatt deren drei …",
+"x": 876.5,
+"y": -1209.5,
+"r": 10
+},
+{
+"id": "s173",
+"kind": "street",
+"title": "Stauffacherquai",
+"text": "Werner Stauffacher war der Sage nach der Schwyzer Abgesandte beim Rütlischwur (um 1300).",
+"x": 1102.1,
+"y": -1306.1,
+"r": 10
+},
+{
+"id": "s174",
+"kind": "street",
+"title": "Hornergasse",
+"text": "Friedrich Horner (1831-1886): Augenarzt, Professor für Augenheilkunde an der Unversität Zürich von 1862 bis 1886. Die Gasse hiess bis 1888 nach der dort einst angesiedelten Industrie In den Seidenhöfen. Die Umbenennung …",
+"x": 1481.7,
+"y": -1073.9,
+"r": 10
+},
+{
+"id": "s175",
+"kind": "street",
+"title": "Grimselstrasse",
+"text": "Grimselpass in den Berner Alpen, Übergang vom Berner Oberland ins Oberwallis (2164 m ü. M.).",
+"x": -2104.3,
+"y": 145.4,
+"r": 10
+},
+{
+"id": "s176",
+"kind": "street",
+"title": "Furkastrasse",
+"text": "Furkapass in den Alpen, Übergang vom Urserental in Uri nach dem Bezirk Goms im Wallis (2429 m. ü. M.).",
+"x": -2077.9,
+"y": 240.3,
+"r": 10
+},
+{
+"id": "s177",
+"kind": "street",
+"title": "Kanzleistrasse",
+"text": "Benannt und erstellt zunächst als Zugangsweg zur Kanzlei der ehemaligen Ausgemeinde Aussersihl. Die Kanzlei befand sich von 1852 bis 1882 im damaligen Haus Badenerstrasse 60, das 1852 von der politischen Gemeinde als Gemeinde- …",
+"x": 825.8,
+"y": -1114.2,
+"r": 10
+},
+{
+"id": "s178",
+"kind": "street",
+"title": "Basteiplatz",
+"text": "Platz im Bereich des in den 1830er Jahren beseitigten Schanzenwerks, wo die Bastei «Bär» lag. Eine Bastei oder Bastion ist ein vorspringender Teil der Stadtbefestigung. Bis um 1870 war das Gebiet bei der ehemaligen Bärenbastei …",
+"x": 1419.9,
+"y": -1518.1,
+"r": 10
+},
+{
+"id": "s179",
+"kind": "street",
+"title": "Balderngasse",
+"text": "In den 1870er Jahren angelegte Strasse zwischen der Talstrasse und dem Schanzengraben auf dem Areal des einstigen Exerzierplatzes und der früheren, in den 1830er Jahren beseitigten Bastion Bär. «Baldern» ist der Name einer …",
+"x": 1463.8,
+"y": -1552.0,
+"r": 10
+},
+{
+"id": "s180",
+"kind": "street",
+"title": "Sportweg",
+"text": "Strasse beim 2008 abgebrochenen Stadion Hardturm des Grasshopper Club Zürich.",
+"x": -781.0,
+"y": 891.0,
+"r": 10
+},
+{
+"id": "s181",
+"kind": "street",
+"title": "Europabrücke",
+"text": "Name gewählt als Zeichen der Solidarität der Stadt Zürich mit dem Europa-Gedanken.",
+"x": -1916.6,
+"y": 502.3,
+"r": 10
+},
+{
+"id": "s182",
+"kind": "street",
+"title": "Kleinertstrasse",
+"text": "Heinrich Kleinert (1853-1913): Politiker und Bankrat. Letzter Gemeindepräsident des 1893 nach Zürich eingemeindeten Wipkingen 1883-1892, danach Mitglied des Grossen Stadtrats (Gemeinderat).",
+"x": 494.7,
+"y": 1162.0,
+"r": 10
+},
+{
+"id": "s183",
+"kind": "street",
+"title": "Waidstrasse",
+"text": "Waid steht einerseits für das Weidland am Käferberg und andererseits für das Landgut in der Waid oder Waidgut. Dieses bestand schon seit dem 17. Jahrhundert und wurde ab den 1830er Jahren zur Ausflugswirtschaft ausgebaut. 1907 …",
+"x": 371.2,
+"y": 1105.3,
+"r": 10
+},
+{
+"id": "s184",
+"kind": "street",
+"title": "Hofwiesenstrasse",
+"text": "«Hof» war die umgangssprachliche Bezeichnung für das 1256 erstmals erwähnte Bauerngut zum Fallenden Brunnenhof, weshalb dessen Wiesen als Hofwiesen bezeichnet wurden. Hier wurde 1932 das Radiostudio Zürich errichtet. Nach 1945 …",
+"x": 1578.8,
+"y": 1055.8,
+"r": 10
+},
+{
+"id": "s185",
+"kind": "street",
+"title": "Aegertenstrasse",
+"text": "Flurname «Aegerten» als Bezeichnung für eine ungepflügte Flur, die sich - wie das steinige und oft überschwemmte Gebiet zwischen dem alten Dorf Wiedikon und der Sihl - wenig für den Ackerbau eignete.",
+"x": 409.6,
+"y": -1559.6,
+"r": 10
+},
+{
+"id": "s186",
+"kind": "street",
+"title": "Dietzingerstrasse",
+"text": "Johann Rudolf Dietzinger (1770-1847): Geometer des Kantons Zürich, von Wädenswil. Dietzinger erstellte 1817/18 den Übersichtsplan «Geometrische Vermessung des Bezirks der beiden Gemeinden Wiedikon und Aussersihl». Er …",
+"x": 399.5,
+"y": -1624.4,
+"r": 10
+},
+{
+"id": "s187",
+"kind": "street",
+"title": "Triemlistrasse",
+"text": "Der seit dem 18. Jahrhundert verwendete Flurname «Triemli» ist vom im 15 und 16. Jahrhundert nachgewiesenen «Trüebenbach» und späteren «Trüembach» sowie «Trimbach», «Trüemlibach», «Trüemli» u. a. abgeleitet. Die Namengebung …",
+"x": -2442.3,
+"y": -1191.2,
+"r": 10
+},
+{
+"id": "s188",
+"kind": "street",
+"title": "Herdernstrasse",
+"text": "Der Flurname leitet sich von der Mehrzahlform von «Hard» ab und bezeichnet lichte, als Weide benützte Waldstücke.",
+"x": -880.8,
+"y": -208.1,
+"r": 10
+},
+{
+"id": "s189",
+"kind": "street",
+"title": "Rötelstrasse",
+"text": "«Rötel» war ein Ortsteil von Wipkingen. Das dortige Gehöft Rötel hiess noch im 17. Jahrhundert Reuental, was vielleicht eine Bezeichnung für geringe oder schlechte Güter war. Der Name wurde dann über «Rütel» oder «Reutel» im …",
+"x": 1363.0,
+"y": 944.4,
+"r": 10
+},
+{
+"id": "s190",
+"kind": "street",
+"title": "Friesenbergstrasse",
+"text": "Strasse nach dem Friesenberg, dem am Berghang und am Fuss der gleichnamigen Burg gelegenen Hof. Der Name leitet sich aus dem altdeutschen Personennamen Frieso her.",
+"x": -273.7,
+"y": -1685.8,
+"r": 10
+},
+{
+"id": "s191",
+"kind": "street",
+"title": "Haldenstrasse",
+"text": "Strasse über die «Halden», wie die einst mit Reben (den «Haldenreben») bepflanzte und noch um 1880 kaum überbaute Anhöhe in Wiedikon seit Alters her genannt wird. Der häufig vorkommende Flur- und Ortsname «Halde» bezeichnet …",
+"x": -294.7,
+"y": -1613.3,
+"r": 10
+},
+{
+"id": "s192",
+"kind": "street",
+"title": "Gotthelfstrasse",
+"text": "Jeremias Gotthelf, eigentlich Albert Bitzius (1797-1854): Berner Pfarrer, Dichter und Schriftsteller. Die Erzählungen und Romane von Gotthelf thematisieren u. a. bäuerliches Leben im 19. Jahrhundert, Religions-und …",
+"x": 257.0,
+"y": -1729.9,
+"r": 10
+},
+{
+"id": "s193",
+"kind": "street",
+"title": "Brinerstrasse",
+"text": "Vermutlich benannt nach dem Bauerngut der Familie von Hans Ulrich Bryner, geboren 1806, Schuster und Landwirt aus Bassersdorf, der 1846 das Bürgerrecht von Wiedikon erhalten hat und 1854 mit seiner Familien nach Utah/USA …",
+"x": 134.6,
+"y": -1653.2,
+"r": 10
+},
+{
+"id": "s194",
+"kind": "street",
+"title": "Rotachstrasse",
+"text": "Uli Rotach (gest. 1405): mythischer Appenzeller Freiheitskämfer. Er soll sich gemäss dem so genannten Jahrzeitbuch von Appenzell von 1566 in der Schlacht am Stoss vom 17. Juni 1405 durch grosse Tapferkeit ausgezeichnet haben.",
+"x": -30.7,
+"y": -1553.8,
+"r": 10
+},
+{
+"id": "s195",
+"kind": "street",
+"title": "Schwendenweg",
+"text": "Die Zürcher Ritterfamilie Schwend besass im 15. Jahrhundert Grundbesitz in Wiedikon. Sie waren die letzten Gerichtsherren von Wiedikon, bis sie diese niedere Gerichtsbarkeit 1491 an die Stadt verkauften.",
+"x": 105.7,
+"y": -1649.3,
+"r": 10
+},
+{
+"id": "s196",
+"kind": "street",
+"title": "Steinstrasse",
+"text": "Erinnerung an die seit dem 16. Jahrhundert hier bezeugten Flurnamen «Steinacker» oder «Steinzelg», die auf den mit Geröll der Sihl durchsetzten Ackerboden hinweisen.",
+"x": 251.6,
+"y": -1695.1,
+"r": 10
+},
+{
+"id": "s197",
+"kind": "street",
+"title": "Riedmattstrasse",
+"text": "Flurname für eine sumpfige Wiese, auf der hohes Riedgras wächst. Ried steht auch für den feuchten Boden selbst, für gerodetes Waldstück oder Weideland, das bepflanzt worden ist.",
+"x": -350.1,
+"y": -1649.0,
+"r": 10
+},
+{
+"id": "s198",
+"kind": "street",
+"title": "Schlossgasse",
+"text": "Benannt nach dem 1896 abgetragenen Haus zum Schlössli, das einer nicht belegten Überlieferung gemäss einst Gerichtsstätte, Gefängnis und Hinrichtungsort gewesen sein soll. Der Name leitete sich wohl vom Aussehen des besagten …",
+"x": 162.6,
+"y": -1721.7,
+"r": 10
+},
+{
+"id": "s199",
+"kind": "street",
+"title": "Zollstrasse",
+"text": "Das Eidgenössische Zollamt befand sich in der 1865 errichteten Eilguthalle der Nordostbahn, später Eilgutspedition der SBB, das auf dem Bahnareal an der Zollstrasse 11 stand.",
+"x": 1436.6,
+"y": -431.6,
+"r": 10
+},
+{
+"id": "s200",
+"kind": "street",
+"title": "Hardturmstrasse",
+"text": "Alter Verbindungsweg durch die «Hard», die alte Ortsgegend unterhalb Zürichs, links der Limmat. Der «Turm in der Hard», ein wohl im 13. Jahrhundert entstandener Wohn- und Festungsturm, sicherte ursprünglich eine Brücke über …",
+"x": -1111.8,
+"y": 1064.7,
+"r": 10
+},
+{
+"id": "s201",
+"kind": "street",
+"title": "Rosengartenbrücke",
+"text": "Brücke über die Rosengartenstrasse, deren Name sich vom Haus zum Rosengarten (vor 1812-1927) an der Rosengartenstrasse 44 ableitet. Ob der Name des Hauses frei gewählt war oder sich auf einen mit Rosen bepflanzten Garten …",
+"x": 723.2,
+"y": 1127.4,
+"r": 10
+},
+{
+"id": "s202",
+"kind": "street",
+"title": "Gasometerstrasse",
+"text": "Strasse bei der ehemaligen Gasfabrik im Industriequartier von Aussersihl. Die Gasbeleuchtung in Zürich nahm 1856 ihren Anfang mit einer Produktionsanlage auf dem Platzspitz. 1866/67 wurde diese auf ein Grundstück an der Limmat …",
+"x": 1099.2,
+"y": 224.2,
+"r": 10
+},
+{
+"id": "s203",
+"kind": "street",
+"title": "Kasernenstrasse",
+"text": "Benannt nach der 1873 bis 1875 erbauten grossen Militärkaserne, deren Haupteingänge sich gegen die Kasernenstrasse hin öffnen. Zuvor hiess die Strasse in Aussersihl, die von der Sihlbrücke her der Sihl entlang führt, auch …",
+"x": 1399.7,
+"y": -803.3,
+"r": 10
+},
+{
+"id": "s204",
+"kind": "street",
+"title": "Schützengasse",
+"text": "Gasse im neuen, in den 1860er Jahren angelegten Bahnhofquartier. Schützengasse heisst die Gasse in Erinnerung an das Schützenhaus am Platz (1571-1899), Bahnhofquai 7. Der Platz war der Schützenplatz, auf dem seit dem 14. …",
+"x": 1600.5,
+"y": -772.6,
+"r": 10
+},
+{
+"id": "s205",
+"kind": "street",
+"title": "Röschibachplatz",
+"text": "Der Platz war bis 2008 unbenannt, grenzt aber unter anderem an die Röschibachstrasse. Die Bezeichnung Röschibachplatz hat sich auch im Volksmund eingebürgert. Der Name leitet sich von einem schnell fliessenden Bach ab …",
+"x": 936.0,
+"y": 1034.6,
+"r": 10
+},
+{
+"id": "s206",
+"kind": "street",
+"title": "Pelikanstrasse",
+"text": "Benannt nach der Häusergruppe zum Pelikan. Diese Gebäudegruppe wurde in den Jahrzehnten nach 1675 im Gebiet der damals erweiterten Fortifikationsanlagen im Talacker erbaut. Der Hausname Pelikan taucht in Zürich mehrfach seit …",
+"x": 1567.0,
+"y": -1322.6,
+"r": 10
+},
+{
+"id": "s207",
+"kind": "street",
+"title": "Rautistrasse",
+"text": "Benannt nach dem bekannten Berg Rautispitz (2284 m ü. M.) im Glarnerland.",
+"x": -2123.5,
+"y": -243.8,
+"r": 10
+},
+{
+"id": "s208",
+"kind": "street",
+"title": "Grütstrasse",
+"text": "Flurname «Grüt» (1368), d. h. gerodetes Waldstück.",
+"x": -1865.7,
+"y": -820.9,
+"r": 10
+},
+{
+"id": "s209",
+"kind": "street",
+"title": "Sackzelg",
+"text": "Flurname für ein Grundstück zwischen Wasserläufen, das wie eine Sackgasse keinen anderen Ausgang besitzt als den Eingang.",
+"x": -1411.3,
+"y": -1080.2,
+"r": 10
+},
+{
+"id": "s210",
+"kind": "street",
+"title": "Gamperstrasse",
+"text": "Hans (Joan) Gamper (1877-1930): Mitbegründer und erster Captain des Fussball Clubs Zürich 1898-1903 sowie Gründer und erster Captain des Futbol Club Barcelona 1899-1903 und dessen Präsident 1908-1925.",
+"x": 605.5,
+"y": -390.3,
+"r": 10
+},
+{
+"id": "s211",
+"kind": "street",
+"title": "Nietengasse",
+"text": "Hinweis auf eine Spenglerei, die sich wahrscheinlich im Hofgebäude der Nietengasse 5 und 7 befand.",
+"x": 653.6,
+"y": -545.9,
+"r": 10
+},
+{
+"id": "s212",
+"kind": "street",
+"title": "Viaduktstrasse",
+"text": "Die von der Nordostbahn 1856 eröffnete Bahnstrecke vom Hauptbahnhof nach Oerlikon führte über einen Bahndamm nach Wipkingen, wo sich die Tunneleinfahrt befindet. Um eine geringere Steigung zu erhalten, wurde 1891-1894 ein …",
+"x": 609.4,
+"y": 359.1,
+"r": 10
+},
+{
+"id": "s213",
+"kind": "street",
+"title": "Rosengartenstrasse",
+"text": "Haus zum Rosengarten (vor 1812-1927) an der Rosengartenstrasse 44. Ob der Name des Hauses frei gewählt war oder sich auf einen mit Rosen bepflanzten Garten bezog, ist nicht überliefert.",
+"x": 659.3,
+"y": 1183.1,
+"r": 10
+},
+{
+"id": "s214",
+"kind": "street",
+"title": "Josefstrasse",
+"text": "Josef Blickle (1841-1895): Gipsermeister. In den Jahren 1877-1878 von der Gemeinde Aussersihl angelegte Strasse, zu der Gipsermeister Josef Blickle unentgeltlich Land abtrat. In der Folge wurde die neue Strasse nach seinem …",
+"x": 330.8,
+"y": 404.0,
+"r": 10
+},
+{
+"id": "s215",
+"kind": "street",
+"title": "Limmatstrasse",
+"text": "Hauptstrasse im Industriequartier, das ab 1870 mit der Limmatstrasse als einer repräsentativen, baumbesetzten Allee, die zum Limmatplatz führt, angelegt wurde . Namensgebend war die nahe Limmat, zwischen der und den …",
+"x": 1067.4,
+"y": 140.9,
+"r": 10
+},
+{
+"id": "s216",
+"kind": "street",
+"title": "Im Kratz",
+"text": "«Chratz» oder «Kratz» bedeutet nicht nur enger Raum oder Durchgang, der einen beim Durchschreiten «kratzt», sondern stammt auch vom Begriff «Chratten», geflochtener Korb oder Reuse, mit dem ein Quartier an einer Sackgasse mit …",
+"x": -2520.0,
+"y": -1154.4,
+"r": 10
+},
+{
+"id": "s217",
+"kind": "street",
+"title": "Rotbuchstrasse",
+"text": "Die Strasse führt an der bekannten Rotbuche im Garten der Rötelstrasse 44 vorbei, die auch dieser Liegenschaft den Namen Rotbuch gibt.",
+"x": 1189.5,
+"y": 965.2,
+"r": 10
+},
+{
+"id": "s218",
+"kind": "street",
+"title": "Heinrichstrasse",
+"text": "Johann Heinrich Fierz (1813-1877): Textilindustrieller, Nationalrat und Präsident des von ihm gegründeten Aktienbauvereins. Der Aktienbauverein erstellte im Limmatquartier eine Siedlung von ursprünglich fünf, heute noch vier …",
+"x": 357.8,
+"y": 598.3,
+"r": 10
+},
+{
+"id": "s219",
+"kind": "street",
+"title": "Konradstrasse",
+"text": "Konrad Schneebeli (1806-1878): Wirt in Aussersihl. Konrad Schneebeli erbaute 1857 mit dem Haus zum Vorbahnhof, Konradstrasse 9, das erste Wohnhaus und legte um 1875 auch eine Privatstrasse an. Diese nach seinem Vornamen …",
+"x": 1310.9,
+"y": -248.8,
+"r": 10
+},
+{
+"id": "s220",
+"kind": "street",
+"title": "Tödistrasse",
+"text": "Benannt nach dem 3614 Meter hohen Tödi in den Glarner Alpen, dem höchsten Gebirgsmassiv der Nordostschweiz. In der Enge wurden um 1880/90 mehrere neue Strassen nach Schweizer Bergen benannt, die zum Teil vom damals angelegten …",
+"x": 1246.9,
+"y": -1692.7,
+"r": 10
+},
+{
+"id": "s221",
+"kind": "street",
+"title": "Goldbrunnenstrasse",
+"text": "Goldbrunnenegg am Üetliberg, auf der sich die Burgruine Friesenberg befindet. Der Name «Goldbrunnen» kommt vielleicht von gelbem Gestein oder von einer sagenhaften, goldführenden Quelle mit unterirdischen Schätzen.",
+"x": -107.1,
+"y": -1700.8,
+"r": 10
+},
+{
+"id": "s222",
+"kind": "street",
+"title": "Saumstrasse",
+"text": "Strasse, die am Saumacker, dem am Rand des angebauten Gebietes liegenden Ackers, vorbei geht.",
+"x": -294.2,
+"y": -1360.2,
+"r": 10
+},
+{
+"id": "s223",
+"kind": "street",
+"title": "Hildastrasse",
+"text": "Hildegard (um 828-856): Erste Äbtissin des Frauenmünsters. Hildegard war die erste Tochter von Ludwig dem Deutschen. Ludwig schenkte der Fraumünsterabtei in Zürich den Hof Zürich, den Albisforst und das Land Uri. Diese …",
+"x": -35.9,
+"y": -857.3,
+"r": 10
+},
+{
+"id": "s224",
+"kind": "street",
+"title": "Hirzelstrasse",
+"text": "Hartmann Hirzel (1849-1917), Pfarrer von Aussersihl von 1885 bis 1917, Kirchen- und Kantonsrat, Mitglied des Grossen Stadtrats von Zürich (Gemeinderat), Präsident der Gemeinnützigen Gesellschaft des Kantons Zürich.",
+"x": -196.4,
+"y": -318.6,
+"r": 10
+},
+{
+"id": "s225",
+"kind": "street",
+"title": "Erismannstrasse",
+"text": "Friedrich Erismann (1842-1915): Zürcher Arzt, Hygieniker und Politiker. Ab 1869 wirkte er in St. Petersburg (Russland). Er war ein Pionier der wissenschaftlichen Hygiene in Russland, wo er als Mitverfasser und Redaktor der …",
+"x": 160.5,
+"y": -526.8,
+"r": 10
+},
+{
+"id": "s226",
+"kind": "street",
+"title": "Ernastrasse",
+"text": "Erna Yoshida Blenk (1913-1996): Malerin, Zeichnerin und Illustratorin. Als Sechzehnjährige absolvierte Blenk den Vorkurs der Kunstgewerbeschule Zürich. Ende der 1930er Jahre arbeitete sie an mehreren Wandbildentwürfen und …",
+"x": 117.8,
+"y": -447.6,
+"r": 10
+},
+{
+"id": "s227",
+"kind": "street",
+"title": "Kochstrasse",
+"text": "Hartmann Koch (1848-1917): Holz- und Kohlenhändler. Er erbaute 1891/92 an der Kochstrasse 24 das erste Haus an dieser Strasse.",
+"x": -77.3,
+"y": -678.2,
+"r": 10
+},
+{
+"id": "s228",
+"kind": "street",
+"title": "Gertrudstrasse",
+"text": "Gertrud Heinzelmann (1914-1999): Anwältin und Frauenrechtlerin. Forderte die Gleichstellung der Geschlechter im Staat und in der katholischen Kirche sowie die Frauenordination. Schule und Studium der Jurisprudenz in Zürich, …",
+"x": -73.7,
+"y": -1170.7,
+"r": 10
+},
+{
+"id": "s229",
+"kind": "street",
+"title": "Marienstrasse",
+"text": "Maria Egg-Benes (1910-2005): Erste Leiterin der Heilpädagogischen Schule der Stadt Zürich. Egg-Benes studierte Psychologie und Pädagogik an den Universitäten Pécs und der Sorbonne in Paris. Parallel zu ihrer Doktorarbeit …",
+"x": 121.7,
+"y": -1075.1,
+"r": 10
+},
+{
+"id": "s230",
+"kind": "street",
+"title": "Enzianweg",
+"text": "Blumenname, Enziangewächs. Der Enzianweg hiess vor 1933 Rosenweg.",
+"x": -1361.9,
+"y": -127.8,
+"r": 10
+},
+{
+"id": "s231",
+"kind": "street",
+"title": "Cyklamenweg",
+"text": "Blumenname, lateinisch für Cyclamen, d. h. Alpenveilchen, die in den hiesigen Wäldern vorkommen. Der Cyklamenweg hiess vor 1933 Maierisliweg.",
+"x": -1231.2,
+"y": -189.3,
+"r": 10
+},
+{
+"id": "s232",
+"kind": "street",
+"title": "Freischützgasse",
+"text": "Verbindungsweg zwischen der Militärstrasse und der Lagerstrasse beim Kasernenareal in Aussersihl. Die Gasse wurde nach der Waffengattung der Schützen benannt, einer Bezeichnung für mit Feuerwaffen ausgerüstete Infanterie. Ihre …",
+"x": 1233.0,
+"y": -748.2,
+"r": 10
+},
+{
+"id": "s233",
+"kind": "street",
+"title": "Dennlerstrasse",
+"text": "Die August F. Dennler AG produzierte an der Dennlerstrasse 42 Liqueure und Spirituosen. August F. Dennler (1833-1912), Apotheker und Kaufmann aus Langenthal, war der erste Produzent eines Kräuter-Alpenbitters. Sein …",
+"x": -1388.7,
+"y": -293.4,
+"r": 10
+},
+{
+"id": "s234",
+"kind": "street",
+"title": "Klingenstrasse",
+"text": "Die Klinge ist eine Sand- oder Kiesbank unterhalb der Einmündung der Sihl in der Limmat, die sich aus dem Geschiebe der Sihl gebildet hat.",
+"x": 1270.5,
+"y": -243.9,
+"r": 10
+},
+{
+"id": "s235",
+"kind": "street",
+"title": "Schienengasse",
+"text": "Kurze Sackgasse in Aussersihl beim einstigen Rangierbahnhof.",
+"x": 750.0,
+"y": -384.9,
+"r": 10
+},
+{
+"id": "s236",
+"kind": "street",
+"title": "Basteigasse",
+"text": "Strasse im Bereich des in den 1830er Jahren beseitigten Schanzenwerks, wo die Bastei «Bär» lag. Eine Bastei oder Bastion ist ein vorspringender Teil der Stadtbefestigung. Bis um 1870 war das Gebiet bei der ehemaligen …",
+"x": 1464.4,
+"y": -1605.9,
+"r": 10
+},
+{
+"id": "s237",
+"kind": "street",
+"title": "Bändliweg",
+"text": "Flurname «Im Bändli», ein mit Korbweiden (Bänder- oder Bändlistöcken) bewachsenes Grundstück.",
+"x": -2461.1,
+"y": 1136.3,
+"r": 10
+},
+{
+"id": "s238",
+"kind": "street",
+"title": "Werdgartengasse",
+"text": "Strasse hin zu den beiden 1855 erbauten und 1938 abgetragenen Liegenschaften und Wohnhäusern im Werdgarten, Werdgartengasse 13 und 16. Die Hausnamen bezogen sich auf das Werd, eine bereits im 15. Jahrhundert bezeugte …",
+"x": 752.5,
+"y": -1434.5,
+"r": 10
+},
+{
+"id": "s239",
+"kind": "street",
+"title": "Dianastrasse",
+"text": "Um 1895 angelegte Privatstrasse im Selnauquartier, die aus nicht überlieferten Gründen den weiblichen Vornamen Diana erhielt. Diana war auch die römische Göttin der Jagd und des Mondes.",
+"x": 1293.1,
+"y": -1672.1,
+"r": 10
+},
+{
+"id": "s240",
+"kind": "street",
+"title": "Nordbrücke",
+"text": "Brücke über die Eisenbahngeleise nördlich des Bahnhofs Wipkingen, deren Bau die Gemeindeversammlung von Wipkingen als Teil der Verlängerung der Nordstrasse 1889 beschlossen hatte.",
+"x": 960.1,
+"y": 1053.3,
+"r": 10
+},
+{
+"id": "s241",
+"kind": "street",
+"title": "Kehlhofstrasse",
+"text": "An der benachbarten Zweierstrasse 161 bis 169 lag der 1899 abgetragene Kehlhof von Wiedikon. Der Keller oder Kellner war der im Kehlhof ansässige Amtmann, der die an den Grundherrn zu leistenden Abgaben, insbesondere die …",
+"x": 234.1,
+"y": -1688.0,
+"r": 10
+},
+{
+"id": "s242",
+"kind": "street",
+"title": "Mattengasse",
+"text": "Name, der an die Wiesen oder Matten entlang der Limmat erinnert, die 1877 von der Stadt Zürich zur Anlegung des Industriequartiers bestimmt wurden. Es waren unter anderem die Oetenbachermatte und die Marstallermatte. Erstere …",
+"x": 1137.6,
+"y": -65.0,
+"r": 10
+},
+{
+"id": "s243",
+"kind": "street",
+"title": "Johannesgasse",
+"text": "Johann Heinrich Fierz (1813-1877): Textilindustrieller, Nationalrat und Präsident des von ihm gegründeten Aktienbauvereins. Der Aktienbauverein erstellte im Limmatquartier eine Siedlung von ursprünglich fünf, heute noch vier …",
+"x": 1067.5,
+"y": -51.4,
+"r": 10
+},
+{
+"id": "s244",
+"kind": "street",
+"title": "Marstallweg",
+"text": "Name, der an die frühere, in der Gegend des Weges gelegene Wiese des einstigen Marstallamtes erinnert, die Marstallermatte. Im Marstall hielt sich der Staat bis ins 18. Jahrhundert Pferde für verschiedene Zwecke. In der …",
+"x": 1251.1,
+"y": -120.7,
+"r": 10
+},
+{
+"id": "s245",
+"kind": "street",
+"title": "Reishauerstrasse",
+"text": "Die Strasse wurde zur Erinnerung an die 1814 gegründete Firma Reishauer-Werkzeuge AG benannt, die hier bis 1977 ihren Firmensitz hatte. Der heutige Firmensitz befindet sich in Wallisellen, Industriestrasse 36.",
+"x": 1297.0,
+"y": -170.7,
+"r": 10
+},
+{
+"id": "s246",
+"kind": "street",
+"title": "Kornhausbrücke",
+"text": "1930 fertiggestellte Betonbrücke nach den Plänen von Architekt Peter Giumini und Ingenieur Ernst Rathgeb über das Sihlquai und die Limmat, der das ehemalige Kornhaus am Limmatplatz weichen musste.",
+"x": 1274.6,
+"y": 228.3,
+"r": 10
+},
+{
+"id": "s247",
+"kind": "street",
+"title": "Seebahnstrasse",
+"text": "Von 1889 an geplante Verbindungsstrasse von der Zweierstrasse und der Badenerstrasse an die am 1. Juni 1891 eröffnete Station Wiedikon-Aussersihl an der Seebahnlinie der Nordostbahn, die den Hauptbahnhof mit der Enge und der …",
+"x": 421.5,
+"y": -1328.7,
+"r": 10
+},
+{
+"id": "s248",
+"kind": "street",
+"title": "Idaplatz",
+"text": "Weiblicher Vorname.",
+"x": -146.8,
+"y": -1113.0,
+"r": 10
+},
+{
+"id": "s249",
+"kind": "street",
+"title": "Sihlfeldstrasse",
+"text": "Strasse durch das Sihlfeld, das flache Schwemmland zwischen dem Sihlfluss und der Hard gegen die Limmat hin. Es diente den Bauern von Wiedikon und Aussersihl einst als Ackerland; Äcker im Sihlfeld werden unter anderem in einer …",
+"x": 36.0,
+"y": -1044.8,
+"r": 10
+},
+{
+"id": "s250",
+"kind": "street",
+"title": "Rütiwiesweg",
+"text": "Flurname «Rütiwisen», d. h. Wiesen in einer «Rüti», einem gerodeten Waldstück.",
+"x": -1724.6,
+"y": -726.3,
+"r": 10
+},
+{
+"id": "s251",
+"kind": "street",
+"title": "Juchstrasse",
+"text": "Flurname «Juch», abgeleitet von Juchart, ein früher besonders in der Landwirtschaft gebrauchtes Flächenmass.",
+"x": -2538.1,
+"y": 1150.9,
+"r": 10
+},
+{
+"id": "s252",
+"kind": "street",
+"title": "Monikastrasse",
+"text": "Weiblicher Vorname.",
+"x": -2273.4,
+"y": -14.1,
+"r": 10
+},
+{
+"id": "s253",
+"kind": "street",
+"title": "Breitenlooweg",
+"text": "Flurname «Breitenloobach», Gewässer beim Letzigraben, «Loh» (häufig «Loo» geschrieben), d. h. lichtes Gehölz, das als Weide diente.",
+"x": -2463.5,
+"y": -583.4,
+"r": 10
+},
+{
+"id": "s254",
+"kind": "street",
+"title": "Burstwiesenstrasse",
+"text": "Flurname: Wiese mit borstigem Sumpfgras.",
+"x": -871.7,
+"y": -1566.7,
+"r": 10
+},
+{
+"id": "s255",
+"kind": "street",
+"title": "Nürenbergstrasse",
+"text": "Benannt nach der «Nürnberg» oder «Nürenberg» geheissenen Ortsgegend im alten Wipkingen. Um 1840 gab es dort vier Häuser, unter diesen das Nürnberggut, einen herrschaftlichen Landsitz aus dem 18. Jahrhundert, dessen Gebäude …",
+"x": 1182.8,
+"y": 906.6,
+"r": 10
+},
+{
+"id": "s256",
+"kind": "street",
+"title": "Brandschenkestrasse",
+"text": "Strasse zu dem bereits im 15. Jahrhundert bestehenden Landgut, genannt «das Brentschinck», das auf einen ebensolchen Familiennamen zurückgeht. Später, so bereits um 1500, wurde der Name in «Brandschenke» umgedeutet. Vielleicht …",
+"x": 1351.6,
+"y": -1543.3,
+"r": 10
+},
+{
+"id": "s257",
+"kind": "street",
+"title": "Ackerstrasse",
+"text": "Erinnerung an das vor der Überbauung fruchtbare Ackerland von Aussersihl im sogenannten oberen Sihlfeld zwischen der Limmat und der Sihl.",
+"x": 1164.0,
+"y": -145.8,
+"r": 10
+},
+{
+"id": "s258",
+"kind": "street",
+"title": "Anwandstrasse",
+"text": "Erinnerung an die alte Einteilung der Feldflur in Gewanne, die im Sihlfeld «Anwände» genannt wurden: Mehrere lange und schmale Feldparzellen bildeten eine Anwand, um die herum Wege führten, von denen her der Zugang zu den …",
+"x": 292.7,
+"y": -713.1,
+"r": 10
+},
+{
+"id": "s259",
+"kind": "street",
+"title": "Morgartenstrasse",
+"text": "In Erinnerung an die Schlacht am Morgarten 1315. Herzog Leopold I. von Habsburg sammelte nach dem Abschluss eines Feldzugs in Schwaben sein Heer im habsburgischen Zug und zog am Morgen des 15. November 1315 durch das Ägerital …",
+"x": 794.1,
+"y": -1385.8,
+"r": 10
+},
+{
+"id": "s260",
+"kind": "street",
+"title": "Schöntalstrasse",
+"text": "Benannt nach dem 1877/78 erbauten Wohnhaus zum Schöntal, Schöntalstrasse 10. Die Benennung von Häusern mit schön war im 19. Jahrhundert beliebt; ausser dem Schöntal gab es in Aussersihl um 1880 auch Häuser mit den Namen …",
+"x": 738.5,
+"y": -1446.3,
+"r": 10
+},
+{
+"id": "s261",
+"kind": "street",
+"title": "Schaffhauserplatz",
+"text": "Platz an der Schaffhauserstrasse bei der Strassenkreuzung mit der Rotbuch- und der Riedtlistrasse, der entstanden ist im Zusammenhang mit der Verlängerung des Trams aus der Weinbergstrasse über die neu erstellte …",
+"x": 1671.8,
+"y": 865.6,
+"r": 10
+},
+{
+"id": "s262",
+"kind": "street",
+"title": "Bahnhofplatz",
+"text": "Platzanlage vor dem Hauptbahnhof Zürich, entstanden in den 1860er Jahren im Zusammenhang mit der Planung und dem Bau des Bahnhofquartiers, insbesondere mit der 1863-1864 angelegten unteren Bahnhofstrasse und dem 1865-1871 neu …",
+"x": 1670.0,
+"y": -701.9,
+"r": 10
+},
+{
+"id": "s263",
+"kind": "street",
+"title": "Weinbergstrasse",
+"text": "Der Name leitet sich ab vom Landgut zum Weinberg, das 1905 zu Gunsten der Überbauung Weinbergstrasse 29/31 resp. Hochfarbstrasse 2/4 abgetragen wurde. Er beschreibt aber auch, dass am ganzen Hang oberhalb der …",
+"x": 1660.1,
+"y": 820.2,
+"r": 10
+},
+{
+"id": "s264",
+"kind": "street",
+"title": "Bachwiesenstrasse",
+"text": "Flurname: Wiesen längs des Mühle- oder Dorfbaches.",
+"x": -2403.1,
+"y": -946.8,
+"r": 10
+},
+{
+"id": "s265",
+"kind": "street",
+"title": "Werdgässchen",
+"text": "Gässchen, das von der Werdstrasse, früher Werdgasse, abzweigte. Werd bezeichnete im alten Sprachgebrauch eine Insel oder Halbinsel, die durch zwei Flussarme gebildet wurde.",
+"x": 866.5,
+"y": -1376.6,
+"r": 10
+},
+{
+"id": "s266",
+"kind": "street",
+"title": "Gartenhofstrasse",
+"text": "Strasse in Aussersihl, die zunächst zum 1831 erbauten und 1955 abgetragenen Haus zum Garten sowie zum 1864 erstellten und 1899 abgetragenen Haus zum Gartenhof führte.",
+"x": 700.8,
+"y": -1316.5,
+"r": 10
+},
+{
+"id": "s267",
+"kind": "street",
+"title": "Guldinerweg",
+"text": "Ein seit dem 15. Jahrhundert nachgewiesenes Albisrieder Geschlecht.",
+"x": -1791.4,
+"y": -839.7,
+"r": 10
+},
+{
+"id": "s268",
+"kind": "street",
+"title": "Sihlhallenstrasse",
+"text": "Benannt nach dem 1864 erbauten und 1962 abgetragenen Wohnhauskomplex zur Sihlhalle an der Ecke zur Langgasse und zur Schöneggstrasse in Aussersihl, zu dem auch eine Wirtschaft dieses Namens mit einem Bierkeller gehörte.",
+"x": 807.9,
+"y": -492.5,
+"r": 10
+},
+{
+"id": "s269",
+"kind": "street",
+"title": "Neue Hard",
+"text": "«Hard» bezeichnet einen als Weide benutzten, lichten Wald.",
+"x": 191.8,
+"y": 334.8,
+"r": 10
+},
+{
+"id": "s270",
+"kind": "street",
+"title": "Aargauerstrasse",
+"text": "Benannt zu Ehren des Nachbarkantons Aargau.",
+"x": -1056.7,
+"y": 918.8,
+"r": 10
+},
+{
+"id": "s271",
+"kind": "street",
+"title": "Ausstellungsstrasse",
+"text": "Strasse, die an die erste schweizerische Landesausstellung 1883 in Zürich erinnert. Hier stand ein Teil der grossen Ausstellungshallen, etwa jene für Maschinen.",
+"x": 1348.0,
+"y": -42.5,
+"r": 10
+},
+{
+"id": "s272",
+"kind": "street",
+"title": "Löwenstrasse",
+"text": "Strasse, die im Zusammenhang mit der Neuanlage des Bahnhofquartiers in den 1860er Jahren erbaut wurde. Sie beginnt an der Stelle der 1835/45 beseitigten Löwenschanze und führt den ehemaligen Schanzen entlang zum 1847 …",
+"x": 1617.9,
+"y": -809.6,
+"r": 10
+},
+{
+"id": "s273",
+"kind": "street",
+"title": "Wuhrstrasse",
+"text": "Strasse, die ursprünglich ans Sihlhölzli hinführte, wo sich die Sihl in die zwei Arme der wilden und der zahmen Sihl teilte und wo es eine Verbauung, ein Wuhr, hatte. Bei dieser Verbauung wurde das aus dem Sihlwald …",
+"x": 284.7,
+"y": -1744.8,
+"r": 10
+},
+{
+"id": "s274",
+"kind": "street",
+"title": "Schiffbaustrasse",
+"text": "Strasse entlang der ehemaligen Kesselschmiede der Maschinenfabrik Escher Wyss, in welcher bis 1940 auch Schiffe gebaut wurden und die deshalb Schiffbauhalle genannt wird.",
+"x": 149.6,
+"y": 505.9,
+"r": 10
+},
+{
+"id": "s275",
+"kind": "street",
+"title": "Scheffelstrasse",
+"text": "Joseph Victor von Scheffel (1826-1886): Deutscher Dichter. Er war im 19. Jahrhundert, u. a. wegen seines Werks «Der Trompeter von Säckingen», sehr beliebt. Verfasser des Romans «Ekkehard» und der Liedersammlung «Gaudeamus». …",
+"x": 969.2,
+"y": 1192.0,
+"r": 10
+},
+{
+"id": "s276",
+"kind": "street",
+"title": "Bertastrasse",
+"text": "Berta Rahm (1910-1998): Architektin ETH (Diplom 1934), Verlegerin und Frauenrechtlerin, Mitgestalterin der SAFFA 1958. Ab 1940 führte sie ein Architekturbüro in Zürich; ihre Bauten waren stark von der skandinavischen …",
+"x": -72.8,
+"y": -1013.5,
+"r": 10
+},
+{
+"id": "s277",
+"kind": "street",
+"title": "Schrennengasse",
+"text": "Benannt nach dem hier bereits 1353 und 1374 bezeugten Flurnamen «Schrann» oder «Schrennen», was wohl auf eine «Erdschrunde» oder einen Erdspalt hindeutet, vielleicht auch auf einen Steinbruch oder eine der in Wiedikon häufigen …",
+"x": -45.3,
+"y": -1625.0,
+"r": 10
+},
+{
+"id": "s278",
+"kind": "street",
+"title": "Albisriederplatz",
+"text": "Früher Rieden unter dem Albis: «Riete» (10. Jahrhundert), «Riedirn» (1225), d. h. Siedlung bei den Riedern. Ried oder Riedtli ist ein häufig vorkommender Flurname, der etwa für einen feuchten Boden, für ein gerodetes Waldstück …",
+"x": -496.0,
+"y": -641.6,
+"r": 10
+},
+{
+"id": "s279",
+"kind": "street",
+"title": "Am Schanzengraben",
+"text": "Strassen entlang des künstlichen Wasserlaufs längs der im 17. Jahrhundert angelegten Schanzen der Stadtbefestigung.",
+"x": 1398.9,
+"y": -1620.5,
+"r": 10
+},
+{
+"id": "s280",
+"kind": "street",
+"title": "Bärengasse",
+"text": "Namensgebend war ein 1566 erwähntes Gut zum Bären, Bärengasse 10, das ausserhalb der mittelalterlichen Stadtbefestigung am damaligen Weg in Richtung Selnau lag. Mit dem Bau der nach dem Dreissigjährigen Krieg im 17. …",
+"x": 1654.5,
+"y": -1492.0,
+"r": 10
+},
+{
+"id": "s281",
+"kind": "street",
+"title": "Bleicherweg",
+"text": "Das Land zwischen dem Seeufer und dem Bleicherweg wurde seit dem Mittelalter als städtische Leinwand-Bleichen genutzt. Hier wurden die Leinentücher ausgelegt, um in der Sonne gebleicht zu werden.",
+"x": 1408.7,
+"y": -1789.9,
+"r": 10
+},
+{
+"id": "s282",
+"kind": "street",
+"title": "Gartenstrasse",
+"text": "Ab 1877 angelegte Strasse in der Enge, im Bereich des dortigen Parkrings und Villenquartiers. Der Name des Privatwegs, der erst 1895 zu einer öffentlich Strasse wurde, mag eine Erinnerung an die grossen und gepflegten Gärten …",
+"x": 1250.4,
+"y": -1756.7,
+"r": 10
+},
+{
+"id": "s283",
+"kind": "street",
+"title": "Zwyssigstrasse",
+"text": "Alberik Zwyssig, ursprünglich Johann Joseph Maria Zwyssig (1808-1954): Priester und Stiftskapellmeister im Kloster Wettingen, wo er ein umfangreiches musikalisches liturgisches Werk schuf. Er komponierte 1835 auch den 1841 …",
+"x": -2367.7,
+"y": -45.7,
+"r": 10
+},
+{
+"id": "s284",
+"kind": "street",
+"title": "Vulkanstrasse",
+"text": "Beim Bahnhof Altstetten an der Vulkanstrasse 110 standen die zwischen 1880 und 1896 errichteten Fabrikbauten der Firma Vulcan, Schweizerische Automobil- und Motorbootfabrik AG, die 1984 abgebrochen wurden.",
+"x": -2394.1,
+"y": 953.9,
+"r": 10
+},
+{
+"id": "s285",
+"kind": "street",
+"title": "Luisenstrasse",
+"text": "Luise Meyer-Strasser (1894-1974): Zürcher Malerin und Kunsthandwerkerin. Meyer-Strasser absolvierte eine Stickereilehre im Atelier von Bertha Baer in Zürich. Mit zwanzig Jahren ging sie für drei Jahre nach München zu einem …",
+"x": 1009.5,
+"y": 6.0,
+"r": 10
+},
+{
+"id": "s286",
+"kind": "street",
+"title": "Eugen-Huber-Strasse",
+"text": "Eugen Huber (1849-1923): Schöpfer des schweizerischen Zivilgesetzbuches 1912, Rechtstheoretiker, Philosoph, Journalist, Politiker und Historiker. Eugen Huber arbeitete 1873-1877 bei der Neuen Zürcher Zeitung, ab 1876 als …",
+"x": -2305.0,
+"y": 34.1,
+"r": 10
+},
+{
+"id": "s287",
+"kind": "street",
+"title": "Pfingstweidbrücke",
+"text": "Die Pfingstweide war jener Teil der städtischen Weiden, auf die der Hirte um Pfingsten das Vieh zuerst hineintrieb, bevor er sie später in die grosse, weiter unterhalb gelegene Weide liess.",
+"x": -1333.7,
+"y": 1058.3,
+"r": 10
+},
+{
+"id": "s288",
+"kind": "street",
+"title": "Freyastrasse",
+"text": "Um 1887 angelegte Verbindungsstrasse in Aussersihl, die nach Freya benannt wurde, der altnordischen Göttin der Wohlfahrt, Liebe und Fruchtbarkeit. Im 19. Jahrhundert wurde der Name im deutschsprachigen Raum auch als weiblicher …",
+"x": 581.2,
+"y": -1321.1,
+"r": 10
+},
+{
+"id": "s289",
+"kind": "street",
+"title": "Spiserstrasse",
+"text": "Eine in Albisrieden alteingesessene, mittlerweile ausgestorbene Familie.",
+"x": -1712.2,
+"y": -574.4,
+"r": 10
+},
+{
+"id": "s290",
+"kind": "street",
+"title": "Wydäckerring",
+"text": "Flurname für Äcker, entlang denen Wyden, also Bäume der Gattung der Weiden stehen.",
+"x": -1531.7,
+"y": -1638.4,
+"r": 10
+},
+{
+"id": "s291",
+"kind": "street",
+"title": "In der Breiti",
+"text": "Flurname «an der gebreiten» (1415): ein gut gelegenes, ausgeglichenes Ackergelände.",
+"x": -2398.8,
+"y": -794.3,
+"r": 10
+},
+{
+"id": "s292",
+"kind": "street",
+"title": "Zelgstrasse",
+"text": "Strasse in der ehemaligen Wiedikoner Flur «Steinzelg». Die Steinzelg war Teil einer der drei Zelgen von Wiedikon, die im Rahmen der Dreifelderwirtschaft abwechselnd mit Korn als Winterfrucht und Hafer als Sommergetreide …",
+"x": 423.0,
+"y": -1801.4,
+"r": 10
+},
+{
+"id": "s293",
+"kind": "street",
+"title": "Soldanellastrasse",
+"text": "Blumenname.",
+"x": -1411.6,
+"y": -119.6,
+"r": 10
+},
+{
+"id": "s294",
+"kind": "street",
+"title": "Duttweilerstrasse",
+"text": "Gottlieb Duttweiler (1888-1962): Unternehmer und Politiker. Gottlieb Duttweiler leitete mit der 1925 in Zürich gegründeten Migros eine Revolution im Schweizer Detailhandel ein. Seine fahrenden Läden, deren Sortiment sich auf …",
+"x": -294.7,
+"y": 728.2,
+"r": 10
+},
+{
+"id": "s295",
+"kind": "street",
+"title": "Usteristrasse",
+"text": "Johann Martin Usteri (1873-1827): Zürcher Künstler-Dilettant, der gleichermassen als Zeichner, Dichter und Sammler Bedeutung erlangte. Er war erst Textilunternehmer und widmete sich ab 1804 der Kunst und der Politik. Usteri …",
+"x": 1548.2,
+"y": -912.1,
+"r": 10
+},
+{
+"id": "s296",
+"kind": "street",
+"title": "Seidengasse",
+"text": "Gasse, die zu den um 1600 erbauten und um 1900 beseitigten Seidenhöfen führte. Diese waren ursprünglich Wohn-, Geschäfts- und Fabrikgebäude von Familien wie den Werdmüllern, die im 17. und 18. Jahrhundert sehr erfolgreich …",
+"x": 1582.4,
+"y": -972.0,
+"r": 10
+},
+{
+"id": "s297",
+"kind": "street",
+"title": "Bernerstrasse Süd",
+"text": "Entlang der Autobahn A1 verlaufender südlicher Ast der Bernerstrasse.",
+"x": -2365.3,
+"y": 1168.6,
+"r": 10
+},
+{
+"id": "s298",
+"kind": "street",
+"title": "Pfarrhausstrasse",
+"text": "Das reformierte Pfarrhaus in Zürich-Altstetten an der Pfarrhausstrasse 10 wurde im 17./18. Jahrhundert erbaut.",
+"x": -2419.1,
+"y": 305.0,
+"r": 10
+},
+{
+"id": "s299",
+"kind": "street",
+"title": "Spirgartenstrasse",
+"text": "Flurname für einen Garten mit einem Speicher, mundartlich «Spir».",
+"x": -2541.7,
+"y": 236.8,
+"r": 10
+},
+{
+"id": "s300",
+"kind": "street",
+"title": "Geroldrampe",
+"text": "Zu- und Abfahrtsrampe von der Geroldstrasse auf die Hardbrücke beim Bahnhof Hardbrücke. Gerold ist ein männlicher Vorname.",
+"x": 205.3,
+"y": 200.7,
+"r": 10
+},
+{
+"id": "s301",
+"kind": "street",
+"title": "Herman-Greulich-Strasse",
+"text": "Herman Greulich (1842-1925): Schweizer Arbeitersekretär und sozialdemokratischer Nationalrat. Greulich gründete Gewerkschaften und die sozialdemokratische Zeitung «Die Tagwacht», engagierte sich früh für das Frauenstimmrecht …",
+"x": 324.9,
+"y": -561.2,
+"r": 10
+},
+{
+"id": "s302",
+"kind": "street",
+"title": "Usteribrücke",
+"text": "Im Zusammenhang mit der von Stadtingenieur Arnold Bürkli geplanten Umgestaltung des Bahnhofsquartiers von 1862-1865 musste der Schanzengraben in die Sihl abgeleitet werden. 1866 wurde die Baufirma Locher & Cie mit dem Bau …",
+"x": 1469.0,
+"y": -883.0,
+"r": 10
+},
+{
+"id": "s303",
+"kind": "street",
+"title": "Seminarstrasse",
+"text": "Benannt nach dem 1869 aus dem Umfeld der Evangelischen Gesellschaft des Kantons Zürich gegründeten Evangelischen Lehrerseminar, das 1905 sein neues Schulgebäude an der Rötelstrasse 40 einweihte.",
+"x": 1603.5,
+"y": 884.1,
+"r": 10
+},
+{
+"id": "s304",
+"kind": "street",
+"title": "Maschinenstrasse",
+"text": "Der Name der Strasse steht im Zusammenhang mit der Maschinenfabrik Escher-Wyss & Cie. Die Strasse befand sich ursprünglich bei der Pfingstweidstrasse auf der Höhe der Turbinenstrasse. Im Zusammenhang mit der Quartierplanung …",
+"x": -51.7,
+"y": 389.1,
+"r": 10
+},
+{
+"id": "s305",
+"kind": "street",
+"title": "Zeppelinstrasse",
+"text": "Zur Erinnerung an den ersten Besuch eines der Luftschiffe von Graf Zeppelin am 1. Juli 1908, der aus Luzern kommend die Stadt Zürich überflog und über den Milchbuck nach Winterthur entschwebte.",
+"x": 1630.4,
+"y": 1172.2,
+"r": 10
+},
+{
+"id": "s306",
+"kind": "street",
+"title": "In der Ey",
+"text": "«Ei» oder «Ey», Nebenform von «Au», d. h. am Wasser gelegenes Gelände. Die Strasse verläuft entlang des teils eingedolten Döltschibachs.",
+"x": -1849.0,
+"y": -1641.3,
+"r": 10
+},
+{
+"id": "s307",
+"kind": "street",
+"title": "Jägergasse",
+"text": "Verbindungsweg zwischen der Militärstrasse und der Lagerstrasse beim Kasernenareal in Aussersihl. Die Gasse wurde nach der Waffengattung der Jäger benannt, einer Bezeichnung für die leichte Infanterie. Ihre Parallelgassen …",
+"x": 1173.6,
+"y": -727.4,
+"r": 10
+},
+{
+"id": "s308",
+"kind": "street",
+"title": "Sihlbrücke",
+"text": "Am Übergang bei St. Jakob an der Sihl standen schon seit alters her Holzbrücken. 1866/67 wurde die gedeckte Holzbrücke von Werkmeister Stadler von 1797 durch eine eiserne Brücke ersetzt. 1903 baute die Firma Fietz & Landolt AG …",
+"x": 1192.5,
+"y": -1194.9,
+"r": 10
+},
+{
+"id": "s309",
+"kind": "street",
+"title": "Solisweg",
+"text": "Benannt nach der Staumauer von Solis in Mittelbünden, erbaut im Auftrag des Elektrizitätswerks der Stadt Zürich (1982 bis 1986).",
+"x": -1563.3,
+"y": 372.0,
+"r": 10
+},
+{
+"id": "s310",
+"kind": "street",
+"title": "Turbinenstrasse",
+"text": "Die Maschinenfabrik Escher Wyss begann 1840 mit dem Bau von Turbinen der Bauart Jonval und wurde im 20. Jahrhundert zu einem der weltweit führenden Unternehmen im Turbinenbau.",
+"x": -104.0,
+"y": 445.9,
+"r": 10
+},
+{
+"id": "s311",
+"kind": "street",
+"title": "Lägernstrasse",
+"text": "Die Lägern ist ein Höhenzug in den Kantonen Zürich und Aargau zwischen Dielsdorf und Baden. Der höchstgelegene Punkt befindet sich bei der Ruine Alt-Lägern (866 m ü. M.).",
+"x": 1054.0,
+"y": 1070.5,
+"r": 10
+},
+{
+"id": "s312",
+"kind": "street",
+"title": "Körnerstrasse",
+"text": "Theodor Körner (1791-1813): Deutscher Dramatiker und Dichter von Freiheitsliedern gegen die napoleonische Fremdherrschaft. Körner starb als Mitglied des Lützowschen Freikorps im Befreiungskrieg und wurde so zu einer …",
+"x": 438.9,
+"y": -1091.6,
+"r": 10
+},
+{
+"id": "s313",
+"kind": "street",
+"title": "Feldblumenstrasse",
+"text": "Benannt nach dem Wirtshaus zur Feldblume, Zwischenbächen 2, erbaut 1895.",
+"x": -2545.7,
+"y": 418.5,
+"r": 10
+},
+{
+"id": "s314",
+"kind": "street",
+"title": "Gerstenstrasse",
+"text": "Getreide, das als Malz bei der Bierherstellung Verwendung findet. Die Strasse liegt bei der ehemaligen Brauerei «Löwenbrau Zürich AG» (1890-1986) und gegenüber der 1843 eröffneten Stadtmühle Zürich, seit 1998 Swissmill.",
+"x": 594.6,
+"y": 617.9,
+"r": 10
+},
+{
+"id": "s315",
+"kind": "street",
+"title": "Schweighofstrasse",
+"text": "Der Flurname «Schweighof» ist ein Synonym für eine Sennerei und steht für einen Vieh- und Milchwirtschaftsbetrieb. Der Friesenberg am Abhang des Üetliberges wurde bis ins 20. Jahrhundert als Weideland für die Viehwirtschaft …",
+"x": -1135.1,
+"y": -1740.7,
+"r": 10
+},
+{
+"id": "s316",
+"kind": "street",
+"title": "Schaufelbergerstrasse",
+"text": "Arnold Schaufelberger (1855-1944): Sekundarlehrer in Wiedikon von 1876 bis 1925 und Präsident der Zentralkirchenpflege, Förderer des Natur- und Heimatschutzes und Verfasser einer Geschichte der Kirche und Schule in Wiedikon.",
+"x": -1051.2,
+"y": -1397.4,
+"r": 10
+},
+{
+"id": "s317",
+"kind": "street",
+"title": "Ampèrestrasse",
+"text": "André-Marie Ampère (1775-1836): Französischer Physiker, nach dem die Einheit der elektrischen Stromstärke benannt wurde.\r\nDie Benennung erfolgte auf Vorschlag der bis 1975 existierenden Trüb, Täuber & Co., Fabrik elektrischer …",
+"x": 183.3,
+"y": 990.4,
+"r": 10
+},
+{
+"id": "s318",
+"kind": "street",
+"title": "Mürtschenstrasse",
+"text": "Mürtschenstock, ein Berg in den Glarner Alpen oberhalb des Walensees (2441 m ü. M.).",
+"x": -1696.9,
+"y": 324.8,
+"r": 10
+},
+{
+"id": "s319",
+"kind": "street",
+"title": "Döltschiweg",
+"text": "Flurname «Döltschigut», ehemals als «Töltschen» oder «Töltschenwiesen» (1560) bekannt und benannt nach der im 14. Jahrhundert erwähnten Besitzerfamilie Töltz.",
+"x": -418.2,
+"y": -1805.3,
+"r": 10
+},
+{
+"id": "s320",
+"kind": "street",
+"title": "Lyrenweg",
+"text": "Flurname «Lirer» (1541), was vermutlich auf ein dort gelegenes Grundstück eines Musikanten (Leierspieler) hinweist. Lirer ist in Albisrieden auch als Familienname belegt.",
+"x": -2577.0,
+"y": -1109.3,
+"r": 10
+},
+{
+"id": "s321",
+"kind": "street",
+"title": "Dreikönigbrücke",
+"text": "Ursprünglich reich verziehrte Eisenkonstruktion mit Gusseisengeländer, die in den 1960er Jahren durch eine Betonbrücke ersetzt wurde, in der Verlängerung der Dreikönigstrasse. Diese hat ihren Namen von der 1361 erstmals …",
+"x": 1666.6,
+"y": -1809.8,
+"r": 10
+},
+{
+"id": "s322",
+"kind": "street",
+"title": "Schanzengrabenpromenade",
+"text": "Bezeichnung für die 1976 erstellte Fussgängerverbindung entlang dem Schanzengraben, dem Graben der ehemaligen barocken Stadtbefestigung.",
+"x": 1642.3,
+"y": -1748.8,
+"r": 10
+},
+{
+"id": "s323",
+"kind": "street",
+"title": "Helvetiaplatz",
+"text": "Die Helvetia ist eine nationalallegorische Figur, welche die Schweiz und ihre Eigenschaften verkörpern soll. Die Figur taucht erstmals im 17. Jahrhundert auf und leitet sich vom Namen des im schweizerischen Mittelland lebenden …",
+"x": 812.6,
+"y": -902.0,
+"r": 10
+},
+{
+"id": "s324",
+"kind": "street",
+"title": "Erismannhof",
+"text": "Friedrich Erismann (1842-1915): Zürcher Arzt, Hygieniker und Politiker. Ab 1869 wirkte er in St. Petersburg (Russland). Er war ein Pionier der wissenschaftlichen Hygiene in Russland, wo er als Mitverfasser und Redaktor der …",
+"x": 230.0,
+"y": -508.3,
+"r": 10
+},
+{
+"id": "s325",
+"kind": "street",
+"title": "Manessestrasse",
+"text": "Manesse: Vom 13. bis 15. Jahrhundert nachgewiesenes Zürcher Ministerialen- und Ratsgeschlecht. Die Manesse waren unter anderem Lehensträger der Fraumünsterabtei und des Klosters Einsiedeln und verfügten über Eigengüter …",
+"x": 856.9,
+"y": -1650.1,
+"r": 10
+},
+{
+"id": "s326",
+"kind": "street",
+"title": "Sihlhölzlistrasse",
+"text": "Ursprünglich der Zugang zum Sihlhölzli, einer bewaldeten Insel in der Sihl, die von der wilden und der zahmen Sihl umflossen wurde. Hier legte die Naturforschende Gesellschaft um 1760 einen Park mit fremdartigen Baumsorten an. …",
+"x": 1062.6,
+"y": -1550.3,
+"r": 10
+},
+{
+"id": "s327",
+"kind": "street",
+"title": "Sihlhölzlibrücke",
+"text": "Das Sihlhölzli war ursprünglich eine bewaldete Insel, die von der wilden und der zahmen Sihl umflossen wurde. Die Sihlhölzlibrücke führte ursprünglich über die wilde Sihl und verband die Weststrasse mit der Sihlhölzlistrasse. …",
+"x": 913.5,
+"y": -1669.3,
+"r": 10
+},
+{
+"id": "s328",
+"kind": "street",
+"title": "Molkenstrasse",
+"text": "Benannt nach der 1887 gegründeten Dr. N. Gerbers Molkerei, bei der Molkenstrasse 15, früher Turnhallenstrasse 29. Der Chemiker Niklaus Gerber (1850-1914) hatte sich schon früh mit Untersuchungsmethoden für Milch und …",
+"x": 772.2,
+"y": -781.9,
+"r": 10
+},
+{
+"id": "s329",
+"kind": "street",
+"title": "Herbartstrasse",
+"text": "Johann Friedrich Herbart (1776-1841): Deutscher Philosoph, Psychologe und Pädagoge. Herbart gilt als einer der Begründer der modernen Pädagogik als Wissenschaft.",
+"x": 675.8,
+"y": -650.5,
+"r": 10
+},
+{
+"id": "s330",
+"kind": "street",
+"title": "Magnusstrasse",
+"text": "Männlicher Vorname.",
+"x": 630.7,
+"y": -462.2,
+"r": 10
+},
+{
+"id": "s331",
+"kind": "street",
+"title": "Engelstrasse",
+"text": "Regula Engel-Egli (1761-1853): Marketenderin und Offiziersgattin. Regula Engel war glühende Anhängerin von Napoleon Bonaparte, an dessen Feldzügen sie teilnahm und worüber sie das Werk «Lebensbeschreibung der Wittwe des Obrist …",
+"x": 540.4,
+"y": -847.5,
+"r": 10
+},
+{
+"id": "s332",
+"kind": "street",
+"title": "Schreinerstrasse",
+"text": "Strasse in Aussersihl, angelegt als Zugang zu den 1863/64 von der Aktiengesellschaft für Erstellung von Arbeiterwohnungen gebauten Wohnhäusern mit Werkstätten. In wenigstens einer der Werkstätten war eine Schreinerei …",
+"x": 442.3,
+"y": -906.6,
+"r": 10
+},
+{
+"id": "s333",
+"kind": "street",
+"title": "Bärenbrüggli",
+"text": "Brücke über den Schanzengraben neben der nach dem Dreissigjährigen Krieg im 17. Jahrhundert errichteten und 1835-1845 wieder abgetragenen Bärenschanze, einem Bollwerk der barocken Stadtbefestigung.",
+"x": 1448.2,
+"y": -1657.5,
+"r": 10
+},
+{
+"id": "s334",
+"kind": "street",
+"title": "Bachmattstrasse",
+"text": "Flurname «Matten», Wiesen, Weiden entlang des Altstetter Dorfbachs.",
+"x": -2421.9,
+"y": 722.9,
+"r": 10
+},
+{
+"id": "s335",
+"kind": "street",
+"title": "Herrligstrasse",
+"text": "Flurname für ein Grundstück, «es Ligget», das am Heerweg, der alten Landstrasse nach Baden, lag.",
+"x": -2390.3,
+"y": 546.9,
+"r": 10
+},
+{
+"id": "s336",
+"kind": "street",
+"title": "Köchlistrasse",
+"text": "Vermutlich nach Kaspar Köchli (1811-1887), Landwirt, wohnhaft an der Badenerstrasse 186, welcher Grundbesitz in der Gegend dieser Strasse besessen haben könnte.",
+"x": 499.2,
+"y": -1159.5,
+"r": 10
+},
+{
+"id": "s337",
+"kind": "street",
+"title": "Militärbrücke",
+"text": "Im Hinblick auf den Bau der mittleren Bahnhofstrasse und zur Zentralisierung der speziell um den Paradeplatz verstreut liegenden Militäranstalten tauschten der Kanton und die Stadt 1864 verschiedene Militärliegenschaften gegen …",
+"x": 1308.2,
+"y": -978.1,
+"r": 10
+},
+{
+"id": "s338",
+"kind": "street",
+"title": "Wyssgasse",
+"text": "Anna von Wyss, verheiratete Cramer (1835-1909): Grundbesitzerin in Aussersihl. \r\nAnna von Wyss stammte aus der alten und einflussreichen Zürcher Bürgermeisterfamilie von Wyss. Sie war die Tochter von «Junker Pfarrer» Hans …",
+"x": 679.5,
+"y": -1148.0,
+"r": 10
+},
+{
+"id": "s339",
+"kind": "street",
+"title": "Kräuelgasse",
+"text": "Flurname «Krewel» (1420) im Hard gegenüber von Wipkingen. Der Begriff bezieht sich auf den Zusammenfluss von Limmat und Sihl, der wie ein «Chräuel», eine Hacke mit zwei Zinken, verläuft. Die Krewelfurt ist eine Furt beim …",
+"x": 971.6,
+"y": -860.7,
+"r": 10
+},
+{
+"id": "s340",
+"kind": "street",
+"title": "Marmorgasse",
+"text": "Das Eckhaus zwischen der Langstrasse und der Marmorgasse in Aussersihl war um 1890 das Domizil der Firma von Johann Konrad Graf, die in Fabrikation und Handel von Marmorartikeln tätig war.",
+"x": 689.8,
+"y": -771.4,
+"r": 10
+},
+{
+"id": "s341",
+"kind": "street",
+"title": "Rolandstrasse",
+"text": "Männlicher Vorname.",
+"x": 721.7,
+"y": -516.0,
+"r": 10
+},
+{
+"id": "s342",
+"kind": "street",
+"title": "Zimmerlistrasse",
+"text": "Emil Zimmerli (1832-1910): Gemeindegutsverwalter der ehemaligen Gemeinde Aussersihl.",
+"x": -521.6,
+"y": -28.7,
+"r": 10
+},
+{
+"id": "s343",
+"kind": "street",
+"title": "Greblerweg",
+"text": "Flurname «Grebler» (1492), d. h. Grundstück an einem Graben.",
+"x": -2539.5,
+"y": -718.2,
+"r": 10
+},
+{
+"id": "s344",
+"kind": "street",
+"title": "Untermoosstrasse",
+"text": "Flurname «Undermoosen» (1372), «Under den Mosen» (1430), d. h. unter- oder innerhalb der Moose. Die Strasse hiess bis 1932 Friedhofstrasse.",
+"x": -2574.9,
+"y": -641.4,
+"r": 10
+},
+{
+"id": "s345",
+"kind": "street",
+"title": "Feldblumenweg",
+"text": "Benannt nach dem Wirtshaus zur Feldblume, Zwischenbächen 2, erbaut 1895.",
+"x": -2433.6,
+"y": -260.0,
+"r": 10
+},
+{
+"id": "s346",
+"kind": "street",
+"title": "Herrligweg",
+"text": "Flurname für ein Grundstück, «es Ligget», das am Heerweg, der alten Landstrasse nach Baden, lag.",
+"x": -2414.7,
+"y": 616.0,
+"r": 10
+},
+{
+"id": "s347",
+"kind": "street",
+"title": "Dachslernweg",
+"text": "Flurname, ursprünglich «Dachsneren», d. h. Dachsbau.",
+"x": -2520.8,
+"y": 344.1,
+"r": 10
+},
+{
+"id": "s348",
+"kind": "street",
+"title": "Flüelastrasse",
+"text": "Flüelapass in Graubünden von Davos nach Susch (2383 m. ü. M.).",
+"x": -1695.5,
+"y": -387.1,
+"r": 10
+},
+{
+"id": "s349",
+"kind": "street",
+"title": "Rudenzweg",
+"text": "Rudenz ist ein Gemeindeteil von Giswil, Kanton Obwalden, dem Heimatort von Baumeister W. Halter, der den Namen vorschlug. Er erstellte im Namen der Baugenossenschaft Saumacker zwischen Freihof-, Badener-, Flur- und …",
+"x": -1366.0,
+"y": 48.9,
+"r": 10
+},
+{
+"id": "s350",
+"kind": "street",
+"title": "Grundstrasse",
+"text": "Flurname, vermutlich mit der Bedeutung «Grund», d. h. tief gelegenes Grundstück.",
+"x": -1334.5,
+"y": 67.0,
+"r": 10
+},
+{
+"id": "s351",
+"kind": "street",
+"title": "Dorfstrasse",
+"text": "Strasse im alten Dorfkern von Wipkingen, der auch «Im Dorf» genannt wurde.",
+"x": 332.3,
+"y": 1187.3,
+"r": 10
+},
+{
+"id": "s352",
+"kind": "street",
+"title": "Friedensgasse",
+"text": "Wahrung des Friedens war eine Aufgabe des Bezirksgerichts Zürich, das von 1859 bis 1916 im damals neuen Bezirksgebäude an der Selnaustrasse 9 tagte. Das Gericht sollte auch Gerechtigkeit walten lassen, weshalb die benachbarte …",
+"x": 1228.1,
+"y": -1583.4,
+"r": 10
+},
+{
+"id": "s353",
+"kind": "street",
+"title": "Claridenstrasse",
+"text": "Benannt nach dem 3267 Meter hohen Clariden oder Claridenstock oberhalb des Klausenpasses in den Glarner bzw. Urner Alpen. In der Enge wurden um 1880-1890 mehrere neue Strassen nach Schweizer Bergen benannt, die zum Teil vom …",
+"x": 1566.4,
+"y": -1788.6,
+"r": 10
+},
+{
+"id": "s354",
+"kind": "street",
+"title": "Fischerweg",
+"text": "Weg an der Limmat, der zunächst vom Hardturm zur einstigen Liegenschaft zum Fischergütli führte und der später dem Fluss entlang fortgesetzt wurde. Das Fischergütli war eine Flur unmittelbar an der Limmat an der Grenze zu …",
+"x": -678.0,
+"y": 1143.7,
+"r": 10
+},
+{
+"id": "s355",
+"kind": "street",
+"title": "Augustinergasse",
+"text": "Gasse bei dem um 1270 errichteten Kloster des Bettelordens der Augustiner-Eremiten, die sich nach dem Kirchenvater Augustinus (354-430) nannten. Der Gassenname erscheint in dieser Form erstmals 1445. Das Kloster in Zürich …",
+"x": 1661.6,
+"y": -1286.7,
+"r": 10
+},
+{
+"id": "s356",
+"kind": "street",
+"title": "Lettenviadukt",
+"text": "Bahnviadukt für die Verbindung der rechtsufrigen Zürichseebahn Zürich-Rapperswil aus dem Hauptbahnhof Zürich zum Lettentunnel nach dem Bahnhof Stadelhofen. Mit der Eröffnung der S-Bahnverbindung vom Hauptbahnhof durch den …",
+"x": 842.7,
+"y": 459.3,
+"r": 10
+},
+{
+"id": "s357",
+"kind": "street",
+"title": "Stockerstrasse",
+"text": "Bernhard Stocker (1807-1860): Oberrichter. Besitzer eines herrschaftlichen Landgutes in der Enge, des nach ihm benannten Stockergutes. In den 1860er Jahren entstanden auf dem zum Gut gehörigen Land Quartiere. Das 1835-1840 …",
+"x": 1320.4,
+"y": -1605.6,
+"r": 10
+},
+{
+"id": "s358",
+"kind": "street",
+"title": "In der Wässeri",
+"text": "Flurname, d. h. künstlich bewässerte Wiese.",
+"x": -2283.2,
+"y": -1160.5,
+"r": 10
+},
+{
+"id": "s359",
+"kind": "street",
+"title": "Langgrütstrasse",
+"text": "Flurname «Im langen Gerüt» (1405), d. h. langgezogenes, gerodetes Landstück («Grüt»).",
+"x": -1881.7,
+"y": -1122.1,
+"r": 10
+},
+{
+"id": "s360",
+"kind": "street",
+"title": "Langgrütweg",
+"text": "Flurname «Im langen Gerüt» (1405), d. h. langgezogenes, gerodetes Landstück («Grüt»).",
+"x": -1876.2,
+"y": -1168.6,
+"r": 10
+},
+{
+"id": "s361",
+"kind": "street",
+"title": "Liebensteinstrasse",
+"text": "Eine seit dem 15. Jahrhundert in Albisrieden nachgewiesene, mittlerweile ausgestorbene Familie, ursprünglich Lybenstal.",
+"x": -1931.3,
+"y": -959.2,
+"r": 10
+},
+{
+"id": "s362",
+"kind": "street",
+"title": "Ginsterweg",
+"text": "Strauchname: wohlriechender, aber giftiger Strauch der Art Schmetterlingsblütler.",
+"x": -1927.9,
+"y": -858.1,
+"r": 10
+},
+{
+"id": "s363",
+"kind": "street",
+"title": "Albert-Schneider-Weg",
+"text": "Albert Schneider (1836-1904): Jurist und Politiker aus Albisrieden. Albert Schneider war Professor für Römisches Recht 1878-1904 und Rektor der Universität Zürich 1890-1892. Er verfasste den Kommentar zum privatrechtlichen …",
+"x": -1660.7,
+"y": -979.4,
+"r": 10
+},
+{
+"id": "s364",
+"kind": "street",
+"title": "Lindenbachstrasse",
+"text": "Der mittlerweile eingedolte Lindenbach bildete früher die Grenze zwischen Unterstrass und Wipkingen.",
+"x": 1672.4,
+"y": 384.0,
+"r": 10
+},
+{
+"id": "s365",
+"kind": "street",
+"title": "Gaugerstrasse",
+"text": "Friedrich (Fritz) Gauger (1845-1910): Gründer der Rolladenfabrik Gauger. Ursprünglich aus Württemberg, etablierte er sich ab 1878 in Zürich als Bauschlosser und baute 1881 in Zürich-Unterstrass seine erste Fabrik; bereits 1887 …",
+"x": 1660.4,
+"y": 357.4,
+"r": 10
+},
+{
+"id": "s366",
+"kind": "street",
+"title": "Markusstrasse",
+"text": "Männlicher Vorname.",
+"x": 1554.5,
+"y": 455.2,
+"r": 10
+},
+{
+"id": "s367",
+"kind": "street",
+"title": "Schindlerstrasse",
+"text": "Caspar Schindler-Escher (1828-1902): Seidenfabrikant und Philanthrop. Als ausgebildeter Agronom publizierte er wissenschaftliche Arbeiten zu landwirtschaftlichen Fragen und er engagierte sich vielseitig für wohltätige Zwecke, …",
+"x": 1623.9,
+"y": 575.8,
+"r": 10
+},
+{
+"id": "s368",
+"kind": "street",
+"title": "Meinradstrasse",
+"text": "Meinrad (gest. 861): Eremit, Klausner in Einsiedeln. Um 1905 in Unterstrass angelegte Verbindungsstrasse, die wie andere Strassen in der Nachbarschaft (Niklausstrasse, Gallusstrasse) den Namen eines Geistlichen trägt. Der als …",
+"x": 1672.7,
+"y": 519.3,
+"r": 10
+},
+{
+"id": "s369",
+"kind": "street",
+"title": "Pfirsichstrasse",
+"text": "Fruchtname.",
+"x": 1579.4,
+"y": 628.3,
+"r": 10
+},
+{
+"id": "s370",
+"kind": "street",
+"title": "Pflugstrasse",
+"text": "Hinweis auf die Pflugschar im Wappen der Gemeinde Unterstrass.",
+"x": 1531.4,
+"y": 686.2,
+"r": 10
+},
+{
+"id": "s371",
+"kind": "street",
+"title": "Meierweg",
+"text": "Von Baumeister Johann Jakob Meier-Ehrensperger (1868-1932) erstellter Weg. Er übernahm 1908 die im Jahre 1851 von seinem Schwiegervater Konrad Ehrensperger gegründete Bauunternehmung Meier-Ehrensperger.",
+"x": 1640.2,
+"y": 543.5,
+"r": 10
+},
+{
+"id": "s372",
+"kind": "street",
+"title": "Nürenbergweg",
+"text": "Verbindungsweg zwischen Nord- und Rousseaustrassse unterhalb der Nürenbergstrasse. Der Weg bildet die unmittelbare Fortsetzung der Nürenbergstrasse bis zur Rousseaustrasse. Benannt nach einem Landgut zum Nürenberg, dessen …",
+"x": 1095.3,
+"y": 850.7,
+"r": 10
+},
+{
+"id": "s373",
+"kind": "street",
+"title": "Lettenstrasse",
+"text": "Strasse in der alten Ortsgegend «Lätten» in Wipkingen, an der Limmat und an der alten Strasse nach Zürich gelegen. «Letten» ist gleichbedeutend mit Lehm und bezeichnet vielerorts als Flurname einen lehmigen, schweren Boden.",
+"x": 1216.8,
+"y": 752.5,
+"r": 10
+},
+{
+"id": "s374",
+"kind": "street",
+"title": "Weizenstrasse",
+"text": "Wohl in Anlehnung auf die Namen der angrenzenden Kornhausstrasse und Pflugstrasse gewählter Getreidename.",
+"x": 1423.9,
+"y": 639.6,
+"r": 10
+},
+{
+"id": "s375",
+"kind": "street",
+"title": "Moosbergerweg",
+"text": "Konrad Moosberger (1863-1921): Arzt und Präsident der Kreisschulpflege IV (Oberstrass, Unterstrass, Wipkingen) von 1904 bis 1921.",
+"x": 1318.1,
+"y": 632.8,
+"r": 10
+},
+{
+"id": "s376",
+"kind": "street",
+"title": "Spielweg",
+"text": "Strasse nördlich des Pausenplatzes des von den Architekten Gebrüder Bräm zwischen 1913 und 1915 gebauten Schulhauses Letten.",
+"x": 1201.2,
+"y": 609.6,
+"r": 10
+},
+{
+"id": "s377",
+"kind": "street",
+"title": "Imfeldstrasse",
+"text": "Franz Xaver Imfeld (1853-1909): Ingenieur-Topograf. Er war einer der bedeutendsten Panoramazeichner, Reliefkünstler, Kartografen und Planer von Bergbahnen der Schweiz. Imfeld lebte seit 1886 in Zürich-Hottingen und ist hier …",
+"x": 1366.0,
+"y": 523.1,
+"r": 10
+},
+{
+"id": "s378",
+"kind": "street",
+"title": "Lettenfussweg",
+"text": "Fussweg in der Nähe der Lettenstrasse. «Letten» ist gleichbedeutend mit Lehm und bezeichnet vielerorts als Flurname einen lehmigen, schweren Boden.",
+"x": 901.6,
+"y": 748.4,
+"r": 10
+},
+{
+"id": "s379",
+"kind": "street",
+"title": "Okenstrasse",
+"text": "Lorenz Oken (1779-1851): Deutscher Naturforscher und Naturphilosoph. Oken wurde in Deutschland zweimal wegen seiner liberalen politischen Einstellung als Professor entlassen und konnte als Professor an der 1833 gegründeten …",
+"x": 1387.0,
+"y": 467.3,
+"r": 10
+},
+{
+"id": "s380",
+"kind": "street",
+"title": "Gallusstrasse",
+"text": "Gallus (um 550-um 650): Irischer Missionar und Patron des späteren Klosters St. Gallen. Mönch, der ab 591 auf dem europäischen Festland missionierte, ab etwa 610 auch im Gebiet der Alemannen, wo er in Tuggen und Bregenz …",
+"x": 1596.5,
+"y": 174.2,
+"r": 10
+},
+{
+"id": "s381",
+"kind": "street",
+"title": "Thurwiesenstrasse",
+"text": "Die Bezeichnung Thur leitet sich aus dürr ab. Die Flurnamen «Durwis» oder «Dürwies» bezeichnen seit dem 15. / 16. Jahrhundert eine trockene Wiese.",
+"x": 1145.4,
+"y": 1040.9,
+"r": 10
+},
+{
+"id": "s382",
+"kind": "street",
+"title": "Rötelsteig",
+"text": "«Rötel» war ein Ortsteil von Wipkingen. Das dortige Gehöft Rötel hiess noch im 17. Jahrhundert Reuental, was vielleicht eine Bezeichnung für geringe oder schlechte Güter war. Der Name wurde dann über «Rütel» oder «Reutel» im …",
+"x": 1011.0,
+"y": 1082.5,
+"r": 10
+},
+{
+"id": "s383",
+"kind": "street",
+"title": "Guthirtstrasse",
+"text": "Benannt nach der römisch-katholischen Guthirt-Pfarrkirche, erbaut vom katholischen Kirchenbauverein nach den Plänen von Architekt Anton Higi für die 1923 gegründete Pfarrei Guthirt in Wipkingen.",
+"x": 832.8,
+"y": 1187.6,
+"r": 10
+},
+{
+"id": "s384",
+"kind": "street",
+"title": "Uhlandstrasse",
+"text": "Ludwig Uhland (1786-1862): Deutscher Dichter. Er verfasste als Mitglied des Schwäbischen Dichterkreises Gedichte wie «Ein guter Kamerad» oder Balladen wie «Des Sängers Fluch» und befasste sich als Professor für deutsche …",
+"x": 894.9,
+"y": 1152.8,
+"r": 10
+},
+{
+"id": "s385",
+"kind": "street",
+"title": "Kloster-Fahr-Weg",
+"text": "Fussweg am rechten Limmatufer vom Drahtschmidlisteig bis zur Stadtgrenze und nach Oberengstringen. Das 1130 gegründete, dem Kloster Einsiedeln zugeordnete Benediktinerinnenkloster Fahr liegt weiter limmataufwärts in einer …",
+"x": 1139.2,
+"y": 439.6,
+"r": 10
+},
+{
+"id": "s386",
+"kind": "street",
+"title": "Höfliweg",
+"text": "Nach einem «Höfli» genannten Landgut, das Erblehen der Abtei Fraumünster war.",
+"x": -467.5,
+"y": -1758.2,
+"r": 10
+},
+{
+"id": "s387",
+"kind": "street",
+"title": "Edelweissstrasse",
+"text": "Blumenname. Die Edelweissstrasse hiess vor 1933 Mühlenstrasse.",
+"x": -1334.4,
+"y": -319.0,
+"r": 10
+},
+{
+"id": "s388",
+"kind": "street",
+"title": "Gladiolenweg",
+"text": "Blumenname, Schwertliliengewächs. Der Gladiolenweg hiess vor 1933 Narzissenweg.",
+"x": -1336.7,
+"y": -363.7,
+"r": 10
+},
+{
+"id": "s389",
+"kind": "street",
+"title": "Mühleweg",
+"text": "Strasse, die ihren Namen von einer einstigen Mühle im oberen Hard erhielt. Bei dieser Mühle knüpfte sie an die Badenerstrasse an und führte ins mittlere Hard und weiter zur Hardturmstrasse.",
+"x": -440.1,
+"y": 757.2,
+"r": 10
+},
+{
+"id": "s390",
+"kind": "street",
+"title": "Erikastrasse",
+"text": "Erika Rikli (1907-2002): Ökonomin und Frauenrechtlerin, Vorsteherin der hauswirtschaftlichen Fortbildungsschule der Stadt Zürich, Präsidentin des Organisationskomitees der SAFFA 1958. Geboren in Zürich; Studium der …",
+"x": 239.3,
+"y": -1417.0,
+"r": 10
+},
+{
+"id": "s391",
+"kind": "street",
+"title": "Wiesendangerstrasse",
+"text": "Ulrich Wiesendanger (1827-1893): Sekundarlehrer in Aussersihl/Wiedikon von 1867 bis 1893 und Erziehungsrat von 1881 bis 1893.",
+"x": -318.9,
+"y": -1293.2,
+"r": 10
+},
+{
+"id": "s392",
+"kind": "street",
+"title": "Robert-Seidel-Hof",
+"text": "Robert Seidel (1850-1933): Kommunal- und Sozialpolitiker, Pädagogikdozent an der ETH 1905-1929 sowie an der Universität Zürich 1908-1929.",
+"x": -2517.4,
+"y": 722.9,
+"r": 10
+},
+{
+"id": "s393",
+"kind": "street",
+"title": "Grünaustrasse",
+"text": "Benannt nach der dort errichteten Überbauung der Baugenossenschaft Grünau.",
+"x": -2113.6,
+"y": 1167.3,
+"r": 10
+},
+{
+"id": "s394",
+"kind": "street",
+"title": "Hardturmrampe",
+"text": "Abfahrtsrampe von der Hardbrücke an die Hardturmstrasse beim Escher-Wyss-Platz. Der Hardturm ist ein wohl aus dem 13. Jahrhundert stammender Wohn- und Festungsturm. «Hard» bezeichnet einen als Weide benutzten, lichten Wald.",
+"x": 383.4,
+"y": 766.1,
+"r": 10
+},
+{
+"id": "s395",
+"kind": "street",
+"title": "Sihlquai-Südrampe",
+"text": "Abfahrtsrampe von der Hardbrücke ans Sihlquai beim Escher-Wyss-Platz.",
+"x": 490.8,
+"y": 742.1,
+"r": 10
+},
+{
+"id": "s396",
+"kind": "street",
+"title": "Else-Züblin-Strasse",
+"text": "Else Züblin-Spiller (1881-1948): Journalistin, Ehrendoktorin der Universität Zürich 1941; Initiantin der Soldatenstuben im ersten Weltkrieg, daher bekannt als «Soldatenmutter»; Präsidentin des Verbandes Volksdienst, Aktivistin …",
+"x": -2056.4,
+"y": -738.8,
+"r": 10
+},
+{
+"id": "s397",
+"kind": "street",
+"title": "Bachwiesenweg",
+"text": "Flurname: Wiesen längs des Mühle- oder Dorfbaches.",
+"x": -2222.8,
+"y": -804.3,
+"r": 10
+},
+{
+"id": "s398",
+"kind": "street",
+"title": "Freilagerweg",
+"text": "1926-2007 befand sich hier das Zollfreilager der Zürcher Freilager AG. 2008 wurde das Gebiet in eine Wohnzone umgezont, auf der 800 Wohnungen und 200 Studentenzimmer entstanden.",
+"x": -1978.1,
+"y": -738.7,
+"r": 10
+},
+{
+"id": "s399",
+"kind": "street",
+"title": "Zielackerstrasse",
+"text": "Flurname «Attenzil» (1430), Wildkarte «Zielwiesen», vermutlich mit der Bedeutung Acker am Ziel, d. h. an der Marchgrenze, der Gemeindegrenze zu Albisrieden.",
+"x": -2353.5,
+"y": -212.9,
+"r": 10
+},
+{
+"id": "s400",
+"kind": "street",
+"title": "Arvenweg",
+"text": "Baumart, hochalpin: Kiefer.",
+"x": -2565.8,
+"y": -241.3,
+"r": 10
+},
+{
+"id": "s401",
+"kind": "street",
+"title": "Röschibachstrasse",
+"text": "Name des im Quartier verlaufenden, eingedolten Röschibachs. Der Name leitet sich von einem schnell fliessenden Bach ab (mittelhochdeutsch «röscher flusz»: schnell, reissend).",
+"x": 611.3,
+"y": 1029.6,
+"r": 10
+},
+{
+"id": "s402",
+"kind": "street",
+"title": "Zeunerstrasse",
+"text": "Gustav Zeuner (1828-1907): Deutscher Ingenieur und von 1855 bis 1871 Professor für technische Mechanik und theoretische Maschinenlehre an der ETH.",
+"x": 818.3,
+"y": 1004.4,
+"r": 10
+},
+{
+"id": "s403",
+"kind": "street",
+"title": "Habsburgstrasse",
+"text": "Burg oberhalb von Brugg und Stammburg des Grafengeschlechts der Habsburger, die von 1438 bis 1806 - mit einer kurzen Unterbrechung im 18. Jahrhundert - die deutschen und von 1804 bis 1918 die österreichischen Kaiser stellten.",
+"x": 817.7,
+"y": 849.2,
+"r": 10
+},
+{
+"id": "s404",
+"kind": "street",
+"title": "Kyburgstrasse",
+"text": "Benannt nach der Grafschaft Kyburg (auch Kiburg genannt) und deren Burganlage in der gleichnamigen Gemeinde. Die Herrschaftsrechte der 1263 ausgestorbenen Grafen von Kyburg gelangten von den Habsburgern an Zürich; 1424-1442 …",
+"x": 754.8,
+"y": 999.4,
+"r": 10
+},
+{
+"id": "s405",
+"kind": "street",
+"title": "Landenbergstrasse",
+"text": "Die von Landenberg waren ein ursprünglich aus dem Zürcher Tösstal stammendes Adelsgeschlecht, dessen umfangreicher Besitz sich ab dem ausgehenden 13. Jahrhundert über die ganze Ostschweiz verteilte. Die Herkunft der in …",
+"x": 827.0,
+"y": 901.6,
+"r": 10
+},
+{
+"id": "s406",
+"kind": "street",
+"title": "Leutholdstrasse",
+"text": "Heinrich Leuthold (1827-1879): Schweizer Dichter, Übersetzer und Journalist. Rechtsstudium in Zürich, Bern und Basel, wo Leuthold auch Schüler von Wilhelm Wackernagel und Jacob Burckhardt war. Nach einem psychischen …",
+"x": 729.2,
+"y": 953.6,
+"r": 10
+},
+{
+"id": "s407",
+"kind": "street",
+"title": "Burgstrasse",
+"text": "An einen Flurnamen wie «zur Burg» erinnernd, der für Wipkingen bereits 1399 bezeugt ist; vielleicht ein Hinweis auf eine abgegangene Burg oder sonstige alte Gemäuer.",
+"x": 781.3,
+"y": 789.7,
+"r": 10
+},
+{
+"id": "s408",
+"kind": "street",
+"title": "Burgsteig",
+"text": "An einen Flurnamen wie «zur Burg» erinnernd, der für Wipkingen bereits 1399 bezeugt ist; vielleicht ein Hinweis auf eine abgegangene Burg oder sonstige alte Gemäuer.",
+"x": 710.4,
+"y": 825.5,
+"r": 10
+},
+{
+"id": "s409",
+"kind": "street",
+"title": "Fürstweg",
+"text": "Fürst, altes Wipkinger Geschlecht.",
+"x": 1253.5,
+"y": 1141.5,
+"r": 10
+},
+{
+"id": "s410",
+"kind": "street",
+"title": "Abeggweg",
+"text": "Abegg: Unternehmerfamilie aus Küsnacht (ZH), alter Wipkinger Familienname.",
+"x": 1294.3,
+"y": 1161.8,
+"r": 10
+},
+{
+"id": "s411",
+"kind": "street",
+"title": "Güterstrasse",
+"text": "Auf dem ehemaligen Güterbahnhof-Areal gelegene Verbindungsstrasse im neuen Polizei- und Justizzentrum Zürich PJZ.",
+"x": -81.7,
+"y": -103.5,
+"r": 10
+},
+{
+"id": "s412",
+"kind": "street",
+"title": "Schneeglöggliweg",
+"text": "Blumenname.",
+"x": -1179.6,
+"y": -375.3,
+"r": 10
+},
+{
+"id": "s413",
+"kind": "street",
+"title": "Süsslerenstrasse",
+"text": "Flurname für eine Gegend mit Obstbäumen, welche süsse Apfel- und Birnensorten tragen.",
+"x": -1761.7,
+"y": -893.0,
+"r": 10
+},
+{
+"id": "s414",
+"kind": "street",
+"title": "Langhagweg",
+"text": "Vermutlich in Verbindung mit der nahe gelegenen Langgrütstrasse bezeichnet der Langhagweg ein früher durch eine Grünhecke («Lebhag») begrenztes Grundstück.",
+"x": -1446.3,
+"y": -1009.7,
+"r": 10
+},
+{
+"id": "s415",
+"kind": "street",
+"title": "Alfred-Strebel-Weg",
+"text": "Alfred Strebel (1884-1943): Letzter Gemeindepräsident von Albisrieden 1926-1933 und SBB-Beamter.",
+"x": -1668.3,
+"y": -1428.6,
+"r": 10
+},
+{
+"id": "s416",
+"kind": "street",
+"title": "Espenhofweg",
+"text": "Baumname: Espe, Aspe oder Zitterpappel ist eine Pflanzenart aus der Gattung der Pappeln. Der Espenhofweg wurde 1949 als Teilstück der damaligen Gutstrasse im Hinblick auf die 1949 sich im Projektstadium befindliche …",
+"x": -1579.2,
+"y": -1723.1,
+"r": 10
+},
+{
+"id": "s417",
+"kind": "street",
+"title": "Triemlifussweg",
+"text": "Der seit dem 18. Jahrhundert verwendete Flurname «Triemli» ist vom im 15 und 16. Jahrhundert nachgewiesenen «Trüebenbach» und späteren «Trüembach» sowie «Trimbach», «Trüemlibach», «Trüemli» u. a. abgeleitet. Die Namengebung …",
+"x": -1213.0,
+"y": -1480.7,
+"r": 10
+},
+{
+"id": "s418",
+"kind": "street",
+"title": "Dammweg",
+"text": "Beim Damm handelt es sich um den Bahndamm für die Strecke von Zürich über den Bahntunnel Wipkingen-Oerlikon nach Winterthur. Er wurde 1853-1856 im Industriequartier und in Wipkingen aufgeschüttet und mit der Eisenbahnbrücke …",
+"x": 757.9,
+"y": 544.0,
+"r": 10
+},
+{
+"id": "s419",
+"kind": "street",
+"title": "Sihlquai-Nordrampe",
+"text": "Zufahrtsrampe vom Sihlquai auf die Hardbrücke beim Escher-Wyss-Platz.",
+"x": 628.9,
+"y": 715.0,
+"r": 10
+},
+{
+"id": "s420",
+"kind": "street",
+"title": "Badweg",
+"text": "Weg zur 1863-1864 erstellten Badeanstalt für Männer und Knaben am Schanzengraben. Bis 1892 blieb der Weg ohne Namen, erst damals erfolgte die Bennennung, «der starken Begangenschaft während des Sommers» wegen, wie der Stadtrat …",
+"x": 1320.8,
+"y": -1346.0,
+"r": 10
+},
+{
+"id": "s421",
+"kind": "street",
+"title": "Hardauweg",
+"text": "Der Name geht auf das Landgut zur Hardau an der Badenerstrasse 378 (1770-1979) zurück, des bedeutenden Zürcher Staatsmanns Hans Caspar Hirzel (1746-1827), genannt Statthalter Hirzel beim Rech. «Hardau» bezeichnet einen als …",
+"x": -539.2,
+"y": -174.7,
+"r": 10
+},
+{
+"id": "s422",
+"kind": "street",
+"title": "Brünneliacker",
+"text": "Flurname: Acker bei einer kleinen Quelle.",
+"x": -2365.7,
+"y": -1401.1,
+"r": 10
+},
+{
+"id": "s423",
+"kind": "street",
+"title": "Hagenbuchrain",
+"text": "Baumname «Hagenbuech», schweizerdeutsch für Hainbuche, Birkengewächs. Der Hagenbuchrain wäre demzufolge ein mit Hainbuchen bewachsener Abhang («Rain»).",
+"x": -2450.2,
+"y": -1290.0,
+"r": 10
+},
+{
+"id": "s424",
+"kind": "street",
+"title": "Schützenrain",
+"text": "Am Schützenrain standen die Schützenscheiben des 1846 erbauten alten Albisrieder Schützenhauses.",
+"x": -2379.6,
+"y": -1530.5,
+"r": 10
+},
+{
+"id": "s425",
+"kind": "street",
+"title": "Eisenbahnerstrasse",
+"text": "Benannt nach der Siedlung der Baugenossenschaft der Eisenbahner.",
+"x": -2012.3,
+"y": 518.2,
+"r": 10
+},
+{
+"id": "s426",
+"kind": "street",
+"title": "Wipkingerweg",
+"text": "Weg oberhalb des Kirchgemeindehauses Wipkingen. Der Gemeindename «Wibichinga», der seit den 9. Jahrhundert nachgewiesen ist, erinnert an die Ansiedlung der Leute des Alemannen Wibicho.",
+"x": 484.2,
+"y": 1055.5,
+"r": 10
+},
+{
+"id": "s427",
+"kind": "street",
+"title": "Ampèresteg",
+"text": "Fuss- und Radwegbrücke über die Limmat, westlich des Tramdepots, die als Verlängerung der Ampèrestrasse dient. Der Name geht zurück auf den französischen Physiker André-Marie Ampère (1775-1836), nach dem die Einheit der …",
+"x": 179.1,
+"y": 939.1,
+"r": 10
+},
+{
+"id": "s428",
+"kind": "street",
+"title": "Tunnelstrasse",
+"text": "Durch die Tieferlegung der linksufrigen Seebahn kann der 1875 errichtete Eisenbahntunnel seit 1927 als Strassentunnel genutzt werden.",
+"x": 966.6,
+"y": -1718.8,
+"r": 10
+},
+{
+"id": "s429",
+"kind": "street",
+"title": "Urselweg",
+"text": "Mundartliche Form des Frauennamens Ursula.",
+"x": 247.3,
+"y": -1079.6,
+"r": 10
+},
+{
+"id": "s430",
+"kind": "street",
+"title": "Wiedingstrasse",
+"text": "Der Name leitet sich vom alemannischen Siedler Wiedo ab, nach dem auch das Dorf Wiedikon benannt wurde.",
+"x": 78.7,
+"y": -1742.2,
+"r": 10
+},
+{
+"id": "s431",
+"kind": "street",
+"title": "Kurzgasse",
+"text": "Name des lediglich 49 Meter langen Verbindungssträsschens zwischen der Hohlstrasse und der Brauerstrasse in Aussersihl. Im Strassenverzeichnis von 1882 wird das Strässchen seiner Kürze wegen als Kurze Gasse bezeichnet.",
+"x": 838.3,
+"y": -748.8,
+"r": 10
+},
+{
+"id": "s432",
+"kind": "street",
+"title": "Anemonenstrasse",
+"text": "Blumenname, auch Windröschen genannt, Hahnenfussgewächs.",
+"x": -1587.8,
+"y": -386.4,
+"r": 10
+},
+{
+"id": "s433",
+"kind": "street",
+"title": "Röschibachsteig",
+"text": "Name des im Quartier verlaufenden, eingedolten Röschibachs. Der Name leitet sich von einem schnell fliessenden Bach ab (mittelhochdeutsch «röscher flusz»: schnell, reissend).",
+"x": 728.5,
+"y": 1093.7,
+"r": 10
+},
+{
+"id": "s434",
+"kind": "street",
+"title": "Waidfussweg",
+"text": "Der Weg führt von der Waid oben bis an den Fuss des Käferbergs an der Limmat.",
+"x": 73.3,
+"y": 1087.0,
+"r": 10
+},
+{
+"id": "s435",
+"kind": "street",
+"title": "Röschibachweg",
+"text": "Name des im Quartier verlaufenden, eingedolten Röschibachs. Der Name leitet sich von einem schnell fliessenden Bach ab (mittelhochdeutsch «röscher flusz»: schnell, reissend).",
+"x": 701.4,
+"y": 1099.6,
+"r": 10
+},
+{
+"id": "s436",
+"kind": "street",
+"title": "Albertstrasse",
+"text": "Männlicher Vorname.",
+"x": 710.9,
+"y": 251.1,
+"r": 10
+},
+{
+"id": "s437",
+"kind": "street",
+"title": "Löwensteg",
+"text": "Der Steg über den Schanzengraben zwischen Löwenstrasse 19 und 25. Namensgebend für den Steg war die 1835/45 beseitigte Löwenschanze, ein Bollwerk, das am Ausgangspunkt der späteren Löwenstrasse lag. Die Löwenschanze, an welche …",
+"x": 1439.4,
+"y": -1074.2,
+"r": 10
+},
+{
+"id": "s438",
+"kind": "street",
+"title": "Schöneggplatz",
+"text": "Durch die Neugestaltung der Einmündung der Sihlhallen- und der Schöneggstrasse in die Feldeggstrasse entstand 1972 ein Platz, der nach dem 1877/78 erbauten und 1941 abgetragenen Wohnhaus zur Schönegg, Schöneggstrasse 2, …",
+"x": 682.3,
+"y": -380.7,
+"r": 10
+},
+{
+"id": "s439",
+"kind": "street",
+"title": "Hellmutstrasse",
+"text": "Männlicher Vorname.",
+"x": 598.2,
+"y": -594.0,
+"r": 10
+},
+{
+"id": "s440",
+"kind": "street",
+"title": "Zinistrasse",
+"text": "Joseph Jakob Zini (1859-1917): Baumeister.",
+"x": 753.9,
+"y": -468.2,
+"r": 10
+},
+{
+"id": "s441",
+"kind": "street",
+"title": "Röntgenplatz",
+"text": "Wilhelm Conrad Röntgen (1845-1923): Deutscher Physiker. Röntgen entdeckte 1895 die nach ihm benannten Röntgenstrahlen und erhielt dafür 1901 als Erster den Nobelpreis für Physik. Er studierte zwischen 1865 und 1869 in Zürich, …",
+"x": 740.5,
+"y": 100.0,
+"r": 10
+},
+{
+"id": "s442",
+"kind": "street",
+"title": "Hardturmweg",
+"text": "Weg von der Hardturmstrasse zu dem wohl aus dem 13. Jahrhundert stammenden Wohn- und Festungsturm. «Hard» bezeichnet einen als Weide benutzten, lichten Wald.",
+"x": -294.1,
+"y": 1086.1,
+"r": 10
+},
+{
+"id": "s443",
+"kind": "street",
+"title": "Bauhallengasse",
+"text": "Strasse in Aussersihl, die beim 1878 errichteten und 1968 abgetragenen Wohnhaus zur Bauhalle an der Langstrasse 19 begann. Bauherr und Besitzer war 1883 der Baumeister Albert Egolf in Zürich.",
+"x": 592.5,
+"y": -974.3,
+"r": 10
+},
+{
+"id": "s444",
+"kind": "street",
+"title": "Remisenstrasse",
+"text": "Zugang zum Areal der Schweizerischen Bundesbahnen SBB, auf dem sich Wirtschaftsgebäude, Remisen, befinden.",
+"x": 325.8,
+"y": -419.5,
+"r": 10
+},
+{
+"id": "s445",
+"kind": "street",
+"title": "Anny-Klawa-Platz",
+"text": "Anny Klawa-Morf (1894-1993): Fabrikarbeiterin und Aktivistin der Zürcher Arbeiterbewegung. Sie engagierte sich für bessere Lebensbedingungen der Arbeiterschaft und für die Gleichberechtigung der Frauen.",
+"x": 8.2,
+"y": -794.5,
+"r": 10
+},
+{
+"id": "s446",
+"kind": "street",
+"title": "Karl-Bürkli-Strasse",
+"text": "Karl Bürkli (1823-1901): Vorkämpfer des Sozialismus. 1851 trat Karl Bürkli dem Grütliverein bei und war Mitbegründer des Konsumvereins, in dem er aktiv mitwirkte. 1867-1869 führend in der demokratischen Bewegung, gehörte er …",
+"x": 79.0,
+"y": -809.7,
+"r": 10
+},
+{
+"id": "s447",
+"kind": "street",
+"title": "Fuchsiastrasse",
+"text": "Blumenname, Nachtkerzengewächs. Die Fuchsiastrasse hiess vor 1933 Wiesenstrasse.",
+"x": -1479.9,
+"y": -104.4,
+"r": 10
+},
+{
+"id": "s448",
+"kind": "street",
+"title": "Gerhardstrasse",
+"text": "Männlicher Vorname.",
+"x": 544.1,
+"y": -1466.1,
+"r": 10
+},
+{
+"id": "s449",
+"kind": "street",
+"title": "Wasserschöpfi",
+"text": "Der seit 1483 gebräuchliche Flurname bezeichne einen Ort mit einem primitiven Zugang zu einer in jener Gegend entspringenden Quelle.",
+"x": -758.3,
+"y": -1770.7,
+"r": 10
+},
+{
+"id": "s450",
+"kind": "street",
+"title": "Stierliweg",
+"text": "Weitverbreitete Familie von Aussersihl.",
+"x": -273.3,
+"y": -697.0,
+"r": 10
+},
+{
+"id": "s451",
+"kind": "street",
+"title": "Gmeimeriweg",
+"text": "Flurname «daz gemein mark» (1345), «Gmeumerig» (1806), alte Bezeichnung für Gemeinwerk, gemeinsame March, Allmend.",
+"x": -1630.3,
+"y": -436.6,
+"r": 10
+},
+{
+"id": "s452",
+"kind": "street",
+"title": "Wilhelmstrasse",
+"text": "Männlicher Vorname.",
+"x": 477.6,
+"y": 643.2,
+"r": 10
+},
+{
+"id": "s453",
+"kind": "street",
+"title": "Altweg",
+"text": "Verkürzte Form des Flurnamens «im alten Weg» (1426), der am westlich des Triemlis verlaufenden mittelalterlichen Fussweg von Zürich über Wiedikon nach Birmensdorf lag.",
+"x": -1831.0,
+"y": -1427.6,
+"r": 10
+},
+{
+"id": "s454",
+"kind": "street",
+"title": "Weichengasse",
+"text": "Kurze Sackgasse in Aussersihl beim einstigen Rangierbahnhof.",
+"x": 833.1,
+"y": -390.0,
+"r": 10
+},
+{
+"id": "s455",
+"kind": "street",
+"title": "Wydenstrasse",
+"text": "Mundartliche Bezeichnung für die Pflanzengattung der Weiden, benannt nach dem sich umweit davon befindlichen Wydenacker.",
+"x": 373.6,
+"y": -568.3,
+"r": 10
+},
+{
+"id": "s456",
+"kind": "street",
+"title": "Im Heuried",
+"text": "Flurname für Riedland, das als Futter für Nutztiere «geheuet» werden konnte, im Gegensatz zum anstossenden moorigen Streuried, wo Stroh zur Ausstattung von Ställen geschnitten wurde. Die Strasse verbindet die städtische …",
+"x": -617.7,
+"y": -1794.4,
+"r": 10
+},
+{
+"id": "s457",
+"kind": "street",
+"title": "Rosshalde",
+"text": "Namensgebung wohl in Anlehung an die in der Nähe liegende Rossackerstrasse. Der Strassenname Rossackerstrasse bezieht sich wiederum auf den Flurnamen «Rossäcker», also Pferdeacker. Eine Halde ist ein Abhang.",
+"x": -2086.7,
+"y": -1684.6,
+"r": 10
+},
+{
+"id": "s458",
+"kind": "street",
+"title": "Läufebachweg",
+"text": "Benannt nach dem nördlich der Triemlistrasse in den Döltschibach mündenden Läufebach. Eine «Läufi» bezeichnet eine Lichtung oder eine für den Transport von Holzstämmen und Stauden eingerichtete Holzbahn im Wald.",
+"x": -2070.0,
+"y": -1568.7,
+"r": 10
+},
+{
+"id": "s459",
+"kind": "street",
+"title": "Im Heimgärtli",
+"text": "Frei gewählter Name, vermutlich mit der Bedeutung kleiner Hausgarten oder Ort der Zusammenkunft, Treffpunkt.",
+"x": -2099.7,
+"y": -1523.3,
+"r": 10
+},
+{
+"id": "s460",
+"kind": "street",
+"title": "Steinackerweg",
+"text": "Frei gewählter Name, abgeleitet vom dort seit dem Spätmittelalter nachgewiesenen Flurnamen «Steinhuser», wohl Hube, d. h. Hof der Steinhauser.",
+"x": -2240.9,
+"y": -1369.5,
+"r": 10
+},
+{
+"id": "s461",
+"kind": "street",
+"title": "Rossackerstrasse",
+"text": "Flurname «Rossäcker»: Zur Namensgebung gibt es verschiedene Erklärungen. So könnten auf diesen Äckern einst Pferde (Rösser) gehalten worden sein, oder die Äcker wurden von Pferdekraft bewirtschaftet. Eine weitere Möglichkeit …",
+"x": -2262.4,
+"y": -1459.6,
+"r": 10
+},
+{
+"id": "s462",
+"kind": "street",
+"title": "Hallerweg",
+"text": "Altes, schon im 15. Jahrhundert erwähntes Geschlecht von Albisrieden.",
+"x": -2562.6,
+"y": -1001.3,
+"r": 10
+},
+{
+"id": "s463",
+"kind": "street",
+"title": "Bachmattweg",
+"text": "Flurname «Matten», Wiesen, Weiden entlang des Altstetter Dorfbachs.",
+"x": -2371.1,
+"y": 701.7,
+"r": 10
+},
+{
+"id": "s464",
+"kind": "street",
+"title": "Europaplatz",
+"text": "Direkte Verlängerung der Europallee mit Niederlassungen internationaler Unternehmungen. Eine zentrale Europallee reflektiert, dass Zürich sich im Herzen Europas sieht; zudem ist der nahe Hauptbahnhof Zürichs Tor zu Europa.",
+"x": 1478.9,
+"y": -685.4,
+"r": 10
+},
+{
+"id": "s465",
+"kind": "street",
+"title": "Bullingerhof",
+"text": "Heinrich Bullinger (1504-1575): Reformator. Heinrich Bullinger wurde nach Zwinglis Tod Grossmünsterpfarrer und damit Antistes, Leiter, der Zürcher Kirche 1531-1575. Unter Bullingers Beteiligung kam 1536 in Basel das Erste …",
+"x": -289.9,
+"y": -577.9,
+"r": 10
+},
+{
+"id": "s466",
+"kind": "street",
+"title": "Schimmelstrasse",
+"text": "Das Landgut zum Schimmel befand sich unterhalb des Sihlhölzlis und wurde 1767 von der Stadt Zürich als Ersatz für das damals abgebrannte Lazarett im Selnau als Absönderungshaus, also Quarantänestation für allfällige …",
+"x": 581.8,
+"y": -1439.7,
+"r": 10
+},
+{
+"id": "s467",
+"kind": "street",
+"title": "Lux-Guyer-Weg",
+"text": "Lux Guyer, eigentlich Louise Guyer (1894-1955): Erste Schweizer Architektin. 1916-1917 besuchte Lux Guyer die Kunstgewerbeschule und 1917-1918 die Eidgenössische Technische Hochschule ETH in Zürich. 1924 eröffnete sie als eine …",
+"x": 1579.5,
+"y": 84.6,
+"r": 10
+},
+{
+"id": "s468",
+"kind": "street",
+"title": "Bergwiesen",
+"text": "Flurname: Wiesen am Berghang unterhalb der Birmensdorferstrasse.",
+"x": -2076.4,
+"y": -1741.9,
+"r": 10
+},
+{
+"id": "s469",
+"kind": "street",
+"title": "Werdplatz",
+"text": "Für den seit 1950 durch die Verlängerung der Strassburgstrasse von der Werdstrasse an die Stauffacherstrasse gebildeten Platz hat sich der Name Werdplatz eingebürgert. Der Name leitet sich von der Werdstrasse ab. Ein direkter …",
+"x": 957.6,
+"y": -1309.8,
+"r": 10
+},
+{
+"id": "s470",
+"kind": "street",
+"title": "Nüschelersteg",
+"text": "Steg über den Schanzengraben als Verlängerung der Nüschelerstrasse. Benannt nach der Altzürcherischen Familie Nüscheler.",
+"x": 1320.9,
+"y": -1119.1,
+"r": 10
+},
+{
+"id": "s471",
+"kind": "street",
+"title": "Küngenmatt",
+"text": "Flurname (1520), der vermutlich auf einen früheren Grundstückseigentümer namens Küng oder König hinweist.",
+"x": -677.6,
+"y": -1695.9,
+"r": 10
+},
+{
+"id": "s472",
+"kind": "street",
+"title": "Goldackerweg",
+"text": "Flurname «Goldächer» (1368) mit Hinweis auf ertragreichen, fruchtbaren oder, ironisch gemeint, unergiebigen Acker.",
+"x": -2224.9,
+"y": -1507.4,
+"r": 10
+},
+{
+"id": "s473",
+"kind": "street",
+"title": "Hädrichstrasse",
+"text": "Metallbaufirma Hädrich AG bzw. bis in die 1960er Jahre Hädrich Julius und Co., Profilpresswerk, Eisen- und Metallbau, die von 1949 bis 1991 an der Freilagerstrasse 29 domiziliert war. In den späten 1940er Jahren war sie vom …",
+"x": -1963.1,
+"y": -621.3,
+"r": 10
+},
+{
+"id": "s474",
+"kind": "street",
+"title": "Dammsteg",
+"text": "Beim Damm handelt es sich um den Bahndamm für die Strecke von Zürich über den Bahntunnel Wipkingen-Oerlikon nach Winterthur. Er wurde 1853-1856 im Industriequartier und in Wipkingen aufgeschüttet und mit der Eisenbahnbrücke …",
+"x": 831.1,
+"y": 701.0,
+"r": 10
+},
+{
+"id": "s475",
+"kind": "street",
+"title": "Zeunersteig",
+"text": "Gustav Zeuner (1828-1907): Deutscher Ingenieur und von 1855 bis 1871 Professor für technische Mechanik und theoretische Maschinenlehre an der ETH.",
+"x": 851.3,
+"y": 1065.1,
+"r": 10
+},
+{
+"id": "s476",
+"kind": "street",
+"title": "Sallenbachstrasse",
+"text": "Die Familie Sallenbach ist ein seit dem 17. Jahrhundert in Wiedikon ansässiges Geschlecht.",
+"x": -1216.5,
+"y": -1641.9,
+"r": 10
+},
+{
+"id": "s477",
+"kind": "street",
+"title": "Gartenweg",
+"text": "Ab 1877 angelegte Strasse in der Enge, im Bereich des dortigen Parkrings und Villenquartiers. Der Name des Privatwegs, der erst 1895 zu einer öffentlich Strasse wurde, mag eine Erinnerung an die grossen und gepflegten Gärten …",
+"x": 1146.6,
+"y": -1806.0,
+"r": 10
+},
+{
+"id": "s478",
+"kind": "street",
+"title": "Sigi-Feigel-Terrasse",
+"text": "Sigi Feigel (1921-2004): langjähriger Präsident der Israelitischen Cultusgemeinde Zürich und Kämpfer gegen Rassismus und Antisemitismus.",
+"x": 1436.5,
+"y": -877.7,
+"r": 10
+},
+{
+"id": "s479",
+"kind": "street",
+"title": "Gustav-Gull-Platz",
+"text": "Gustav Gull (1858-1942): Zürcher Architekt. Von 1895 bis 1900 hatte er das Amt des Stadtbaumeisters in Zürich inne und war unter anderem Erbauer des Schweizerischen Landesmuseums und des Stadthauses. Sein Hauptwerk war vom …",
+"x": 1197.2,
+"y": -571.2,
+"r": 10
+},
+{
+"id": "s480",
+"kind": "street",
+"title": "Negrellisteg",
+"text": "Alois von Negrelli, gebürtig Luigi Negrelli (1799-1858): Österreichischer Ingenieur und Pionier des Verkehrsbaus. Ihm unterstand die Planung und Bauleitung der zweiten fahrbaren Brücke über die Limmat, der 1839 …",
+"x": 1150.5,
+"y": -413.6,
+"r": 10
+},
+{
+"id": "s481",
+"kind": "street",
+"title": "Ziegeleiweg",
+"text": "Weg zur Dampfziegelei Heuried, die von 1876-1939 im Heuried den Lehmabbau und die Ziegelproduktion betrieb. Sie fusionierte 1906 mit der Ziegelei Albishof und 1912 mit der Mechanischen Backsteinfabrik in Zürich zu den Zürcher …",
+"x": -506.7,
+"y": -1646.3,
+"r": 10
+},
+{
+"id": "s482",
+"kind": "street",
+"title": "Ottilienstrasse",
+"text": "Ottilie Wildermuth (1817-1877): Deutsche Jugendschriftstellerin. Im 19. Jahrhundert gehörte Wildermuth zu den in Deutschland meistgelesenen Autorinnen. Ihre zahlreichen Erzählungen, Novellen, Gedichte, Lebensbilder und anderen …",
+"x": 63.2,
+"y": -1358.5,
+"r": 10
+},
+{
+"id": "s483",
+"kind": "street",
+"title": "Thomasweg",
+"text": "Vorname des Bauherrn Thomas Hosp (1868-1921), Maurermeister, der an der Weststrasse 62 ein Baugeschäft betrieben hat.",
+"x": -154.2,
+"y": -985.9,
+"r": 10
+},
+{
+"id": "s484",
+"kind": "street",
+"title": "Leonhard-Ragaz-Weg",
+"text": "Leonhard Ragaz (1868-1945): Theologe und Mitbegründer der religiös-sozialen Bewegung. Ragaz war Pfarrer am Heinzenberg 1890-1895, in Chur 1895-1902 und am Basler Münster 1902-1908. 1906 war er an der Gründung der Zeitschrift …",
+"x": -492.5,
+"y": -1271.8,
+"r": 10
+},
+{
+"id": "s485",
+"kind": "street",
+"title": "Jakob-Fügli-Strasse",
+"text": "Jakob Fügli (1862-1925): Gemeindepräsident von Altstetten 1901-1907, Bezirksrichter und Kantonsrat.",
+"x": -2443.0,
+"y": 504.6,
+"r": 10
+},
+{
+"id": "s486",
+"kind": "street",
+"title": "Alemannensteig",
+"text": "Alemannen (Alamannen): Germanisches Volk, das um die Mitte des 6. und im 7. Jahrhundert die Ostschweiz und damit auch das Gebiet von Zürich besiedelte. Sie gelten zusammen mit den keltischen Helvetiern und den Römern zu den …",
+"x": -147.5,
+"y": -1701.5,
+"r": 10
+},
+{
+"id": "s487",
+"kind": "street",
+"title": "Stephan-à-Porta-Weg",
+"text": "Stephan à Porta (1868-1947): Rechtsanwalt und Bauunternehmer. Gründer der gemeinnützigen Stephan-à-Porta-Stiftung, welche preisgünstigen Wohnraum in der Stadt Zürich anbietet und wohltätige Institutionen in der Stadt Zürich …",
+"x": -696.8,
+"y": 1007.2,
+"r": 10
+},
+{
+"id": "s488",
+"kind": "street",
+"title": "Süsslerenweg",
+"text": "Flurname für eine Gegend mit Obstbäumen, welche süsse Apfel- und Birnensorten tragen.",
+"x": -1801.3,
+"y": -996.0,
+"r": 10
+},
+{
+"id": "s489",
+"kind": "street",
+"title": "Burgdorferweg",
+"text": "Benennung zur Erinnerung an den Besuch der Behörden der Gemeinde Burgdorf im Emmental in Albisrieden 1986.",
+"x": -2299.2,
+"y": -1156.6,
+"r": 10
+},
+{
+"id": "s490",
+"kind": "street",
+"title": "Wydlerweg",
+"text": "Ein seit dem 15. Jahrhundert nachgewiesenes Albisrieder Geschlecht.",
+"x": -2348.9,
+"y": -942.6,
+"r": 10
+},
+{
+"id": "s491",
+"kind": "street",
+"title": "Schanzeneggstrasse",
+"text": "Kurze Gasse in der Enge, die beim Eckhaus zum Schanzenegg von der Stockerstrasse hin zum Schanzengraben führt. Namensgebend war die Lage der Strasse beim Schanzengraben, also der Graben der ehemaligen barocken Stadtbefestigung.",
+"x": 1361.1,
+"y": -1614.8,
+"r": 10
+},
+{
+"id": "s492",
+"kind": "street",
+"title": "Lommisweg",
+"text": "Die 1443 ausgestorbenen von Lommis waren ein Ministerialengeschlecht der Grafen von Toggenburg, bürgerten sich vor 1400 in Zürich ein und gehörten dem Rat an. Sie besassen Güter in Altstetten.",
+"x": -2328.6,
+"y": 623.4,
+"r": 10
+},
+{
+"id": "s493",
+"kind": "street",
+"title": "Else-Züblin-Weg",
+"text": "Else Züblin-Spiller (1881-1948): Journalistin, Ehrendoktorin der Universität Zürich 1941; Initiantin der Soldatenstuben im ersten Weltkrieg, daher bekannt als «Soldatenmutter»; Präsidentin des Verbandes Volksdienst, Aktivistin …",
+"x": -2090.1,
+"y": -695.0,
+"r": 10
+},
+{
+"id": "s494",
+"kind": "street",
+"title": "Engweg",
+"text": "Engweg war eine Flurbezeichnung in der Gemeinde Unterstrass. Ursprünglich wurde die Strasse nach Wipkingen, die heutige Wasserwerkstrasse, Engweg genannt. Der heutige Engweg war eine Verbindung von der Wasserwerkstrasse durch …",
+"x": 1604.4,
+"y": 124.9,
+"r": 10
+},
+{
+"id": "s495",
+"kind": "street",
+"title": "Judith-Gessner-Platz",
+"text": "Judith Gessner (1736-1818): Ehefrau und Partnerin von Salomon Gessner. Eine Frau - stellvertretend für viele Frauen der Geschichte -, die ihrem Mann Kraft, Energie und Stabilität gab, ohne je selbst im Rampenlicht zu stehen.",
+"x": 1446.8,
+"y": -911.9,
+"r": 10
+},
+{
+"id": "s496",
+"kind": "street",
+"title": "Röhrenweg",
+"text": "Als Auflage für den Bau der Station Letten, die 1894 in Betrieb genommen wurde, hatte die Nordostbahn den Linden- oder Letzibach von der Wasserwerkstrasse an die Limmat einzudolen. Der Röhrenweg folgt dem früheren Bachlauf.",
+"x": 1270.2,
+"y": 317.6,
+"r": 10
+},
+{
+"id": "s497",
+"kind": "street",
+"title": "Albulastrasse",
+"text": "Zufluss des Hinterrheins und Pass (Passhöhe 2315 m), der das Albulatal mit dem Engadin verbindet. Das Elektrizitätswerk der Stadt Zürich EWZ nutzt die Wasserkraft des Albulaflusses mit diversen Kraftwerken bereits seit 1902 …",
+"x": -1850.4,
+"y": 483.8,
+"r": 10
+},
+{
+"id": "s498",
+"kind": "street",
+"title": "Piazza Cella",
+"text": "Erminia Cella (1888-1959): Wirtin im Restaurant Cooperativo 1935-1952, damals Treffpunkt der antifaschistischen italienischen Emigration, und Mutter von Ettore Cella (1913-2004), Schauspieler und Regisseur.",
+"x": 787.4,
+"y": -642.7,
+"r": 10
+},
+{
+"id": "s499",
+"kind": "street",
+"title": "Pfingstweid",
+"text": "Name für die Parkanlage an der Pfingstweidstrasse. Die Pfingstweide war jener Teil der städtischen Weiden, auf die der Hirte um Pfingsten das Vieh zuerst hineintrieb, bevor er sie später in die grosse, weiter unterhalb …",
+"x": -296.6,
+"y": 523.1,
+"r": 10
+},
+{
+"id": "s500",
+"kind": "street",
+"title": "Hardturmsteg",
+"text": "Steg über die Limmat bei dem wohl aus dem 13. Jahrhundert stammenden Wohn- und Festungsturm. «Hard» bezeichnet einen als Weide benutzten, lichten Wald.",
+"x": -282.1,
+"y": 1119.8,
+"r": 10
+},
+{
+"id": "s501",
+"kind": "street",
+"title": "Baumgartnerstrasse",
+"text": "Wilhelm Baumgartner (1820-1867): Schweizer Chordirigent, Pianist, Komponist von Klavierstücken, Liedern und Chorwerken sowie Musikpädagoge. Baumgartner war 1845-1867 Musikdirektor der Universität Zürich. Er war mit Gottfried …",
+"x": 514.3,
+"y": -1339.0,
+"r": 10
+},
+{
+"id": "s502",
+"kind": "street",
+"title": "Geerenweg",
+"text": "Flurname «Geeren», d. h. in einem spitzen Winkel auslaufendes Grundstück, wie etwa auf der Wildkarte um 1850 ersichtlich.",
+"x": -1919.5,
+"y": 994.9,
+"r": 10
+},
+{
+"id": "s503",
+"kind": "street",
+"title": "Aubrigstrasse",
+"text": "Erschliessungsstrasse im Villenquartier der Gemeinde Enge, die um 1880 angelegt wurde und die zunächst Bühlstrasse hiess. Weil es auch in Wiedikon eine Strasse gab, die nach dem häufig vorkommenden Flurnamen «Bühl» für eine …",
+"x": 1032.0,
+"y": -1790.9,
+"r": 10
+},
+{
+"id": "s504",
+"kind": "street",
+"title": "Tiefenhöfe",
+"text": "Strasse beim Paradeplatz, benannt nach dem früher dort gelegenen alten Tiefenhof. Die Tiefenhöfe waren um 1630 als eine vorindustrielle Textilfabrik mit Wohnhaus erstellt worden. Der Name Tiefenhof könnte Bezug genommen haben …",
+"x": 1678.5,
+"y": -1633.7,
+"r": 10
+},
+{
+"id": "s505",
+"kind": "street",
+"title": "Löwenplatz",
+"text": "Platz an der Löwenstrasse, mit dieser im Zusammenhang mit der Neuanlage des Bahnhofquartiers in den 1860er Jahren erbaut und nach dem Vorbild des nahen barocken Pelikanplatzes gestaltet. Namensgebend für Strasse und Platz war …",
+"x": 1573.3,
+"y": -879.2,
+"r": 10
+},
+{
+"id": "s506",
+"kind": "street",
+"title": "Pelikanplatz",
+"text": "Benannt nach der Häusergruppe zum Pelikan. Diese Gebäudegruppe wurde in den Jahrzehnten nach 1675 im Gebiet der damals erweiterten Fortifikationsanlagen im Talacker erbaut. Der Hausname Pelikan taucht in Zürich mehrfach seit …",
+"x": 1499.2,
+"y": -1429.8,
+"r": 10
+},
+{
+"id": "s507",
+"kind": "street",
+"title": "Am Kohlendreieck",
+"text": "Auf dem ehemaligen Güterbahnhof-Areal gelegene Verbindungsstrasse im neuen Polizei- und Justizzentrum Zürich PJZ. Das Grundstück zwischen linksufriger Seebahnlinie, der Hauptlinie der Eisenbahn von Zürich nach Baden und der …",
+"x": 247.1,
+"y": -221.5,
+"r": 10
+},
+{
+"id": "s508",
+"kind": "street",
+"title": "Schwingerstrasse",
+"text": "Benannt nach der 1907 von der Schwingplatzgenossenschaft Zürich errichteten Schwingerhalle, die 1976 abgetragen wurde.",
+"x": 1621.4,
+"y": 376.0,
+"r": 10
+},
+{
+"id": "s509",
+"kind": "street",
+"title": "Sihlpromenade",
+"text": "Im Zusammenhang mit der Tieferlegung der Seebahnlinie, der Verlegung der Sihl und der Neugestaltung des Sihlraums beim Sihlhölzli wurde 1927 entlang der Sihl eine Promenade, ein Spazierweg, erstellt.",
+"x": 904.1,
+"y": -1710.6,
+"r": 10
+},
+{
+"id": "s510",
+"kind": "street",
+"title": "Im Sträler",
+"text": "Flurname «Im Strähler», «Streleren» (1293) nach dem Namen eines Eigentümers.",
+"x": -1295.4,
+"y": -1383.7,
+"r": 10
+},
+{
+"id": "s511",
+"kind": "street",
+"title": "Vulkanplatz",
+"text": "Beim Bahnhof Altstetten an der Vulkanstrasse 110 standen die zwischen 1880 und 1896 errichteten Fabrikbauten der Firma Vulcan, Schweizerische Automobil- und Motorbootfabrik AG, die 1984 abgebrochen wurden.",
+"x": -2037.6,
+"y": 917.7,
+"r": 10
+},
+{
+"id": "s512",
+"kind": "street",
+"title": "Füsslistrasse",
+"text": "Das ausgestorbene Zürcher Bürgergeschlecht der Füssli wurde 1357 ertmals urkundlich erwähnt. Es führte während Jahrhunderten und bis 1845 die Glocken- und Stückgiesserei Füssli an der Ecke Sihlstrasse und St. Annagasse. Hier …",
+"x": 1592.0,
+"y": -1201.0,
+"r": 10
+},
+{
+"id": "s513",
+"kind": "street",
+"title": "Lintheschergasse",
+"text": "Hans Conrad Escher von der Linth (1767-1823): Liberaler Politiker, Wasserbaupionier und Leiter der Linthkorrektion.\r\nDie Strasse entstand im Zusammenhang mit der Neuanlage des Bahnhofquartiers in den 1860er Jahren. Benannt …",
+"x": 1691.6,
+"y": -818.1,
+"r": 10
+},
+{
+"id": "s514",
+"kind": "street",
+"title": "Hardplatz",
+"text": "«Hard» bezeichnet einen als Weide benutzten, lichten Wald.",
+"x": -123.6,
+"y": -148.1,
+"r": 10
+},
+{
+"id": "s515",
+"kind": "street",
+"title": "Emilie-Kempin-Spyri-Weg",
+"text": "Emilie Kempin-Spyri (1853-1901): Erste promovierte Juristin der Schweiz; Privatdozentin an der Universität Zürich, Gründerin der Zeitschrift «Frauenrecht» und des Frauenrechtsschutzvereines 1893.",
+"x": -2377.2,
+"y": 199.5,
+"r": 10
+},
+{
+"id": "s516",
+"kind": "street",
+"title": "Schneebelistrasse",
+"text": "In Altstetten ansässige Familie, deren prominentestes Mitglied Ulrich Schneebeli (1859-1947) von 1889 bis 1897 Gemeindepräsident von Altstetten und Landbesitzer in der Gegend der zu errichtenden Strasse war.",
+"x": -2476.6,
+"y": 15.6,
+"r": 10
+},
+{
+"id": "s517",
+"kind": "street",
+"title": "Schneebeliweg",
+"text": "In Altstetten ansässige Familie, deren prominentestes Mitglied Ulrich Schneebeli (1859-1947) von 1889 bis 1897 Gemeindepräsident von Altstetten und Landbesitzer in der Gegend der zu errichtenden Strasse war.",
+"x": -2567.0,
+"y": 25.9,
+"r": 10
+},
+{
+"id": "s518",
+"kind": "street",
+"title": "Sihlpostgasse",
+"text": "Benannt  nach der südwestlich des Hauptbahnhofs gelegenen Sihlpost, einem 1927-1930 nach Plänen der Architekten Gebrüder Bräm errichteten Rechteckbau mit markantem Uhr- und Treppenhausturm im Stil des Neuen Bauens (Ingenieur: …",
+"x": 1380.3,
+"y": -759.2,
+"r": 10
+},
+{
+"id": "s519",
+"kind": "street",
+"title": "Europaallee",
+"text": "Die Bezeichnung erinnert an die dort vorhandenen Niederlassungen internationaler Unternehmungen. Eine zentrale Europallee reflektiert, dass Zürich sich im Herzen Europas sieht; zudem ist der nahe Hauptbahnhof Zürichs Tor zu …",
+"x": 1299.1,
+"y": -591.7,
+"r": 10
+},
+{
+"id": "s520",
+"kind": "street",
+"title": "Robert-Stephenson-Weg",
+"text": "Robert Stephenson (1803-1859): Britischer Ingenieur und Mitbegründer des Eisenbahnwesens.",
+"x": 1078.2,
+"y": -466.8,
+"r": 10
+},
+{
+"id": "s521",
+"kind": "street",
+"title": "Lichtstrasse",
+"text": "Der Name der Strasse steht im Zusammenhang mit dem ehemaligen Petroleummagazin, das seinen Standort an der heutigen Adresse Geroldstrasse 31 und 35 hatte. Petroleumlampen waren im 19. Jahrhundert noch weit verbreitet und sind …",
+"x": 64.7,
+"y": 248.7,
+"r": 10
+},
+{
+"id": "s522",
+"kind": "street",
+"title": "Goldbrunnenplatz",
+"text": "Goldbrunnenegg am Üetliberg, auf der sich die Burgruine Friesenberg befindet. Der Name «Goldbrunnen» kommt vielleicht von gelbem Gestein oder von einer sagenhaften, goldführenden Quelle mit unterirdischen Schätzen.",
+"x": -187.5,
+"y": -1535.1,
+"r": 10
+},
+{
+"id": "s523",
+"kind": "street",
+"title": "Lindenplatz",
+"text": "Baumname, verweist auf die Bepflanzung dieses Platzes in Zürich-Altstetten.",
+"x": -2310.6,
+"y": 389.4,
+"r": 10
+},
+{
+"id": "s524",
+"kind": "street",
+"title": "Naphtastrasse",
+"text": "Der Name der Strasse steht im Zusammenhang mit den von der Firma Escher-Wyss & Co. 1888 erstmals gebauten, mit Rohbenzin (Naphta) betriebenen Dampfmotorbooten, Naphta-Launches. Die Strasse befand sich ursprünglich bei der …",
+"x": -44.6,
+"y": 295.4,
+"r": 10
+},
+{
+"id": "s525",
+"kind": "street",
+"title": "Depotweg",
+"text": "Das Grundstück ist ab 2025 für den Bau eines Tramdepots der VBZ vorgesehen.",
+"x": -1582.4,
+"y": 889.2,
+"r": 10
+},
+{
+"id": "s526",
+"kind": "street",
+"title": "Zahnradstrasse",
+"text": "Strasse auf dem Maag-Areal, wo die international tätige Firma Maag Zahnräder AG von 1913 an ihren Standort hatte. Zwschen 1989 und 1997 stellte sie sukzessive die Produktion ein und gliederte die Bereiche der Getriebe und der …",
+"x": -38.2,
+"y": 244.2,
+"r": 10
+},
+{
+"id": "s527",
+"kind": "street",
+"title": "Zöllystrasse",
+"text": "Heinrich Zölly (1862-1937): Maschineningenieur, Erfinder der Zölly-Dampfturbine. Zölly machte als Direktor die Firma Escher Wyss AG zu einer der weltweit führenden Hersteller auf dem Gebiet hydraulischer Maschinen und Anlagen.",
+"x": 477.2,
+"y": 752.1,
+"r": 10
+},
+{
+"id": "s528",
+"kind": "street",
+"title": "Escher-Wyss-Platz",
+"text": "Benannt nach der Maschinenfabrik Escher-Wyss, die 1805 von Hans Caspar Escher und Salomon von Wyss als mechanische Spinnerei im Paradiesbollwerk am heutigen Neumühlequai gegründet wurde. Da die Firma ihre Maschinen selber …",
+"x": 455.1,
+"y": 788.6,
+"r": 10
+},
+{
+"id": "s529",
+"kind": "street",
+"title": "Traugottstrasse",
+"text": "Männlicher Vorname.",
+"x": 414.6,
+"y": 650.2,
+"r": 10
+},
+{
+"id": "s530",
+"kind": "street",
+"title": "Bühlstrasse",
+"text": "Der häufig vorkommende Flurname «Bühl» bezeichnet eine Anhöhe, einen Hügel. Die Bühlstrasse in Wiedikon liegt im Bereich der früheren Bühlwiese, dem ansteigenden und einst mit Reben bestockten Land zwischen dem Dorf und …",
+"x": 55.2,
+"y": -1737.3,
+"r": 10
+},
+{
+"id": "s531",
+"kind": "street",
+"title": "Lehensteig",
+"text": "Verbindung zur Lehenstrasse, benannt nach dem 1927 abgetragenen Haus zum Lehen, Lehenstrasse 29. Ein Lehen war bis in das 19. Jahrhundert hinein ein verpachtetes oder entlehntes Gut, das oft auch dem Staat gehörte.",
+"x": 597.3,
+"y": 1153.2,
+"r": 10
+},
+{
+"id": "s532",
+"kind": "street",
+"title": "Gleisbogen",
+"text": "Mit Ginkgobäumen gesäumter und in roter Farbe gehaltener Fuss- und Radweg zwischen Hardturmstrasse und Bahnhof Hardbrücke, welcher dem früheren Industriegeleise folgt.",
+"x": -237.1,
+"y": 252.6,
+"r": 10
+},
+{
+"id": "s533",
+"kind": "street",
+"title": "Meierwiesenweg",
+"text": "Benannt in Anlehnung an die angrenzende Meierwiesenstrasse. Flurname: Wiese, die früher einem Meier gehörte.",
+"x": -1811.3,
+"y": 1123.1,
+"r": 10
+},
+{
+"id": "s534",
+"kind": "street",
+"title": "Marktgasse",
+"text": "Zentrales Teilstück des Marktes im alten Zürich und Kern der Wohn- und Wirtschaftssiedlung rechts der Limmat, damit ursprünglich auch einer der Hauptverbindungswege in der Stadt. An die Marktgasse als dem allgemeinen …",
+"x": -2084.7,
+"y": -508.7,
+"r": 10
+},
+{
+"id": "s535",
+"kind": "street",
+"title": "Platzpromenade",
+"text": "Unbebautes dreieckiges Gelände zwischen der Sihl, der Limmat und der Stadtbefestigung, das schon 1418 Platz genannt wurde. Der obere Teil diente bis zum Bau des Bahnhofs um 1847 als Schützenplatz, während im unteren Teil, dem …",
+"x": 1688.6,
+"y": -199.6,
+"r": 10
+},
+{
+"id": "s536",
+"kind": "street",
+"title": "Lettensteg",
+"text": "Der Lettensteg ist eine leichte Eisenkonstruktion für Fussgänger und wurde 1877 im Zusammenhang mit dem Bau des Wasserwerkes im Letten von der Firma Gubser & Cie. in Wyl ausgeführt. «Letten» ist gleichbedeutend mit Lehm und …",
+"x": 1221.3,
+"y": 274.1,
+"r": 10
+},
+{
+"id": "s537",
+"kind": "street",
+"title": "Stadttunnel",
+"text": "Geplante unterirdische Fahrradverbindung zwischen den Stadtkreisen 4 und 5 bzw. zwischen der Kasernenstrasse und dem Sihlquai. Die Bezeichnung «Stadttunnel»  wurde in der Stadtbevölkerung  weitgehend akzeptiert und auch von …",
+"x": 1453.0,
+"y": -749.0,
+"r": 10
+},
+{
+"id": "s538",
+"kind": "street",
+"title": "Vetterliweg",
+"text": "Der Weg wurde möglicherweise auf dem Land einer Gärtnerei Vetterli gebaut.",
+"x": -2547.0,
+"y": -130.2,
+"r": 10
+},
+{
+"id": "s539",
+"kind": "street",
+"title": "Parkring",
+"text": "Ringförmige Strasse am Ulmberg im Villenquartier Enge, das ab 1857 angelegt wurde und in dem vor allem zwischen 1874 und 1890 zahlreiche herrschaftliche Häuser entstanden. Unter dem Quartier verläuft der 1875 für die …",
+"x": 1032.9,
+"y": -1796.9,
+"r": 10
+},
+{
+"id": "s540",
+"kind": "street",
+"title": "Schlatterweg",
+"text": "Leonhard Schlatter: Erster namentlich bekannter Lehrer in Unterstrass. Er wurde 1734 als Geistlicher für die Pflegeanstalt der Spannweid gewählt und übte dort den Schuldienst aus.",
+"x": 1679.2,
+"y": 1164.6,
+"r": 10
+},
+{
+"id": "s541",
+"kind": "street",
+"title": "Niklausstrasse",
+"text": "Männlicher Vorname.",
+"x": 1633.5,
+"y": 238.2,
+"r": 10
+},
+{
+"id": "s542",
+"kind": "street",
+"title": "Im Sydefädeli",
+"text": "Haus zum Sydefädeli, Hönggerstrasse 127, benannt nach einem früheren Besitzer. Es steht wohl an der Stelle des Rebgutes, welches der Armbruster, der Hersteller von Armbrüsten, Hans Sidenfaden 1452 erwarb.",
+"x": 223.1,
+"y": 1139.6,
+"r": 10
+},
+{
+"id": "s543",
+"kind": "street",
+"title": "Hardhof",
+"text": "Benannt nach der 1924 von der Baugenossenschaft Hardhof erstellten Siedlung. Die Baugenossenschaft wurde 2007 aufgelöst. «Hard» bezeichnet einen als Weide benutzten, lichten Wald.",
+"x": -1015.1,
+"y": 1134.1,
+"r": 10
+},
+{
+"id": "s544",
+"kind": "street",
+"title": "Hardeggsteg",
+"text": "Weiler an der Limmat und Ort, an dem von 1804 bis 1882 die Wirtschaft Hardegg, Am Wasser 89, betrieben wurde. «Hard» bezeichnet einen als Weide benutzten, lichten Wald.",
+"x": -978.7,
+"y": 1192.0,
+"r": 10
+},
+{
+"id": "s545",
+"kind": "street",
+"title": "Hertersteg",
+"text": "Hermann Herter (1877-1945): Stadtbaumeister von Zürich 1919-1942. Herter hat als Stadtplaner die Altstadtsanierung wie auch die Bebauung der eigemeindeten Vororte und als Architekt einer grossen Anzahl zum Teil bedeutender …",
+"x": 505.5,
+"y": -1809.3,
+"r": 10
+},
+{
+"id": "s546",
+"kind": "street",
+"title": "Eulenweg",
+"text": "Tiername, Vogelart. Im selben Gemeinderatsbeschluss von 1933 wurden weitere Strassen nach Vogelarten benannt (Kolibriweg; Fasanenweg, 1950 in die Rautistrasse einbezogen).",
+"x": -2549.7,
+"y": -224.1,
+"r": 10
+},
+{
+"id": "s547",
+"kind": "street",
+"title": "Algierstrasse",
+"text": "Die Liegenschaft Im Algier, Algierstrasse 20, soll nach dem «Algier-Meier», der in Algier gewesen sein soll, benannt sein. Das Haus gehörte 1840-1844 Leonhard Meier (1805-1880) aus Kloten, vielleicht eben dieser «Algier-Meier».",
+"x": -2529.3,
+"y": -294.3,
+"r": 10
+},
+{
+"id": "s548",
+"kind": "street",
+"title": "Diggelmannstrasse",
+"text": "Geschlecht von Albisrieden, schon im 18. Jahrhundert bekannt.",
+"x": -2549.8,
+"y": -849.4,
+"r": 10
+},
+{
+"id": "s549",
+"kind": "street",
+"title": "Mattensteg",
+"text": "Eisenfachwerkbrücke, die 1880 im Hinblick auf die Schweizerische Landesausstellung 1883 in Zürich - mit Pavillons auf dem Platzspitz und im Industriequartier - erstellt wurde. Der Name des Stegs erinnert an die Wiesen, die …",
+"x": 1666.3,
+"y": -294.3,
+"r": 10
+},
+{
+"id": "s550",
+"kind": "street",
+"title": "Platzspitzbrücke",
+"text": "Nach der dort gelegenen Platzpromenade (allgemein als Platzspitz bezeichnet) benannte Brücke über die Sihl.",
+"x": 1648.8,
+"y": -212.2,
+"r": 10
+},
+{
+"id": "s551",
+"kind": "street",
+"title": "Postterrasse",
+"text": "Wegen der Nähe zur Sihlpost benannter Sihl-Zugang mit Sitzstufenanlage.",
+"x": 1521.7,
+"y": -664.0,
+"r": 10
+},
+{
+"id": "s552",
+"kind": "street",
+"title": "Bockhornstrasse",
+"text": "Altes, seit dem 15. Jahrhundert in Albisrieden ansässiges Geschlecht.",
+"x": -2504.9,
+"y": -916.4,
+"r": 10
+}
+]
+}

@@ -1,0 +1,15 @@
+{
+  "_doc": "Per-building look overrides keyed by OSM building name (style = facade layer family: ALT JUG GEN B50 B70 NEU GEW BUR; tint/roof = sRGB). Based on reference photos (research/photos/*).",
+  "by_name": {
+    "Amtshaus Helvetiaplatz": {"style": "B50", "tint": [214, 212, 206]},
+    "Durchgangszentrum Polizeikaserne": {"style": "ALT", "tint": [226, 214, 186], "roof": [205, 175, 160]},
+    "Zeughaus 1": {"style": "GEW", "tint": [222, 200, 160]},
+    "Zeughaus 2": {"style": "GEW", "tint": [222, 200, 160]},
+    "Zeughaus 3": {"style": "GEW", "tint": [222, 200, 160]},
+    "Zeughaus 4": {"style": "GEW", "tint": [222, 200, 160]},
+    "Zeughaus 5": {"style": "GEW", "tint": [222, 200, 160]},
+    "Kanzlei Turnhalle": {"style": "GEN", "tint": [230, 205, 185]},
+    "Zentralstellwerk": {"style": "B70", "tint": [200, 200, 198]},
+    "Quartierzentrum Bäckeranlage": {"style": "NEU", "tint": [236, 230, 220]}
+  }
+}

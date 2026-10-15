@@ -1,0 +1,21 @@
+CENTER local x=-144 y=-180 r=110
+buildings 29; tagged:
+  (-151,-214) {'addr:housenumber': '7', 'addr:street': 'Hardplatz', 'building': 'residential', 'building:levels': '5', 'roof:shape': 'hipped'}
+  (-136,-221) {'addr:housenumber': '6', 'addr:street': 'Hardplatz', 'building': 'apartments', 'building:levels': '5', 'roof:shape': 'gabled', 'start_date': '1920'}
+  (-192,-190) {'addr:housenumber': '9', 'addr:street': 'Hardplatz', 'building': 'residential', 'building:levels': '5'}
+  (-196,-199) {'addr:housenumber': '99', 'addr:street': 'Hardstrasse', 'building': 'residential', 'building:levels': '5'}
+  (-168,-233) {'addr:housenumber': '100', 'addr:street': 'Hardstrasse', 'building': 'residential', 'building:levels': '6'}
+  (-118,-234) {'addr:housenumber': '5', 'addr:street': 'Hardplatz', 'building': 'apartments', 'building:levels': '5', 'start_date': '1920'}
+  (-208,-179) {'addr:housenumber': '15', 'addr:street': 'Hardplatz', 'building': 'residential', 'building:levels': '5'}
+  (-204,-209) {'addr:housenumber': '97', 'addr:street': 'Hardstrasse', 'building': 'residential', 'building:levels': '5'}
+  (-114,-243) {'addr:housenumber': '175', 'addr:street': 'Sihlfeldstrasse', 'building': 'apartments', 'building:levels': '4', 'start_date': '1920'}
+  (-214,-175) {'addr:housenumber': '19', 'addr:street': 'Hardplatz', 'building': 'residential', 'building:levels': '5'}
+  (-180,-252) {'addr:housenumber': '96', 'addr:street': 'Hardstrasse', 'building': 'residential', 'building:levels': '5'}
+  (-212,-227) {'addr:housenumber': '95', 'addr:street': 'Hardstrasse', 'building': 'residential', 'building:levels': '5', 'roof:shape': 'gabled'}
+  (-78,-233) {'addr:housenumber': '202', 'addr:street': 'Sihlfeldstrasse', 'building': 'apartments', 'building:levels': '5', 'roof:shape': 'pyramidal'}
+  (-229,-171) {'addr:housenumber': '21', 'addr:street': 'Hardplatz', 'building': 'residential', 'building:levels': '5'}
+named shops/amenity: Aquarium Seerose [pet](-157,-210); Caffè Spettacolo [cafe](-123,-146); Avec 24/7 [convenience](-132,-138); D'Ouro [restaurant](-187,-189); Woof Woof [pet_grooming](-224,-164); Giro d'Italia [ice_cream](-67,-228); Hot Dog Grooming [pet_grooming](-60,-232); Konya [convenience](-230,-128); Galotti Musikwerkstatt [music_school](-111,-85); Beauty By Cris [beauty](-55,-236)
+counts: natural=tree:68, amenity=bench:37, amenity=waste_basket:18, barrier=kerb:8, highway=crossing:7, barrier=wall:7, public_transport=platform:7, amenity=parking:7, railway=tram:6, amenity=shelter:5, amenity=vending_machine:5, highway=traffic_signals:4, amenity=bicycle_parking:4, amenity=clock:3, public_transport=stop_position:3, railway=platform:3, railway=tram_stop:2, amenity=toilets:2, railway=razed:2, railway=switch:2, highway=bus_stop:2, amenity=drinking_water:2
+surfaces: {'asphalt': 52, 'sett': 31, 'paved': 4, 'concrete': 5, 'compacted': 1, 'paving_stones': 1}
+streets: Hohlstrasse, Hardbrücke, Hardplatz, Hardstrasse, Sihlfeldstrasse, Güterstrasse
+heritage 17: Wohnsiedlung Hard [kommunal,1931](-236,-133); Wohnsiedlung Sonnenheim [kommunal,1924](-230,-217); Wohnsiedlung Sonnenheim [kommunal,1924](-246,-207); Wohnsiedlung Sonnenheim [kommunal,1925](-217,-242); Wohnsiedlung Sonnenheim [kommunal,1925](-208,-227); Wohnsiedlung Sonnenheim [kommunal,1925](-199,-213); Wohnsiedlung Sonnenheim [kommunal,1925](-191,-201); Wohnsiedlung Sonnenheim [kommunal,1926](-192,-262); Wohnsiedlung Sonnenheim [kommunal,1926](-183,-248); Dienstgebäude mit Brückenwaage [kommunal,1974](-106,-96); Wohnsiedlung Hirzelstrasse/Sihlfeldstrasse/Hardplatz [kommunal,1920](-110,-245); Wohnsiedlung Hirzelstrasse/Sihlfeldstrasse/Hardplatz [kommunal,1920](-120,-229); Wohnsiedlung Hirzelstrasse/Sihlfeldstrasse/Hardplatz [kommunal,1920](-134,-220); Wohnsiedlung Hirzelstrasse/Sihlfeldstrasse/Hardplatz [kommunal,1920](-143,-278); Wohnsiedlung Hirzelstrasse/Sihlfeldstrasse/Hardplatz [kommunal,1920](-157,-280); Wohnsiedlung Hirzelstrasse/Sihlfeldstrasse/Hardplatz [kommunal,1919](-126,-274); Wohnsiedlung Hirzelstrasse/Sihlfeldstrasse/Hardplatz [kommunal,1920](-106,-261)

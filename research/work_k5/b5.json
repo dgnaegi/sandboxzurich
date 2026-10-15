@@ -1,0 +1,12 @@
+[
+{"osm_id":"n4958366040","name":"OK Digitaldruck","status":"ok","address":"Limmatstrasse 40, 8005 Zürich","source_url":"https://www.okdigital.ch/"},
+{"osm_id":"n4958366042","name":"OK Haller Druck","status":"ok","address":"Limmatstrasse 34, 8005 Zürich","source_url":"https://www.okhaller.ch/"},
+{"osm_id":"n683387997","name":"Qwstion","status":"unclear","address":"Limmatstrasse 257 (Website ohne Adresse)","source_url":"https://qwstion.com"},
+{"osm_id":"n11309276139","name":"Luma Westbau","status":"unclear","address":"Limmatstrasse 270 (Website nennt andere Adresse)","source_url":"https://westbau.com/"},
+{"osm_id":"n11626681459","name":"annex14","status":"unclear","address":"Limmatstrasse 270 (Website ohne Adresse)","source_url":"https://annex14.com/"},
+{"osm_id":"n11921093725","name":"Blutt Records","status":"moved","new_name":"","address":"Limmatstrasse 123, 8005 Zürich","source_url":"https://www.bluttrecords.ch/"},
+{"osm_id":"n10870926456","name":"DryCut","status":"unclear","address":"Limmatstrasse 123 (Website ohne Adresse)","source_url":"https://www.drycut.ch/"},
+{"osm_id":"n446784541","name":"TopPharm","status":"unclear","address":"Limmatstrasse 119 (Weiterleitung nicht geprüft)","source_url":"https://www.toppharm.ch/limmatplatz"},
+{"osm_id":"n725764844","name":"X-TRA","status":"ok","address":"Limmatstrasse 118, 8005 Zürich","source_url":"https://www.x-tra.ch/"},
+{"osm_id":"n13076581231","name":"X-TRA Musikcafé","status":"unclear","new_name":"Duplikat von n725764844?","address":"Limmatstrasse 118","source_url":""}
+]

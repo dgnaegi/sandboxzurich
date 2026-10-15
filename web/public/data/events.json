@@ -1,0 +1,12 @@
+{
+  "_doc": "Recurring events by game weekday (0 = Mo … 6 = So) and game time (minutes). Facts: research/events.md. Demo slogans are placeholders (TODO-PROGRAMM).",
+  "events": [
+    {"id": "flohmarkt", "type": "market", "title": "Flohmarkt Kanzlei", "weekday": [5], "from": 480, "to": 960,
+     "x": 676, "y": -958, "w": 34, "h": 22, "dir": 0.35, "stalls": 16, "people": 18},
+    {"id": "critical-mass", "type": "bikes", "title": "Critical Mass", "weekday": [4], "from": 1110, "to": 1170, "riders": 140,
+     "path": [[700, -880], [718, -796], [758, -704], [785, -635], [821, -540], [853, -455], [876, -403]]},
+    {"id": "wohndemo", "type": "demo", "title": "Demo: Wohnen für alle", "weekday": [5], "from": 840, "to": 930, "people": 22,
+     "banners": ["WOHNEN FÜR ALLE", "MIETEN RUNTER", "STADT FÜR ALLI"],
+     "path": [[876, -403], [853, -455], [821, -540], [785, -635], [758, -704], [718, -796], [700, -880]]}
+  ]
+}

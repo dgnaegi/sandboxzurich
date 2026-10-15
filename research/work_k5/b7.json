@@ -1,0 +1,13 @@
+[
+{"osm_id":"n1375347141","name":"Babo's Restaurant","status":"unclear","address":"Langstrasse 192 (nicht geprüft)","source_url":""},
+{"osm_id":"n7932162722","name":"Vegitat","status":"ok","address":"Langstrasse 192, 8005 Zürich","source_url":"https://vegitat.ch/"},
+{"osm_id":"n312580271","name":"LILY'S","status":"unclear","address":"Langstrasse 197 (Website 403)","source_url":"https://lilys.ch/"},
+{"osm_id":"n6514786485","name":"flavour coffee & plants","status":"ok","address":"Langstrasse 200, 8005 Zürich","source_url":"https://www.flavourcoffee.ch/"},
+{"osm_id":"n11409351594","name":"Casa Aurelio","status":"ok","address":"Langstrasse 209, Zürich","source_url":"https://casaaurelio.ch/de/"},
+{"osm_id":"n6842658701","name":"Thali House","status":"ok","address":"Langstrasse 213, 8005 Zürich","source_url":"https://www.th1.ch/"},
+{"osm_id":"n1978573308","name":"Cinque","status":"ok","address":"Langstrasse 215, 8005 Zürich","source_url":"https://www.restaurant-cinque.ch/"},
+{"osm_id":"n446784543","name":"WellPlayed & DuBischDra","status":"unclear","address":"Langstrasse 229 (Website ohne Adresse)","source_url":"https://www.wellplayed.ch/"},
+{"osm_id":"n444463631","name":"Matahari Bar","status":"ok","address":"Langstrasse 237, 8005 Zürich","source_url":"https://www.matahari-bar.ch"},
+{"osm_id":"n7804212506","name":"Glaser","status":"unclear","address":"Röntgenstrasse 32 (Website ohne Adresse)","source_url":"https://glaserwaffen.ch/"},
+{"osm_id":"n13026054404","name":"CouCou","status":"ok","address":"Röntgenstrasse 66, 8005 Zürich","source_url":"https://www.coucou-bar.ch"}
+]

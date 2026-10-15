@@ -1,0 +1,164 @@
+import * as THREE from 'three';
+
+/** Shop signs with real names (OSM), drawn into one canvas texture per tile. */
+export interface Sign { x: number; y: number; z: number; tx: number; ty: number; w: number; name: string; kind: string }
+
+const BG = ['#b8202a', '#1d1d1f', '#2d6b45', '#d9a020', '#6e1428', '#1f4e8c', '#efeeea', '#5a3a26', '#0f6f73', '#c4441c'];
+const ROW = 96, TEXW = 1024;
+
+function hash(s: string) {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619);
+  return h >>> 0;
+}
+
+/** All sign materials, so the night factor can light them up like illuminated shop signs. */
+const signMats = new Set<THREE.MeshLambertMaterial>();
+export function setSignNight(night: number) {
+  for (const m of signMats) m.emissiveIntensity = 0.25 + night * (m.userData.neon ? 1.6 : 0.9);
+}
+
+export function buildSigns(signs: Sign[]): THREE.Mesh | null {
+  if (!signs.length) return null;
+  const c = document.createElement('canvas');
+  c.width = TEXW;
+  c.height = THREE.MathUtils.ceilPowerOfTwo(signs.length * ROW);
+  const g = c.getContext('2d')!;
+  const pos: number[] = [], uv: number[] = [], nrm: number[] = [], idx: number[] = [];
+  signs.forEach((s, i) => {
+    const bg = BG[hash(s.name) % BG.length];
+    const light = bg === '#efeeea' || bg === '#d9a020';
+    const y0 = i * ROW;
+    g.fillStyle = bg;
+    g.fillRect(0, y0, TEXW, ROW);
+    g.fillStyle = light ? '#151515' : '#ffffff';
+    const text = s.name.toUpperCase();
+    let size = 74;
+    g.font = `700 ${size}px "Barlow Condensed", "Arial Narrow", sans-serif`;
+    const tw = g.measureText(text).width;
+    // sign width in metres follows the text length (≈0.32 m per glyph), capped by the facade
+    const wm = Math.max(1.6, Math.min(s.w, text.length * 0.3 + 0.6));
+    const maxPx = TEXW - 40;
+    if (tw > maxPx) { size = Math.floor(size * maxPx / tw); g.font = `700 ${size}px "Barlow Condensed", "Arial Narrow", sans-serif`; }
+    g.textAlign = 'center';
+    g.textBaseline = 'middle';
+    g.fillText(text, TEXW / 2, y0 + ROW / 2 + 3);
+    // quad 0.15 m in front of the wall; outward normal = (ty, -tx)
+    const ox = s.ty, oy = -s.tx, hw = wm / 2, hh = wm * ROW / TEXW / 2 * 1.6;
+    const cx = s.x + ox * 0.15, cy = s.y + oy * 0.15;
+    const corners = [[-hw, -hh], [hw, -hh], [hw, hh], [-hw, hh]];
+    const b = pos.length / 3;
+    for (const [u, v] of corners) {
+      const x = cx + s.tx * u, y = cy + s.ty * u;
+      pos.push(x, s.z + v, -y);
+      nrm.push(ox, 0, -oy);
+    }
+    const v0 = 1 - (y0 + ROW) / c.height, v1 = 1 - y0 / c.height;
+    uv.push(0, v0, 1, v0, 1, v1, 0, v1);
+    idx.push(b, b + 1, b + 2, b, b + 2, b + 3);
+  });
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  geo.setAttribute('normal', new THREE.Float32BufferAttribute(nrm, 3));
+  geo.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
+  geo.setIndex(idx);
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.anisotropy = 4;
+  const mat = new THREE.MeshLambertMaterial({ map: tex, emissive: 0xffffff, emissiveMap: tex, emissiveIntensity: 0.25 });
+  mat.userData.neon = signs.some((s) => ['bar', 'pub', 'nightclub'].includes(s.kind));
+  signMats.add(mat);
+  return new THREE.Mesh(geo, mat);
+}
+
+/** Alternative Linke posters: rows [x, y, z, tx, ty, variant, count], F4 portrait 0.895 x 1.28 m in a frame. */
+let posterTex: THREE.Texture | null = null;
+const POSTER_VARIANTS = 1;
+
+export function buildPosters(rows: number[][]): THREE.Object3D[] {
+  if (!rows.length) return [];
+  posterTex ??= Object.assign(new THREE.TextureLoader().load('/tex/posters.webp'), { colorSpace: THREE.SRGBColorSpace, anisotropy: 4 });
+  const pos: number[] = [], uv: number[] = [], nrm: number[] = [], idx: number[] = [];
+  const frames: number[] = [], fidx: number[] = [];
+  const quad = (P: number[], I: number[], cx: number, cy: number, z: number, tx: number, ty: number, hw: number, hh: number, off: number, uvs?: number[]) => {
+    const ox = ty, oy = -tx, b = P.length / 3;
+    for (const [u, v] of [[-hw, -hh], [hw, -hh], [hw, hh], [-hw, hh]]) {
+      P.push(cx + ox * off + tx * u, z + v, -(cy + oy * off + ty * u));
+      if (P === pos) nrm.push(ox, 0, -oy);
+    }
+    if (uvs) uv.push(...uvs);
+    I.push(b, b + 1, b + 2, b, b + 2, b + 3);
+  };
+  for (const [x, y, z, tx, ty, variant, count] of rows) {
+    const n = count || 1, gap = 0.98;
+    quad(frames, fidx, x, y, z, tx, ty, (n * gap) / 2 + 0.08, 0.74, 0.04);
+    for (let k = 0; k < n; k++) {
+      const c = (k - (n - 1) / 2) * gap, v = (variant + k) % POSTER_VARIANTS;
+      const u0 = v / POSTER_VARIANTS, u1 = (v + 1) / POSTER_VARIANTS;
+      quad(pos, idx, x + tx * c, y + ty * c, z, tx, ty, 0.4475, 0.64, 0.07, [u0, 0, u1, 0, u1, 1, u0, 1]);
+    }
+  }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  g.setAttribute('normal', new THREE.Float32BufferAttribute(nrm, 3));
+  g.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
+  g.setIndex(idx);
+  const f = new THREE.BufferGeometry();
+  f.setAttribute('position', new THREE.Float32BufferAttribute(frames, 3));
+  f.setIndex(fidx);
+  f.computeVertexNormals();
+  return [new THREE.Mesh(g, new THREE.MeshLambertMaterial({ map: posterTex })), new THREE.Mesh(f, new THREE.MeshLambertMaterial({ color: 0x2a2d30 }))];
+}
+
+/** Fictional wild-posting flyers: rows [x, y, z, tx, ty, sheet, rot], A2 (0.42 x 0.594 m), 4x4 sheet grid. */
+let wildTex: THREE.Texture | null = null;
+
+export function buildWildPosters(rows: number[][]): THREE.Object3D[] {
+  if (!rows.length) return [];
+  wildTex ??= Object.assign(new THREE.TextureLoader().load('/tex/wildposters.webp'), { colorSpace: THREE.SRGBColorSpace, anisotropy: 4 });
+  const pos: number[] = [], uv: number[] = [], nrm: number[] = [], idx: number[] = [];
+  rows.forEach(([x, y, z, tx, ty, sheet, rot], n) => {
+    const ox = ty, oy = -tx, b = pos.length / 3, hw = 0.21, hh = 0.297, off = 0.05 + n * 0.0008;
+    const c = Math.cos(rot), s = Math.sin(rot);
+    for (const [u0, v0] of [[-hw, -hh], [hw, -hh], [hw, hh], [-hw, hh]]) {
+      const u = u0 * c - v0 * s, v = u0 * s + v0 * c;
+      pos.push(x + ox * off + tx * u, z + v, -(y + oy * off + ty * u));
+      nrm.push(ox, 0, -oy);
+    }
+    const col = sheet % 4, row = Math.floor(sheet / 4);
+    const a = col / 4, bb = (col + 1) / 4, t0 = 1 - (row + 1) / 4, t1 = 1 - row / 4;
+    uv.push(a, t0, bb, t0, bb, t1, a, t1);
+    idx.push(b, b + 1, b + 2, b, b + 2, b + 3);
+  });
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  g.setAttribute('normal', new THREE.Float32BufferAttribute(nrm, 3));
+  g.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
+  g.setIndex(idx);
+  return [new THREE.Mesh(g, new THREE.MeshLambertMaterial({ map: wildTex }))];
+}
+
+/** Fictional graffiti tags on walls: rows [x, y, z, tx, ty, idx, scale]; 4x4 RGBA atlas. */
+let graffitiTex: THREE.Texture | null = null;
+
+export function buildGraffiti(rows: number[][]): THREE.Object3D[] {
+  if (!rows.length) return [];
+  graffitiTex ??= Object.assign(new THREE.TextureLoader().load('/tex/graffiti.png'), { colorSpace: THREE.SRGBColorSpace, anisotropy: 4 });
+  const pos: number[] = [], uv: number[] = [], nrm: number[] = [], idx: number[] = [];
+  rows.forEach(([x, y, z, tx, ty, k, sc], n) => {
+    const ox = ty, oy = -tx, b = pos.length / 3, h = 0.8 * sc, off = 0.035 + n * 0.0005;
+    for (const [u, v] of [[-h, -h], [h, -h], [h, h], [-h, h]]) {
+      pos.push(x + ox * off + tx * u, z + v, -(y + oy * off + ty * u)); nrm.push(ox, 0, -oy);
+    }
+    const c = k % 4, r = Math.floor(k / 4);
+    uv.push(c / 4, 1 - (r + 1) / 4, (c + 1) / 4, 1 - (r + 1) / 4, (c + 1) / 4, 1 - r / 4, c / 4, 1 - r / 4);
+    idx.push(b, b + 1, b + 2, b, b + 2, b + 3);
+  });
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  g.setAttribute('normal', new THREE.Float32BufferAttribute(nrm, 3));
+  g.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
+  g.setIndex(idx);
+  return [new THREE.Mesh(g, new THREE.MeshLambertMaterial({ map: graffitiTex, transparent: true, depthWrite: false,
+    polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 }))];
+}

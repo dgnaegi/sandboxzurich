@@ -1,0 +1,247 @@
+{
+ "jobs_year": "2008",
+ "jobs_by_kreis": {
+  "3": 31994,
+  "4": 28005,
+  "5": 32640,
+  "9": 37758,
+  "Stadt": 340349
+ },
+ "quartier_names_kreis4_5": {
+  "31": "Alt-Wiedikon",
+  "33": "Friesenberg",
+  "34": "Sihlfeld",
+  "41": "Werd",
+  "42": "Langstrasse",
+  "44": "Hard",
+  "51": "Gewerbeschule",
+  "52": "Escher Wyss",
+  "91": "Albisrieden",
+  "92": "Altstetten"
+ },
+ "weekly_residents": {
+  "year": "2025",
+  "3": 1267,
+  "4": 1132,
+  "5": 458,
+  "9": 1199,
+  "Stadt": 13650
+ },
+ "nationality_year": "2025",
+ "top_nationalities": {
+  "3": [
+   [
+    "Schweiz",
+    0.684
+   ],
+   [
+    "Deutschland",
+    0.067
+   ],
+   [
+    "Italien",
+    0.039
+   ],
+   [
+    "Spanien",
+    0.02
+   ],
+   [
+    "Portugal",
+    0.014
+   ],
+   [
+    "Frankreich",
+    0.013
+   ],
+   [
+    "Österreich",
+    0.009
+   ],
+   [
+    "Ukraine",
+    0.008
+   ]
+  ],
+  "4": [
+   [
+    "Schweiz",
+    0.622
+   ],
+   [
+    "Deutschland",
+    0.077
+   ],
+   [
+    "Italien",
+    0.051
+   ],
+   [
+    "Spanien",
+    0.03
+   ],
+   [
+    "Portugal",
+    0.027
+   ],
+   [
+    "Frankreich",
+    0.016
+   ],
+   [
+    "Österreich",
+    0.012
+   ],
+   [
+    "Griechenland",
+    0.009
+   ]
+  ],
+  "5": [
+   [
+    "Schweiz",
+    0.68
+   ],
+   [
+    "Deutschland",
+    0.08
+   ],
+   [
+    "Italien",
+    0.041
+   ],
+   [
+    "Spanien",
+    0.02
+   ],
+   [
+    "Frankreich",
+    0.018
+   ],
+   [
+    "Österreich",
+    0.011
+   ],
+   [
+    "Portugal",
+    0.011
+   ],
+   [
+    "Grossbritannien",
+    0.008
+   ]
+  ],
+  "9": [
+   [
+    "Schweiz",
+    0.658
+   ],
+   [
+    "Deutschland",
+    0.062
+   ],
+   [
+    "Italien",
+    0.05
+   ],
+   [
+    "Portugal",
+    0.022
+   ],
+   [
+    "Spanien",
+    0.022
+   ],
+   [
+    "Österreich",
+    0.01
+   ],
+   [
+    "Frankreich",
+    0.01
+   ],
+   [
+    "Türkei",
+    0.01
+   ]
+  ],
+  "Stadt": [
+   [
+    "Schweiz",
+    0.661
+   ],
+   [
+    "Deutschland",
+    0.072
+   ],
+   [
+    "Italien",
+    0.04
+   ],
+   [
+    "Spanien",
+    0.019
+   ],
+   [
+    "Portugal",
+    0.015
+   ],
+   [
+    "Frankreich",
+    0.013
+   ],
+   [
+    "Österreich",
+    0.011
+   ],
+   [
+    "Griechenland",
+    0.008
+   ]
+  ]
+ },
+ "nationalities_count": {
+  "3": 136,
+  "4": 132,
+  "5": 120,
+  "9": 146,
+  "Stadt": 176
+ },
+ "hotel_kennzahlen": [
+  "Ankünfte",
+  "Logiernächte"
+ ],
+ "hotel_2025_logiernaechte_total": 4179908,
+ "hotel_2025_monthly_share_logiernaechte": {
+  "01": 0.066,
+  "02": 0.056,
+  "03": 0.071,
+  "04": 0.077,
+  "05": 0.09,
+  "06": 0.093,
+  "07": 0.098,
+  "08": 0.101,
+  "09": 0.09,
+  "10": 0.086,
+  "11": 0.077,
+  "12": 0.094
+ },
+ "jobs_2008_per_resident_2008": {
+  "3": 0.69,
+  "4": 1.02,
+  "5": 2.57,
+  "9": 0.8
+ },
+ "jobs_2008_share_of_city": {
+  "3": 0.094,
+  "4": 0.082,
+  "5": 0.096,
+  "9": 0.111
+ },
+ "residents_2008": {
+  "3": 46595,
+  "4": 27354,
+  "5": 12722,
+  "9": 47295
+ }
+}

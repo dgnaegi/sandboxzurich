@@ -1,0 +1,180 @@
+[
+ {
+  "w": 1400,
+  "h": 560,
+  "pos": [
+   -3,
+   1.4,
+   -8.0
+  ],
+  "look": [
+   0,
+   0.85,
+   0
+  ],
+  "fov": 24,
+  "items": [
+   {
+    "id": "npc_01",
+    "x": -3.0,
+    "acc": [
+     "backpack"
+    ]
+   },
+   {
+    "id": "npc_00",
+    "x": -1.8,
+    "acc": [
+     "shoulder_bag"
+    ]
+   },
+   {
+    "id": "npc_02",
+    "x": -0.6,
+    "acc": [
+     "tote_bag"
+    ]
+   },
+   {
+    "id": "npc_03",
+    "x": 0.6,
+    "acc": [
+     "shopping_bag",
+     "shopping_bag_green"
+    ]
+   },
+   {
+    "id": "npc_05",
+    "x": 1.8,
+    "acc": [
+     "cane"
+    ]
+   },
+   {
+    "id": "npc_08",
+    "x": 3.0,
+    "acc": [
+     "umbrella_closed"
+    ]
+   }
+  ]
+ },
+ {
+  "w": 1400,
+  "h": 560,
+  "pos": [
+   -3,
+   1.4,
+   -8.0
+  ],
+  "look": [
+   0,
+   0.85,
+   0
+  ],
+  "fov": 24,
+  "items": [
+   {
+    "id": "npc_16",
+    "x": -3.0,
+    "anim": "stand_phone",
+    "acc": [
+     "phone"
+    ]
+   },
+   {
+    "id": "npc_26",
+    "x": -1.3,
+    "acc": [
+     "stroller"
+    ]
+   },
+   {
+    "id": "npc_33",
+    "x": 0.4,
+    "anim": "walk_slow",
+    "acc": [
+     "walker"
+    ]
+   },
+   {
+    "id": "npc_20",
+    "x": 2.0,
+    "acc": [
+     "dog_small",
+     "leash_small"
+    ]
+   },
+   {
+    "id": "npc_21",
+    "x": 3.4,
+    "acc": [
+     "dog_medium",
+     "leash_medium"
+    ]
+   }
+  ]
+ },
+ {
+  "w": 1400,
+  "h": 560,
+  "pos": [
+   -2,
+   1.4,
+   -8.0
+  ],
+  "look": [
+   0,
+   0.85,
+   0
+  ],
+  "fov": 24,
+  "items": [
+   {
+    "id": "npc_31",
+    "x": -3,
+    "anim": "walk_slow",
+    "t": 0.2,
+    "acc": [
+     "cane"
+    ]
+   },
+   {
+    "id": "npc_32",
+    "x": -1.8,
+    "acc": [
+     "cane"
+    ]
+   },
+   {
+    "id": "npc_36",
+    "x": -0.7,
+    "anim": "walk",
+    "t": 0.2
+   },
+   {
+    "id": "npc_37",
+    "x": 0.0,
+    "anim": "walk",
+    "t": 0.5
+   },
+   {
+    "id": "npc_17",
+    "x": 1.2,
+    "acc": [
+     "backpack"
+    ],
+    "anim": "walk",
+    "t": 0.3
+   },
+   {
+    "id": "npc_25",
+    "x": 2.5,
+    "anim": "stand_phone",
+    "acc": [
+     "phone"
+    ]
+   }
+  ]
+ }
+]

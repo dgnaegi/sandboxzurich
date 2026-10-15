@@ -1,0 +1,669 @@
+[
+ {
+  "id": "player",
+  "file": "player.glb",
+  "role": "player",
+  "sex": "f",
+  "age": "young",
+  "height": 1.593,
+  "walk_speed": 1.0,
+  "anims": [
+   "idle",
+   "walk",
+   "run"
+  ]
+ },
+ {
+  "id": "npc_00",
+  "file": "npc_00.glb",
+  "role": "npc",
+  "sex": "f",
+  "age": "young",
+  "height": 1.467,
+  "walk_speed": 1.0,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_01",
+  "file": "npc_01.glb",
+  "role": "npc",
+  "sex": "m",
+  "age": "young",
+  "height": 1.757,
+  "walk_speed": 1.0,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_02",
+  "file": "npc_02.glb",
+  "role": "npc",
+  "sex": "f",
+  "age": "mid",
+  "height": 1.511,
+  "walk_speed": 0.95,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_03",
+  "file": "npc_03.glb",
+  "role": "npc",
+  "sex": "m",
+  "age": "mid",
+  "height": 1.852,
+  "walk_speed": 0.95,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_04",
+  "file": "npc_04.glb",
+  "role": "npc",
+  "sex": "f",
+  "age": "old",
+  "height": 1.589,
+  "walk_speed": 0.6,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_05",
+  "file": "npc_05.glb",
+  "role": "npc",
+  "sex": "m",
+  "age": "old",
+  "height": 1.627,
+  "walk_speed": 0.6,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_06",
+  "file": "npc_06.glb",
+  "role": "npc",
+  "sex": "m",
+  "age": "young",
+  "height": 2.089,
+  "walk_speed": 1.0,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_07",
+  "file": "npc_07.glb",
+  "role": "npc",
+  "sex": "f",
+  "age": "young",
+  "height": 1.75,
+  "walk_speed": 1.0,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_08",
+  "file": "npc_08.glb",
+  "role": "npc",
+  "sex": "f",
+  "age": "mid",
+  "height": 1.919,
+  "walk_speed": 0.95,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_09",
+  "file": "npc_09.glb",
+  "role": "npc",
+  "sex": "m",
+  "age": "mid",
+  "height": 1.728,
+  "walk_speed": 0.95,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_10",
+  "file": "npc_10.glb",
+  "role": "npc",
+  "sex": "f",
+  "age": "young",
+  "height": 1.716,
+  "walk_speed": 1.0,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_11",
+  "file": "npc_11.glb",
+  "role": "npc",
+  "sex": "m",
+  "age": "young",
+  "height": 1.839,
+  "walk_speed": 1.0,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_12",
+  "file": "npc_12.glb",
+  "role": "npc",
+  "sex": "m",
+  "age": "old",
+  "height": 1.691,
+  "walk_speed": 0.6,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_13",
+  "file": "npc_13.glb",
+  "role": "npc",
+  "sex": "f",
+  "age": "old",
+  "height": 1.533,
+  "walk_speed": 0.6,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_14",
+  "file": "npc_14.glb",
+  "role": "npc",
+  "sex": "f",
+  "age": "mid",
+  "height": 1.811,
+  "walk_speed": 0.95,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_15",
+  "file": "npc_15.glb",
+  "role": "npc",
+  "sex": "m",
+  "age": "mid",
+  "height": 1.855,
+  "walk_speed": 0.95,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_16",
+  "file": "npc_16.glb",
+  "role": "npc",
+  "sex": "f",
+  "age": "young",
+  "height": 1.618,
+  "walk_speed": 1.0,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_17",
+  "file": "npc_17.glb",
+  "role": "npc",
+  "sex": "m",
+  "age": "young",
+  "height": 1.884,
+  "walk_speed": 1.0,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_18",
+  "file": "npc_18.glb",
+  "role": "npc",
+  "sex": "f",
+  "age": "young",
+  "height": 1.405,
+  "walk_speed": 1.0,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_19",
+  "file": "npc_19.glb",
+  "role": "npc",
+  "sex": "m",
+  "age": "young",
+  "height": 1.663,
+  "walk_speed": 1.0,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_20",
+  "file": "npc_20.glb",
+  "role": "npc",
+  "sex": "f",
+  "age": "young",
+  "height": 1.585,
+  "walk_speed": 1.0,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_21",
+  "file": "npc_21.glb",
+  "role": "npc",
+  "sex": "m",
+  "age": "young",
+  "height": 1.834,
+  "walk_speed": 1.0,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_22",
+  "file": "npc_22.glb",
+  "role": "npc",
+  "sex": "f",
+  "age": "young",
+  "height": 1.727,
+  "walk_speed": 1.0,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_23",
+  "file": "npc_23.glb",
+  "role": "npc",
+  "sex": "m",
+  "age": "young",
+  "height": 1.678,
+  "walk_speed": 1.0,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_24",
+  "file": "npc_24.glb",
+  "role": "npc",
+  "sex": "f",
+  "age": "young",
+  "height": 1.572,
+  "walk_speed": 1.0,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_25",
+  "file": "npc_25.glb",
+  "role": "npc",
+  "sex": "m",
+  "age": "young",
+  "height": 1.764,
+  "walk_speed": 1.0,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_26",
+  "file": "npc_26.glb",
+  "role": "npc",
+  "sex": "f",
+  "age": "young",
+  "height": 1.811,
+  "walk_speed": 1.0,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_27",
+  "file": "npc_27.glb",
+  "role": "npc",
+  "sex": "m",
+  "age": "young",
+  "height": 1.693,
+  "walk_speed": 1.0,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_28",
+  "file": "npc_28.glb",
+  "role": "npc",
+  "sex": "f",
+  "age": "mid",
+  "height": 1.533,
+  "walk_speed": 0.95,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_29",
+  "file": "npc_29.glb",
+  "role": "npc",
+  "sex": "m",
+  "age": "mid",
+  "height": 1.672,
+  "walk_speed": 0.95,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_30",
+  "file": "npc_30.glb",
+  "role": "npc",
+  "sex": "f",
+  "age": "mid",
+  "height": 1.601,
+  "walk_speed": 0.95,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_31",
+  "file": "npc_31.glb",
+  "role": "npc",
+  "sex": "f",
+  "age": "old",
+  "height": 1.491,
+  "walk_speed": 0.6,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ],
+  "props": [
+   "cane"
+  ]
+ },
+ {
+  "id": "npc_32",
+  "file": "npc_32.glb",
+  "role": "npc",
+  "sex": "m",
+  "age": "old",
+  "height": 1.767,
+  "walk_speed": 0.6,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ],
+  "props": [
+   "cane"
+  ]
+ },
+ {
+  "id": "npc_33",
+  "file": "npc_33.glb",
+  "role": "npc",
+  "sex": "f",
+  "age": "old",
+  "height": 1.584,
+  "walk_speed": 0.6,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ],
+  "props": [
+   "walker"
+  ]
+ },
+ {
+  "id": "npc_34",
+  "file": "npc_34.glb",
+  "role": "npc",
+  "sex": "m",
+  "age": "old",
+  "height": 1.783,
+  "walk_speed": 0.6,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_35",
+  "file": "npc_35.glb",
+  "role": "npc",
+  "sex": "m",
+  "age": "old",
+  "height": 1.729,
+  "walk_speed": 0.6,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ]
+ },
+ {
+  "id": "npc_36",
+  "file": "npc_36.glb",
+  "role": "npc",
+  "sex": "f",
+  "age": "child",
+  "height": 1.059,
+  "walk_speed": 0.8,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ],
+  "needs_adult": true
+ },
+ {
+  "id": "npc_37",
+  "file": "npc_37.glb",
+  "role": "npc",
+  "sex": "m",
+  "age": "child",
+  "height": 1.27,
+  "walk_speed": 0.8,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ],
+  "needs_adult": true
+ },
+ {
+  "id": "npc_38",
+  "file": "npc_38.glb",
+  "role": "npc",
+  "sex": "f",
+  "age": "child",
+  "height": 0.974,
+  "walk_speed": 0.8,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ],
+  "needs_adult": true
+ },
+ {
+  "id": "npc_39",
+  "file": "npc_39.glb",
+  "role": "npc",
+  "sex": "m",
+  "age": "child",
+  "height": 1.361,
+  "walk_speed": 0.8,
+  "anims": [
+   "idle",
+   "walk",
+   "run",
+   "walk_slow",
+   "stand_phone"
+  ],
+  "needs_adult": true
+ }
+]

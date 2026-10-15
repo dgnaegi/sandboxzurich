@@ -1,0 +1,16 @@
+n656649586|ok||Hohlstrasse 36, Zürich|Stadt Zürich OGD Gastwirtschaftsbetriebe 2025
+n1241219738|ok||Dienerstrasse 50, Zürich|Stadt Zürich OGD Gastwirtschaftsbetriebe 2025
+n869269142|ok||Stauffacherstrasse 98, Zürich|Stadt Zürich OGD Gastwirtschaftsbetriebe 2025
+n9343150799|ok||Langstrasse 120, Zürich|Stadt Zürich OGD Gastwirtschaftsbetriebe 2025
+n2008369716|ok||Ankerstrasse 108, Zürich|Stadt Zürich OGD Gastwirtschaftsbetriebe 2025
+n656643167|ok||Ankerstrasse 119, Zürich|Stadt Zürich OGD Gastwirtschaftsbetriebe 2025
+n656654442|ok||Brauerstrasse 3, Zürich|Stadt Zürich OGD Gastwirtschaftsbetriebe 2025
+n3926102925|ok||Brauerstrasse 34, Zürich|Stadt Zürich OGD Gastwirtschaftsbetriebe 2025
+n2395154664|ok||Brauerstrasse 36, Zürich|Stadt Zürich OGD Gastwirtschaftsbetriebe 2025
+n656824967|ok||Dienerstrasse 40, Zürich|Stadt Zürich OGD Gastwirtschaftsbetriebe 2025
+n1232849946|ok||Dienerstrasse 75, Zürich|Stadt Zürich OGD Gastwirtschaftsbetriebe 2025
+n5829856430|ok||Kanonengasse 33, Zürich|Stadt Zürich OGD Gastwirtschaftsbetriebe 2025
+n871794824|ok||Kernstrasse 60, Zürich|Stadt Zürich OGD Gastwirtschaftsbetriebe 2025
+n4070417589|ok||Molkenstrasse 15, Zürich|Stadt Zürich OGD Gastwirtschaftsbetriebe 2025
+n656516103|ok||Stauffacherstrasse 60, Zürich|Stadt Zürich OGD Gastwirtschaftsbetriebe 2025
+n656703086|ok||Zeughausstrasse 67, Zürich|Stadt Zürich OGD Gastwirtschaftsbetriebe 2025

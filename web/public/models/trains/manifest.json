@@ -1,0 +1,43 @@
+{
+ "units": "m",
+ "front": "-Z",
+ "up": "+Y",
+ "origin": "module centre, rail top (y=0)",
+ "modules": {
+  "sbahn_head": {
+   "file": "sbahn_head.glb",
+   "triangles": 970
+  },
+  "sbahn_mid": {
+   "file": "sbahn_mid.glb",
+   "triangles": 1070
+  }
+ },
+ "train": [
+  [
+   "head",
+   0
+  ],
+  [
+   "mid",
+   0
+  ],
+  [
+   "mid",
+   0
+  ],
+  [
+   "mid",
+   0
+  ],
+  [
+   "head",
+   1
+  ]
+ ],
+ "car_length": 26.4,
+ "bogie_z": [
+  -9.5,
+  9.5
+ ]
+}

@@ -1,0 +1,10 @@
+[
+{"osm_id":"n2904967414","name":"Eldorado","status":"unclear","address":"Limmatstrasse 109 (Website ohne Adresse)","source_url":"http://www.eldorado-zh.ch/"},
+{"osm_id":"n721046173","name":"Limmathof","status":"moved","address":"Limmatstrasse 217, 8005 Zürich","source_url":"https://www.arbeitskette.ch"},
+{"osm_id":"n725764614","name":"Jung","status":"unclear","address":"Limmatstrasse 123 (Website ohne Adresse)","source_url":"https://jung.ag/"},
+{"osm_id":"n465284110","name":"Medbase Apotheke Industrie","status":"unclear","address":"Limmatstrasse 180 (Website Zertifikatsfehler)","source_url":"https://www.topwell.ch/medbaseapothekezu"},
+{"osm_id":"n5341084408","name":"The Pie Shop","status":"unclear","address":"Limmatstrasse 231 (Weiterleitung nicht geprüft)","source_url":"http://www.pieshop.ch/"},
+{"osm_id":"w58573502","name":"Johanneskirche","status":"unclear","address":"Limmatstrasse 114 (Weiterleitung nicht geprüft)","source_url":"https://johannes-kirche.ch"},
+{"osm_id":"n10539791416","name":"America Baila","status":"ok","address":"Limmatstrasse 50, 8005 Zürich","source_url":"https://americabaila.com/en/"},
+{"osm_id":"n4191882104","name":"Stiftung SAPA","status":"ok","address":"Limmatstrasse 265, 8005 Zürich","source_url":"https://sapa.swiss"}
+]

@@ -1,0 +1,21 @@
+CENTER local x=1275 y=-628 r=160
+buildings 29; tagged:
+  (1278,-646) {'building': 'office', 'building:levels': '8', 'start_date': '2013'}
+  (1270,-610) {'building': 'office', 'building:levels': '8', 'start_date': '2013'}
+  (1239,-656) {'building': 'office', 'building:levels': '8', 'start_date': '2013'}
+  (1227,-615) {'building': 'office', 'building:levels': '8', 'start_date': '2013'}
+  (1310,-564) {'building': 'commercial', 'building:levels': '10', 'roof:shape': 'flat', 'start_date': '2020'}
+  (1212,-697) {'addr:housenumber': '41', 'addr:street': 'Lagerstrasse', 'building': 'commercial', 'building:levels': '7', 'roof:shape': 'gabled'}
+  (1234,-715) {'addr:housenumber': '33', 'addr:street': 'Lagerstrasse', 'building': 'commercial', 'building:levels': '6'}
+  (1194,-683) {'addr:housenumber': '45', 'addr:street': 'Lagerstrasse', 'building': 'commercial', 'building:levels': '7', 'roof:shape': 'gabled'}
+  (1170,-669) {'addr:housenumber': '47', 'addr:street': 'Lagerstrasse', 'building': 'office', 'building:levels': '6'}
+  (1222,-737) {'addr:housenumber': '3', 'addr:street': 'Freischützgasse', 'building': 'office', 'building:levels': '5'}
+  (1372,-710) {'building': 'school', 'building:levels': '8', 'name': 'Pestalozzianum', 'start_date': '2012'}
+  (1172,-704) {'addr:housenumber': '3', 'addr:street': 'Jägergasse', 'building': 'office', 'building:levels': '5'}
+  (1287,-757) {'building': 'office', 'building:levels': '5'}
+  (1380,-709) {'building': 'yes', 'building:levels': '8', 'name': 'PHZH LAA'}
+named shops/amenity: vomFASS [deli](1278,-597); Oxblood [clothes](1263,-592); Loft Five [restaurant](1310,-607); SV Mensa [fast_food](1229,-621); UBS [bank](1249,-588); Cafe Europa [cafe](1237,-666); Bean Bank Coffee & CO [coffee](1248,-675); the store @ bridge [convenience](1304,-579); La Cucina Tee & Gewürze [tea](1262,-684); Tokyo Express @ bridge [restaurant](1295,-574); Forschungsbibliothek Pestalozzianum [library](1312,-674); jung @ bridge [fast_food](1283,-567); ViCAFE @ bridge [cafe](1315,-581); Saleh [hairdresser](1214,-642); werun [sports](1264,-565); the grill @ bridge [restaurant](1293,-565); the bar @ bridge [bar](1325,-585); Via del gusto 28 [fast_food](1209,-638); puci's @ bridge [restaurant](1286,-561); Closed [clothes](1347,-629); Beetnut [restaurant](1277,-701); Revendo [computer](1219,-579); the wine shop @ bridge [bar](1331,-579); the beer @ bridge [biergarten](1324,-571); Coiffeur Saleh [hairdresser](1199,-629); Tara Style [jewelry](1236,-562); sourgood @ bridge [bakery](1291,-553); basic @ bridge [restaurant](1318,-564); fruits&juices&tea @ bridge [cafe](1303,-555); TopPharm [pharmacy](1356,-634)
+counts: natural=tree:104, amenity=bench:36, highway=street_lamp:22, amenity=waste_basket:21, amenity=bicycle_parking:19, railway=rail:19, barrier=wall:17, amenity=restaurant:10, barrier=kerb:10, railway=switch:9, amenity=toilets:9, amenity=cafe:8, amenity=parking:8, amenity=library:7, man_made=surveillance:5, amenity=fast_food:4, amenity=drinking_water:3, barrier=bollard:3, amenity=college:3, amenity=bar:2, amenity=recycling:2, amenity=school:2
+surfaces: {'paving_stones': 28, 'asphalt': 54, 'concrete': 4, 'metal': 4, 'sett': 3, 'fine_gravel': 4, 'unhewn_cobblestone': 1}
+streets: Lagerstrasse, Robert-Stephenson-Weg, Freischützgasse, Eisgasse, Europaallee, Europaallee Passage, Jägergasse, Gustav-Gull-Platz
+heritage 1: Zum Fruchthof [kommunal,1922](1293,-763)

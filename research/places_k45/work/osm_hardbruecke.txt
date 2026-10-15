@@ -1,0 +1,21 @@
+CENTER local x=26 y=122 r=200
+buildings 38; tagged:
+  (-33,203) {'building': 'office', 'building:colour': '#222222', 'building:levels': '7', 'height': '25', 'name': 'Platform', 'roof:colour': '#999999', 'start_date': '2011'}
+  (45,221) {'addr:housenumber': '201', 'addr:street': 'Hardstrasse', 'building': 'commercial', 'building:colour': '#7ac2b4', 'building:levels': '36', 'height': '126', 'name': 'Prime Tower', 'roof:colour': '#999999', 'roof:material': 'concrete', 'roof:shape': 'flat', 'start_date': '2011'}
+  (123,160) {'building': 'retail', 'building:levels': '2', 'roof:shape': 'gabled'}
+  (149,125) {'addr:housenumber': '29', 'addr:street': 'Geroldstrasse', 'building': 'warehouse', 'building:levels': '2', 'name': 'Brockenhaus', 'roof:shape': 'flat'}
+  (6,247) {'building': 'industrial', 'name': 'Diagonal'}
+  (120,207) {'addr:housenumber': '35', 'addr:street': 'Geroldstrasse', 'building': 'retail', 'building:levels': '1'}
+  (-39,-5) {'addr:housenumber': '268', 'addr:street': 'Hohlstrasse', 'building': 'yes', 'building:levels': '1', 'height': '3'}
+  (78,265) {'building': 'commercial', 'building:colour': '#ffffff', 'building:levels': '7', 'height': '25', 'name': 'Cubus', 'roof:colour': '#999999', 'start_date': '2011'}
+  (166,192) {'addr:housenumber': '25', 'addr:street': 'Geroldstrasse', 'building': 'industrial', 'roof:shape': 'pitched'}
+  (-9,275) {'addr:housenumber': '22', 'addr:street': 'Zahnradstrasse', 'building': 'yes', 'name': 'Lichthalle MAAG'}
+  (197,135) {'addr:housenumber': '23', 'addr:street': 'Geroldstrasse', 'building': 'yes', 'name': 'Juicery21'}
+  (196,157) {'addr:housenumber': '23b', 'addr:street': 'Geroldstrasse', 'building': 'yes', 'name': 'Gerolds Markt'}
+  (7,-54) {'addr:housenumber': '15', 'addr:street': 'Güterstrasse', 'building': 'school', 'building:levels': '3'}
+  (211,158) {'building': 'yes', 'name': 'Braschler‘s Bar'}
+named shops/amenity: Brezelkönig [bakery](33,131); k kiosk [kiosk](37,139); avec [convenience](60,154); Blueme Lade [florist](86,159); Coop to go [convenience](-7,190); Clouds [bar](39,214); Zürcher Kantonalbank [bank](55,212); Marronistand [fast_food](79,201); Clouds [restaurant](39,220); Zürcher Kantonalbank [atm](58,218); Rosso [restaurant](125,146); EY Restaurant Platform [restaurant](-36,207); Zum Gaul [restaurant](113,202); Velotto [bicycle](130,186); Ooki Temporary [restaurant](20,246); MOYOSHIMONO [events_venue](-3,243); Helsinki [nightclub](120,205); Hotel Rivington & Sons [bar](59,243); Pinky [fast_food](157,160); Migrolino [convenience](76,250); k2 [bar](-14,267); Frau Gerolds Garten [restaurant](182,121); Gelesene Bücher [books](187,111); Gerolds Markt [boutique](189,113); Mäx Club [bar](36,290); Mauiki [clothes](193,145); Cassare [clothes](194,155); WE ARE ZRCL [clothes](195,151); Gelateria di Berna [ice_cream](193,161); Making Things II [clothes](199,165)
+counts: railway=rail:72, railway=switch:42, natural=tree:41, railway=signal:19, amenity=parking:18, barrier=wall:14, amenity=waste_basket:13, highway=elevator:9, amenity=vending_machine:8, amenity=bicycle_parking:8, public_transport=stop_position:6, railway=disused:6, amenity=restaurant:6, railway=platform:5, public_transport=platform:5, barrier=retaining_wall:5, railway=tram:5, amenity=bar:5, highway=crossing:5, barrier=gate:5, barrier=bollard:5, railway=stop:4
+surfaces: {'stone': 3, 'asphalt': 101, 'sett': 6, 'paving_stones': 9, 'concrete': 5, 'fine_gravel': 7, 'paved': 1}
+streets: Hardbrücke, Geroldrampe, Hardstrasse, Bahnhof Hardbrücke, Geroldstrasse, Lichtstrasse, Zahnradstrasse, Naphtastrasse, Maschinenstrasse
+heritage 6: Maag-Areal [kommunal,None](10,247); Sperrstelle 6090 [regional,None](-18,75); Härterei der ehem. Maag-Zahnräder AG [kommunal,1942](-10,267); Gleisanlagen Industriequartier [kommunal,ab 1870](-50,240); Gleisanlagen Industriequartier [kommunal,ab 1870](86,291); Gleisanlagen Industriequartier [kommunal,ab 1870](21,277)

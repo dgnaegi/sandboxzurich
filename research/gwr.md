@@ -1,0 +1,9 @@
+# GWR (Gebäude- und Wohnungsregister, BFS)
+
+- Quelle: https://public.madd.bfs.admin.ch/zh.zip (Kanton ZH, Stand 2026-10-15), gecacht in `data/raw/gwr/` (TSV: gebaeude_batiment_edificio.csv, eingang_entree_entrata.csv, kodes_codes_codici.csv).
+- Lizenz: OGD BFS (Open Government Data). Quellenangabe: «Quelle: Bundesamt für Statistik (BFS), Eidg. Gebäude- und Wohnungsregister (GWR)».
+- Pipeline: `python3 pipeline/gwr.py` -> `data/build/gwr_kreise.json` (15112 bestehende Gebäude, GSTAT 1004, in Kreis 3/4/5/9; Gemeinde Zürich GGDENR 261). Kreis 5 heisst in der Polygon-Datei «Industriequartier».
+- Felder: egid, x, y (lokale m), street, nr (erster Eingang), year (GBAUJ, oft leer), period (GBAUP minus 8000: 11 = vor 1919, 12 = 1919-45, 13 = 1946-60, 14 = 61-70, 15 = 71-80, 16 = 81-85, 17 = 86-90, 18 = 91-95, 19 = 96-2000, 20 = 2001-05, 21 = 06-10, 22 = 11-15, 23 = nach 2015), floors (GASTW), flats (GANZWHG), class (GKLAS), class_txt, area (GAREA, m2).
+- GKLAS: 1110 1 Wohnung, 1121 2 Wohnungen, 1122 3+ Wohnungen, 1130 Gemeinschaftswohnen, 1211 Hotel, 1212 kurzfr. Beherbergung, 1220 Büro, 1230 Handel, 1231 Restaurant/Bar, 1241 Verkehr, 1242 Garage, 1251 Industrie, 1252 Lager/Silo, 1261 Kultur/Freizeit, 1262 Museum/Bibliothek, 1263 Schule/Hochschule, 1264 Spital, 1265 Sporthalle, 1272 Kirche, 1273 Denkmal, 1274 sonstige Hochbauten, 1275 kollektive Unterkunft. Vollständig: kodes_codes_codici.csv.
+- Aufruf: `from gwr import gwr_for_building; g = gwr_for_building(footprint_xy)` (Nx2 lokale m; Punkt im Polygon, sonst nächster <= 8 m; sonst None).
+- Test Testgebiet (x 600..1200, y -1000..-400): 546/549 Gebäude (99%) mit GWR. Perioden: vor 1919 419 (77%), 1919-45 15, 46-60 17, 61-70 22, 71-80 20, 81-85 10, 86-90 5, 96-2000 5, 2001-05 9, 06-10 7, 11-15 9, nach 2015 8. Klassen: 3+ Wohnungen 322, Büro 70, sonstige 34, Industrie 34, kurzfr. Beherbergung 23, Garage 14, Handel 11.

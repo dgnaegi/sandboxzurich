@@ -29,3 +29,7 @@ Stand: Ideensammlung. Die Ausarbeitung (Ablauf, Dialoge, Orte, Belohnungen) folg
 - Belohnung:
 - Benötigte Map-Features:
 ```
+
+## Idee: «Kurzzeit-Vermietige uffliege» (AirBnB busten) – noch nicht umsetzen
+Wunsch des Users (2026-10-14). Die Spielerin findet in Kreis 4/5 Wohnungen, die dauerhaft an Tourist:innen vermietet statt bewohnt werden (Schlüsselboxen an Hauseingängen, Rollkoffer-Kolonnen, leere Briefkästen), dokumentiert sie und meldet sie, damit die Wohnungen wieder an Leute aus dem Quartier gehen. Botschaft: Wohnraum statt Zweckentfremdung.
+- Leitplanken: keine echte Firma als Gegner → fiktive Plattform (z.B. «AirBnZ»), keine echten Adressen als «Täter», keine Gewalt; Fakten (Anzahl Kurzzeitwohnungen in Zürich) nur mit Quelle in `research/facts.md`.

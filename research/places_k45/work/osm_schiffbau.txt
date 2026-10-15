@@ -1,0 +1,21 @@
+CENTER local x=164 y=536 r=130
+buildings 20; tagged:
+  (170,526) {'building': 'industrial', 'name': 'Schiffbauhalle'}
+  (127,576) {'building': 'office', 'building:levels': '3'}
+  (197,470) {'building': 'commercial', 'building:levels': '3'}
+  (96,503) {'addr:housenumber': '7', 'addr:street': 'Schiffbaustrasse', 'building': 'apartments', 'building:levels': '6'}
+  (82,519) {'building': 'apartments', 'building:levels': '6'}
+  (80,562) {'building': 'office', 'building:levels': '6'}
+  (69,524) {'building': 'apartments', 'building:levels': '6'}
+  (188,437) {'addr:housenumber': '243', 'addr:street': 'Hardstrasse', 'building': 'yes', 'building:levels': '2'}
+  (104,444) {'building': 'office', 'building:levels': '5'}
+  (54,514) {'building': 'apartments', 'building:levels': '6'}
+  (75,466) {'building': 'office', 'building:levels': '6'}
+  (139,420) {'addr:housenumber': '6', 'addr:street': 'Pfingstweidstrasse', 'building': 'apartments', 'building:levels': '8'}
+  (44,501) {'building': 'apartments', 'building:levels': '6'}
+  (160,411) {'addr:housenumber': '4', 'addr:street': 'Pfingstweidstrasse', 'building': 'retail', 'building:levels': '1'}
+named shops/amenity: Venice Bar [events_venue](166,522); Schiffbau [theatre](181,526); LaSalle [restaurant](180,510); Capucho [restaurant](163,493); Moods (im Schiffbau) [events_venue](122,546); Spoon Schiffbau [restaurant](177,486); Labor5 Bar [nightclub](168,484); SieMatic am Schiffbau [kitchen](210,565); Relio [bank](115,497); evpass Ladestation [charging_station](101,521); Aubrey [restaurant](79,562); Exil [nightclub](212,457); Diavelo [bicycle](256,547); Ahoi! [general](69,529); Più [restaurant](257,514); Ahoi! [cafe](65,531); Euromaster [car_repair](179,436); 20.02 Beauty Space [beauty](269,542); Kulturpark [events_venue](85,463); Kai Sushi [restaurant](272,537); Marie Meierhofer Institut für das Kind [college](77,469); Les Halles [restaurant](146,420); collab atelier [clothes](106,433); Collab Zürich [boutique](101,434); Flor [restaurant](68,459)
+counts: natural=tree:99, amenity=bench:15, amenity=bicycle_parking:15, amenity=waste_basket:10, amenity=restaurant:8, amenity=parking:8, amenity=vending_machine:5, barrier=wall:4, amenity=events_venue:3, amenity=nightclub:2, amenity=charging_station:2, amenity=shelter:2, public_transport=platform:2, barrier=gate:2, public_transport=stop_position:2, highway=crossing:2, amenity=theatre:1, barrier=retaining_wall:1, man_made=tower:1, amenity=bank:1, leisure=outdoor_seating:1, highway=elevator:1
+surfaces: {'asphalt': 24, 'concrete': 3, 'paving_stones': 2, 'sett': 2, 'concrete:plates': 1, 'pebblestone': 1, 'paved': 1}
+streets: Hardstrasse, Schiffbaustrasse, Schiffbau, Giessereistrasse, Hardbrücke
+heritage 3: Escher Wyss (Sulzer) AG [kommunal,1893](226,643); Escher Wyss (Sulzer) AG [kommunal,1892](204,584); Escher Wyss (Sulzer) AG [kommunal,1891](173,526)

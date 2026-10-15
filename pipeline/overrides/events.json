@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Flohmarkt Kanzlei",
+    "address": "Kanzleistrasse 56, 8004 Zürich",
+    "kreis": 4,
+    "rhythm": "wöchentlich, ganzjährig, bei jedem Wetter",
+    "weekday": "Samstag",
+    "months": "ganzjährig",
+    "time": "07:20-16:00",
+    "source": "https://www.zuerich.com/de/besuchen/shopping/kanzlei-flohmarkt"
+  },
+  {
+    "name": "Wochenmarkt Helvetiaplatz",
+    "address": "Helvetiaplatz, 8004 Zürich",
+    "kreis": 4,
+    "rhythm": "wöchentlich (Einzelseite zuri.net nennt nur Freitag)",
+    "weekday": "Dienstag, Freitag",
+    "months": "ganzjährig (keine Saisonangabe)",
+    "time": "06:00-11:00",
+    "source": "https://switzerlanding.com/de/besten-maerkte-zuerich/"
+  },
+  {
+    "name": "Wochenmarkt Altstetten (Lindenplatz)",
+    "address": "Lindenplatz, 8048 Zürich",
+    "kreis": 9,
+    "rhythm": "wöchentlich",
+    "weekday": "Samstag",
+    "months": "ganzjährig (keine Saisonangabe)",
+    "time": "06:00-12:00",
+    "source": "https://www.zuerich.com/de/besuchen/shopping/wochenmarkt-altstetten"
+  },
+  {
+    "name": "Markthalle im Viadukt",
+    "address": "Limmatstrasse 231, 8005 Zürich",
+    "kreis": 5,
+    "rhythm": "täglich ausser Sonntag, ganzjährig",
+    "weekday": "Montag bis Samstag",
+    "months": "ganzjährig",
+    "time": "09:00-20:00",
+    "source": "https://www.zuerich.com/de/besuchen/shopping/markthalle-im-viadukt"
+  },
+  {
+    "name": "Brupbimärt Wiedikon",
+    "address": "Brupbacherplatz, 8003 Zürich",
+    "kreis": 3,
+    "rhythm": "wöchentlich, fast ganzjährig; Pause im Winter und Hochsommer",
+    "weekday": "Samstag",
+    "months": "fast ganzjährig (ohne Winter und Hochsommer)",
+    "time": "09:00-16:00",
+    "source": "https://switzerlanding.com/de/besten-maerkte-zuerich/"
+  },
+  {
+    "name": "Weltklasse Zürich (Leichtathletik, Diamond League)",
+    "address": "Stadion Letzigrund, Badenerstrasse 500, 8048 Zürich",
+    "kreis": 9,
+    "rhythm": "jährlich; 2026 am 26./27.08. (Zusatzanlass Hauptbahnhof am 26.08.)",
+    "weekday": "Donnerstag (2026: 27.08.)",
+    "months": "August",
+    "time": "18:00-22:00 (2026, laut Veranstalter-Snippet, nicht auf Stadionseite bestätigt)",
+    "source": "https://stadionletzigrund.com/en/news/topic/other-events/weltklasse-zurich-2026-ticket-sales/"
+  },
+  {
+    "name": "FC Zürich Heimspiele Letzigrund",
+    "address": "Stadion Letzigrund, Badenerstrasse 500, 8048 Zürich",
+    "kreis": 9,
+    "rhythm": "ca. alle 2-3 Wochen, Super-League-Saison 2026/27",
+    "weekday": "wechselnd (z.B. Dienstag 01.09.2026)",
+    "months": "August bis Mai",
+    "time": "je nach Spiel (z.B. 20:30 am 01.09.2026)",
+    "source": "https://stadionletzigrund.com/en/news/topic/football/start-in-die-neue-super-league-saison-2026-27-diese-spiele-finden-im-stadion-letzigrund-statt/"
+  },
+  {
+    "name": "Street Food Festival Zürich",
+    "address": "Hardturm-Stadionbrache, Hardturmplatz, 8005 Zürich",
+    "kreis": 5,
+    "rhythm": "jährlich im Frühsommer; 2026 27.05. bis 28.06. (andere Quelle: bis 21.06.)",
+    "weekday": "täglich",
+    "months": "Mai bis Juni",
+    "time": "Mo-Fr 17:00-22:00, Sa 12:00-22:00, So 12:00-21:00 (Foodstände)",
+    "source": "https://www.zvv.ch/de/freizeit-und-events/freizeittipps/events/street-food-festival-zuerich.html"
+  },
+  {
+    "name": "Openair-Kino Xenix",
+    "address": "Langstrasse laut zuerich.com (Adresse bitte prüfen), Kreis 4",
+    "kreis": 4,
+    "rhythm": "Sommersaison, 2026: 14.07.-18.08.",
+    "weekday": "nicht angegeben",
+    "months": "Juli bis August",
+    "time": "nicht angegeben",
+    "source": "https://www.zuerich.com/de/events-nachtleben/open-airs-und-musik-festivals/open-air-kinos"
+  },
+  {
+    "name": "Bloom Freiluftkino",
+    "address": "Europaplatz, 8004 Zürich",
+    "kreis": 4,
+    "rhythm": "Sommer, 2026: 14.-23.08.; Programm auf bloomkino.ch",
+    "weekday": "täglich (Kino)",
+    "months": "August",
+    "time": "abends",
+    "source": "https://www.freizeit.ch/kalender/21818/bloom-freiluftkino"
+  },
+  {
+    "name": "Hasenrainfest / Bundesfeier Albisrieden",
+    "address": "Aussichtsplatz Hasenrain, Albisriederstrasse 530, 8047 Zürich",
+    "kreis": 9,
+    "rhythm": "jährlicher Quartieranlass (2026 belegt); Eintritt frei",
+    "weekday": "Freitag 31.07.2026, Samstag 01.08.2026 (Bundesfeier)",
+    "months": "Juli bis August",
+    "time": "17:30-24:00",
+    "source": "https://www.myswitzerland.com/en-ch/experiences/events/hasenrainfestbundesfeier/"
+  },
+  {
+    "name": "Critical Mass Zürich",
+    "address": "variable Route, Start im Stadtzentrum (nicht belegt)",
+    "kreis": "variabel",
+    "rhythm": "monatlich am letzten Freitag (Tradition); seit 2023 Bewilligungspflicht",
+    "weekday": "Freitag",
+    "months": "ganzjährig",
+    "time": "Abend",
+    "source": "https://www.srf.ch/news/schweiz/velodemo-critical-mass-auch-an-unbewilligten-demos-gilt-schutz-der-meinungsfreiheit"
+  },
+  {
+    "name": "Velodemo Zürich",
+    "address": "Route unveröffentlicht; Hauptdemo Zürich",
+    "kreis": "variabel",
+    "rhythm": "jährlich um den Weltfahrradtag (Juni); 2023 Jubiläum 50 Jahre (03.06.)",
+    "weekday": "nicht angegeben (2023: Samstag 03.06.)",
+    "months": "Juni",
+    "time": "17:00 (ca. 2 Stunden)",
+    "source": "https://www.iamexpat.ch/expat-info/swiss-news/zurich-braces-3-days-disruption-velodemo-celebrates-50th-anniversary"
+  },
+  {
+    "name": "Maag Halle",
+    "address": "Hardstrasse 219, 8005 Zürich",
+    "kreis": 5,
+    "rhythm": "laufendes Konzert-, Club- und Theaterprogramm (Veranstaltungsort)",
+    "weekday": "wechselnd",
+    "months": "ganzjährig",
+    "time": "je nach Event",
+    "source": "https://www.zvv.ch/de/freizeit-und-events/freizeittipps/kunst-und-kultur/maag-halle-zuerich.html"
+  },
+  {
+    "name": "Giessereihalle Puls 5",
+    "address": "Turbinenplatz (hinter dem Schiffbau), 8005 Zürich",
+    "kreis": 5,
+    "rhythm": "laufend, Firmen- und Kulturanlässe (Veranstaltungsort, max. 1000 Personen)",
+    "weekday": "wechselnd",
+    "months": "ganzjährig",
+    "time": "je nach Event",
+    "source": "https://www.zuerich.com/de/besuchen/ort/giessereihalle-puls-5"
+  },
+  {
+    "name": "Zürcher Weihnachtsallee",
+    "address": "Europaallee, 8004 Zürich (beim Hauptbahnhof)",
+    "kreis": 4,
+    "rhythm": "jährlich; 2025 ca. 20.11.-23.12.; laut offizieller Seite 2026 ab 18.11. (nicht im Detail geprüft)",
+    "weekday": "täglich",
+    "months": "November bis Dezember",
+    "time": "Mo-Sa 11:00-22:00, So bis 20:00 (Daten 2025)",
+    "source": "https://www.zuerich.com/en/visit/shopping/zurcher-weihnachtsallee"
+  },
+  {
+    "name": "Kanzlei (Club, Partyabende)",
+    "address": "Kanzleistrasse 56, 8004 Zürich",
+    "kreis": 4,
+    "rhythm": "Partyabende mit wechselndem Programm (Quelle: Do-Sa)",
+    "weekday": "Donnerstag bis Samstag",
+    "months": "ganzjährig",
+    "time": "nachts",
+    "source": "https://www.zuerich.com/en/visit/bars-lounges/kanzlei"
+  },
+  {
+    "name": "Zurich Pride (Demo)",
+    "address": "Route nicht in Kreis 3/4/5/9 belegt (Buchungsseiten: Bellevue/Paradeplatz)",
+    "kreis": "variabel",
+    "rhythm": "jährlich; 2026 kein Festival, Demo am 20.06.2026 laut Tourismusseite",
+    "weekday": "nicht angegeben",
+    "months": "Juni",
+    "time": "tagsüber",
+    "source": "https://www.zuerich.com/en/visit/zurich-pride-festival"
+  }
+]

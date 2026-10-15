@@ -1,0 +1,1325 @@
+{
+ "_doc": "Source for pipeline/scenes_build.py; see research/scenes.md",
+ "fixed": [
+  {
+   "type": "queue",
+   "x": 790.1,
+   "y": -637.0,
+   "dir": 0.37,
+   "count": 24,
+   "sign": [
+    "BESICHTIGUNG 17:00",
+    "3½ Zi. · 4. OG",
+    "CHF 4'380.– exkl. NK"
+   ],
+   "egg": {
+    "id": "schlange",
+    "title": "Besichtigungsschlange",
+    "text": "Platz 147 von 212. Willkommen auf dem Zürcher Wohnungsmarkt."
+   }
+  },
+  {
+   "type": "stilts",
+   "path": [
+    [
+     778,
+     -700
+    ],
+    [
+     790,
+     -668
+    ],
+    [
+     800,
+     -640
+    ],
+    [
+     812,
+     -608
+    ]
+   ],
+   "egg": {
+    "id": "stelzen",
+    "title": "Stelzenläufer",
+    "text": "Von da oben sieht man sogar freie Wohnungen. Fast."
+   }
+  },
+  {
+   "type": "preacher",
+   "x": 772,
+   "y": -878,
+   "dir": 2.2,
+   "sign": [
+    "KEHRT UM!",
+    "Das Ende ist nah"
+   ],
+   "egg": {
+    "id": "prediger",
+    "title": "Strassenprediger",
+    "text": "Er steht jeden Samstag hier. Niemand weiss genau, seit wann."
+   }
+  },
+  {
+   "type": "musician",
+   "x": 792,
+   "y": -893,
+   "dir": -0.6,
+   "egg": {
+    "id": "musik",
+    "title": "Strassenmusik",
+    "text": "Wonderwall, zum dritten Mal heute."
+   }
+  },
+  {
+   "type": "picnic",
+   "x": 714,
+   "y": -912,
+   "count": 5,
+   "egg": {
+    "id": "picknick",
+    "title": "Feierabend auf der Wiese",
+    "text": "Ein Bier, eine Decke, die halbe Stadt."
+   }
+  },
+  {
+   "type": "boeoegg",
+   "x": 1112,
+   "y": -832,
+   "dir": 0.5,
+   "egg": {
+    "id": "boeoegg",
+    "title": "Der Böögg",
+    "text": "Wie lange bis sein Kopf explodiert? Dieses Jahr: nie. Er macht Ferien."
+   }
+  },
+  {
+   "type": "kiosk",
+   "x": 781,
+   "y": -873,
+   "dir": 2.6,
+   "sign": [
+    "WORT DES TAGES",
+    "«Chrottepösche»",
+    "= Löwenzahn"
+   ],
+   "egg": {
+    "id": "slang",
+    "title": "Wort des Tages",
+    "text": "«Bütschgi» heisst Kerngehäuse, «Zältli» Bonbon. Jetzt bist du offiziell ein bisschen Zürcherin."
+   }
+  },
+  {
+   "type": "luxemburgerli",
+   "x": 1124,
+   "y": -861,
+   "dir": 0.0,
+   "egg": {
+    "id": "luxemburgerli",
+    "title": "Luxemburgerli",
+    "text": "Eine Schachtel Luxemburgerli auf der Bank. Sie verschwinden schneller als freie Wohnungen."
+   }
+  }
+ ],
+ "groups": [
+  {
+   "id": "pingpong",
+   "type": "pingpong",
+   "pick": {
+    "tags": {
+     "sport": "table_tennis"
+    },
+    "no_name": true,
+    "no_tags": [
+     "indoor"
+    ]
+   },
+   "entries": [
+    {
+     "title": "Pingpong im Park",
+     "text": "Der Ball ist schneller als jede Baubewilligung."
+    },
+    {
+     "title": "Matchball",
+     "text": "Wer verliert, zahlt das nächste Feierabendbier. Wer gewinnt, auch."
+    },
+    {
+     "title": "Betonplatte, Stahlnetz",
+     "text": "Diese Tischtennisplatte überlebt jeden Winter. Bei den Mieten klappt das weniger."
+    },
+    {
+     "title": "Aufschlag!",
+     "text": "Sieben zu sechs, seit zwanzig Minuten. Niemand zählt mehr."
+    },
+    {
+     "title": "Doppel ohne Partner",
+     "text": "Der Schläger ist geliehen, der Ehrgeiz echt."
+    }
+   ],
+   "n": 5,
+   "min_sep": 150
+  },
+  {
+   "id": "boccia",
+   "type": "boccia",
+   "entries": [
+    {
+     "name": "Bocciodromo Letzi",
+     "title": "Boccia im Letzi",
+     "text": "Drei Kugeln, zwei Meinungen, ein Zentimeter. Der Streit dauert länger als das Spiel.",
+     "place": {
+      "nocheck": true
+     }
+    },
+    {
+     "name": "Josefwiese",
+     "title": "Boccia auf der Josefwiese",
+     "text": "Wer näher am Schweinchen liegt, bestimmt den Aperol. So steht es im Gesetz der Wiese.",
+     "dx": -14,
+     "dy": 8
+    },
+    {
+     "name": "Lutherwiese",
+     "title": "Boccia, aber gemütlich",
+     "text": "Die Kugeln rollen, die Gespräche auch. Das Ziel ist Nebensache."
+    }
+   ]
+  },
+  {
+   "id": "badi",
+   "type": "badi",
+   "entries": [
+    {
+     "name": "Planschbecken Bäckeranlage",
+     "title": "Badi-Tücher",
+     "text": "Handtuch reserviert, Besitzer noch beim Glacé. Im Sommer das einzig sichere Eigentum in Zürich.",
+     "dx": 4,
+     "dy": 0
+    },
+    {
+     "name": "Planschbecken Josefwiese",
+     "title": "Planschbecken-Zone",
+     "text": "Wasser knöcheltief, Stimmung bis zum Hals.",
+     "dx": 4,
+     "dy": 0,
+     "count": 4
+    },
+    {
+     "name": "Planschbecken Bullingerhof",
+     "title": "Sonnenplatz gesichert",
+     "text": "Ein Handtuch ist hier eine Besitzurkunde. Das Gericht heisst Nachbarschaft.",
+     "dx": 4,
+     "dy": 0
+    }
+   ]
+  },
+  {
+   "id": "strassenmusik",
+   "type": "musician",
+   "pick": {
+    "tags": {
+     "amenity": "cafe"
+    },
+    "has_name": true
+   },
+   "entries": [
+    {
+     "title": "Strassenmusik",
+     "text": "Wonderwall, zum vierten Mal heute. Das Kafi nebenan zahlt Schweigegeld.",
+     "kind": "guitar",
+     "sign": [
+      "SPIELGELD",
+      "Danke!"
+     ]
+    },
+    {
+     "title": "Akkordeon-Mann",
+     "text": "Nur Walzer, nie Techno. Das ist sein Beitrag zur Vielfalt.",
+     "kind": "accordion"
+    },
+    {
+     "title": "Saxophon im Hinterhof",
+     "text": "Er übt, bis die Nachbarn klatschen. Oder die Polizei kommt.",
+     "kind": "sax"
+    },
+    {
+     "title": "Open-Air-Konzert ohne Bewilligung",
+     "text": "Es sind genau zwanzig Minuten erlaubt. Er hat die Stoppuhr vergessen.",
+     "kind": "guitar"
+    },
+    {
+     "title": "Der Sänger",
+     "text": "Mundart-Pop, Eigenkomposition. Der Text handelt von der Wohnungssuche.",
+     "kind": "guitar",
+     "sign": [
+      "EIGENE LIEDER",
+      "CHF 5.– / CD"
+     ]
+    }
+   ],
+   "n": 5,
+   "off": true,
+   "street": "face",
+   "min_sep": 200
+  },
+  {
+   "id": "techbros",
+   "type": "tech",
+   "pick": {
+    "tags": {
+     "office": "it"
+    }
+   },
+   "entries": [
+    {
+     "title": "Stand-up-Meeting",
+     "text": "Das tägliche Stand-up dauert fünfundvierzig Minuten. Es steht niemand."
+    },
+    {
+     "title": "Pivot. Schon wieder.",
+     "text": "Das Start-up macht jetzt KI für Velo-Schlösser. Sagen sie."
+    },
+    {
+     "title": "Badge vergessen",
+     "text": "Der Badge ist drin, die Tür ist zu. Nach drei Wochen Remote-Arbeit gilt das als Teamevent."
+    },
+    {
+     "title": "Kaffeemaschine",
+     "text": "Die Kaffeemaschine im Büro hat mehr Features als das Produkt."
+    }
+   ],
+   "n": 4,
+   "off": true,
+   "street": "face",
+   "min_sep": 250
+  },
+  {
+   "id": "touristen",
+   "type": "tourists",
+   "pick": {
+    "tags": {
+     "tourism": "information"
+    }
+   },
+   "entries": [
+    {
+     "title": "Stadtführung",
+     "text": "Der Guide erzählt, was hier früher war. Meistens: ein Parkplatz."
+    },
+    {
+     "title": "Reisegruppe mit Fähnchen",
+     "text": "Alle fotografieren das Tram. Niemand fotografiert das Fähnchen. Das Fähnchen ist beleidigt."
+    },
+    {
+     "title": "Gruppenreise",
+     "text": "Der Mann mit dem Fähnchen sagt: «Hier hat Zürich nichts Besonderes.» Die Gruppe nickt begeistert."
+    }
+   ],
+   "n": 3,
+   "min_sep": 300
+  },
+  {
+   "id": "selfie",
+   "type": "selfie",
+   "pick": {
+    "tags": {
+     "tourism": "information"
+    }
+   },
+   "entries": [
+    {
+     "title": "Selfie-Moment",
+     "text": "Drei Gesichter, ein Tram im Hintergrund. Das Foto kriegt 14 Likes."
+    },
+    {
+     "title": "Gruppenfoto",
+     "text": "Noch einmal! Diesmal mit dem Kreis 4 im Hintergrund."
+    },
+    {
+     "title": "Perfekter Winkel",
+     "text": "Der Winkel stimmt. Der Rest vom Quartier nicht ganz."
+    }
+   ],
+   "n": 3,
+   "min_sep": 200
+  },
+  {
+   "id": "besichtigung",
+   "type": "queue",
+   "pick": {
+    "tags": {
+     "building": "apartments",
+     "addr:housenumber": "*"
+    }
+   },
+   "entries": [
+    {
+     "title": "Besichtigung, Schlange 2",
+     "text": "Du bist Nummer 91 für ein Zimmer ohne Fenster. Der Vermieter sagt: «Charmant.»",
+     "sign": [
+      "BESICHTIGUNG 18:30",
+      "2 Zi. · EG",
+      "CHF 2'950.– exkl. NK"
+     ],
+     "count": 12
+    },
+    {
+     "title": "Besichtigung am Dienstag",
+     "text": "Sie kommen mit Mappe, Referenzen und Zahnbürste.",
+     "sign": [
+      "BESICHTIGUNG 12:15",
+      "1½ Zi. · Altbau",
+      "CHF 1'890.–"
+     ],
+     "count": 10
+    },
+    {
+     "title": "Wohnungs-Casting",
+     "text": "Bewerbungsfoto, Lohnausweis, Betreibungsauszug. Fehlt nur noch das Vorsingen.",
+     "sign": [
+      "BESICHTIGUNG 17:00",
+      "4½ Zi. · 3. OG",
+      "CHF 5'200.– exkl. NK"
+     ],
+     "count": 14
+    },
+    {
+     "title": "Die lange Schlange",
+     "text": "Zwölf Personen für einen Balkon. Der Balkon ist schon vergeben.",
+     "sign": [
+      "BESICHTIGUNG SA",
+      "3 Zi. · Hinterhof",
+      "CHF 3'100.–"
+     ],
+     "count": 11
+    },
+    {
+     "title": "Treppenhaus-Stau",
+     "text": "Die Schlange reicht bis ins Treppenhaus. Die Wohnung ist im Dachgeschoss, der Lift im Keller.",
+     "sign": [
+      "BESICHTIGUNG 19:00",
+      "2½ Zi. · mit Charme",
+      "CHF 2'480.–"
+     ],
+     "count": 9
+    }
+   ],
+   "n": 5,
+   "off": true,
+   "street": "along",
+   "min_sep": 350
+  },
+  {
+   "id": "flohmarkt",
+   "type": "flohmarkt",
+   "pick": {
+    "tags": {
+     "shop": "music"
+    }
+   },
+   "entries": [
+    {
+     "title": "Vinyl auf dem Trottoir",
+     "text": "Original-Pressung, leicht verkratzt, wie die Stadt. Fünf Franken.",
+     "sign": [
+      "SCHALLPLATTEN",
+      "5.– / 3 für 10.–"
+     ]
+    },
+    {
+     "title": "Plattenkiste",
+     "text": "Es gibt nur Jazz und Volksmusik. Wer sucht, findet beides auf derselben Platte.",
+     "sign": [
+      "RARE GROOVES",
+      "PREIS NACH WÜRDE"
+     ]
+    },
+    {
+     "title": "Flohmarkt-Stand",
+     "text": "Die Platte, die du suchst, ist gerade verkauft. Immer.",
+     "sign": [
+      "FLOHMI",
+      "ALLES MUSS WEG"
+     ]
+    },
+    {
+     "title": "Vinyl-Fund",
+     "text": "Ein Album, das nur dein Götti kennt. Und er hat es verschenkt.",
+     "sign": [
+      "VINYL",
+      "TOP ZUSTAND"
+     ]
+    }
+   ],
+   "n": 4,
+   "off": true,
+   "street": "face",
+   "min_sep": 300
+  },
+  {
+   "id": "brocki",
+   "type": "flohmarkt",
+   "pick": {
+    "tags": {
+     "shop": "second_hand"
+    },
+    "has_name": true
+   },
+   "entries": [
+    {
+     "title": "Brocki-Tisch",
+     "text": "Zwanzig Tassen, eine Lampe, ein Fondue-Set. Alles aus «Haushaltsauflösung».",
+     "sign": [
+      "BROCKI",
+      "ALLES 2.–"
+     ]
+    },
+    {
+     "title": "Occasions-Stand",
+     "text": "Das Sofa kennt dich besser als dein Vermieter.",
+     "sign": [
+      "OCCASION",
+      "SOFA 40.–"
+     ]
+    }
+   ],
+   "n": 2,
+   "off": true,
+   "street": "face",
+   "min_sep": 500
+  },
+  {
+   "id": "kunst_a",
+   "type": "art",
+   "entries": [
+    {
+     "name": "Goldbarren",
+     "title": "Goldbarren",
+     "text": "Ein Goldbarren mitten in Zürich. Als Kunst. Das echte liegt im Keller.",
+     "sign": [
+      "Goldbarren"
+     ],
+     "place": {
+      "nocheck": true
+     }
+    },
+    {
+     "name": "Zebragruppe",
+     "title": "Zebragruppe",
+     "text": "Zebras in Zürich. Der Fussgängerstreifen war schon vorher da.",
+     "sign": [
+      "Zebragruppe"
+     ],
+     "place": {
+      "nocheck": true
+     }
+    },
+    {
+     "name": "Schildkröte",
+     "title": "Schildkröte",
+     "text": "Langsam, aber mit exzellenter Lage. Beneidenswert.",
+     "sign": [
+      "Schildkröte"
+     ],
+     "place": {
+      "nocheck": true
+     }
+    },
+    {
+     "name": "Schlange",
+     "title": "Schlange",
+     "text": "Eine Schlange. Zum Glück keine vor der Wohnungsbesichtigung.",
+     "sign": [
+      "Schlange"
+     ],
+     "place": {
+      "nocheck": true
+     }
+    },
+    {
+     "name": "Fuchs",
+     "title": "Fuchs",
+     "text": "Der Fuchs bewacht den Hof. Er hat auch keine freie Wohnung.",
+     "sign": [
+      "Fuchs"
+     ],
+     "place": {
+      "nocheck": true
+     }
+    },
+    {
+     "name": "Denkmal der Arbeit",
+     "title": "Denkmal der Arbeit",
+     "text": "Arbeit, die sich hier verewigt. Wer heute Feierabend hat, geht links vorbei.",
+     "sign": [
+      "Denkmal der Arbeit"
+     ],
+     "place": {
+      "nocheck": true
+     }
+    }
+   ]
+  },
+  {
+   "id": "kunst",
+   "type": "art",
+   "pick": {
+    "tags": {
+     "tourism": "artwork"
+    },
+    "has_name": true,
+    "unique_name": true,
+    "no_tags": [
+     "wikidata_none"
+    ]
+   },
+   "entries": [
+    {
+     "title": "Kunst am Weg: «{name}»",
+     "text": "Kunst im öffentlichen Raum: kein Eintritt, kein Museumsshop. Einfach stehenbleiben.",
+     "sign": [
+      "{name}"
+     ]
+    },
+    {
+     "title": "«{name}»",
+     "text": "Das nächste Tram kommt in drei Minuten. Die Kunst steht seit Jahren hier.",
+     "sign": [
+      "{name}"
+     ]
+    },
+    {
+     "title": "Schau hin: «{name}»",
+     "text": "Zürich hat mehr Kunst im Freien, als man beim Spazieren bemerkt. Bis jetzt.",
+     "sign": [
+      "{name}"
+     ]
+    }
+   ],
+   "n": 12,
+   "min_sep": 120
+  },
+  {
+   "id": "miniboeoegg",
+   "type": "miniboeoegg",
+   "pick": {
+    "tags": {
+     "amenity": "bicycle_parking"
+    }
+   },
+   "entries": [
+    {
+     "title": "Mini-Böögg",
+     "text": "Sechseläuten im Taschenformat. Er brennt nicht. Er parkt Velo."
+    },
+    {
+     "title": "Der kleine Böögg",
+     "text": "Hinter den Veloständern versteckt. Ob der Sommer gut wird? Er sagt: «Schaun mer mal.»"
+    },
+    {
+     "title": "Böögg Jr.",
+     "text": "Der Schneemann-Nachwuchs hat noch keinen Kopf zum Explodieren, aber schon einen Hut."
+    },
+    {
+     "title": "Heimlicher Böögg",
+     "text": "Er wartet auf April. Und auf einen freien Veloplatz."
+    },
+    {
+     "title": "Böögg auf Patrouille",
+     "text": "Wer ihn findet, bekommt vom Quartier einen Gratis-Zältli."
+    }
+   ],
+   "n": 5,
+   "min_sep": 250,
+   "params": {
+    "scale": 0.35
+   }
+  },
+  {
+   "id": "graffiti",
+   "type": "graffiti",
+   "pick": {
+    "tags": {
+     "building": "apartments"
+    }
+   },
+   "entries": [
+    {
+     "title": "Hier könnte Ihre Wohnung stehen",
+     "text": "Die Wand hat recht. Der Platz wäre da. Die Zusage nicht.",
+     "sign": [
+      "HIER KÖNNTE",
+      "IHRE WOHNUNG",
+      "STEHEN"
+     ],
+     "color": "#ff3d7f"
+    },
+    {
+     "title": "Balkon gesucht",
+     "text": "Tausch Garten gegen Balkon. Garten ist erfunden, Balkon auch.",
+     "sign": [
+      "BALKON GESUCHT",
+      "GARTEN BIETE"
+     ],
+     "color": "#ffd21f"
+    },
+    {
+     "title": "Wand zu vermieten",
+     "text": "Mit Aussicht auf die gegenüberliegende Wand. Nebenkosten exklusive.",
+     "sign": [
+      "ZU VERMIETEN:",
+      "DIESE WAND",
+      "CHF 2'900.–"
+     ],
+     "color": "#37c5ff"
+    },
+    {
+     "title": "Besichtigung Wand",
+     "text": "Bitte pünktlich. Es hat schon eine Schlange. Sie ist unsichtbar.",
+     "sign": [
+      "BESICHTIGUNG:",
+      "DIESE WAND",
+      "SA 14:00"
+     ],
+     "color": "#7dff6a"
+    },
+    {
+     "title": "Nur für Velos",
+     "text": "Die Velo-Lobby ist überall. Sogar auf Mauern.",
+     "sign": [
+      "NUR FÜR",
+      "VELOS:",
+      "DIESE WAND"
+     ],
+     "color": "#ff8a1f"
+    },
+    {
+     "title": "Züri-Mundart an der Wand",
+     "text": "Wer's lesen kann, ist seit mindestens drei Jahren hier.",
+     "sign": [
+      "ZÜRI",
+      "BIM TRAM",
+      "IMMER Z'SPOT"
+     ],
+     "color": "#f06bff"
+    }
+   ],
+   "n": 6,
+   "off": true,
+   "street": "face",
+   "min_sep": 300
+  },
+  {
+   "id": "tram",
+   "type": "eggonly",
+   "pick": {
+    "tags": {
+     "railway": "tram_stop"
+    },
+    "has_name": true,
+    "unique_name": true
+   },
+   "entries": [
+    {
+     "title": "Tram-Durchsage",
+     "text": "Nächster Halt: Feierabend. Umsteigen auf Bier möglich."
+    },
+    {
+     "title": "Tram-Durchsage",
+     "text": "Dieses Tram ist pünktlich. Bitte bleiben Sie ruhig."
+    },
+    {
+     "title": "Tram-Durchsage",
+     "text": "Bitte zuerst aussteigen lassen. Dann drängeln. Das ist Zürcher Etikette."
+    },
+    {
+     "title": "Tram-Durchsage",
+     "text": "Nächster Halt: Wohnung mit Balkon. Dieser Halt wird nicht bedient."
+    },
+    {
+     "title": "Tram-Durchsage",
+     "text": "Velos bitte nicht ins Tram nehmen. Ausser Sie sind sehr schnell."
+    },
+    {
+     "title": "Tram-Durchsage",
+     "text": "Fahrausweis bereithalten. Hund anleinen. Handy stumm. Danke."
+    },
+    {
+     "title": "Tram-Durchsage",
+     "text": "Die nächsten Verbindungen: 4, 8 und 12 Minuten. Zürich ist bekannt für Takt."
+    },
+    {
+     "title": "Tram-Durchsage",
+     "text": "Dieses Tram endet hier. Bitte nehmen Sie Ihre Gedanken mit."
+    }
+   ],
+   "n": 8,
+   "min_sep": 250
+  },
+  {
+   "id": "slang",
+   "type": "kiosk",
+   "pick": {
+    "tags": {
+     "shop": "kiosk"
+    }
+   },
+   "entries": [
+    {
+     "title": "Wort des Tages: Znüni",
+     "text": "«Znüni» heisst Znüni, weil es kurz vor zehn passiert. Logik ist optional.",
+     "sign": [
+      "WORT DES TAGES",
+      "«Znüni»",
+      "= Pausensnack um neun"
+     ]
+    },
+    {
+     "title": "Wort des Tages: Gschpänli",
+     "text": "Ein Gschpänli ist jemand, mit dem man sich auch in der Warteschlange versteht.",
+     "sign": [
+      "WORT DES TAGES",
+      "«Gschpänli»",
+      "= Freund:in, Kolleg:in"
+     ]
+    },
+    {
+     "title": "Wort des Tages: Pfnüsel",
+     "text": "Wer «Pfnüsel» sagt, hat meistens Tempo-Taschentücher dabei. Und gute Laune.",
+     "sign": [
+      "WORT DES TAGES",
+      "«Pfnüsel»",
+      "= Schnupfen"
+     ]
+    },
+    {
+     "title": "Wort des Tages: Plausch",
+     "text": "Ein «Plausch» braucht kein Budget. Nur ein Tram, das fährt.",
+     "sign": [
+      "WORT DES TAGES",
+      "«Plausch»",
+      "= Spass, Vergnügen"
+     ]
+    },
+    {
+     "title": "Wort des Tages: Ghüder",
+     "text": "«Ghüder» ist alles, was nicht in die Wohnung passt. Also alles.",
+     "sign": [
+      "WORT DES TAGES",
+      "«Ghüder»",
+      "= Abfall, Kram"
+     ]
+    },
+    {
+     "title": "Wort des Tages: Zvieri",
+     "text": "Das Zvieri kommt um vier. Wer es überspringt, verliert das Gesicht.",
+     "sign": [
+      "WORT DES TAGES",
+      "«Zvieri»",
+      "= Imbiss am Nachmittag"
+     ]
+    }
+   ],
+   "n": 6,
+   "off": true,
+   "street": "face",
+   "min_sep": 250
+  },
+  {
+   "id": "kurier",
+   "type": "couriers",
+   "pick": {
+    "tags": {
+     "amenity": "bicycle_rental"
+    }
+   },
+   "entries": [
+    {
+     "title": "Velokurier-Pause",
+     "text": "Drei Kurierinnen, drei Taschen, null Ruhe. Der nächste Auftrag piepst schon."
+    },
+    {
+     "title": "Kurier-Treff",
+     "text": "Man erkennt sie am Rucksack und an der Eile. Und am Tempo im Schlussspurt."
+    }
+   ],
+   "n": 2,
+   "min_sep": 500
+  },
+  {
+   "id": "lastenvelo",
+   "type": "cargo",
+   "pick": {
+    "tags": {
+     "shop": "convenience"
+    }
+   },
+   "entries": [
+    {
+     "title": "Lastenvelo mit Hund",
+     "text": "Der Hund sitzt vorne, das Gemüse hinten, die Eltern denken laut nach über das Leben."
+    },
+    {
+     "title": "Carvelo-Moment",
+     "text": "Ein Lastenvelo ersetzt das Auto. Ein Hund ersetzt den Alarm."
+    }
+   ],
+   "n": 2,
+   "off": true,
+   "street": "along",
+   "min_sep": 400
+  },
+  {
+   "id": "velopumpe",
+   "type": "eggonly",
+   "pick": {
+    "tags": {
+     "amenity": "bicycle_repair_station"
+    }
+   },
+   "entries": [
+    {
+     "title": "Velopumpe",
+     "text": "Gratis Luft und Werkzeug. Die einzige öffentliche Dienstleistung ohne Wartezeit."
+    },
+    {
+     "title": "Reparaturstation",
+     "text": "Ein Schlüssel hängt an der Kette, damit ihn niemand mitnimmt. Das Vertrauen hat Grenzen."
+    },
+    {
+     "title": "Luft ist gratis",
+     "text": "Zürich kostet viel. Luft nicht. Zumindest hier."
+    },
+    {
+     "title": "Pumpe gefunden",
+     "text": "Das wird nicht der letzte Platten sein. Aber der wichtigste Fund."
+    }
+   ],
+   "n": 4,
+   "min_sep": 300
+  },
+  {
+   "id": "uhr",
+   "type": "eggonly",
+   "pick": {
+    "tags": {
+     "amenity": "clock"
+    }
+   },
+   "entries": [
+    {
+     "title": "Öffentliche Uhr",
+     "text": "Die Uhr geht richtig. Zürich auch. Meistens."
+    },
+    {
+     "title": "Genau um Punkt",
+     "text": "Diese Uhr ist pünktlicher als jede Bauplanung."
+    },
+    {
+     "title": "Zeit ist Geld",
+     "text": "Die Uhr tickt. Die Mieten auch."
+    }
+   ],
+   "n": 3,
+   "min_sep": 400
+  },
+  {
+   "id": "club",
+   "type": "clubqueue",
+   "pick": {
+    "tags": {
+     "amenity": "nightclub"
+    }
+   },
+   "entries": [
+    {
+     "title": "Schlange vor dem Club",
+     "text": "Drinnen ist Platz, draussen die Schlange. Wie bei Wohnungen, nur lauter.",
+     "sign": [
+      "GÄSTELISTE",
+      "Heute: ausverkauft"
+     ]
+    },
+    {
+     "title": "Türsteher entscheidet",
+     "text": "«Heute nicht», sagt er. Er sagt es immer.",
+     "sign": [
+      "DRESSCODE",
+      "Schwarz bitte"
+     ]
+    },
+    {
+     "title": "Nachtschwärmer",
+     "text": "Die Warteschlange ist länger als die Nacht.",
+     "sign": [
+      "EINLASS AB 23:00",
+      "Tickets nur Abendkasse"
+     ]
+    }
+   ],
+   "n": 3,
+   "off": true,
+   "street": "along",
+   "min_sep": 350,
+   "params": {
+    "count": 8
+   }
+  },
+  {
+   "id": "ente",
+   "type": "duck",
+   "pick": {
+    "tags": {
+     "amenity": "fountain"
+    }
+   },
+   "entries": [
+    {
+     "title": "Quietscheente",
+     "text": "Wer die Ente findet, hat Glück. Wer sie klaut, hat einen Zeugen."
+    },
+    {
+     "title": "Badeente am Brunnen",
+     "text": "Sie schwimmt seit Jahren hier. Die Stadt weiss nichts davon."
+    },
+    {
+     "title": "Gelbe Ente",
+     "text": "Ein Quietsch zum Mitnehmen. Nur nicht wirklich."
+    }
+   ],
+   "n": 3,
+   "min_sep": 250
+  },
+  {
+   "id": "tauben",
+   "type": "pigeons",
+   "pick": {
+    "tags": {
+     "amenity": "bench"
+    }
+   },
+   "entries": [
+    {
+     "title": "Tauben-Parlament",
+     "text": "Die Tauben haben hier seit Jahren Dauerkarte. Niemand weiss, wer sie finanziert."
+    },
+    {
+     "title": "Krumen-Konferenz",
+     "text": "Sie warten auf Brot. Sie kennen die Öffnungszeiten der Bäckerei."
+    },
+    {
+     "title": "Tauben-Treff",
+     "text": "Ein Gurren, ein Picken. Politik auf Taubenart."
+    },
+    {
+     "title": "Stadtvögel",
+     "text": "Sie wohnen hier, ohne Mietvertrag. Was Besonderes."
+    }
+   ],
+   "n": 4,
+   "min_sep": 300
+  },
+  {
+   "id": "jass",
+   "type": "jass",
+   "pick": {
+    "tags": {
+     "leisure": "picnic_table"
+    }
+   },
+   "entries": [
+    {
+     "title": "Jass-Runde",
+     "text": "Schieber, Obenabe, Undenufe. Und plötzlich ist es dunkel."
+    },
+    {
+     "title": "Der letzte Stich",
+     "text": "Der Gewinner zahlt die Runde. Er hat vorher gemogelt."
+    },
+    {
+     "title": "Fondue am Picknicktisch",
+     "text": "In Zürich ist immer Fondue-Wetter, sobald jemand ein Caquelon besitzt.",
+     "kind": "fondue"
+    }
+   ],
+   "n": 3,
+   "min_sep": 300
+  },
+  {
+   "id": "toeggeli",
+   "type": "toeggeli",
+   "pick": {
+    "tags": {
+     "amenity": "bar"
+    },
+    "has_name": true
+   },
+   "entries": [
+    {
+     "title": "Töggelichaschte",
+     "text": "Einer dreht, einer lacht. Dazwischen rollt eine kleine Kugel durch die Zeit."
+    },
+    {
+     "title": "Töggeli-Turnier",
+     "text": "Das Finale dauert so lange wie die Wohnungssuche."
+    }
+   ],
+   "n": 2,
+   "off": true,
+   "street": "along",
+   "min_sep": 400
+  },
+  {
+   "id": "menu",
+   "type": "menu",
+   "pick": {
+    "tags": {
+     "amenity": "restaurant"
+    },
+    "has_name": true
+   },
+   "entries": [
+    {
+     "title": "Menüschild",
+     "text": "Züri Gschnätzlets mit Rösti. Der Klassiker, der immer gewinnt.",
+     "sign": [
+      "TAGESMENÜ",
+      "Züri Gschnätzlets",
+      "mit Rösti CHF 38.–"
+     ]
+    },
+    {
+     "title": "Tageskarte",
+     "text": "Kafi Luz: Kaffee mit Schnaps und Zucker. Eine Zürcher Erfindung für den Winter.",
+     "sign": [
+      "TAGESKARTE",
+      "Kafi Luz",
+      "CHF 7.50"
+     ]
+    },
+    {
+     "title": "Mittagsmenü",
+     "text": "Salat, Suppe, Hauptgang. Mittag, aber das Dessert holt dich ein.",
+     "sign": [
+      "MITTAGSMENÜ",
+      "Suppe + Hauptgang",
+      "CHF 24.–"
+     ]
+    },
+    {
+     "title": "Wochenhit",
+     "text": "Die Rösti ist die Grenze. Hier ist sie knusprig.",
+     "sign": [
+      "WOCHENHIT",
+      "Rösti mit Spiegelei",
+      "CHF 19.–"
+     ]
+    }
+   ],
+   "n": 4,
+   "off": true,
+   "street": "face",
+   "min_sep": 350
+  },
+  {
+   "id": "umzug",
+   "type": "umzug",
+   "pick": {
+    "tags": {
+     "building": "apartments"
+    }
+   },
+   "entries": [
+    {
+     "title": "Umzug",
+     "text": "Das Sofa passt nicht durchs Treppenhaus. Es passt nie."
+    },
+    {
+     "title": "Kisten-Chaos",
+     "text": "Fünfzehn Kartons, ein Besen, null Helfer. Das Znüni gilt als Bezahlung."
+    },
+    {
+     "title": "Neue Wohnung, altes Sofa",
+     "text": "Der Zügelmann sagt: «Das geht schon.» Das ist sein Standardsatz."
+    }
+   ],
+   "n": 3,
+   "off": true,
+   "street": "face",
+   "min_sep": 450
+  },
+  {
+   "id": "atm",
+   "type": "atm",
+   "pick": {
+    "tags": {
+     "amenity": "atm"
+    }
+   },
+   "entries": [
+    {
+     "title": "Bankomat-Schlange",
+     "text": "Bargeld? Die Schlange sagt: ja."
+    },
+    {
+     "title": "Zahlen mit Bargeld",
+     "text": "Vorne tippt jemand seit fünf Minuten den PIN. Vielleicht ein neues Passwort."
+    },
+    {
+     "title": "Geldautomat",
+     "text": "Er spuckt nur 20er aus. Das ist Absicht."
+    }
+   ],
+   "n": 3,
+   "off": true,
+   "street": "along",
+   "min_sep": 350,
+   "params": {
+    "count": 4
+   }
+  },
+  {
+   "id": "handschuh",
+   "type": "glove",
+   "pick": {
+    "tags": {
+     "amenity": "post_box"
+    }
+   },
+   "entries": [
+    {
+     "title": "Verlorener Handschuh",
+     "text": "Ein einzelner Handschuh auf dem Briefkasten. Der andere ist im Fundbüro, behauptet das Gerücht."
+    },
+    {
+     "title": "Handschuh-Fund",
+     "text": "Jemand hat ihn hochgelegt, damit der Besitzer ihn wiederfindet. Das ist Zürcher Gemeinschaftssinn."
+    },
+    {
+     "title": "Einzelner Handschuh",
+     "text": "Es ist immer der linke. Und es ist immer Dezember."
+    }
+   ],
+   "n": 3,
+   "min_sep": 450
+  },
+  {
+   "id": "pflanze",
+   "type": "planter",
+   "pick": {
+    "tags": {
+     "amenity": "recycling"
+    }
+   },
+   "entries": [
+    {
+     "title": "Guerilla-Garten",
+     "text": "Jemand hat hier Blumen gepflanzt. Der Quartierverein war's, sagt man."
+    },
+    {
+     "title": "Blumentopf",
+     "text": "Ein Topf mit Primeln, ohne Namensschild. Das Quartier gratuliert."
+    },
+    {
+     "title": "Mini-Beet",
+     "text": "Zwei Quadratmeter Natur, zwölf Nachbarn mit Meinung."
+    }
+   ],
+   "n": 3,
+   "min_sep": 450
+  },
+  {
+   "id": "hundespaziergang",
+   "type": "walker",
+   "pick": {
+    "way": {
+     "min_len": 70,
+     "len": 50
+    }
+   },
+   "entries": [
+    {
+     "title": "Hund mit Programm",
+     "text": "Er kennt die Route. Sie kennt nur die Leine."
+    },
+    {
+     "title": "Gassirunde",
+     "text": "Der Hund hält Hof, der Mensch folgt. Zürich lebt von diesen Spaziergängen."
+    },
+    {
+     "title": "Der Vierbeiner",
+     "text": "Er ist schneller als der Besitzer. Meistens auch klüger."
+    }
+   ],
+   "n": 3,
+   "min_sep": 250,
+   "params": {
+    "dog": true
+   }
+  },
+  {
+   "id": "jogger",
+   "type": "walker",
+   "pick": {
+    "way": {
+     "min_len": 70,
+     "len": 60
+    }
+   },
+   "entries": [
+    {
+     "title": "Joggerin",
+     "text": "Pulsuhr, Kopfhörer, Bestzeit. Das Ziel: nicht ins Tram rennen."
+    },
+    {
+     "title": "Der Morgenläufer",
+     "text": "Er läuft jeden Tag die gleiche Runde. Nur bei Regen läuft er schneller."
+    }
+   ],
+   "n": 2,
+   "min_sep": 300,
+   "params": {
+    "run": true
+   }
+  },
+  {
+   "id": "spaziergaenger",
+   "type": "walker",
+   "pick": {
+    "way": {
+     "min_len": 70,
+     "len": 45
+    }
+   },
+   "entries": [
+    {
+     "title": "Einkaufsrunde",
+     "text": "Tasche in der Hand, Handy im Kopf. Der Abendeinkauf des Quartiers."
+    },
+    {
+     "title": "Feierabendweg",
+     "text": "Sie nimmt den Umweg über den Park. Für die Seele."
+    }
+   ],
+   "n": 2,
+   "min_sep": 250
+  },
+  {
+   "id": "stelzen2",
+   "type": "stilts",
+   "pick": {
+    "way": {
+     "min_len": 70,
+     "len": 50
+    }
+   },
+   "entries": [
+    {
+     "title": "Noch ein Stelzenläufer",
+     "text": "Zwei Stelzenläufer in einem Quartier? Das Kulturbudget wurde wieder erhöht."
+    }
+   ],
+   "n": 1,
+   "min_sep": 500
+  }
+ ]
+}

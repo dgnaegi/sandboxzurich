@@ -1,0 +1,104 @@
+[
+ {
+  "type": "city",
+  "file": "city.glb",
+  "length": 1.79,
+  "tris": 1342
+ },
+ {
+  "type": "city_lean",
+  "file": "city_lean.glb",
+  "length": 1.79,
+  "tris": 1350
+ },
+ {
+  "type": "trekking",
+  "file": "trekking.glb",
+  "length": 1.81,
+  "tris": 1344
+ },
+ {
+  "type": "trekking_lean",
+  "file": "trekking_lean.glb",
+  "length": 1.81,
+  "tris": 1352
+ },
+ {
+  "type": "road",
+  "file": "road.glb",
+  "length": 1.65,
+  "tris": 1184
+ },
+ {
+  "type": "road_lean",
+  "file": "road_lean.glb",
+  "length": 1.65,
+  "tris": 1192
+ },
+ {
+  "type": "mtb",
+  "file": "mtb.glb",
+  "length": 1.68,
+  "tris": 1308
+ },
+ {
+  "type": "mtb_lean",
+  "file": "mtb_lean.glb",
+  "length": 1.68,
+  "tris": 1316
+ },
+ {
+  "type": "ebike",
+  "file": "ebike.glb",
+  "length": 1.82,
+  "tris": 1356
+ },
+ {
+  "type": "ebike_lean",
+  "file": "ebike_lean.glb",
+  "length": 1.82,
+  "tris": 1364
+ },
+ {
+  "type": "cargo",
+  "file": "cargo.glb",
+  "length": 2.76,
+  "tris": 1286
+ },
+ {
+  "type": "cargo_lean",
+  "file": "cargo_lean.glb",
+  "length": 2.76,
+  "tris": 1294
+ },
+ {
+  "type": "kidseat",
+  "file": "kidseat.glb",
+  "length": 1.79,
+  "tris": 1406
+ },
+ {
+  "type": "kidseat_lean",
+  "file": "kidseat_lean.glb",
+  "length": 1.79,
+  "tris": 1414
+ },
+ {
+  "type": "rental",
+  "file": "rental.glb",
+  "length": 1.52,
+  "tris": 1318
+ },
+ {
+  "type": "rental_lean",
+  "file": "rental_lean.glb",
+  "length": 1.52,
+  "tris": 1326
+ },
+ {
+  "type": "rack",
+  "file": "rack.glb",
+  "length": 0.12,
+  "tris": 120
+ }
+]

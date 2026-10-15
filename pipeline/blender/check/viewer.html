@@ -1,0 +1,39 @@
+<!doctype html><meta charset="utf-8"><body style="margin:0;background:#b8bcc2">
+<script type="importmap">{"imports":{"three":"/web/node_modules/three/build/three.module.js","three/addons/":"/web/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { clone } from "three/addons/utils/SkeletonUtils.js";
+const L = new GLTFLoader(), H = "/web/public/models/humans/", A = "/web/public/models/accessories/";
+const load = (u) => new Promise((r, e) => L.load(u, r, undefined, e));
+const cache = {};
+async function get(u) { return cache[u] ||= await load(u); }
+// measure bone/anchor transforms of an npc at t=0 of an animation
+window.measure = async (id, anim, bones) => {
+  const g = await get(H + id + ".glb"), o = clone(g.scene), mx = new THREE.AnimationMixer(o);
+  mx.clipAction(THREE.AnimationClip.findByName(g.animations, anim)).play(); mx.update(0); o.updateMatrixWorld(true);
+  const out = {};
+  for (const b of bones) { const n = o.getObjectByName(b); const p = new THREE.Vector3(), q = new THREE.Quaternion(), s = new THREE.Vector3(); n.matrixWorld.decompose(p, q, s); out[b] = { p: p.toArray(), q: q.toArray(), s: s.toArray() }; }
+  return out;
+};
+// scene: list of {id, x, anim, t, acc:[{file,bone,offset,rotation,scale,anim}]}
+window.show = async (items, cam) => {
+  const sc = new THREE.Scene(); sc.background = new THREE.Color(0xb8bcc2);
+  sc.add(new THREE.HemisphereLight(0xffffff, 0x667788, 1.6)); const d = new THREE.DirectionalLight(0xffffff, 2); d.position.set(2, 4, 3); sc.add(d);
+  const mixers = [];
+  for (const it of items) {
+    const g = await get(H + it.id + ".glb"), o = clone(g.scene); o.position.set(it.x, 0, it.z || 0); if (it.ry) o.rotation.y = it.ry; sc.add(o);
+    const mx = new THREE.AnimationMixer(o); mx.clipAction(THREE.AnimationClip.findByName(g.animations, it.anim || "idle")).play(); mx.update(it.t || 0); mixers.push([mx, it.t || 0]);
+    for (const a of it.acc || []) {
+      const ag = await get(A + a.file), m = clone(ag.scene); m.position.fromArray(a.offset); m.rotation.set(...a.rotation, "XYZ"); if (a.scale) m.scale.setScalar(a.scale);
+      if (a.color) m.traverse((c) => { if (c.isMesh) { c.material = c.material.clone(); c.material.color.set(a.color); } });
+      (a.bone ? o.getObjectByName(a.bone) : o).add(m);
+      if (ag.animations.length) { const am = new THREE.AnimationMixer(m); am.clipAction(ag.animations[0]).play(); am.update(a.at || 0.1); }
+    }
+  }
+  const r = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true }); r.setSize(cam.w, cam.h); document.body.appendChild(r.domElement);
+  const c = new THREE.PerspectiveCamera(cam.fov || 30, cam.w / cam.h, 0.1, 100); c.position.fromArray(cam.pos); c.lookAt(...cam.look);
+  r.render(sc, c); return true;
+};
+window.ready = true;
+</script>

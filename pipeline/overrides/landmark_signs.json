@@ -1,0 +1,12 @@
+{
+  "_doc": "Prominent free-standing name signs for squares (double-sided enamel panel on two posts + dedication plaque). Position in local metres, heading = panel tangent in radians. Plaque text from Stadt Zürich OGD Widmungstafel.",
+  "signs": [
+    {
+      "name": "Rosa-Luxemburg-Platz",
+      "x": -1468.0, "y": 468.5, "heading": -0.395,
+      "plaque": "Rosa Luxemburg (1871–1919)\nSozialistin und politische Aktivistin\nder internationalen Arbeiterbewegung",
+      "flowers": true,
+      "source": "Stadt Zürich OGD: Widmungstafel objectid 353, Strassennamenverzeichnis str_nr 2556 (Hohlstrasse 444–446, Kreis 9)"
+    }
+  ]
+}

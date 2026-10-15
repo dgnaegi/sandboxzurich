@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <title>Grand Theft Züri</title>
+  <link rel="stylesheet" href="/src/ui/hud.css" />
+</head>
+<body>
+  <canvas id="view"></canvas>
+  <div id="hud">
+    <canvas id="radar" title="Karte (M)"></canvas>
+    <div id="place"><div id="place-name"></div><div id="place-kreis"></div></div>
+    <div id="help">WASD laufen · Shift rennen · Maus ziehen = Kamera · M = Karte</div>
+    <div id="topright"><div id="clock">17:03</div><div id="money">CHF 312.40</div><div id="stars"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div></div>
+    <div id="stats"></div>
+  </div>
+  <div id="mission"></div>
+  <div id="bigtext"><div id="bigtext-title"></div><div id="bigtext-text"></div></div>
+  <div id="prompt"></div>
+  <div id="bubble"></div>
+  <div id="touchbtns"><button id="btn-run">⇧</button><button id="btn-use">E</button></div>
+  <button id="btn-menu">☰</button>
+  <div id="menu">
+    <div class="m-page" data-page="main">
+      <h1>GRAND THEFT <b>ZÜRI</b></h1>
+      <button id="m-continue">Weiter</button><button id="m-map">Karte</button><button id="m-quality">Grafik: auto</button><button id="m-sound">Ton: an</button>
+      <button id="m-credits">Credits</button><button id="m-imprint">Impressum</button>
+    </div>
+    <div class="m-page" data-page="credits"><h2>Credits</h2>
+      <p>Kartendaten © OpenStreetMap-Mitwirkende (ODbL) · Gebäude und Gelände: © swisstopo (swissBUILDINGS3D, swissALTI3D) · Stadt Zürich Open Data (CC0): Baumkataster, Beleuchtung ewz, Parkplätze, Sitzbänke, Brunnen, Abfallgefässe, Zweiradparkierung, Hydranten, Strassennamenverzeichnis, Widmungstafeln, Gastwirtschaftsbetriebe, Denkmalpflege-Inventar, Statistik · BFS, Eidg. Gebäude- und Wohnungsregister (GWR) · VBZ-Linien aus OSM · Anekdoten mit Quellen in research/ · Figuren: MakeHuman/MPFB (CC0) · Schriften: Anton, Barlow, Archivo (SIL OFL) · Code: WTFPL</p>
+      <button class="m-back">Zurück</button></div>
+    <div class="m-page" data-page="imprint"><h2>Impressum</h2>
+      <p>Politische Werbung der Alternativen Linken (AL) Zürich. Verantwortlich: TODO. Alle Figuren, Firmen und Ereignisse im Spiel sind erfunden, ausser realen Orten und Läden als neutrale Kulisse. Kein Tracking.</p>
+      <button class="m-back">Zurück</button></div>
+  </div>
+  <div id="toast"><div id="toast-kicker"></div><div id="toast-title"></div><div id="toast-text"></div></div>
+  <div id="stick"><div id="knob"></div></div>
+  <div id="bigmap">
+    <canvas id="bigmap-canvas"></canvas>
+    <div id="bigmap-title">GRAND THEFT ZÜRI <span>· KARTE</span></div>
+    <div id="bigmap-legend"><i class="dot y"></i> spielbar – hineinklicken zum Hinspringen</div>
+    <button id="bigmap-close">✕</button>
+    <div id="bigmap-zoom"><button id="bigmap-in">+</button><button id="bigmap-out">−</button></div>
+  </div>
+  <div id="loading"><div>GRAND THEFT <b>ZÜRI</b></div><small id="loading-text">Zürich wird geladen …</small>
+    <div id="controls">PC: WASD laufen · Shift rennen · E Velo · M Karte · Esc Menü<br>Handy: links Joystick · rechts Kamera · E Velo · Radar = Karte</div>
+    <div id="byline">Ein Wahlkampfspiel der Alternativen Linken · radikal sozial</div></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

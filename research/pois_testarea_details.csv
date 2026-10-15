@@ -1,0 +1,331 @@
+name,osm_id,kind,address,cuisine_sortiment,opening_hours,opening_src,outdoor_seating,schild_schaufenster,stimmung_publikum,status,quelle_url,notiz
+Allegrotto,14019839153,fast_food,Langstrasse 81,pizza;burger;indian;sri_lankan;salad;kebab;chicken,Mo-We 11:00-23:00; Th-Su 00:00-24:00,OSM,nein (OSM),nicht belegt,"Take-away/Lieferkurier, Quartierpublikum, Pizza/Burger/Kebab",ok,https://allegrotto-zurich.ch/,Website: Standort Langstrasse 81
+Brick,317454772,bar,Langstrasse 21,,,,unbekannt,nicht belegt,Cocktailbar,geschlossen?,http://brickbar.ch/,Website meldet Schliessung per 30.4.2026 - Eintrag prüfen
+Celia,808458835,restaurant,Langstrasse 35,italian,Mo-Sa 11:30-24:00; Su 17:00-24:00,OSM,ja (OSM),nicht belegt,"Italienisches Restaurant, Mittagsmenüs, Take-away",ok,https://celia-restaurant.com,"Website: Pasta, Pizza, Risotto, Fleisch, Salat"
+Chickeria,4869996367,fast_food,Langstrasse 83,chicken,Su-Th 10:00-22:00; Fr-Sa 10:00-02:00,OSM,unbekannt,nicht belegt,"Chicken/Fast Food, Take-away",Website 404,https://chickeria.ch/details/chickeria-zuerich-langstrasse/,Seite nicht gefunden; Hours nur OSM
+El Presidente,7059418846,nightclub,Langstrasse 80,,,,unbekannt,nicht belegt,Nightclub (laut OSM),Suche ohne Treffer,https://www.zuerich.com/en/visit/bars-lounges/longstreet,Websuche fand keinen Eintrag; Existenz prüfen
+Gotthard Bar,346245377,restaurant,Langstrasse 63,,Mo-We 17:00-02:00; Th 17:00-04:00; Fr 17:00-04:30; Sa 19:00-04:30,OSM,unbekannt,nicht belegt,"Traditionslokal, gemütlich, gute Musik ('Beiz und mee')",ok,http://www.gotthard-bar.ch,Website: Traditionslokal an der Langstrasse
+Kir Royal,362915349,bar,Langstrasse 62,,"Tu,We 17:00-24:00, Th 17:00-02:00, Fr 17:00-04:00, Sa 19:00-04:00",OSM,unbekannt,nicht belegt,"Bar mit Afterwork (Mo-Fr ab 17 Uhr), Live Music, DJs Do-Sa, Pub Quiz",ok,https://www.kirroyal.ch/,"Cocktails, Signature Drinks, Fine Spirits"
+Peeeng,13307980101,bar,Langstrasse 67,,We-Fr 17:00-02:00; Sa 15:00-02:00,OSM,unbekannt,nicht belegt,Bar (Name nur über Instagram erkennbar),ok,https://www.peeeng.ch/,Website ohne Inhalt
+Roter Delfin,11709381774,bar,Langstrasse 31,,Mo-Fr 11:30-00:00; Sa 10:00-00:00; Su 10:00-22:00,OSM,unbekannt,nicht belegt,Bar,ok,https://roterdelfin.ch/,Website ohne auswertbare Fakten
+SO Pizza,848938990,restaurant,Langstrasse 20,pizza,"Mo-Th 12:00-13:30, 18:00-22:00; Fr 12:00-13:30, 18:00-23:00; Sa 18:00-23:00; Su 18:00-22:00",OSM,unbekannt,nicht belegt,Pizza,Website falsch,https://www.so.pizza/,Abgerufene Seite beschreibt Basel (Klingental) - nicht verwendbar
+Spaccio,11975740106,fast_food,Langstrasse 61,pizza,"Mo-Th 11:30-14:00,17:00-22:00, Fr-Sa 11:30-24:00",OSM,unbekannt,nicht belegt,Pizza,Redirect (nicht gefolgt),https://sangennaro.ch/pizzerias/spaccio,Website leitet über Ketten-Redirect weiter; Fakten offen
+Gambrinus,582265531,restaurant,Langstrasse 103,regional,Mo-Fr 09:00-24:00; Sa-Su 10:00-24:00,OSM,unbekannt,nicht belegt,"Quartierbeiz, Schweizer Küche, Speise-/Wein-/Getränkekarte",ok,https://gambrinus-langstrasse.ch/,
+Gonzo,4496703517,nightclub,Langstrasse 135,,We-Sa 23:00-04:00,OSM,unbekannt,nicht belegt,Club Langstrasse 135,ok,https://gonzoclub.ch/,nur Club-Hinweis
+Klaus,2112530380,bar,Langstrasse 112,,,,unbekannt,nicht belegt,"Privater Club 'von Freunden für Freunde', Partys Do-Sa ab Mitternacht",ok,https://hausvonklaus.ch/,Eher Mitgliederclub
+Longstreet Bar Club,656623537,bar,Langstrasse 92,,We-Sa 20:00+,OSM,unbekannt,nicht belegt,"Ex-Stripclub, heute Hip-Hop-Treff; roter Samt an den Wänden, hunderte Lampen; Bands, DJs, Tanzfläche oben",ok,https://www.zuerich.com/en/visit/bars-lounges/longstreet,Langstrasse 92. Öffnungszeiten widersprüchlich (zuerich.com vs MySwitzerland)
+Lugano Bar,656810963,bar,Langstrasse 108,,Mo-Fr 05:00-29:00; Sa-Su 00:00-24:00,OSM,unbekannt,nicht belegt,"Lebhafte Bar mit Livemusik, gemischtes Publikum, oft ausgelassen (Zuri.net)",ok,https://zuri.net/de//essen/lugano-bar-11599.htm,Langstrasse 108; Bewertungen 3.4; Bier eher teuer
+Olé Olé Bar,4424003110,bar,Langstrasse 138,,,,unbekannt,nicht belegt,Bar,ok,https://oleolebar.ch/,Website ohne Beschreibung
+Palestine Grill,2867994617,fast_food,Langstrasse 92,falafel,Mo-Sa 11:30-00:00; Su 14:00-21:00,OSM,unbekannt,nicht belegt,"Grill/Falafel, Take-away",ok,https://www.palestinegrill.com/,Website ohne auswertbare Fakten
+Rum 97,7038861915,pub,Langstrasse 97,,,,unbekannt,nicht belegt,Pub (laut OSM),Suche ohne Treffer,,Websuche fand keinen Eintrag; Existenz prüfen
+Schneiderei,13400753409,nightclub,Langstrasse 117,,Fr-Sa 22:00-04:00,OSM,unbekannt,nicht belegt,"Club mit Tanzprogramm, oberhalb brasilianischem BBQ",ok,https://schneiderei-club.ch,Website: 'The dancing secret above the brazilian BBQ'
+Strauss,1240044636,bar,Langstrasse 132,,"Mo-Th 10:00-26:00, Fr-Sa 10:00-28:00, Su 13:00-22:00",OSM,nein (OSM),nicht belegt,Bar/Musiklokal (laut OSM),Website falsch,https://www.musik-hall-strauss.ch/,Abgerufene Seite beschreibt eine Künstlerin mit Atelier - nicht verwendbar
+Tipsy Tiger,1235083798,bar,Langstrasse 133,,Mo-Tu 16:00-01:00; We-Th 16:00-02:00; Fr-Sa 16:00-04:00,OSM,ja (OSM),nicht belegt,"Zwei Bars: Tipsy Tiger ('funky jungle', Cocktails vom Fass, Barhäppchen) und Dry Club (Speakeasy im OG)",ok,https://tipsytiger.ch/,
+Aargauerhof,334300587,restaurant,Hohlstrasse 43,regional;swiss,"Mo,We-Th,Sa 11:00-23:00; Tu,Fr 10:00-23:00; Su 16:00-22:00",OSM,unbekannt,nicht belegt,"Bürgerliches Restaurant, Schweizer Küche, Cordon bleu in runder Form, warme Küche bis ca. 22 Uhr",ok,https://restaurant-aargauerhof.ch/,Hohlstrasse 43
+Accademia del Gusto,914703086,restaurant,Rotwandstrasse 48,italian,"Mo-Fr 11:30-15:00,18:30-24:00; Sa 18:00-24:00",OSM,nein (OSM),nicht belegt,"Italienisch: Pasta handgemacht, Holzkohlegrill, frischer Fisch, europäische Weine",ok,https://www.accademiadelgusto.ch/,
+After Dark,920508290,bar,Ankerstrasse 119,,"Mo-Th 16:30-24:00, Fr 16:30-03:00, Sa 18:00-03:00",OSM,unbekannt,nicht belegt,Bar,Domain nicht erreichbar,https://afterdark-bar.ch/,DNS-Fehler beim Abruf
+Ah-Hua,1442004393,restaurant,Ankerstrasse 110,thai,"Tu-Fr 11:30-14:30,17:30-22:30; Sa,Su 12:00-22:30",OSM,unbekannt,nicht belegt,"Thai-Restaurant, Familienbetrieb, Standorte Helvetiaplatz und Brauerstrasse",ok,https://www.ah-hua.ch/,"Pad Pattaya Gai, Yam Wunsen; ohne MSG auf Wunsch"
+B9,871794824,bar,Kernstrasse 60,,,,unbekannt,,,offen,,
+Bagatelle §93,1016012582,bar,,,Tu-We 21:00+; Th-Sa 20:00+,OSM,unbekannt,nicht belegt,Bar/Club (laut OSM),Website falsch,https://www.bagatelle93.ch/,Abgerufene Seite handelt von Spritzguss - nicht verwendbar
+Barista Coffee Roasters,11216071007,cafe,,coffee_shop,,,unbekannt,,,offen,,
+Barizzi,3926102925,bar,Brauerstrasse 34,,,,ja (OSM),,,offen,,
+Barteca,10946818680,bar,,brazilian,,,unbekannt,,,offen,,
+Biergarten,656634932,fast_food,Hohlstrasse 25,,"Mo-Fr 08:30-24:00, Sa-Su 09:30-24:00",OSM,"ja (Biergarten, Name)",nicht belegt,"Biergarten (Name), Restaurant",SSL-Fehler,https://www.biergarten-zuerich.ch/,TLS-Fehler beim Abruf
+Bilo Bistro,3078526134,fast_food,Ankerstrasse 116,,,,nein (OSM),,,offen,,
+Bossa Nova,656628375,restaurant,Hohlstrasse 18,brazilian,Tu-Th 18:30-22:00; Fr-Sa 18:30-23:00; Su 12:30-15:00,OSM,unbekannt,nicht belegt,"Brasilianisches Steakhouse, Rodízio-Buffet, Picanha vom Spiess",ok,https://bossanovasteakhouse.ch/,Hohlstrasse 18
+Brasserie Café de Paris,656646048,restaurant,Ankerstrasse 113,french,"Mo-Fr 11:30-14:00,18:00-23:30; Sa 18:00-23:30",OSM,Terrasse nur in Bildbeschriftung erwähnt,nicht belegt,"Französische Brasserie: Entrecôte Café de Paris, Coq au vin, Rindstatar",ok,https://www.brasseriedeparis.ch/,Ankerstrasse 113
+Brenso,10921196041,restaurant,,italian,We-Sa 12:00-24:00,OSM,unbekannt,nicht belegt,Restaurant (laut OSM),Website 404,https://www.brenso.ch,HTTP 404
+Casa Helvetia,311607525,restaurant,Stauffacherstrasse 96,,"Su-Th 09:00-24:00, Fr,Sa 09:00-07:00",OSM,unbekannt,,,offen,,
+Centro,2008369716,restaurant,Ankerstrasse 108,italian,,,unbekannt,,,offen,,
+Christian uhrenschmuck24.ch,5643617050,jewelry,Langstrasse 47,,Mo-Fr 09:00-18:30; Sa 09:00-17:00,OSM,unbekannt,nicht belegt,Uhrenschmuck-Geschäft (laut OSM),Website 502,https://www.uhrenschmuck24.ch/helvetiaplatz,HTTP 502 beim Abruf
+Club Wunderbox,5128008060,nightclub,,,,,unbekannt,nicht belegt,Club (laut OSM),Website 404,https://www.wunderboxclub.ch/,HTTP 404
+D'Aurora,914703134,restaurant,Rotwandstrasse 42,italian,"Mo-Fr 11:30-15:00, 18:30+; Sa 18:00+",OSM,ja (OSM),nicht belegt,"Mediterrane Küche, hausgemachte Pasta, Bio-Fleisch/Fisch, Innen: Holzbalken, weisse Tischdecken",ok,https://www.daurora.ch/,Rotwandstrasse 42
+Don Miguel,1320113401,bar,Müllerstrasse 72,,,,ja (OSM),,,offen,,
+E.X. 4,914703104,bar,Müllerstrasse 63,,,,unbekannt,nicht belegt,"Weinbar mit Zigarrenlounge, Tapas",ok,https://www.ex4bar.ch/,Müllerstrasse 63
+Fribourger Stübli,312530452,restaurant,Rotwandstrasse 38,regional;swiss,Tu-Su 18:00+,OSM,unbekannt,nicht belegt,"Fondue-Stübli, Käsefondue moitié-moitié/vacherin, Gastgeberin-geführt",ok,https://www.fribourger-fondue-stuebli.ch/,Rotwandstrasse 38
+Green Mango Internet Cafe Bar,656649586,cafe,,,,,unbekannt,,,offen,,
+Hungry Duck,12652457762,restaurant,Brauerstrasse 37,asian;wings,Mo-Sa 11:00-16:00; Tu-We 17:00-24:00; Th 17:00-01:00; Fr-Sa 17:00-02:00; Su 17:00-23:00,OSM,nein (OSM),nicht belegt,"Gastrobar/Eventlokal bis 100 Sitzplätze, Party, Amerikanisch-asiatische Fusion, Brunch, All-you-can-eat",ok,https://hungryduck.ch/,Brauerstrasse 37
+Ipanema Bar,14277803199,bar,,,,,unbekannt,,,offen,,
+Kanton Slice,13920868271,fast_food,,pizza,"Tu-Th,Su 17:00-22:00; Fr-Sa 17:00-01:00",OSM,nein (OSM),nicht belegt,"Pizza-Slices zum Mitnehmen, Lieferdienste",ok,https://kantonslice.ch/,"Standort bei Hungry Duck, Brauerstrasse 37"
+Karaoke 4 You Thai Kitchen,869269170,bar,,,Mo off; Tu-Sa 11:00-18:00; Su 12:00-18:00,OSM,unbekannt,,,offen,,
+Kiosk Semal,656643167,cafe,Ankerstrasse 119,,,,unbekannt,,,offen,,
+Leeward,920508508,bar,,,,,unbekannt,,,offen,,
+Love Story,936942901,bar,Ankerstrasse 116,,,,unbekannt,,,offen,,
+Medbase Apotheke Helvetiaplatz,313898344,pharmacy,Langstrasse 39,,Mo-Fr 08:00-19:00; Sa 09:00-17:00,OSM,unbekannt,,,offen,https://www.topwell.ch/medbaseapothekezuerichhelvetiapl/,
+Milieu,5077193368,bar,,,,,ja (OSM),nicht belegt,"Cocktailbar, minimalistisch, DJs Fr/Sa ab 22:30, Popup-Kitchen mit Gastköchen",ok,https://www.milieuzuerich.ch/,
+Monroe,656719956,bar,Brauerstrasse 26,,We-Sa 17:00+,OSM,nein (OSM),nicht belegt,Bar (laut OSM),Website 404,https://monroe.zuerich/,HTTP 404
+Norden,656664543,bar,Ankerstrasse 123,,"Mo-Th 17:00-24:00; Fr,Sa 17:00-02:00",OSM,ja (OSM),nicht belegt,Bar (laut OSM),Website 403,https://www.norden-bar.ch/,HTTP 403 beim Abruf
+Oder Wat,656765445,fast_food,Hohlstrasse 49,german,,,ja (OSM),,,offen,,
+Ombak Coffee,8785595317,cafe,Stauffacherstrasse 105,coffee_shop,Mo-Fr 07:30-17:00; Sa 08:30-17:00,OSM,unbekannt,nicht belegt,Café (laut OSM),Website 403,http://omniacoffee.ch,HTTP 403 beim Abruf
+Osteria Santo Bevitore,914703174,restaurant,Rotwandstrasse 49,italian,"Mo-Fr 11:30-14:00,18:00-23:00; Sa 18:00-23:45",OSM,ja (OSM),nicht belegt,"Gemütliche Osteria, italienische Hausküche, frische Salumi, Weine (Schwesterlokal La Baracca)",ok,https://www.osteria-santobevitore.ch/,Rotwandstrasse 49
+PUTPUTakeaway,10267138041,restaurant,Stauffacherstrasse 101,japanese,"Mo 11:30-14:30; Tu-Fr 11:30-14:30,17:30-21:00",OSM,unbekannt,nicht belegt,Take-away (laut OSM),Website TLS-Fehler,http://www.putput.ch/,Zertifikatsfehler beim Abruf
+Pho 50,1016012577,restaurant,Stauffacherstrasse 101,vietnamese,"Mo-Fr 10:30-14:30, Mo-Su 17:00-22:00; PH 17:00-22:00",OSM,unbekannt,nicht belegt,Restaurant (Website ohne Inhalt),ok,https://www.pho50.ch/,Website nur Firmenname
+Pho Mai,4655092589,restaurant,,vietnamese,,,ja (OSM),,,offen,,
+Piro,9893261279,fast_food,,,,,unbekannt,,,offen,,
+Privé,869269133,nightclub,,,,,unbekannt,nicht belegt,"Strip Club, Cabaret, Luxus-Nachtclub, Champagner, Fumoir",ok,https://www.club-prive.ch/,Website nennt Stauffacherstrasse 106
+Puschkin Club,656518918,bar,Müllerstrasse 92,,,,unbekannt,,,offen,,
+Rasputin,9893261276,bar,,,,,unbekannt,,,offen,,
+Red Light,656711884,bar,,,,,ja (OSM),,,offen,,
+Schirm-Fredi,11216071002,bag,Langstrasse 69,,Mo-Fr 10:00-19:00; Sa 10:00-18:00,OSM,unbekannt,nicht belegt,Koffer-/Schirmgeschäft mit Reparatur und Gepäckgutachten,ok,https://schirmfredi.ch,"Sortiment Samsonite, Knirps, Victorinox u.a."
+Sport,310788830,pub,,,"Mo-We 08:00-24:00, Th 08:00-01:00, Fr,Sa 08:00-02:00",OSM,ja (OSM),nicht belegt,Sportbar,ok,https://www.sport-bar.ch/,Website nennt Kanzleistrasse 76 - Adresse prüfen
+Stereo,2395154664,restaurant,Brauerstrasse 36,,,,unbekannt,,,offen,,
+Stubä,656699893,restaurant,Brauerstrasse 42,,,,ja (OSM),nicht belegt,"Restaurant mit Bar, Steak-Sandwiches, Burger, Hotdogs, Cocktails, All-you-can-rib Mittwoch",ok,https://www.stube.me/,Brauerstrasse 42
+Tenz Momo,311607628,restaurant,Hohlstrasse 44,tibetan,"Mo-Th 11:30-14:00,17:30-23:00; Fr 11:30-14:00,17:30-24:00; Sa 16:00-24:00; Su off",OSM,ja (OSM),nicht belegt,"Momo-Restaurant, Take-away, Markthalle, Pop-up-Store",ok,https://www.tenz.ch,Hohlstrasse 44
+Thai-Food-Corner,656654442,restaurant,Brauerstrasse 3,thai,,,ja (OSM),,,offen,,
+The Bite,656508776,restaurant,Brauerstrasse 15,burger,"Mo-Th 17:30-23:00; Fr 17:30-23:30; Sa 10:00-14:00, 17:30-23:30; Su 10:00-14:00, 17:30-23:00",OSM,unbekannt,Website: 'Bite logo in red' (kein Schild beschrieben),"Burger-Restaurant, Lieferung/Takeaway, Gruppenreservationen",ok,https://www.thebite.ch/,Brauerstrasse 15
+The Mixt,1567061990,bar,Müllerstrasse 55,,,,ja (OSM),,,offen,,
+The Sacred,1035744153,restaurant,Müllerstrasse 64,cake;tea;coffee_shop,Mo-Sa 11:00-21:00,OSM,ja (Garten laut Website),nicht belegt,"Veganes Bio-Restaurant ('erstes vegane Bio-Restaurant der Schweiz'), Vegelato",ok,https://vegelateria.ch/,Müllerstrasse 64
+The Yard,5945878069,restaurant,Bäckerstrasse 62,chinese,,,"ja (Terrasse im Sommer, Website)",nicht belegt,"Chinesisches Restaurant, Take-away, Spicy HotPot als Hausspezialität",ok,https://theyard.ch,Bäckerstrasse 62
+Treff-Point Kiosk,869269142,cafe,,,,,ja (OSM),,,offen,,
+Veganitas,3578338893,restaurant,Brauerstrasse 30,,,,ja (OSM),nicht belegt,"Veganes Lokal, hausgemachte Pitas, 100% plant-based, mehrere Standorte",ok,https://www.veganitas.com/,Brauerstrasse 30
+Volkshaus,656516103,restaurant,Stauffacherstrasse 60,,"Mo-We 08:00-23:30; Th,Fr 08:00-01:00, Sa 09:00-01:00, Su 10:00-23:30",OSM,unbekannt,nicht belegt,"Cafe Bar Restaurant, gegründet 1910, Tagesmenü, Weinkarte",ok,https://www.restaurantvolkshaus.ch/,"Website sehr lang, nur erste 100k Zeichen gelesen"
+Wunderbar,9676271554,bar,,,,,unbekannt,nicht belegt,Bar (laut OSM),DNS-Fehler,https://www.wunderbar-zuerich.com/,Domain nicht erreichbar
+Xenix Bar,495576109,pub,,,"Mo 16:00+; Tu-Fr 12:00+; Sa,Su 11:30+",OSM,ja (OSM),,,offen,,
+Zürich Fried Chicken,7064004373,fast_food,Bäckerstrasse 43,burger;chicken,,,unbekannt,nicht belegt,"Fast Food, Fried Chicken, alles halal",ok,https://zurich-fried-chicken.com/,Bäckerstrasse 43
+raedli,656629799,bar,Kurzgasse 4,,"Tu 16:00-00:00; We 16:00-25:00, Th 16:00-26:00, Fr,Sa 17:00-28:00",OSM,ja (OSM),nicht belegt,"Kleine Bar an der Langstrasse, 'es chline Versteck' zum Geniessen und Tanzen",ok,https://www.raed.li/,Kurzgasse 4
+Ach'i,656649674,restaurant,Brauerstrasse 4,asian,"Mo-Fr 11:00-14:30, 18:00-22:00; Sa 12:00-22:00; Su 17:00-22:00",OSM,"ja (Aussenplätze bei warmem Wetter, Website)",nicht belegt,"Chinesisches Restaurant, nordostchinesische/Peking-Küche, 190 Gerichte",ok,https://www.achi.restaurant/,Brauerstrasse 4
+Alte Kaserne,5297598013,nightclub,Kanonengasse 16,,,,unbekannt,nicht belegt,"Veranstaltungsort, Partys, Events, Vermietung",ok,https://www.altekaserne.com/,Kanonengasse 16
+Asmin,4896466767,kiosk,Langstrasse 110,,,,unbekannt,,,offen,,
+Caipi-Bar,10596153317,bar,Dienerstrasse 68,,,,ja (OSM),,,offen,,
+Casi Casa,11244280030,restaurant,Lagerstrasse 104,latin_american,Mo-Th 09:00-00:00; Fr-Sa 09:00-01:00; Su 10:00-00:00,OSM,unbekannt,nicht belegt,"Lateinamerikanisch, Tacos, Burger, Empanadas, Brunch bis Drinks",ok,https://www.casicasa.ch/,Lagerstrasse 104
+Cima Curry,4260117131,restaurant,Kanonengasse 19,indian,Mo-Su 11:00-22:00,OSM,nein (OSM),nicht belegt,"Kleines indisch/asiatisches/sri-lankisches Lokal, vegane Optionen",ok,https://cimacurry.ch/,Kanonengasse 19
+Cindy's Bistro,13353852440,restaurant,Kanonengasse 9,african,"Mo-We 11:00-24:00, Th-Su 11:00-04:00",OSM,unbekannt,nicht belegt,Bistro (laut OSM),Website leer,https://cindys-bistro.ch/,Seite ohne Inhalt
+Gamper Bar,1232849946,bar,Dienerstrasse 75,,,,ja (OSM),,,offen,,
+Gregory Clan,12380295963,joiner,Langstrasse 115,,"""Mo-Fr 07:45-12:00; 13:00-16:45 by appointment by phone""",OSM,unbekannt,,,offen,https://gregoryclan.ch,
+House of Satoshi,9171916009,community_centre,Langstrasse 136,,Mo-Fr 10:00-18:00; Sa 13:00-16:00,OSM,unbekannt,,,offen,https://www.house-of-satoshi.ch/,
+Huncho,9893260545,fast_food,Kanonengasse 7,burger,,,unbekannt,,,offen,https://www.instagram.com/huncho.ch/,
+Ka3an,1240044684,bar,Militärstrasse 84,,Tu 19:30-24:00; Th 20:00-24:00; Fr-Sa 21:00-04:00,OSM,unbekannt,nicht belegt,Bar (laut OSM),Verbindung abgelehnt,http://ka3an.ch/,Abruf fehlgeschlagen
+La Capricciosa,1240181038,fast_food,Militärstrasse 117,italian,Mo-Fr 10:00-21:00; Sa 17:00-22:00,OSM,nein (OSM),,,offen,https://www.lacapricciosa.ch/,
+Lambada Bar Club,656616749,bar,Dienerstrasse 43,,,,unbekannt,,,offen,,
+Late Bloomers,12974074101,bar,Dienerstrasse 20,,Tu-Th 17:00-00:00; Fr-Sa 17:00-02:00,OSM,unbekannt,nicht belegt,"Nachbarschaftsbar, zeitgemässe Drinks, guter Kaffee",ok,https://latebloomersthebar.com/,Dienerstrasse 20
+Locarno 2000,1241219598,nightclub,Dienerstrasse 45,,,,unbekannt,,,offen,,
+Marco Di Renzo,4838594329,clothes,Langstrasse 125,,Mo-Sa 09:00-20:00,OSM,unbekannt,,,offen,https://www.marcodirenzo.ch/,
+Migrolino fresh,4518003937,convenience,Langstrasse 134,,Su-Th 06:00-23:00; Fr-Sa 00:00-24:00,OSM,unbekannt,,,offen,https://www.migrolino.ch/de/standorte/migrolino-zuerich-langstrasse-away/,
+Miró Manufactura de café,7531078063,cafe,Brauerstrasse 58,breakfast;cake;coffee_shop,Mo-Fr 08:00-18:00; Sa 09:00-18:00; Su 09:00-17:00,OSM,unbekannt,nicht belegt,"Specialty-Kaffeerösterei mit Café, Shop, Kurse; Brunch/Comfort Food laut Post",ok,https://mirocoffee.co/,"Website-Text enthielt eine versteckte Anweisung, ignoriert"
+Neela,1083769431,restaurant,Kanonengasse 29,sri_lankan,"Mo 11:00-14:30; Tu-Fr 11:00-14:30, 17:30-22:30; Sa-Su 17:00-22:30",OSM,unbekannt,nicht belegt,"Sri-lankisches Restaurant, exotisches Essen",ok,https://neela.ch/,"Kanonengasse 29; Aussenbild vorhanden, ohne Beschreibung"
+Paracelsus-Apotheke,656616207,pharmacy,Langstrasse 122,,Mo-Fr 08:00-18:30; Sa 09:00-17:00,OSM,unbekannt,,,offen,https://www.apotheke-paracelsus.ch/,
+Passion cocktail bar,5829856430,bar,Kanonengasse 33,,,,unbekannt,,,offen,,
+Pizzeria Milano,1240180975,restaurant,Militärstrasse 109,italian,"Mo-Sa 11:00-14:00,18:00-24:00",OSM,ja (OSM),nicht belegt,Pizzeria (laut OSM),HTTP 404,https://www.restaurant-milano.ch/,Seite 404
+Rosita's,1240990725,fast_food,Lagerstrasse 95,,"Mo-Th 10:00-17:00, Fr 10:00-17:00, Fr 22:00-04:00, Sa 22:00-04:00",OSM,unbekannt,,,offen,,
+Schweizerdegen El Papi,656824967,restaurant,Dienerstrasse 40,,,,ja (OSM),,,offen,,
+Thach,1240044657,restaurant,Militärstrasse 84,asian,"Mo-Sa 11:00-14:00,18:00-22:00",OSM,nein (OSM),nicht belegt,Restaurant (laut OSM),Domain nicht erreichbar,https://tach.ch,DNS-Fehler
+Thai Tirak,1241219989,bar,Dienerstrasse 28,portuguese,"Mo-Tu,Su off; We 17:00-25:00; Th 17:00-28:00; Fr-Sa 17:00+",OSM,unbekannt,,,offen,,
+Viet-Thai,1360843969,restaurant,Kanonengasse 31,asian,"Mo-Fr 11:00-14:00,18:00-22:00; Sa 18:00-22:00",OSM,unbekannt,nicht belegt,Vietnamesisch-thailändisches Restaurant,ok,http://www.viet-thai.ch/,Kanonengasse 31
+YAMAS,10795377100,cafe,Lagerstrasse 48,greek,"Mo-Th 11:30-14:00,18:00-23:00; Fr 11:30-14:00,18:00-24:00; Sa 11:00-24:00; Su off",OSM,ja (OSM),nicht belegt,"Griechische Weinbar und mediterranes Bistro, 'erste Greek Wine Bar der Schweiz', Shop",ok,http://www.yamas.ch/,Lagerstrasse 48
+Za'atar,803245834,restaurant,Brauerstrasse 74,lebanese,"Tu-Fr 11:00-14:00, 17:00-23:00; Sa-Su 17:00-23:00",OSM,ja (OSM),nicht belegt,"Libanesisch, Mezze, Falafel, Grill, Take-away",ok,https://www.zaatar.ch,Brauerstrasse 74
+Zeughaushof,1360830654,restaurant,Kanonengasse 20,international,"Mo,We-Fr 09:00-14:00; Tu 09:00-14:00,19:00-24:00; Sa-Su,PH off",OSM,unbekannt,nicht belegt,"Kantine/Restaurant Zeughaushof, Arbeitsintegrationsprogramm HOP! Züri",ok,https://www.hopzueri.ch/,Kanonengasse 20
+Zum goldenen Taschenbrot,8785727518,fast_food,Militärstrasse 91,kebab,Tu-Th 11:00-22:00; Fr 11:00-22:30; Sa 12:00-22:30,OSM,nein (OSM),nicht belegt,"Kebab-Restaurant, Taschenbrot, Schweizer Pouletfleisch",ok,https://zumgoldenentaschenbrot.ch/,Militärstrasse 91
+Aelita,11216071006,clothes,,,Mo-Fr 10:00-19:00; Sa 10:00-18:00; Su off,OSM,unbekannt,,,offen,,
+Amiro,4416196409,hairdresser,Ankerstrasse 124,,,,unbekannt,,,offen,,
+Andrea Hinnen,11216071012,clothes,,,"Mo,Su off; Tu-Fr 12:00-19:00; Sa 12:00-17:00",OSM,nein,nicht belegt,Textildesign-Label mit Online-Shop (kein Laden beschrieben),ok,https://andreahinnen.com,Laden-Adresse nicht bekannt
+Barber-2,7590602015,hairdresser,Hohlstrasse 36,,,,unbekannt,,,offen,,
+Buchhandlung im Volkshaus,10689492505,books,,,Mo 12:00-19:00; Tu-Th 10:00-19:00; Fr 09:00-19:00; Sa 10:00-17:00,OSM,nein,nicht belegt,"Unabhängige Buchhandlung im Langstrassen-Quartier, Philosophie, Politik, Psychoanalyse, Kinderbücher",ok,https://www.volkshausbuch.ch/,Im Volkshaus
+Carribean Hairstyle,656507351,hairdresser,Brauerstrasse 29,,,,unbekannt,,,offen,,
+Champions Shop,9893261278,convenience,,,,,unbekannt,,,offen,,
+Claudia Güdel,4549433191,clothes,,,"Mo,Su off; Tu-Fr 11:00-19:00; Sa 11:00-17:00",OSM,unbekannt,,,offen,,
+Coiffeur Hejar,915410089,hairdresser,Zeughausstrasse 69,,,,unbekannt,,,offen,,
+Colmadon,656739301,cannabis,,,,,unbekannt,,,offen,,
+Comestibles Granada,656657191,convenience,,,,,unbekannt,,,offen,,
+El Campesino,10567748100,convenience,,,,,unbekannt,,,offen,,
+Erotic Shop,9893261275,erotic,,,,,unbekannt,,,offen,,
+Fifty-9,10567748099,clothes,,,,,unbekannt,,,offen,,
+Ginger,11216071011,hairdresser,,,,,unbekannt,nicht belegt,Coiffeur (laut Name),Website ohne Inhalt,https://gingerhair.ch,Seite ohne Fakten
+Gold Diva,10567748103,beauty,,,,,unbekannt,,,offen,,
+HaarGarage,871794844,hairdresser,Hohlstrasse 48,,Mo-Tu off; We-Fr 11:00-18:30; Sa 10:00-16:00; Su off,OSM,nein,nicht belegt,"Damen- und Herrensalon: Schnitt, Tönung, Strähnen, Brauen/Wimpern",ok,https://www.haargarage.ch/,Hohlstrasse 48
+Jamarico,3932358336,music,Stauffacherstrasse 95,,"Tu-Fr 11:00-14:00, Sa 10:00-18:00, Tu-Fr 14:30-19:00",OSM,unbekannt,,,offen,,
+Jeanspoint,10921196040,clothes,,,Mo-Fr 09:30-19:00; Sa 09:00-19:00; Su off,OSM,unbekannt,,,offen,,
+John Baker,309921040,bakery,Molkenstrasse 15,,Mo-Fr 06:30-18:00; Sa 08:00-16:00; Su 08:00-14:00,OSM,unbekannt,nicht belegt,Bäckerei ('Our Daily Bread'),ok,https://johnbaker.ch/helvetiapl/,"Molkenstrasse 15, Filiale Helvetiaplatz"
+KaBa,12478357748,bag,,,"Mo-Tu,Th,Sa-Su off; We,Fr 11:00-18:00",OSM,unbekannt,,,offen,https://ka-ba.ch,
+Kazu,11216071008,clothes,,,"""by appointment only""",OSM,unbekannt,,,offen,https://kazu.swiss,
+La Platanera,11216071003,convenience,,,,,unbekannt,,,offen,,
+Libreria Italiana,2298795776,books,Hohlstrasse 30,,Mo-Fr 14:00-18:30; Sa 10:00-16:00,OSM,unbekannt,,,offen,http://libreriaitaliana.ch/,
+Lollypop,11216070999,convenience,,,,,unbekannt,,,offen,,
+Longfinger Cosmetics,12138506372,beauty,,,,,unbekannt,,,offen,,
+Longside,10921196042,clothes,,,Mo-Fr 10:15-18:30; Sa 10:15-17:00,OSM,unbekannt,,,offen,,
+Lovely Brows,2717037990,beauty,,,Mo-Fr 10:00-20:00; Sa 10:00-18:00,OSM,unbekannt,,,offen,,
+Monika K,10567748101,erotic,,,,,unbekannt,,,offen,,
+My Fashion Fox,3078522845,clothes,,,,,unbekannt,,,offen,,
+Männerzone,11246759771,erotic,,,Tu 12:00-18:30; Fr 12:00-18:30; Sa 12:00-16:00,OSM,unbekannt,,,offen,https://www.maennerzone.com,
+Nara,9893260544,hairdresser,,,,,unbekannt,,,offen,,
+Netzbarkeit,12948881831,it,Kernstrasse 37,,,,unbekannt,,,offen,,
+Norkind,10946818681,furniture,,,Mo-Fr 10:00-18:00; Sa 10:00-17:00; Su off,OSM,unbekannt,,,offen,https://norkind.ch,
+Oni Bakery,14175317258,bakery,,,,,unbekannt,,,offen,,
+Saint James,12138506366,clothes,,,,,unbekannt,,,offen,,
+Sara Tischhauser,10891371969,beauty,,,,,unbekannt,,,offen,,
+Sartori,8422874121,joiner,,,,,unbekannt,,,offen,,
+Siech Cycles,11216070983,bicycle,,,"Mo,Su off; Tu-Fr 10:00-19:00; Sa 10:00-17:00",OSM,unbekannt,,,offen,https://siech-cycles.ch,
+Simplificator AG,11941534779,company,Stauffacherstrasse 101,,,,unbekannt,,,offen,https://www.simplificator.com/,
+Stadler,12138506371,hairdresser,,,,,unbekannt,,,offen,,
+Studio Melograno,10891371967,interior_decoration,,,,,unbekannt,,,offen,,
+The Atelier,7724613812,interior_decoration,,,,,unbekannt,,,offen,,
+Trixmix,12138506368,jewelry,,,,,unbekannt,,,offen,,
+Vegelateria,3926182143,ice_cream,Müllerstrasse 64,,Mo-Sa 11:00-21:00,OSM,ja (OSM),,,offen,https://vegelateria.ch/,
+Werners Head Shop,11216071001,cannabis,,,,,unbekannt,,,offen,,
+Zero Zero Rare Groove,4549432191,music,,,Mo-Fr 12:00-18:30; Sa 10:00-17:00; Su off,OSM,unbekannt,,,offen,,
+fiona-K,10891371970,clothes,,,,,unbekannt,,,offen,,
+neff neumann architekten,4838789805,architect,Kernstrasse 37,,,,unbekannt,,,offen,https://www.neffneumann.ch,
+patatoffel,10891371968,architect,Hohlstrasse 9,,,,unbekannt,,,offen,,
+shop-in-shop,848938939,convenience,,,Mo-Th 09:30-27:00; Fr-Sa 09:30-29:00; Su 10:30-24:00,OSM,unbekannt,,,offen,,
+24 Shop,11216070998,convenience,,,,,unbekannt,,,offen,,
+Abito Allora,8194922103,clothes,Europaallee 43,,Mo-Fr 11:00-19:00; Sa 10:00-18:00,OSM,unbekannt,,,offen,,
+Amazonia Bar,656535507,pub,Sihlhallenstrasse 11,,"Mo-Th 09:00-02:00, Fr-Su 09:00-05:00",OSM,nein (OSM),nicht belegt,Pub (laut OSM),Domain nicht erreichbar,https://amazonia-bar.ch/,DNS-Fehler
+Ana Dolis,12133693603,hairdresser,,,,,unbekannt,,,offen,,
+Art 4 Bar,936942732,bar,,,,,nein (OSM),,,offen,,
+Bar 63 chez Sylvia,1235083734,bar,,,,,ja (OSM),nicht belegt,"Bar, keine Reservationen",ok,https://bar63.ch/,
+Bar Butter,10830942472,cafe,,,We 08:00-18:00; Th-Fr 08:00-20:00; Sa 09:00-18:00; Su 09:00-17:00,OSM,unbekannt,,,offen,,
+Bar OTRO,3242600651,bar,,,"Mo,Su off; Tu-Th 17:00-24:00; Fr-Sa 17:00-01:00",OSM,ja (OSM),nicht belegt,"Cocktailbar, Cocktails, Bier, Wein",ok,https://www.otro.bar/,
+Bar Rossi,5803645580,pub,,,"Mo-Th 17:00+; Fr 17:00-04:00, Sa 20:00-04:00",OSM,ja (OSM),nicht belegt,"Bar und Restaurant, thailändisch-asiatische Fusion, Cocktails, vegan auf Wunsch",ok,https://www.bar-rossi.ch/,Sihlhallenstrasse 3 laut Website
+Biondi,1235083613,restaurant,,,,,ja (OSM),nicht belegt,Restaurant; Website: derzeit geschlossen,ok,https://www.restaurantlele.ch/,Lele - Restaurant (Adresse siehe OSM)
+Biondo's Cut,915410107,hairdresser,Zeughausstrasse 41,,,,unbekannt,,,offen,,
+COOP,12754794883,convenience,Militärstrasse 106,,Mo-Sa 07:00-21:00,OSM,unbekannt,,,offen,https://www.coop.ch,
+Carol,9893260543,bar,,,,,unbekannt,,,offen,,
+Charlatan Restodisco,11358468756,restaurant,,,,,unbekannt,nicht belegt,"Restaurant mit Disco-Betrieb ab 22 Uhr, Austern, Kaviar, Wiener Schnitzel, Champagner; Montag/Dienstag Moules-Frites",ok,https://restodisco.ch/,"Charlatan RestoDisco, Lagerstrasse 119 laut Text"
+Chicago Beauty Salon,11992812115,hairdresser,,,,,unbekannt,,,offen,,
+Coiffeur Giacomo,11216071010,hairdresser,,,"Tu,Th 08:00-13:00, We,Fr 09:00-13:00, Sa 08:00-16:00, Tu-Fr 14:00-18:30; Su,Mo off",OSM,unbekannt,,,offen,,
+Coiffeur Salam,4011633098,hairdresser,Militärstrasse 36,,Mo-Fr 08:30-21:00; Sa 08:30-18:00; Su off,OSM,unbekannt,,,offen,,
+Coiffure Salon Flory,12133693608,hairdresser,,,,,unbekannt,,,offen,,
+Cuban Nails,11992812113,beauty,,,,,unbekannt,,,offen,https://cubannails.ch,
+Daniel H.,914703164,bar,Müllerstrasse 51,,Tu-Th 11:00-00:00; Fr 11:00-02:00; Sa 19:00-02:00,OSM,ja (OSM),nicht belegt,Bar (laut OSM),Website falsch,https://www.danielh.ch/,Abgerufene Seite liefert Charlatan-Inhalt - nicht verwendbar
+Denner Express,387613338,convenience,Sihlhallenstrasse 5-7,,Mo-Th 08:00-20:00; Fr-Sa 08:00-22:00,OSM,unbekannt,,,offen,https://www.denner.ch/,
+EGO Movement,6580342183,bicycle,Lagerstrasse 100,,Mo-Fr 11:00-19:00; Sa 10:00-18:00; PH off,OSM,unbekannt,,,offen,https://www.egomovement.com,
+Eichhörnli,1235083774,restaurant,,regional,"Mo,Su off; Tu-Fr 12:00-14:00,18:30-23:30; Sa 18:30-23:30",OSM,unbekannt,nicht belegt,"Restaurant, seit 2005",ok,https://www.restaurant-eichhoernli.ch/,Wenig Inhalt auf Website
+Emporio,10601778121,hairdresser,Zwinglistrasse 17,,,,unbekannt,,,offen,,
+Eva Bräutigam,5149569237,clothes,Lagerstrasse 96,,Tu-Fr 10:00-18:00; Sa 09:00-18:00; Mo 13:00-19:00,OSM,unbekannt,,,offen,https://www.evabraeutigam.ch/,
+Express Shop,387613313,convenience,,,24/7,OSM,unbekannt,,,offen,,
+Fashnpie,11685184269,clothes,,,Mo-Fr 11:00-19:00; Sa 10:00-18:00; Su off,OSM,unbekannt,,,offen,,
+Fat Tony,6223031358,bar,,pizza,Mo-Sa 11:00+,OSM,ja (OSM),,,offen,,
+Fight-world.ch,5770202453,clothes,Kanonengasse 7a,,Mo-Fr 10:30-20:00; Sa 10:30-17:00,OSM,unbekannt,,,offen,,
+Flamme Rouge,1241205926,bicycle,Rotwandstrasse 64,,We-Fr 13:00-18:00; Sa 10:00-17:00; PH off,OSM,unbekannt,,,offen,https://www.flammerouge.ch/,
+Gamper,803245796,restaurant,Nietengasse 1,,"We 12:00-14:00, 18:00-22:00; Tu 12:00-14:00, 18:00-23:00; Fr 12:00-14:00, 17:00-24:00; Sa 16:00-24:00",OSM,ja (OSM),nicht belegt,"Restaurant mit Menüs (Gamper Easy, Menu Surprise), Gutscheine",ok,https://www.gamper-restaurant.ch/,Nietengasse 1; Gamper Bar Dienerstrasse 75 separat
+Gaucho,5429035472,restaurant,Nietengasse 18,steak_house,"Tu-Fr 11:30-14:00, 18:30-23:00; Sa 18:30-23:00",OSM,unbekannt,nicht belegt,"Argentinisches Black Angus vom Holzkohlegrill, Catering",ok,https://gaucho.ch/restaurant/,Nietengasse 18
+Gbanga,6592084080,company,Militärstrasse 90,,,,unbekannt,,,offen,https://gbanga.com,
+Gelati Tellhof,5081232798,ice_cream,Tellstrasse,,"Su-Th,PH 12:00-22:00; Fr,Sa 12:00-22:00",OSM,"ja (Innenhof mit Sitzgelegenheiten, Website)",nicht belegt,"Gelateria, handgemachtes Glacé, 30 Sorten, ehemals Milch-/Käseladen",ok,https://www.gelati1998.ch/de/tellhof/,Tellstrasse
+Glamour Bar,5083782849,bar,,,Mo-Fr 14:00-23:00,OSM,unbekannt,nicht belegt,Bar (laut OSM),DNS-Fehler,http://www.glamour-bar.ch/,Domain nicht erreichbar
+Golden Gate Bar,1235083841,bar,Schöneggstrasse 15,,,,ja (OSM),nicht belegt,Bar (laut OSM),DNS-Fehler,http://www.goldengate-bar.ch/,Domain nicht erreichbar
+Google,5418324620,company,Gustav-Gull-Platz 1,,,,unbekannt,,,offen,,
+Gutastilo,12133693610,hairdresser,,,,,unbekannt,,,offen,,
+Hera,4496708115,clothes,Müllerstrasse 45,,,,unbekannt,,,offen,,
+Hochparterre Bücher,10189026000,books,Schöneggstrasse 27,,Mo-Fr 09:30-18:30; Sa 09:30-17:00,OSM,unbekannt,,,offen,https://www.hochparterre-buecher.ch/,
+Holliger Motos,1235083851,motorcycle,,,"Nov 01-Feb 28: Mo-Fr 08:00-12:00,13:30-18:00; Nov 01-Feb 28: Sa 10:00-16:00; Nov 01-Feb 28: Su off; Mar 01-Oct 31: Mo-Fr 08:00-12:00,13:30-18:00; Mar 01-Oct 31: Sa-Su off",OSM,unbekannt,,,offen,,
+Hongxi,1241219823,restaurant,Zwinglistrasse 3,chinese,"Mo-Fr 11:30-14:00,17:30-22:00; Sa 11:30-22:00; Su 12:00-21:00",OSM,unbekannt,nicht belegt,Restaurant (laut OSM),DNS-Fehler,http://www.hongxi-restaurant.ch,Domain nicht erreichbar
+J.B. LABAT,12754797447,bar,,,,,unbekannt,,,offen,,
+Jo Brauer,5149570033,clothes,Lagerstrasse 100,,Mo-Fr 11:00-19:00; Sa 10:00-18:00,OSM,unbekannt,,,offen,https://www.jobrauer.com/,
+Josy,5416711053,clothes,Militärstrasse 75,,Mo-Sa 09:30-20:30,OSM,unbekannt,,,offen,,
+KALIN,12754793543,hairdresser,Tellstrasse 17,,"Mo,Su off; Tu-Th 10:00-19:00; Fr-Sa 10:00-21:00",OSM,unbekannt,,,offen,,
+Karmi's,12754797445,restaurant,,,Mo-Fr 10:00-22:00,OSM,nein (OSM),,,offen,,
+Kevin in the Woods,4866350522,clothes,Lagerstrasse 82,,Mo-Fr 11:00-19:00; Sa 09:00-18:00,OSM,unbekannt,,,offen,https://kevininthewoods.com/,
+Khujug,1235083458,restaurant,,chinese,"Mo-Fr 11:00-14:30, 18:00-23:00; Sa 12:00-23:00; Su 17:00-22:30",OSM,ja (OSM),Website: Foto 'front' ohne Beschreibung,"Chinesisches Restaurant, Mittagsmenüs, Bubble Tea, 'The taste of China'",ok,https://www.khujug.restaurant/,Website-Angaben zum Lokal teils unklar
+Kindergarten und Hort Brauer 1+2,10828214801,kindergarten,,,,,unbekannt,,,offen,,
+Kinderhaus Bozza Lukashof,5299186755,kindergarten,Dienerstrasse 57/59,,,,unbekannt,,,offen,http://www.kinderhaus-am-stauffacher.ch/,
+Kinderkrippe Schneeflocke,914702928,kindergarten,Müllerstrasse 43,,,,unbekannt,,,offen,https://www.kinderkrippeschneeflocke.ch/,
+King's Hairshop,915410098,hairdresser,Zeughausstrasse 45,,,,unbekannt,,,offen,,
+Kiosk Kanonen Gasse,1240044530,kiosk,,,,,unbekannt,,,offen,,
+Kiosk Schönegg,10095152137,kiosk,,,Mo-Sa 11:00-23:00; PH off,OSM,unbekannt,,,offen,,
+Knödl,12133693609,restaurant,,,,,unbekannt,,,offen,,
+La Isla Bonita,11992812114,fast_food,,mexican,"Mo,Su off; Tu-Sa 18:00-24:00",OSM,ja (OSM),,,offen,,
+La Strega,1232849945,bar,,,,,unbekannt,,,offen,,
+Lele,1137687375,restaurant,,italian,"Mo-We 11:30-15:00,17:00-00:00; Th 11:30-15:00,17:00-02:00; Fr 11:30-15:00,17:00-04:00; Sa 18:00-04:00",OSM,ja (OSM),,,offen,https://www.restaurantlele.ch/,
+Leonteq,8194922105,company,Europaallee 39,,,,unbekannt,,,offen,https://ch.leonteq.com/,
+Love Me Two Times,1241219685,clothes,Dienerstrasse 32,,Tu-Fr 11:00-19:00; Sa 11:00-17:30,OSM,unbekannt,,,offen,https://www.lovemetwotimes.ch,
+Lovis Architekt*innen,2052663807,architect,Dienerstrasse 21,,,,unbekannt,,,offen,,
+Luv Hair and Make up,1240990753,hairdresser,Zwinglistrasse 28,,Tu-Fr 12:00-21:00,OSM,unbekannt,,,offen,http://www.luv28.ch,
+Macuto's Bar,1241219838,bar,,,,,unbekannt,,,offen,,
+Manu,5282153478,hairdresser,Militärstrasse 85,,Mo-Fr 09:00-20:00; Sa 09:00-18:00; PH off,OSM,unbekannt,,,offen,,
+Marta Flohmarkt,7044403087,clothes,Brauerstrasse 58,,Mo-Fr 10:30-19:00; Sa 10:30-17:30,OSM,unbekannt,,,offen,https://www.marta-flohmarkt.ch/,
+Maru,13052489329,restaurant,,,,,unbekannt,,,offen,,
+Mels Hair Studio,1240044573,hairdresser,Militärstrasse 76,,,,unbekannt,,,offen,https://mels-hairstudio.ch,
+Meo Bici Velos,7531030473,bicycle,Nietengasse 5,,"Tu-Fr 09:00-12:00,13:30-18:30; Sa 09:00-12:00,13:30-16:00",OSM,unbekannt,,,offen,http://meobici.ch/,
+Midway,1235083770,bar,,,,,unbekannt,,,offen,,
+Migrolino,1240044645,convenience,Lagerstrasse 101,,Mo-Sa 06:00-22:00,OSM,unbekannt,,,offen,https://www.migrolino.ch/de/standorte/migrolino-zuerich-lagerstrasse/,
+Morgenstern da Mario,1240990708,restaurant,Zwinglistrasse 27,italian,,,unbekannt,nicht belegt,"Italienisches Restaurant seit 2001, 'Opening soon' mit neuer Bar",ok,https://morgenstern-zh.ch,Zwinglistrasse 27 (Morgenstern da Mario)
+Moto-Center Karle - Kawasaki,3784323173,motorcycle,Militärstrasse 90,,"Mo-Fr 08:00-12:00,13:00-18:00",OSM,unbekannt,,,offen,https://karle.ch/,
+Negresco,1241219845,bar,,,,,unbekannt,,,offen,,
+Neymar Coiffeur,6902002985,hairdresser,Militärstrasse 115,,"Mo,Th 09:30-14:00,16:30-20:00",OSM,unbekannt,,,offen,,
+Notice Design,8786742581,company,,,,,unbekannt,,,offen,https://www.notice.design/,
+Now We Go Vegan,4424003112,restaurant,Rolandstrasse 9,vietnamese,,,ja (OSM),,,offen,,
+OMA MAO,13128080855,restaurant,Feldstrasse 142,asian,Tu-Fr 11:00-14:00,OSM,unbekannt,nicht belegt,"Veganes Dim-Sum-Atelier, Take-away/Bestellung online, Di-Fr 11-14 Uhr",ok,https://omamao.ch/,Feldstrasse 142
+Oder Wat,1240990728,restaurant,Tellstrasse 10,,,,unbekannt,,,offen,,
+Officina dos Sabores,1240990722,fast_food,,,"Mo-We 11:00-21:00, Th,Su 11:00-22:00, Fr,Sa 11:00-03:00",OSM,unbekannt,,,offen,,
+Old Gregory Pub,1235083455,pub,Schöneggstrasse 6,,Su-We 12:00-24:00; Th 12:00-02:00; Fr-Sa 12:00-06:00,OSM,"ja (Gartenbeiz, Website)",nicht belegt,"Pub mit Karaoke, Snacks, Gartenwirtschaft mit Sommergrill",ok,https://www.oldgregorypub.ch/,Schöneggstrasse 6
+Panthera Records,10794073116,music,Brauerstrasse 80,,,,unbekannt,,,offen,,
+Phuket Thai Food,5803645581,fast_food,Schöneggstrasse 21,thai,Mo-Sa 10:00-22:00; Su 12:00-22:00,OSM,ja (OSM),nicht belegt,"Thailändisches Restaurant, Online-Bestellung",ok,https://www.phuket-thai-zuerich.ch/,Schöneggstrasse 21
+Public Eye,12754776145,company,Dienerstrasse 12,,,,unbekannt,,,offen,,
+Ristorante Italia,327453260,restaurant,Zeughausstrasse 61,italian,"Mo-Fr 11:30-14:00, 18:00-24:00; Sa-Su 18:00-23:00",OSM,"ja (Terrasse, Website)",nicht belegt,"Italienische Osteria, Hausrezepte aus allen Regionen, Tessiner/italienische Weine, Terrasse",ok,https://www.ristorante-italia.ch/,Zeughausstrasse 61
+Rotana,1241219738,fast_food,,,,,unbekannt,,,offen,,
+Roxy,656541296,bar,Zinistrasse 7,,Mo-Sa 18:00-02:00,OSM,unbekannt,nicht belegt,"Musikbar mit Bühne, Livemusik, Jam-Sessions, Bier vom Fass",ok,https://www.roxymusikbar.ch/,Zinistrasse 7
+Schreinerei Severin Meier,12312961469,joiner,Zeughausstrasse 60,,Mo-Fr 08:00-18:00,OSM,unbekannt,,,offen,https://www.severinmeier.ch,
+Scigility Switzerland AG,9992397570,it,Europaallee 41,,,,unbekannt,,,offen,https://scigility.com/,
+Shokudo Izakaya,13685409175,restaurant,Rotwandstrasse 62,,"Mo-Sa 11:30-14:00,18:00-22:00; Su off",OSM,unbekannt,Foto-Alt-Text: 'stone facade and illuminated entrance' an Strassenecke (kein Schild beschrieben),"Urbanes Izakaya: Gyoza, Udon, Donburi, Yakisoba, Karaage",ok,https://shokudo.ch,Rotwandstrasse 62
+Simon Says Taste Taiwan,10647472305,restaurant,,taiwanese,"Mo off; Tu-Fr 11:30-13:30,18:00-21:15; Sa 11:30-21:45; Su 17:30-21:00",OSM,"ja (Outdoor seating, Website)",nicht belegt,"Taiwanesisches Café-Restaurant, Nachtmarkt-Snacks, Bubble Tea, vegan/vegetarisch",ok,https://simonsaystaiwan.ch/,Kreis 4
+Stella Alpina,1241219769,restaurant,,,,,ja (OSM),,,offen,,
+Stiefenhofer Motos,1235083528,motorcycle,,,"Mo-Fr 09:00-12:00, Mo,We-Fr 14:00-18:00",OSM,unbekannt,,,offen,,
+Stromvelo.ch,5416711054,bicycle,Kanonengasse 35,,"Mo-Fr 10:00-12:30,13:15-18:15; Sa 10:00-16:00",OSM,unbekannt,,,offen,https://stromvelo.ch/,
+Studio For Food Culture,12754797446,community_centre,,,,,unbekannt,,,offen,,
+Sudaka,1240044507,bar,,,,,unbekannt,,,offen,,
+Swiss Fried Chicken,10889806814,fast_food,,,,,unbekannt,Schild mit Alt-Text 'Wir haben geöffnet - We are open' (Farbe nicht beschrieben),"Fried Chicken, Wraps, Wings, Lieferservice",ok,https://swiss-fried-chicken.com,Zwinglistrasse 43 laut Website
+Tabula Rasa,1360794125,restaurant,Zwinglistrasse 7,regional,,,unbekannt,nicht belegt,Restaurant (laut OSM),DNS/Verbindung abgelehnt,http://www.zumgoldenenfass.ch/,Abruf fehlgeschlagen
+Tanukiya,1243596474,restaurant,Zwinglistrasse 12,japanese;ramen;udon,,,unbekannt,nicht belegt,"Udon-/Soba-Nudelrestaurant, japanisch, vegetarische Optionen",ok,https://www.tanukiya.ch,Zwinglistrasse 12
+Taste of Africa,11216070982,fast_food,,,,,nein (OSM),,,offen,,
+The Spot Bar,1235083514,bar,Rolandstrasse 22,,,,ja (OSM),,,offen,https://www.kaiserfranz.li/,
+Tipsy Tiger,12714134817,fast_food,,burger,,,unbekannt,,,offen,,
+Toro Bar,1235083674,bar,,,,,ja (OSM),nicht belegt,"Tapas-/Pintxos-Bar, spanisch, Catering, Nachtleben",ok,https://www.torobar.com/,
+Total Bar,582263740,pub,Tellstrasse 19,,,,nein (OSM),nicht belegt,"Kleine Bar seit 1999, Craft Beer, Rum, Rye, Amaro, Pastis, klassische Cocktails",ok,https://www.totalbar.ch,Tellstrasse 19
+Tropical Bar,10316382317,bar,Schöneggstrasse 15,,,,nein (OSM),,,offen,https://www.salsa.ch/venues/tropical-bar-zurich,
+Trübli Bar,656703086,restaurant,Zeughausstrasse 67,,,,unbekannt,,,offen,,
+Tsukada Gaijin Izakaya,5976303007,restaurant,Zwinglistrasse 3,japanese,"Mo-Fr 11:30-14:00,17:00-22:00; Sa-Su 17:00-22:00",OSM,unbekannt,,,offen,,
+UMANO,12754776146,company,Dienerstrasse 12,,,,unbekannt,,,offen,,
+Ufo,10601778122,kiosk,Zwinglistrasse 15,,,,unbekannt,,,offen,,
+Urbany's,1240990738,clothes,,,,,unbekannt,,,offen,https://urbanys.com,
+VeloKliniK,11685184270,bicycle,Lagerstrasse 104,,Mo-Fr 11:00-19:00,OSM,unbekannt,,,offen,https://velo-klinik.ch,
+Velvet Glam,11216071023,hairdresser,,,,,unbekannt,,,offen,https://velvetglam.ch,
+Yilong Asia,12133693612,restaurant,,asian,"Mo-Fr 11:15-14:00,17:00-22:30; Sa,Su 17:00-22:30",OSM,unbekannt,,,offen,,
+Ynos,3013422856,restaurant,Europaallee 47,greek,Mo-We 11:30-23:00; Th-Sa 11:30-00:00,OSM,unbekannt,nicht belegt,"Griechische Kitchen Bar/Lounge, Meze; Website: derzeit geschlossen",ok,http://www.ynos.ch/,Europaallee 47
+Zwllings Bar,11216070996,bar,,,,,unbekannt,,,offen,,
+Zürich Nails by Samantha,10889806815,beauty,,,,,unbekannt,,,offen,,
+hairstories,12133693611,hairdresser,,,,,unbekannt,,,offen,https://hairstories.ch,
+happybeck,9343150799,cafe,,,,,unbekannt,,,offen,,
+katrahama GmbH,13540274646,company,136,,Mo-Fr 08:00-16:00,OSM,unbekannt,,,offen,https://katrahama.ch/,
+schindlersalmerón,915410105,furniture,Zeughausstrasse 67,,,,unbekannt,,,offen,https://www.schindlersalmeron.com/,
+yay kids,4843837963,clothes,Lagerstrasse 76,,Mo-Fr 11:00-19:00; Sa 10:00-18:00,OSM,unbekannt,,,offen,,
+Antonio Schlüssel-und Schuhservice,10921196039,shoe_repair,,,"Mo-Fr 08:00-12:00,13:00-18:30; Sa 08:00-16:00; Su off",OSM,unbekannt,,,offen,,
+Coop,310789178,supermarket,Hohlstrasse 35,,Mo-Sa 07:00-22:00,OSM,unbekannt,,,offen,,
+Don't Say No,12138506367,tattoo,,,,,unbekannt,,,offen,,
+Feldenkrais Studio Andreas Kleemann,5679794324,therapist,Langstrasse 62,,"Mo-Fr 10:00-20:00,Sa 10:00-16:00",OSM,unbekannt,,,offen,https://feldenkrais.studio,
+J.B. Labat,6498631234,alcohol,,,"Tu-Fr 11:30-19:00, Sa 11:00-17:00",OSM,unbekannt,,,offen,https://www.labat.ch/,
+Klar,6498189281,advertising_agency,Rotwandstrasse 52,,,,unbekannt,,,offen,,
+Kreisschulpflege Limmattal,5254232211,government,Hohlstrasse 35,,"Mo-Th 08:00-11:30, 13:30-16:30; Fr 08:00-11:30, 13:30-16:00",OSM,unbekannt,,,offen,https://www.stadt-zuerich.ch/ksp-limmattal/,
+Les Complices*,2424887405,arts_centre,Anwandstrasse 9,,,,unbekannt,,,offen,https://lescomplices.ch/,
+Meg 4 Beauty,12138506365,wigs,,,,,unbekannt,,,offen,,
+PLAYground education,8568706769,childcare,Hohlstrasse 52,,Mo-Fr 07:00-19:00,OSM,unbekannt,,,offen,https://www.playground-edu.ch/,
+Pusterla Elektronik AG,301222947,electronics,Kernstrasse 55,,Mo-Fr 09:00-18:30; Sa 09:00-16:00,OSM,unbekannt,,,offen,https://www.pusterlacom.ch,
+Volkshaus,2178135077,theatre,Stauffacherstrasse 60,,,,unbekannt,,,offen,https://www.volkshaus.ch/,
+Xenix,1069585307,cinema,Kanzleistrasse 52,,"Mo-Fr, Su 16:00+; Sa 11:00+",OSM,unbekannt,,,offen,https://www.xenix.ch,
+lavie home,11216071013,household_linen,,,,,unbekannt,,,offen,https://lavie-home.ch,
+strasserthun,11216071014,flooring,,,,,unbekannt,,,offen,https://strasserthun.ch,
+Atelier Grünenwald,10957734671,repair,Lagerstrasse 93,,"Mo-Fr 09:00-18:00; Sa ""by appointment""",OSM,unbekannt,,,offen,https://www.ateliergruenenwald.com/,
+Atlântico,5282153481,travel_agency,,,Mo-Fr 09:00-18:00; Sa-Su off,OSM,unbekannt,,,offen,,
+Blumenkohlektiv,12512257502,ngo,,,,,unbekannt,,,offen,,
+Budosport Nippon,4314055601,sports,Rolandstrasse 15,,Mo-Fr 09:00-19:00; Sa 10:00-17:00,OSM,unbekannt,,,offen,http://www.budo.ch,
+Criz,12252306817,leather,Militärstrasse 115,,Tu-Fr 12:00-18:30; Sa 11:00-16:00,OSM,unbekannt,,,offen,https://www.criz.ch,
+Der Schreiner,11980641581,carpenter,,,,,unbekannt,,,offen,,
+Die Macherei,11685177068,fashion_accessories,,,Mo-Fr 11:00-19:00; Sa 10:00-18:00; Su off,OSM,unbekannt,,,offen,https://diemacherei.ch,
+Drums Only,3784325956,musical_instrument,Militärstrasse 105,,"Mo-Fr 10:00-12:00,13:30-18:30; Sa 10:00-16:00",OSM,unbekannt,,,offen,https://drumsonly.ch/,
+ECO TCA Consulting,12133693604,tax_advisor,,,,,unbekannt,,,offen,,
+Fabrikat,3841887704,stationery,,,Mo-Fr 11:00-19:00; Sa 11:00-17:00,OSM,unbekannt,,,offen,https://www.fabrikat.ch/,
+GRUSSFORMAT,9255550508,photographer,Brauerstrasse 58,,Mo-Fr 09:00-17:00,OSM,unbekannt,,,offen,http://www.grussformat.ch,
+IT World ZH,10957734670,computer,Tellstrasse 31,,"Mo-Fr 09:30-12:30,14:00-19:00; Sa 10:00-17:00",OSM,unbekannt,,,offen,https://itworldzh.ch,
+Kaboom,4208949390,games,Dienerstrasse 36,,Mo-Fr 10:00-19:00; Sa 10:00-16:00,OSM,unbekannt,,,offen,https://shop.kabooom.ch,
+Mieterinnen- und Mieterverband,6023189166,association,Tellstrasse 31,,"Mo-Fr 09:00-12:00, 13:30-17:00",OSM,unbekannt,,,offen,https://mieterverband.ch/mv-zh/,
+Mitton,11980641580,deli,,italian,,,unbekannt,,,offen,,
+RECON,12754794882,shoes,Militärstrasse 81,,Mo-Sa 12:00-19:00,OSM,unbekannt,,,offen,,
+Republik Magazin,656594290,newspaper,Sihlhallenstrasse 1,,,,unbekannt,,,offen,https://www.republik.ch,
+Sala-Thai,10162233917,supermarket,Zwinglistrasse 32,thai,Mo-Fr 10:00-19:00; Sa 10:00-18:00,OSM,unbekannt,,,offen,https://sala-thai.ch,
+Schuhmacherei Eva Kirchhofer,1240181002,shoemaker,Militärstrasse 115,,"Mo-We,Su off; Th-Fr 10:30-18:30; Sa 11:00-16:00",OSM,unbekannt,,,offen,https://schuhmacherin.ch,
+Snushus,10889806813,tobacco,,,,,unbekannt,,,offen,https://snushus.ch,
+Sula,10956921190,carpet,Lagerstrasse 93,,Mo-Fr 09:00-17:00,OSM,unbekannt,,,offen,https://sulaworld.com,
+Textil-Reinigung,10827725256,dry_cleaning,,,Mo-Fr 07:30-19:30; Sa 07:30-18:00; Su off,OSM,unbekannt,,,offen,,
+Wolf Studio GmbH,9255553977,graphic_design,Brauerstrasse 58,,Mo-Fr 09:00-17:00,OSM,unbekannt,,,offen,https://www.wolfstudio.ch/,
+advokatur kanonengasse,4749159173,lawyer,Militärstrasse 76,,,,unbekannt,,,offen,https://www.kanonengasse.ch/,
+apeVape,11963250714,e-cigarette,,,,,unbekannt,,,offen,,
+viajes.ch,5282153482,travel_agency,Militärstrasse 87,,Mo-Fr 09:30-18:30; Sa 10:00-16:00,OSM,unbekannt,,,offen,,
+weiss traductions,12754794142,translator,Militärstrasse 87a,,,,unbekannt,,,offen,,

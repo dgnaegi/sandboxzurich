@@ -1,0 +1,12 @@
+CENTER local x=-4 y=634 r=120
+buildings 6; tagged:
+  (-16,555) {'building': 'hotel', 'building:levels': '7', 'roof:shape': 'flat'}
+  (5,725) {'building': 'commercial', 'building:levels': '4'}
+  (-32,540) {'building': 'hotel', 'building:levels': '7', 'roof:shape': 'flat'}
+  (21,533) {'building': 'hotel', 'building:levels': '7', 'roof:shape': 'flat'}
+  (80,562) {'building': 'office', 'building:levels': '6'}
+named shops/amenity: ALN Strickhof Technopark [college](-38,645); Angkor [restaurant](36,689); novotelcafe [bar](-4,562); The Flave [restaurant](11,555); Noodle House [fast_food](43,703); Hokkaido [restaurant](49,713); Marmar [restaurant](53,721); The Cosmetics Company Store [cosmetics](94,680); Aubrey [restaurant](79,562); k kiosk Puls 5 [kiosk](58,730); eiweiss [nutrition_supplements](98,689)
+counts: natural=tree:76, amenity=bench:29, amenity=waste_basket:6, amenity=restaurant:6, amenity=bicycle_parking:5, man_made=surveillance:4, barrier=wall:3, amenity=recycling:3, barrier=kerb:3, amenity=vending_machine:2, amenity=motorcycle_parking:2, amenity=post_box:2, barrier=retaining_wall:2, barrier=gate:2, amenity=bicycle_rental:1, highway=crossing:1, amenity=college:1, amenity=drinking_water:1, leisure=picnic_table:1, amenity=bar:1, leisure=escape_game:1, amenity=fast_food:1
+surfaces: {'concrete': 10, 'wood': 1, 'fine_gravel': 2, 'asphalt': 14, 'concrete:plates': 1}
+streets: Technoparkstrasse, Giessereistrasse, Schiffbaustrasse
+heritage 0: 

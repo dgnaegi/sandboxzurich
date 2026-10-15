@@ -1,0 +1,523 @@
+{
+ "meta": {
+  "stand": "2026-10-15",
+  "year_basis": "2025 sofern nicht anders",
+  "kreise": {
+   "K4": "Aussersihl: Werd, Langstrasse, Hard",
+   "K5": "Gewerbeschule, Escher Wyss"
+  }
+ },
+ "age_shares": {
+  "Stadt": {
+   "0-5": 0.053,
+   "6-12": 0.062,
+   "13-19": 0.057,
+   "20-39": 0.364,
+   "40-64": 0.325,
+   "65+": 0.139
+  },
+  "3": {
+   "0-5": 0.048,
+   "6-12": 0.063,
+   "13-19": 0.063,
+   "20-39": 0.386,
+   "40-64": 0.321,
+   "65+": 0.119
+  },
+  "4": {
+   "0-5": 0.039,
+   "6-12": 0.034,
+   "13-19": 0.033,
+   "20-39": 0.471,
+   "40-64": 0.331,
+   "65+": 0.092
+  },
+  "5": {
+   "0-5": 0.047,
+   "6-12": 0.045,
+   "13-19": 0.039,
+   "20-39": 0.417,
+   "40-64": 0.361,
+   "65+": 0.091
+  },
+  "9": {
+   "0-5": 0.059,
+   "6-12": 0.062,
+   "13-19": 0.053,
+   "20-39": 0.35,
+   "40-64": 0.33,
+   "65+": 0.145
+  }
+ },
+ "child_share": {
+  "definition": "Anteil 0-12 Jahre",
+  "K4": 0.073,
+  "K5": 0.092,
+  "K3": 0.111,
+  "Stadt": 0.115
+ },
+ "foreigner_share": {
+  "K4": 0.378,
+  "K5": 0.32,
+  "K3": 0.316,
+  "Stadt": 0.339
+ },
+ "top_nationalities_2025": {
+  "3": [
+   [
+    "Schweiz",
+    0.684
+   ],
+   [
+    "Deutschland",
+    0.067
+   ],
+   [
+    "Italien",
+    0.039
+   ],
+   [
+    "Spanien",
+    0.02
+   ],
+   [
+    "Portugal",
+    0.014
+   ],
+   [
+    "Frankreich",
+    0.013
+   ]
+  ],
+  "4": [
+   [
+    "Schweiz",
+    0.622
+   ],
+   [
+    "Deutschland",
+    0.077
+   ],
+   [
+    "Italien",
+    0.051
+   ],
+   [
+    "Spanien",
+    0.03
+   ],
+   [
+    "Portugal",
+    0.027
+   ],
+   [
+    "Frankreich",
+    0.016
+   ]
+  ],
+  "5": [
+   [
+    "Schweiz",
+    0.68
+   ],
+   [
+    "Deutschland",
+    0.08
+   ],
+   [
+    "Italien",
+    0.041
+   ],
+   [
+    "Spanien",
+    0.02
+   ],
+   [
+    "Frankreich",
+    0.018
+   ],
+   [
+    "Österreich",
+    0.011
+   ]
+  ],
+  "9": [
+   [
+    "Schweiz",
+    0.658
+   ],
+   [
+    "Deutschland",
+    0.062
+   ],
+   [
+    "Italien",
+    0.05
+   ],
+   [
+    "Portugal",
+    0.022
+   ],
+   [
+    "Spanien",
+    0.022
+   ],
+   [
+    "Österreich",
+    0.01
+   ]
+  ],
+  "Stadt": [
+   [
+    "Schweiz",
+    0.661
+   ],
+   [
+    "Deutschland",
+    0.072
+   ],
+   [
+    "Italien",
+    0.04
+   ],
+   [
+    "Spanien",
+    0.019
+   ],
+   [
+    "Portugal",
+    0.015
+   ],
+   [
+    "Frankreich",
+    0.013
+   ]
+  ]
+ },
+ "dog_per_100": {
+  "K3": 1.86,
+  "K4": 1.75,
+  "K5": 2.19,
+  "K9": 2.1,
+  "Stadt": 2.23,
+  "n_dogs_2025_12_31": {
+   "K3": 961,
+   "K4": 515,
+   "K5": 350,
+   "K9": 1284,
+   "Stadt": 10091
+  }
+ },
+ "modal_split": {
+  "status": "NICHT belegt (kein Stadt/Kreis-Modalsplit gefunden). Proxy: Nutzungshaeufigkeit Bevoelkerungsbefragung 2023-25",
+  "proxy_usage_taeglich_bis_2_5x_pw": {
+   "Stadt": {
+    "velo": 0.3,
+    "oev": 0.708,
+    "auto": 0.196
+   },
+   "K3": {
+    "velo": 0.387,
+    "oev": 0.718,
+    "auto": 0.147
+   },
+   "K4": {
+    "velo": 0.434,
+    "oev": 0.689,
+    "auto": 0.107
+   },
+   "K5": {
+    "velo": 0.431,
+    "oev": 0.732,
+    "auto": 0.143
+   },
+   "K9": {
+    "velo": 0.311,
+    "oev": 0.679,
+    "auto": 0.21
+   }
+  },
+  "n_respondents": {
+   "K3": 1093,
+   "K4": 837,
+   "K5": 487,
+   "K9": 1095,
+   "Stadt": 10277
+  },
+  "note": "K5 n=487 klein"
+ },
+ "jobs_residents": {
+  "jobs_2008_by_kreis": {
+   "3": 31994,
+   "4": 28005,
+   "5": 32640,
+   "9": 37758,
+   "Stadt": 340349
+  },
+  "jobs_2008_per_resident_2008": {
+   "3": 0.69,
+   "4": 1.02,
+   "5": 2.57,
+   "9": 0.8
+  },
+  "commuters_into_city_2020": "rund 320000 Pendelnde 2020, 62% von auswaerts (Web-Quelle)"
+ },
+ "weekly_residents_2025": {
+  "year": "2025",
+  "3": 1267,
+  "4": 1132,
+  "5": 458,
+  "9": 1199,
+  "Stadt": 13650
+ },
+ "day_night_factor_by_hour": [
+  0.13,
+  0.07,
+  0.04,
+  0.03,
+  0.02,
+  0.04,
+  0.18,
+  0.5,
+  0.74,
+  0.44,
+  0.37,
+  0.45,
+  0.52,
+  0.55,
+  0.5,
+  0.53,
+  0.68,
+  1.0,
+  0.98,
+  0.66,
+  0.48,
+  0.39,
+  0.32,
+  0.23
+ ],
+ "day_night_factor_basis": "ANNAHME: Velo-Zaehlstellen Kreis 4 (8 Zaehler, 2025), gewichtet 5/7 Mo-Do + 2/7 Fr/Sa, Peak=1. Velo-Proxy, Zaehlstellen nicht nach Name (Langstrasse-Lage ungeprueft), Nachtwerte unterschaetzt.",
+ "night_profile_share_pct": {
+  "Mo-Do": [
+   1.02,
+   0.56,
+   0.35,
+   0.24,
+   0.22,
+   0.47,
+   2.05,
+   5.87,
+   8.57,
+   4.55,
+   3.51,
+   4.22,
+   4.94,
+   5.2,
+   4.57,
+   4.94,
+   6.63,
+   10.75,
+   10.68,
+   6.89,
+   4.88,
+   3.95,
+   3.13,
+   1.8
+  ],
+  "Fr-Sa": [
+   2.1,
+   1.14,
+   0.71,
+   0.43,
+   0.32,
+   0.42,
+   1.23,
+   3.12,
+   4.99,
+   4.28,
+   4.42,
+   5.26,
+   6.08,
+   6.44,
+   6.34,
+   6.58,
+   7.49,
+   8.64,
+   8.05,
+   6.09,
+   4.78,
+   3.85,
+   3.7,
+   3.54
+  ]
+ },
+ "tourism": {
+  "logiernaechte_2025_stadt": 4179908,
+  "per_tag": 11452,
+  "monthly_share_pct": {
+   "01": 0.066,
+   "02": 0.056,
+   "03": 0.071,
+   "04": 0.077,
+   "05": 0.09,
+   "06": 0.093,
+   "07": 0.098,
+   "08": 0.101,
+   "09": 0.09,
+   "10": 0.086,
+   "11": 0.077,
+   "12": 0.094
+  }
+ },
+ "sources": {
+  "pop": "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_quartier_alter_herkunft_geschlecht_od3903 (2025)",
+  "hh": "https://data.stadt-zuerich.ch/dataset/bev_hh_haushaltsform_quartier_seit2013_od3805 und bev_hh_haushaltsgroesse_quartier_seit2013_od3806 (2025)",
+  "dogs": "https://data.stadt-zuerich.ch/dataset/sid_stapo_hundebestand_od1001 (Stichtag 2025-12-31)",
+  "nat": "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_quartier_nationalitaet_od3361 (2025)",
+  "survey": "https://data.stadt-zuerich.ch/dataset/prd_stez_bevoelkerungsbefragungen_seit2019_od4732 (2023-2025 gepoolt)",
+  "jobs": "https://data.stadt-zuerich.ch/dataset/wirtschaft-arbeitsstaetten-beschaeftigte-jahr-quartier-noga (nur bis 2008)",
+  "wa": "https://data.stadt-zuerich.ch/dataset/bev_bestand_woauha_jahr_quartier_herk_ag_zzgsgebiet_od3582 (2025)",
+  "hotel": "https://data.stadt-zuerich.ch/dataset/bfs_hotelgaeste_stadt_zuerich_od1104 (2025)",
+  "counter": "https://data.stadt-zuerich.ch/dataset/ted_taz_verkehrszaehlungen_werte_fussgaenger_velo (2025, Viertelstunden)",
+  "pendler": "Web-Suche, Originalquelle nicht abgerufen: https://www.stadt-zuerich.ch (BFS-Daten, 2020)"
+ },
+ "groups": [
+  {
+   "type": "Familien mit Kindern",
+   "share": {
+    "K4": 0.133,
+    "K5": 0.17,
+    "K3": 0.212,
+    "Stadt": 0.229
+   },
+   "basis": "Anteil Haushalte mit Kindern",
+   "times": "Mo-Fr 07-09 und 15-18, Sa vormittags",
+   "places": [
+    "Schulweg Kreis 4",
+    "Spielplaetze Werd/Hard"
+   ]
+  },
+  {
+   "type": "Einpersonenhaushalte (meist 20-39)",
+   "share": {
+    "K4": 0.498,
+    "K5": 0.454,
+    "K3": 0.461,
+    "Stadt": 0.44
+   },
+   "basis": "Anteil Haushalte mit 1 Person",
+   "times": "abends 18-24, Fr/Sa bis nach Mitternacht",
+   "places": [
+    "Langstrasse Bars/Restaurants",
+    "Wohnblocks Werd/Hard"
+   ]
+  },
+  {
+   "type": "Junge Erwachsene 20-29",
+   "share": {
+    "K4": 0.195,
+    "K5": 0.146,
+    "K3": 0.16,
+    "Stadt": 0.159
+   },
+   "basis": "Anteil Wohnbevoelkerung 20-29",
+   "times": "Fr/Sa 21-02 Uhr Spitze",
+   "places": [
+    "Langstrasse",
+    "Helvetiaplatz",
+    "Kanzleistrasse"
+   ]
+  },
+  {
+   "type": "Aeltere Menschen 65+",
+   "share": {
+    "K4": 0.092,
+    "K5": 0.091,
+    "K3": 0.119,
+    "Stadt": 0.139
+   },
+   "basis": "Anteil Wohnbevoelkerung 65+",
+   "times": "Vormittag 08-12, Mittag 11-14",
+   "places": [
+    "Quartierladen",
+    "Parks Werd/Hard",
+    "Tram-Haltestellen"
+   ]
+  },
+  {
+   "type": "Hundehalter:innen",
+   "share": {
+    "dogs_per_100_einwohner": {
+     "K3": 1.86,
+     "K4": 1.75,
+     "K5": 2.19,
+     "K9": 2.1,
+     "Stadt": 2.23
+    }
+   },
+   "basis": "Hunderegister 2025-12-31 / Wohnbevoelkerung 2025",
+   "times": "Morgen 06-08, Abend 18-21",
+   "places": [
+    "Gruenflaechen",
+    "Gehwege Werd/Hard"
+   ]
+  },
+  {
+   "type": "Pendler:innen Buero/Dienstleistung (tagsueber)",
+   "share": {
+    "jobs_per_resident_2008": {
+     "3": 0.69,
+     "4": 1.02,
+     "5": 2.57,
+     "9": 0.8
+    }
+   },
+   "basis": "Beschaeftigte/Wohnbevoelkerung 2008 (letzte Quartiersdaten, veraltet)",
+   "times": "Mo-Fr 07-09 und 17-19",
+   "places": [
+    "Hardbruecke",
+    "Bahnhofgegend",
+    "Langstrasse-Bueros"
+   ]
+  },
+  {
+   "type": "Wochenaufenthalter:innen",
+   "share": {
+    "n_2025": {
+     "year": "2025",
+     "3": 1267,
+     "4": 1132,
+     "5": 458,
+     "9": 1199,
+     "Stadt": 13650
+    }
+   },
+   "basis": "Personen mit Wochenaufenthalt (OGD 2025)",
+   "times": "Mo-Do abends",
+   "places": [
+    "Hotels/Kurzmiete"
+   ]
+  },
+  {
+   "type": "Touristen (Hotelgaeste)",
+   "share": {
+    "logiernaechte_pro_tag_stadt_2025": 11452
+   },
+   "basis": "Logiernaechte Stadt 2025 / 365; Anteil Kreis 4 NICHT belegt",
+   "times": "Jun-Aug hoechste Monate (ca. 28% der Logiernaechte)",
+   "places": [
+    "Altstadt, Bahnhof (Annahme fuer Langstrasse)"
+   ]
+  },
+  {
+   "type": "Nachtleben-Gaeste Langstrasse",
+   "share": null,
+   "basis": "KEINE Zahlen belegt; Velo-Zaehlung als Proxy (Fr/Sa 22-02 Uhr ca. 2x Mo-Do)",
+   "times": "Fr/Sa 22-03 Uhr",
+   "places": [
+    "Langstrasse Ausgangsmeile",
+    "Bars/Clubs"
+   ]
+  }
+ ]
+}

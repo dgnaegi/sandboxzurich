@@ -1,6 +1,6 @@
 # GRAND THEFT ZÜRI – Browser-Game
 
-Open-World-Browsergame im GTA-3-Stil in den Zürcher Kreisen 3, 4, 5 und 9, mit Quests zu linken Wahlthemen (Wohnen, Freiraum, Verkehr, Schule). Gehostet auf Scalingo. Wird fast vollständig von AI gebaut; der Mensch testet, entscheidet und gibt Feedback.
+Open-World-Browsergame im GTA-3-Stil in den Zürcher Kreisen 3, 4, 5 und 9, mit Quests zu linken Wahlthemen (Wohnen, Freiraum, Verkehr, Schule). **Wahlkampfspiel der Alternativen Linken (AL)**; Plakate im Spiel: «radikal sozial» / «Alternative Linke» (Hochformat). Gehostet auf Scalingo. Wird fast vollständig von AI gebaut; der Mensch testet, entscheidet und gibt Feedback.
 
 Dieses Projekt ist **getrennt vom Reel** in `../gta6/` (lokal, nicht im Repo, eigene `CLAUDE.md`). Daten und Skripte von dort dürfen gelesen und wiederverwendet werden, aber nichts in `../gta6/` wird verändert.
 
@@ -31,7 +31,7 @@ Dieses Projekt ist **getrennt vom Reel** in `../gta6/` (lokal, nicht im Repo, ei
 | `docs/HANDOFF.md` | Übergabe zwischen Sessions |
 
 ## Regeln
-- **Sprache:** Mit dem User Deutsch. UI- und Spieltexte Schweizerdeutsch (Züritüütsch). Code, Bezeichner und Commit-Messages Englisch.
+- **Sprache:** Mit dem User Deutsch. UI- und Spieltexte Hochdeutsch (Schweizer Schreibweise, ss statt ß); Entscheid User 2026-10-14. Code, Bezeichner und Commit-Messages Englisch.
 - **Realismus:** Echte Strassen, echte Läden an echten Adressen, echte Velo-Infrastruktur. Im Zweifel den echten Ladennamen auf eine neutrale Fassade setzen statt etwas zu erfinden. Jeder POI braucht eine Quelle (siehe `DATA_SOURCES.md`).
 - **Google Street View / Google Images:** nur zur Inspiration anschauen. Nie Bilder herunterladen, abpausen, als Textur oder für 3D-Rekonstruktion verwenden.
 - **Handy und PC gleichwertig:** Jedes Feature muss mit Touch und mit Tastatur/Maus bedienbar sein. Screenshots und Tests laufen immer in beiden Viewports.

@@ -1,0 +1,1905 @@
+{
+ "_note": "x=E-2681400, y=N-1248700. Photos in data/raw/photos/places/<place>/. Commons license per file; Panoramax CC-BY-SA-4.0 (attribution: producer).",
+ "places": {
+  "altstetten_bahnhof": {
+   "wgs84": [
+    47.3913,
+    8.489
+   ],
+   "local": [
+    -2090,
+    775
+   ],
+   "photos": [
+    {
+     "file": "altstetten_bahnhof/00.jpg",
+     "title": "File:ZAS099 Zuerich-Altstetten MaxVogt 20240726 173522.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Moritz Twente ",
+     "date": "2024-07-26",
+     "desc": "The platform roofs at Zürich-Altstetten railway station, pictured here from the underpass to platform 6/7, were designed by Max Vogt and constructed i",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:ZAS099_Zuerich-Altstetten_MaxVogt_20240726_173522.jpg"
+    },
+    {
+     "file": "altstetten_bahnhof/01.jpg",
+     "title": "File:ZAS100 Zuerich-Altstetten MaxVogt 20240809 210610.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Moritz Twente ",
+     "date": "2024-08-09",
+     "desc": "The light wells in the underpass from Altstetterplatz to Max-Högger-Strasse were designed by Max Vogt and built in 1968. They were closed in the proce",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:ZAS100_Zuerich-Altstetten_MaxVogt_20240809_210610.jpg"
+    },
+    {
+     "file": "altstetten_bahnhof/02.jpg",
+     "title": "File:Altstetten (Ank Kumar Infosys Equatex) 11.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Ank Kumar ",
+     "date": "2019-05-03",
+     "desc": "Zurich Altstetten",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Altstetten_(Ank_Kumar_Infosys_Equatex)_11.jpg"
+    },
+    {
+     "file": "altstetten_bahnhof/03.jpg",
+     "title": "File:Altstetten (Ank Kumar Infosys Equatex) 19.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Ank Kumar ",
+     "date": "2019-05-03",
+     "desc": "Zurich Altstetten",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Altstetten_(Ank_Kumar_Infosys_Equatex)_19.jpg"
+    },
+    {
+     "file": "altstetten_bahnhof/04.jpg",
+     "title": "File:Zuerich Altstetten Bahnhof perspektivisch.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Ikiwaner",
+     "date": "2006-11-07",
+     "desc": "Nordfassade vom Bahnhof Altstetten in Zürich, Schweiz",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Zuerich_Altstetten_Bahnhof_perspektivisch.jpg"
+    },
+    {
+     "file": "altstetten_bahnhof/05.jpg",
+     "title": "File:Zuerich Altstetten Bahnhof Treppenhaus.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Ikiwaner",
+     "date": "2006-11-07",
+     "desc": "Nordfassade vom Bahnhof Altstetten in Zürich, Schweiz",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Zuerich_Altstetten_Bahnhof_Treppenhaus.jpg"
+    },
+    {
+     "file": "altstetten_bahnhof/06.jpg",
+     "title": "File:Altstetterstrasse 109.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Hauseingang Altstetterstrasse 109, Zürich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Altstetterstrasse_109.jpg"
+    },
+    {
+     "file": "altstetten_bahnhof/07.jpg",
+     "title": "File:Zürich Altstetterplatz 03.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Balise42",
+     "date": "2023-08-16 18:47:55",
+     "desc": "Fountain in Altstetterplatz in Zürich - a small faucet projects water on rocks protuding from a metallic grid; a lot of moss has grown on the structur",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Altstetterplatz_03.jpg"
+    },
+    {
+     "file": "altstetten_bahnhof/08.jpg",
+     "title": "File:Altstetterplatz Zürich.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Hinter dem Altstetterplatz, Zürich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Altstetterplatz_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "altstetten_bahnhof/09.jpg",
+     "title": "File:Baumann und Frey empaquete.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Siedlung Lommisweg, Sanierung 2014, Architekten: Max Baumann und Georges Frey, 1983–85, Zürich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Baumann_und_Frey_empaquete.jpg"
+    },
+    {
+     "file": "altstetten_bahnhof/10.jpg",
+     "title": "File:Zürich Altstetterplatz 02.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Balise42",
+     "date": "2023-08-16 18:47:04",
+     "desc": "IBM-Stengel, a sculpture by Bernhard Luginbühl on Altstetterplatz in Zürich. This is a red, metallic, elongated sculpture.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Altstetterplatz_02.jpg"
+    },
+    {
+     "file": "altstetten_bahnhof/11.jpg",
+     "title": "File:Bahnhof Altstetten.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Vorplatz Bahnhof Altstetten, Zürich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Bahnhof_Altstetten.jpg"
+    },
+    {
+     "file": "altstetten_bahnhof/12.jpg",
+     "title": "File:Skulptur Altstetterplatz Zürich.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Altstetterplatz, Zürich. Skulptur von Bernhard Luginbühl",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Skulptur_Altstetterplatz_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "altstetten_bahnhof/13.jpg",
+     "title": "File:Zebra Zürich.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Abendstimmung Altstetterplatz, Raderschall Landschaftsarchitekten 2004, Zürich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Zebra_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "altstetten_bahnhof/14.jpg",
+     "title": "File:-i---i- (32420261372).jpg",
+     "license": "CC BY-SA 2.0",
+     "author": "Thomas Woodtli from Zürich, Switzerland",
+     "date": "2017-01-27 19:16",
+     "desc": "Blick von oben, wahrscheinlich vom Westlink Tower, auf den Bahnhof und die Perrons von Zürich Altstetten bei Nacht",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:-i---i-_(32420261372).jpg"
+    },
+    {
+     "file": "altstetten_bahnhof/15.jpg",
+     "title": "File:Aktiv Fitness und Express-Energie.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Bankhaus Julius Bär, Hohlstr., Zürich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Aktiv_Fitness_und_Express-Energie.jpg"
+    },
+    {
+     "file": "altstetten_bahnhof/16.jpg",
+     "title": "File:Laub Lommisweg.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Vorgarten Siedlung Lommisweg, Architekten: Max Baumann und Georges Frey, 1983–85, Zürich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Laub_Lommisweg.jpg"
+    },
+    {
+     "file": "altstetten_bahnhof/17.jpg",
+     "title": "File:Zürich Altstetten Bahnhof und WestLink 1K4A2918.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Bobo11",
+     "date": "2018-05-26 14:08:57",
+     "desc": "Die Gleisanlagen des Bahnhof Zürich Altstetten mit den WestLink Gebäuden, und weiter im hintergudn die neuen Hochhäusser an der Vulkanstrasse.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Altstetten_Bahnhof_und_WestLink_1K4A2918.jpg"
+    },
+    {
+     "file": "places/altstetten_bahnhof/pmx/00.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "paulb_imagery",
+     "date": "2024-06-07T15:13:21.743000+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/f74e8b20-b710-411f-9a9a-0b3f941ca284/items/df10e676-2d57-4907-877d-07738ecefa16",
+     "coord": [
+      8.488837891,
+      47.390808178
+     ]
+    },
+    {
+     "file": "places/altstetten_bahnhof/pmx/01.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "captaininler",
+     "date": "2024-06-05T15:54:01+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/2516fcb1-6b12-435e-bf50-3e0d739b1533/items/3522e02d-c7bd-48b3-8dd8-d75981c2cd03",
+     "coord": [
+      8.487903326,
+      47.391301712
+     ]
+    },
+    {
+     "file": "places/altstetten_bahnhof/pmx/02.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "mapcomplete",
+     "date": "2022-10-05T17:14:06+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/1de6f4a1-73ac-4c75-ab7f-2a2aabddf50a/items/d441a91f-b63b-4c0b-95ce-a905a5774c63",
+     "coord": [
+      8.4880781,
+      47.3914368
+     ]
+    },
+    {
+     "file": "places/altstetten_bahnhof/pmx/03.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "paulb_imagery",
+     "date": "2024-06-07T15:12:26.745000+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/f74e8b20-b710-411f-9a9a-0b3f941ca284/items/80b58975-bf8d-405f-977f-32508287a100",
+     "coord": [
+      8.487704098,
+      47.391926943
+     ]
+    },
+    {
+     "file": "places/altstetten_bahnhof/pmx/04.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "captaininler",
+     "date": "2024-06-05T15:53:32+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/5272e2f3-4183-4c18-a0c5-37bb38bea52e/items/1c494ac7-381f-4679-adf8-bd62d3f8b193",
+     "coord": [
+      8.487952232,
+      47.392320553
+     ]
+    }
+   ],
+   "contact_sheet": "preview/ref_place_altstetten_bahnhof.jpg"
+  },
+  "lindenplatz": {
+   "wgs84": [
+    47.3876,
+    8.4862
+   ],
+   "local": [
+    -2300,
+    370
+   ],
+   "photos": [
+    {
+     "file": "lindenplatz/00.jpg",
+     "title": "File:Seniorenresidenz Spirgarten Miller Maranta.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Seniorenresidenz Spirgarten, Altstetten, Zürich. Architekten: Miller &amp; Maranta, Basel, Bihr Landschaftsarchitekten",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Seniorenresidenz_Spirgarten_Miller_Maranta.jpg"
+    },
+    {
+     "file": "lindenplatz/01.jpg",
+     "title": "File:Brauchbares Badener Strasse.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Badenerstr. 688, Altstetten, Zürich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Brauchbares_Badener_Strasse.jpg"
+    },
+    {
+     "file": "lindenplatz/02.jpg",
+     "title": "File:Fotostudio Altstetten.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Ehemalige Hinterhoftischlerei, jetzt Fotoatelier, Altstetten, Zürich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Fotostudio_Altstetten.jpg"
+    },
+    {
+     "file": "lindenplatz/03.jpg",
+     "title": "File:Tischlerei Altstetten.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Ehemalige Hinterhoftischlerei, jetzt Fotoatelier, Altstetten, Zürich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Tischlerei_Altstetten.jpg"
+    },
+    {
+     "file": "lindenplatz/04.jpg",
+     "title": "File:UBS Bank Branch in Badenerstrasse 678 Altstetten, Zürich (Ank Kumar, Infosys Limited) 02.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Ank Kumar",
+     "date": "2019-10-07",
+     "desc": "UBS Switzerland AG bank branch in Altstetten/Lindenplatz at Badenerstrasse 678, Zürich 8048, Switzerland.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:UBS_Bank_Branch_in_Badenerstrasse_678_Altstetten,_Z%C3%BCrich_(Ank_Kumar,_Infosys_Limited)_02.jpg"
+    },
+    {
+     "file": "lindenplatz/05.jpg",
+     "title": "File:Hochhaus Tilia 2025.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Tschubby",
+     "date": "2025-08-10",
+     "desc": "Hochhaus Tilia",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Hochhaus_Tilia_2025.jpg"
+    },
+    {
+     "file": "lindenplatz/06.jpg",
+     "title": "File:Lindenplatz Zürich.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Lindenplatz, Gebäudeecke Spirgarten",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Lindenplatz_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "lindenplatz/07.jpg",
+     "title": "File:Kinderarzt Zürich.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Spirgarten von der Segnesstr., Zürich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Kinderarzt_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "lindenplatz/08.jpg",
+     "title": "File:Welti Spirgarten.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Lindenplatz Altstetten Zürich, Blick auf Reformierte Kirche Altstetten",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Welti_Spirgarten.jpg"
+    },
+    {
+     "file": "lindenplatz/09.jpg",
+     "title": "File:Spitex Segnesstr.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Segnesstr., Zürich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Spitex_Segnesstr.jpg"
+    },
+    {
+     "file": "lindenplatz/10.jpg",
+     "title": "File:Kiosk Lindenplatz Zürich.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Kiosk Lindenplatz Altstetten Zürich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Kiosk_Lindenplatz_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "lindenplatz/11.jpg",
+     "title": "File:Tram Museum Zürich - LSB 2 mit Postrolli Z2 vor dem Restaurant Krone in Zürich - Altstetten (13. April 2014).jpg",
+     "license": "CC BY 2.0",
+     "author": "hrs51",
+     "date": "2014-04-13 11:08:30",
+     "desc": "Restored historical tram LSB 2 (built in 1900) with \"Postrolli\" (= mail trailer) on its ancient home track in front of the the restored  \"Restaurant K",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Tram_Museum_Z%C3%BCrich_-_LSB_2_mit_Postrolli_Z2_vor_dem_Restaurant_Krone_in_Z%C3%BCrich_-_Altstetten_(13._April_2014).jpg"
+    },
+    {
+     "file": "lindenplatz/12.jpg",
+     "title": "File:Tram Museum Zürich - LSB 2 mit Postrolli Z2 vor dem Restaurant Krone in Zürich - Altstetten (13. April 2014) - 29651947861.jpg",
+     "license": "CC BY 4.0",
+     "author": "hrs51",
+     "date": "2014-04-13 11:08:30",
+     "desc": "Restored historical tram LSB 2 (built in 1900) with \"Postrolli\" (= mail trailer) on its ancient home track in front of the the restored  \"Restaurant K",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Tram_Museum_Z%C3%BCrich_-_LSB_2_mit_Postrolli_Z2_vor_dem_Restaurant_Krone_in_Z%C3%BCrich_-_Altstetten_(13._April_2014)_-_29651947861.jpg"
+    },
+    {
+     "file": "lindenplatz/13.jpg",
+     "title": "File:Historical landmark plate for Krone in Altstetten in Zürich.jpg",
+     "license": "CC BY 4.0",
+     "author": "Balise42",
+     "date": "2023-11-26 11:37:09",
+     "desc": "A blue plate on a wall with a text in German translating to \"Built by the surgeon Conrad Studer in 1927 as a clacissist building, together with the st",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Historical_landmark_plate_for_Krone_in_Altstetten_in_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "lindenplatz/14.jpg",
+     "title": "File:Restaurant Krone in Altstetten in Zürich.jpg",
+     "license": "CC BY 4.0",
+     "author": "Balise42",
+     "date": "2023-11-26 11:36:42",
+     "desc": "A 4-story with a gambrel roof, seen from the corner, with windows with dark blue blinds. The entrance is on top of stairs and the name Restaurant Kron",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Restaurant_Krone_in_Altstetten_in_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "lindenplatz/15.jpg",
+     "title": "File:Jakob-Fügli-Strasse.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Captaininler",
+     "date": "2022-06-13",
+     "desc": "Strassenschild von Jakob-Fügli-Strasse in Zürich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Jakob-F%C3%BCgli-Strasse.jpg"
+    },
+    {
+     "file": "lindenplatz/16.jpg",
+     "title": "File:Dawn (168385117).jpeg",
+     "license": "CC BY 3.0",
+     "author": "\nAbhilash R",
+     "date": "29 January 2014, 17:",
+     "desc": "\nKamine in Altstetten ZH",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Dawn_(168385117).jpeg"
+    },
+    {
+     "file": "lindenplatz/17.jpg",
+     "title": "File:Zürich Bachmattstrasse 04.jpg",
+     "license": "CC BY 4.0",
+     "author": "Balise42",
+     "date": "2024-08-01 12:18:32",
+     "desc": "Bachmattstrasse in Zürich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Bachmattstrasse_04.jpg"
+    },
+    {
+     "file": "places/lindenplatz/pmx/00.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "captaininler",
+     "date": "2024-06-10T17:13:55+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/dfecdb43-1a7d-4cfa-9386-4310287e69e6/items/c307e728-a80c-4d8c-8015-aef04a863bfc",
+     "coord": [
+      8.484656412,
+      47.387495042
+     ]
+    },
+    {
+     "file": "places/lindenplatz/pmx/01.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "captaininler",
+     "date": "2024-06-10T17:13:26+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/dc4b435e-970d-470b-880b-f8411120bc53/items/76772700-0e74-471e-a36c-c4eb2c3543ea",
+     "coord": [
+      8.485150484,
+      47.387839906
+     ]
+    },
+    {
+     "file": "places/lindenplatz/pmx/02.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "captaininler",
+     "date": "2024-04-29T16:21:54+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/afc20368-ce96-4080-80fc-397b4865a425/items/a7ac29fe-9df7-4629-bfb7-e1be53ec7751",
+     "coord": [
+      8.4851391,
+      47.387905
+     ]
+    },
+    {
+     "file": "places/lindenplatz/pmx/03.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "paulb_imagery",
+     "date": "2024-04-14T14:55:06.745000+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/bae7a972-f812-4e8d-8afb-a937835a1ad4",
+     "coord": [
+      8.48482922,
+      47.388161897
+     ]
+    },
+    {
+     "file": "places/lindenplatz/pmx/04.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "captaininler",
+     "date": "2024-06-10T17:33:09+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/5f538109-0b3a-4c14-8a21-0c84ad4a4a54/items/f562e302-19e6-4db6-ba8c-228a36e10c59",
+     "coord": [
+      8.484199828,
+      47.387227027
+     ]
+    },
+    {
+     "file": "places/lindenplatz/pmx/05.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "captaininler",
+     "date": "2024-06-10T17:19:41+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/f37d8824-f1d3-40b5-a5e8-3f923949ea58/items/bb74562f-df7a-4f9b-8e55-8728f81eb088",
+     "coord": [
+      8.483973302,
+      47.387346394
+     ]
+    },
+    {
+     "file": "places/lindenplatz/pmx/06.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "captaininler",
+     "date": "2024-06-10T17:19:32+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/16388a59-5dc1-4dd2-bba9-70be049655be/items/9eefc855-7bed-4515-98b8-c403c6429e04",
+     "coord": [
+      8.4843625,
+      47.387294069
+     ]
+    },
+    {
+     "file": "places/lindenplatz/pmx/07.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "captaininler",
+     "date": "2024-06-10T17:17:44+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/f2f00732-c83c-4d46-b22d-5a95c4665e2a/items/75e71a66-5c33-4f6e-b174-62937e29d1ad",
+     "coord": [
+      8.484480498,
+      47.387231654
+     ]
+    }
+   ],
+   "contact_sheet": "preview/ref_place_lindenplatz.jpg"
+  },
+  "hohlstrasse_k9": {
+   "wgs84": [
+    47.389,
+    8.496
+   ],
+   "local": [
+    -1700,
+    520
+   ],
+   "note": "Abschnitt Farbhof (-2880,740) bis Letzipark (-1280,380)",
+   "photos": [
+    {
+     "file": "hohlstrasse_k9/00.jpg",
+     "title": "File:Zürich Altstetten Wohnsiedlung Letzibach D 1K4A2762.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Bobo11",
+     "date": "2018-05-26 13:18:41",
+     "desc": "Die Wohnsiedlung Letzibach D in Zürich Altstetten wurde 2015 fertiggestellt. Ausführendes Architekturbüro war; Loeliger Strub Architektur.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Altstetten_Wohnsiedlung_Letzibach_D_1K4A2762.jpg"
+    },
+    {
+     "file": "hohlstrasse_k9/01.jpg",
+     "title": "File:Zürich Altstetten Wohnsiedlung Letzibach D 1K4A2761.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Bobo11",
+     "date": "2018-05-26 13:18:40",
+     "desc": "Die Wohnsiedlung Letzibach D in Zürich Altstetten wurde 2015 fertiggestellt. Ausführendes Architekturbüro war; Loeliger Strub Architektur.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Altstetten_Wohnsiedlung_Letzibach_D_1K4A2761.jpg"
+    },
+    {
+     "file": "hohlstrasse_k9/02.jpg",
+     "title": "File:Altstetten - Letzipark - Hohlstrasse 2013-12-01 16-52-15 (P7800).JPG",
+     "license": "CC BY-SA 3.0",
+     "author": "Roland zh",
+     "date": "2013-12-01",
+     "desc": "Letzipark in Zürich (Switzerland)",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Altstetten_-_Letzipark_-_Hohlstrasse_2013-12-01_16-52-15_(P7800).JPG"
+    },
+    {
+     "file": "hohlstrasse_k9/03.jpg",
+     "title": "File:Altstetten - Letzipark - Hohlstrasse 2013-12-01 16-54-10 (P7800).JPG",
+     "license": "CC BY-SA 3.0",
+     "author": "Roland zh",
+     "date": "2013-12-01",
+     "desc": "Letzipark in Zürich (Switzerland)",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Altstetten_-_Letzipark_-_Hohlstrasse_2013-12-01_16-54-10_(P7800).JPG"
+    },
+    {
+     "file": "hohlstrasse_k9/04.jpg",
+     "title": "File:Vulcano-Hochhaus seen from Badenerstrasse in Zürich.jpg",
+     "license": "CC BY 4.0",
+     "author": "Balise42",
+     "date": "2023-11-26 11:27:31",
+     "desc": "A street intersection with a large amount of tram cables and three black high-rise buildings in the background",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Vulcano-Hochhaus_seen_from_Badenerstrasse_in_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "hohlstrasse_k9/05.jpg",
+     "title": "File:Skillet zurich komplex.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Jdd2405",
+     "date": "2014-10-20 21:31:25",
+     "desc": "Skillet am 20. Oktober 2014 im Komplex457 in Zürich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Skillet_zurich_komplex.jpg"
+    },
+    {
+     "file": "hohlstrasse_k9/06.jpg",
+     "title": "File:Städt. Wohnüberbauung Farbhof BAZ 033843.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Dr. F Steindl",
+     "date": "1957",
+     "desc": "Städt. Wohnüberbauung Farbhof am Ende der Hohlstrasse in Altstetten. Haus Hohlstrasse 688 links und 699 rechts. Erbaut 1957",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:St%C3%A4dt._Wohn%C3%BCberbauung_Farbhof_BAZ_033843.jpg"
+    },
+    {
+     "file": "hohlstrasse_k9/07.jpg",
+     "title": "File:SBB Bm 4 4 18424.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Andreas Karrer",
+     "date": "2012-05-28",
+     "desc": "SBB-CFF-FFS Diesel Shunter Bm 4/4 Nr. 18424 in Zurich-Altstetten",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:SBB_Bm_4_4_18424.jpg"
+    },
+    {
+     "file": "hohlstrasse_k9/08.jpg",
+     "title": "File:Wohnsiedlung Letzi 2025.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Tschubby",
+     "date": "2025-08-06",
+     "desc": "Wohnsiedlung Letzi",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Wohnsiedlung_Letzi_2025.jpg"
+    },
+    {
+     "file": "hohlstrasse_k9/09.jpg",
+     "title": "File:Popeyes in Zurich, June 2024, Letzipark.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Dodo von den Bergen",
+     "date": "2024-06-30 14:29:42",
+     "desc": "A branch of Popeyes in Zurich near the Letzipark shopping centre. Photographed on 30 June 2024.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Popeyes_in_Zurich,_June_2024,_Letzipark.jpg"
+    },
+    {
+     "file": "hohlstrasse_k9/10.jpg",
+     "title": "File:Einkaufszentrum Letzipark, Zurich, June 2024.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Dodo von den Bergen",
+     "date": "2024-06-30 14:29:46",
+     "desc": "Letzipark shopping centre in Zurich. Photographed on 30 June 2024.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Einkaufszentrum_Letzipark,_Zurich,_June_2024.jpg"
+    },
+    {
+     "file": "hohlstrasse_k9/11.jpg",
+     "title": "File:Zuerich-vbz-tram-2-der-890178.jpg",
+     "license": "Attribution",
+     "author": "Kurt Rasmussen",
+     "date": "",
+     "desc": "Zürich VBZ Tram 2: Der Be 5/6 3014 befindet sich am 11. Juli 2015 in der Badenerstrasse kurz vor der Endstation Farbhof.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Zuerich-vbz-tram-2-der-890178.jpg"
+    },
+    {
+     "file": "hohlstrasse_k9/12.jpg",
+     "title": "File:Zuerich-vbz-tram-2-swsbbcsaas-970307.jpg",
+     "license": "Attribution",
+     "author": "Kurt Rasmussen",
+     "date": "Taken in July 1983",
+     "desc": "Zürich VBZ Tram 2 (SWS/BBC/SAAS Be 4/6 1664 + Be 4/6 1719) Altstetten, Badenerstrasse / Farbhofstrasse (Endstation Farbhof) im Juli 1983. - Scan von e",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Zuerich-vbz-tram-2-swsbbcsaas-970307.jpg"
+    },
+    {
+     "file": "hohlstrasse_k9/13.jpg",
+     "title": "File:Hochhaus Basilisk.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Tschubby",
+     "date": "2022-05-27",
+     "desc": "Hochhaus Basilisk",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Hochhaus_Basilisk.jpg"
+    },
+    {
+     "file": "hohlstrasse_k9/14.jpg",
+     "title": "File:ZAS168 Zuerich-Altstetten MaxVogt 20240812 190453.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Moritz Twente ",
+     "date": "2024-08-12",
+     "desc": "The office building at the Express Cargo Yard in Zürich-Altstetten was designed by Max Vogt as part of the ensemble and built in 1976. This photo show",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:ZAS168_Zuerich-Altstetten_MaxVogt_20240812_190453.jpg"
+    },
+    {
+     "file": "hohlstrasse_k9/15.jpg",
+     "title": "File:Zürich Badenerstrasse 03.jpg",
+     "license": "CC BY 4.0",
+     "author": "Balise42",
+     "date": "2023-11-26 11:22:59",
+     "desc": "A wide road with two tram tracks in the middle and a train bridge on top, between 3-to-7-story buildings. A tram stop is visible in the background",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Badenerstrasse_03.jpg"
+    },
+    {
+     "file": "hohlstrasse_k9/16.jpg",
+     "title": "File:Letziturm 2022.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Tschubby",
+     "date": "2022-11-23",
+     "desc": "Letziturm",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Letziturm_2022.jpg"
+    },
+    {
+     "file": "hohlstrasse_k9/17.jpg",
+     "title": "File:Zürich Albulastrasse 03.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Balise42",
+     "date": "2023-08-16 19:10:28",
+     "desc": "High-rise building on Albulastrasse in Zürich. A ~20-story building, seen from the street, with regular columns of windows, most of them with stores d",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Albulastrasse_03.jpg"
+    },
+    {
+     "file": "places/hohlstrasse_k9/pmx/00.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "captaininler",
+     "date": "2024-04-30T17:15:36+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/dd1e9f33-3a88-4a48-ae48-2911871332f5/items/a4ea8e42-2fed-4f11-a0a0-5c8ef61b62fd",
+     "coord": [
+      8.4945311,
+      47.3890355
+     ]
+    },
+    {
+     "file": "places/hohlstrasse_k9/pmx/01.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "captaininler",
+     "date": "2024-04-30T17:13:12+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/d4ec3633-2692-47d4-86c2-7ad2d2e08a0e/items/0bf85e67-4b70-402e-a319-0628d3018c22",
+     "coord": [
+      8.4940043,
+      47.389349
+     ]
+    },
+    {
+     "file": "places/hohlstrasse_k9/pmx/02.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "Lezurex",
+     "date": "2025-04-28T11:48:54+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/c17c9533-2ad1-4d5b-a385-c6f388991def",
+     "coord": [
+      8.4854192,
+      47.3918019
+     ]
+    },
+    {
+     "file": "places/hohlstrasse_k9/pmx/03.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "paulb_imagery",
+     "date": "2024-04-14T14:57:53.741000+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/daf0af7f-62dd-433e-b530-e582e344da97",
+     "coord": [
+      8.486563616,
+      47.391406967
+     ]
+    },
+    {
+     "file": "places/hohlstrasse_k9/pmx/04.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "captaininler",
+     "date": "2024-04-30T17:26:34+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/851f5d2b-da83-4694-bc20-43b208ec91ee/items/46be4249-77bf-4473-acc3-6fbe5f1d1ed2",
+     "coord": [
+      8.4995374,
+      47.387659
+     ]
+    }
+   ],
+   "contact_sheet": "preview/ref_place_hohlstrasse_k9.jpg"
+  },
+  "wiedikon_bahnhof": {
+   "wgs84": [
+    47.3717,
+    8.523
+   ],
+   "local": [
+    505,
+    -1371
+   ],
+   "photos": [
+    {
+     "file": "wiedikon_bahnhof/00.jpg",
+     "title": "File:Liegender (zweiteiliges Werk).jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "SolAymee",
+     "date": "2019-05-13 17:55:03",
+     "desc": "Brunnen am Bahnhof Wiedikon",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Liegender_(zweiteiliges_Werk).jpg"
+    },
+    {
+     "file": "wiedikon_bahnhof/01.jpg",
+     "title": "File:Bahnhof Wiedikon 2012-02-18 14-08-54 (SX230) ShiftN.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Roland zh",
+     "date": "2012-02-18",
+     "desc": "Bahnhof Wiedikon in Zürich-Wiedikon (Switzerland)",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Bahnhof_Wiedikon_2012-02-18_14-08-54_(SX230)_ShiftN.jpg"
+    },
+    {
+     "file": "wiedikon_bahnhof/02.jpg",
+     "title": "File:Wiedikon - Bahnhof 2012-02-18 14-09-08 (SX230).JPG",
+     "license": "CC BY-SA 3.0",
+     "author": "Roland zh",
+     "date": "2012-02-18",
+     "desc": "Bahnhof Wiedikon in Zürich-Wiedikon (Switzerland)",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Wiedikon_-_Bahnhof_2012-02-18_14-09-08_(SX230).JPG"
+    },
+    {
+     "file": "wiedikon_bahnhof/03.jpg",
+     "title": "File:Tram Museum Zürich 2011 - 30525685316.jpg",
+     "license": "CC BY 2.0",
+     "author": "hrs51",
+     "date": "2011-04-25 12:34:38",
+     "desc": "Ce 2/2 1019 (VBZ) on a special trip in Zurich Wiedikon. \n\nCe 2/2 1019 (Baujahr 1928) der VBZ auf einer Extrafahrt des Tram Museums Zürich / APS in Zür",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Tram_Museum_Z%C3%BCrich_2011_-_30525685316.jpg"
+    },
+    {
+     "file": "wiedikon_bahnhof/04.jpg",
+     "title": "File:Schimmelstrasse 16 Zurich.JPG",
+     "license": "CC BY-SA 3.0",
+     "author": "Athos75",
+     "date": "2013-09-17 17:12:39",
+     "desc": "Geschäftshäuser und Wohnüberbauung Schimmelstrasse, ID AU4791",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Schimmelstrasse_16_Zurich.JPG"
+    },
+    {
+     "file": "wiedikon_bahnhof/05.jpg",
+     "title": "File:Mobile air quality monitoring station in Zürich.jpg",
+     "license": "CC BY 4.0",
+     "author": "Balise42",
+     "date": "2025-11-23 18:22:40",
+     "desc": "A small container on wheels, with measurement devices attached to it. The writing on the container reads \"Stadt Zürich - Umwelt- und Gesundheitsschutz",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Mobile_air_quality_monitoring_station_in_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "wiedikon_bahnhof/06.jpg",
+     "title": "File:Bahnhof Zürich Wiedikon Zürich.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Lantus",
+     "date": "2019-10-08",
+     "desc": "Zürich Wiedikon railway station in Zürich (Switzerland) 2019",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Bahnhof_Z%C3%BCrich_Wiedikon_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "wiedikon_bahnhof/07.jpg",
+     "title": "File:Zürich Ankerstrasse 02.jpg",
+     "license": "CC BY 4.0",
+     "author": "Balise42",
+     "date": "2023-08-30 17:01:31",
+     "desc": "A 4-story building with painted tiles decorating the last floor",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Ankerstrasse_02.jpg"
+    },
+    {
+     "file": "wiedikon_bahnhof/08.jpg",
+     "title": "File:Exhibition view with artist – Ausstellung März’24, Galerie 111, Zürich.jpg",
+     "license": "CC BY 4.0",
+     "author": "HonysTorresArt",
+     "date": "2024-03-11 16:20:28",
+     "desc": "Exhibition view from Ausstellung März’24",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Exhibition_view_with_artist_%E2%80%93_Ausstellung_M%C3%A4rz%E2%80%9924,_Galerie_111,_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "wiedikon_bahnhof/09.jpg",
+     "title": "File:Gerhardstrasse.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "UCaetano",
+     "date": "",
+     "desc": "Gerhardstrasse",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Gerhardstrasse.jpg"
+    },
+    {
+     "file": "wiedikon_bahnhof/10.jpg",
+     "title": "File:4 1392 und 1530 beim Bahnhof Wiedikon in Zürich.jpg",
+     "license": "CC BY 2.0",
+     "author": "hrs51",
+     "date": "2016-04-10 12:49:50",
+     "desc": "Ce 4/4 1392 (built in 1950) and Ce 4/4 1530 (built in 1949) on an extra tour for photographers near Bahnhof Wiedikon  in Zurich.      \n\nCe 4/4 1392  (",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:4_1392_und_1530_beim_Bahnhof_Wiedikon_in_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "wiedikon_bahnhof/11.jpg",
+     "title": "File:4 1392 und 1530 beim Bahnhof Wiedikon in Zürich - 32230234685.jpg",
+     "license": "CC BY 2.0",
+     "author": "hrs51",
+     "date": "2016-04-10 12:43:05",
+     "desc": "Ce 4/4 1392 (built in 1950) and Ce 4/4 1530 (built in 1949) on an extra tour for photographers near Bahnhof Wiedikon  in Zurich.      \n\nCe 4/4 1392  (",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:4_1392_und_1530_beim_Bahnhof_Wiedikon_in_Z%C3%BCrich_-_32230234685.jpg"
+    },
+    {
+     "file": "wiedikon_bahnhof/12.jpg",
+     "title": "File:4 1392 Tram Museum Zürich 2011 - 5654101756.jpg",
+     "license": "CC BY 4.0",
+     "author": "hrs51",
+     "date": "2011-04-25 11:36:06",
+     "desc": "Historical tram  of  the Tram Museum Zurich (Ce 4/4 1392, built in 1950) on a special tour in Zurich Wiedikon.\n\nFurther information / Weitere Informat",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:4_1392_Tram_Museum_Z%C3%BCrich_2011_-_5654101756.jpg"
+    },
+    {
+     "file": "wiedikon_bahnhof/13.jpg",
+     "title": "File:Exhibition view – Ausstellung März’24, Galerie 111, Zürich.jpg",
+     "license": "CC BY 4.0",
+     "author": "HonysTorresArt",
+     "date": "2024-03-09 19:43:11",
+     "desc": "Exhibition view from Ausstellung März’24 at Galerie 111 in Zürich. The image shows a modern gallery interior with artworks from Honys Torres’ collecti",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Exhibition_view_%E2%80%93_Ausstellung_M%C3%A4rz%E2%80%9924,_Galerie_111,_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "wiedikon_bahnhof/14.jpg",
+     "title": "File:Ausstellung März’24 – Galerie 111, Zürich (2024) 06.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "HonysTorresArt",
+     "date": "2024-03-07 17:30:37",
+     "desc": "Exhibition views of Ausstellung März’24, a collective exhibition held at Galerie 111 in Zürich, Switzerland, featuring works by  Honys Torres.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Ausstellung_M%C3%A4rz%E2%80%9924_%E2%80%93_Galerie_111,_Z%C3%BCrich_(2024)_06.jpg"
+    },
+    {
+     "file": "wiedikon_bahnhof/15.jpg",
+     "title": "File:Ausstellung März’24 – Galerie 111, Zürich (2024) 03.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "HonysTorresArt",
+     "date": "2024-03-07 17:30:37",
+     "desc": "Exhibition views of Ausstellung März’24, a collective exhibition held at Galerie 111 in Zürich, Switzerland, featuring works by  Honys Torres.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Ausstellung_M%C3%A4rz%E2%80%9924_%E2%80%93_Galerie_111,_Z%C3%BCrich_(2024)_03.jpg"
+    },
+    {
+     "file": "wiedikon_bahnhof/16.jpg",
+     "title": "File:-i---i- (37049935883).jpg",
+     "license": "CC BY-SA 2.0",
+     "author": "Thomas Woodtli from Zürich, Switzerland",
+     "date": "Taken on 14 October ",
+     "desc": "",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:-i---i-_(37049935883).jpg"
+    },
+    {
+     "file": "wiedikon_bahnhof/17.jpg",
+     "title": "File:Synagoge Agudas Achim.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Cmdr Zod",
+     "date": "2013-08-18 15:41:54",
+     "desc": "Synagoge Agudas Achim, Zürich, Gesamtansicht",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Synagoge_Agudas_Achim.jpg"
+    },
+    {
+     "file": "places/wiedikon_bahnhof/pmx/00.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "OneOSMUser",
+     "date": "2026-08-30T15:25:39+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/7804bb97-94ac-4973-bc86-7caf3b10035e/items/8af9dfe6-7cb8-4138-beb6-9c0884772d0e",
+     "coord": [
+      8.522439,
+      47.372077
+     ]
+    },
+    {
+     "file": "places/wiedikon_bahnhof/pmx/01.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "Lezurex",
+     "date": "2025-05-27T14:52:27+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/b6308b4b-fc0a-43c3-b2ab-146eaa77cc40/items/889a062b-e097-4ef1-b840-dcb029e55023",
+     "coord": [
+      8.5223994,
+      47.3720599
+     ]
+    },
+    {
+     "file": "places/wiedikon_bahnhof/pmx/02.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "Lezurex",
+     "date": "2025-01-18T12:54:19+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/031608fb-ac19-4226-b750-ea5c45e985a5",
+     "coord": [
+      8.5230495,
+      47.3721908
+     ]
+    },
+    {
+     "file": "places/wiedikon_bahnhof/pmx/03.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "OneOSMUser",
+     "date": "2026-08-30T15:25:50+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/7804bb97-94ac-4973-bc86-7caf3b10035e/items/5c5d673b-1dff-4691-bfb4-0bcd2f15e350",
+     "coord": [
+      8.521784,
+      47.371753
+     ]
+    },
+    {
+     "file": "places/wiedikon_bahnhof/pmx/04.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "Lezurex",
+     "date": "2025-05-27T14:53:04+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/b6308b4b-fc0a-43c3-b2ab-146eaa77cc40/items/5ed33ac6-f11b-47da-a622-9172bb32bcec",
+     "coord": [
+      8.5218405,
+      47.3717783
+     ]
+    },
+    {
+     "file": "places/wiedikon_bahnhof/pmx/05.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "Lezurex",
+     "date": "2025-01-18T12:53:31+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/70ab8577-c2ee-455f-9863-34eb3e21e59d",
+     "coord": [
+      8.5220133,
+      47.3717345
+     ]
+    },
+    {
+     "file": "places/wiedikon_bahnhof/pmx/06.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "captaininler",
+     "date": "2024-05-03T12:28:39+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/bb36f160-a9c1-402e-a505-09daa1572558/items/2b6be48c-2877-48eb-a76e-a22e75af08fc",
+     "coord": [
+      8.5221717,
+      47.3706254
+     ]
+    }
+   ],
+   "contact_sheet": "preview/ref_place_wiedikon_bahnhof.jpg"
+  },
+  "schmiede_wiedikon": {
+   "wgs84": [
+    47.3701,
+    8.5192
+   ],
+   "local": [
+    225,
+    -1560
+   ],
+   "photos": [
+    {
+     "file": "schmiede_wiedikon/00.jpg",
+     "title": "File:Airshow Patrouille Suisse - Zürifäscht 2019 21.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Balise42",
+     "date": "2019-07-05 20:06:00",
+     "desc": "Airshow Patrouille Suisse - Zürifäscht 2019",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Airshow_Patrouille_Suisse_-_Z%C3%BCrif%C3%A4scht_2019_21.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/01.jpg",
+     "title": "File:Jigsaw puzzle in progress.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Balise42",
+     "date": "2022-02-10 08:33:24",
+     "desc": "Jigsaw puzzle in progress, set on a large cardboard piece, with a box of jigsaw pieces next to it.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Jigsaw_puzzle_in_progress.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/02.jpg",
+     "title": "File:Airshow Patrouille Suisse - Zürifäscht 2019 18.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Balise42",
+     "date": "2019-07-05 19:57:36",
+     "desc": "Airshow Patrouille Suisse - Zürifäscht 2019",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Airshow_Patrouille_Suisse_-_Z%C3%BCrif%C3%A4scht_2019_18.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/03.jpg",
+     "title": "File:Gerhardstrasse.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "UCaetano",
+     "date": "",
+     "desc": "Gerhardstrasse",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Gerhardstrasse.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/04.jpg",
+     "title": "File:ETH-BIB-Zürich, Baustelle Börse, Erweiterung SZU bei Bahnhof Selnau, Alter Botanischer Garten Com FC24-8000-0865 (cropped).jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "\nJules Vogt",
+     "date": "September 1985date Q",
+     "desc": "Zürich: Baustelle Börse, Erweiterung SZU bei Bahnhof Selnau, Alter Botanischer Garten",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:ETH-BIB-Z%C3%BCrich,_Baustelle_B%C3%B6rse,_Erweiterung_SZU_bei_Bahnhof_Selnau,_Alter_Botanischer_Garten_Com_FC24-8000-0865_(cropped).jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/05.jpg",
+     "title": "File:ETH-BIB-Zürich, Baustelle Börse, Erweiterung SZU bei Bahnhof Selnau, Alter Botanischer Garten Com FC24-8000-0865.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "\nJules Vogt",
+     "date": "September 1985date Q",
+     "desc": "Zürich: Baustelle Börse, Erweiterung SZU bei Bahnhof Selnau, Alter Botanischer Garten",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:ETH-BIB-Z%C3%BCrich,_Baustelle_B%C3%B6rse,_Erweiterung_SZU_bei_Bahnhof_Selnau,_Alter_Botanischer_Garten_Com_FC24-8000-0865.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/06.jpg",
+     "title": "File:Weststrasse.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "UCaetano",
+     "date": "",
+     "desc": "Weststrasse",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Weststrasse.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/07.jpg",
+     "title": "File:Mobile air quality monitoring station in Zürich.jpg",
+     "license": "CC BY 4.0",
+     "author": "Balise42",
+     "date": "2025-11-23 18:22:40",
+     "desc": "A small container on wheels, with measurement devices attached to it. The writing on the container reads \"Stadt Zürich - Umwelt- und Gesundheitsschutz",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Mobile_air_quality_monitoring_station_in_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/08.jpg",
+     "title": "File:Schimmelstrasse 16 Zurich.JPG",
+     "license": "CC BY-SA 3.0",
+     "author": "Athos75",
+     "date": "2013-09-17 17:12:39",
+     "desc": "Geschäftshäuser und Wohnüberbauung Schimmelstrasse, ID AU4791",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Schimmelstrasse_16_Zurich.JPG"
+    },
+    {
+     "file": "schmiede_wiedikon/09.jpg",
+     "title": "File:4 1392 und 1530 beim Bahnhof Wiedikon in Zürich.jpg",
+     "license": "CC BY 2.0",
+     "author": "hrs51",
+     "date": "2016-04-10 12:49:50",
+     "desc": "Ce 4/4 1392 (built in 1950) and Ce 4/4 1530 (built in 1949) on an extra tour for photographers near Bahnhof Wiedikon  in Zurich.      \n\nCe 4/4 1392  (",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:4_1392_und_1530_beim_Bahnhof_Wiedikon_in_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/10.jpg",
+     "title": "File:Musikpavillon Sihlhoelzli 04 11.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Хрюша",
+     "date": "2011-05-01",
+     "desc": "Band-shell Sihlhölzli by Robert Maillart, built 1932; Zürich, Switzerland.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Musikpavillon_Sihlhoelzli_04_11.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/11.jpg",
+     "title": "File:Hedwig Haller-Braus Kniendes Mädchen Brunnen 1946.JPG",
+     "license": "CC BY-SA 3.0",
+     "author": "C.Luethi",
+     "date": "sculpture 1946, phot",
+     "desc": "Kneeing Girl (limestone fountain), 1946. By Hedwig Haller-Braus. Location: Aegerten-/Werdstrasse, Zurich Switzerland.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Hedwig_Haller-Braus_Kniendes_M%C3%A4dchen_Brunnen_1946.JPG"
+    },
+    {
+     "file": "schmiede_wiedikon/12.jpg",
+     "title": "File:Hedwig Haller-Braus Kniendes Maedchen 1946.jpeg",
+     "license": "CC BY-SA 3.0",
+     "author": "C.Luethi",
+     "date": "Sculpture: 1946, Pho",
+     "desc": "Kneeing Girl (Detail from a limestone fountain), 1946. By Hedwig Haller-Braus. Location: Aegerten-/Werdstrasse, Zurich Switzerland.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Hedwig_Haller-Braus_Kniendes_Maedchen_1946.jpeg"
+    },
+    {
+     "file": "schmiede_wiedikon/13.jpg",
+     "title": "File:Wiedikon - Bahnhof 2012-02-18 14-09-08 (SX230).JPG",
+     "license": "CC BY-SA 3.0",
+     "author": "Roland zh",
+     "date": "2012-02-18",
+     "desc": "Bahnhof Wiedikon in Zürich-Wiedikon (Switzerland)",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Wiedikon_-_Bahnhof_2012-02-18_14-09-08_(SX230).JPG"
+    },
+    {
+     "file": "schmiede_wiedikon/14.jpg",
+     "title": "File:Bahnhof Zürich Wiedikon Zürich.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Lantus",
+     "date": "2019-10-08",
+     "desc": "Zürich Wiedikon railway station in Zürich (Switzerland) 2019",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Bahnhof_Z%C3%BCrich_Wiedikon_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/15.jpg",
+     "title": "File:Bahnhof Wiedikon 2012-02-18 14-08-54 (SX230) ShiftN.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Roland zh",
+     "date": "2012-02-18",
+     "desc": "Bahnhof Wiedikon in Zürich-Wiedikon (Switzerland)",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Bahnhof_Wiedikon_2012-02-18_14-08-54_(SX230)_ShiftN.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/16.jpg",
+     "title": "File:Turnhalle Sihlhoelzli 01 11.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Хрюша",
+     "date": "2011-05-01",
+     "desc": "Gymnasium Sihlhölzli by Robert Maillart, built 1932; Zürich, Switzerland.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Turnhalle_Sihlhoelzli_01_11.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/17.jpg",
+     "title": "File:Zürich Aegertenstrasse 04.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Balise42",
+     "date": "2023-08-30 17:12:30",
+     "desc": "A small park with some greenery, gravel ground and four light-green wooden benches.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Aegertenstrasse_04.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/s00.jpg",
+     "title": "File:Zurlindenstrasse.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "UCaetano",
+     "date": "",
+     "desc": "Zurlindenstrasse",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Zurlindenstrasse.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/s01.jpg",
+     "title": "File:ZweierstrTuriciI.jpg",
+     "license": "CC BY 3.0",
+     "author": "Abderitestatos",
+     "date": "2008-07-15",
+     "desc": "Häuser an der Zweierstraße zu Wiedikon.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:ZweierstrTuriciI.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/s02.jpg",
+     "title": "File:ZweierstrI.jpg",
+     "license": "CC BY 3.0",
+     "author": "Abderitestatos",
+     "date": "2008-07-15",
+     "desc": "Façade an der Zweierstraße zu Wiedikon.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:ZweierstrI.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/s03.jpg",
+     "title": "File:Schlossgasse.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "UCaetano",
+     "date": "",
+     "desc": "Schlossgasse",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Schlossgasse.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/s04.jpg",
+     "title": "File:Zwinglikirche 2021.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Tschubby",
+     "date": "2021-10-14",
+     "desc": "Zwinglikirche in Zürich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Zwinglikirche_2021.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/s05.jpg",
+     "title": "File:Zürich Aemtlerstrasse 01.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Balise42",
+     "date": "2023-08-30 16:13:46",
+     "desc": "A large white building with arches, round windows and rounded windows above them. An inscription on the building reads \"Zwinglikirche - Chiesad Evange",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Aemtlerstrasse_01.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/s06.jpg",
+     "title": "File:Ottilienstrasse Strassentafel.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Captaininler",
+     "date": "2023-02-12",
+     "desc": "Strassentafel Ottilienstrasse in Zürich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Ottilienstrasse_Strassentafel.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/s07.jpg",
+     "title": "File:Zürich Aegertenstrasse 02.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Balise42",
+     "date": "2023-08-30 17:09:11",
+     "desc": "Colorful facades on a street where cars are parked.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Aegertenstrasse_02.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/s08.jpg",
+     "title": "File:Dietzingerstrasse.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "UCaetano",
+     "date": "",
+     "desc": "Dietzingerstrasse",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Dietzingerstrasse.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/s09.jpg",
+     "title": "File:Kindergarten Aegerten 3 2024.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Tschubby",
+     "date": "2024-10-27",
+     "desc": "Kindergarten Aegerten 3",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Kindergarten_Aegerten_3_2024.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/s10.jpg",
+     "title": "File:Malzstrasse 1907.JPG",
+     "license": "CC BY-SA 3.0",
+     "author": "Jakob Vetsch: Aufnahme einer Ansichtskarte vom Jahr 1907 (Standort: Heimat- und ",
+     "date": "Aufnahme durch Jakob",
+     "desc": "Blick in die MALZSTRASSE (vom heutigen Manesseplatz aus gesehen) in Zürich-Wiedikon auf einer Ansichtskarte aus dem Jahr 1907. Standort der Ansichtska",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Malzstrasse_1907.JPG"
+    },
+    {
+     "file": "schmiede_wiedikon/s11.jpg",
+     "title": "File:Zürich Aemtlerstrasse 02.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Balise42",
+     "date": "2023-08-30 16:16:21",
+     "desc": "A white statue of a man holding a sword and a book, in an alcove between two windows above a fountain. The picture is taken from the street, where two",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Aemtlerstrasse_02.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/s12.jpg",
+     "title": "File:Brunnen Kirchgemeindehaus Aemtlerstrasse 01.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "SolAymee",
+     "date": "2019-05-26 19:53:15",
+     "desc": "Brunnen Kirchgemeindehaus Aemtlerstrasse",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Brunnen_Kirchgemeindehaus_Aemtlerstrasse_01.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/s13.jpg",
+     "title": "File:Brunnen Kirchgemeindehaus Aemtlerstrasse 02.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "SolAymee",
+     "date": "2019-05-26 19:53:15",
+     "desc": "Brunnen Kirchgemeindehaus Aemtlerstrasse",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Brunnen_Kirchgemeindehaus_Aemtlerstrasse_02.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/s14.jpg",
+     "title": "File:Kindergarten Aegerten 3.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Tschubby",
+     "date": "2021-11-08",
+     "desc": "Kindergarten Aegerten 3",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Kindergarten_Aegerten_3.jpg"
+    },
+    {
+     "file": "schmiede_wiedikon/s15.jpg",
+     "title": "File:Exhibition view – Ausstellung März’24, Galerie 111, Zürich.jpg",
+     "license": "CC BY 4.0",
+     "author": "HonysTorresArt",
+     "date": "2024-03-09 19:43:11",
+     "desc": "Exhibition view from Ausstellung März’24 at Galerie 111 in Zürich. The image shows a modern gallery interior with artworks from Honys Torres’ collecti",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Exhibition_view_%E2%80%93_Ausstellung_M%C3%A4rz%E2%80%9924,_Galerie_111,_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "places/schmiede_wiedikon/pmx/00.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "paulb_imagery",
+     "date": "2024-06-10T13:39:31.770000+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/b828b75a-6476-42a3-ba2b-16148ac3e489/items/a8339d9a-f08f-4d2a-9e41-62e1492d6d02",
+     "coord": [
+      8.524135563,
+      47.369877611
+     ]
+    },
+    {
+     "file": "places/schmiede_wiedikon/pmx/01.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "paulb_imagery",
+     "date": "2024-06-07T14:31:14.325000+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/89873afd-dc34-477d-806b-4f5ff3b9a59a/items/298335e1-e034-493e-9d48-4ba44db6828e",
+     "coord": [
+      8.52412597,
+      47.369867144
+     ]
+    },
+    {
+     "file": "places/schmiede_wiedikon/pmx/02.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "paulb_imagery",
+     "date": "2024-06-10T13:39:38.771000+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/b828b75a-6476-42a3-ba2b-16148ac3e489/items/64b9c23a-e434-429f-88f0-5093108373fb",
+     "coord": [
+      8.523746931,
+      47.369525342
+     ]
+    },
+    {
+     "file": "places/schmiede_wiedikon/pmx/03.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "paulb_imagery",
+     "date": "2024-06-07T14:31:23.326000+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/89873afd-dc34-477d-806b-4f5ff3b9a59a/items/5413095c-1589-4c13-b092-0ab6db5ea604",
+     "coord": [
+      8.523716817,
+      47.369475373
+     ]
+    }
+   ],
+   "contact_sheet": "preview/ref_place_schmiede_wiedikon.jpg"
+  },
+  "badenerstrasse": {
+   "wgs84": [
+    47.383,
+    8.499
+   ],
+   "local": [
+    -1400,
+    -100
+   ],
+   "note": "Albisriederplatz (-470,-660) bis Lindenplatz (-2300,380)",
+   "photos": [
+    {
+     "file": "badenerstrasse/00.jpg",
+     "title": "File:Zürich Altstetten RhB 407 19860730K047-01.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Markus Giger",
+     "date": "1986-07-30",
+     "desc": "RhB Ge 6/6' 407 als Denkmal vor einem UBS-Verwaltungsgebäude (Flurstrasse 65)",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Altstetten_RhB_407_19860730K047-01.jpg"
+    },
+    {
+     "file": "badenerstrasse/01.jpg",
+     "title": "File:Zürich Anemonenstrasse 02.jpg",
+     "license": "CC BY 4.0",
+     "author": "Balise42",
+     "date": "2023-12-10 11:17:56",
+     "desc": "A two-way street with cars parked on each side and 4-to-10-story building on each side. There are red cranes in the background.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Anemonenstrasse_02.jpg"
+    },
+    {
+     "file": "badenerstrasse/02.jpg",
+     "title": "File:Luwa Areal LBS IN-051423-04.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Fotograf:\nSwissair Photo AG \nTitel:\nZürich-Albisrieden, Luwa AG \nBeschreibung:\nL",
+     "date": "1974-08-14",
+     "desc": "Luwa AG, Zürich-Albisrieden, Schweiz: Links oben: Freibad Letzigrund, rechts neben Sportplatz Utogrund:  Siemens-Albis AG",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Luwa_Areal_LBS_IN-051423-04.jpg"
+    },
+    {
+     "file": "badenerstrasse/03.jpg",
+     "title": "File:Freilager Gleis Zürich.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Totes Gleis zum Freilager, Zürich Altstetten",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Freilager_Gleis_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "badenerstrasse/04.jpg",
+     "title": "File:Zirkus Chnopf in Zurich.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Shootzurich",
+     "date": "2017-08-15 19:00:46",
+     "desc": "Zirkus Chnopf in Zurich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Zirkus_Chnopf_in_Zurich.jpg"
+    },
+    {
+     "file": "badenerstrasse/05.jpg",
+     "title": "File:Flexity Zürich Dienstahrt.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Werni Schrübli",
+     "date": "2020-02-06",
+     "desc": "Flexity Dienstahrt",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Flexity_Z%C3%BCrich_Dienstahrt.jpg"
+    },
+    {
+     "file": "badenerstrasse/06.jpg",
+     "title": "File:Ein Bücherwagen im Zirkusquartier Zürich im August 2021.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "PizzaToast",
+     "date": "2021-08-22 12:31:44",
+     "desc": "A book wagon in the circus district of Zurich in August 2021",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Ein_B%C3%BCcherwagen_im_Zirkusquartier_Z%C3%BCrich_im_August_2021.jpg"
+    },
+    {
+     "file": "badenerstrasse/07.jpg",
+     "title": "File:F+F zürich.jpg",
+     "license": "CC0",
+     "author": "Captaininler",
+     "date": "2023-10-30",
+     "desc": "Schulgebäude F+F in Zürich Albisrieden",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:F%2BF_z%C3%BCrich.jpg"
+    },
+    {
+     "file": "badenerstrasse/08.jpg",
+     "title": "File:Zürich Albisriederstrasse (2023) 04.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Balise42",
+     "date": "2023-09-15 14:34:17",
+     "desc": "A bronze-colored statue of a child denying the sitting dog in front of them the cookie they have in hand.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Albisriederstrasse_(2023)_04.jpg"
+    },
+    {
+     "file": "badenerstrasse/09.jpg",
+     "title": "File:Multicolor zinnia angustifolia.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Balise42",
+     "date": "2023-09-15 14:31:16",
+     "desc": "A carpet of green leaves with abundant red, yellow and orange flowers.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Multicolor_zinnia_angustifolia.jpg"
+    },
+    {
+     "file": "badenerstrasse/10.jpg",
+     "title": "File:Albisriederstrasse 166.JPG",
+     "license": "CC BY-SA 3.0",
+     "author": "Tschubby",
+     "date": "2025-01-12",
+     "desc": "Albisriederstrasse 166",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Albisriederstrasse_166.JPG"
+    },
+    {
+     "file": "badenerstrasse/11.jpg",
+     "title": "File:Zürich Albisriederstrasse (2023) 03.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Balise42",
+     "date": "2023-09-15 14:30:50",
+     "desc": "A white and blue tram on a street that has two lines on the left of it and one line on the right. Multiple buildings and a tram stop are visible, as w",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Albisriederstrasse_(2023)_03.jpg"
+    },
+    {
+     "file": "badenerstrasse/12.jpg",
+     "title": "File:Motorroller James - Gmür & Geschwentner Architekten AG Albisrieden.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Motorroller, Anemonenstr., Zürich.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Motorroller_James_-_Gm%C3%BCr_%26_Geschwentner_Architekten_AG_Albisrieden.jpg"
+    },
+    {
+     "file": "badenerstrasse/13.jpg",
+     "title": "File:Zirkus Chnopf.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Temporärer Standort Zirkus Chnopf, Zürich Al",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Zirkus_Chnopf.jpg"
+    },
+    {
+     "file": "badenerstrasse/14.jpg",
+     "title": "File:New Apostolic church building on Anemonenstrasse, Zürich.jpg",
+     "license": "CC BY 4.0",
+     "author": "Balise42",
+     "date": "2023-12-10 11:16:05",
+     "desc": "An L-shaped building that has, on the ground floor, a sign for \"Neuapostolische Kirche\" and small decorative windows and, on the higher floors, what l",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:New_Apostolic_church_building_on_Anemonenstrasse,_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "badenerstrasse/15.jpg",
+     "title": "File:FE62 Buckhauserstr Zürich.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "UBS, Buckhauserstr., Zürich Altstetten.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:FE62_Buckhauserstr_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "badenerstrasse/16.jpg",
+     "title": "File:Siedlung Dennlerstrasse Hofeinfahrt.JPG",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Hofeinfahrt Siedlung Dennlerstr. Architekt:Theo Hotz",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Siedlung_Dennlerstrasse_Hofeinfahrt.JPG"
+    },
+    {
+     "file": "badenerstrasse/17.jpg",
+     "title": "File:Gitter Arztpraxis Albisrieden.JPG",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Arztpraxis Siedlung Dennlerstr. Architekt:Theo Hotz, 2004",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Gitter_Arztpraxis_Albisrieden.JPG"
+    },
+    {
+     "file": "badenerstrasse/s00.jpg",
+     "title": "File:The weather will brighten up tomorrow. (10442033274).jpg",
+     "license": "CC BY 2.0",
+     "author": "Thomas8047",
+     "date": "2013-10-23 08:57",
+     "desc": "The weather will brighten up tomorrow.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:The_weather_will_brighten_up_tomorrow._(10442033274).jpg"
+    },
+    {
+     "file": "badenerstrasse/s01.jpg",
+     "title": "File:Zürich Albisriederplatz 03.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Balise42",
+     "date": "2023-09-17 11:22:37",
+     "desc": "A tram stop at a traffic intersection/square with multiple rail tracks. The background shows two streets arriving on the square. The tram stop shows s",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Albisriederplatz_03.jpg"
+    },
+    {
+     "file": "badenerstrasse/s02.jpg",
+     "title": "File:Zürich Albisriederstrasse (2023) 08.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Balise42",
+     "date": "2023-09-17 11:19:16",
+     "desc": "A road with a tram line in the middle and car lines on each side. There are trees on the sidewalks and 3-4-storey buildings behind the trees. A bus st",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Albisriederstrasse_(2023)_08.jpg"
+    },
+    {
+     "file": "badenerstrasse/s03.jpg",
+     "title": "File:Zürich Albisriederplatz 02.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Balise42",
+     "date": "2023-09-17 11:21:38",
+     "desc": "Curve on a town square with, on the left, a tram stop with the tram 2 sign visible; on the right a salmon building with octogonal bay windows on the c",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Albisriederplatz_02.jpg"
+    },
+    {
+     "file": "badenerstrasse/s04.jpg",
+     "title": "File:Meditation (15208930175).jpg",
+     "license": "CC BY 2.0",
+     "author": "Thomas8047",
+     "date": "2014-09-11 09:35",
+     "desc": "Zurich Switzerland",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Meditation_(15208930175).jpg"
+    },
+    {
+     "file": "badenerstrasse/s05.jpg",
+     "title": "File:Hochhaus Basilisk 2025.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Tschubby",
+     "date": "2025-01-12",
+     "desc": "Hochhaus Basilisk",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Hochhaus_Basilisk_2025.jpg"
+    },
+    {
+     "file": "badenerstrasse/s06.jpg",
+     "title": "File:Fahrräder Dennlerstr.JPG",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Vorplatz an der Dennlerstr/Badenerstr., Zürich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Fahrr%C3%A4der_Dennlerstr.JPG"
+    },
+    {
+     "file": "badenerstrasse/s07.jpg",
+     "title": "File:UBS Zurich Flurstrasse 70 (Ank Kumar) 03.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Ank Kumar",
+     "date": "2019-07-19",
+     "desc": "UBS Zurich Flurstrasse 70 \nBy - Ank Kumar (Infosys Limited)",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:UBS_Zurich_Flurstrasse_70_(Ank_Kumar)_03.jpg"
+    },
+    {
+     "file": "badenerstrasse/s08.jpg",
+     "title": "File:UBS Zurich Flurstrasse 70 (Ank Kumar) 05.jpg",
+     "license": "CC BY-SA 4.0",
+     "author": "Ank Kumar",
+     "date": "2019-07-19",
+     "desc": "UBS Zurich Flurstrasse 70 \nBy - Ank Kumar (Infosys Limited)",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:UBS_Zurich_Flurstrasse_70_(Ank_Kumar)_05.jpg"
+    },
+    {
+     "file": "badenerstrasse/s09.jpg",
+     "title": "File:Badenerstrasse 580 in Zürich.jpg",
+     "license": "CC BY 4.0",
+     "author": "Balise42",
+     "date": "2023-12-10 11:05:10",
+     "desc": "A white imposing 5-story office building, with a middle part with clustered windows and two wings. There is some decorative yellow/gold floral paintin",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Badenerstrasse_580_in_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "badenerstrasse/s10.jpg",
+     "title": "File:Badenerstrasse 575-581 in Zürich.jpg",
+     "license": "CC BY 4.0",
+     "author": "Balise42",
+     "date": "2023-12-10 11:06:58",
+     "desc": "A brown residential building whose windows are not aligned and all framed in different shades of white and yellow. There's a Coop shop on the ground f",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Badenerstrasse_575-581_in_Z%C3%BCrich.jpg"
+    },
+    {
+     "file": "badenerstrasse/s11.jpg",
+     "title": "File:Kiosk Aussersihl.JPG",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Detail Fassade Kiosk FC-Zürich-Platz",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Kiosk_Aussersihl.JPG"
+    },
+    {
+     "file": "badenerstrasse/s12.jpg",
+     "title": "File:Exhibition view – “Sommeraustellung”, Asheé Connecting Art & Cultures, Regus Badenerstrasse 549 (2025).jpg",
+     "license": "CC BY 4.0",
+     "author": "HonysTorresArt",
+     "date": "2025-07-24 19:11:24",
+     "desc": "Exhibition view from “Sommeraustellung” (2025), organized by Asheé Connecting Art &amp; Cultures in Zürich, Switzerland. The photograph shows two visi",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Exhibition_view_%E2%80%93_%E2%80%9CSommeraustellung%E2%80%9D,_Ashe%C3%A9_Connecting_Art_%26_Cultures,_Regus_Badenerstrasse_549_(2025).jpg"
+    },
+    {
+     "file": "badenerstrasse/s13.jpg",
+     "title": "File:Mini Badener Str Zuerich.jpg",
+     "license": "CC BY-SA 3.0",
+     "author": "Port(u*o)s",
+     "date": "2014-09-21",
+     "desc": "Autohaus Badener Str. in Zürich",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Mini_Badener_Str_Zuerich.jpg"
+    },
+    {
+     "file": "badenerstrasse/s14.jpg",
+     "title": "File:Zürich, Switzerland (Unsplash WaiXtA03LNY).jpg",
+     "license": "CC0",
+     "author": "Ricardo Gomez Angel ripato",
+     "date": "2017-01-31",
+     "desc": "Zürich, Switzerland",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Z%C3%BCrich,_Switzerland_(Unsplash_WaiXtA03LNY).jpg"
+    },
+    {
+     "file": "badenerstrasse/s15.jpg",
+     "title": "File:Crowne Plaza Zürich (6688013529).jpg",
+     "license": "CC BY-SA 2.0",
+     "author": "BriYYZ from Toronto, Canada",
+     "date": "2011-11-05 03:13",
+     "desc": "View from my room.",
+     "source": "Wikimedia Commons",
+     "page": "https://commons.wikimedia.org/wiki/File:Crowne_Plaza_Z%C3%BCrich_(6688013529).jpg"
+    },
+    {
+     "file": "places/badenerstrasse/pmx/00.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "captaininler",
+     "date": "2024-04-30T17:23:16+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/19af7ebd-5de0-45d2-982b-4e607c86a934/items/f057e2bb-2722-44ec-aeb4-c0c9cf8d4d21",
+     "coord": [
+      8.4934521,
+      47.3830675
+     ]
+    },
+    {
+     "file": "places/badenerstrasse/pmx/01.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "captaininler",
+     "date": "2024-04-21T12:53:18+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/babc3081-b68d-44d8-bba8-13b95a6e58a7/items/9b82af97-0184-4a08-927c-0e5442bd28a2",
+     "coord": [
+      8.4892255,
+      47.3845165
+     ]
+    },
+    {
+     "file": "places/badenerstrasse/pmx/02.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "captaininler",
+     "date": "2024-04-21T12:41:36+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/26ffabda-620f-470f-9f1f-dda41a17628d/items/9e21269c-32d2-4cac-a304-140955369eb8",
+     "coord": [
+      8.4886968,
+      47.3854385
+     ]
+    },
+    {
+     "file": "places/badenerstrasse/pmx/03.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "captaininler",
+     "date": "2024-04-21T12:20:12+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/632919c9-b8e9-44f2-b0ea-483a038ec0f4/items/d94c8272-abe0-4bbe-8e28-58f7d79d8c5f",
+     "coord": [
+      8.4894816,
+      47.3847331
+     ]
+    },
+    {
+     "file": "places/badenerstrasse/pmx/04.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "captaininler",
+     "date": "2024-04-30T17:47:05+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/322fb577-3a39-4d16-98cd-85be85c119ab/items/23d83887-90b8-4f8e-a95b-7c326635fbbb",
+     "coord": [
+      8.4963873,
+      47.3802096
+     ]
+    },
+    {
+     "file": "places/badenerstrasse/pmx/05.jpg",
+     "license": "CC-BY-SA-4.0",
+     "author": "captaininler",
+     "date": "2024-04-30T17:30:35+00:00",
+     "source": "Panoramax",
+     "page": "https://api.panoramax.xyz/api/collections/29b797ae-1be7-4d97-b405-a1d2d73bf733/items/56557979-d743-4ef5-b432-c0145b63e928",
+     "coord": [
+      8.4956338,
+      47.3796969
+     ]
+    }
+   ],
+   "contact_sheet": "preview/ref_place_badenerstrasse.jpg"
+  }
+ }
+}

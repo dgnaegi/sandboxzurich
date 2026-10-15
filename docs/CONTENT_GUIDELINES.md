@@ -1,6 +1,9 @@
 # Inhaltliche Leitplanken
 
-Dieses Spiel ist Wahlkampfmaterial. Fehler hier schaden mehr als Bugs.
+Dieses Spiel ist Wahlkampfmaterial der **Alternativen Linken (AL)**. Fehler hier schaden mehr als Bugs.
+
+## Plakate der Alternativen Linken
+- Hochformat (F4), Slogan nur «radikal sozial», unten «Alternative Linke». Eigene Zeichnung im Stil der Plakate 2026, keine kopierte Illustration, keine Namen von Kandidierenden ohne Einwilligung. Generator: `pipeline/gen_posters.py`.
 
 ## Echte Personen
 - Nicole Wyss, Melanie Berner (Regierungsrat) sowie Daniel Gnägi und David Garcia Nuñez (Kantonsrat) kommen nur vor, **wenn sie schriftlich eingewilligt haben** (Name, Aussehen, Stimme, Dialoge). Status siehe Tabelle unten.

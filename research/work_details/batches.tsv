@@ -1,0 +1,331 @@
+prio	osm	name	kind	addr	website	opening_hours	cuisine	outdoor	dist_hp
+1	14019839153	Allegrotto	fast_food	Langstrasse 81	https://allegrotto-zurich.ch/	Mo-We 11:00-23:00; Th-Su 00:00-24:00	pizza;burger;indian;sri_lankan;salad;kebab;chicken	no	239
+1	317454772	Brick	bar	Langstrasse 21	http://brickbar.ch/				62
+1	808458835	Celia	restaurant	Langstrasse 35	https://celia-restaurant.com	Mo-Sa 11:30-24:00; Su 17:00-24:00	italian	yes	19
+1	4869996367	Chickeria	fast_food	Langstrasse 83	https://chickeria.ch/details/chickeria-zuerich-langstrasse/	Su-Th 10:00-22:00; Fr-Sa 10:00-02:00	chicken		249
+1	7059418846	El Presidente	nightclub	Langstrasse 80					239
+1	346245377	Gotthard Bar	restaurant	Langstrasse 63	http://www.gotthard-bar.ch	Mo-We 17:00-02:00; Th 17:00-04:00; Fr 17:00-04:30; Sa 19:00-04:30			143
+1	362915349	Kir Royal	bar	Langstrasse 62	https://www.kirroyal.ch/	Tu,We 17:00-24:00, Th 17:00-02:00, Fr 17:00-04:00, Sa 19:00-04:00			141
+1	13307980101	Peeeng	bar	Langstrasse 67	https://www.peeeng.ch/	We-Fr 17:00-02:00; Sa 15:00-02:00			167
+1	11709381774	Roter Delfin	bar	Langstrasse 31	https://roterdelfin.ch/	Mo-Fr 11:30-00:00; Sa 10:00-00:00; Su 10:00-22:00			17
+1	848938990	SO Pizza	restaurant	Langstrasse 20	https://www.so.pizza/	Mo-Th 12:00-13:30, 18:00-22:00; Fr 12:00-13:30, 18:00-23:00; Sa 18:00-	pizza		52
+1	11975740106	Spaccio	fast_food	Langstrasse 61	https://www.spaccio.pizza/	Mo-Th 11:30-14:00,17:00-22:00, Fr-Sa 11:30-24:00	pizza		125
+1	582265531	Gambrinus	restaurant	Langstrasse 103	https://gambrinus-langstrasse.ch/	Mo-Fr 09:00-24:00; Sa-Su 10:00-24:00	regional		367
+1	4496703517	Gonzo	nightclub	Langstrasse 135	https://gonzoclub.ch/	We-Sa 23:00-04:00			522
+1	2112530380	Klaus	bar	Langstrasse 112	https://hausvonklaus.ch/				396
+1	656623537	Longstreet Bar Club	bar	Langstrasse 92		We-Sa 20:00+			301
+1	656810963	Lugano Bar	bar	Langstrasse 108		Mo-Fr 05:00-29:00; Sa-Su 00:00-24:00			378
+1	4424003110	Olé Olé Bar	bar	Langstrasse 138	https://oleolebar.ch/				528
+1	2867994617	Palestine Grill	fast_food	Langstrasse 92	https://www.palestinegrill.com/	Mo-Sa 11:30-00:00; Su 14:00-21:00	falafel		304
+1	7038861915	Rum 97	pub	Langstrasse 97					320
+1	13400753409	Schneiderei	nightclub	Langstrasse 117	https://schneiderei-club.ch	Fr-Sa 22:00-04:00			417
+1	1240044636	Strauss	bar	Langstrasse 132	https://www.musik-hall-strauss.ch/	Mo-Th 10:00-26:00, Fr-Sa 10:00-28:00, Su 13:00-22:00		no	485
+1	1235083798	Tipsy Tiger	bar	Langstrasse 133	https://tipsytiger.ch/	Mo-Tu 16:00-01:00; We-Th 16:00-02:00; Fr-Sa 16:00-04:00		yes	497
+2	334300587	Aargauerhof	restaurant	Hohlstrasse 43	https://restaurant-aargauerhof.ch/	Mo,We-Th,Sa 11:00-23:00; Tu,Fr 10:00-23:00; Su 16:00-22:00	regional;swiss		199
+2	914703086	Accademia del Gusto	restaurant	Rotwandstrasse 48	https://www.accademiadelgusto.ch/	Mo-Fr 11:30-15:00,18:30-24:00; Sa 18:00-24:00	italian	no	264
+2	920508290	After Dark	bar	Ankerstrasse 119	https://afterdark-bar.ch/	Mo-Th 16:30-24:00, Fr 16:30-03:00, Sa 18:00-03:00			244
+2	1442004393	Ah-Hua	restaurant	Ankerstrasse 110	https://www.ah-hua.ch/	Tu-Fr 11:30-14:30,17:30-22:30; Sa,Su 12:00-22:30	thai		205
+2	871794824	B9	bar	Kernstrasse 60					253
+2	1016012582	Bagatelle §93	bar		https://www.bagatelle93.ch/	Tu-We 21:00+; Th-Sa 20:00+			292
+2	11216071007	Barista Coffee Roasters	cafe				coffee_shop		110
+2	3926102925	Barizzi	bar	Brauerstrasse 34				yes	279
+2	10946818680	Barteca	bar				brazilian		258
+2	656634932	Biergarten	fast_food	Hohlstrasse 25	https://biergarten8004.ch/	Mo-Fr 08:30-24:00, Sa-Su 09:30-24:00			206
+2	3078526134	Bilo Bistro	fast_food	Ankerstrasse 116				no	249
+2	656628375	Bossa Nova	restaurant	Hohlstrasse 18	https://bossanovasteakhouse.ch/	Tu-Th 18:30-22:00; Fr-Sa 18:30-23:00; Su 12:30-15:00	brazilian		231
+2	656646048	Brasserie Café de Paris	restaurant	Ankerstrasse 113	https://www.brasseriedeparis.ch/	Mo-Fr 11:30-14:00,18:00-23:30; Sa 18:00-23:30	french	no	214
+2	10921196041	Brenso	restaurant		https://www.brenso.ch	We-Sa 12:00-24:00	italian		25
+2	311607525	Casa Helvetia	restaurant	Stauffacherstrasse 96		Su-Th 09:00-24:00, Fr,Sa 09:00-07:00			109
+2	2008369716	Centro	restaurant	Ankerstrasse 108			italian		197
+2	5643617050	Christian uhrenschmuck24.ch	jewelry	Langstrasse 47	https://www.uhrenschmuck24.ch/helvetiaplatz	Mo-Fr 09:00-18:30; Sa 09:00-17:00			65
+2	5128008060	Club Wunderbox	nightclub		https://www.wunderboxclub.ch/				256
+2	914703134	D'Aurora	restaurant	Rotwandstrasse 42	https://www.daurora.ch/	Mo-Fr 11:30-15:00, 18:30+; Sa 18:00+	italian	yes	250
+2	1320113401	Don Miguel	bar	Müllerstrasse 72				yes	267
+2	914703104	E.X. 4	bar	Müllerstrasse 63	https://www.ex4bar.ch/				276
+2	312530452	Fribourger Stübli	restaurant	Rotwandstrasse 38	https://www.fribourger-fondue-stuebli.ch/	Tu-Su 18:00+	regional;swiss		237
+2	656649586	Green Mango Internet Cafe Bar	cafe						217
+2	12652457762	Hungry Duck	restaurant	Brauerstrasse 37	https://hungryduck.ch/	Mo-Sa 11:00-16:00; Tu-We 17:00-24:00; Th 17:00-01:00; Fr-Sa 17:00-02:0	asian;wings	no	261
+2	14277803199	Ipanema Bar	bar						253
+2	13920868271	Kanton Slice	fast_food		https://kantonslice.ch/	Tu-Th,Su 17:00-22:00; Fr-Sa 17:00-01:00	pizza	no	266
+2	869269170	Karaoke 4 You Thai Kitchen	bar			Mo off; Tu-Sa 11:00-18:00; Su 12:00-18:00			91
+2	656643167	Kiosk Semal	cafe	Ankerstrasse 119					246
+2	920508508	Leeward	bar						155
+2	936942901	Love Story	bar	Ankerstrasse 116					258
+2	313898344	Medbase Apotheke Helvetiaplatz	pharmacy	Langstrasse 39	https://www.topwell.ch/medbaseapothekezuerichhelvetiapl/	Mo-Fr 08:00-19:00; Sa 09:00-17:00			40
+2	5077193368	Milieu	bar		https://www.milieuzuerich.ch/			yes	280
+2	656719956	Monroe	bar	Brauerstrasse 26	https://monroe.zuerich/	We-Sa 17:00+		no	283
+2	656664543	Norden	bar	Ankerstrasse 123	https://www.norden-bar.ch/	Mo-Th 17:00-24:00; Fr,Sa 17:00-02:00		yes	275
+2	656765445	Oder Wat	fast_food	Hohlstrasse 49			german	yes	212
+2	8785595317	Ombak Coffee	cafe	Stauffacherstrasse 105	http://omniacoffee.ch	Mo-Fr 07:30-17:00; Sa 08:30-17:00	coffee_shop		93
+2	914703174	Osteria Santo Bevitore	restaurant	Rotwandstrasse 49	https://www.osteria-santobevitore.ch/	Mo-Fr 11:30-14:00,18:00-23:00; Sa 18:00-23:45	italian	yes	249
+2	10267138041	PUTPUTakeaway	restaurant	Stauffacherstrasse 101	http://www.putput.ch/	Mo 11:30-14:30; Tu-Fr 11:30-14:30,17:30-21:00	japanese		89
+2	1016012577	Pho 50	restaurant	Stauffacherstrasse 101	https://www.pho50.ch/	Mo-Fr 10:30-14:30, Mo-Su 17:00-22:00; PH 17:00-22:00	vietnamese		87
+2	4655092589	Pho Mai	restaurant				vietnamese	yes	259
+2	9893261279	Piro	fast_food						270
+2	869269133	Privé	nightclub		https://www.club-prive.ch/				128
+2	656518918	Puschkin Club	bar	Müllerstrasse 92					236
+2	9893261276	Rasputin	bar						213
+2	656711884	Red Light	bar					yes	258
+2	11216071002	Schirm-Fredi	bag	Langstrasse 69	https://schirmfredi.ch	Mo-Fr 10:00-19:00; Sa 10:00-18:00			176
+2	310788830	Sport	pub		https://www.sport-bar.ch/	Mo-We 08:00-24:00, Th 08:00-01:00, Fr,Sa 08:00-02:00		yes	50
+2	2395154664	Stereo	restaurant	Brauerstrasse 36					279
+2	656699893	Stubä	restaurant	Brauerstrasse 42	https://www.stube.me/			yes	284
+2	311607628	Tenz Momo	restaurant	Hohlstrasse 44	https://www.tenz.ch	Mo-Th 11:30-14:00,17:30-23:00; Fr 11:30-14:00,17:30-24:00; Sa 16:00-24	tibetan	yes	222
+2	656654442	Thai-Food-Corner	restaurant	Brauerstrasse 3			thai	yes	282
+2	656508776	The Bite	restaurant	Brauerstrasse 15	https://www.thebite.ch/	Mo-Th 17:30-23:00; Fr 17:30-23:30; Sa 10:00-14:00, 17:30-23:30; Su 10:	burger		265
+2	1567061990	The Mixt	bar	Müllerstrasse 55				yes	299
+2	1035744153	The Sacred	restaurant	Müllerstrasse 64	https://vegelateria.ch/	Mo-Sa 11:00-21:00	cake;tea;coffee_shop	yes	280
+2	5945878069	The Yard	restaurant	Bäckerstrasse 62	https://theyard.ch		chinese		185
+2	869269142	Treff-Point Kiosk	cafe					yes	107
+2	3578338893	Veganitas	restaurant	Brauerstrasse 30	https://www.veganitas.com/			yes	281
+2	656516103	Volkshaus	restaurant	Stauffacherstrasse 60	https://www.restaurantvolkshaus.ch/	Mo-We 08:00-23:30; Th,Fr 08:00-01:00, Sa 09:00-01:00, Su 10:00-23:30			146
+2	9676271554	Wunderbar	bar		https://www.wunderbar-zuerich.com/				262
+2	495576109	Xenix Bar	pub			Mo 16:00+; Tu-Fr 12:00+; Sa,Su 11:30+		yes	83
+2	7064004373	Zürich Fried Chicken	fast_food	Bäckerstrasse 43	https://zurich-fried-chicken.com/		burger;chicken		259
+2	656629799	raedli	bar	Kurzgasse 4	https://www.raed.li/	Tu 16:00-00:00; We 16:00-25:00, Th 16:00-26:00, Fr,Sa 17:00-28:00		yes	251
+2	656649674	Ach'i	restaurant	Brauerstrasse 4	https://www.achi.restaurant/	Mo-Fr 11:00-14:30, 18:00-22:00; Sa 12:00-22:00; Su 17:00-22:00	asian	no	308
+2	5297598013	Alte Kaserne	nightclub	Kanonengasse 16	https://www.altekaserne.com/				316
+2	4896466767	Asmin	kiosk	Langstrasse 110					384
+2	10596153317	Caipi-Bar	bar	Dienerstrasse 68				yes	397
+2	11244280030	Casi Casa	restaurant	Lagerstrasse 104	https://www.casicasa.ch/	Mo-Th 09:00-00:00; Fr-Sa 09:00-01:00; Su 10:00-00:00	latin_american		561
+2	4260117131	Cima Curry	restaurant	Kanonengasse 19	https://cimacurry.ch/	Mo-Su 11:00-22:00	indian	no	396
+2	13353852440	Cindy's Bistro	restaurant	Kanonengasse 9	https://cindys-bistro.ch/	Mo-We 11:00-24:00, Th-Su 11:00-04:00	african		345
+2	1232849946	Gamper Bar	bar	Dienerstrasse 75				yes	401
+2	12380295963	Gregory Clan	joiner	Langstrasse 115	https://gregoryclan.ch	"Mo-Fr 07:45-12:00; 13:00-16:45 by appointment by phone"			422
+2	9171916009	House of Satoshi	community_centre	Langstrasse 136	https://www.house-of-satoshi.ch/	Mo-Fr 10:00-18:00; Sa 13:00-16:00			515
+2	9893260545	Huncho	fast_food	Kanonengasse 7	https://www.instagram.com/huncho.ch/		burger		331
+2	1240044684	Ka3an	bar	Militärstrasse 84	http://ka3an.ch/	Tu 19:30-24:00; Th 20:00-24:00; Fr-Sa 21:00-04:00			484
+2	1240181038	La Capricciosa	fast_food	Militärstrasse 117	https://www.lacapricciosa.ch/	Mo-Fr 10:00-21:00; Sa 17:00-22:00	italian	no	464
+2	656616749	Lambada Bar Club	bar	Dienerstrasse 43					330
+2	12974074101	Late Bloomers	bar	Dienerstrasse 20	https://latebloomersthebar.com/	Tu-Th 17:00-00:00; Fr-Sa 17:00-02:00			342
+2	1241219598	Locarno 2000	nightclub	Dienerstrasse 45					337
+2	4838594329	Marco Di Renzo	clothes	Langstrasse 125	https://www.marcodirenzo.ch/	Mo-Sa 09:00-20:00			469
+2	4518003937	Migrolino fresh	convenience	Langstrasse 134	https://www.migrolino.ch/de/standorte/migrolino-zuerich-langstrasse-away/	Su-Th 06:00-23:00; Fr-Sa 00:00-24:00			502
+2	7531078063	Miró Manufactura de café	cafe	Brauerstrasse 58	https://mirocoffee.co/	Mo-Fr 08:00-18:00; Sa 09:00-18:00; Su 09:00-17:00	breakfast;cake;coffee_shop		325
+2	1083769431	Neela	restaurant	Kanonengasse 29	https://neela.ch/	Mo 11:00-14:30; Tu-Fr 11:00-14:30, 17:30-22:30; Sa-Su 17:00-22:30	sri_lankan		428
+2	656616207	Paracelsus-Apotheke	pharmacy	Langstrasse 122	https://www.apotheke-paracelsus.ch/	Mo-Fr 08:00-18:30; Sa 09:00-17:00			448
+2	5829856430	Passion cocktail bar	bar	Kanonengasse 33					459
+2	1240180975	Pizzeria Milano	restaurant	Militärstrasse 109	https://www.restaurant-milano.ch/	Mo-Sa 11:00-14:00,18:00-24:00	italian	yes	454
+2	1240990725	Rosita's	fast_food	Lagerstrasse 95		Mo-Th 10:00-17:00, Fr 10:00-17:00, Fr 22:00-04:00, Sa 22:00-04:00			530
+2	656824967	Schweizerdegen El Papi	restaurant	Dienerstrasse 40				yes	345
+2	1240044657	Thach	restaurant	Militärstrasse 84	https://tach.ch	Mo-Sa 11:00-14:00,18:00-22:00	asian	no	486
+2	1241219989	Thai Tirak	bar	Dienerstrasse 28		Mo-Tu,Su off; We 17:00-25:00; Th 17:00-28:00; Fr-Sa 17:00+	portuguese		336
+2	1360843969	Viet-Thai	restaurant	Kanonengasse 31	http://www.viet-thai.ch/	Mo-Fr 11:00-14:00,18:00-22:00; Sa 18:00-22:00	asian		443
+2	10795377100	YAMAS	cafe	Lagerstrasse 48	http://www.yamas.ch/	Mo-Th 11:30-14:00,18:00-23:00; Fr 11:30-14:00,18:00-24:00; Sa 11:00-24	greek	yes	591
+2	803245834	Za'atar	restaurant	Brauerstrasse 74	https://www.zaatar.ch	Tu-Fr 11:00-14:00, 17:00-23:00; Sa-Su 17:00-23:00	lebanese	yes	369
+2	1360830654	Zeughaushof	restaurant	Kanonengasse 20	https://www.hopzueri.ch/	Mo,We-Fr 09:00-14:00; Tu 09:00-14:00,19:00-24:00; Sa-Su,PH off	international		461
+2	8785727518	Zum goldenen Taschenbrot	fast_food	Militärstrasse 91	https://zumgoldenentaschenbrot.ch/	Tu-Th 11:00-22:00; Fr 11:00-22:30; Sa 12:00-22:30	kebab	no	458
+3	11216071006	Aelita	clothes			Mo-Fr 10:00-19:00; Sa 10:00-18:00; Su off			126
+3	4416196409	Amiro	hairdresser	Ankerstrasse 124					291
+3	11216071012	Andrea Hinnen	clothes		https://andreahinnen.com	Mo,Su off; Tu-Fr 12:00-19:00; Sa 12:00-17:00			264
+3	7590602015	Barber-2	hairdresser	Hohlstrasse 36					216
+3	10689492505	Buchhandlung im Volkshaus	books		https://www.volkshausbuch.ch/	Mo 12:00-19:00; Tu-Th 10:00-19:00; Fr 09:00-19:00; Sa 10:00-17:00			158
+3	656507351	Carribean Hairstyle	hairdresser	Brauerstrasse 29					259
+3	9893261278	Champions Shop	convenience						260
+3	4549433191	Claudia Güdel	clothes			Mo,Su off; Tu-Fr 11:00-19:00; Sa 11:00-17:00			214
+3	915410089	Coiffeur Hejar	hairdresser	Zeughausstrasse 69					297
+3	656739301	Colmadon	cannabis						234
+3	656657191	Comestibles Granada	convenience						254
+3	10567748100	El Campesino	convenience						279
+3	9893261275	Erotic Shop	erotic						239
+3	10567748099	Fifty-9	clothes						259
+3	11216071011	Ginger	hairdresser		https://gingerhair.ch				271
+3	10567748103	Gold Diva	beauty						275
+3	871794844	HaarGarage	hairdresser	Hohlstrasse 48	https://www.haargarage.ch/	Mo-Tu off; We-Fr 11:00-18:30; Sa 10:00-16:00; Su off			235
+3	3932358336	Jamarico	music	Stauffacherstrasse 95		Tu-Fr 11:00-14:00, Sa 10:00-18:00, Tu-Fr 14:30-19:00			77
+3	10921196040	Jeanspoint	clothes			Mo-Fr 09:30-19:00; Sa 09:00-19:00; Su off			29
+3	309921040	John Baker	bakery	Molkenstrasse 15	https://johnbaker.ch/helvetiapl/	Mo-Fr 06:30-18:00; Sa 08:00-16:00; Su 08:00-14:00			117
+3	12478357748	KaBa	bag		https://ka-ba.ch	Mo-Tu,Th,Sa-Su off; We,Fr 11:00-18:00			32
+3	11216071008	Kazu	clothes		https://kazu.swiss	"by appointment only"			280
+3	11216071003	La Platanera	convenience						181
+3	2298795776	Libreria Italiana	books	Hohlstrasse 30	http://libreriaitaliana.ch/	Mo-Fr 14:00-18:30; Sa 10:00-16:00			246
+3	11216070999	Lollypop	convenience						285
+3	12138506372	Longfinger Cosmetics	beauty						216
+3	10921196042	Longside	clothes			Mo-Fr 10:15-18:30; Sa 10:15-17:00			54
+3	2717037990	Lovely Brows	beauty			Mo-Fr 10:00-20:00; Sa 10:00-18:00			108
+3	10567748101	Monika K	erotic						270
+3	3078522845	My Fashion Fox	clothes						69
+3	11246759771	Männerzone	erotic		https://www.maennerzone.com	Tu 12:00-18:30; Fr 12:00-18:30; Sa 12:00-16:00			232
+3	9893260544	Nara	hairdresser						280
+3	12948881831	Netzbarkeit	it	Kernstrasse 37					115
+3	10946818681	Norkind	furniture		https://norkind.ch	Mo-Fr 10:00-18:00; Sa 10:00-17:00; Su off			258
+3	14175317258	Oni Bakery	bakery						160
+3	12138506366	Saint James	clothes						281
+3	10891371969	Sara Tischhauser	beauty						266
+3	8422874121	Sartori	joiner						70
+3	11216070983	Siech Cycles	bicycle		https://siech-cycles.ch	Mo,Su off; Tu-Fr 10:00-19:00; Sa 10:00-17:00			148
+3	11941534779	Simplificator AG	company	Stauffacherstrasse 101	https://www.simplificator.com/				90
+3	12138506371	Stadler	hairdresser						223
+3	10891371967	Studio Melograno	interior_decoration						247
+3	7724613812	The Atelier	interior_decoration						268
+3	12138506368	Trixmix	jewelry						294
+3	3926182143	Vegelateria	ice_cream	Müllerstrasse 64	https://vegelateria.ch/	Mo-Sa 11:00-21:00		yes	277
+3	11216071001	Werners Head Shop	cannabis						230
+3	4549432191	Zero Zero Rare Groove	music			Mo-Fr 12:00-18:30; Sa 10:00-17:00; Su off			220
+3	10891371970	fiona-K	clothes						262
+3	4838789805	neff neumann architekten	architect	Kernstrasse 37	https://www.neffneumann.ch				105
+3	10891371968	patatoffel	architect	Hohlstrasse 9					255
+3	848938939	shop-in-shop	convenience			Mo-Th 09:30-27:00; Fr-Sa 09:30-29:00; Su 10:30-24:00			74
+3	11216070998	24 Shop	convenience						303
+3	8194922103	Abito Allora	clothes	Europaallee 43		Mo-Fr 11:00-19:00; Sa 10:00-18:00			613
+3	656535507	Amazonia Bar	pub	Sihlhallenstrasse 11	https://amazonia-bar.ch/	Mo-Th 09:00-02:00, Fr-Su 09:00-05:00		no	467
+3	12133693603	Ana Dolis	hairdresser						513
+3	936942732	Art 4 Bar	bar					no	362
+3	1235083734	Bar 63 chez Sylvia	bar		https://bar63.ch/			yes	405
+3	10830942472	Bar Butter	cafe			We 08:00-18:00; Th-Fr 08:00-20:00; Sa 09:00-18:00; Su 09:00-17:00			408
+3	3242600651	Bar OTRO	bar		https://www.otro.bar/	Mo,Su off; Tu-Th 17:00-24:00; Fr-Sa 17:00-01:00		yes	406
+3	5803645580	Bar Rossi	pub		https://www.bar-rossi.ch/	Mo-Th 17:00+; Fr 17:00-04:00, Sa 20:00-04:00		yes	448
+3	1235083613	Biondi	restaurant					yes	413
+3	915410107	Biondo's Cut	hairdresser	Zeughausstrasse 41					385
+3	12754794883	COOP	convenience	Militärstrasse 106	https://www.coop.ch	Mo-Sa 07:00-21:00			475
+3	9893260543	Carol	bar						344
+3	11358468756	Charlatan Restodisco	restaurant		https://restodisco.ch/				524
+3	11992812115	Chicago Beauty Salon	hairdresser						390
+3	11216071010	Coiffeur Giacomo	hairdresser			Tu,Th 08:00-13:00, We,Fr 09:00-13:00, Sa 08:00-16:00, Tu-Fr 14:00-18:3			308
+3	4011633098	Coiffeur Salam	hairdresser	Militärstrasse 36		Mo-Fr 08:30-21:00; Sa 08:30-18:00; Su off			553
+3	12133693608	Coiffure Salon Flory	hairdresser						372
+3	11992812113	Cuban Nails	beauty		https://cubannails.ch				532
+3	914703164	Daniel H.	bar	Müllerstrasse 51	https://www.danielh.ch/	Tu-Th 11:00-00:00; Fr 11:00-02:00; Sa 19:00-02:00		yes	311
+3	387613338	Denner Express	convenience	Sihlhallenstrasse 5-7	https://www.denner.ch/	Mo-Th 08:00-20:00; Fr-Sa 08:00-22:00			456
+3	6580342183	EGO Movement	bicycle	Lagerstrasse 100	https://www.egomovement.com	Mo-Fr 11:00-19:00; Sa 10:00-18:00; PH off			564
+3	1235083774	Eichhörnli	restaurant		https://www.restaurant-eichhoernli.ch/	Mo,Su off; Tu-Fr 12:00-14:00,18:30-23:30; Sa 18:30-23:30	regional		446
+3	10601778121	Emporio	hairdresser	Zwinglistrasse 17					395
+3	5149569237	Eva Bräutigam	clothes	Lagerstrasse 96	https://www.evabraeutigam.ch/	Tu-Fr 10:00-18:00; Sa 09:00-18:00; Mo 13:00-19:00			564
+3	387613313	Express Shop	convenience			24/7			468
+3	11685184269	Fashnpie	clothes			Mo-Fr 11:00-19:00; Sa 10:00-18:00; Su off			559
+3	6223031358	Fat Tony	bar			Mo-Sa 11:00+	pizza	yes	522
+3	5770202453	Fight-world.ch	clothes	Kanonengasse 7a		Mo-Fr 10:30-20:00; Sa 10:30-17:00			319
+3	1241205926	Flamme Rouge	bicycle	Rotwandstrasse 64	https://www.flammerouge.ch/	We-Fr 13:00-18:00; Sa 10:00-17:00; PH off			315
+3	803245796	Gamper	restaurant	Nietengasse 1	https://www.gamper-restaurant.ch/	We 12:00-14:00, 18:00-22:00; Tu 12:00-14:00, 18:00-23:00; Fr 12:00-14:		yes	382
+3	5429035472	Gaucho	restaurant	Nietengasse 18	https://gaucho.ch/restaurant/	Tu-Fr 11:30-14:00, 18:30-23:00; Sa 18:30-23:00	steak_house		459
+3	6592084080	Gbanga	company	Militärstrasse 90	https://gbanga.com				489
+3	5081232798	Gelati Tellhof	ice_cream	Tellstrasse	https://www.gelati-tellhof.ch	Su-Th,PH 12:00-22:00; Fr,Sa 12:00-22:00		yes	423
+3	5083782849	Glamour Bar	bar		http://www.glamour-bar.ch/	Mo-Fr 14:00-23:00			320
+3	1235083841	Golden Gate Bar	bar	Schöneggstrasse 15	http://www.goldengate-bar.ch/			yes	492
+3	5418324620	Google	company	Gustav-Gull-Platz 1					582
+3	12133693610	Gutastilo	hairdresser						392
+3	4496708115	Hera	clothes	Müllerstrasse 45					321
+3	10189026000	Hochparterre Bücher	books	Schöneggstrasse 27	https://www.hochparterre-buecher.ch/	Mo-Fr 09:30-18:30; Sa 09:30-17:00			525
+3	1235083851	Holliger Motos	motorcycle			Nov 01-Feb 28: Mo-Fr 08:00-12:00,13:30-18:00; Nov 01-Feb 28: Sa 10:00-			508
+3	1241219823	Hongxi	restaurant	Zwinglistrasse 3	http://www.hongxi-restaurant.ch	Mo-Fr 11:30-14:00,17:30-22:00; Sa 11:30-22:00; Su 12:00-21:00	chinese		409
+3	12754797447	J.B. LABAT	bar						428
+3	5149570033	Jo Brauer	clothes	Lagerstrasse 100	https://www.jobrauer.com/	Mo-Fr 11:00-19:00; Sa 10:00-18:00			567
+3	5416711053	Josy	clothes	Militärstrasse 75		Mo-Sa 09:30-20:30			474
+3	12754793543	KALIN	hairdresser	Tellstrasse 17		Mo,Su off; Tu-Th 10:00-19:00; Fr-Sa 10:00-21:00			417
+3	12754797445	Karmi's	restaurant			Mo-Fr 10:00-22:00		no	423
+3	4866350522	Kevin in the Woods	clothes	Lagerstrasse 82	https://kevininthewoods.com/	Mo-Fr 11:00-19:00; Sa 09:00-18:00			569
+3	1235083458	Khujug	restaurant		https://www.khujug.restaurant/	Mo-Fr 11:00-14:30, 18:00-23:00; Sa 12:00-23:00; Su 17:00-22:30	chinese	yes	481
+3	10828214801	Kindergarten und Hort Brauer 1+2	kindergarten						368
+3	5299186755	Kinderhaus Bozza Lukashof	kindergarten	Dienerstrasse 57/59	http://www.kinderhaus-am-stauffacher.ch/				347
+3	914702928	Kinderkrippe Schneeflocke	kindergarten	Müllerstrasse 43	https://www.kinderkrippeschneeflocke.ch/				346
+3	915410098	King's Hairshop	hairdresser	Zeughausstrasse 45					373
+3	1240044530	Kiosk Kanonen Gasse	kiosk						476
+3	10095152137	Kiosk Schönegg	kiosk			Mo-Sa 11:00-23:00; PH off			475
+3	12133693609	Knödl	restaurant						388
+3	11992812114	La Isla Bonita	fast_food			Mo,Su off; Tu-Sa 18:00-24:00	mexican	yes	524
+3	1232849945	La Strega	bar						430
+3	1137687375	Lele	restaurant		https://www.restaurantlele.ch/	Mo-We 11:30-15:00,17:00-00:00; Th 11:30-15:00,17:00-02:00; Fr 11:30-15	italian	yes	496
+3	8194922105	Leonteq	company	Europaallee 39	https://ch.leonteq.com/				619
+3	1241219685	Love Me Two Times	clothes	Dienerstrasse 32	https://www.lovemetwotimes.ch	Tu-Fr 11:00-19:00; Sa 11:00-17:30			341
+3	2052663807	Lovis Architekt*innen	architect	Dienerstrasse 21					322
+3	1240990753	Luv Hair and Make up	hairdresser	Zwinglistrasse 28	http://www.luv28.ch	Tu-Fr 12:00-21:00			405
+3	1241219838	Macuto's Bar	bar						341
+3	5282153478	Manu	hairdresser	Militärstrasse 85		Mo-Fr 09:00-20:00; Sa 09:00-18:00; PH off			462
+3	7044403087	Marta Flohmarkt	clothes	Brauerstrasse 58	https://www.marta-flohmarkt.ch/	Mo-Fr 10:30-19:00; Sa 10:30-17:30			316
+3	13052489329	Maru	restaurant						382
+3	1240044573	Mels Hair Studio	hairdresser	Militärstrasse 76	https://mels-hairstudio.ch				491
+3	7531030473	Meo Bici Velos	bicycle	Nietengasse 5	http://meobici.ch/	Tu-Fr 09:00-12:00,13:30-18:30; Sa 09:00-12:00,13:30-16:00			401
+3	1235083770	Midway	bar						419
+3	1240044645	Migrolino	convenience	Lagerstrasse 101	https://www.migrolino.ch/de/standorte/migrolino-zuerich-lagerstrasse/	Mo-Sa 06:00-22:00			528
+3	1240990708	Morgenstern da Mario	restaurant	Zwinglistrasse 27	https://morgenstern-zh.ch		italian		389
+3	3784323173	Moto-Center Karle - Kawasaki	motorcycle	Militärstrasse 90	https://karle.ch/	Mo-Fr 08:00-12:00,13:00-18:00			504
+3	1241219845	Negresco	bar						321
+3	6902002985	Neymar Coiffeur	hairdresser	Militärstrasse 115		Mo,Th 09:30-14:00,16:30-20:00			466
+3	8786742581	Notice Design	company		https://www.notice.design/				524
+3	4424003112	Now We Go Vegan	restaurant	Rolandstrasse 9			vietnamese	yes	379
+3	13128080855	OMA MAO	restaurant	Feldstrasse 142	https://omamao.ch/	Tu-Fr 11:00-14:00	asian		523
+3	1240990728	Oder Wat	restaurant	Tellstrasse 10					390
+3	1240990722	Officina dos Sabores	fast_food			Mo-We 11:00-21:00, Th,Su 11:00-22:00, Fr,Sa 11:00-03:00			417
+3	1235083455	Old Gregory Pub	pub	Schöneggstrasse 6	https://www.oldgregorypub.ch/	Su-We 12:00-24:00; Th 12:00-02:00; Fr-Sa 12:00-06:00		no	499
+3	10794073116	Panthera Records	music	Brauerstrasse 80					397
+3	5803645581	Phuket Thai Food	fast_food	Schöneggstrasse 21	https://www.phuket-thai-zuerich.ch/	Mo-Sa 10:00-22:00; Su 12:00-22:00	thai	yes	509
+3	12754776145	Public Eye	company	Dienerstrasse 12					368
+3	327453260	Ristorante Italia	restaurant	Zeughausstrasse 61	https://www.ristorante-italia.ch/	Mo-Fr 11:30-14:00, 18:00-24:00; Sa-Su 18:00-23:00	italian	yes	318
+3	1241219738	Rotana	fast_food						355
+3	656541296	Roxy	bar	Zinistrasse 7	https://www.roxymusikbar.ch/	Mo-Sa 18:00-02:00			442
+3	12312961469	Schreinerei Severin Meier	joiner	Zeughausstrasse 60	https://www.severinmeier.ch	Mo-Fr 08:00-18:00			313
+3	9992397570	Scigility Switzerland AG	it	Europaallee 41	https://scigility.com/				587
+3	13685409175	Shokudo Izakaya	restaurant	Rotwandstrasse 62	https://shokudo.ch	Mo-Sa 11:30-14:00,18:00-22:00; Su off			305
+3	10647472305	Simon Says Taste Taiwan	restaurant		https://simonsaystaiwan.ch/	Mo off; Tu-Fr 11:30-13:30,18:00-21:15; Sa 11:30-21:45; Su 17:30-21:00	taiwanese		389
+3	1241219769	Stella Alpina	restaurant					yes	360
+3	1235083528	Stiefenhofer Motos	motorcycle			Mo-Fr 09:00-12:00, Mo,We-Fr 14:00-18:00			504
+3	5416711054	Stromvelo.ch	bicycle	Kanonengasse 35	https://stromvelo.ch/	Mo-Fr 10:00-12:30,13:15-18:15; Sa 10:00-16:00			477
+3	12754797446	Studio For Food Culture	community_centre						411
+3	1240044507	Sudaka	bar						477
+3	10889806814	Swiss Fried Chicken	fast_food		https://swiss-fried-chicken.com				393
+3	1360794125	Tabula Rasa	restaurant	Zwinglistrasse 7	http://www.zumgoldenenfass.ch/		regional		406
+3	1243596474	Tanukiya	restaurant	Zwinglistrasse 12	https://www.tanukiya.ch		japanese;ramen;udon		413
+3	11216070982	Taste of Africa	fast_food					no	464
+3	1235083514	The Spot Bar	bar	Rolandstrasse 22	https://www.kaiserfranz.li/			yes	428
+3	12714134817	Tipsy Tiger	fast_food				burger		507
+3	1235083674	Toro Bar	bar		https://www.torobar.com/			yes	521
+3	582263740	Total Bar	pub	Tellstrasse 19	https://www.totalbar.ch				438
+3	10316382317	Tropical Bar	bar	Schöneggstrasse 15	https://www.salsa.ch/venues/tropical-bar-zurich			no	497
+3	656703086	Trübli Bar	restaurant	Zeughausstrasse 67					302
+3	5976303007	Tsukada Gaijin Izakaya	restaurant	Zwinglistrasse 3		Mo-Fr 11:30-14:00,17:00-22:00; Sa-Su 17:00-22:00	japanese		407
+3	12754776146	UMANO	company	Dienerstrasse 12					368
+3	10601778122	Ufo	kiosk	Zwinglistrasse 15					397
+3	1240990738	Urbany's	clothes		https://urbanys.com				390
+3	11685184270	VeloKliniK	bicycle	Lagerstrasse 104	https://velo-klinik.ch	Mo-Fr 11:00-19:00			559
+3	11216071023	Velvet Glam	hairdresser		https://velvetglam.ch				328
+3	12133693612	Yilong Asia	restaurant			Mo-Fr 11:15-14:00,17:00-22:30; Sa,Su 17:00-22:30	asian		460
+3	3013422856	Ynos	restaurant	Europaallee 47	http://www.ynos.ch/	Mo-We 11:30-23:00; Th-Sa 11:30-00:00	greek		593
+3	11216070996	Zwllings Bar	bar						454
+3	10889806815	Zürich Nails by Samantha	beauty						389
+3	12133693611	hairstories	hairdresser		https://hairstories.ch				411
+3	9343150799	happybeck	cafe						431
+3	13540274646	katrahama GmbH	company	136	https://katrahama.ch/	Mo-Fr 08:00-16:00			514
+3	915410105	schindlersalmerón	furniture	Zeughausstrasse 67	https://www.schindlersalmeron.com/				306
+3	4843837963	yay kids	clothes	Lagerstrasse 76		Mo-Fr 11:00-19:00; Sa 10:00-18:00			573
+4	10921196039	Antonio Schlüssel-und Schuhservice	shoe_repair			Mo-Fr 08:00-12:00,13:00-18:30; Sa 08:00-16:00; Su off			62
+4	310789178	Coop	supermarket	Hohlstrasse 35		Mo-Sa 07:00-22:00			180
+4	12138506367	Don't Say No	tattoo						288
+4	5679794324	Feldenkrais Studio Andreas Kleemann	therapist	Langstrasse 62	https://feldenkrais.studio	Mo-Fr 10:00-20:00,Sa 10:00-16:00			134
+4	6498631234	J.B. Labat	alcohol		https://www.labat.ch/	Tu-Fr 11:30-19:00, Sa 11:00-17:00			294
+4	6498189281	Klar	advertising_agency	Rotwandstrasse 52					276
+4	5254232211	Kreisschulpflege Limmattal	government	Hohlstrasse 35	https://www.stadt-zuerich.ch/ksp-limmattal/	Mo-Th 08:00-11:30, 13:30-16:30; Fr 08:00-11:30, 13:30-16:00			174
+4	2424887405	Les Complices*	arts_centre	Anwandstrasse 9	https://lescomplices.ch/				61
+4	12138506365	Meg 4 Beauty	wigs						276
+4	8568706769	PLAYground education	childcare	Hohlstrasse 52	https://www.playground-edu.ch/	Mo-Fr 07:00-19:00			236
+4	301222947	Pusterla Elektronik AG	electronics	Kernstrasse 55	https://www.pusterlacom.ch	Mo-Fr 09:00-18:30; Sa 09:00-16:00			243
+4	2178135077	Volkshaus	theatre	Stauffacherstrasse 60	https://www.volkshaus.ch/				170
+4	1069585307	Xenix	cinema	Kanzleistrasse 52	https://www.xenix.ch	Mo-Fr, Su 16:00+; Sa 11:00+			85
+4	11216071013	lavie home	household_linen		https://lavie-home.ch				208
+4	11216071014	strasserthun	flooring		https://strasserthun.ch				204
+4	10957734671	Atelier Grünenwald	repair	Lagerstrasse 93	https://www.ateliergruenenwald.com/	Mo-Fr 09:00-18:00; Sa "by appointment"			518
+4	5282153481	Atlântico	travel_agency			Mo-Fr 09:00-18:00; Sa-Su off			463
+4	12512257502	Blumenkohlektiv	ngo						477
+4	4314055601	Budosport Nippon	sports	Rolandstrasse 15	http://www.budo.ch	Mo-Fr 09:00-19:00; Sa 10:00-17:00			391
+4	12252306817	Criz	leather	Militärstrasse 115	https://www.criz.ch	Tu-Fr 12:00-18:30; Sa 11:00-16:00			462
+4	11980641581	Der Schreiner	carpenter						403
+4	11685177068	Die Macherei	fashion_accessories		https://diemacherei.ch	Mo-Fr 11:00-19:00; Sa 10:00-18:00; Su off			560
+4	3784325956	Drums Only	musical_instrument	Militärstrasse 105	https://drumsonly.ch/	Mo-Fr 10:00-12:00,13:30-18:30; Sa 10:00-16:00			457
+4	12133693604	ECO TCA Consulting	tax_advisor						505
+4	3841887704	Fabrikat	stationery		https://www.fabrikat.ch/	Mo-Fr 11:00-19:00; Sa 11:00-17:00			491
+4	9255550508	GRUSSFORMAT	photographer	Brauerstrasse 58	http://www.grussformat.ch	Mo-Fr 09:00-17:00			349
+4	10957734670	IT World ZH	computer	Tellstrasse 31	https://itworldzh.ch	Mo-Fr 09:30-12:30,14:00-19:00; Sa 10:00-17:00			477
+4	4208949390	Kaboom	games	Dienerstrasse 36	https://shop.kabooom.ch	Mo-Fr 10:00-19:00; Sa 10:00-16:00			342
+4	6023189166	Mieterinnen- und Mieterverband	association	Tellstrasse 31	https://mieterverband.ch/mv-zh/	Mo-Fr 09:00-12:00, 13:30-17:00			487
+4	11980641580	Mitton	deli				italian		416
+4	12754794882	RECON	shoes	Militärstrasse 81		Mo-Sa 12:00-19:00			465
+4	656594290	Republik Magazin	newspaper	Sihlhallenstrasse 1	https://www.republik.ch				442
+4	10162233917	Sala-Thai	supermarket	Zwinglistrasse 32	https://sala-thai.ch	Mo-Fr 10:00-19:00; Sa 10:00-18:00	thai		406
+4	1240181002	Schuhmacherei Eva Kirchhofer	shoemaker	Militärstrasse 115	https://schuhmacherin.ch	Mo-We,Su off; Th-Fr 10:30-18:30; Sa 11:00-16:00			462
+4	10889806813	Snushus	tobacco		https://snushus.ch				404
+4	10956921190	Sula	carpet	Lagerstrasse 93	https://sulaworld.com	Mo-Fr 09:00-17:00			533
+4	10827725256	Textil-Reinigung	dry_cleaning			Mo-Fr 07:30-19:30; Sa 07:30-18:00; Su off			475
+4	9255553977	Wolf Studio GmbH	graphic_design	Brauerstrasse 58	https://www.wolfstudio.ch/	Mo-Fr 09:00-17:00			346
+4	4749159173	advokatur kanonengasse	lawyer	Militärstrasse 76	https://www.kanonengasse.ch/				495
+4	11963250714	apeVape	e-cigarette						399
+4	5282153482	viajes.ch	travel_agency	Militärstrasse 87		Mo-Fr 09:30-18:30; Sa 10:00-16:00			461
+4	12754794142	weiss traductions	translator	Militärstrasse 87a					444
