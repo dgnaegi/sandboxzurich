@@ -1,22 +1,43 @@
-"""Volkshaus Zuerich (Stauffacherstrasse 60 / Helvetiaplatz): 1910 Heimatstil. Recessed windows with reveals and sills,
-arched ground floor, string courses, quoins, double mansard with dormers, plastic lettering plate, entrance canopy."""
+"""Volkshaus Zuerich (Stauffacherstrasse 60 / Helvetiaplatz), 1910 Heimatstil. Salmon plaster, EG round-arched windows in stone
+surrounds, floor 1 large pair windows, floor 2 smaller, attic with three-arch loggia, balcony over centre, wide hip roof on corbels,
+round tower at the right corner, lettering on the wall (VOLKSHAUS, RESTAURANT, CAFE BAR). Photos: research/v3/volkshaus.md."""
 import math
-from PIL import Image, ImageDraw
+from PIL import Image
 from common import *
 from lm import *
 import detail as D
 from shapely.geometry import Polygon, Point
 
 
-def plaster(color, seed=3, size=128, stains=0.06):
+def plaster(color, seed=3, size=128, stains=0.04):
     rng = np.random.default_rng(seed)
     a = np.full((size, size, 4), 255, np.uint8); a[..., :3] = color[:3]
-    n = rng.normal(0, 5, (size, size, 1)); a[..., :3] = np.clip(a[..., :3] + n, 0, 255).astype(np.uint8)
-    for _ in range(14):   # soft blotches (render patches)
-        x, y, r = rng.integers(0, size), rng.integers(0, size), rng.integers(8, 26); f = 1 + rng.normal(0, stains)
+    n = rng.normal(0, 3, (size, size, 1)); a[..., :3] = np.clip(a[..., :3] + n, 0, 255).astype(np.uint8)
+    for _ in range(10):
+        x, y, r = rng.integers(0, size), rng.integers(0, size), rng.integers(10, 30); f = 1 + rng.normal(0, stains)
         yy, xx = np.ogrid[:size, :size]; mk = ((xx - x) ** 2 + (yy - y) ** 2) < r * r
         a[mk, :3] = np.clip(a[mk, :3] * f, 0, 255).astype(np.uint8)
     return Image.fromarray(a, "RGBA")
+
+
+def slate(size=64):
+    a = np.zeros((size, size, 4), np.uint8); a[..., 3] = 255
+    base = np.array([62, 63, 70]); rng = np.random.default_rng(2)
+    for r in range(0, size, 8):
+        for c in range(0, size, 8):
+            a[r:r + 8, c:c + 8, :3] = np.clip(base + rng.normal(0, 4), 0, 255)
+        a[r, :, :3] = (base * 0.7).astype(np.uint8)
+    return Image.fromarray(a, "RGBA")
+
+
+def front_edge(ring, tgt):
+    best = None
+    for i in range(len(ring)):
+        a, b = ring[i], ring[(i + 1) % len(ring)]; L, t, n = D.frame_of(a, b)
+        mid = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2); dt = (tgt[0] - mid[0], tgt[1] - mid[1]); dn = math.hypot(*dt)
+        sc = L * max(0, (n[0] * dt[0] + n[1] * dt[1]) / dn)
+        if best is None or sc > best[0]: best = (sc, i)
+    return best[1]
 
 
 def build():
@@ -26,86 +47,94 @@ def build():
     Pl = orient(localize(P, ox, oy), 1.0)
     rng = np.random.default_rng(11)
     m = Model("volkshaus")
-    mw = m.mat("wall", plaster(hexc("#b4533e"))); ga = D.glass_atlas(frame="#efe6cf", glass="#26323d", sky="#8fa9bb", seed=5, sign=D.text_sign("VOLKSHAUS", "#4a1a16", "#f4ecd6", 27))
+    WALL = hexc("#c46f58")
+    mw = m.mat("wall", plaster(WALL))
+    # 3 glass atlases cannot exceed 3 materials (wall, glass, flat) -> one glass atlas: 4x3 grid; EG variant via cols
+    sign = D.letters_strip([(0, 480, "VOLKSHAUS", "#e6dcc8", "#c46f58", None), (480, 760, "RESTAURANT", "#3a2a26", "#c46f58", None),
+                            (760, 1024, "CAFE BAR", "#3a2a26", "#c46f58", None)], size=26)
+    ga = D.glass_atlas_g(frame="#f1ece0", glass="#26323d", sky="#8fa9bb", cols=4, rows=3, seed=5, sign=sign, lit_p=0.4)
     mg = m.mat("glass", *ga, rough=0.35); mf = m.mat("flat", solid((255, 255, 255, 255)))
-    CREAM, STONE, REV = hexc("#e3d9c0"), hexc("#8f8a80"), hexc("#d8cdb2")
-    WALLC = (255, 255, 255, 255)
-    GH, FH, NF = 5.0, 3.3, 4
-    z_gf1 = 0.9 + GH; zc = z_gf1 + NF * FH
+    STONE, CREAM, SURR, SLATE = D.hexl("#9a948a"), D.hexl("#d2c6ae"), D.hexl("#bdb09a"), D.hexl("#3c3e45")
+    W = (255, 255, 255, 255)
+    G0, F1, F2, FA = 5.6, 4.6, 3.9, 3.3
+    z1 = 0.9 + G0; z2 = z1 + F1; z3 = z2 + F2; zc = z3 + FA
     ring = list(Pl.exterior.coords)[:-1]; ne = len(ring)
-    # sandstone plinth skirt
+    fi = front_edge(ring, (783 - ox, -881 - oy))
     m.extrude(mf, mf, Pl, -3, 0.9, col=STONE, roof=False)
+
+    def run(a, b, zb, fh, bayw, fn, depth, surr_w, sill, isfront):
+        L, t, n = D.frame_of(a, b); nb = max(1, int(round(L / bayw))); bw = L / nb
+        for i in range(nb):
+            u0, u1 = i * bw, (i + 1) * bw
+            hole = fn(u0, u1, zb, zb + fh, i, nb, L)
+            if hole is None:
+                D.poly_wall(m, mw, Polygon(D.rect_pts(u0, zb, u1, zb + fh)), a, t, n, 0.0, W, lambda u, z: (u / 4, z / 4)); continue
+            dep = depth(i, nb, L) if callable(depth) else depth
+            D.bay(m, mw, mg, mf, a, t, n, u0, u1, zb, zb + fh, hole, dep, int(rng.integers(0, D.NV)), W, SURR, (4.0, 4.0), None)
+            if surr_w: D.surround(m, mf, a, t, n, hole, surr_w, SURR, 0.05, sill)
+
+    def eg(u0, u1, f0, f1, i, nb, L):
+        uc = (u0 + u1) / 2; w = min(3.3, (u1 - u0) - 1.2)
+        return D.arch_pts(uc - w / 2, f0 + 0.55, uc + w / 2, f0 + 3.1)
+
+    def upper(h, w0=3.3, lo=0.8):
+        def f(u0, u1, f0, f1, i, nb, L):
+            uc = (u0 + u1) / 2; w = min(w0, (u1 - u0) - 1.3)
+            return D.rect_pts(uc - w / 2, f0 + lo, uc + w / 2, f0 + lo + h)
+        return f
+
+    def attic(isfront):
+        def f(u0, u1, f0, f1, i, nb, L):
+            uc = (u0 + u1) / 2
+            if isfront and abs(uc - L / 2) < 6.6:      # three-arch loggia in the middle
+                w = 3.4; return D.arch_pts(uc - w / 2, f0 + 0.55, uc + w / 2, f0 + 1.45)
+            w = min(2.0, (u1 - u0) - 1.3); return D.rect_pts(uc - w / 2, f0 + 0.7, uc + w / 2, f0 + 2.3)
+        return f
+
     for i in range(ne):
-        a, b = ring[i], ring[(i + 1) % ne]; L, t, n = D.frame_of(a, b)
-        if L < 1.8:
-            m.wall(mw, a, b, 0.9, zc, (4, 4), WALLC); continue
-        bw = 3.4
-        def hole(u0, u1, f0, f1, fl):
-            w = u1 - u0
-            if fl == 0: return D.arch_pts(u0 + 0.7, f0 + 0.15, u1 - 0.7, f0 + 3.6)
-            return D.rect_pts(u0 + (w - 1.35) / 2, f0 + 0.75, u0 + (w + 1.35) / 2, f0 + 2.65)
-        # ground floor (arched) then upper floors
-        D.wall_run(m, mw, mg, mf, a, b, 0.9, 1, GH, bw, hole, 0.45, WALLC, REV, rng, sill=None)
-        D.wall_run(m, mw, mg, mf, a, b, z_gf1, NF, FH, bw, lambda u0, u1, f0, f1, fl: hole(u0, u1, f0, f1, 1), 0.3, WALLC, REV, rng, sill=0.14)
-        D.band(m, mf, a, b, z_gf1 - 0.2, z_gf1 + 0.2, 0.16, CREAM)                  # string course
-        D.band(m, mf, a, b, zc - 0.55, zc + 0.05, 0.28, CREAM)                      # eave cornice
-        D.band(m, mf, a, b, zc + 0.05, zc + 0.35, 0.5, shade(CREAM, 0.9))
-    # quoins at corners
-    for i in range(ne):
-        p = ring[i]; q = ring[(i + 1) % ne]; r_ = ring[i - 1]
-        ang = math.atan2(q[1] - p[1], q[0] - p[0])
-        m.box(mf, p[0], p[1], 0.45, 0.45, 0.9, zc, rot=ang, col=CREAM)
-    # double mansard roof
-    roof, roof2 = hexc("#6a2f27"), hexc("#5c2a23")
-    A = Pl.buffer(0.45, join_style=2)
-    q1 = taper(m, mf, A, zc + 0.35, zc + 4.2, 0.9, roof, cap=False)
-    q2 = taper(m, mf, q1, zc + 4.2, zc + 9.0, 0.5, roof2, cap=True)
-    # dormers on the lower mansard
-    cc = (A.centroid.x, A.centroid.y); ringA = list(orient(A, 1.0).exterior.coords)[:-1]
-    for i in range(len(ringA)):
-        a, b = ringA[i], ringA[(i + 1) % len(ringA)]; L, t, n = D.frame_of(a, b)
-        if L < 4: continue
-        nd = max(1, int(L // 6.8)); step = L / nd
-        for j in range(nd):
-            u = (j + 0.5) * step; px, py = a[0] + t[0] * u, a[1] + t[1] * u
-            tt = 0.45; bx = cc[0] + (px - cc[0]) * (1 - 0.1 * tt); by = cc[1] + (py - cc[1]) * (1 - 0.1 * tt)
-            zd = zc + 0.35 + 3.85 * tt
-            ang = math.atan2(t[1], t[0])
-            m.box(mf, bx, by, 1.7, 1.5, zd - 0.4, zd + 1.5, rot=ang, col=hexc("#7b3b31"))
-            fx, fy = bx + n[0] * 0.76, by + n[1] * 0.76
-            hw = 0.6; k = int(rng.integers(0, 8)); cu0, cu1 = k / 8, (k + 1) / 8
-            m.quad(mg, [(fx - t[0] * hw, fy - t[1] * hw, zd - 0.2), (fx + t[0] * hw, fy + t[1] * hw, zd - 0.2), (fx + t[0] * hw, fy + t[1] * hw, zd + 1.2), (fx - t[0] * hw, fy - t[1] * hw, zd + 1.2)],
-                   [(cu0, 0.25), (cu1, 0.25), (cu1, 1.0), (cu0, 1.0)], n=(n[0], n[1], 0))
-            pts = [(bx - n[0] * 0.75 - t[0] * 0.85, by - n[1] * 0.75 - t[1] * 0.85), (bx - n[0] * 0.75 + t[0] * 0.85, by - n[1] * 0.75 + t[1] * 0.85),
-                   (bx + n[0] * 0.75 + t[0] * 0.85, by + n[1] * 0.75 + t[1] * 0.85), (bx + n[0] * 0.75 - t[0] * 0.85, by + n[1] * 0.75 - t[1] * 0.85)]
-            m.hip(mf, pts, zd + 1.5, 1.1, roof2, ridge_frac=0.3)
-    # chimneys
-    for fx, fy in [(0.35, 0.2), (-0.3, -0.25), (0.1, -0.4), (-0.15, 0.3)]:
+        a, b = ring[i], ring[(i + 1) % ne]; L, t, n = D.frame_of(a, b); fr = i == fi
+        if L < 1.8: m.wall(mw, a, b, 0.9, zc, (4, 4), W); continue
+        run(a, b, 0.9, G0, 6.1, eg, 0.45, 0.32, 0.0, fr)
+        run(a, b, z1, F1, 6.1, upper(3.0, 3.3, 0.8), 0.3, 0.26, 0.14, fr)
+        run(a, b, z2, F2, 6.1, upper(2.2, 3.3, 0.8), 0.3, 0.24, 0.14, fr)
+        run(a, b, z3, FA, 6.1, attic(fr), lambda i_, nb, L_: 1.1 if fr and abs((i_ + .5) * L_ / nb - L_ / 2) < 6.6 else 0.3, 0.2, 0.0, fr)
+        D.band(m, mf, a, b, z1 - 0.2, z1 + 0.15, 0.1, CREAM)
+        D.band(m, mf, a, b, zc - 0.5, zc + 0.05, 0.25, CREAM)
+        # eaves: slate-grey fascia + corbels
+        for k in range(int(L // 1.9)):
+            u = 1.0 + k * (L - 2.0) / max(1, int(L // 1.9) - 1)
+            p = D.P3(a, t, n, u, 0, 0.45); ang = math.atan2(t[1], t[0])
+            m.box(mf, p[0], p[1], 0.16, 0.8, zc - 1.5, zc - 0.5, rot=ang + math.pi / 2 * 0, col=D.hexl("#6b5a4c"))
+    # facade features on the front edge
+    a, b = ring[fi], ring[(fi + 1) % ne]; L, t, n = D.frame_of(a, b); ang = math.atan2(t[1], t[0]); u = L / 2
+    # first-floor balcony (cast-iron rail) over the centre
+    bw_ = 9.0; zb = z1 - 0.05
+    D.band(m, mf, D.P3(a, t, n, u - bw_ / 2, 0)[:2], D.P3(a, t, n, u + bw_ / 2, 0)[:2], zb - 0.3, zb + 0.1, 1.1, D.hexl("#a29c90"))
+    for k in range(5):
+        p = D.P3(a, t, n, u - bw_ / 2 + 0.5 + k * (bw_ - 1) / 4, 0, 0.45)
+        m.box(mf, p[0], p[1], 0.35, 0.5, zb - 1.2, zb - 0.3, rot=ang, col=D.hexl("#a29c90"))
+    iron = D.hexl("#2f302f")
+    for k in range(int(bw_ / 0.3)):
+        p = D.P3(a, t, n, u - bw_ / 2 + 0.15 + k * 0.3, 0, 1.0); m.box(mf, p[0], p[1], 0.03, 0.03, zb + 0.1, zb + 1.05, rot=ang, col=iron)
+    for zz in (zb + 0.12, zb + 1.05):
+        p = D.P3(a, t, n, u, 0, 1.05); m.box(mf, p[0], p[1], bw_, 0.05, zz, zz + 0.05, rot=ang, col=iron)
+    # lettering (atlas strip regions)
+    def txt(u0, u1, zc_, h, x0, x1, off=0.07):
+        p0 = D.P3(a, t, n, u0, zc_, off); p1 = D.P3(a, t, n, u1, zc_, off); v0, v1 = 0.0, 0.25
+        m.quad(mg, [p0, p1, (p1[0], p1[1], zc_ + h), (p0[0], p0[1], zc_ + h)], [(x0 / 1024, v0), (x1 / 1024, v0), (x1 / 1024, v1), (x0 / 1024, v1)], n=(n[0], n[1], 0))
+    txt(u - 5.2, u + 0.6, z2 - 0.95, 0.75 * 0.0 + 0.8, 0, 480)
+    txt(L * 0.22 - 2.2, L * 0.22 + 2.2, z1 - 0.95, 0.5, 480, 760)
+    txt(L * 0.80 - 2.0, L * 0.80 + 2.0, z1 - 0.95, 0.5, 760, 1024)
+    # round tower at the right (b) corner
+    tc = (b[0] - t[0] * 1.9 - n[0] * 1.6, b[1] - t[1] * 1.9 - n[1] * 1.6)
+    m.cylinder(mw, tc[0], tc[1], 2.5, z2, zc + 3.4, n=20, mod=(4, 4), col=D.hexl("#d08a72"), cap=mf, capcol=D.hexl("#b9ae9a"))
+    # hip roof with overhang (shallow skirt, then main hip)
+    A = Pl.buffer(1.4, join_style=2)
+    q1 = taper(m, mf, A, zc + 0.05, zc + 1.9, 0.94, SLATE, cap=False)
+    q2 = taper(m, mf, q1, zc + 1.9, zc + 10.2, 0.2, D.hexl("#202226"), cap=True)
+    for fx, fy in [(0.3, 0.15), (-0.28, -0.2)]:
         px, py = q2.centroid.x + fx * (q2.bounds[2] - q2.bounds[0]), q2.centroid.y + fy * (q2.bounds[3] - q2.bounds[1])
-        m.box(mf, px, py, 1.2, 1.2, zc + 5, zc + 10.5, col=hexc("#9a5a45")); m.box(mf, px, py, 1.5, 1.5, zc + 10.5, zc + 10.9, col=hexc("#5a5a58"))
-    # main facade: longest edge facing Helvetiaplatz (783,-881)
-    best = None; tgt = (783 - ox, -881 - oy)
-    for i in range(ne):
-        a, b = ring[i], ring[(i + 1) % ne]; L, t, n = D.frame_of(a, b)
-        mid = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2); dt = (tgt[0] - mid[0], tgt[1] - mid[1]); dn = math.hypot(*dt)
-        sc = L * max(0, (n[0] * dt[0] + n[1] * dt[1]) / dn)
-        if best is None or sc > best[0]: best = (sc, a, b)
-    _, a, b = best; L, t, n = D.frame_of(a, b)
-    ang = math.atan2(t[1], t[0]); u = L / 2
-    # plastic lettering plate, 0.35 m deep, framed
-    w, h, zz = min(15.5, L * 0.72), 2.2, z_gf1 + 2 * FH + 0.55
-    D.band(m, mf, (a[0] + t[0] * (u - w / 2 - 0.3), a[1] + t[1] * (u - w / 2 - 0.3)), (a[0] + t[0] * (u + w / 2 + 0.3), a[1] + t[1] * (u + w / 2 + 0.3)), zz - 0.3, zz + h + 0.3, 0.3, hexc("#d6c79a"))
-    p0 = P = D.P3(a, t, n, u - w / 2, zz, 0.33); p1 = D.P3(a, t, n, u + w / 2, zz, 0.33)
-    m.quad(mg, [p0, p1, (p1[0], p1[1], zz + h), (p0[0], p0[1], zz + h)], D.SIGN_UV()[:4], n=(n[0], n[1], 0))
-    # entrance: canopy on slim posts + three steps
-    cw, cd = 5.6, 2.6
-    for s in (-1, 1):
-        m.box(mf, *(D.P3(a, t, n, u + s * (cw / 2 - 0.2), 0, cd - 0.2)[:2]), 0.25, 0.25, 0.0, 4.3, rot=ang, col=hexc("#2b2d2f"))
-    cp = D.P3(a, t, n, u, 0, cd / 2)
-    m.box(mf, cp[0], cp[1], cw, cd, 4.3, 4.65, rot=ang, col=hexc("#3a3c3e"))
-    for k in range(3):
-        sp = D.P3(a, t, n, u, 0, 0.5 + (2 - k) * 0.38)
-        m.box(mf, sp[0], sp[1], 3.6, 0.38 * (3 - k) + 0.2, 0.9 - (k + 1) * 0.3 - 0.1, 0.9 - k * 0.3, rot=ang, col=hexc("#a29c90"))
+        m.box(mf, px, py, 1.1, 1.1, zc + 8.0, zc + 11.2, col=D.hexl("#9a5a45")); m.box(mf, px, py, 1.4, 1.4, zc + 11.2, zc + 11.5, col=D.hexl("#5a5a58"))
     hide = [[round(p.x, 1), round(p.y, 1)] for p in (g_.representative_point() for g_ in (B["fp"].geoms if hasattr(B["fp"], "geoms") else [B["fp"]]))]
     finish(m, "volkshaus", "Volkshaus", ox, oy, oz, hide)
 

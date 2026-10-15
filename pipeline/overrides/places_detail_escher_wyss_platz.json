@@ -1,0 +1,10 @@
+{"places": [{
+ "id": "escher_wyss_platz",
+ "center": [450, 750],
+ "src": "research/v3/escher_wyss_platz.md; photos #25 #26 (Commons: Betonkuebel-Brunnen vor Stuetze); OGD Brunnen",
+ "convert": [
+  {"layer": "fountains", "within": {"circle": [-1.5, 13, 6]}, "t": "bucket", "a": 0.4},
+  {"layer": "fountains", "within": {"circle": [-31.5, -43, 6]}, "t": "bucket", "a": 0.4}
+ ],
+ "objs": []
+}]}

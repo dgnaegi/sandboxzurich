@@ -1,0 +1,179 @@
+{
+ "_doc": "Hand-authored square/park detail (pipeline/places_detail.py). Coordinates: metres relative to center [x,y] (x east, y north); h = heading in degrees CCW from east; object types: see web/src/world/places_detail.ts. Each place cites its sources in 'src'.",
+ "places": [
+  {
+   "id": "roentgenplatz",
+   "center": [
+    760,
+    128
+   ],
+   "src": "research/v3/roentgenplatz.md; photos #3 #18 #19 #21 #22 (Mapillary/Commons, CC BY-SA); SWISSIMAGE; OSM way 27429486",
+   "ground": [
+    {
+     "osm": 27429486,
+     "buf": 1.0,
+     "mat": "asphalt",
+     "lift": 0.01
+    },
+    {
+     "rect": [
+      7.4,
+      -9.8,
+      10.6,
+      12.4
+     ],
+     "mat": "concrete",
+     "lift": 0.02,
+     "uv": 2.0
+    },
+    {
+     "rect": [
+      4.6,
+      7.6,
+      11.0,
+      2.4
+     ],
+     "mat": "granite",
+     "lift": 0.02,
+     "color": [
+      170,
+      168,
+      162
+     ],
+     "uv": 1.0
+    }
+   ],
+   "objs": [
+    {
+     "t": "basin",
+     "p": [
+      -22.4,
+      -6.3
+     ],
+     "h": 90,
+     "a": 7,
+     "b": 2.0,
+     "c": 0.45
+    },
+    {
+     "t": "kiosk",
+     "p": [
+      -5.9,
+      -8.4
+     ],
+     "h": 100,
+     "a": 8,
+     "b": 3.6,
+     "c": 2.8,
+     "col": "#5b7a98"
+    },
+    {
+     "t": "tbench",
+     "p": [
+      5.5,
+      -3.4
+     ],
+     "h": 90
+    },
+    {
+     "t": "tbench",
+     "p": [
+      -0.2,
+      0.7
+     ],
+     "h": 0
+    },
+    {
+     "t": "tbench",
+     "p": [
+      -5.5,
+      1.2
+     ],
+     "h": 20
+    },
+    {
+     "t": "flag",
+     "p": [
+      -4.9,
+      16.4
+     ],
+     "a": 9,
+     "d": 0
+    },
+    {
+     "t": "flag",
+     "p": [
+      -2.4,
+      15.6
+     ],
+     "a": 9,
+     "d": 1
+    },
+    {
+     "t": "flag",
+     "p": [
+      -7.3,
+      15.2
+     ],
+     "a": 9,
+     "d": 2
+    },
+    {
+     "t": "sandbox",
+     "p": [
+      -9.2,
+      24.5
+     ],
+     "a": 3.5,
+     "b": 4.0,
+     "h": 90
+    },
+    {
+     "t": "kerb",
+     "p": [
+      4.6,
+      6.6
+     ],
+     "a": 11,
+     "b": 0.45,
+     "c": 0.18
+    },
+    {
+     "t": "kerb",
+     "p": [
+      4.6,
+      8.4
+     ],
+     "a": 11,
+     "b": 0.45,
+     "c": 0.3
+    }
+   ],
+   "lines": [
+    {
+     "t": "fence",
+     "hgt": 2.0,
+     "pts": [
+      [
+       -4.5,
+       9.4
+      ],
+      [
+       10,
+       9.4
+      ]
+     ]
+    }
+   ],
+   "lights": {
+    "within": {
+     "osm": 27429486,
+     "buf": 4
+    },
+    "t": "arch",
+    "face": "centre",
+    "a": 8.5
+   }
+  }
+ ]
+}

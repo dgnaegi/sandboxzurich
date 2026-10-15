@@ -4,7 +4,7 @@ import sys, os, math
 import numpy as np
 from PIL import Image, ImageDraw
 sys.path.insert(0, os.path.dirname(__file__)); sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
-import k93_lib as L, k93_find as F, terrain
+import k93_lib as L, k93_find as F, terrain, k93_kit as K, sources
 from k93_lib import hexc, shade
 OUT = F.ROOT + "/web/public/models/landmarks/k93_altstetten.glb"
 O = (-2082.0, 738.0)
@@ -20,8 +20,10 @@ def wall_tex(spandrel=(190, 188, 182), glass=(52, 62, 74), band=0.38):
     return im
 
 M = L.Model(origin=(O[0], O[1], 0.0))
-W = M.mat("walls", rough=0.95, tex=wall_tex(), repeat=True)
-SH = M.mat("shop", rough=0.8, tex=wall_tex((120, 118, 114), (70, 90, 104), 0.12), repeat=True)
+RB, RE = K.tile(8, 4, 48, 64, K.ribbon(wall="#aeb6b4", glass="#4f6f78", band=0.62, y0=0.16), seed=31, lit=0.28)
+UW = M.mat("ribbon", rough=0.5, tex=RB, emis=RE, repeat=True)
+SB, SE = K.tile(4, 1, 96, 104, K.window(wall="#86847f", frame="#2f3335", glass="#566b78", fw=0.9, fh=0.72, top=0.12, cols=3, rows=1, sill="#6c6a66", noise=4, lit_col=(255, 224, 160)), seed=32, lit=0.7)
+SH = M.mat("shop", rough=0.8, tex=SB, emis=SE, repeat=True)
 C = M.mat("solid", rough=0.9)
 WHITE = (255, 255, 255, 255)
 def rect(c1, c2, c3, c4): return [c1, c2, c3, c4]
@@ -30,12 +32,11 @@ ang = math.atan2(hh[3][1] - hh[0][1], hh[3][0] - hh[0][0])
 ZT = 30.0; ZF = 4.2; FLOOR = 2.9
 from shapely.geometry import Polygon as _P
 hp = _P(hh); inner = list(hp.buffer(-0.5, join_style=2).exterior.coords)[:-1]
-UW = M.mat("glasswall", rough=0.5, tex=wall_tex((150, 148, 142), (44, 58, 76), 0.1), repeat=True)
 CONCR = hexc("#b7b6b0"); CONCD = hexc("#9d9c96")
 # ground floor: shop fronts (recessed) + slab
-M.prism(SH, list(hp.buffer(-1.0, join_style=2).exterior.coords)[:-1], -3, ZF, WHITE, tile=(3.0, ZF + 3), top=False)
+K.wall_band(M, SH, list(hp.buffer(-1.0, join_style=2).exterior.coords)[:-1], -3, ZF, 3.6, ZF + 3, nx=4, ny=1)
 nfl = int((ZT - ZF) / FLOOR + 0.5); FL = (ZT - ZF) / nfl
-M.prism(UW, inner, ZF, ZT, WHITE, tile=(3.0, FL), top=False)           # recessed window bands
+K.wall_band(M, UW, inner, ZF, ZT, 1.8, FL, nx=8, ny=4)           # recessed window bands
 for k in range(nfl + 1):                                              # projecting off-form concrete slabs
     zz = ZF + k * FL - 0.3
     M.prism(C, hh, zz, zz + (0.75 if k in (0, nfl) else 0.55), shade(CONCR, 1.0 if k % 2 else 0.94), topcol=shade(CONCR, 0.85), tile=(6.0, 1.0))
@@ -69,7 +70,7 @@ wing = [(-2112, 741), (-2108.5, 750.2), (-2090, 743.2), (-2093.5, 734)]
 M.box(C, (cx, cy, 2.0), (59, 19.4, 0.4), hexc("#7d7f80"), rot=ang)
 # low hall (Flachbau) with shopfronts and canopy
 fb = [(-2174.5, 803.9), (-2167.9, 821.4), (-2038.1, 772.2), (-2044.8, 754.7)]
-M.prism(SH, fb, -2.5, 4.9, WHITE, tile=(3.0, 3.0), top=False)
+K.wall_band(M, SH, fb, -2.5, 4.9, 3.6, 7.4, nx=4, ny=1)
 M.cap(C, fb, 4.9, hexc("#7e7f7c"))
 fa = math.atan2(fb[3][1] - fb[0][1], fb[3][0] - fb[0][0])
 nrm = np.array([math.sin(fa), -math.cos(fa)])  # points to the south-east side of the hall
@@ -83,15 +84,53 @@ for k in range(-6, 7, 2):
 for k in range(-5, 6, 2):
     p_ = cn + np.array([math.cos(fa), math.sin(fa)]) * k * 10.5 - (cn - fm) / np.linalg.norm(cn - fm) * 0.4
     M.box(C, (p_[0], p_[1], 0.5), (4.0, 0.5, 0.12), hexc("#6b4a2e"), rot=fa)
-# Luginbuehl «IBM-Stengel»: red lacquered steel sculpture (~6.5 m)
+CAN = M.mat("canopy", rough=0.4)
+# signs on the Flachbau canopy: station name (white on red) and a pharmacy name (white on green) as plain lettering
+def sign_img(text, bg, fg="#ffffff", w=640, h=96):
+    im = Image.new("RGB", (w, h), K.rgb(bg)); d = ImageDraw.Draw(im); f = K.font("Barlow-Bold", int(h * 0.62)); tw = f.getlength(text)
+    d.rectangle([2, 2, w - 3, h - 3], outline=K.mix(K.rgb(bg), (255, 255, 255), 0.5), width=2); d.text(((w - tw) / 2, h * 0.14), text, font=f, fill=K.rgb(fg)); return im
+SG1 = M.mat("sign_station", rough=0.5, tex=sign_img("Zürich Altstetten", "#c8372d"), emis=sign_img("Zürich Altstetten", "#c8372d").point(lambda v: int(v * 0.5)), repeat=False)
+SG2 = M.mat("sign_shop", rough=0.5, tex=sign_img("AMAVITA", "#10a06a", w=420), emis=sign_img("AMAVITA", "#10a06a", w=420).point(lambda v: int(v * 0.55)), repeat=False)
+sdir = (cn - fm) / np.linalg.norm(cn - fm)              # from the hall to the canopy edge (arcade side)
+tfa = np.array([math.cos(fa), math.sin(fa)]); nfa = np.array([-tfa[1], tfa[0]])
+if np.dot(nfa, sdir) < 0: nfa = -nfa                     # outward normal towards the arcade
+def sign_quad(mat, centre, w_, h_, z_):
+    d_ = np.array([-nfa[1], nfa[0]])                      # a->b with outward normal nfa
+    K.quad_tex(M, mat, centre - d_ * w_ / 2, centre + d_ * w_ / 2, z_, z_ + h_)
+sign_quad(SG1, cn + sdir * 2.3 + tfa * 8.0, 6.4, 0.96, 3.95)
+sign_quad(SG2, cn + sdir * 2.3 - tfa * 22.0, 4.2, 0.96, 3.95)
+# platform / stair canopies: every OSM building=roof way within 130 m as a flat roof on posts
+nodes_, els_ = sources.osm()
+for e in els_:
+    t_ = e.get("tags", {})
+    if e["type"] != "way" or t_.get("building") != "roof" or "nodes" not in e: continue
+    q_ = [nodes_[n] for n in e["nodes"] if n in nodes_]
+    if len(q_) < 4: continue
+    g_ = _P(q_).buffer(0)
+    if g_.geom_type != "Polygon" or math.hypot(g_.centroid.x - O[0], g_.centroid.y - O[1]) > 130: continue
+    pts_ = list(g_.exterior.coords)[:-1]; zc_ = float(H.at(*g_.centroid.coords[0])) - ZG
+    zr_ = zc_ + (3.3 if t_.get("layer") != "1" else 3.6)
+    M.prism(CAN, pts_, zr_, zr_ + 0.22, hexc("#aab6b4"), topcol=hexc("#8b9795"), top=True, tile=(2.0, 1.0))
+    for p2 in pts_[:: max(1, len(pts_) // 4)]:
+        M.box(C, (p2[0], p2[1], zc_ + 1.65), (0.2, 0.2, zr_ - zc_), hexc("#6e7377"))
+# platform clock on a post in front of the arcade (two faces)
+import k93_kirchen as KK
+_ck = KK.round_clock(); CKM = M.mat("clock", rough=0.5, tex=_ck, emis=_ck.point(lambda v: int(v * 0.55)), repeat=False)
+pc_ = cn + sdir * 1.0 + tfa * 14.0
+M.box(C, (pc_[0], pc_[1], 1.7), (0.14, 0.14, 3.4), hexc("#4a4d50"))
+for sd in (1, -1):
+    out = tfa * sd; d_ = np.array([-out[1], out[0]])
+    K.quad_tex(M, CKM, pc_ + out * 0.12 - d_ * 0.55, pc_ + out * 0.12 + d_ * 0.55, 3.4, 4.5)
+# Luginbuehl «IBM-Stengel»: rust-red welded steel sculpture on a round base plate
 sx, sy = -2133.2, 755.6
-RED = hexc("#c9261c")
-M.cyl(C, (sx, sy), 0.28, 0, 6.6, RED, n=8)
-for z, a_, l_ in ((1.8, 0.4, 3.2), (3.4, 2.1, 2.6), (4.9, 1.1, 3.6), (5.9, 3.5, 2.2)):
-    M.box(C, (sx + math.cos(a_) * l_ * .25, sy + math.sin(a_) * l_ * .25, z), (l_, 0.35, 0.35), RED, rot=a_)
-M.cyl(C, (sx, sy), 1.1, 2.6, 2.9, RED, n=14)
-M.cyl(C, (sx, sy), 0.7, 5.2, 5.4, RED, n=10)
-M.box(C, (sx + 0.9, sy - 0.6, 6.2), (0.9, 0.9, 0.9), RED, rot=0.6)
-M.box(C, (sx, sy, 0.3), (1.6, 1.6, 0.6), hexc("#7b7b78"))
+RED = hexc("#b44a30"); RED2 = hexc("#9e3d27")
+M.cyl(C, (sx, sy), 2.0, 0, 0.18, hexc("#8d8c88"), n=18)
+for dx_, dy_, h_, w_ in ((-0.55, 0.1, 6.2, 0.45), (0.5, -0.15, 5.4, 0.4), (0.0, 0.5, 4.2, 0.35)):
+    M.box(C, (sx + dx_, sy + dy_, h_ / 2 + 0.2), (w_, 0.32, h_), RED, rot=0.25)
+for z, a_, l_ in ((1.8, 0.4, 3.4), (3.4, 2.1, 2.8), (4.9, 1.1, 3.6), (5.7, 3.5, 2.4), (2.6, 5.2, 2.6)):
+    M.box(C, (sx + math.cos(a_) * l_ * .2, sy + math.sin(a_) * l_ * .2, z), (l_, 0.3, 0.3), RED2, rot=a_)
+K.sphere(M, C, (sx + 0.3, sy - 0.2), 0.62, RED, z=1.1)
+K.sphere(M, C, (sx - 0.3, sy + 0.4), 0.38, RED2, z=5.9)
+M.cyl(C, (sx, sy), 0.9, 2.5, 2.8, RED, n=12); M.cyl(C, (sx, sy), 0.6, 4.9, 5.1, RED2, n=10)
 os.makedirs(os.path.dirname(OUT), exist_ok=True); M.write(OUT)
 print("tris", M.tris(), "origin", O, round(ZG, 2))

@@ -9,7 +9,7 @@ from k45_volkshaus import plaster
 
 IDS = ["ID_26259A5A", "ID_EEB23F5F", "ID_78594C63", "ID_0E0A8569"]
 POD = "ID_616085CB"
-ACC = ["#d9772b", "#3e86b8", "#c9a227", "#5a9a5c"]
+ACC = ["#c49a72"] * 4
 
 
 def edges(P):
@@ -23,18 +23,18 @@ def build():
     oz = float(np.mean([ground(f.centroid.x, f.centroid.y) for f in fps]))
     rng = np.random.default_rng(8)
     m = Model("hardau")
-    mw = m.mat("wall", plaster(hexc("#e2dfd6"), seed=4, stains=0.03))
-    mg = m.mat("glass", *D.glass_atlas(frame="#f0eee8", glass="#2f414d", sky="#a8bfcc", seed=14, lit_p=0.4, curtains=True), rough=0.35)
+    mw = m.mat("wall", plaster(hexc("#c9a074"), seed=4, stains=0.03))
+    mg = m.mat("glass", *D.glass_atlas_g(frame="#5a4535", glass="#2a3338", sky="#a8bfcc", cols=2, rows=1, seed=14, lit_p=0.4, curtains=True, curtain_cols=[(236, 228, 210), (214, 200, 175), (225, 225, 225), (190, 175, 150)]), rough=0.35)
     mf = m.mat("flat", solid((255, 255, 255, 255)))
-    W = (255, 255, 255, 255); CONC = hexc("#cfcbc2"); REV = hexc("#9c9a94")
+    W = (255, 255, 255, 255); CONC = D.hexl("#cfa77c"); REV = D.hexl("#8a5a3a")
     # ---- podium (Sockelbau)
     Pp = orient(localize(pfp, ox, oy), 1.0); gzp = ground(pfp.centroid.x, pfp.centroid.y) - oz
-    m.extrude(mf, mf, Pp, gzp - 3, gzp, col=hexc("#8f8c85"), roof=False)
+    m.extrude(mf, mf, Pp, gzp - 3, gzp, col=D.hexl("#8f8780"), roof=False)
     GFH, FH2 = 4.5, 3.4
     for a, b in edges(Pp):
         L, t, n = D.frame_of(a, b)
         if L < 2: m.wall(mw, a, b, gzp, gzp + 11.3, (4, 4), W); continue
-        D.wall_run(m, mf, mg, mf, a, b, gzp, 1, GFH, 5.0, lambda u0, u1, f0, f1, fl: D.rect_pts(u0 + 0.5, f0 + 0.3, u1 - 0.5, f1 - 0.6), 0.5, hexc("#bfbbb2"), REV, rng)
+        D.wall_run(m, mf, mg, mf, a, b, gzp, 1, GFH, 5.0, lambda u0, u1, f0, f1, fl: D.rect_pts(u0 + 0.5, f0 + 0.3, u1 - 0.5, f1 - 0.6), 0.5, D.hexl("#b9ab98"), REV, rng)
         D.ribbon_floors(m, mw, mg, mf, a, b, gzp + GFH, 2, FH2, 0.95, 1.6, 0.3, W, REV, rng, wmod=(4, 4), seg=4.0, slab_out=0.6, slab_col=CONC)
         D.band(m, mf, a, b, gzp + 11.0, gzp + 11.45, 0.35, CONC)
     m.flat(mf, Pp, gzp + 11.3, hexc("#6f7a6a"))
@@ -43,11 +43,11 @@ def build():
         P = orient(localize(fp, ox, oy), 1.0)
         g0 = ground(fp.centroid.x, fp.centroid.y); gz = g0 - oz; H = b["zmax"] - g0
         n_fl = int(round((H - 4.0) / 3.0)); top = 4.0 + n_fl * 3.0
-        acc = hexc(ACC[i])
+        acc = D.hexl(ACC[i])
         for a, b2 in edges(P):
             L, t, n = D.frame_of(a, b2)
             if L < 1.0: continue
-            D.wall_run(m, mf, mg, mf, a, b2, gz, 1, 4.0, max(L, 2.0), lambda u0, u1, f0, f1, fl: D.rect_pts(u0 + 1.2, f0 + 0.2, u1 - 1.2, f1 - 0.5), 0.6, hexc("#aaa7a0"), REV, rng) if L > 6 else m.wall(mf, a, b2, gz, gz + 4.0, (2, 2), hexc("#aaa7a0"))
+            D.wall_run(m, mf, mg, mf, a, b2, gz, 1, 4.0, max(L, 2.0), lambda u0, u1, f0, f1, fl: D.rect_pts(u0 + 1.2, f0 + 0.2, u1 - 1.2, f1 - 0.5), 0.6, D.hexl("#b9ab98"), REV, rng) if L > 6 else m.wall(mf, a, b2, gz, gz + 4.0, (2, 2), D.hexl("#b9ab98"))
             for f in range(n_fl):
                 zf = gz + 4.0 + f * 3.0
                 accent = (f % 3 == 1)
@@ -69,7 +69,7 @@ def build():
     hide = []
     for bb in bs + [pod]:
         fp = bb["fp"]; hide += [[round(g.representative_point().x, 1), round(g.representative_point().y, 1)] for g in (fp.geoms if hasattr(fp, "geoms") else [fp])]
-    finish(m, "hardau_towers", "Hardau II (4 Wohntuerme)", ox, oy, oz, hide)
+    finish(m, "hardau_towers", "Hardau II (4 Wohntuerme)", ox, oy, oz, hide_union("Hardau II (4 Wohntuerme)", hide))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,53 @@
+{
+ "places": [
+  {
+   "id": "albisriederplatz",
+   "center": [
+    -469.2,
+    -668.3
+   ],
+   "src": "research/v3/albisriederplatz.md; photos #8-#11 (Hundebrunnen, Commons); SWISSIMAGE; OGD Brunnen",
+   "convert": [
+    {
+     "layer": "fountains",
+     "within": {
+      "circle": [
+       -43.5,
+       18.4,
+       6
+      ]
+     },
+     "t": "hundebrunnen",
+     "h": 0
+    }
+   ],
+   "ground": [
+    {
+     "circle": [
+      -43.0,
+      18.4,
+      2.0
+     ],
+     "mat": "granite",
+     "color": [
+      150,
+      148,
+      142
+     ],
+     "lift": 0.02,
+     "uv": 1.0
+    }
+   ],
+   "objs": [],
+   "ortho_ground": {
+    "within": {
+     "circle": [
+      -30,
+      10,
+      28
+     ]
+    }
+   }
+  }
+ ]
+}

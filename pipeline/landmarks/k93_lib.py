@@ -17,9 +17,9 @@ def shade(c, f):
 
 
 class Mat:
-    def __init__(self, name, rough=0.9, metal=0.0, tex=None, repeat=True, base=(1, 1, 1, 1), emissive=None, double=False):
+    def __init__(self, name, rough=0.9, metal=0.0, tex=None, repeat=True, base=(1, 1, 1, 1), emissive=None, double=False, emis=None):
         self.name, self.rough, self.metal, self.tex, self.repeat, self.base = name, rough, metal, tex, repeat, base
-        self.emissive, self.double = emissive, double
+        self.emissive, self.double, self.emis = emissive, double, emis
         self.pos, self.nrm, self.col, self.uv, self.idx = [], [], [], [], []
         self.n = 0
 
@@ -188,7 +188,17 @@ class Model:
                 samplers.append({"magFilter": 9729, "minFilter": 9987, "wrapS": w, "wrapT": w})
                 texs.append({"source": len(imgs) - 1, "sampler": len(samplers) - 1}); pbr["baseColorTexture"] = {"index": len(texs) - 1}
             mdef = {"name": m.name, "pbrMetallicRoughness": pbr}
-            if m.emissive: mdef["emissiveFactor"] = list(m.emissive)
+            if m.emis is not None:  # night texture (runtime scales it by the night factor); needs uv
+                buf = io.BytesIO(); m.emis.convert("RGB").save(buf, "PNG"); data = buf.getvalue()
+                while len(bin_) % 4: bin_.append(0)
+                views.append({"buffer": 0, "byteOffset": len(bin_), "byteLength": len(data)}); bin_.extend(data)
+                imgs.append({"bufferView": len(views) - 1, "mimeType": "image/png"})
+                w = 10497 if m.repeat else 33071
+                samplers.append({"magFilter": 9729, "minFilter": 9987, "wrapS": w, "wrapT": w})
+                texs.append({"source": len(imgs) - 1, "sampler": len(samplers) - 1})
+                mdef["emissiveTexture"] = {"index": len(texs) - 1}; mdef["emissiveFactor"] = [1, 1, 1]
+                if "TEXCOORD_0" not in attrs: attrs["TEXCOORD_0"] = add(np.array(m.uv, np.float32), 5126, "VEC2", 34962)
+            elif m.emissive: mdef["emissiveFactor"] = list(m.emissive)
             if m.double: mdef["doubleSided"] = True
             mats.append(mdef)
             ia = add(np.array(m.idx, np.uint32), 5125, "SCALAR", 34963)

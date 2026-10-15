@@ -185,3 +185,121 @@ def text_sign(text, bg="#14181b", fg="#f4f1e8", size=26, bold=True, glow=(255, 2
 
 
 SIGN_UV = lambda: [(0.0, 0.0), (1.0, 0.0), (1.0, 0.25), (0.0, 0.25)]   # bottom strip of the glass atlas
+
+
+# ---- additions (k45 round 3) ----------------------------------------------------
+def glass_atlas_g(frame="#efe9dc", glass="#26323d", sky="#8fa9bb", cols=4, rows=3, seed=1, cw=128, ch=96, bar=3, lit_p=0.45,
+                  curtains=True, sign=None, transom=None, curtain_cols=None):
+    """Like glass_atlas but with a cols x rows mullion grid (Sprossen) and cells of width cw. `transom` = fraction of height for an extra
+    horizontal bar (fanlight). Returns (base RGBA, emissive RGB); sign painter gets the bottom 32 px strip of the full width."""
+    rng = np.random.default_rng(seed)
+    W, H = NV * cw, ch + 32
+    base = Image.new("RGBA", (W, H), hexc(glass)); em = Image.new("RGB", (W, H), (0, 0, 0))
+    d, de = ImageDraw.Draw(base), ImageDraw.Draw(em)
+    G, S, F = hexc(glass), hexc(sky), hexc(frame)
+    for k in range(NV):
+        x0 = k * cw
+        for y in range(ch):
+            f = max(0.0, 1 - y / (ch * 0.9)) * 0.45
+            c = tuple(int(G[i] * (1 - f) + S[i] * f) for i in range(3)) + (255,)
+            d.line([x0, y, x0 + cw, y], fill=c)
+        lit = rng.random() < lit_p
+        cur = None
+        if curtains and rng.random() < 0.6:
+            pal = curtain_cols or [(236, 228, 210), (214, 190, 150), (200, 120, 100), (150, 170, 190), (230, 230, 235)]; cc = pal[int(rng.integers(0, len(pal)))]
+            frac = rng.choice([0.4, 0.6, 0.85, 1.0]); side = rng.random() < 0.5
+            cw_ = int((cw - 8) * frac); xa = x0 + 4 if side else x0 + cw - 4 - cw_
+            cur = (cc, cw_, xa)
+            d.rectangle([xa, 8, xa + cw_, ch - 8], fill=cc + (255,))
+            for xx in range(xa, xa + cw_, 6): d.line([xx, 8, xx, ch - 8], fill=shade(cc + (255,), 0.9))
+        if lit:
+            warm = [(255, 214, 150), (255, 232, 190), (230, 235, 255), (255, 190, 120)][int(rng.integers(0, 4))]
+            de.rectangle([x0 + 3, 4, x0 + cw - 3, ch - 4], fill=warm)
+            if cur: de.rectangle([cur[2], 8, cur[2] + cur[1], ch - 8], fill=tuple(int(v * 0.55) for v in cur[0]))
+        for i in range(1, cols):
+            xx = x0 + int(cw * i / cols); d.rectangle([xx - bar // 2, 0, xx + bar // 2, ch], fill=F)
+            if lit: de.rectangle([xx - bar // 2, 0, xx + bar // 2, ch], fill=(0, 0, 0))
+        hs = [ch * i / rows for i in range(1, rows)] + ([ch * transom] if transom else [])
+        for yy in hs:
+            yy = int(yy); d.rectangle([x0, yy - bar // 2, x0 + cw, yy + bar // 2], fill=F)
+            if lit: de.rectangle([x0, yy - bar // 2, x0 + cw, yy + bar // 2], fill=(0, 0, 0))
+        d.rectangle([x0, 0, x0 + cw - 1, ch - 1], outline=F, width=bar + 1)
+        if lit: de.rectangle([x0, 0, x0 + cw - 1, ch - 1], outline=(0, 0, 0), width=bar + 1)
+    if sign: sign(d, de, 0, ch, W, 32)
+    return base, em
+
+
+def surround(m, mat, a, t, n, hole, w, col, off=0.05, sill=0.0):
+    """Stone/plaster frame of width w around a (u,z) opening polygon, standing `off` proud of the wall plane. Optional drip sill."""
+    inner = Polygon(hole)
+    outer = inner.buffer(w, join_style=2)
+    ring = outer.difference(inner)
+    uvf = lambda u, z: (u * 0.3, z * 0.3)
+    if ring.geom_type == "Polygon": ring = [ring]
+    else: ring = list(ring.geoms)
+    for r in ring: poly_wall(m, mat, r, a, t, n, off, col, uvf)
+    # side faces so the frame reads as a relief
+    c = list(outer.exterior.coords)
+    for i in range(len(c) - 1):
+        p, q = c[i], c[i + 1]
+        if math.hypot(q[0] - p[0], q[1] - p[1]) < 1e-3: continue
+        du, dz = q[0] - p[0], q[1] - p[1]; l = math.hypot(du, dz)
+        nl = (t[0] * (dz / l), t[1] * (dz / l), -du / l)
+        pts = [P3(a, t, n, p[0], p[1], 0), P3(a, t, n, q[0], q[1], 0), P3(a, t, n, q[0], q[1], off), P3(a, t, n, p[0], p[1], off)]
+        _oriented(m, mat, pts, nl, [(0, 0), (1, 0), (1, 1), (0, 1)], shade(col, 0.85))
+    if sill:
+        b = outer.bounds
+        o = sill
+        for pts, nn in (([P3(a, t, n, b[0] - 0.12, b[1] + 0.0, o), P3(a, t, n, b[2] + 0.12, b[1] + 0.0, o), P3(a, t, n, b[2] + 0.12, b[1] + 0.0, 0), P3(a, t, n, b[0] - 0.12, b[1] + 0.0, 0)], (0, 0, -1)),
+                        ([P3(a, t, n, b[0] - 0.12, b[1] - 0.1, o), P3(a, t, n, b[2] + 0.12, b[1] - 0.1, o), P3(a, t, n, b[2] + 0.12, b[1], o), P3(a, t, n, b[0] - 0.12, b[1], o)], (n[0], n[1], 0))):
+            _oriented(m, mat, pts, nn, [(0, 0), (1, 0), (1, 1), (0, 1)], shade(col, 0.9))
+
+
+def letters_strip(regions, W=1024, h=32, size=24, track=0, max_gap=None):
+    """Sign painter writing several texts into the bottom strip. regions: list of (x0, x1, text, fg, bg, glow|None). Text letter-spaced to fill ~85%."""
+    from PIL import ImageFont
+    def paint(d, de, x, y, w, hh):
+        f = None
+        for p in ("/System/Library/Fonts/Supplemental/Arial Bold.ttf", "/Library/Fonts/Arial Bold.ttf", "/System/Library/Fonts/Helvetica.ttc"):
+            try: f = ImageFont.truetype(p, size); break
+            except Exception: pass
+        for x0, x1, text, fg, bg, glow in regions:
+            d.rectangle([x0, y, x1 - 1, y + hh], fill=hexc(bg))
+            ws = [d.textlength(ch, font=f) for ch in text]; tot = sum(ws); gap = max(0, (0.88 * (x1 - x0) - tot) / max(1, len(text) - 1))
+            if max_gap is not None: gap = min(gap, max_gap)
+            cx = x0 + ((x1 - x0) - (tot + gap * (len(text) - 1))) / 2
+            for ch, wc in zip(text, ws):
+                d.text((cx, y + hh / 2), ch, font=f, fill=hexc(fg), anchor="lm")
+                if glow: de.text((cx, y + hh / 2), ch, font=f, fill=glow, anchor="lm")
+                cx += wc + gap
+    return paint
+
+
+def hexl(h, a=255):
+    """Hex colour for vertex-colour use: the engine reads COLOR_0 as linear, so pre-darken sRGB hex to display as the hex."""
+    r, g, b, _ = hexc(h)
+    return tuple(int(round(255 * (v / 255) ** 2.2)) for v in (r, g, b)) + (a,)
+
+
+def pointed_pts(u0, z0, u1, zs, n=6):
+    """Rect from z0 to spring line zs with an equilateral pointed (gothic) head."""
+    w = u1 - u0; pts = [(u0, z0), (u1, z0), (u1, zs)]
+    for i in range(1, n + 1): a = math.radians(60 * i / n); pts.append((u0 + w * math.cos(a), zs + w * math.sin(a)))
+    for i in range(1, n): a = math.radians(120 + 60 * i / n); pts.append((u1 + w * math.cos(a), zs + w * math.sin(a)))
+    pts.append((u0, zs)); return pts
+
+
+def ashlar(color, size=128, rows=8, seed=3, rough=0.10, joint=0.72):
+    """Procedural rough-ashlar stone block texture (RGBA PIL image)."""
+    rng = np.random.default_rng(seed); a = np.zeros((size, size, 4), np.uint8); a[..., 3] = 255
+    rh = size // rows; base = np.array(color[:3], float)
+    for r in range(rows):
+        x = int(rng.integers(0, 20))
+        while x < size + 40:
+            w = int(rng.integers(20, 44)); f = 1 + rng.normal(0, rough)
+            x0, x1 = x - 40, x - 40 + w
+            for xx in range(max(0, x0), min(size, x1)): a[r * rh:(r + 1) * rh, xx, :3] = np.clip(base * (f + rng.normal(0, 0.015)), 0, 255)
+            if 0 <= x0 < size: a[r * rh:(r + 1) * rh, x0, :3] = np.clip(base * joint, 0, 255)
+            x += w
+        a[r * rh, :, :3] = np.clip(base * joint, 0, 255)
+    return Image.fromarray(a, "RGBA")

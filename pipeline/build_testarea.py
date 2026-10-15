@@ -24,6 +24,7 @@ import sites
 import citydata
 import gastro
 import ground_paint
+import places_detail
 import osm_buildings
 import ortho_roofs
 import terrain_cuts
@@ -109,6 +110,7 @@ def ground_tile(gm, S, tb, H, white, yellow, rails, bed, bays_white=None, bays_b
 def _ground_tile(gm, S, tb, H, white, yellow, rails, bed, bays_white=None, bays_blue=None, grooves=None):
     _ground_base(gm, S, tb, H, white, yellow, rails, bed, bays_white, bays_blue, grooves)
     ground_paint.paint(gm, S, tb, H)  # coloured markings (pipeline/ground_paint.py)
+    places_detail.ground(gm, tb, H, S["roads"])  # square/park ground patterns (pipeline/places_detail.py)
 
 
 def _ground_base(gm, S, tb, H, white, yellow, rails, bed, bays_white=None, bays_blue=None, grooves=None):
@@ -190,6 +192,12 @@ def build():
     terrain_cuts.apply(H)  # rail cuttings under buildings (overrides/terrain_cuts.json)
     nodes, els = nodes0, els0
     blds = osm_buildings.update(blds, nodes, els, H, footprint, Polygon(POLYGON))  # post-2019 changes
+    if hide:  # OSM re-adds footprints of the hidden landmarks (no 2019 building left under them): hide them again
+        n0 = len(blds)
+        blds = [b for b in blds if not any(Polygon(np.asarray(p)[:, :2]).buffer(0).contains(h)
+                                           for h in hide if abs(h.x - b["center"][0]) < 200 and abs(h.y - b["center"][1]) < 200
+                                           for k, p in b["polys"] if k == 0 and len(p) >= 3)]
+        print(f"landmarks: {n0 - len(blds)} OSM buildings replaced by models")
     LMS = [[s["x"], s["y"], round(float(H.at(s["x"], s["y"])), 2), s["heading"], s["name"], s.get("plaque", ""), int(s.get("flowers", False))]
            for s in json.load(open(os.path.join(os.path.dirname(__file__), "overrides", "landmark_signs.json")))["signs"]]
     BR = bridges.bridge_ways(nodes, els, AREA, H)  # elevated decks + piers (research/bridges.md)
@@ -377,10 +385,13 @@ def build():
                 if seg.geom_type == "Polygon" and not seg.is_empty:
                     colliders.append(np.round(np.asarray(seg.exterior.coords)[:-1], 2).tolist())
         sg = props.signs(S, [s for s in segs if not s.get("blank")], tb)
+        PD = places_detail.tile_meta(tb, H, P)  # square/park furniture (overrides/places_detail.json)
+        colliders += PD.pop("_colliders", [])
         SM = sites.tile_meta(tb, H)  # real construction sites (Stadt Zürich OGD), research/sites.md
         colliders += SM.pop("colliders")
         meta = {
             **SM,
+            "places": PD,
             "playground": [r for r in PG if tb.contains(Point(r[0], r[1]))],
             "colliders": colliders,
             "hmap": hmap(tb),

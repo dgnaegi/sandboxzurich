@@ -1,0 +1,99 @@
+{
+ "places": [
+  {
+   "id": "helvetiaplatz",
+   "center": [
+    784,
+    -886
+   ],
+   "src": "research/v3/helvetiaplatz.md; photos #10 #18 #27 #29 (Commons/Mapillary: Gastarbeiter-Denkmal auf Betonsockel, Granitplatten mit Kopfstein-Baendern, Mastleuchten); SWISSIMAGE (Raster)",
+   "convert": [
+    {
+     "layer": "masts",
+     "within": {
+      "osm": 4533221,
+      "buf": 4
+     },
+     "t": "lamp",
+     "a": 9.5,
+     "b": 1.3,
+     "face": "centre"
+    },
+    {
+     "layer": "fountains",
+     "within": {
+      "circle": [
+       -13.7,
+       25.9,
+       4
+      ]
+     },
+     "t": "dfount",
+     "a": 1.0
+    }
+   ],
+   "ground": [
+    {
+     "osm": 4533221,
+     "mat": "concrete",
+     "color": [
+      196,
+      192,
+      184
+     ],
+     "lift": 0.012,
+     "uv": 2.5
+    },
+    {
+     "grid": {
+      "spacing": 6.0,
+      "w": 0.9,
+      "angle": 34
+     },
+     "within": {
+      "osm": 4533221
+     },
+     "mat": "pave",
+     "lift": 0.02,
+     "uv": 2.0
+    }
+   ],
+   "objs": [
+    {
+     "t": "monument",
+     "p": [
+      13.2,
+      -16.5
+     ],
+     "h": 0,
+     "a": 1.2,
+     "b": 3
+    },
+    {
+     "t": "planter",
+     "p": [
+      -15.8,
+      25.5
+     ],
+     "h": 90,
+     "a": 6.5,
+     "b": 0.8,
+     "c": 0.45,
+     "col": "#5a5753"
+    },
+    {
+     "t": "planter",
+     "p": [
+      -12.5,
+      29.2
+     ],
+     "h": 0,
+     "a": 4.5,
+     "b": 0.8,
+     "c": 0.45,
+     "col": "#5a5753"
+    }
+   ]
+  }
+ ]
+}

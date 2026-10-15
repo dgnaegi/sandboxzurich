@@ -1,0 +1,36 @@
+{
+ "places": [
+  {
+   "id": "stauffacher",
+   "center": [
+    950.9,
+    -1221.3
+   ],
+   "src": "research/v3/stauffacher.md; photos #26 #27 #29 (Commons: Kugelleuchten auf Betonmast, Granit-Poller); OGD Beleuchtung",
+   "convert": [
+    {
+     "layer": "masts",
+     "within": {
+      "circle": [
+       0,
+       0,
+       55
+      ]
+     },
+     "t": "kugel",
+     "a": 3.2
+    }
+   ],
+   "objs": [],
+   "ortho_ground": {
+    "within": {
+     "circle": [
+      0,
+      0,
+      50
+     ]
+    }
+   }
+  }
+ ]
+}

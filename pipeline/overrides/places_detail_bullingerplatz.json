@@ -1,0 +1,166 @@
+{
+ "places": [
+  {
+   "id": "bullingerplatz",
+   "center": [
+    -41,
+    -495.6
+   ],
+   "src": "research/v3/bullingerplatz.md; photos #1 #4 #9 #10 (Mapillary: Zentralbrunnen, Kopfsteinpflaster-Kreisinsel, Pflanzschalen, Parkbank); SWISSIMAGE; Velostrasse-Punktmarkierung",
+   "ground": [
+    {
+     "circle": [
+      3.9,
+      -1.6,
+      12.6
+     ],
+     "mat": "pave",
+     "lift": 0.02,
+     "uv": 2.0
+    },
+    {
+     "dots": {
+      "within": {
+       "circle": [
+        3.9,
+        -1.6,
+        46
+       ]
+      },
+      "spacing": 3.4,
+      "r": 0.62,
+      "p": 0.5,
+      "seed": 4,
+      "on_roads": true
+     },
+     "mat": "plain",
+     "color": [
+      222,
+      222,
+      216
+     ],
+     "lift": 0.016
+    }
+   ],
+   "objs": [
+    {
+     "t": "tellerbrunnen",
+     "p": [
+      3.9,
+      -1.6
+     ],
+     "a": 6.2,
+     "b": 2.5
+    },
+    {
+     "t": "bowl",
+     "p": [
+      13.95,
+      1.09
+     ],
+     "a": 0.55
+    },
+    {
+     "t": "bowl",
+     "p": [
+      9.87,
+      6.92
+     ],
+     "a": 0.55
+    },
+    {
+     "t": "bowl",
+     "p": [
+      2.99,
+      8.76
+     ],
+     "a": 0.55
+    },
+    {
+     "t": "bowl",
+     "p": [
+      -3.45,
+      5.75
+     ],
+     "a": 0.55
+    },
+    {
+     "t": "bowl",
+     "p": [
+      -6.46,
+      -0.69
+     ],
+     "a": 0.55
+    },
+    {
+     "t": "bowl",
+     "p": [
+      -4.62,
+      -7.57
+     ],
+     "a": 0.55
+    },
+    {
+     "t": "bowl",
+     "p": [
+      1.21,
+      -11.65
+     ],
+     "a": 0.55
+    },
+    {
+     "t": "bowl",
+     "p": [
+      8.3,
+      -11.03
+     ],
+     "a": 0.55
+    },
+    {
+     "t": "bowl",
+     "p": [
+      13.33,
+      -6.0
+     ],
+     "a": 0.55
+    },
+    {
+     "t": "bench",
+     "p": [
+      -4.56,
+      -4.68
+     ],
+     "h": 290,
+     "a": 1.9
+    },
+    {
+     "t": "bench",
+     "p": [
+      10.79,
+      -7.39
+     ],
+     "h": 410,
+     "a": 1.9
+    },
+    {
+     "t": "bench",
+     "p": [
+      5.46,
+      7.26
+     ],
+     "h": 170,
+     "a": 1.9
+    }
+   ],
+   "ortho_ground": {
+    "within": {
+     "circle": [
+      0,
+      0,
+      36
+     ]
+    }
+   }
+  }
+ ]
+}

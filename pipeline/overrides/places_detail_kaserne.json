@@ -1,0 +1,210 @@
+{
+ "places": [
+  {
+   "id": "kasernenareal",
+   "center": [
+    1190,
+    -940
+   ],
+   "src": "research/v3/kasernenareal.md; photos #28 #30 (Commons); SWISSIMAGE (yard); Wellen-Bodenmarkierung auf Asphalt",
+   "ground": [
+    {
+     "pxpoly": [
+      [
+       330,
+       0
+      ],
+      [
+       560,
+       0
+      ],
+      [
+       760,
+       60
+      ],
+      [
+       870,
+       200
+      ],
+      [
+       800,
+       330
+      ],
+      [
+       720,
+       500
+      ],
+      [
+       640,
+       540
+      ],
+      [
+       470,
+       470
+      ],
+      [
+       370,
+       400
+      ],
+      [
+       330,
+       300
+      ],
+      [
+       360,
+       240
+      ],
+      [
+       340,
+       150
+      ]
+     ],
+     "win": 140,
+     "mat": "asphalt",
+     "lift": 0.01
+    },
+    {
+     "rings": [
+      10,
+      30,
+      1.0,
+      5,
+      1.3,
+      0.35,
+      0,
+      360
+     ],
+     "mat": "plain",
+     "color": [
+      240,
+      240,
+      236
+     ],
+     "lift": 0.02
+    },
+    {
+     "rings": [
+      18,
+      36,
+      1.0,
+      4,
+      1.3,
+      0.35,
+      0,
+      360
+     ],
+     "mat": "plain",
+     "color": [
+      240,
+      240,
+      236
+     ],
+     "lift": 0.022
+    },
+    {
+     "rings": [
+      4,
+      26,
+      1.0,
+      3,
+      1.3,
+      0.35,
+      0,
+      360
+     ],
+     "mat": "plain",
+     "color": [
+      240,
+      240,
+      236
+     ],
+     "lift": 0.024
+    }
+   ],
+   "objs": [
+    {
+     "t": "sculpt",
+     "p": [
+      -8,
+      12
+     ],
+     "d": 1,
+     "a": 1.6,
+     "col": "#4f7a62"
+    }
+   ]
+  },
+  {
+   "id": "kasernenwiese",
+   "center": [
+    1160,
+    -850
+   ],
+   "src": "SWISSIMAGE (diagonal path, worn lawn path); research/v3/kasernenareal.md (Hecken, Linden)",
+   "ground": [
+    {
+     "line": [
+      [
+       -70,
+       40
+      ],
+      [
+       -28,
+       4
+      ],
+      [
+       6,
+       -24
+      ],
+      [
+       14,
+       -31
+      ]
+     ],
+     "w": 4.6,
+     "mat": "concrete",
+     "lift": 0.02
+    },
+    {
+     "line": [
+      [
+       -70,
+       54
+      ],
+      [
+       -35,
+       42
+      ],
+      [
+       0,
+       33
+      ],
+      [
+       28,
+       27
+      ],
+      [
+       47.6,
+       24.5
+      ]
+     ],
+     "w": 1.3,
+     "mat": "mergel",
+     "lift": 0.02
+    }
+   ],
+   "objs": [],
+   "ortho_ground": {
+    "within": {
+     "rect": [
+      0,
+      0,
+      140,
+      140
+     ]
+    },
+    "paved": null
+   }
+  }
+ ]
+}

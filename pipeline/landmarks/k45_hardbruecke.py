@@ -10,7 +10,8 @@ def build():
     ox, oy = 28.0, 112.0; oz = 0.9   # platform deck level (from rail tiles: rails top ~1.5)
     rng = np.random.default_rng(3)
     m = Model("hardbruecke")
-    mg = m.mat("glass", *D.glass_atlas(frame="#dfe3e4", glass="#35505f", sky="#a9c5d3", seed=21, lit_p=0.5, curtains=False, bars=True), rough=0.3)
+    sgn = D.letters_strip([(0, 640, "Zürich Hardbrücke", "#ffffff", "#c8372d", (255, 255, 255)), (640, 1024, "SBB CFF FFS", "#ffffff", "#eb0000", (255, 240, 240))], size=26)
+    mg = m.mat("glass", *D.glass_atlas_g(frame="#dfe3e4", glass="#35505f", sky="#a9c5d3", cols=3, rows=5, seed=21, lit_p=0.5, curtains=False, bar=3, sign=sgn), rough=0.3)
     mf = m.mat("flat", solid((255, 255, 255, 255)))
     lines = [[(35, 145), (2, 91)], [(20, 80), (54, 133)]]
     STEEL, CONC, ROOF = hexc("#8a9094"), hexc("#b9b6ae"), hexc("#c9d3d8")
@@ -44,6 +45,15 @@ def build():
                 q2 = Q(u, 2.3, 0); m.box(mf, q2[0], q2[1], 1.7, 0.45, 0.0, 0.45, rot=ang, col=hexc("#7a5a3c"))        # bench
                 q3 = Q(u + 6, -2.4, 0); m.box(mf, q3[0], q3[1], 0.8, 0.5, 0.0, 2.3, rot=ang, col=hexc("#d1d4d6"))      # info/ticket stele
                 m.quad(mg, [Q(u + 6 - 0.35, -2.4 + 0.27, 1.0), Q(u + 6 + 0.35, -2.4 + 0.27, 1.0), Q(u + 6 + 0.35, -2.4 + 0.27, 1.9), Q(u + 6 - 0.35, -2.4 + 0.27, 1.9)][::1], D.SIGN_UV() if False else [(0, 0.25), (0.125, 0.25), (0.125, 1.0), (0, 1.0)], n=(n[0], n[1], 0))
+            # red platform back wall with showcases + station name plates
+            zw = 2.9; dw = -cw / 2 + 0.15
+            rw = [Q(2, dw, 0.0), Q(L - 2, dw, 0.0), Q(L - 2, dw, zw), Q(2, dw, zw)]
+            nn = (-n[0], -n[1]); m.quad(mf, rw, col=hexc("#a8281f"), n=(nn[0], nn[1], 0)); m.quad(mf, rw[::-1], col=hexc("#a8281f"), n=(n[0], n[1], 0))
+            for u in np.arange(12.0, L - 8, 28.0):
+                p0, p1 = Q(u, dw + 0.03, 1.5), Q(u + 5.0, dw + 0.03, 1.5)
+                m.quad(mg, [p0, p1, (p1[0], p1[1], 2.2), (p0[0], p0[1], 2.2)], [(0, 0), (640 / 1024, 0), (640 / 1024, 0.25), (0, 0.25)], n=(n[0], n[1], 0))
+                p0, p1 = Q(u + 8, dw + 0.03, 1.8), Q(u + 11.0, dw + 0.03, 1.8)
+                m.quad(mg, [p0, p1, (p1[0], p1[1], 2.2), (p0[0], p0[1], 2.2)], [(640 / 1024, 0), (1.0, 0), (1.0, 0.25), (640 / 1024, 0.25)], n=(n[0], n[1], 0))
             # hanging strip lights
             for u in np.arange(4.0, L - 3, 4.0):
                 q = Q(u, 0, zr - 0.4); m.box(mf, q[0], q[1], 0.25, 3.0, zr - 0.5, zr - 0.35, rot=ang, col=hexc("#f6f2d8"))
@@ -62,7 +72,7 @@ def build():
         m.flat(mf, P, top, hexc("#8b9296"))
         hide += [[round(b["c"][0], 1), round(b["c"][1], 1)]]
         fp = b["fp"]; hide = hide[:-1] + [[round(g.representative_point().x, 1), round(g.representative_point().y, 1)] for g in (fp.geoms if hasattr(fp, "geoms") else [fp])]
-    finish(m, "bahnhof_hardbruecke", "Bahnhof Hardbruecke", ox, oy, oz, hide)
+    finish(m, "bahnhof_hardbruecke", "Bahnhof Hardbruecke", ox, oy, oz, hide_union("Bahnhof Hardbruecke", hide))
 
 
 if __name__ == "__main__":

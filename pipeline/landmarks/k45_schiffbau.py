@@ -5,7 +5,7 @@ from common import *
 from lm import *
 from shapely.geometry import Polygon
 
-BR = hexc("#b0794f")
+BR = hexc("#c2a05e")
 
 
 def brick_painter(d, de, x, y, w, h, rng, on, ix, iy):
@@ -22,20 +22,22 @@ def brick_painter(d, de, x, y, w, h, rng, on, ix, iy):
     ww = int(w * 0.62); x0 = x + (w - ww) // 2; spring = y + int(h * 0.34)
     # tall arched steel window with glazing bars
     d.pieslice([x0 - 5, spring - ww // 2 - 5, x0 + ww + 5, spring + ww // 2 + 5], 180, 360, fill=hexc("#d9c9a6"))
-    d.rectangle([x0 - 5, spring, x0 + ww + 5, y + int(h * 0.92)], fill=hexc("#d9c9a6"))
+    d.rectangle([x0 - 5, spring, x0 + ww + 5, y + int(h * 0.84)], fill=hexc("#e4dcc4"))
     G = hexc("#33454f")
     d.pieslice([x0, spring - ww // 2, x0 + ww, spring + ww // 2], 180, 360, fill=G)
-    d.rectangle([x0, spring, x0 + ww, y + int(h * 0.9)], fill=G)
+    d.rectangle([x0, spring, x0 + ww, y + int(h * 0.82)], fill=G)
     bar = hexc("#1b2024")
-    for k in range(1, 4): d.line([x0 + ww * k // 4, spring - ww // 2 + (6 if k != 2 else 0), x0 + ww * k // 4, y + int(h * 0.9)], fill=bar, width=2)
-    for yy in range(spring - ww // 4, y + int(h * 0.9), int(h * 0.1)): d.line([x0, yy, x0 + ww, yy], fill=bar, width=2)
+    for k in range(1, 4): d.line([x0 + ww * k // 4, spring - ww // 2 + (6 if k != 2 else 0), x0 + ww * k // 4, y + int(h * 0.82)], fill=bar, width=2)
+    for yy in range(spring - ww // 4, y + int(h * 0.82), int(h * 0.09)): d.line([x0, yy, x0 + ww, yy], fill=bar, width=2)
     d.arc([x0, spring - ww // 2, x0 + ww, spring + ww // 2], 180, 360, fill=bar, width=3)
-    d.rectangle([x, y + int(h * 0.95), x + w, y + h], fill=shade(BR, 0.55))   # plinth
+    d.rectangle([x, y + int(h * 0.84), x + w, y + h], fill=hexc("#9d9a90"))
+    for yy in range(y + int(h * 0.84), y + h, 9): d.line([x, yy, x + w, yy], fill=hexc("#85827a"))
+    d.rectangle([x, y + int(h * 0.835), x + w, y + int(h * 0.85)], fill=hexc("#c9c4b4"))   # plinth + sill band
     d.rectangle([x, y, x + w, y + int(h * 0.025)], fill=shade(BR, 1.12))
     if on:
         de.pieslice([x0 + 2, spring - ww // 2 + 2, x0 + ww - 2, spring + ww // 2], 180, 360, fill=(255, 190, 110))
-        de.rectangle([x0 + 2, spring, x0 + ww - 2, y + int(h * 0.9) - 2], fill=(255, 185, 105))
-        for k in range(1, 4): de.line([x0 + ww * k // 4, spring - ww // 2, x0 + ww * k // 4, y + int(h * 0.9)], fill=(0, 0, 0), width=2)
+        de.rectangle([x0 + 2, spring, x0 + ww - 2, y + int(h * 0.82) - 2], fill=(255, 185, 105))
+        for k in range(1, 4): de.line([x0 + ww * k // 4, spring - ww // 2, x0 + ww * k // 4, y + int(h * 0.82)], fill=(0, 0, 0), width=2)
 
 
 def build():
@@ -47,7 +49,8 @@ def build():
     mb = m.mat("brick", *tile(4, 1, 112, 320, brick_painter, 5, 0.3))
     mf = m.mat("flat", solid((255, 255, 255, 255)))
     Hw = 14.2; HR = A["zmax"] - ground(P.centroid.x, P.centroid.y)
-    m.extrude(mb, mf, Pl, -3, Hw, mod=(20.0, Hw), roof=False, wallv0=0.0)
+    m.extrude(mf, mf, Pl, -3, 0.0, col=hexc("#9d9a90"), roof=False)
+    m.extrude(mb, mf, Pl, 0.0, Hw, mod=(20.0, Hw), roof=False, wallv0=0.0)
     rect = rect_of(Pl)
     rise = max(3.0, HR - Hw)
     gable_roof(m, mf, mb, rect, Hw, rise, hexc("#4f5a58"), (255, 255, 255, 255))
@@ -58,12 +61,19 @@ def build():
     cxx, cyy = C["c"][0] - ox, C["c"][1] - oy
     gz = ground(C["c"][0], C["c"][1]) - oz
     HC = C["zmax"] - ground(*C["c"])
-    for z0, z1, r0, r1, col in [(gz - 3, gz + 6, 2.3, 2.1, "#8d4a35"), (gz + 6, HC - 3.5, 2.1, 1.45, "#a2523a"), (HC - 3.5, HC - 2.0, 1.6, 1.8, "#7d4030"), (HC - 2.0, HC, 1.8, 1.8, "#9a5a42")]:
-        m.cylinder(mf, cxx, cyy, r0, z0, z1, n=8, col=hexc(col), r1=r1, smooth=False, cap=mf if z1 == HC else None, capcol=hexc("#303030"))
+    for z0, z1, r0, r1, col in [(gz - 3, gz + 6, 2.4, 2.2, "#5e3226"), (gz + 6, HC - 9.0, 2.2, 1.5, "#6f3a2c")]:
+        m.cylinder(mf, cxx, cyy, r0, z0, z1, n=16, col=hexc(col), r1=r1, smooth=True)
+    zh = HC - 9.0
+    m.cylinder(mf, cxx, cyy, 1.5, zh, zh + 1.4, n=16, col=hexc("#e6e2d6"), r1=1.9)                       # white head (cone out)
+    m.cylinder(mf, cxx, cyy, 1.9, zh + 1.4, HC - 1.5, n=16, col=hexc("#ece8dc"), r1=1.3)               # white drum, tapering
+    m.cylinder(mf, cxx, cyy, 1.3, HC - 1.5, HC, n=16, col=hexc("#ece8dc"), cap=mf, capcol=hexc("#303030"))
+    for k in range(16):                                                                                # steel cage ring around the head
+        aa = 2 * math.pi * k / 16; m.cylinder(mf, cxx + math.cos(aa) * 3.4, cyy + math.sin(aa) * 3.4, 0.07, zh + 1.2, zh + 5.2, n=4, col=hexc("#3a3d3f"))
+    for zz in (zh + 1.2, zh + 5.1): m.cylinder(mf, cxx, cyy, 3.45, zz, zz + 0.12, n=16, col=hexc("#3a3d3f"), r1=3.45)
     hide = []
     for b in (A, C):
         fp = b["fp"]; hide += [[round(g.representative_point().x, 1), round(g.representative_point().y, 1)] for g in (fp.geoms if hasattr(fp, "geoms") else [fp])]
-    finish(m, "schiffbau", "Schiffbau", ox, oy, oz, hide)
+    finish(m, "schiffbau", "Schiffbau", ox, oy, oz, hide_union("Schiffbau", hide))
 
 
 if __name__ == "__main__":

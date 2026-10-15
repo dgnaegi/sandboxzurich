@@ -1,0 +1,106 @@
+{
+ "places": [
+  {
+   "id": "lindenplatz",
+   "center": [
+    -2380,
+    360
+   ],
+   "src": "research/v3/lindenplatz.md; photos #27 #28 (Commons: Linde mit Steinbank-Rondell); SWISSIMAGE",
+   "ground": [
+    {
+     "pxpoly": [
+      [
+       770,
+       300
+      ],
+      [
+       1000,
+       290
+      ],
+      [
+       1000,
+       760
+      ],
+      [
+       760,
+       740
+      ],
+      [
+       770,
+       520
+      ]
+     ],
+     "win": 110,
+     "mat": "concrete",
+     "lift": 0.012,
+     "uv": 2.0
+    }
+   ],
+   "objs": [
+    {
+     "t": "ringbench",
+     "p": [
+      43.8,
+      5
+     ],
+     "a": 2.3
+    },
+    {
+     "t": "stall",
+     "p": [
+      40.7,
+      -4.4
+     ],
+     "h": 70,
+     "a": 3.2,
+     "b": 2,
+     "col": "#f0eee6"
+    },
+    {
+     "t": "stall",
+     "p": [
+      50.6,
+      3.3
+     ],
+     "h": 80,
+     "a": 3.2,
+     "b": 2,
+     "col": "#4f8f6a"
+    },
+    {
+     "t": "stall",
+     "p": [
+      51,
+      -9.9
+     ],
+     "h": 80,
+     "a": 3.2,
+     "b": 2,
+     "col": "#f0eee6"
+    },
+    {
+     "t": "stall",
+     "p": [
+      52,
+      14.3
+     ],
+     "h": 0,
+     "a": 2.4,
+     "b": 2,
+     "col": "#f0eee6"
+    }
+   ],
+   "ortho_ground": {
+    "within": {
+     "rect": [
+      30,
+      0,
+      60,
+      70
+     ]
+    }
+   }
+  }
+ ]
+}

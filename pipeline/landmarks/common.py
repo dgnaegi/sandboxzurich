@@ -117,3 +117,15 @@ def finish(model, name, title, ox, oy, oz, hide, reg=True):
 def localize(poly, ox, oy):
     from shapely.affinity import translate
     return translate(poly, -ox, -oy)
+
+
+def hide_union(title, hide):
+    """Union of `hide` with the hide points already registered for `title` (keeps manual extras across rebuilds)."""
+    try:
+        d = _json.load(open(OVR)); old = next(e["hide"] for e in d["landmarks"] if e["name"] == title)
+    except Exception:
+        old = []
+    out = [list(h) for h in old]
+    for h in hide:
+        if not any(abs(h[0] - o[0]) < 0.3 and abs(h[1] - o[1]) < 0.3 for o in out): out.append(h)
+    return out

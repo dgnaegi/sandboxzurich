@@ -21,7 +21,7 @@ Jedes Milestone endet mit etwas, das der User im Browser (auch auf dem Handy) au
 - [ ] Ladenschilder mit echten Namen (Code fertig, wartet auf vollständige OSM-POIs)
 - [x] Radar/Minimap und Stadtkarte mit Sprungpunkten
 - [x] Performance-Messung gegen die Budgets (2026-10-15: Handy ≤231 Calls, ≤1.1 Mio; PC ≤458 Calls, ≤2.9 Mio)
-- [ ] Screenshots an Landmarks → `preview/`, QA gegen Referenzfotos
+- [ ] Screenshots an Landmarks → `preview/`, QA gegen Referenzfotos (k93 v3 gebaut: `preview/lm3_*.jpg`, k45 offen)
 - [ ] Deploy auf Scalingo (Testlink)
 
 ## M2 – Lebendige Stadt

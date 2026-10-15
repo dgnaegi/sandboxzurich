@@ -1,0 +1,127 @@
+{
+ "places": [
+  {
+   "id": "hardplatz",
+   "center": [
+    -108,
+    -195
+   ],
+   "src": "research/v3/hardplatz.md; photos #18 #29 (Commons/Mapillary: Trinkbrunnen Messing, weisse Bank, Gleisschleife in Kopfsteinpflaster); SWISSIMAGE; OGD Brunnen/Sitzbaenke",
+   "convert": [
+    {
+     "layer": "fountains",
+     "within": {
+      "circle": [
+       17.4,
+       -25.8,
+       5
+      ]
+     },
+     "t": "dfount",
+     "a": 0.9
+    },
+    {
+     "layer": "benches",
+     "within": {
+      "circle": [
+       17.4,
+       -25.8,
+       9
+      ]
+     },
+     "t": "bench",
+     "a": 1.8,
+     "col": "#f0eee6"
+    }
+   ],
+   "ground": [
+    {
+     "circle": [
+      17.5,
+      -27,
+      6.5
+     ],
+     "mat": "gravel",
+     "lift": 0.02,
+     "uv": 2.0
+    },
+    {
+     "circle": [
+      -2,
+      -23,
+      7.5
+     ],
+     "mat": "gravel",
+     "lift": 0.02,
+     "uv": 2.0
+    },
+    {
+     "pxpoly": [
+      [
+       470,
+       100
+      ],
+      [
+       545,
+       115
+      ],
+      [
+       620,
+       215
+      ],
+      [
+       700,
+       290
+      ],
+      [
+       790,
+       380
+      ],
+      [
+       850,
+       490
+      ],
+      [
+       790,
+       470
+      ],
+      [
+       690,
+       380
+      ],
+      [
+       600,
+       300
+      ],
+      [
+       530,
+       230
+      ],
+      [
+       490,
+       170
+      ]
+     ],
+     "win": 110,
+     "mat": "plain",
+     "color": [
+      104,
+      88,
+      64
+     ],
+     "lift": 0.02
+    }
+   ],
+   "objs": [],
+   "ortho_ground": {
+    "within": {
+     "circle": [
+      0,
+      0,
+      60
+     ]
+    }
+   }
+  }
+ ]
+}
