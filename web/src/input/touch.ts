@@ -13,7 +13,7 @@ export function initTouch(stick: HTMLElement, knob: HTMLElement) {
     const b = document.getElementById(id);
     b?.addEventListener('touchstart', (e) => { e.stopPropagation(); e.preventDefault(); on(); }, { passive: false });
   }
-  const isUi = (t: EventTarget | null) => !!(t as HTMLElement | null)?.closest?.('button, #radar, #bigmap, #menu');
+  const isUi = (t: EventTarget | null) => !!(t as HTMLElement | null)?.closest?.('button, #radar, #bigmap, #menu, #clock, #clockpanel');
   const start = (e: TouchEvent) => {
     document.body.classList.add('touch');
     if (Array.from(e.changedTouches).every((t) => isUi(t.target))) return; // let taps on UI become clicks

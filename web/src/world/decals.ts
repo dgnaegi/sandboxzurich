@@ -2,22 +2,26 @@ import * as THREE from 'three';
 
 /**
  * Road decals from the pipeline: rows [x, y, z, heading, kind]; kind 0 bike pictogram (yellow, Swiss lanes),
- * 1 manhole cover, 2 gully grate, 3 "ZONE 30" entry marking, 4 straight arrow, 5 BUS, 6 painted 30 roundel. One merged mesh per tile, atlas drawn at runtime.
+ * 1 manhole cover, 2 gully grate, 3 "ZONE 30" entry marking, 4 straight arrow, 5 BUS, 6 painted 30 roundel, 7 left, 8 right, 9 straight+left, 10 straight+right arrow. One merged mesh per tile, atlas drawn at runtime.
  */
-const SIZE: [number, number][] = [[1.3, 2.2], [0.72, 0.72], [0.55, 0.36], [2.6, 3.4], [1.1, 4.2], [1.7, 3.0], [1.8, 1.8], [1.1, 4.2]]; // width, length (m)
-const COLS = 4;
-const FLIPPED = new Set([3, 4, 5, 6, 7]); // text/arrows: canvas top = driving direction
+const SIZE: [number, number][] = [[1.0, 1.9], [0.72, 0.72], [0.55, 0.36], [2.6, 3.4], [1.4, 4.2], [1.7, 3.0], [1.8, 1.8], [1.7, 4.2], [1.7, 4.2], [2.2, 4.2], [2.2, 4.2]]; // width, length (m)
+const COLS = 4, ROWS = 4;
 let atlas: THREE.Texture | null = null;
 
 function makeAtlas(): THREE.Texture {
-  const c = document.createElement('canvas'); c.width = 1024; c.height = 512;
+  const c = document.createElement('canvas'); c.width = 1024; c.height = 1024;
   const g = c.getContext('2d')!;
-  // 0: bicycle pictogram, yellow, drawn "lying" so it reads correctly for an approaching rider
-  g.save(); g.translate(128, 128); g.strokeStyle = '#f2c200'; g.fillStyle = '#f2c200'; g.lineWidth = 9; g.lineCap = 'round';
-  g.beginPath(); g.arc(0, -62, 34, 0, Math.PI * 2); g.stroke(); g.beginPath(); g.arc(0, 62, 34, 0, Math.PI * 2); g.stroke();
-  g.beginPath(); g.moveTo(0, 62); g.lineTo(-10, -5); g.lineTo(18, -40); g.lineTo(0, -62); g.moveTo(-10, -5); g.lineTo(22, 10); g.lineTo(18, -40);
-  g.moveTo(-14, 28); g.lineTo(-22, 28); g.moveTo(18, -40); g.lineTo(30, -46); g.stroke();
-  g.beginPath(); g.arc(-34, 0, 12, 0, Math.PI * 2); g.fill(); g.restore();
+  // 0: Swiss bicycle pictogram (yellow line drawing, side view, rider facing right). Canvas top = far end (driving direction);
+  // the quad is stretched along the road (foreshortened view), so the wheels sit side by side across the lane.
+  g.save(); g.translate(128, 128); g.strokeStyle = '#f2c200'; g.fillStyle = '#f2c200'; g.lineWidth = 11; g.lineCap = 'round'; g.lineJoin = 'round';
+  const R = [-62, 56], F = [62, 56], BB = [-6, 56], S = [-28, 4], T = [40, 2];
+  g.beginPath(); g.arc(R[0], R[1], 40, 0, Math.PI * 2); g.stroke(); g.beginPath(); g.arc(F[0], F[1], 40, 0, Math.PI * 2); g.stroke();
+  g.beginPath(); g.moveTo(R[0], R[1]); g.lineTo(BB[0], BB[1]); g.lineTo(S[0], S[1]); g.lineTo(R[0], R[1]);
+  g.moveTo(BB[0], BB[1]); g.lineTo(T[0], T[1]); g.lineTo(S[0], S[1]); g.moveTo(F[0], F[1]); g.lineTo(T[0] + 6, T[1] - 14); g.lineTo(T[0] - 2, T[1] - 24); g.lineTo(T[0] + 22, T[1] - 24);
+  g.moveTo(S[0], S[1]); g.lineTo(S[0] - 6, S[1] - 8); g.stroke();
+  g.lineWidth = 14; g.beginPath(); g.moveTo(S[0] - 6, S[1] - 12); g.lineTo(16, -58); g.lineTo(T[0] + 18, T[1] - 26); g.stroke(); // torso + arm
+  g.beginPath(); g.moveTo(S[0] - 6, S[1] - 12); g.lineTo(14, 26); g.lineTo(BB[0] + 4, BB[1] + 4); g.stroke(); // leg
+  g.beginPath(); g.arc(24, -86, 17, 0, Math.PI * 2); g.fill(); g.restore();
   // 1: manhole cover
   g.save(); g.translate(384, 128);
   g.fillStyle = '#3b3d40'; g.beginPath(); g.arc(0, 0, 120, 0, Math.PI * 2); g.fill();
@@ -34,13 +38,20 @@ function makeAtlas(): THREE.Texture {
   g.save(); g.translate(896, 128); g.fillStyle = '#f2f2ee'; g.textAlign = 'center'; g.textBaseline = 'middle';
   g.font = '44px Anton, sans-serif'; g.fillText('ZONE', 0, -78);
   g.font = '150px Anton, sans-serif'; g.fillText('30', 0, 30); g.restore();
-  // 4: straight arrow (white, points up on the canvas = driving direction)
-  const arrow = (cx: number, cy: number, kind: 'f' | 'l' | 'r') => {
-    g.save(); g.translate(cx, cy); g.fillStyle = '#f2f2ee';
-    g.beginPath(); g.moveTo(0, -112); g.lineTo(52, -44); g.lineTo(20, -44); g.lineTo(20, 112); g.lineTo(-20, 112); g.lineTo(-20, -44); g.lineTo(-52, -44); g.closePath();
-    if (kind === 'f') g.fill(); g.restore();
+  // arrows (white, canvas up = driving direction): 4 straight, 7 left, 8 right, 9 straight+left, 10 straight+right
+  const head = (x: number, y: number, ang: number) => { g.save(); g.translate(x, y); g.rotate(ang); g.beginPath(); g.moveTo(0, -40); g.lineTo(46, 20); g.lineTo(-46, 20); g.closePath(); g.fill(); g.restore(); };
+  const arrow = (cx: number, cy: number, dirs: ('f' | 'l' | 'r')[]) => {
+    g.save(); g.translate(cx, cy); g.fillStyle = '#f2f2ee'; g.strokeStyle = '#f2f2ee'; g.lineWidth = 26; g.lineCap = 'butt'; g.lineJoin = 'miter';
+    const turn = dirs.find((d) => d !== 'f'); const sgn = turn === 'l' ? -1 : 1; const straight = dirs.includes('f');
+    if (straight) { g.beginPath(); g.moveTo(0, 118); g.lineTo(0, -64); g.stroke(); head(0, -88, 0); }
+    if (turn) {
+      const by = straight ? 50 : 10;
+      if (!straight) { g.beginPath(); g.moveTo(0, 118); g.lineTo(0, by); g.stroke(); }
+      g.beginPath(); g.moveTo(0, by + 13); g.lineTo(0, by); g.lineTo(sgn * 70, by - 70); g.stroke(); head(sgn * 88, by - 88, sgn * Math.PI / 4);
+    }
+    g.restore();
   };
-  arrow(128, 384, 'f');
+  arrow(128, 384, ['f']); arrow(896, 384, ['l']); arrow(128, 640, ['r']); arrow(384, 640, ['f', 'l']); arrow(640, 640, ['f', 'r']);
   // 5: BUS lettering
   g.save(); g.translate(384, 384); g.fillStyle = '#f2f2ee'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.font = '110px Anton, sans-serif'; g.fillText('BUS', 0, 0); g.restore();
   // 6: "30" roundel painted (Tempo 30 on the road)
@@ -63,9 +74,9 @@ export function buildDecals(rows: number[][]): THREE.Object3D[] {
       const px = x + rx * u * w + fx * v * l, py = y + ry * u * w + fy * v * l;
       pos.push(px, z, -py); nrm.push(0, 1, 0);
     }
-    const cw = 1 / COLS, cu = (kind % COLS) * cw, cv = kind < COLS ? 0.5 : 0; // canvas row 0 = top -> v 0.5..1
-    if (FLIPPED.has(kind)) uv.push(cu + cw, cv, cu, cv, cu, cv + 0.5, cu + cw, cv + 0.5); // text reads from the approaching side
-    else uv.push(cu, cv + 0.5, cu + cw, cv + 0.5, cu + cw, cv, cu, cv);
+    // canvas top (v high) = far end = driving direction; canvas left = driver's left
+    const cw = 1 / COLS, ch = 1 / ROWS, cu = (kind % COLS) * cw, cv = (ROWS - 1 - Math.floor(kind / COLS)) * ch;
+    uv.push(cu, cv, cu + cw, cv, cu + cw, cv + ch, cu, cv + ch);
     idx.push(b, b + 1, b + 2, b, b + 2, b + 3);
   }
   const g = new THREE.BufferGeometry();

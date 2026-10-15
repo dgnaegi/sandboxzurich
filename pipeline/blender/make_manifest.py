@@ -5,6 +5,7 @@ for fid in ["player"] + [f"npc_{i:02d}" for i in range(40)]:
     m = json.load(open(f"{R}/data/cache/humans/{fid}.json"))
     e = dict(id=fid, file=f"{fid}.glb", role="player" if fid == "player" else "npc", sex=m["sex"], age=m["age"], height=m.get("height"),
              walk_speed=SPD.get(m["age"], 1.0), anims=["idle", "walk", "run"] + ([] if fid == "player" else ["walk_slow", "stand_phone"]))
+    if m.get("clip_speed"): e["clip_speed"] = m["clip_speed"]   # measured m/s of the in-place mocap loops (feet don't slide at timeScale = v / clip_speed)
     if m.get("props"): e["props"] = m["props"]
     if m["age"] == "child": e["needs_adult"] = True
     out.append(e)

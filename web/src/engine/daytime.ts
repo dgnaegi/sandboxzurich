@@ -7,31 +7,33 @@ import { gradeA, gradeB, gradeC, bloom } from './grading';
 type Ctx = ReturnType<typeof createRenderer>;
 
 /**
- * Art-directed keyframes in solar hours (Zurich, mid April: sunrise ~5:15, sunset ~18:45). 80s neon palette:
- * turquoise noon, long pink/orange golden hour, violet-blue nights.
+ * Keyframes in clock hours (Zurich, mid October: sunrise ~8:00, sunset ~18:45). Natural palette: hazy blue day,
+ * warm orange golden hour, blue-grey night with warm lamp highlights.
  * g = [saturation, contrast, shadow tint rgb, highlight tint rgb, bloom strength, bloom threshold]
  */
 type G = [number, number, number, number, number, number, number, number, number, number];
 interface Key { h: number; zen: number; hor: number; sun: number; sunI: number; hs: number; hg: number; hI: number; cLo: number; cHi: number; exp: number; night: number; stars: number; g: G }
-const GN: G = [1.12, 0.12, -0.02, 0.0, 0.07, 0.04, 0.0, -0.02, 0.85, 0.7];      // night: violet-blue shadows, strong bloom
-const GD: G = [1.30, 0.26, -0.05, 0.0, 0.10, 0.07, 0.03, -0.06, 0.22, 1.8];        // day
-const GG: G = [1.28, 0.18, 0.02, 0.0, 0.06, 0.12, 0.02, -0.08, 0.45, 1.1];        // golden/pink hour
+const GN: G = [1.0, 0.10, -0.01, 0.0, 0.03, 0.05, 0.02, -0.04, 0.5, 0.9];       // night: cool shadows, warm lamp highlights
+const GD: G = [1.12, 0.14, -0.01, 0.0, 0.02, 0.02, 0.01, -0.01, 0.15, 1.9];        // day: natural
+const GG: G = [1.12, 0.12, 0.0, 0.0, 0.0, 0.07, 0.03, -0.05, 0.28, 1.4];          // golden hour: warm highlights
+const NIGHT = { zen: 0x070a1c, hor: 0x1e2842, sun: 0x6f86c8, sunI: 0, hs: 0x5468a0, hg: 0x1c1e2c, hI: 1.25, cLo: 0x1c2442, cHi: 0x2c385c, exp: 1.5, night: 1, stars: 1, g: GN };
+const DAY = { zen: 0x4a84c6, hor: 0xc6d9e6, sun: 0xfff4e6, sunI: 3.4, hs: 0xbcd2ee, hg: 0x7a7668, hI: 1.45, cLo: 0xdfe5ec, cHi: 0xffffff, exp: 1.0, night: 0, stars: 0, g: GD };
 const K: Key[] = [
-  { h: 0,    zen: 0x0e0f3e, hor: 0x3a2a78, sun: 0x6f86c8, sunI: 0,   hs: 0x4a4aa0, hg: 0x20183a, hI: 1.35,  cLo: 0x2a2858, cHi: 0x4a3a7c, exp: 1.45, night: 1,   stars: 1, g: GN },
-  { h: 4.5,  zen: 0x0e0f3e, hor: 0x3a2a78, sun: 0x6f86c8, sunI: 0,   hs: 0x4a4aa0, hg: 0x20183a, hI: 1.35,  cLo: 0x2a2858, cHi: 0x4a3a7c, exp: 1.45, night: 1,   stars: 1, g: GN },
-  { h: 5.4,  zen: 0x3a3a8c, hor: 0xf08aa8, sun: 0xff9a80, sunI: 1.0, hs: 0x9a8ac8, hg: 0x4a3a58, hI: 1.0,  cLo: 0xf0a0b0, cHi: 0xffc8c8, exp: 1.15, night: 0.4, stars: 0.3, g: GG },
-  { h: 6.5,  zen: 0x3a8ad0, hor: 0xffc08a, sun: 0xffc890, sunI: 2.6, hs: 0xd8e0f4, hg: 0x8a7458, hI: 1.3,  cLo: 0xffd0b8, cHi: 0xfff0e0, exp: 1.05, night: 0,   stars: 0, g: GG },
-  { h: 8.5,  zen: 0x2a86d8, hor: 0x9fe2ea, sun: 0xfff0dc, sunI: 3.6, hs: 0xd0e8ff, hg: 0x807a68, hI: 1.6,  cLo: 0xeef6f8, cHi: 0xffffff, exp: 1.0,  night: 0,   stars: 0, g: GD },
-  { h: 15.5, zen: 0x2a86d8, hor: 0xa4e0e8, sun: 0xfff0dc, sunI: 3.6, hs: 0xd0e8ff, hg: 0x807a68, hI: 1.6,  cLo: 0xeef6f8, cHi: 0xffffff, exp: 1.0,  night: 0,   stars: 0, g: GD },
-  { h: 17.0, zen: 0x3a7ad0, hor: 0xffc08a, sun: 0xffd09a, sunI: 3.3, hs: 0xe0d0e8, hg: 0x8a7458, hI: 1.5,  cLo: 0xffd0b0, cHi: 0xfff0e0, exp: 1.05, night: 0,   stars: 0, g: GG },
-  { h: 17.9, zen: 0x4a62c0, hor: 0xfa9078, sun: 0xffa060, sunI: 2.7, hs: 0xd0a8d0, hg: 0x7a5050, hI: 1.3,  cLo: 0xff9a8a, cHi: 0xffc8b0, exp: 1.1,  night: 0.05, stars: 0, g: GG },
-  { h: 18.6, zen: 0x5a3aa0, hor: 0xff6a9a, sun: 0xff6a50, sunI: 1.8, hs: 0xb890d0, hg: 0x6a4058, hI: 1.4,  cLo: 0xff7a9a, cHi: 0xffb0b8, exp: 1.12, night: 0.25, stars: 0, g: GG },
-  { h: 19.4, zen: 0x2a1a70, hor: 0xb04aa0, sun: 0xd0507a, sunI: 0.5, hs: 0x7a6ac0, hg: 0x2a2040, hI: 1.4,  cLo: 0x8a4a90, cHi: 0xd070a0, exp: 1.2,  night: 0.7, stars: 0.5, g: GG },
-  { h: 20.5, zen: 0x0e0f3e, hor: 0x3a2a78, sun: 0x6f86c8, sunI: 0,   hs: 0x4a4aa0, hg: 0x20183a, hI: 1.35,  cLo: 0x2a2858, cHi: 0x4a3a7c, exp: 1.45, night: 1,   stars: 1, g: GN },
-  { h: 24,   zen: 0x0e0f3e, hor: 0x3a2a78, sun: 0x6f86c8, sunI: 0,   hs: 0x4a4aa0, hg: 0x20183a, hI: 1.35,  cLo: 0x2a2858, cHi: 0x4a3a7c, exp: 1.45, night: 1,   stars: 1, g: GN },
+  { h: 0, ...NIGHT },
+  { h: 6.6, ...NIGHT },
+  { h: 7.5, zen: 0x2e3e78, hor: 0xd09a8e, sun: 0xff9a68, sunI: 0.9, hs: 0x8a98c0, hg: 0x4a4650, hI: 1.0, cLo: 0xc09aa0, cHi: 0xf0c8b8, exp: 1.2, night: 0.4, stars: 0.2, g: GG },
+  { h: 8.3, zen: 0x4a70b4, hor: 0xf0c4a0, sun: 0xffc08a, sunI: 2.2, hs: 0xb4c4e0, hg: 0x706458, hI: 1.25, cLo: 0xf0c8b0, cHi: 0xfff0e4, exp: 1.08, night: 0, stars: 0, g: GG },
+  { h: 10.0, ...DAY },
+  { h: 15.5, ...DAY },
+  { h: 17.2, zen: 0x4a7cc0, hor: 0xe8d0b8, sun: 0xffe0b8, sunI: 3.0, hs: 0xc4d0e4, hg: 0x7c6e58, hI: 1.4, cLo: 0xf0dccc, cHi: 0xfff4ea, exp: 1.04, night: 0, stars: 0, g: GG },
+  { h: 18.1, zen: 0x4064aa, hor: 0xf4b078, sun: 0xffa660, sunI: 2.4, hs: 0xb8bcd8, hg: 0x7a5c4c, hI: 1.3, cLo: 0xf4b090, cHi: 0xffd8b8, exp: 1.1, night: 0.05, stars: 0, g: GG },
+  { h: 18.8, zen: 0x303e80, hor: 0xe87c50, sun: 0xff7030, sunI: 1.4, hs: 0x9aa0cc, hg: 0x5c4448, hI: 1.25, cLo: 0xe08870, cHi: 0xf4b090, exp: 1.16, night: 0.25, stars: 0, g: GG },
+  { h: 19.5, zen: 0x1a2458, hor: 0x8c5c78, sun: 0xc05a50, sunI: 0.35, hs: 0x6c78b0, hg: 0x2a2434, hI: 1.25, cLo: 0x70507a, cHi: 0xa06c88, exp: 1.3, night: 0.7, stars: 0.4, g: GG },
+  { h: 20.4, ...NIGHT },
+  { h: 24, ...NIGHT },
 ];
 
-const LAT = THREE.MathUtils.degToRad(47.37), DECL = THREE.MathUtils.degToRad(9.5);
+const LAT = THREE.MathUtils.degToRad(47.37), DECL = THREE.MathUtils.degToRad(-8.5)   // mid October;
 const sstep = (a: number, b: number, x: number) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
 const c1 = new THREE.Color(), c2 = new THREE.Color();
 const lerpCol = (out: THREE.Color, a: number, b: number, t: number) => out.setHex(a).lerp(c2.setHex(b), t);
@@ -82,7 +84,7 @@ export class Daytime {
     const hr = (((minutes / 60) % 24) + 24) % 24;
 
     // sun position (east, up, -north) from hour angle
-    const ha = (hr - 12) * Math.PI / 12;
+    const ha = (hr - 13.4) * Math.PI / 12;   // clock hour (CEST) -> solar hour angle, Zurich
     const sinE = Math.sin(LAT) * Math.sin(DECL) + Math.cos(LAT) * Math.cos(DECL) * Math.cos(ha);
     const east = -Math.cos(DECL) * Math.sin(ha);
     const north = Math.sin(DECL) * Math.cos(LAT) - Math.cos(DECL) * Math.sin(LAT) * Math.cos(ha);
@@ -112,7 +114,7 @@ export class Daytime {
     hemi.intensity = L(a.hI, b.hI);
     renderer.toneMappingExposure = L(a.exp, b.exp);
     const g = a.g.map((v, k) => v + (b.g[k] - v) * t);
-    gradeA.set(g[0] - 1, g[1], 0.32, 0);
+    gradeA.set(g[0] - 1, g[1], 0.2, 0);
     gradeB.set(g[2], g[3], g[4], 0);
     gradeC.set(g[5], g[6], g[7], 0);
     bloom.strength = g[8]; bloom.threshold = g[9];

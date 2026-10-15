@@ -243,70 +243,40 @@ for v in low.data.vertices: v.co.z += minz
 rig.location = (0, 0, -minz)
 
 # ---------------------------------------------------------------- animations
+# idle/walk/run/walk_slow: CMU mocap retargeted (mocap_retarget.py); stand_phone stays procedural (arms hold the phone).
 FPS = 30
 bpy.context.scene.render.fps = 30
 Pb = rig.pose.bones
-FEET = ["foot_l", "foot_r", "ball_l", "ball_r"]
-def foot_min():
-    bpy.context.view_layer.update()
-    return min(min(Pb[b].head.z, Pb[b].tail.z) for b in FEET)
-for pb in Pb: pb.rotation_mode = "QUATERNION"
-Hm.POSES["idle"](Pb, 0.0); rest_foot = None
-for pb in Pb: pb.rotation_quaternion = (1, 0, 0, 0)
-Hm._st(Pb).clear()
-rest_foot = foot_min()
-pel = Pb["pelvis"]; pel_inv = pel.bone.matrix_local.to_3x3().inverted()
-
-def idle_fn(P, t):
-    Hm._base(P, t, breathe=True)
-    b = math.sin(t * 2 * math.pi / 3.2)
-    Hm.R(P, "head", x=-2 + 1.2 * b, z=3 * math.sin(t * 2 * math.pi / 3.2 * 1.0))
-    return 0
+import mocap_retarget as MR
+rt = MR.Retargeter(rig)
 OLD = META["age"] == "old"; KID = META["age"] == "child"
-def hunch(fn, neck=16, spine=6):
-    def f(P, t):
-        r = fn(P, t); Hm.R(P, "spine_02", x=spine + 3); Hm.R(P, "neck_01", x=neck); Hm.R(P, "head", x=-4); return r
-    return f
-def gait(period, thigh, knee, sw, el, lean, tw, sway):
-    return lambda P, t: Hm._gait(P, t, period, thigh, knee, sw, el, lean, tw, sway)
-def phone_fn(P, t):
-    Hm.POSES["phone"](P, 0.0); Hm._base(P, t)
-    Hm.arm(P, "r", (0.12, 0.35, -1), (-0.42, 0.75, 0.62), hand=(-15, 0, 0)); Hm.arm(P, "l", (0.14, 0.3, -1), (-0.5, 0.72, 0.45))
-    Hm.R(P, "neck_01", x=12); Hm.R(P, "head", x=18 + 1.5 * math.sin(t * 2 * math.pi / 3.2)); return 0
-if OLD:
-    idle_fn = hunch(idle_fn, 14, 5)
-    walk_fn = hunch(gait(1.08, 20, 40, 0.22, 0.3, 5, 4, 2.5), 14, 5)
-    slow_fn = hunch(gait(1.5, 13, 26, 0.12, 0.2, 7, 2, 2.5), 18, 8)
-else:
-    walk_fn = Hm.POSES["walk"]; slow_fn = gait(1.5, 16, 32, 0.16, 0.2, 5, 3, 2.5)
-if KID: walk_fn = gait(0.9, 26, 50, 0.4, 0.4, 3, 5, 3)
-SPEC = {  # name: (fn, seconds in output, seconds of one source cycle, ground lock)
-    "idle": (idle_fn, 3.2, 3.2, False),
-    "walk": (walk_fn, 1.0, 1.08, True),
-    "run": (Hm.POSES["run"], 0.7, 0.62, True),
-}
+SETM = "A" if META["sex"] == "m" else "B"      # two CMU performers (A: subject 35, B: subject 7/16); CMU does not document sex
+idle_src = "idle_1" if int("".join(c for c in FID if c.isdigit()) or 0) % 2 == 0 else "idle_3"
+hun = dict(idle=9 if OLD else 0, walk=11 if OLD else 0, run=8 if OLD else 0, walk_slow=15 if OLD else 0)
+plan = {"idle": idle_src, "walk": f"{SETM}_slow" if OLD else f"{SETM}_walk", "run": f"{SETM}_run"}
+if FID != "player": plan["walk_slow"] = f"{SETM}_slow"
+META["clip_speed"] = {}
+for name, src in plan.items():
+    spd, sc, g = rt.build_action(name, MR.load(src), hunch=hun[name], measure=(name != "idle"))
+    if name != "idle": META["clip_speed"][name] = spd
+    print("CLIP", name, src, "speed", spd, "scale", sc, "ground", g)
+
 if FID != "player":
-    SPEC["walk_slow"] = (slow_fn, 1.5, 1.5, True)
-    SPEC["stand_phone"] = (phone_fn, 3.2, 3.2, False)
-ad = rig.animation_data_create()
-for name, (fn, dur, src, lock) in SPEC.items():
-    n = round(dur * FPS)
-    act = bpy.data.actions.new(name); ad.action = act
+    Hm.POSES["idle"](Pb, 0.0)
+    for pb in Pb: pb.rotation_quaternion = (1, 0, 0, 0); pb.location = (0, 0, 0)
+    Hm._st(Pb).clear(); rest_foot = rt.rest_foot
+    pel = Pb["pelvis"]
+    def phone_fn(P, t):
+        Hm.POSES["phone"](P, 0.0); Hm._base(P, t)
+        Hm.arm(P, "r", (0.12, 0.35, -1), (-0.42, 0.75, 0.62), hand=(-15, 0, 0)); Hm.arm(P, "l", (0.14, 0.3, -1), (-0.5, 0.72, 0.45))
+        Hm.R(P, "neck_01", x=12); Hm.R(P, "head", x=18 + 1.5 * math.sin(t * 2 * math.pi / 3.2)); return 0
+    ad = rig.animation_data_create(); n = round(3.2 * FPS)
+    act = bpy.data.actions.new("stand_phone"); ad.action = act
     for i in range(n + 1):
-        t = (i % n) / n * dur
-        fn(Pb, t * src / dur)
-        pel.location = (0, 0, 0)
-        if lock:
-            bpy.context.view_layer.update()
-            dz = rest_foot - foot_min()
-            pel.location = pel_inv @ Vector((0, 0, dz))
-        for pb in Pb:
-            pb.keyframe_insert("rotation_quaternion", frame=i)
-        pel.keyframe_insert("location", frame=i)
-    act.use_fake_user = True
-    ad.action = None
+        phone_fn(Pb, (i % n) / n * 3.2)
+        for pb in Pb: pb.keyframe_insert("rotation_quaternion", frame=i)
+    act.use_fake_user = True; ad.action = None
     for pb in Pb: pb.rotation_quaternion = (1, 0, 0, 0)
-    pel.location = (0, 0, 0)
     Hm._st(Pb).clear()
 rig.rotation_euler = (0, 0, math.pi)     # MPFB faces -Y; glTF/Three forward is -Z => face +Y in Blender
 

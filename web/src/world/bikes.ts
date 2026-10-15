@@ -63,10 +63,13 @@ export interface BikeSlot { mesh: THREE.InstancedMesh; i: number; x: number; y: 
 /** Realistic bike models (pipeline/bikes): geometry per type (+ *_lean on the kickstand), one shared material. */
 export const BIKE_MODELS: Record<string, THREE.BufferGeometry> = {};
 export let bikeModelMaterial: THREE.Material = carMaterial;
+/** Axle and bottom-bracket positions per type (manifest `rig`), used to split the ridden bike into spinning parts. */
+export const BIKE_RIG: Record<string, { rear: [number, number]; front: [number, number]; bb: [number, number] }> = {};
 const MIX: [string, number][] = [['city', 34], ['trekking', 18], ['ebike', 13], ['road', 8], ['mtb', 8], ['rental', 8], ['kidseat', 7], ['cargo', 4]];
 
 export async function loadBikes(base = '/models/bikes') {
-  const list = (await (await fetch(`${base}/manifest.json`)).json()) as { type: string; file: string }[];
+  const list = (await (await fetch(`${base}/manifest.json`)).json()) as { type: string; file: string; rig?: (typeof BIKE_RIG)[string] }[];
+  for (const e of list) if (e.rig) BIKE_RIG[e.type] = e.rig;
   const loader = new GLTFLoader();
   let map: THREE.Texture | null = null;
   await Promise.all(list.map(async (e) => {

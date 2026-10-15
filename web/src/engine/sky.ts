@@ -22,9 +22,9 @@ export function createSky(sunDir: THREE.Vector3): THREE.Mesh {
       void main(){
         float h = max(vDir.y, 0.0);
         vec3 c = mix(horizon, zenith, pow(h, 0.55));
-        c = mix(c, vec3(0.93, 0.62, 0.55), smoothstep(0.12, 0.0, h) * 0.35);
+        c = mix(c, horizon * vec3(1.04, 0.98, 0.9), smoothstep(0.2, 0.0, h) * 0.5);   // low haze
         float s = max(dot(normalize(vDir), sun), 0.0);
-        c += sunCol * (pow(s, 600.0) * 3.0 + pow(s, 12.0) * 0.25);
+        c += sunCol * (pow(s, 800.0) * 3.0 + pow(s, 14.0) * 0.18 + pow(s, 4.0) * 0.07 * (1.0 - h));   // disc + Mie halo + forward glow
         // soft procedural clouds (value-noise fbm on a plane above)
         vec2 q = vDir.xz / max(vDir.y, 0.04) * 0.9;
         float n = 0.0, a = 0.55;

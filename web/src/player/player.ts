@@ -2,13 +2,16 @@ import * as THREE from 'three';
 import { actions, consumeLook } from '../input/actions';
 import type { Tiles } from '../engine/tiles';
 import type { Human } from '../world/humans';
-import { bikeGeo, bikeModelMaterial, type BikeSlot } from '../world/bikes';
-import { carMaterial } from '../world/cars';
+import type { BikeSlot } from '../world/bikes';
+import { BikeRig } from '../world/bikerig';
 import { rideBones, ridePose, type RideBones } from '../world/ridepose';
+import { driveStep, type DriveState } from './vehicle_player';
+import type { DriveCar } from './drive';
 
-// close to the speeds the walk/run clips were authored for (humans.ts), so feet don't slide
-const WALK = 1.7, RUN = 5.0, RADIUS = 0.35, ACCEL = 9, DECEL = 14;
-const BIKE_MAX = 7.5, BIKE_SPRINT = 10.5, BIKE_ACC = 3.5, BIKE_BRAKE = 7;
+// Mocap clips run at ~1.35 / 3.7 m/s (manifest clip_speed); Human.setSpeed scales playback by v / clip speed, so these stay slide-free.
+const WALK = 1.55, RUN = 4.5, RADIUS = 0.35, ACCEL = 9, DECEL = 14;
+const TURN_WALK = 9, TURN_RUN = 6; // max turn rate (rad/s) of the body while walking / running
+const BIKE_MAX = 7.5, BIKE_SPRINT = 10.5; // top speeds; acceleration/steering/lean live in world/bikerig.ts
 
 /** Third-person player: walks, or rides a bike. Movement relative to camera when walking, steering on the bike. */
 export class Player {
@@ -18,26 +21,27 @@ export class Player {
   heading = 0;
   speed = 0;
   riding: BikeSlot | null = null;
+  /** Car the player is driving (see vehicle_player.ts); the player position follows the car. */
+  driving: DriveCar | null = null;
+  drive: DriveState = { stopPending: false, camDist: 9, shake: 0, fov: 60, hooks: null };
   /** Speed factor on the bike (e.g. 1.2 on cycle lanes). */
   boost = 1;
   readonly mesh = new THREE.Group();
   private camDist = 5.5;
-  private z = 0;
-  private bikeMesh: THREE.InstancedMesh<THREE.BufferGeometry, THREE.Material> = new THREE.InstancedMesh(bikeGeo('city'), carMaterial as THREE.Material, 1);
-  private lastLook = 0;
+  z = 0;
+  /** The ridden bike (spinning wheels, cranks, lean); see world/bikerig.ts. */
+  readonly rig = new BikeRig();
+  lastLook = 0;
   /** Smoothed walking velocity (m/s, world x/y). */
   private vx = 0; private vy = 0;
-  private pedal = 0;
+  private lean = 0;
   private bones: RideBones;
 
-  constructor(x: number, y: number, private tiles: Tiles, private body: Human) {
+  constructor(x: number, y: number, readonly tiles: Tiles, readonly body: Human) {
     this.x = x; this.y = y;
     this.z = tiles.ground(x, y);
     this.mesh.add(body.root);
-    this.bikeMesh.setMatrixAt(0, new THREE.Matrix4());
-    this.bikeMesh.visible = false;
-    this.bikeMesh.castShadow = true;
-    this.mesh.add(this.bikeMesh);
+    this.mesh.add(this.rig.group);
     this.bones = rideBones(body.root);
   }
 
@@ -49,11 +53,7 @@ export class Player {
   mount(slot: BikeSlot) {
     this.riding = slot;
     this.x = slot.x; this.y = slot.y; this.heading = slot.h; this.speed = 0; this.vx = this.vy = 0;
-    this.bikeMesh.geometry = bikeGeo(slot.type.replace('_lean', ''));
-    this.bikeMesh.material = bikeModelMaterial;
-    this.bikeMesh.setColorAt(0, slot.color);
-    if (this.bikeMesh.instanceColor) this.bikeMesh.instanceColor.needsUpdate = true;
-    this.bikeMesh.visible = true;
+    this.rig.set(slot.type, slot.color);
   }
 
   /** Get off; returns where the bike was left. */
@@ -61,7 +61,7 @@ export class Player {
     if (!this.riding) return null;
     const left = { x: this.x, y: this.y, z: this.z, h: this.heading, color: this.riding.color };
     this.riding = null;
-    this.bikeMesh.visible = false;
+    this.rig.hide();
     // step off to the right
     const nx = this.x + Math.cos(this.heading) * 0.8, ny = this.y - Math.sin(this.heading) * 0.8;
     if (!this.tiles.colliders.inside(nx, ny)) { this.x = nx; this.y = ny; }
@@ -76,14 +76,13 @@ export class Player {
     this.pitch = Math.min(1.2, Math.max(-0.25, this.pitch + look.pitch));
     const { x: mx, y: my } = actions.move;
     const ox = this.x, oy = this.y;
+    if (this.driving) { driveStep(this, dt, camera, look); return; }
 
     if (this.riding) {
       const max = (actions.run ? BIKE_SPRINT : BIKE_MAX) * this.boost;
-      if (my > 0.1) this.speed = Math.min(max * my, this.speed + BIKE_ACC * dt);
-      else if (my < -0.1) this.speed = Math.max(-1.5, this.speed - BIKE_BRAKE * dt);
-      else this.speed = Math.max(0, this.speed - 1.2 * dt);
-      const turn = mx * (1.9 - Math.min(Math.abs(this.speed), 8) * 0.12) * dt * Math.sign(this.speed || 1);
-      if (Math.abs(this.speed) > 0.3) this.heading += turn;
+      const r = this.rig.dynamics(dt, this.speed, mx, my, max);  // power-limited, soft start, smoothed steering, lean
+      this.speed = r.speed;
+      if (Math.abs(this.speed) > 0.3) this.heading += r.turn;
       const nx = this.x + Math.sin(this.heading) * this.speed * dt, ny = this.y + Math.cos(this.heading) * this.speed * dt;
       [this.x, this.y] = this.tiles.colliders.resolve(nx, ny, 0.45);
       if (Math.hypot(this.x - nx, this.y - ny) > 0.02) this.speed *= 0.6; // bumped into something
@@ -91,7 +90,7 @@ export class Player {
       if (this.lastLook > 1.2) { let d = this.heading - this.yaw; d = Math.atan2(Math.sin(d), Math.cos(d)); this.yaw += d * Math.min(1, dt * 2.5); }
     } else {
       const amount = Math.min(1, Math.hypot(mx, my));
-      let tx = 0, ty = 0;
+      let tx = 0, ty = 0, turnRate = 0;
       if (amount > 0.05) {
         const s = Math.sin(this.yaw), c = Math.cos(this.yaw);
         const dx = my * s + mx * c, dy = my * c - mx * s, l = Math.hypot(dx, dy);
@@ -99,18 +98,24 @@ export class Player {
         tx = (dx / l) * v; ty = (dy / l) * v;
         let d = Math.atan2(dx, dy) - this.heading;
         d = Math.atan2(Math.sin(d), Math.cos(d));
-        this.heading += d * Math.min(1, dt * 12);
+        const maxTurn = (TURN_WALK + (TURN_RUN - TURN_WALK) * Math.min(1, this.speed / RUN)) * dt;   // limited angular speed, no snapping
+        const step = Math.max(-maxTurn, Math.min(maxTurn, d * Math.min(1, dt * 12)));
+        this.heading += step;
+        turnRate = dt > 0 ? step / dt : 0;
       }
       // ease into and out of steps instead of jumping to full speed
       const k = Math.min(1, dt * (tx || ty ? ACCEL : DECEL));
       this.vx += (tx - this.vx) * k; this.vy += (ty - this.vy) * k;
       if (Math.hypot(this.vx, this.vy) > 0.01) {
         [this.x, this.y] = this.tiles.colliders.resolve(this.x + this.vx * dt, this.y + this.vy * dt, RADIUS);
-        const mvx = (this.x - ox) / dt, mvy = (this.y - oy) / dt; // keep only what walls allowed
+        const mvx = dt > 0 ? (this.x - ox) / dt : this.vx, mvy = dt > 0 ? (this.y - oy) / dt : this.vy; // keep only what walls allowed
         this.vx = mvx; this.vy = mvy;
       }
-      const v = Math.hypot(this.x - ox, this.y - oy) / dt;
+      const v = dt > 0 ? Math.hypot(this.x - ox, this.y - oy) / dt : this.speed;
       this.speed += (v - this.speed) * Math.min(1, dt * 10);
+      // lean into curves when running (rolls the body about its forward axis)
+      const wantLean = -Math.max(-0.22, Math.min(0.22, turnRate * Math.max(0, this.speed - 2) * 0.03));
+      this.lean += (wantLean - this.lean) * Math.min(1, dt * 8);
     }
     if (!this.tiles.inPlay(this.x, this.y)) { this.x = ox; this.y = oy; this.speed *= 0.3; } // fence: end of the playable map
 
@@ -125,11 +130,11 @@ export class Player {
       this.body.root.rotation.x = 0;
     }
     this.body.mixer.update(dt);
-    if (this.riding) { this.pedal += this.speed * dt * 2.2; ridePose(this.bones, this.pedal); }
+    if (this.riding) { this.rig.animate(dt, this.speed, my > 0.1); ridePose(this.bones, this.body.root, this.rig.crank, this.riding.type, this.rig.geo); }
     this.z += (this.tiles.groundAt(this.x, this.y, this.z) - this.z) * Math.min(1, dt * 15);
     this.mesh.position.set(this.x, this.z, -this.y);
     this.mesh.rotation.y = -this.heading;
-    this.mesh.rotation.z = this.riding ? -actions.move.x * Math.min(Math.abs(this.speed), 8) * 0.02 : 0;
+    this.mesh.rotation.z = this.riding ? this.rig.lean : this.lean;
 
     // camera: behind, pulled in front of walls
     const want = this.riding ? 6.5 : 5.5, cp0 = Math.cos(this.pitch) * want;

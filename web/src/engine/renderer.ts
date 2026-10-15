@@ -13,7 +13,7 @@ export function createRenderer(canvas: HTMLCanvasElement, mobile: boolean) {
   renderer.shadowMap.type = THREE.PCFShadowMap;
 
   const scene = new THREE.Scene();
-  scene.fog = new THREE.Fog(HORIZON, 90, mobile ? 420 : 600);
+  scene.fog = new THREE.Fog(HORIZON, 55, mobile ? 400 : 560)   // aerial perspective: distant blocks fade into the haze;
 
   // far plane just beyond the fog: nothing invisible gets drawn
   const camera = new THREE.PerspectiveCamera(60, 1, 0.3, (mobile ? 420 : 600) + 40);
@@ -30,8 +30,7 @@ export function createRenderer(canvas: HTMLCanvasElement, mobile: boolean) {
   const s = sun.shadow.camera;
   s.left = s.bottom = -80; s.right = s.top = 80; s.near = 10; s.far = 500;
   sun.shadow.radius = 4;   // softer shadow edges
-  sun.shadow.blurSamples = 12;
-  sun.shadow.bias = -0.0004;
+    sun.shadow.bias = -0.0004;
   sun.shadow.normalBias = 0.04;
   scene.add(sun, sun.target);
 
@@ -47,9 +46,15 @@ export function createRenderer(canvas: HTMLCanvasElement, mobile: boolean) {
   resize();
 
   /** Keep the shadow frustum centred on the player. */
+  const sr = new THREE.Vector3(), su = new THREE.Vector3(), sp = new THREE.Vector3();
+  const texel = (s.right - s.left) / sun.shadow.mapSize.x;
   const followSun = (p: THREE.Vector3) => {
-    sun.position.copy(p).addScaledVector(sunDir, 200);
-    sun.target.position.copy(p);
+    // snap the focus point to shadow-map texels in light space: no edge shimmer while walking
+    sr.set(0, 1, 0).cross(sunDir).normalize(); su.copy(sunDir).cross(sr).normalize();
+    const a = Math.round(p.dot(sr) / texel) * texel, b = Math.round(p.dot(su) / texel) * texel;
+    sp.copy(p).addScaledVector(sr, a - p.dot(sr)).addScaledVector(su, b - p.dot(su));
+    sun.position.copy(sp).addScaledVector(sunDir, 200);
+    sun.target.position.copy(sp);
   };
   return { renderer, scene, camera, followSun, sun, hemi, sky, skyMat, sunDir, mobile };
 }

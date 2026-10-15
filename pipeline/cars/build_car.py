@@ -9,7 +9,9 @@ from mathutils import Vector, Matrix
 from specs import SPECS, COL
 
 ROOT = "/Users/danielgnagi/sandboxzurich"
-TYPE = sys.argv[sys.argv.index("--") + 1]
+_A = sys.argv[sys.argv.index("--") + 1:]
+TYPE = _A[0]
+DRIVE = "drive" in _A[1:]   # drivable variant: body without wheels/lights + separate wheel_* / head / tail objects
 S = SPECS[TYPE]
 L, W, R, TW = S["L"], S["W"], S["R"], S["tw"]
 HW = W / 2
@@ -179,20 +181,27 @@ def wheel(bm, uw, sg):
         poly(bm, [pt(.12 * R, -hw), pt(.54 * R, -hw), pt(.54 * R, hw), pt(.12 * R, hw)], out, C["rim"])
     k_n = 5; poly(bm, [ring(.15 * R, .78 * h, k) for k in range(5)], out, C["rim"])
 
-def details_bm(roof):
-    bm = new_bm(); ztp, zbp = S["zt"], S["zb"]
-    for sg in (-1, 1):
-        for uw in (S["fo"], S["fo"] + S["WB"]): wheel(bm, uw, sg)
-    # lights, grille, intake, plates (front)
-    zt0, zb0 = interp(ztp, .06), interp(zbp, 0)
+def add_head(bm):
+    ztp = S["zt"]; zt0 = interp(ztp, .06)
     for sg in (-1, 1):
         zl = zt0 - .10; xl = sg * .57 * HW
         if S.get("round_lights"): cyl(bm, P(.05, sg * .60 * HW, zt0 - .09), .095, .09, "y", 10, C["head"])
         else: box(bm, P(.06, xl, zl), (.33, .10, .085), -sg * .38, C["head"])
+def add_tail(bm):
+    ztp = S["zt"]
+    for sg in (-1, 1):
         tw_, th_, tz = S["tail"]; ztr = interp(ztp, L - .05)
         wr_ = HW * width_scale(L - .06)
         if th_ > .2: box(bm, P(L - .05, sg * (wr_ - tw_ / 2 - .02), tz), (tw_, .09, th_), sg * .25, C["tail"])
         else: box(bm, P(L - .05, sg * (wr_ - tw_ / 2 - .06), ztr - .12), (tw_, .09, th_), sg * .30, C["tail"])
+
+def details_bm(roof):
+    bm = new_bm(); ztp, zbp = S["zt"], S["zb"]
+    if not DRIVE:
+        for sg in (-1, 1):
+            for uw in (S["fo"], S["fo"] + S["WB"]): wheel(bm, uw, sg)
+        add_head(bm); add_tail(bm)
+    zt0, zb0 = interp(ztp, .06), interp(zbp, 0)
     if S["grille"]:
         gw, gh = S["grille"]; box(bm, P(.0, 0, zt0 - .09 - gh / 2 + .03), (gw * 1.0, .03, gh), 0, C["plastic"])
     box(bm, P(.0, 0, zb0 + .11), (1.05 * HW, .035, .11), 0, C["plastic"])
@@ -236,20 +245,37 @@ if "Col" not in bm2.loops.layers.float_color: pass
 color_body(bm2); bpo = to_obj(bm2, "body2")
 cb, roof = cabin_bm(); co = to_obj(cb, "cabin"); do = to_obj(details_bm(roof), "details")
 bpy.data.objects.remove(bo); bpy.data.objects.remove(cut)
+extras = []
+if DRIVE:
+    for name, (sg, uw) in {"wheel_fl": (-1, S["fo"]), "wheel_fr": (1, S["fo"]), "wheel_rl": (-1, S["fo"] + S["WB"]), "wheel_rr": (1, S["fo"] + S["WB"])}.items():
+        wb_ = new_bm(); wheel(wb_, uw, sg)
+        cx, cy = sg * (HW - .02 - TW / 2), L / 2 - uw
+        bmesh.ops.translate(wb_, vec=(-cx, -cy, -R), verts=wb_.verts)
+        wo = to_obj(wb_, name); wo.location = (cx, cy, R); extras.append(wo)
+    for name, fn in (("head", add_head), ("tail", add_tail)):
+        lb = new_bm(); fn(lb); extras.append(to_obj(lb, name))
 bpy.ops.object.select_all(action="DESELECT")
 for o in (bpo, co, do): o.select_set(True)
 bpy.context.view_layer.objects.active = bpo
 bpy.ops.object.join()
 car = bpo; car.name = TYPE
 bpy.ops.object.shade_smooth_by_angle(angle=math.radians(40))
+for o in extras: o.select_set(True)
+bpy.ops.object.shade_smooth_by_angle(angle=math.radians(40))
 me = car.data
 mat = bpy.data.materials.new("car"); mat.use_nodes = True
 nt = mat.node_tree; bsdf = nt.nodes["Principled BSDF"]; vc = nt.nodes.new("ShaderNodeVertexColor"); vc.layer_name = "Col"
 nt.links.new(vc.outputs["Color"], bsdf.inputs["Base Color"]); bsdf.inputs["Roughness"].default_value = .5; bsdf.inputs["Metallic"].default_value = .1
 me.materials.clear(); me.materials.append(mat)
+for o in extras:
+    o.data.materials.clear(); o.data.materials.append(mat)
+    for ca in [c for c in o.data.color_attributes if c.name != "Col"]: o.data.color_attributes.remove(ca)
+    o.data.color_attributes.active_color = o.data.color_attributes["Col"]
+    o.data.color_attributes.render_color_index = o.data.color_attributes.find("Col")
 me.color_attributes.active_color = me.color_attributes["Col"]; me.color_attributes.render_color_index = me.color_attributes.find("Col")
 bpy.ops.object.select_all(action="DESELECT"); car.select_set(True)
-out = f"{ROOT}/web/public/models/cars/{TYPE}.glb"
+for o in extras: o.select_set(True)
+out = f"{ROOT}/web/public/models/cars/{TYPE}{'_drive' if DRIVE else ''}.glb"
 kw = dict(filepath=out, export_format="GLB", use_selection=True, export_apply=False, export_yup=True, export_cameras=False, export_lights=False, export_animations=False)
 for extra in (dict(export_attributes=True, export_vertex_color="ACTIVE"), dict(export_attributes=True), {}):
     try: bpy.ops.export_scene.gltf(**kw, **extra); break

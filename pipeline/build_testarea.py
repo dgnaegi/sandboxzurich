@@ -4,6 +4,7 @@ Usage: .venv/bin/python pipeline/build_testarea.py
 """
 import base64
 import json
+import time
 import math
 import multiprocessing as mp
 import os
@@ -154,6 +155,8 @@ def _ground_base(gm, S, tb, H, white, yellow, rails, bed, bays_white=None, bays_
 def build():
     OUT.mkdir(parents=True, exist_ok=True)
     RAW_OUT.mkdir(parents=True, exist_ok=True)
+    _t0 = time.time()
+    _lap = lambda what: print(f"[{time.time() - _t0:7.1f}s] {what}", flush=True)  # prep profiling
     blds = sources.buildings(margin=240)  # includes the backdrop ring outside the fence
     nodes0, els0 = sources.osm()
     # detailed landmark models replace swissBUILDINGS3D buildings: overrides/landmarks_*.json "hide" points
@@ -191,11 +194,16 @@ def build():
     BR = bridges.bridge_ways(nodes, els, AREA, H)  # elevated decks + piers (research/bridges.md)
     EX = bridges.exclusion(BR)
     S = streets.parse(nodes, els)
+    _lap("osm/terrain/bridges/streets")
     G = groundcover.load(BIG)  # Amtliche Vermessung land cover (research/groundcover.md)
     # snapped to 1 cm: robust overlays with the OSM-derived street polygons
     S["av_green"] = shapely.set_precision(G["green"].buffer(0), 0.01)
     S["av_paved"] = shapely.set_precision(G["gravel"].buffer(0), 0.01)
     S["av_rail"] = shapely.set_precision(G["rail"].buffer(0), 0.01)
+    # OSM parks/playgrounds include paved schoolyards (Kanzlei): lawn only where AV says green, the rest is paved
+    parks = S["parks"]
+    S["parks"] = shapely.set_precision(parks.intersection(S["av_green"].buffer(0.5)), 0.01)
+    S["av_paved"] = shapely.set_precision(shapely.union_all([S["av_paved"], parks.difference(S["parks"])]), 0.01)
     S["ways"] = bridges.clip_ways(S["ways"], EX)  # no ground road/markings under bridge decks
     S["roads"] = S["roads"].difference(EX)
     S["plaza"] = S["plaza"].difference(EX)
@@ -215,6 +223,7 @@ def build():
     way_tree = STRtree([w["line"] for w in S["ways"] if w["hw"] != "service"])
     way_w = [w["w"] for w in S["ways"] if w["hw"] != "service"]
     main = shapely.union_all([w["line"] for w in S["ways"] if w["hw"] in streets.MAIN])
+    _lap("groundcover + tram geometry")
     C = citydata.load(BIG)
     # private trees (courtyards, gardens) are missing in the city tree register: add OSM natural=tree
     _ct = STRtree([Point(t[0], t[1]) for t in C.get("trees", [])]) if C.get("trees") else None
@@ -266,6 +275,7 @@ def build():
             b["osm"]["_gwr"] = gwr_for_building(np.asarray(fp.exterior.coords))
 
     # facade colour/style per address from photo notes (research/buildings/visual_notes.json)
+    _lap("citydata/trees/playgrounds/parking")
     VIS = visual_overrides.load()
     addr_pts = []
     for e in els:
@@ -413,8 +423,10 @@ def build():
     only = os.environ.get("SBZ_TILES")  # e.g. "4_-4,3_-5" to rebuild a few tiles
     if only:
         todo = [t for t in todo if f"{t[0]}_{t[1]}" in only.split(",")]
+    _lap("prep done, tiles start")
     with mp.get_context("fork").Pool(max(1, os.cpu_count() - 1)) as pool:
         index = pool.map(_run, todo, chunksize=1)
+    _lap("tiles done")
     if only:  # keep the full index
         index = [{"name": f"t_{ix}_{iy}", "ix": ix, "iy": iy, **({"backdrop": 1} if is_backdrop(ix, iy) else {})} for ix, iy in tiles()]
     # coarse 8 m height grid for the whole area (fallback before a tile's own height map is loaded)

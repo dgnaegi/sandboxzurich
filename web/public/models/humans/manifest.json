@@ -11,7 +11,11 @@
    "idle",
    "walk",
    "run"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.352,
+   "run": 3.662
+  }
  },
  {
   "id": "npc_00",
@@ -27,7 +31,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.187,
+   "run": 3.212,
+   "walk_slow": 0.705
+  }
  },
  {
   "id": "npc_01",
@@ -43,7 +52,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.174,
+   "run": 3.404,
+   "walk_slow": 0.97
+  }
  },
  {
   "id": "npc_02",
@@ -59,7 +73,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.201,
+   "run": 3.364,
+   "walk_slow": 0.715
+  }
  },
  {
   "id": "npc_03",
@@ -75,7 +94,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.267,
+   "run": 3.654,
+   "walk_slow": 1.038
+  }
  },
  {
   "id": "npc_04",
@@ -91,7 +115,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 0.766,
+   "run": 3.45,
+   "walk_slow": 0.766
+  }
  },
  {
   "id": "npc_05",
@@ -107,7 +136,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 0.888,
+   "run": 3.173,
+   "walk_slow": 0.888
+  }
  },
  {
   "id": "npc_06",
@@ -123,7 +157,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.415,
+   "run": 4.093,
+   "walk_slow": 1.167
+  }
  },
  {
   "id": "npc_07",
@@ -139,7 +178,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.554,
+   "run": 4.084,
+   "walk_slow": 0.897
+  }
  },
  {
   "id": "npc_08",
@@ -155,7 +199,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.704,
+   "run": 4.495,
+   "walk_slow": 0.992
+  }
  },
  {
   "id": "npc_09",
@@ -171,7 +220,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.151,
+   "run": 3.325,
+   "walk_slow": 0.946
+  }
  },
  {
   "id": "npc_10",
@@ -187,7 +241,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.507,
+   "run": 3.972,
+   "walk_slow": 0.874
+  }
  },
  {
   "id": "npc_11",
@@ -203,7 +262,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.252,
+   "run": 3.588,
+   "walk_slow": 1.023
+  }
  },
  {
   "id": "npc_12",
@@ -219,7 +283,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 0.923,
+   "run": 3.304,
+   "walk_slow": 0.923
+  }
  },
  {
   "id": "npc_13",
@@ -235,7 +304,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 0.763,
+   "run": 3.452,
+   "walk_slow": 0.763
+  }
  },
  {
   "id": "npc_14",
@@ -251,7 +325,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.589,
+   "run": 4.22,
+   "walk_slow": 0.926
+  }
  },
  {
   "id": "npc_15",
@@ -267,7 +346,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.278,
+   "run": 3.681,
+   "walk_slow": 1.05
+  }
  },
  {
   "id": "npc_16",
@@ -283,7 +367,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.339,
+   "run": 3.59,
+   "walk_slow": 0.792
+  }
  },
  {
   "id": "npc_17",
@@ -299,7 +388,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.235,
+   "run": 3.555,
+   "walk_slow": 1.013
+  }
  },
  {
   "id": "npc_18",
@@ -315,7 +409,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.106,
+   "run": 3.087,
+   "walk_slow": 0.662
+  }
  },
  {
   "id": "npc_19",
@@ -331,7 +430,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.106,
+   "run": 3.26,
+   "walk_slow": 0.918
+  }
  },
  {
   "id": "npc_20",
@@ -347,7 +451,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.28,
+   "run": 3.524,
+   "walk_slow": 0.763
+  }
  },
  {
   "id": "npc_21",
@@ -363,7 +472,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.254,
+   "run": 3.598,
+   "walk_slow": 1.025
+  }
  },
  {
   "id": "npc_22",
@@ -379,7 +493,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.498,
+   "run": 3.954,
+   "walk_slow": 0.87
+  }
  },
  {
   "id": "npc_23",
@@ -395,7 +514,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.077,
+   "run": 3.167,
+   "walk_slow": 0.893
+  }
  },
  {
   "id": "npc_24",
@@ -411,7 +535,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.311,
+   "run": 3.582,
+   "walk_slow": 0.777
+  }
  },
  {
   "id": "npc_25",
@@ -427,7 +556,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.159,
+   "run": 3.311,
+   "walk_slow": 0.946
+  }
  },
  {
   "id": "npc_26",
@@ -443,7 +577,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.586,
+   "run": 4.176,
+   "walk_slow": 0.919
+  }
  },
  {
   "id": "npc_27",
@@ -459,7 +598,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.138,
+   "run": 3.299,
+   "walk_slow": 0.934
+  }
  },
  {
   "id": "npc_28",
@@ -475,7 +619,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.242,
+   "run": 3.462,
+   "walk_slow": 0.741
+  }
  },
  {
   "id": "npc_29",
@@ -491,7 +640,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.101,
+   "run": 3.231,
+   "walk_slow": 0.91
+  }
  },
  {
   "id": "npc_30",
@@ -507,7 +661,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 1.287,
+   "run": 3.577,
+   "walk_slow": 0.767
+  }
  },
  {
   "id": "npc_31",
@@ -524,6 +683,11 @@
    "walk_slow",
    "stand_phone"
   ],
+  "clip_speed": {
+   "walk": 0.705,
+   "run": 3.288,
+   "walk_slow": 0.705
+  },
   "props": [
    "cane"
   ]
@@ -543,6 +707,11 @@
    "walk_slow",
    "stand_phone"
   ],
+  "clip_speed": {
+   "walk": 0.959,
+   "run": 3.389,
+   "walk_slow": 0.959
+  },
   "props": [
    "cane"
   ]
@@ -562,6 +731,11 @@
    "walk_slow",
    "stand_phone"
   ],
+  "clip_speed": {
+   "walk": 0.769,
+   "run": 3.494,
+   "walk_slow": 0.769
+  },
   "props": [
    "walker"
   ]
@@ -580,7 +754,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 0.97,
+   "run": 3.48,
+   "walk_slow": 0.97
+  }
  },
  {
   "id": "npc_35",
@@ -596,7 +775,12 @@
    "run",
    "walk_slow",
    "stand_phone"
-  ]
+  ],
+  "clip_speed": {
+   "walk": 0.927,
+   "run": 3.298,
+   "walk_slow": 0.927
+  }
  },
  {
   "id": "npc_36",
@@ -613,6 +797,11 @@
    "walk_slow",
    "stand_phone"
   ],
+  "clip_speed": {
+   "walk": 0.869,
+   "run": 2.053,
+   "walk_slow": 0.514
+  },
   "needs_adult": true
  },
  {
@@ -630,6 +819,11 @@
    "walk_slow",
    "stand_phone"
   ],
+  "clip_speed": {
+   "walk": 0.821,
+   "run": 2.344,
+   "walk_slow": 0.664
+  },
   "needs_adult": true
  },
  {
@@ -647,6 +841,11 @@
    "walk_slow",
    "stand_phone"
   ],
+  "clip_speed": {
+   "walk": 0.787,
+   "run": 1.85,
+   "walk_slow": 0.458
+  },
   "needs_adult": true
  },
  {
@@ -664,6 +863,11 @@
    "walk_slow",
    "stand_phone"
   ],
+  "clip_speed": {
+   "walk": 0.859,
+   "run": 2.495,
+   "walk_slow": 0.703
+  },
   "needs_adult": true
  }
 ]

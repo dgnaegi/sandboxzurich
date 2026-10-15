@@ -9,7 +9,7 @@ import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js
 interface Agent {
   kind: 'car' | 'bike'; e: number; s: number; v: number; nxt: number; x: number; y: number; h: number; ex: number; ey: number;
   seg: number; vmul: number; len: number; type: string; color: THREE.Color; wait: number; free: boolean; phase: number;
-  id: number; alive: boolean; yielding: boolean;
+  id: number; alive: boolean; yielding: boolean; acc: number; turn: number;
 }
 interface Edge {
   a: number; b: number; p: Float32Array; cum: Float32Array; len: number; v: number; w: number;
@@ -107,7 +107,7 @@ export class Traffic {
   private _maxBikes = 8;
   private nextId = 1;
   private spawnT = 0;
-  private out: { x: number; y: number; heading: number; kind: 'car' | 'bike' }[] = [];
+  private out: { x: number; y: number; heading: number; kind: 'car' | 'bike'; len: number; v: number; id: number; brake: boolean; turn: number; type: string }[] = [];
   private readonly group = new THREE.Group();
   private tmpA = new THREE.Matrix4();
   private tmpB = new THREE.Matrix4();
@@ -145,6 +145,30 @@ export class Traffic {
   }
 
   positions() { return this.out; }
+
+  /**
+   * Closest car whose body is within `r` metres of (x, y); with `take` it leaves the traffic (the driver gets out)
+   * and its state is returned: compass heading (0 = north, clockwise) and speed along the road.
+   */
+  findCar(x: number, y: number, r: number, take = false): { d: number; type: string; color: THREE.Color; x: number; y: number; h: number; v: number; len: number } | null {
+    let best: Agent | null = null, bd = r;
+    for (const a of this.agents) {
+      if (a.kind !== 'car' || !a.alive) continue;
+      const c = Math.cos(a.h), s = Math.sin(a.h), dx = x - a.x, dy = y - a.y;
+      const al = Math.max(-a.len / 2, Math.min(a.len / 2, dx * c + dy * s)), ac = Math.max(-0.9, Math.min(0.9, -dx * s + dy * c));
+      const d = Math.hypot(dx * c + dy * s - al, -dx * s + dy * c - ac);
+      if (d < bd) { bd = d; best = a; }
+    }
+    if (!best) return null;
+    const out = { d: bd, type: best.type, color: best.color, x: best.x, y: best.y, h: Math.PI / 2 - best.h, v: best.v, len: best.len };
+    if (take) {
+      best.alive = false;
+      this.graph(best).edges[best.e].list = this.graph(best).edges[best.e].list.filter((c) => c !== best);
+      this.agents = this.agents.filter((a) => a.alive);
+      this.nCars = this.agents.filter((a) => a.kind === 'car').length;
+    }
+    return out;
+  }
 
   // ---------- helpers ----------
   private graph(a: Agent) { return (a.kind === 'car' ? this.cars : this.bikes)!; }
@@ -268,7 +292,12 @@ export class Traffic {
     }
     if (a.yielding && a.v < 0.3) { a.wait += dt; if (a.wait > 5) a.free = true; } else if (a.v > 2) a.wait = 0;
     vt = Math.max(0, vt);
-    a.v = vt > a.v ? Math.min(vt, a.v + (a.kind === 'car' ? 2.6 : 1.2) * dt) : Math.max(vt, a.v - 9 * dt);
+    // soft pull-away and braking: target acceleration eases in (jerk-limited) instead of switching on/off
+    const want = vt > a.v ? Math.min(a.kind === 'car' ? 2.6 : 1.2, (vt - a.v) * 1.4) : Math.max(-9, (vt - a.v) * 3.5);
+    a.acc += (want - a.acc) * Math.min(1, dt * (want < a.acc ? 6 : 2.5));
+    a.v = Math.max(0, a.v + a.acc * dt);
+    if (vt === 0 && a.v < 0.15) { a.v = 0; a.acc = 0; }
+    a.turn = ne && dEnd < 30 ? this.turnOf(e, ne) : 0;
     a.s += a.v * dt;
     let changed = false;
     while (a.s >= g.edges[a.e].len) {
@@ -303,7 +332,7 @@ export class Traffic {
       const e = g.edges[lo];
       if (e.len < 12) continue;
       const a: Agent = { kind, e: lo, s: 5 + Math.random() * (e.len - 10), v: 0, nxt: -1, x: 0, y: 0, h: 0, ex: 0, ey: 0, seg: 0, vmul: 1,
-        len: 4.4, type: '', color: JACKETS[0], wait: 0, free: false, phase: Math.random() * 6.28, id: this.nextId++, alive: true, yielding: false };
+        len: 4.4, type: '', color: JACKETS[0], wait: 0, free: false, phase: Math.random() * 6.28, id: this.nextId++, alive: true, yielding: false, acc: 0, turn: 0 };
       const [x, y] = this.place(a, e);
       const d = Math.hypot(x - px, y - py);
       if (d < 120 || d > 250) continue;
@@ -369,7 +398,7 @@ export class Traffic {
     const M = this.tmpA, L = this.tmpB;
     for (const a of this.agents) {
       const y = this.ground(a.x, a.y) - 0.12, th = a.h - Math.PI / 2, c = Math.cos(th), s = Math.sin(th);
-      this.out.push({ x: a.x, y: a.y, heading: a.h, kind: a.kind });
+      this.out.push({ x: a.x, y: a.y, heading: a.h, kind: a.kind, len: a.len, v: a.v, id: a.id, brake: a.acc < -1.3 || (a.yielding && a.v < 0.6), turn: a.turn, type: a.type });
       if (a.kind === 'car') {
         const m = this.carMesh[a.type], i = cursor[a.type] ?? 0;
         if (!m || i >= CAP) continue;

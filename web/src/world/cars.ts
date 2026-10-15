@@ -6,9 +6,14 @@ import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js
  * Low-poly cars (pipeline/cars, Blender), modelled after common Zürich cars without logos. Each model is one
  * mesh: vertex colours + a `_paint` attribute so the instance colour only tints the bodywork (1 draw call/type).
  */
-export const CAR_MIX: [string, number][] = [['hatch', 26], ['wagon', 22], ['small', 12], ['sedan', 10], ['suv', 18], ['van', 10], ['sport', 2]];
+// Swiss fleet (parked + traffic): SUVs and estates/hatchbacks dominate, few vans and sports cars (sedan model doubles as e-sedan)
+export const CAR_MIX: [string, number][] = [['hatch', 22], ['wagon', 20], ['small', 10], ['sedan', 11], ['suv', 28], ['van', 8], ['sport', 1]];
 export const CAR_PAINT = [0x5d6268, 0x1a1c20, 0xe2e2df, 0x7d8288, 0x1b2c4e, 0x3a3f45, 0x8c1c22, 0x24402f, 0x2d4f7c, 0x4a4f55, 0x101214,
   0x6e2a1a, 0x9a9fa5, 0x14365c].map((c) => new THREE.Color(c));
+/** Paint by share: white/black/grey/silver make up ~75 % of cars in Switzerland; blue, red, green, brown the rest. */
+const PAINT_W: [number, number][] = [[0xe6e6e3, 20], [0x1a1c20, 19], [0x5d6268, 12], [0x3a3f45, 8], [0x9a9fa5, 10], [0xb9bdc1, 6], [0x1b2c4e, 7], [0x14365c, 3], [0x8c1c22, 5], [0x24402f, 3], [0x6e2a1a, 3], [0x2d4f7c, 3], [0xc8c1ae, 1]];
+export const CH_PAINT = PAINT_W.flatMap(([c, w]) => Array.from({ length: w }, () => new THREE.Color(c)));
+const VAN_PAINT = [0xf2f2ef, 0xf2f2ef, 0xf2f2ef, 0xf2f2ef, 0xd9dbdd, 0x9a9fa5, 0x1b2c4e, 0xb8201f].map((c) => new THREE.Color(c));
 export const SPORT_PAINT = [0xf2c200, 0xc8102e, 0x2e7d32, 0xf5f5f0, 0x1565c0].map((c) => new THREE.Color(c));
 export const CAR_GEO: Record<string, THREE.BufferGeometry> = {};
 
@@ -83,8 +88,8 @@ export function carPick(key: number): { type: string; color: THREE.Color } {
   const total = CAR_MIX.reduce((a, [, w]) => a + w, 0);
   let k = (key * 2654435761 >>> 0) % total;
   for (const [type, w] of CAR_MIX) {
-    if (k < w) return { type, color: type === 'sport' ? SPORT_PAINT[key % SPORT_PAINT.length] : CAR_PAINT[key % CAR_PAINT.length] };
+    if (k < w) return { type, color: type === 'sport' ? SPORT_PAINT[key % SPORT_PAINT.length] : type === 'van' ? VAN_PAINT[(key >> 3) % VAN_PAINT.length] : CH_PAINT[(key * 7919 >>> 3) % CH_PAINT.length] };
     k -= w;
   }
-  return { type: 'hatch', color: CAR_PAINT[0] };
+  return { type: 'hatch', color: CH_PAINT[0] };
 }

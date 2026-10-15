@@ -248,6 +248,24 @@ def plan():
     return _PLAN
 
 
+def blocked_zones(clear=1.0):
+    """Shapes the traffic must not drive through: trench + barrier ring of road works, site fence panels, excavators and
+    containers standing on the carriageway. Used by roadgraph.py to cut car / bike lanes (buffer `clear` m)."""
+    items, _, _ = plan()
+    zones = []
+    for r in items:
+        t, x, y, yaw = r[0], r[1], r[2], r[4]
+        c, s = math.cos(yaw), math.sin(yaw)
+        if t == Z["trench"]:
+            hx, hy = r[5] / 2 + 0.7, r[6] / 2 + 0.7
+            zones.append(Polygon([(x + u * c - v * s, y + u * s + v * c) for u, v in ((-hx, -hy), (hx, -hy), (hx, hy), (-hx, hy))]).buffer(clear))
+        elif t == Z["fence"]:
+            zones.append(LineString([(x - 1.5 * c, y - 1.5 * s), (x + 1.5 * c, y + 1.5 * s)]).buffer(clear))
+        elif t in (Z["excavator"], Z["container"], Z["toilet"], Z["pile"], Z["pallet"]):
+            zones.append(Point(x, y).buffer(1.8 + clear))
+    return zones
+
+
 def tile_meta(tb, H):
     """Meta fields for one tile: {"sites": rows, "cranes": rows, "workers": rows, "colliders": [...]}.
     Integration (build_testarea.py): SM = sites.tile_meta(tb, H); colliders += SM.pop("colliders") before meta is built,

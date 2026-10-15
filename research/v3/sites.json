@@ -1,0 +1,314 @@
+[
+ {
+  "id": "prime_tower",
+  "name": "Prime Tower + Platform",
+  "kind": "landmark",
+  "lat": 47.386099,
+  "lon": 8.51727,
+  "radius": 130
+ },
+ {
+  "id": "kva_kamin",
+  "name": "KVA-Kamin Josefstrasse",
+  "kind": "landmark",
+  "lat": 47.386672,
+  "lon": 8.522427,
+  "radius": 100
+ },
+ {
+  "id": "viadukt",
+  "name": "Im Viadukt (Bogen)",
+  "kind": "landmark",
+  "lat": 47.386286,
+  "lon": 8.52284,
+  "radius": 110
+ },
+ {
+  "id": "schiffbau",
+  "name": "Schiffbau",
+  "kind": "landmark",
+  "lat": 47.38888,
+  "lon": 8.518722,
+  "radius": 100
+ },
+ {
+  "id": "lochergut",
+  "name": "Lochergut",
+  "kind": "landmark",
+  "lat": 47.37607,
+  "lon": 8.517863,
+  "radius": 110
+ },
+ {
+  "id": "kalkbreite",
+  "name": "Kalkbreite",
+  "kind": "landmark",
+  "lat": 47.373181,
+  "lon": 8.521712,
+  "radius": 90
+ },
+ {
+  "id": "st_jakob",
+  "name": "Kirche St. Jakob",
+  "kind": "landmark",
+  "lat": 47.373962,
+  "lon": 8.529003,
+  "radius": 90
+ },
+ {
+  "id": "bullingerkirche",
+  "name": "Bullingerkirche",
+  "kind": "landmark",
+  "lat": 47.380177,
+  "lon": 8.515277,
+  "radius": 80
+ },
+ {
+  "id": "kanzlei_schulhaus",
+  "name": "Kanzlei-Schulhaus",
+  "kind": "landmark",
+  "lat": 47.375532,
+  "lon": 8.52582,
+  "radius": 90
+ },
+ {
+  "id": "bhf_hardbruecke",
+  "name": "Bahnhof Hardbruecke",
+  "kind": "landmark",
+  "lat": 47.385106,
+  "lon": 8.517025,
+  "radius": 110
+ },
+ {
+  "id": "volkshaus",
+  "name": "Volkshaus",
+  "kind": "landmark",
+  "lat": 47.37559,
+  "lon": 8.527342,
+  "radius": 80
+ },
+ {
+  "id": "toni_areal",
+  "name": "Toni-Areal",
+  "kind": "landmark",
+  "lat": 47.390959,
+  "lon": 8.512156,
+  "radius": 130
+ },
+ {
+  "id": "hardau_ii",
+  "name": "Hardau II (4 Wohntuerme)",
+  "kind": "landmark",
+  "lat": 47.381279,
+  "lon": 8.509736,
+  "radius": 120
+ },
+ {
+  "id": "letzigrund",
+  "name": "Stadion Letzigrund",
+  "kind": "landmark",
+  "lat": 47.382729,
+  "lon": 8.503774,
+  "radius": 150
+ },
+ {
+  "id": "bhf_altstetten",
+  "name": "Bahnhof Altstetten (Hochhaus, IBM-Stengel)",
+  "kind": "landmark",
+  "lat": 47.390993,
+  "lon": 8.489195,
+  "radius": 130
+ },
+ {
+  "id": "kirchen_altstetten",
+  "name": "Alte Kirche und Kirche Altstetten",
+  "kind": "landmark",
+  "lat": 47.386643,
+  "lon": 8.484831,
+  "radius": 100
+ },
+ {
+  "id": "dreifaltigkeit_wiedikon",
+  "name": "Dreifaltigkeitskirche Wiedikon",
+  "kind": "landmark",
+  "lat": 47.373388,
+  "lon": 8.522468,
+  "radius": 90
+ },
+ {
+  "id": "bhf_wiedikon",
+  "name": "Bahnhof Wiedikon (Reiterbahnhof)",
+  "kind": "landmark",
+  "lat": 47.371413,
+  "lon": 8.523581,
+  "radius": 90
+ },
+ {
+  "id": "krematorium_sihlfeld",
+  "name": "Altes Krematorium Sihlfeld, Haupttor, Kapellen",
+  "kind": "landmark",
+  "lat": 47.377381,
+  "lon": 8.507175,
+  "radius": 110
+ },
+ {
+  "id": "loewenbrunnen",
+  "name": "Loewenbrunnen Schmiede Wiedikon",
+  "kind": "landmark",
+  "lat": 47.37002,
+  "lon": 8.520509,
+  "radius": 60
+ },
+ {
+  "id": "krematorium_haupttor",
+  "name": "Friedhof Sihlfeld Haupttor (Eingang)",
+  "kind": "landmark",
+  "lat": 47.377081,
+  "lon": 8.506675,
+  "radius": 50
+ },
+ {
+  "id": "helvetiaplatz",
+  "name": "Helvetiaplatz",
+  "kind": "place",
+  "lat": 47.3762,
+  "lon": 8.5258,
+  "radius": 100
+ },
+ {
+  "id": "langstrasse",
+  "name": "Langstrasse (Ecke Militaerstrasse)",
+  "kind": "place",
+  "lat": 47.379,
+  "lon": 8.5265,
+  "radius": 110
+ },
+ {
+  "id": "baeckeranlage",
+  "name": "Baeckeranlage",
+  "kind": "place",
+  "lat": 47.3778,
+  "lon": 8.5235,
+  "radius": 100
+ },
+ {
+  "id": "kasernenareal",
+  "name": "Kasernenareal",
+  "kind": "place",
+  "lat": 47.3775,
+  "lon": 8.533,
+  "radius": 130
+ },
+ {
+  "id": "josefwiese",
+  "name": "Josefwiese",
+  "kind": "place",
+  "lat": 47.38585,
+  "lon": 8.5231,
+  "radius": 100
+ },
+ {
+  "id": "roentgenplatz",
+  "name": "Roentgenplatz",
+  "kind": "place",
+  "lat": 47.3852,
+  "lon": 8.5268,
+  "radius": 90
+ },
+ {
+  "id": "idaplatz",
+  "name": "Idaplatz",
+  "kind": "place",
+  "lat": 47.3742,
+  "lon": 8.5195,
+  "radius": 90
+ },
+ {
+  "id": "albisriederplatz",
+  "name": "Albisriederplatz",
+  "kind": "place",
+  "lat": 47.37815,
+  "lon": 8.5103,
+  "radius": 110
+ },
+ {
+  "id": "lindenplatz",
+  "name": "Lindenplatz Altstetten",
+  "kind": "place",
+  "lat": 47.388,
+  "lon": 8.484,
+  "radius": 100
+ },
+ {
+  "id": "limmatplatz",
+  "name": "Limmatplatz",
+  "kind": "place",
+  "lat": 47.3847,
+  "lon": 8.5316,
+  "radius": 110
+ },
+ {
+  "id": "escher_wyss_platz",
+  "name": "Escher-Wyss-Platz",
+  "kind": "place",
+  "lat": 47.3889,
+  "lon": 8.5195,
+  "radius": 110
+ },
+ {
+  "id": "turbinenplatz",
+  "name": "Turbinenplatz",
+  "kind": "place",
+  "lat": 47.3898,
+  "lon": 8.5167,
+  "radius": 100
+ },
+ {
+  "id": "stauffacher",
+  "name": "Stauffacher",
+  "kind": "place",
+  "lat": 47.373,
+  "lon": 8.529,
+  "radius": 100
+ },
+ {
+  "id": "bullingerplatz",
+  "name": "Bullingerplatz",
+  "kind": "place",
+  "lat": 47.37965,
+  "lon": 8.516,
+  "radius": 90
+ },
+ {
+  "id": "hardplatz",
+  "name": "Hardplatz",
+  "kind": "place",
+  "lat": 47.3825,
+  "lon": 8.5147,
+  "radius": 90
+ },
+ {
+  "id": "hohlstrasse",
+  "name": "Hohlstrasse (Kreis 4, Ecke Langstrasse)",
+  "kind": "place",
+  "lat": 47.3775,
+  "lon": 8.525,
+  "radius": 110
+ },
+ {
+  "id": "zentralwaescherei",
+  "name": "Zentralwaescherei",
+  "kind": "place",
+  "lat": 47.3871,
+  "lon": 8.5204,
+  "radius": 90
+ },
+ {
+  "id": "rosa_luxemburg_platz",
+  "name": "Rosa-Luxemburg-Platz (Hohlstrasse 444, K9)",
+  "kind": "place",
+  "lat": 47.388495,
+  "lon": 8.497278,
+  "radius": 80
+ }
+]

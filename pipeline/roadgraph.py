@@ -125,6 +125,31 @@ def main():
             if not oneway:
                 add(bikes, b, a, offset(bwd, od), 15, w, 0)
 
+    # construction sites: no lane through trenches, barriers or fences (sites.blocked_zones); lanes that end in a
+    # blocked edge become dead ends and are pruned too
+    import sites
+    from shapely.geometry import LineString
+    from shapely.strtree import STRtree
+    zones = sites.blocked_zones()
+    tree = STRtree(zones) if zones else None
+
+    def blocked(e):
+        return tree is not None and len(tree.query(LineString(np.array(e["p"]).reshape(-1, 2)), predicate="intersects")) > 0
+
+    for name, es in (("cars", cars), ("bikes", bikes)):
+        had_out = {e["a"] for e in es}
+        n0 = len(es)
+        es[:] = [e for e in es if not blocked(e)]
+        n1 = len(es)
+        while True:
+            outs = {e["a"] for e in es}
+            dead = [e for e in es if e["b"] not in outs and e["b"] in had_out]
+            if not dead:
+                break
+            ids = {id(e) for e in dead}
+            es[:] = [e for e in es if id(e) not in ids]
+        print(f"construction sites: {name} {n0 - n1} edges blocked + {n1 - len(es)} dead ends pruned")
+
     # report
     def comps(es):
         par = {}

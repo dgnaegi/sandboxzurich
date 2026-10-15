@@ -9,7 +9,7 @@ export function setNight(v: number): void { nightUniform.value = v; }
  * selected per vertex (uv1.x), UVs in repeats (uv), vertex colour = tint applied where the mask (alpha) is set.
  */
 export async function loadWorldMaterial(base: string, anisotropy: number): Promise<THREE.Material> {
-  const meta = await (await fetch(`${base}/layers.json`)).json() as { size: number; cols: number; count: number; facades: number; shops_end: number; normals: number; layers?: string[]; shops2?: [number, number] };
+  const meta = await (await fetch(`${base}/layers.json`)).json() as { size: number; cols: number; count: number; facades: number; shops_end: number; normals: number; normals3?: number; facades3?: [number, number]; layers?: string[]; shops2?: [number, number] };
   const [rgb, mask, nimg] = await Promise.all([loadImage(`${base}/atlas.webp`), loadImage(`${base}/atlas_mask.png`), loadImage(`${base}/atlas_n.webp`)]);
   const L = meta.size, n = meta.count;
   const pix = (img: HTMLImageElement) => {
@@ -31,7 +31,7 @@ export async function loadWorldMaterial(base: string, anisotropy: number): Promi
     }
   }
   // normal array (R,G = normal xy, B = roughness, unused with Lambert): only the layers that have one
-  const nn = meta.normals, nd = new Uint8Array(L * L * 4 * nn), np_ = pix(nimg);
+  const nn = meta.normals + (meta.normals3 ?? 0), nd = new Uint8Array(L * L * 4 * nn), np_ = pix(nimg);
   for (let k = 0; k < nn; k++) {
     const ox = (k % meta.cols) * L, oy = Math.floor(k / meta.cols) * L;
     for (let y = 0; y < L; y++) {
@@ -54,6 +54,7 @@ export async function loadWorldMaterial(base: string, anisotropy: number): Promi
   const tex = setup(new THREE.DataArrayTexture(data, L, L, n), true);
   const ntex = setup(new THREE.DataArrayTexture(nd, L, L, nn), false);
   const F = meta.facades.toFixed(1), S = meta.shops_end.toFixed(1), N = meta.normals.toFixed(1);
+  const [A3, B3] = (meta.facades3 ?? [9999, 9999]).map((v) => v.toFixed(1));
 
   const mat = new THREE.MeshLambertMaterial({ vertexColors: true });
   mat.onBeforeCompile = (sh) => {
@@ -65,11 +66,12 @@ export async function loadWorldMaterial(base: string, anisotropy: number): Promi
       .replace('#include <beginnormal_vertex>', '#include <beginnormal_vertex>\nvWN = normalize(mat3(modelMatrix) * objectNormal);')
       .replace('#include <begin_vertex>', '#include <begin_vertex>\nvTex = uv;\nvLayer = uv1.x;\nvWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;');
     sh.fragmentShader = sh.fragmentShader
-      .replace('#include <common>', '#include <common>\nuniform highp sampler2DArray atlas;\nuniform highp sampler2DArray normalAtlas;\nuniform float night;\nvarying vec2 vTex;\nvarying float vLayer;\nvarying vec3 vWorld;\nvarying vec3 vWN;\n' + nightFn(F, S, shopHours(meta, F), (meta.shops2?.[0] ?? 9999).toFixed(1)))
+      .replace('#include <common>', '#include <common>\nuniform highp sampler2DArray atlas;\nuniform highp sampler2DArray normalAtlas;\nuniform float night;\nvarying vec2 vTex;\nvarying float vLayer;\nvarying vec3 vWorld;\nvarying vec3 vWN;\n' + nightFn(F, S, shopHours(meta, F), (meta.shops2?.[0] ?? 9999).toFixed(1), (meta.shops2?.[1] ?? 9999).toFixed(1), A3, B3))
       .replace('#include <color_fragment>',
         'vec4 tx = texture(atlas, vec3(vTex, floor(vLayer + 0.5)));\n' +
-        'diffuseColor.rgb *= tx.rgb * mix(vec3(1.0), vColor.rgb, tx.a);')
-      .replace('#include <normal_fragment_maps>', '#include <normal_fragment_maps>\n' + normalPatch(N))
+        'float fl3 = step(' + A3 + ' - 0.5, vLayer) * step(vLayer, ' + B3 + ' - 0.5);\n' +
+        'diffuseColor.rgb *= tx.rgb * mix(vec3(1.0), vColor.rgb * mix(1.0, 1.35, fl3), tx.a);')
+      .replace('#include <normal_fragment_maps>', '#include <normal_fragment_maps>\n' + normalPatch(N, A3, B3))
       .replace('#include <emissivemap_fragment>', '#include <emissivemap_fragment>\ntotalEmissiveRadiance += nightEmissive(tx, floor(vLayer + 0.5), vWorld);');
   };
   return mat;
@@ -77,13 +79,14 @@ export async function loadWorldMaterial(base: string, anisotropy: number): Promi
 
 /** Wall normal map: tangent frame from the (vertical) wall normal and world up, so no tangent attribute is needed.
  *  T = up x N (texture u), B = up (texture v up); skipped for ground/roofs and non-vertical faces. */
-const normalPatch = (N: string) => `
+const normalPatch = (N: string, A: string, B: string) => `
 {
   float nl = floor(vLayer + 0.5);
-  if (nl < ${N} && abs(vWN.y) < 0.5) {
+  float ni = nl < ${N} ? nl : (nl > ${A} - 0.5 && nl < ${B} - 0.5 ? ${N} + nl - ${A} : -1.0);
+  if (ni > -0.5 && abs(vWN.y) < 0.5) {
     vec3 wn = normalize(vWN);
     vec3 T = normalize(cross(vec3(0.0, 1.0, 0.0), wn));
-    vec2 xy = (texture(normalAtlas, vec3(vTex, nl)).rg * 2.0 - 1.0) * 0.9;
+    vec2 xy = (texture(normalAtlas, vec3(vTex, ni)).rg * 2.0 - 1.0) * 0.9;
     vec3 pw = T * xy.x + vec3(0.0, 1.0, 0.0) * xy.y + wn * sqrt(max(1.0 - dot(xy, xy), 0.05));
     normal = normalize((viewMatrix * vec4(pw, 0.0)).xyz) * faceDirection;
   }
@@ -100,13 +103,14 @@ function shopHours(meta: { facades: number; shops_end: number; layers?: string[]
 }
 
 /** Layers: facades [0,F), shopfronts [F,S), then brandmauer, roofs, ground. Windows light up per cell (world hash). */
-const nightFn = (F: string, S: string, hours: string, E: string) => `
+const nightFn = (F: string, S: string, hours: string, E: string, E2: string, A3: string, B3: string) => `
 ${hours}
 float hash31(vec3 p){ p = fract(p * vec3(0.1031, 0.1030, 0.0973)); p += dot(p, p.yxz + 33.33); return fract((p.x + p.y) * p.z); }
 vec3 nightEmissive(vec4 tx, float ly, vec3 wp){
-  bool shop2 = ly > ${E} - 0.5;
-  if (night < 0.01 || (ly > ${S} - 0.5 && !shop2)) return vec3(0.0);
-  if (ly > ${F} - 0.5 || shop2) {                                                // shopfronts: mask (alpha) = lit glass / neon, wall stays dark
+  bool fac3 = ly > ${A3} - 0.5 && ly < ${B3} - 0.5;                              // v3 facades (appended after the roofs)
+  bool shop2 = ly > ${E} - 0.5 && !fac3 && ly < ${E2} - 0.5;
+  if (night < 0.01 || (ly > ${S} - 0.5 && !shop2 && !fac3)) return vec3(0.0);
+  if ((ly > ${F} - 0.5 && !fac3) || shop2) {                                                // shopfronts: mask (alpha) = lit glass / neon, wall stays dark
     float k = shop2 ? ly - ${E} + (${S} - ${F}) : ly - ${F};
     // opening hours: per ~12 m cell of wall; bars/clubs always open, offices/vacant never, closed shops keep a faint window display
     float open = step(hash31(vec3(floor(wp.x / 12.0), floor(wp.z / 12.0), 5.0)), shopOpen(k));

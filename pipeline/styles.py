@@ -5,6 +5,7 @@ from gen_textures import LAYERS, SHOPS
 from gen_shopfronts import BASE
 
 LAYER = {n: i for i, n in enumerate(LAYERS)}
+LAYER_NAME = {i: n for n, i in LAYER.items()}
 
 # Zürich plaster tints (sRGB): cream, ochre, light grey, salmon, pale green, white, sand, pale blue
 TINTS = [(240, 226, 196), (232, 200, 140), (214, 212, 206), (236, 196, 176), (206, 222, 200),
@@ -33,7 +34,7 @@ JUG = ["jugend_a", "jugend_b"]
 GEN = ["genoss_a", "genoss_b", "genoss_c"]
 B50 = ["block50_a", "block50_b", "block60_a"]
 B70 = ["waschbeton_a", "waschbeton_b"]
-NEU = ["neubau_a", "neubau_b", "neubau_c"]
+NEU = ["neubau_a", "neubau_a", "neubau_c", "neubau_c", "neubau_b"]  # b (stone panels) is the rarest: it read as a grey window grid
 GEW = ["gewerbe_a", "gewerbe_b", "gewerbe_c"]
 BUR = ["buero_a", "buero_b", "buero_c"]
 
@@ -63,6 +64,63 @@ def roof_override(osm):
     return tuple(o["roof"]) if "roof" in o else None
 
 
+import numpy as np  # noqa: E402
+
+GAIN3 = 1.35  # facade v3 layers: the shader multiplies the vertex tint by this (bright neutral base can reach light colours)
+_BASE3 = {}
+
+
+def _lin(a):
+    a = np.asarray(a, np.float64)
+    return np.where(a <= .04045, a / 12.92, ((a + .055) / 1.055) ** 2.4)
+
+
+def exact_tint(layer_name, rgb):
+    """Vertex tint (sRGB 0-255) that makes the neutral v3 layer show colour `rgb` (sRGB) on its tintable pixels."""
+    if not _BASE3:
+        f = Path(__file__).parent.parent / "data" / "build" / "facades" / "base_means.json"
+        _BASE3.update(json.load(open(f)) if f.exists() else {})
+    base = _BASE3.get(layer_name)
+    if base is None:
+        return tuple(rgb)
+    t = np.clip(_lin(np.asarray(rgb) / 255) / (np.asarray(base) * GAIN3), 0, 1)
+    s = np.where(t <= .0031308, t * 12.92, 1.055 * t ** (1 / 2.4) - .055)
+    return tuple(int(round(v * 255)) for v in s)
+
+
+def v3_layer_name(v, height=20.0, year=None):
+    """Facade layer (v3 family) for a structured note, or None when the note does not describe a plaster/brick/stone Altbau."""
+    mat, win, sh, ext, st = v.get("mat"), v.get("win"), v.get("shutter"), v.get("ext") or [], v.get("style")
+    if st is None and year:
+        st = "g" if year < 1919 else "h" if year < 1946 else "5" if year < 1960 else None
+    if st in ("g", "j") or (st is None and mat in ("K", "S")):
+        if mat == "K":
+            return "k3_klinker_" + ("b" if win == "a" else "c" if win == "h" else "a")
+        if mat == "S":
+            return "k3_sand_" + ("b" if win == "a" else "a")
+        if mat not in (None, "P"):
+            return None
+        bal = "balkon" in ext or "balkone" in ext
+        if win == "a" or st == "j":
+            return "g3_arch_" + ("g" if sh == "g" else "n")
+        if win == "h" or "verdachung" in ext:
+            return "g3_hood_" + (sh if sh in ("g", "s") else "n")
+        if sh in ("g", "s", "b", "u"):
+            return "g3_plain_" + sh
+        if sh == "r":
+            return "g3_plain_b"
+        return "g3_plain_n" if bal else "g3_flat_n"
+    if st == "h":
+        return "e3_gen_" + (sh if sh in ("g", "b", "u") else "n")
+    if st == "5":
+        if mat == "K":
+            return "k3_klinker_50"
+        return "n3_50_" + ("s" if sh == "s" else "n")
+    if st == "6" and mat in (None, "P") and win in ("b", None):
+        return "n3_band60"
+    return None
+
+
 def building_style(bid, btype, height, osm=None):
     """Return (facade layer, tint) for a building. `osm` = tags of the matching OSM building (use, colour, name)."""
     h = h32(bid)
@@ -71,6 +129,14 @@ def building_style(bid, btype, height, osm=None):
     if o:  # hand-checked landmark (pipeline/overrides/buildings.json)
         return pick(h, [(1, globals()[o["style"]])]), tuple(o.get("tint", TINTS[0]))
     vis = osm.get("_visual")
+    if vis and vis.get("v3"):  # structured photo / text notes -> v3 layers with exact colour
+        v3 = vis["v3"]
+        g = osm.get("_gwr") or {}
+        nm = v3_layer_name(v3, height, int(g.get("year") or 0) or None) if (vis.get("photo") or v3.get("style") in ("g", "j", "h", "5", "6")
+                                                                     or v3.get("mat") in ("K", "S")) else None
+        if nm:
+            rgb = vis.get("tint") or TINTS[(h >> 4) % len(TINTS)]
+            return LAYER[nm], exact_tint(nm, rgb)
     if vis and vis.get("style"):  # seen on a reference photo (research/buildings/visual_notes.json)
         return pick(h, [(1, globals()[vis["style"]])]), tuple(vis["tint"] or TINTS[(h >> 4) % len(TINTS)])
     vis_tint = (osm.get("_visual") or {}).get("tint")

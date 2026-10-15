@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { CAR_GEO, carMaterial, carPick } from './cars';
+import { parkedCars } from './parkedcars';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { glowMaterialPatch } from '../engine/daytime';
 import { nightUniform } from '../engine/materials';
@@ -154,6 +155,7 @@ export function buildProps(meta: PropMeta, shadows: boolean): THREE.Object3D[] {
     rows.forEach((r, i) => {
       im.setMatrixAt(i, m4.compose(p.set(r[0], r[2], -r[1]), q.setFromAxisAngle(Y, -r[3]), s.set(1, 1, 1)));
       im.setColorAt(i, carPick(r[4]).color);
+      parkedCars.add({ mesh: im, i, x: r[0], y: r[1], z: r[2], h: r[3], type: t, color: carPick(r[4]).color, taken: false });
     });
     im.castShadow = shadows;
     im.computeBoundingSphere();

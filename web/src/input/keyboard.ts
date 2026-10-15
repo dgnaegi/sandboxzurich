@@ -9,6 +9,7 @@ export function initKeyboardMouse(canvas: HTMLCanvasElement) {
     const l = Math.hypot(f, r) || 1;
     actions.move.x = r / l;
     actions.move.y = f / l;
+    actions.kb.x = r; actions.kb.y = f;
     actions.run = down.has('ShiftLeft') || down.has('ShiftRight');
   };
   window.addEventListener('keydown', (e) => {

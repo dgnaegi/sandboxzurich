@@ -46,7 +46,7 @@ def parse(nodes, els):
     area = box(*AREA).buffer(40)
     checks = poi_checks()
     ways, plazas, cycle, tram, parks, trees, crossings, pois, benches = [], [], [], [], [], [], [], [], []
-    extras = {"hydrants": [], "bollards": [], "pingpong": [], "signals": []}
+    extras = {"hydrants": [], "bollards": [], "pingpong": [], "signals": [], "platforms": [], "painted_islands": []}
     for e in els:
         t = e.get("tags", {})
         if e["type"] == "node":
@@ -109,6 +109,10 @@ def parse(nodes, els):
             extras["pingpong"].append((c.x, c.y))
         if t.get("railway") == "tram" and not tunnel:
             tram.append(line)
+        if t.get("area:highway") == "traffic_island" and pts[0] == pts[-1] and len(pts) >= 4:
+            extras["painted_islands"].append(Polygon(pts).buffer(0))  # painted Sperrfläche (streets_islands.hatch)
+        if t.get("tram") == "yes" and t.get("public_transport") == "platform" and pts[0] != pts[-1]:
+            extras["platforms"].append((line, t))  # tram stop platform edge (streets_islands.py)
         if (t.get("leisure") in ("park", "playground", "garden") or t.get("landuse") in ("grass", "village_green")) \
                 and pts[0] == pts[-1] and len(pts) >= 4:
             parks.append(Polygon(pts).buffer(0))

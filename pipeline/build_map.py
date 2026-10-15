@@ -1,6 +1,6 @@
 """Render the arcade-style map of Kreise 3/4/5/9 from OSM + Kreis borders, and resolve jump points.
 
-Outputs web/public/map/map.webp, map.json (scale, origin, kreise, places). Usage: .venv/bin/python pipeline/build_map.py
+Outputs web/public/map/map.json (jump points, Kreise; the drawing itself is pipeline/mapdata.py) (scale, origin, kreise, places). Usage: .venv/bin/python pipeline/build_map.py
 """
 import json
 
@@ -106,7 +106,7 @@ def main():
         d.text((lx - tw / 2 + 3, ly + 3), text, font=f, fill=(0, 0, 0))
         d.text((lx - tw / 2, ly), text, font=f, fill=(255, 255, 255))
     img = img.filter(ImageFilter.SMOOTH)
-    img.save(OUT / "map.webp", quality=80, method=6)
+    # raster base map retired: the game now draws vector data from pipeline/mapdata.py
 
     places = []
     for p in json.load(open(ROOT / "pipeline" / "overrides" / "places.json"))["places"]:
@@ -126,7 +126,7 @@ def main():
     meta = {"mpp": MPP, "x0": x0, "y1": y1, "w": W, "h": H, "built": list(AREA), "polygon": POLYGON, "places": places,
             "kreise": {KREIS_LABEL[n]: np.round(np.asarray(p.exterior.coords), 1).tolist() for n, p in K.items()}}
     json.dump(meta, open(OUT / "map.json", "w"), separators=(",", ":"))
-    print(f"map {W}x{H}, {(OUT / 'map.webp').stat().st_size // 1024} KB;",
+    print(f"map meta {W}x{H};",
           ", ".join(f"{p['name']}({p['src']}{',built' if p['built'] else ''})" for p in places))
 
 

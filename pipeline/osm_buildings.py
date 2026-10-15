@@ -7,7 +7,7 @@ Gone: swissBUILDINGS3D building (> 40 m2) with < 15 % of its footprint covered b
 Output buildings use the swissBUILDINGS3D dict format, so facade.add_building treats them the same.
 """
 import shapely
-from shapely.geometry import Polygon
+from shapely.geometry import LineString, Polygon
 from shapely.strtree import STRtree
 import numpy as np
 
@@ -32,6 +32,28 @@ def _osm_footprints(nodes, els):
         g = Polygon(pts).buffer(0)
         if g.geom_type == "Polygon" and g.area > 12:
             out.append((e["id"], g, t))
+    # multipolygon relations (large complexes, e.g. Westpark Pfingstweidstrasse 60): without them such
+    # buildings count as "demolished since 2019"
+    ways = {e["id"]: e.get("nodes", []) for e in els if e["type"] == "way"}
+    for e in els:
+        t = e.get("tags") or {}
+        b = t.get("building")
+        if e["type"] != "relation" or t.get("type") != "multipolygon" or not b or b in SKIP:
+            continue
+        rings = {"outer": [], "inner": []}
+        for m in e.get("members", []):
+            ids = ways.get(m.get("ref")) if m.get("type") == "way" else None
+            pts = [nodes[n] for n in ids or [] if n in nodes]
+            if len(pts) >= 2 and m.get("role") in rings:
+                rings[m["role"]].append(LineString(pts))
+        outer = shapely.union_all(list(shapely.polygonize(rings["outer"]).geoms)) if rings["outer"] else None
+        if outer is None or outer.is_empty:
+            continue
+        if rings["inner"]:
+            outer = outer.difference(shapely.union_all(list(shapely.polygonize(rings["inner"]).geoms)))
+        for k, g in enumerate(shapely.get_parts(outer.buffer(0))):
+            if g.geom_type == "Polygon" and g.area > 12:
+                out.append((-(e["id"] * 10 + k), g, t))  # negative ids: no clash with way ids
     return out
 
 

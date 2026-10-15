@@ -1,10 +1,13 @@
 """Textured LOD2 building meshes: facade bays/floors as UVs, shopfronts on street-facing ground floors."""
 import mapbox_earcut as earcut
+import json
+import os
 import numpy as np
 from shapely.geometry import Polygon, box
 
 from mesh import tri3d
-from styles import h32, roof_override, BAY_W, FLOOR_H, LAYER, SHOP_H, building_style, shop_layer
+import facade_trim
+from styles import LAYER_NAME, h32, roof_override, BAY_W, FLOOR_H, LAYER, SHOP_H, building_style, shop_layer
 
 
 ROOF_TINTS = [(255, 255, 255), (235, 205, 190), (205, 175, 160), (185, 170, 165), (150, 150, 155), (245, 225, 210)]
@@ -70,7 +73,7 @@ def _wall(mesh, a, n, tint, layer, z0, shop, shop_lay, tile_h=FLOOR_H):
             tri[cr < 0] = tri[cr < 0][:, ::-1]
             uv = np.column_stack([(uz[:, 0] - u0) * su, -(uz[:, 1] - zb) / hv])
             mesh.add(pts, tri, nrm, col, uv=uv, layer=lay)
-    return (u0, u1, t, nh, d, width)
+    return (u0, u1, t, nh, d, width, su, z0 + (SHOP_H if shop else 0.0), tile_h)
 
 
 def add_building(mesh, b, street_dist, neighbour=lambda x, y: False):
@@ -80,6 +83,11 @@ def add_building(mesh, b, street_dist, neighbour=lambda x, y: False):
     height = float(zs.max() - z0)
     osm = b.get("osm", {})
     layer, tint = building_style(b["id"], b["type"], height, osm)
+    if os.environ.get("SBZ_STYLE_LOG"):  # debugging: which style did each building get?
+        with open(os.environ["SBZ_STYLE_LOG"], "a") as f:
+            f.write(json.dumps([b["id"], [round(float(v), 1) for v in b["center"][:2]], round(height, 1), layer, list(tint),
+                                osm.get("_visual"), (osm.get("_gwr") or {}).get("period"), (osm.get("_gwr") or {}).get("class"),
+                                osm.get("name")], default=str) + "\n")
     shop_ok = b.get("shops", False) and height > 6 and layer >= 0
     # storey height from the real eave height: windows line up with the roof instead of a fixed 3.2 m grid
     tops = [float(p[:, 2].max()) for k, p in b["polys"] if k == 1 and len(p) >= 3]
@@ -93,6 +101,10 @@ def add_building(mesh, b, street_dist, neighbour=lambda x, y: False):
     except ValueError:
         pass
     tile_h = 4 * avail / floors
+    lname = LAYER_NAME.get(layer, "")
+    trim = lname.startswith(("g3_", "k3_"))          # v3 Altbau: eave cornice (+ bay windows when the notes say so)
+    want_erker = trim and "erker" in ((osm.get("_visual") or {}).get("v3") or {}).get("ext", [])
+    n_erker = 0
     segs = []
     k = 0
     for kind, a in b["polys"]:
@@ -114,14 +126,20 @@ def add_building(mesh, b, street_dist, neighbour=lambda x, y: False):
             kind = nearest_kind(b, mid) if shop else None
             seg = _wall(mesh, a, n, tint, LAYER.get("brandmauer", layer) if party else layer, z0, shop, shop_layer(b["id"], k, kind), tile_h)
             k += 1
+            if trim and seg and not party and seg[5] > 3.0:
+                facade_trim.cornice(mesh, seg, eave, tuple(min(255, c * 1.04) for c in tint))
+                if want_erker and n_erker < 2 and floors >= 4 and street_dist(mid[0] + n[0] * 3, mid[1] + n[1] * 3) < 14:
+                    z_lo = z0 + (SHOP_H if shop_ok else 3.2)
+                    if facade_trim.erker(mesh, seg, z_lo, min(eave - 0.5, z_lo + 6.3), layer, tint, h32(b["id"]) + k):
+                        n_erker += 1
             if not shop and seg and seg[5] > 3.2 and a[:, 2].min() < z0 + 1.5 \
                     and street_dist(mid[0] + n[0] * 3, mid[1] + n[1] * 3) < 7:
-                u0, u1, t, nh, d, w = seg
+                u0, u1, t, nh, d, w = seg[:6]
                 c = (u0 + u1) / 2 * t + d * nh
                 segs.append({"x": float(c[0]), "y": float(c[1]), "z": z0 + 1.75, "tx": float(t[0]), "ty": float(t[1]),
                              "w": float(w), "bid": b["id"], "blank": True})
             if shop and seg and seg[5] > 3.5:
-                u0, u1, t, nh, d, w = seg
+                u0, u1, t, nh, d, w = seg[:6]
                 c = (u0 + u1) / 2 * t + d * nh
                 segs.append({"x": float(c[0]), "y": float(c[1]), "z": z0 + 3.45, "tx": float(t[0]), "ty": float(t[1]),
                              "w": float(w), "bid": b["id"]})

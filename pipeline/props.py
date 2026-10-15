@@ -283,18 +283,10 @@ def decals(S, tb, H, curb=0.12):
                 elif enter == "t30" and other not in ("z30", "t30") and w["hw"] in ("primary", "secondary", "tertiary"):
                     ss = min(max(s + sgn * 10, 5), L - 5)
                     add(ln.interpolate(ss), heading(ln, ss) + (0 if sgn > 0 else np.pi), 6)
-    # straight arrows before the stop line of signalised approaches that continue across the junction
-    for a in streets.signal_arms(S):
-        if not a["cont"] or a["half"] < 3.2 or not near.contains(Point(*a["p"])):
-            continue
-        t = a["t"]
-        r = np.array([t[1], -t[0]])
-        usable = a["half"] - (1.6 if streets.has_lane(a["way"], "right" if a["sgn"] > 0 else "left", a["s"]) else 0.0) - 0.25
-        lanes = max(1, int(usable // 3.1)) if not a["oneway"] else max(1, int((a["half"] * 2 - 0.5) // 3.1))
-        base = np.array(a["p"]) - t * 9.0
-        for i in range(min(lanes, 2)):
-            c = base + r * ((1.7 + 3.1 * i) if not a["oneway"] else (a["half"] - 1.7 - 3.1 * i))
-            add(Point(*c), np.arctan2(t[0], t[1]), 4)
+    # lane arrows (left / straight / right / combined) before the stop line of signalised approaches
+    import streets_arrows
+    for x, y, h, k in streets_arrows.arrows(S, near):
+        add(Point(x, y), h, k)
     return out
 
 

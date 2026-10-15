@@ -9,6 +9,7 @@ export class Audio {
   private sirenOsc: OscillatorNode | null = null;
   private sirenGain: GainNode | null = null;
   private birdT = 0;
+  private eng: { o1: OscillatorNode; o2: OscillatorNode; g: GainNode; lp: BiquadFilterNode; tyre: GainNode } | null = null;
   muted = false;
 
   constructor() {
@@ -45,6 +46,39 @@ export class Audio {
   /** Short double honk. */
   honk() { if (!this.ctx) return; const t = this.ctx.currentTime; this.tone(392, t, 0.18, 'square', 0.06); this.tone(370, t + 0.22, 0.25, 'square', 0.06); }
   bikeBell() { if (!this.ctx) return; const t = this.ctx.currentTime; this.tone(2637, t, 0.35, 'sine', 0.15); this.tone(2637, t + 0.12, 0.4, 'sine', 0.12); }
+  /** Car door / thud on impact. */
+  carDoor() { if (!this.ctx) return; const t = this.ctx.currentTime; this.tone(160, t, 0.12, 'square', 0.12, 0.5); this.tone(95, t + 0.05, 0.14, 'sine', 0.2, 0.6); }
+  carCrash(strength: number) {
+    if (!this.ctx) return; const t = this.ctx.currentTime;
+    this.tone(120, t, 0.25, 'sawtooth', 0.08 + 0.2 * strength, 0.4); this.tone(60, t, 0.3, 'sine', 0.15 + 0.3 * strength, 0.5);
+  }
+  /**
+   * Engine + tyre noise while driving. rpm 0..1, load 0..1, slip = lateral/braking squeal amount. Called every frame
+   * while driving and once with on = false to fade it out.
+   */
+  engine(rpm: number, load: number, slip: number, on: boolean, speed = 0) {
+    if (!this.ctx) return;
+    const ctx = this.ctx;
+    if (!this.eng) {
+      const o1 = ctx.createOscillator(), o2 = ctx.createOscillator(), g = ctx.createGain(), lp = ctx.createBiquadFilter();
+      o1.type = 'sawtooth'; o2.type = 'square'; lp.type = 'lowpass'; g.gain.value = 0;
+      o1.connect(lp); o2.connect(lp); lp.connect(g).connect(this.master); o1.start(); o2.start();
+      // tyre / road noise: looping noise through a band-pass
+      const len = ctx.sampleRate * 2, buf = ctx.createBuffer(1, len, ctx.sampleRate), d = buf.getChannelData(0);
+      for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+      const src = ctx.createBufferSource(); src.buffer = buf; src.loop = true;
+      const bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 900; bp.Q.value = 0.7;
+      const tyre = ctx.createGain(); tyre.gain.value = 0;
+      src.connect(bp).connect(tyre).connect(this.master); src.start();
+      this.eng = { o1, o2, g, lp, tyre };
+    }
+    const e = this.eng, t = ctx.currentTime;
+    const f = 38 + rpm * 95;
+    e.o1.frequency.setTargetAtTime(f, t, 0.05); e.o2.frequency.setTargetAtTime(f * 0.5, t, 0.05);
+    e.lp.frequency.setTargetAtTime(260 + rpm * 500 + load * 700, t, 0.08);
+    e.g.gain.setTargetAtTime(on ? 0.035 + 0.05 * load + 0.02 * rpm : 0, t, 0.1);
+    e.tyre.gain.setTargetAtTime(on ? Math.min(0.1, Math.abs(speed) * 0.0022 + Math.min(1, slip) * 0.06) : 0, t, 0.1);
+  }
   jingle(ok: boolean) {
     if (!this.ctx) return; const t = this.ctx.currentTime;
     (ok ? [523, 659, 784, 1047] : [392, 330, 262]).forEach((f, i) => this.tone(f, t + i * 0.13, 0.35, 'square', 0.08));

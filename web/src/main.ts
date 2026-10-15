@@ -14,7 +14,8 @@ import { loadTrees } from './world/trees';
 import { CAR_GEO, carMaterial, carPick, loadCars } from './world/cars';
 import { Scenes } from './world/scenes';
 import { Lawns } from './world/lawns';
-import { Events, WEEKDAYS } from './world/events';
+import { Events } from './world/events';
+import { GameClock, bindClockPanel } from './ui/clock';
 import { Bikes, loadBikes } from './world/bikes';
 import { loadFurniture } from './world/props';
 import { updateSignals } from './world/trafficsigns';
@@ -33,6 +34,10 @@ import { buildStops } from './world/stops';
 import { CityMap } from './ui/map';
 import { Menu } from './ui/menu';
 import { Audio } from './engine/audio';
+import { CarUse } from './player/vehicle_use';
+import { TrafficLights } from './world/trafficlights';
+import { parkedCars } from './world/parkedcars';
+import type { Obb } from './player/drive';
 
 // Spawn: Helvetiaplatz (local metres). ?at=x,y,yaw overrides it, ?t=HH:MM sets the time (screenshot tests).
 // quests: off (User designs them later); map-first phase: no police, no theft stars, no pop-up messages (User 2026-10-15)
@@ -90,6 +95,7 @@ async function main() {
   const rail = new Railways(scene, tiles.mat, mobile ? 0.62 : 1); // phone: tracks within ~260 m
   const WHITE = new THREE.Color(0xf4f4f2);
   const traffic = new Traffic(scene, ground, CAR_GEO, carMaterial, (k) => (k % 23 === 0 && CAR_GEO.police && GAMEPLAY ? { type: 'police', color: WHITE } : k % 13 === 0 && CAR_GEO.taxi ? { type: 'taxi', color: k % 2 ? WHITE : new THREE.Color(0x1a1c20) } : carPick(k)));
+  const trafficLights = new TrafficLights(scene);
   const scenes = new Scenes(humans, ground);
   // people waiting at tram/bus stops (groups of 3 next to the track, right-hand side)
   let stops: THREE.Group | null = null;
@@ -161,11 +167,22 @@ async function main() {
       }
     });
   };
-  map.onJump = (x, y) => { player.dismount(); jump(x, y); };
+  map.onJump = (x, y) => { if (player.driving) carUse.exit(); player.dismount(); jump(x, y); };
   const audio = new Audio();
   const menu = new Menu();
   menu.onMute = (m) => audio.setMuted(m);
   menu.onMap = () => map.toggle(true);
+  // wanted stars attach here later (map phase: off): car theft is only 'seen' in traffic
+  const onCarTheft = (kind: 'parked' | 'traffic') => {
+    if (GAMEPLAY && kind === 'traffic') { state.wanted(state.stars + 1); toast('AUTODIEBSTAHL', '★ Gesehen!', 'Jemand hat dich beim Auto-Klauen beobachtet.'); }
+  };
+  // cars: take parked or passing cars (E), drive with WASD/stick; obstacles for the driven car = traffic, trams, trains
+  const obb = (v: { x: number; y: number; heading: number }, len: number, wid: number): Obb => ({ x: v.x, y: v.y, fx: Math.cos(v.heading), fy: Math.sin(v.heading), hl: len / 2, hw: wid / 2 });
+  const carUse = new CarUse(player, tiles, traffic, humans, audio, renderer, scene, () => [
+    ...traffic.positions().map((v) => obb(v, v.kind === 'car' ? v.len : 1.8, v.kind === 'car' ? 1.8 : 0.6)),
+    ...transit.colliders().map((v) => obb(v, v.len, v.width)), ...rail.colliders().map((v) => obb(v, v.len, v.width)),
+  ], () => daytime.night);
+  carUse.onTheft = onCarTheft;
 
   const post = !mobile && !params.has('nopost') ? createPost(renderer, scene, camera) : null;
   const quality = new Quality(renderer, mobile, !!post);
@@ -178,13 +195,22 @@ async function main() {
   if (params.has('debug')) document.body.classList.add('debug');
 
   // --- interaction: bikes -------------------------------------------------------------------------------
+  // what E would do now: closest of bike and car
+  const pickTarget = () => {
+    const slot = bikes.nearest(player.x, player.y), car = carUse.nearest();
+    if (car && (!slot || car.d < Math.hypot(slot.x - player.x, slot.y - player.y))) return { kind: 'car' as const, car, slot: null };
+    return slot ? { kind: 'bike' as const, slot, car: null } : null;
+  };
   const use = () => {
+    if (player.driving) { carUse.requestExit(); return; }
     if (player.riding) {
       const left = player.dismount();
       if (left) bikes.drop(left.x, left.y, left.z, left.h, left.color);
       return;
     }
-    const slot = bikes.nearest(player.x, player.y);
+    const pick = pickTarget();
+    if (pick?.kind === 'car') { void carUse.enter(pick.car); return; }
+    const slot = pick?.slot;
     if (!slot) return;
     const own = slot.mesh === bikes.dropped;
     bikes.take(slot);
@@ -234,7 +260,10 @@ async function main() {
 
   // --- main loop ----------------------------------------------------------------------------------------
   // game calendar: 24 real minutes = 1 day; starts on a Friday unless ?day=0..6 (Mo..So)
-  let gameMin = startMinutes(), transitMin = gameMin, weekday = Number(params.get('day') ?? 4) % 7;
+  const clk = new GameClock(startMinutes(), Number(params.get('day') ?? 4) % 7, params.has('t') || params.has('day'));
+  bindClockPanel(clk);
+  (window as unknown as { sbxClock: GameClock }).sbxClock = clk;
+  let transitMin = clk.min;
   const clock = new THREE.Clock();
   let frames = 0, acc = 0, lastStream = 0, lastStats = 0, lastSave = 0;
   renderer.setAnimationLoop(() => {
@@ -242,10 +271,9 @@ async function main() {
     acc += dt;
     quality.tick(raw);
     renderer.info.reset();
-    if (map.open) { map.drawBig(player.x, player.y); return; }
+    if (map.open) { map.drawBig(player.x, player.y, player.heading); return; }
     if (menu.open) return;
-    gameMin += dt;                        // 1 game minute per real second
-    if (gameMin >= 1440) { gameMin -= 1440; weekday = (weekday + 1) % 7; }
+    clk.tick(dt);                         // 1 game minute per real second (x10 / x60 / paused via the clock panel)
     transitMin = (transitMin + dt / 60) % 1440; // vehicles run on real time
     if (consumeUse()) use();
     // cycling infrastructure: faster and shown on the radar while riding
@@ -254,16 +282,16 @@ async function main() {
     map.overlay = player.riding ? velo.lines.map((l) => l.p) : [];
     if (lane && !laneTipShown) { laneTipShown = true; toast('VELO-INFRASTRUKTUR', '+20 % Tempo', 'Auf Velowegen und Velostreifen kommst du schneller und sicherer voran.'); }
     player.update(dt, camera);
-    crowd.max = Math.round(quality.peds * density(gameMin, weekday));
-    crowd.clock(gameMin, weekday);
+    crowd.max = Math.round(quality.peds * density(clk.min, clk.day));
+    crowd.clock(clk.min, clk.day);
     // school run Mon–Fri: 07:30–08:15, 11:45–12:15, 15:30–16:30
-    crowd.schoolRun = weekday < 5 && ((gameMin >= 450 && gameMin < 495) || (gameMin >= 705 && gameMin < 735) || (gameMin >= 930 && gameMin < 990));
+    crowd.schoolRun = clk.day < 5 && ((clk.min >= 450 && clk.min < 495) || (clk.min >= 705 && clk.min < 735) || (clk.min >= 930 && clk.min < 990));
     crowd.update(dt, player.x, player.y);
     scenes.update(dt, player.x, player.y);
     anecdotes.update(dt, player.x, player.y);
     lawns.update(dt, player.x, player.y);
     updateBubble(dt);
-    events.update(dt, weekday, gameMin, player.x, player.y);
+    events.update(dt, clk.day, clk.min, player.x, player.y);
     // moving vehicles push the player aside (no damage, comic bump); blocked cars honk
     honkT -= dt;
     for (const v of traffic.positions()) {
@@ -274,12 +302,12 @@ async function main() {
         if (ahead > 2 && ahead < 8 && side < 1.2) { audio.honk(); honkT = 3 + Math.random() * 3; }
       }
       const c = Math.cos(v.heading), s = Math.sin(v.heading);
-      for (const o of [-1.3, 0, 1.3]) {
+      if (!player.driving) for (const o of [-1.3, 0, 1.3]) {
         const cx = v.x + c * o, cy = v.y + s * o, dx = player.x - cx, dy = player.y - cy, d = Math.hypot(dx, dy);
         if (d < 1.25 && d > 1e-3) { player.x = cx + (dx / d) * 1.25; player.y = cy + (dy / d) * 1.25; }
       }
     }
-    for (const v of [...transit.colliders(), ...rail.colliders()]) {
+    if (!player.driving) for (const v of [...transit.colliders(), ...rail.colliders()]) {
       const c = Math.cos(v.heading), s = Math.sin(v.heading), dx = player.x - v.x, dy = player.y - v.y;
       const along = dx * c + dy * s, across = -dx * s + dy * c, hl = v.len / 2 + 0.3, hw = v.width / 2 + 0.35;
       if (Math.abs(along) < hl && Math.abs(across) < hw) {
@@ -290,15 +318,17 @@ async function main() {
     transit.update(dt, transitMin, player.x, player.y);
     rail.update(dt, transitMin, player.x, player.y);
     landmarks3d.update(player.x, player.y);
-    traffic.update(dt, player.x, player.y, [{ x: player.x, y: player.y, r: 1.4 }]);
+    carUse.update(dt);
+    traffic.update(dt, player.x, player.y, player.driving ? player.driving.circlesWorld() : [{ x: player.x, y: player.y, r: 1.4 }]);
+    trafficLights.update(traffic.positions(), acc, daytime.night, ground, player.x, player.y);
     if (QUESTS) missions.update(dt, player.x, player.y, !!player.riding);
     if (GAMEPLAY && police.update(dt, player.x, player.y, state.stars)) { busted(); audio.jingle(false); }
     audio.update(dt, daytime.night, state.stars > 0, police.nearest(player.x, player.y));
     if ((frames & 63) === 0 && transit.colliders().some((v) => Math.hypot(v.x - player.x, v.y - player.y) < 25) && Math.random() < 0.3) audio.tramBell();
     state.tick(dt, police.nearest(player.x, player.y) < 50);
     updateSignals(acc);
-    if ((frames & 15) === 0) { setSignNight(daytime.night); updateSacks(weekday, gameMin); }
-    daytime.set(gameMin);
+    if ((frames & 15) === 0) { setSignNight(daytime.night); updateSacks(clk.day, clk.min); }
+    daytime.set(clk.min);
     daytime.follow(player.mesh.position);
     followSun(player.mesh.position);
     tiles.cull(player.x, player.y, quality.detailRadius);
@@ -309,7 +339,10 @@ async function main() {
 
     const blips = [...(QUESTS ? missions.blips() : []), ...(state.stars ? police.positions().map((p) => ({ ...p, color: frames % 20 < 10 ? '#3060ff' : '#ff3030' })) : [])];
     map.drawRadar(player.x, player.y, player.yaw, player.heading, blips);
-    const prompt = !player.riding && bikes.nearest(player.x, player.y) ? (mobile ? 'E = Velo nehmen' : 'E drücken: Velo nehmen') : player.riding && player.speed < 0.5 ? 'E = absteigen' : '';
+    const tgt = player.driving || player.riding ? null : pickTarget();
+    const prompt = player.driving ? (Math.abs(player.speed) < 3 ? (mobile ? 'E = aussteigen' : 'E drücken: aussteigen') : '')
+      : tgt?.kind === 'car' ? (mobile ? 'E = Auto nehmen' : 'E drücken: Auto nehmen')
+      : tgt?.kind === 'bike' ? (mobile ? 'E = Velo nehmen' : 'E drücken: Velo nehmen') : player.riding && player.speed < 0.5 ? 'E = absteigen' : '';
     $('prompt').style.display = prompt ? 'block' : 'none';
     $('prompt').textContent = prompt;
     if (QUESTS) $('mission').textContent = missions.hud();
@@ -319,11 +352,11 @@ async function main() {
       $('stats').textContent = `${Math.round(30 / (acc - lastStats))} fps · ${i.calls} calls · ${(i.triangles / 1000).toFixed(0)}k tris · q${quality.level} · ${(mem / 1e6) | 0} MB JS`;
       $('place-name').textContent = near?.name ?? '';
       $('place-kreis').textContent = map.kreisAt(player.x, player.y);
-      $('clock').textContent = `${WEEKDAYS[weekday]} ${String(Math.floor(gameMin / 60)).padStart(2, '0')}:${String(Math.floor(gameMin % 60)).padStart(2, '0')}`;
+      $('clock').textContent = clk.label();
       lastStats = acc;
     }
   });
-  Object.assign(window, { sbxReady: true, sbxPlayer: player, sbxScene: scene, sbxState: state, sbxBikes: bikes, sbxEvents: events, sbxTransit: transit, sbxRail: rail, sbxRenderer: renderer, sbxCamera: camera, sbxTiles: tiles }); // hooks for Playwright tests
+  Object.assign(window, { sbxReady: true, sbxPlayer: player, sbxScene: scene, sbxState: state, sbxBikes: bikes, sbxCarUse: carUse, sbxParked: parkedCars, sbxTraffic: traffic, sbxEvents: events, sbxTransit: transit, sbxRail: rail, sbxRenderer: renderer, sbxCamera: camera, sbxTiles: tiles, sbxDaytime: daytime, sbxMap: map }); // hooks for Playwright tests
 }
 
 main();

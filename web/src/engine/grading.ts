@@ -15,7 +15,7 @@ export const bloom = { strength: 0.3, threshold: 1.6, radius: 0.55 };
 const GLSL = `
 uniform vec4 gradeA; uniform vec4 gradeB; uniform vec4 gradeC; uniform vec4 gradeD;
 vec3 CustomToneMapping( vec3 c ) {
-	c = ACESFilmicToneMapping( c );
+	c = BASE_TONEMAP( c );
 	float l = dot( c, vec3( 0.2126, 0.7152, 0.0722 ) );
 	c = mix( vec3( l ), c, 1.0 + gradeA.x );                       // saturation
 	c *= 1.0 + mix( gradeB.rgb, gradeC.rgb, smoothstep( 0.08, 0.7, l ) ); // split toning
@@ -30,10 +30,14 @@ vec3 CustomToneMapping( vec3 c ) {
  * Colour grading as a custom tone mapper: no extra pass, no render target, so phones pay almost nothing.
  * Must run before the first material compiles. Also registers the shared uniforms on every built-in shader.
  */
+/** Base tone curve; `?tm=aces|agx|neutral` for comparisons (default chosen after the render-v2 comparison). */
+const TM = new URLSearchParams(window.location.search).get('tm') ?? 'agx';
+const BASE_TONEMAP = TM === 'aces' ? 'ACESFilmicToneMapping' : TM === 'neutral' ? 'NeutralToneMapping' : 'AgXToneMapping';
+
 export function installGrading(renderer: THREE.WebGLRenderer): void {
   const key = 'tonemapping_pars_fragment';
   const chunk = (THREE.ShaderChunk as Record<string, string>)[key];
-  (THREE.ShaderChunk as Record<string, string>)[key] = chunk.replace('vec3 CustomToneMapping( vec3 color ) { return color; }', GLSL);
+  (THREE.ShaderChunk as Record<string, string>)[key] = chunk.replace('vec3 CustomToneMapping( vec3 color ) { return color; }', GLSL.replace('BASE_TONEMAP', BASE_TONEMAP));
   for (const lib of Object.values(THREE.ShaderLib)) {
     const u = lib.uniforms as Record<string, { value: unknown }>;
     u.gradeA = { value: gradeA }; u.gradeB = { value: gradeB }; u.gradeC = { value: gradeC }; u.gradeD = { value: gradeD };

@@ -9,6 +9,13 @@ from parts import *
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../web/public/models/bikes")
 
+_REC = {}
+_frame, _saddle = frame, saddle
+def frame(m, G, *a, **k):
+    r = _frame(m, G, *a, **k); _REC["st"] = r; return r
+def saddle(m, G, st, sd, post=.12, **k):
+    _REC["saddle"] = np.asarray(st, float) + np.asarray(sd, float) * post; return _saddle(m, G, st, sd, post=post, **k)
+
 def geom(**k):
     G = dict(Rr=.34, Rf=.34, tw=.04, th=.035, sa=70, sl=.5, ha=70, hl=.15); G.update(k)
     ht = np.array(G["htop"], float); G["htop"] = ht; G["hbot"] = ht + dirv(-G["ha"]) * G["hl"]
@@ -118,6 +125,11 @@ if __name__ == "__main__":
             finalize(m, G, lean)
             fn = f"{name}{'_lean' if lean else ''}.glb"; tris, size, Pv = write_glb(m, os.path.join(OUT, fn), png)
             ln = float(Pv[:, 2].max() - Pv[:, 2].min())
-            man.append(dict(type=name + ("_lean" if lean else ""), file=fn, length=round(ln, 2), tris=int(tris)))
+            ent = dict(type=name + ("_lean" if lean else ""), file=fn, length=round(ln, 2), tris=int(tris))
+            if "ru" in G:   # axle / bottom-bracket positions in glTF space (y, z) so the web can spin wheels and cranks (split by position)
+                sh = (G["ru"] + G["fu"]) / 2
+                sd_ = _REC["saddle"]
+                ent["rig"] = dict(saddle=[float(sd_[1]), float(-(sd_[0] - sh))], rear=[G["Rr"], float(-(G["ru"] - sh))], front=[G["Rf"], float(-(G["fu"] - sh))], bb=[float(G["bb"][1]), float(-(G["bb"][0] - sh))])
+            man.append(ent)
             print(fn, tris, "tris", size // 1024, "KB", "len", round(ln, 2))
     if len(sys.argv) == 1: json.dump(man, open(os.path.join(OUT, "manifest.json"), "w"), indent=1)

@@ -38,3 +38,7 @@ preview/ref_*.jpg
 *.tif
 *.tiff
 *.ktx2
+
+# contact sheets (regenerated from data/raw/photos by pipeline/photos/*)
+research/shops_v3/sheets*/
+research/buildings/sheets_v3/

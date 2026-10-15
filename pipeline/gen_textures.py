@@ -156,6 +156,12 @@ def _grey_tiles():
 
 LAYERS["roof_tiles_grey"] = _grey_tiles  # appended: existing layer indices stay valid
 
+# v3 facades (pipeline/gen_facades3.py): neutral plaster / brick / sandstone, tinted to the exact observed colour.
+# Appended last (indices of all earlier layers stay valid); they carry normal maps in an extra range of the normal atlas.
+from gen_facades3 import FACADES3  # noqa: E402
+for _n in FACADES3:
+    LAYERS[_n] = lambda n=_n: v2(n)
+
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
@@ -164,20 +170,24 @@ def main():
     rgb = Image.new("RGB", (COLS * L, rows * L))
     mask = Image.new("L", (COLS * L, rows * L))
     n_norm = len(FACADES) + len(SHOPS) + 1  # layers that carry a normal map
-    nrows = (n_norm + COLS - 1) // COLS
+    f3 = list(LAYERS).index(FACADES3[0])
+    nrows = (n_norm + len(FACADES3) + COLS - 1) // COLS
     nat = Image.new("RGB", (COLS * L, nrows * L), (128, 128, 255))
     for k, (name, fn) in enumerate(LAYERS.items()):
         c, m, *nb = fn()
         if nb:
-            nat.paste(nb[0], ((k % COLS) * L, (k // COLS) * L))
+            j = k if k < n_norm else n_norm + k - f3 if k >= f3 else None  # v3 facades: normal slots after the first n_norm
+            if j is not None:
+                nat.paste(nb[0], ((j % COLS) * L, (j // COLS) * L))
         rgb.paste(c, ((k % COLS) * L, (k // COLS) * L))
         mask.paste(m, ((k % COLS) * L, (k // COLS) * L))
     rgb.save(OUT / "atlas.webp", quality=82, method=6)
     mask.save(OUT / "atlas_mask.png", optimize=True)
     nat.save(OUT / "atlas_n.webp", quality=90, method=6)  # R,G = normal xy, B = roughness
     json.dump({"size": L, "cols": COLS, "count": n, "layers": list(LAYERS), "facades": len(FACADES),
-               "shops_end": len(FACADES) + len(SHOPS), "normals": n_norm,
-               "shops2": [n - len(SHOPS_EXTRA), n]}, open(OUT / "layers.json", "w"))
+               "shops_end": len(FACADES) + len(SHOPS), "normals": n_norm, "normals3": len(FACADES3),
+               "shops2": [list(LAYERS).index(SHOPS_EXTRA[0]), list(LAYERS).index(SHOPS_EXTRA[0]) + len(SHOPS_EXTRA)],
+               "facades3": [f3, f3 + len(FACADES3)]}, open(OUT / "layers.json", "w"))
     print(n, "layers", {f: (OUT / f).stat().st_size // 1024 for f in ("atlas.webp", "atlas_mask.png", "atlas_n.webp")}, "KB")
 
 

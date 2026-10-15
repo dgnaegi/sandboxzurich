@@ -13,6 +13,7 @@ Jedes Milestone endet mit etwas, das der User im Browser (auch auf dem Handy) au
 - [x] Gebiet und Kachelraster festlegen; Rohdaten für alle vier Kreise laden (Spielgebiet K4/K5 + Teile K9/K3, 279 Kacheln, Baustellenzaun)
 - [ ] POI-Recherche: OSM-Läden und -Cafés exportieren, per Web prüfen, `research/pois_*.csv`
 - [ ] Velo-Daten: Velovorzugsrouten und Velonetz (Stadt ZH OGD)
+- [x] Strassen v2: Decal-Ausrichtung korrigiert, Velo-Piktogramm neu, Spurpfeile, rote Flächen (Orthofoto), Tram-Inseln, Baustellen sperren Spuren
 - [x] Pipeline: Gebäude, Boden, Strassen inkl. Markierungen, Tram, Bäume → Kacheln (+ Brücken, Bahn, Amtliche Vermessung, Platz-/Strassenschilder)
   - [x] Arcade-Look: Textur-Array, Fassaden, Randsteine, Markierungen, Autos, Lampen
   - [x] Durchstich Testgebiet Langstrasse/Helvetiaplatz (Gebäude, Boden, Strassen, Tram, Bäume; ohne Markierungen)

@@ -841,7 +841,7 @@ FACADES = {
         bal=dict(floors=[0, 1, 2, 3], axes=[1, 3], w=2.6, kind="glass", dw=1.9, dh=2.15,
                  dkw=dict(cols=2, rows=1, frame=ANTH, fw=.05, d=.22, refl=.4), flowers=.0)))),
     "neubau_b": ("2005-", lambda: standard("neubau_b", 62, dict(
-        wall=lambda c: wall_panel(c, [(.62, .64, .62), (.55, .57, .56), (.69, .7, .66), (.58, .6, .56)], 1.2, .6, .014),
+        wall=lambda c: wall_panel(c, [(.9, .9, .88), (.82, .83, .81), (.95, .95, .92), (.86, .87, .84)], 1.2, .6, .014, mask=1),  # tintable (was fixed grey = 'grey window grid')
         win=dict(w=1.4, h=2.1, cols=1, rows=1, bar=.03, frame=ANTH, fw=.05, d=.24, sill=False, refl=.42),
         sillh=.2, shift=1.2, bal=dict(floors=[], axes=[], w=1)))),
     "neubau_c": ("2005-", lambda: standard("neubau_c", 63, dict(

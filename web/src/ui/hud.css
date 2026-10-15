@@ -69,3 +69,28 @@ body.touch #touchbtns { display: flex; }
 @media (max-width: 900px), (max-height: 500px) { #bigtext-title { font-size: 38px; } #mission { font-size: 16px; } #btn-menu { top: calc(100px + env(safe-area-inset-top)); } }
 #bubble { position: fixed; display: none; transform: translate(-50%, -100%); background: #fff; color: #111; font: 700 14px Barlow, sans-serif; padding: 5px 10px; border-radius: 12px; pointer-events: none; box-shadow: 0 2px 6px #0006; white-space: nowrap; }
 #bubble::after { content: ''; position: absolute; left: 50%; bottom: -6px; border: 6px solid transparent; border-top-color: #fff; border-bottom: 0; transform: translateX(-50%); }
+/* city map v2 */
+#bigmap { background: #e6e2d9; }
+#bigmap-title { color: #2f2a24; text-shadow: 0 2px 0 #fffc; } #bigmap-title span { color: #e4007d; }
+#bigmap-legend { color: #2f2a24; background: #fffe; box-shadow: 0 2px 8px #0003; }
+#bigmap-legend .dot.p { background: #e4007d; border-color: #fff; }
+#bigmap-legend .ln { display: inline-block; width: 18px; height: 3px; background: #b3262d; vertical-align: 3px; }
+#bigmap button { color: #2f2a24; background: #fffe; border: 2px solid #0003; box-shadow: 0 2px 6px #0003; }
+#bigmap-tools { position: absolute; left: calc(14px + env(safe-area-inset-left)); top: calc(12px + env(safe-area-inset-top)); display: flex; gap: 8px; }
+#bigmap-tools button { font: 700 18px Barlow, sans-serif; width: auto; min-width: 48px; padding: 0 12px; }
+#bigmap-tools button.on { background: #1d86d6; color: #fff; }
+#bigmap-lic { position: absolute; left: calc(8px + env(safe-area-inset-left)); bottom: calc(4px + env(safe-area-inset-bottom)); font: 11px Barlow, sans-serif; color: #2f2a24b0; pointer-events: none; }
+@media (max-width: 900px), (max-height: 500px) { #bigmap-legend { white-space: normal; width: 74vw; text-align: center; bottom: calc(66px + env(safe-area-inset-bottom)); } #bigmap-title { display: none; } }
+/* clock panel */
+#clock { pointer-events: auto; cursor: pointer; display: inline-block; padding: 4px 8px; margin: -4px -8px; border-radius: 8px; }
+#clock:hover, #clock:focus-visible { background: #0006; outline: none; }
+#clockpanel { display: none; position: fixed; right: calc(12px + env(safe-area-inset-right)); top: calc(52px + env(safe-area-inset-top)); width: min(300px, calc(100vw - 24px)); box-sizing: border-box; padding: 12px; border-radius: 12px; background: #14101cf2; border: 2px solid #fff4; box-shadow: 0 8px 24px #000a; pointer-events: auto; text-shadow: none; z-index: 12; }
+#clockpanel .cp-head { display: flex; align-items: center; gap: 10px; font: 18px Anton, sans-serif; }
+#clockpanel #cp-time { margin-left: auto; font-size: 22px; color: #f5c518; }
+#clockpanel button { font: 700 15px Barlow, sans-serif; color: #fff; background: #ffffff1c; border: 2px solid #fff3; border-radius: 8px; min-height: 44px; padding: 0 6px; cursor: pointer; flex: 1; }
+#clockpanel button.on { background: #e4007d; border-color: #fff; }
+#clockpanel button small { display: block; font-size: 11px; opacity: .75; line-height: 1; }
+#clockpanel .cp-head button { flex: none; min-height: 36px; width: 36px; }
+#clockpanel .cp-row { display: flex; gap: 6px; margin-top: 8px; }
+#clockpanel input[type=range] { width: 100%; height: 36px; margin: 10px 0 0; accent-color: #e4007d; touch-action: pan-x; }
+#clockpanel .cp-ticks { display: flex; justify-content: space-between; font: 700 11px Barlow, sans-serif; opacity: .6; padding: 0 4px; }
