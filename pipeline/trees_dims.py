@@ -19,7 +19,8 @@ GENUS = {"Prunus": CHERRY, "Malus": WHITE, "Pyrus": WHITE, "Crataegus": WHITE, "
 # (typical max height m, crown base fraction of height)
 SPEC = {BROAD: (22, .30), CHERRY: (11, .28), WHITE: (8, .25), PLANE: (28, .32), LINDEN: (24, .28), MAPLE: (21, .30),
         CHESTNUT: (22, .24), BIRCH: (20, .36), CONIFER: (22, .06), COLUMNAR: (16, .20), ROBINIA: (20, .36), ASH: (26, .36),
-        OAK: (24, .30), BEECH: (26, .28), PINE: (20, .45)}
+        OAK: (24, .30), BEECH: (26, .28), PINE: (20, .36)}
+MAXAR = {CONIFER: 4.0, PINE: 3.0, COLUMNAR: 3.2}  # max height / crown diameter, default 2.8
 _cache = {}
 
 
@@ -110,6 +111,8 @@ def dims(x, y, cls, cd, year, cat, others: Neighbours | None = None):
                     de = 2 * np.sqrt(area / np.pi)
                     dcrown = float(np.clip(.5 * cd + .5 * de, .7 * cd, 1.4 * cd))
     ar = h / max(dcrown, .1)
+    if ar > MAXAR.get(cls, 2.8) and src.startswith('ndsm'):  # needle-thin crown next to tall nDSM peak: neighbour/mast, not the tree
+        h = round(MAXAR.get(cls, 2.8) * dcrown, 1); ar = h / dcrown
     if ar < .45 or ar > 5:  # implausible: trust the crown, estimate the height
         h = float(np.clip(.5 * h + .5 * formula(cls, dcrown, year, cat), 3, SPEC[cls][0] * 1.6)); src += "~"
     base = SPEC[cls][1]
@@ -117,7 +120,8 @@ def dims(x, y, cls, cd, year, cat, others: Neighbours | None = None):
         base = max(base, min(3.4 / h, .55))
     elif cls != CONIFER:
         base = base * (.9 if h > 12 else 1)
-    return round(h, 1), round(dcrown, 1), round(float(np.clip(base, .03, .6)), 2), src
+    cap = .06 if cls == CONIFER else (.4 if cat == 'Strassenbaum' else .34)  # broadleaf crown starts <= 40 % (park trees lower)
+    return round(h, 1), round(dcrown, 1), round(float(np.clip(base, .03, cap)), 2), src
 
 
 @lru_cache(maxsize=1)

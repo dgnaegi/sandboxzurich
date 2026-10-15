@@ -2,7 +2,7 @@
 import { chromium } from 'playwright';
 const tag = process.argv[2] ?? 'a';
 const OUT = new URL('../../preview/', import.meta.url).pathname;
-const P = {'str1': '500.6,-749.9,0.47', 'str2': '435.6,-746.5,-1.11', 'str3': '515.2,-760.5,0.46', 'park1': '513,-712,2.2', 'park2': '470,-680,-0.4'};
+const P = { josef: '430,188,0.8', baeck: '500.6,-749.9,0.47', park: '513,-712,2.2', sihl: '-674,-1188,0.3', helv: '640,-800,1.2' };
 const b = await chromium.launch({ args: ['--use-gl=angle', '--ignore-gpu-blocklist'] });
 const pg = await (await b.newContext({ viewport: { width: 900, height: 520 } })).newPage();
 pg.on('pageerror', (e) => console.log('pageerror', e.message));

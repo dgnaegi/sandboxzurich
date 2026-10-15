@@ -41,8 +41,8 @@ CLASSES = {
              tiles=[9, 9, 0], col=[(.2, .36, .12), (.27, .44, .15), (.24, .4, .13)], bark=(.27, .22, .19), hole=.12),
     "beech": C(trunk=(.5, .48, .45), th=.28, tr=.036, nb=9, ztop=1.0, w=.5, shape=.6, cards=700, size=.15,
                tiles=[10, 10, 0], col=[(.24, .42, .14), (.32, .5, .18), (.2, .36, .12)], bark=(.56, .54, .5), hole=.1),
-    "pine": C(trunk=(.5, .3, .2), th=.5, tr=.03, nb=6, ztop=1.0, w=.5, shape=.7, cards=260, size=.28,
-              tiles=[12, 12], col=[(.14, .28, .15), (.18, .34, .17), (.12, .24, .13)], bark=(.58, .34, .22), hole=.05),
+    "pine": C(trunk=(.4, .3, .25), th=.34, tr=.026, nb=7, ztop=1.0, w=.5, shape=.75, cards=480, size=.3,
+              tiles=[12, 12], col=[(.14, .28, .15), (.18, .34, .17), (.12, .24, .13)], bark=(.34, .26, .22), hole=.05),
     "columnar": C(trunk=(.32, .26, .2), th=.18, tr=.024, nb=9, ztop=1.0, w=.5, shape=.45, cards=740, size=.12,
                   tiles=[0, 1], col=[(.28, .44, .15), (.36, .52, .18), (.22, .36, .12)], bark=(.32, .27, .22), hole=.1, narrow=True),
 }
@@ -127,6 +127,7 @@ def cards(m, centers, normals_out, sizes, tiles, colors, rng, orient=None, aspec
 
 def make_tree(cls, variant, lod=0):
     p = dict(CLASSES[cls])
+    p["cards"] = int(p["cards"] * 1.2)
     if lod:
         p["cards"] = int(p["cards"] * .3); p["size"] *= 1.75; p["nb"] = max(4, p["nb"] - 3); p["lod"] = 1
     rng = np.random.default_rng(hash((cls, variant)) % (2**32) if False else (sum(map(ord, cls)) * 131 + variant * 7919))

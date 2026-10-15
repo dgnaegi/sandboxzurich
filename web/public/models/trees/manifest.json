@@ -4,96 +4,96 @@
   "file": "broadleaf_0.glb",
   "variant": 0,
   "lod": 0,
-  "zb": 0.293,
-  "tris": 1748
+  "zb": 0.296,
+  "tris": 2036
  },
  {
   "cls": "broadleaf",
   "file": "broadleaf_1.glb",
   "variant": 1,
   "lod": 0,
-  "zb": 0.312,
-  "tris": 1748
+  "zb": 0.313,
+  "tris": 2036
  },
  {
   "cls": "broadleaf",
   "file": "broadleaf_lod1.glb",
   "variant": 0,
   "lod": 1,
-  "zb": 0.273,
-  "tris": 644
+  "zb": 0.277,
+  "tris": 730
  },
  {
   "cls": "cherry",
   "file": "cherry_0.glb",
   "variant": 0,
   "lod": 0,
-  "zb": 0.247,
-  "tris": 1860
+  "zb": 0.248,
+  "tris": 2164
  },
  {
   "cls": "cherry",
   "file": "cherry_1.glb",
   "variant": 1,
   "lod": 0,
-  "zb": 0.275,
-  "tris": 1860
+  "zb": 0.276,
+  "tris": 2164
  },
  {
   "cls": "cherry",
   "file": "cherry_lod1.glb",
   "variant": 0,
   "lod": 1,
-  "zb": 0.24,
-  "tris": 700
+  "zb": 0.239,
+  "tris": 790
  },
  {
   "cls": "whiteblossom",
   "file": "whiteblossom_0.glb",
   "variant": 0,
   "lod": 0,
-  "zb": 0.252,
-  "tris": 1820
+  "zb": 0.255,
+  "tris": 2116
  },
  {
   "cls": "whiteblossom",
   "file": "whiteblossom_1.glb",
   "variant": 1,
   "lod": 0,
-  "zb": 0.282,
-  "tris": 1820
+  "zb": 0.285,
+  "tris": 2116
  },
  {
   "cls": "whiteblossom",
   "file": "whiteblossom_lod1.glb",
   "variant": 0,
   "lod": 1,
-  "zb": 0.233,
-  "tris": 688
+  "zb": 0.247,
+  "tris": 776
  },
  {
   "cls": "plane",
   "file": "plane_0.glb",
   "variant": 0,
   "lod": 0,
-  "zb": 0.344,
-  "tris": 1708
+  "zb": 0.347,
+  "tris": 1988
  },
  {
   "cls": "plane",
   "file": "plane_1.glb",
   "variant": 1,
   "lod": 0,
-  "zb": 0.383,
-  "tris": 1708
+  "zb": 0.39,
+  "tris": 1988
  },
  {
   "cls": "plane",
   "file": "plane_lod1.glb",
   "variant": 0,
   "lod": 1,
-  "zb": 0.327,
-  "tris": 632
+  "zb": 0.322,
+  "tris": 716
  },
  {
   "cls": "linden",
@@ -101,95 +101,95 @@
   "variant": 0,
   "lod": 0,
   "zb": 0.188,
-  "tris": 2172
+  "tris": 2532
  },
  {
   "cls": "linden",
   "file": "linden_1.glb",
   "variant": 1,
   "lod": 0,
-  "zb": 0.209,
-  "tris": 2172
+  "zb": 0.206,
+  "tris": 2532
  },
  {
   "cls": "linden",
   "file": "linden_lod1.glb",
   "variant": 0,
   "lod": 1,
-  "zb": 0.176,
-  "tris": 816
+  "zb": 0.178,
+  "tris": 924
  },
  {
   "cls": "maple",
   "file": "maple_0.glb",
   "variant": 0,
   "lod": 0,
-  "zb": 0.233,
-  "tris": 1900
+  "zb": 0.231,
+  "tris": 2212
  },
  {
   "cls": "maple",
   "file": "maple_1.glb",
   "variant": 1,
   "lod": 0,
-  "zb": 0.262,
-  "tris": 1900
+  "zb": 0.257,
+  "tris": 2212
  },
  {
   "cls": "maple",
   "file": "maple_lod1.glb",
   "variant": 0,
   "lod": 1,
-  "zb": 0.219,
-  "tris": 712
+  "zb": 0.223,
+  "tris": 804
  },
  {
   "cls": "chestnut",
   "file": "chestnut_0.glb",
   "variant": 0,
   "lod": 0,
-  "zb": 0.222,
-  "tris": 1552
+  "zb": 0.221,
+  "tris": 1776
  },
  {
   "cls": "chestnut",
   "file": "chestnut_1.glb",
   "variant": 1,
   "lod": 0,
-  "zb": 0.224,
-  "tris": 1552
+  "zb": 0.223,
+  "tris": 1776
  },
  {
   "cls": "chestnut",
   "file": "chestnut_lod1.glb",
   "variant": 0,
   "lod": 1,
-  "zb": 0.212,
-  "tris": 672
+  "zb": 0.204,
+  "tris": 738
  },
  {
   "cls": "birch",
   "file": "birch_0.glb",
   "variant": 0,
   "lod": 0,
-  "zb": 0.312,
-  "tris": 1620
+  "zb": 0.311,
+  "tris": 1876
  },
  {
   "cls": "birch",
   "file": "birch_1.glb",
   "variant": 1,
   "lod": 0,
-  "zb": 0.28,
-  "tris": 1620
+  "zb": 0.281,
+  "tris": 1876
  },
  {
   "cls": "birch",
   "file": "birch_lod1.glb",
   "variant": 0,
   "lod": 1,
-  "zb": 0.306,
-  "tris": 628
+  "zb": 0.307,
+  "tris": 704
  },
  {
   "cls": "conifer",
@@ -220,16 +220,16 @@
   "file": "robinia_0.glb",
   "variant": 0,
   "lod": 0,
-  "zb": 0.3,
-  "tris": 1200
+  "zb": 0.312,
+  "tris": 1372
  },
  {
   "cls": "robinia",
   "file": "robinia_1.glb",
   "variant": 1,
   "lod": 0,
-  "zb": 0.326,
-  "tris": 1200
+  "zb": 0.322,
+  "tris": 1372
  },
  {
   "cls": "robinia",
@@ -237,126 +237,126 @@
   "variant": 0,
   "lod": 1,
   "zb": 0.278,
-  "tris": 502
+  "tris": 552
  },
  {
   "cls": "ash",
   "file": "ash_0.glb",
   "variant": 0,
   "lod": 0,
-  "zb": 0.271,
-  "tris": 1200
+  "zb": 0.267,
+  "tris": 1372
  },
  {
   "cls": "ash",
   "file": "ash_1.glb",
   "variant": 1,
   "lod": 0,
-  "zb": 0.301,
-  "tris": 1200
+  "zb": 0.296,
+  "tris": 1372
  },
  {
   "cls": "ash",
   "file": "ash_lod1.glb",
   "variant": 0,
   "lod": 1,
-  "zb": 0.251,
-  "tris": 502
+  "zb": 0.25,
+  "tris": 552
  },
  {
   "cls": "oak",
   "file": "oak_0.glb",
   "variant": 0,
   "lod": 0,
-  "zb": 0.176,
-  "tris": 1684
+  "zb": 0.171,
+  "tris": 1940
  },
  {
   "cls": "oak",
   "file": "oak_1.glb",
   "variant": 1,
   "lod": 0,
-  "zb": 0.185,
-  "tris": 1684
+  "zb": 0.188,
+  "tris": 1940
  },
  {
   "cls": "oak",
   "file": "oak_lod1.glb",
   "variant": 0,
   "lod": 1,
-  "zb": 0.159,
-  "tris": 692
+  "zb": 0.161,
+  "tris": 768
  },
  {
   "cls": "beech",
   "file": "beech_0.glb",
   "variant": 0,
   "lod": 0,
-  "zb": 0.234,
-  "tris": 1772
+  "zb": 0.225,
+  "tris": 2052
  },
  {
   "cls": "beech",
   "file": "beech_1.glb",
   "variant": 1,
   "lod": 0,
-  "zb": 0.226,
-  "tris": 1772
+  "zb": 0.222,
+  "tris": 2052
  },
  {
   "cls": "beech",
   "file": "beech_lod1.glb",
   "variant": 0,
   "lod": 1,
-  "zb": 0.224,
-  "tris": 696
+  "zb": 0.222,
+  "tris": 780
  },
  {
   "cls": "pine",
   "file": "pine_0.glb",
   "variant": 0,
   "lod": 0,
-  "zb": 0.384,
-  "tris": 796
+  "zb": 0.259,
+  "tris": 1460
  },
  {
   "cls": "pine",
   "file": "pine_1.glb",
   "variant": 1,
   "lod": 0,
-  "zb": 0.409,
-  "tris": 796
+  "zb": 0.277,
+  "tris": 1460
  },
  {
   "cls": "pine",
   "file": "pine_lod1.glb",
   "variant": 0,
   "lod": 1,
-  "zb": 0.347,
-  "tris": 368
+  "zb": 0.24,
+  "tris": 556
  },
  {
   "cls": "columnar",
   "file": "columnar_0.glb",
   "variant": 0,
   "lod": 0,
-  "zb": 0.147,
-  "tris": 1852
+  "zb": 0.145,
+  "tris": 2148
  },
  {
   "cls": "columnar",
   "file": "columnar_1.glb",
   "variant": 1,
   "lod": 0,
-  "zb": 0.149,
-  "tris": 1852
+  "zb": 0.152,
+  "tris": 2148
  },
  {
   "cls": "columnar",
   "file": "columnar_lod1.glb",
   "variant": 0,
   "lod": 1,
-  "zb": 0.139,
-  "tris": 720
+  "zb": 0.135,
+  "tris": 808
  }
 ]
