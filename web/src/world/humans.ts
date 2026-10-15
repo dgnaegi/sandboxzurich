@@ -17,7 +17,7 @@ const LIB_REF: Record<string, number> = { A_young: 1.757, B_young: 1.467, A_old:
 export const FAMILY = {
   idle: ['idle', 'shift', 'stand2', 'listen', 'look', 'crossed', 'pockets', 'crossed2', 'pockets2'],
   wait: ['wait', 'shift', 'crossed', 'pockets', 'look', 'stand2', 'idle'],
-  phone: ['text'], call: ['call'], talk: ['talk', 'talk2', 'listen', 'argue'], listen: ['listen', 'stand2', 'crossed', 'shift'],
+  phone: ['text'], call: ['call'], talk: ['talk', 'talk2', 'listen', 'listen', 'talk2', 'listen'], listen: ['listen', 'stand2', 'crossed', 'shift'],
   sit: ['sit', 'sit+text'], sitTalk: ['sit_talk', 'sit_chat'],
 } as const;
 /** Phone placement per clip (bone-local, measured with pipeline/blender/check/anim_sheet.mjs). */

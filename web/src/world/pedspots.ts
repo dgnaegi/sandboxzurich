@@ -34,7 +34,7 @@ export class PedSpots {
   /** hard cap for people on spots (set by the crowd every frame) */
   budget = 8;
 
-  constructor(private lib: HumanLib, private parent: THREE.Group) {}
+  constructor(private lib: HumanLib, private parent: THREE.Group, private ground?: (x: number, y: number) => number) {}
 
   add(meta: { benches?: number[][]; fountains?: number[][]; signs?: { x: number; y: number; z: number; tx: number; ty: number; kind: string }[]; workers?: number[][] }) {
     const mk = (x: number, y: number, z: number, ry: number, ax: number, ay: number, kind: Kind, k: number) => this.spots.push({ x, y, z, ry, ax, ay, kind, k, people: [], gear: [] });
@@ -46,7 +46,7 @@ export class PedSpots {
     for (const s of meta.signs ?? []) {
       const k = hash(s.x, s.y), nx = s.ty, ny = -s.tx; // outward facade normal
       if (BARS.has(s.kind)) mk(s.x + nx * 1.4, s.y + ny * 1.4, s.z, face(s.tx, s.ty), s.tx, s.ty, 'smoke', k);
-      else if (CAFES.has(s.kind) && k % 100 < 40) mk(s.x + nx * 1.1, s.y + ny * 1.1, s.z, face(-nx, -ny), 1, 0, 'cafe', k);
+      else if (CAFES.has(s.kind) && k % 100 < 40) mk(s.x + nx * 1.1, s.y + ny * 1.1, s.z, face(nx, ny) + ((k % 7) - 3) * 0.12, 1, 0, 'cafe', k);
     }
     for (const [x, y, z, yaw] of meta.workers ?? []) mk(x, y, z, face(Math.cos(yaw), Math.sin(yaw)), 1, 0, 'work', hash(x, y));
   }
@@ -85,8 +85,8 @@ export class PedSpots {
     return out;
   }
 
-  private place(h: Human, x: number, y: number, z: number, ry: number) {
-    h.root.position.set(x, z, -y);
+  private place(h: Human, x: number, y: number, z: number, ry: number, snap = false) {
+    h.root.position.set(x, snap && this.ground ? this.ground(x, y) : z, -y);   // sign-based spots carry the sign height: snap to terrain
     h.root.rotation.set(0, ry, 0);
     this.parent.add(h.root);
   }
@@ -98,7 +98,7 @@ export class PedSpots {
       const h = this.take();
       h.play(clipFor(h, anim), 0);
       s.people.push(h);
-      this.place(h, s.x + s.ax * off, s.y + s.ay * off, s.z, ry);
+      this.place(h, s.x + s.ax * off, s.y + s.ay * off, s.z, ry, s.kind === 'smoke' || s.kind === 'cafe');
       return h;
     };
     /** Standing around: weight shifts, arms crossed, hands in pockets, looking around, texting, phoning. */

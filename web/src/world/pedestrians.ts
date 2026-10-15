@@ -42,7 +42,7 @@ export class Pedestrians {
   private hot = 0;
 
   constructor(private lib: HumanLib, public max: number, private height: (x: number, y: number) => number) {
-    this.spots = new PedSpots(lib, this.group);
+    this.spots = new PedSpots(lib, this.group, height);
   }
 
   /** Tile meta with benches / fountains / signs / workers: static people (see pedspots.ts). */

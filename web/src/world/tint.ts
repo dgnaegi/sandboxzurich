@@ -86,10 +86,11 @@ function attach(h: Human, m: Model): TintState | null {
           float L = dot(diffuseColor.rgb, vec3(0.299, 0.587, 0.114));
           float warm = (diffuseColor.r - diffuseColor.b) / (diffuseColor.r + diffuseColor.g + diffuseColor.b + 1e-4);
           float bare = vZone.w * smoothstep(0.16, 0.28, warm);              // bare forearm skin
+          vec3 zn = smoothstep(0.47, 0.53, vZone.xyz);                      // hard edge jacket / trousers / shoes
           vec3 c = diffuseColor.rgb;
-          c = mix(c, uT0 * clamp(L / uAvg.x, 0.3, 2.2), vZone.x * uAmt.x * (1.0 - bare));
-          c = mix(c, uT1 * clamp(L / uAvg.y, 0.3, 2.2), vZone.y * uAmt.y);
-          c = mix(c, uT2 * clamp(L / uAvg.z, 0.3, 2.2), vZone.z * uAmt.z);
+          c = mix(c, uT0 * clamp(L / uAvg.x, 0.3, 2.2), zn.x * uAmt.x * (1.0 - bare));
+          c = mix(c, uT1 * clamp(L / uAvg.y, 0.3, 2.2), zn.y * uAmt.y);
+          c = mix(c, uT2 * clamp(L / uAvg.z, 0.3, 2.2), zn.z * uAmt.z);
           diffuseColor.rgb = c;
         }`);
     };
