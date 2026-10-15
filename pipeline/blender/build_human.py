@@ -261,6 +261,11 @@ for name, src in plan.items():
     if name != "idle": META["clip_speed"][name] = spd
     print("CLIP", name, src, "speed", spd, "scale", sc, "ground", g)
 
+LIB = os.environ.get("ANIMLIB")        # animation-library build: only the rig + shared clips, exported to anims_<LIB>.glb (see research/humans.md R7)
+if LIB:
+    import animlib_clips as AL
+    AL.build(rt, Pb, Hm, MR, OLD, LIB, rig, OUT)
+    sys.exit(0)
 if FID != "player":
     Hm.POSES["idle"](Pb, 0.0)
     for pb in Pb: pb.rotation_quaternion = (1, 0, 0, 0); pb.location = (0, 0, 0)

@@ -93,6 +93,9 @@ def shop_photos():
 
 def main():
     T = json.load(open(D / "targets.json"))
+    if "--streets" in sys.argv:   # comma list of street names (exact, as in targets.json)
+        keep = set(sys.argv[sys.argv.index("--streets") + 1].split(","))
+        T = [t for t in T if t["street"] in keep]
     mx = int(sys.argv[sys.argv.index("--max") + 1]) if "--max" in sys.argv else 10 ** 9
     cand = json.load(open(CAND))
     sp = shop_photos()

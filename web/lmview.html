@@ -1,0 +1,24 @@
+<!doctype html><meta charset=utf-8><body style="margin:0;background:#9bb">
+<script type=module>
+import * as THREE from '/node_modules/three/build/three.module.js';
+import { Landmarks3D } from '/src/world/landmarks3d.ts';
+import { setNight } from '/src/engine/materials.ts';
+const q = new URLSearchParams(location.search);
+const W = +q.get('w') || 800, H = +q.get('h') || 450;
+const r = new THREE.WebGLRenderer({ antialias: true }); r.setSize(W, H); document.body.appendChild(r.domElement);
+const s = new THREE.Scene(); s.background = new THREE.Color(0xa9c6dc); s.fog = new THREE.Fog(0xa9c6dc, 300, 1500);
+const night = +q.get('n') || 0; setNight(night);
+s.add(new THREE.HemisphereLight(0xffffff, 0x777766, night ? 0.3 : 1.1));
+const sun = new THREE.DirectionalLight(0xfff2dd, night ? 0.1 : 1.8); sun.position.set(-120, 200, 150); s.add(sun);
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(4000, 4000).rotateX(-Math.PI / 2), new THREE.MeshLambertMaterial({ color: 0x5b5d5e }));
+const L = new Landmarks3D(s); await L.load();
+const e = L.entries.find((x) => x.name === q.get('m')); 
+ground.position.set(e.x, e.z - 0.05, -e.y); s.add(ground);
+L.update(e.x, e.y);
+await new Promise((res) => { const t = setInterval(() => { if (L.live.get(e.name)) { clearInterval(t); res(); } }, 100); });
+L.update(e.x, e.y);
+const P = (q.get('p') || '0,-40,10').split(',').map(Number), Lk = (q.get('l') || '0,0,10').split(',').map(Number);
+const cam = new THREE.PerspectiveCamera(+q.get('fov') || 45, W / H, 0.1, 3000);
+cam.position.set(e.x + P[0], e.z + P[2], -(e.y + P[1])); cam.lookAt(e.x + Lk[0], e.z + Lk[2], -(e.y + Lk[1]));
+r.render(s, cam); window.done = true;
+</script>

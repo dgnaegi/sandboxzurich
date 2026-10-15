@@ -89,9 +89,11 @@ class Retargeter:
                 if q.dot(out[f - 1][b]) < 0: out[f][b] = Quaternion((-q.w, -q.x, -q.y, -q.z))
         return out, hips, s
 
-    def build_action(self, name, clip, hunch=0.0, lock=True, measure=True):
+    def build_action(self, name, clip, hunch=0.0, lock=True, measure=True, override=None):
         """Create a keyed action; returns the measured clip speed (m/s) or 0 for idle."""
         n = clip["nm"]; fps = clip["fps"]; step = 30 // fps; loc, hips, s = self.frames(clip, hunch)
+        if override:                                    # fixed local rotations (arms crossed / hands in pockets) over the mocap body
+            for f in range(n): loc[f].update({b: q.copy() for b, q in override.items()})
         # pass 1: foot heights/positions without vertical offset
         pel = self.Pb["pelvis"]; zs = []; feet = []; hands = []
         for f in range(n):

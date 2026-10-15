@@ -17,6 +17,15 @@ CLIPS = {
     "A_walk": ("035/35_01.bvh", "gait", (0.8, 1.5), 30), "A_run": ("035/35_21.bvh", "gait", (0.55, 1.0), 30), "A_slow": ("035/35_29.bvh", "gait", (0.9, 1.7), 30),
     "B_walk": ("007/07_09.bvh", "gait", (0.8, 1.5), 30), "B_run": ("016/16_46.bvh", "gait", (0.5, 0.9), 30), "B_slow": ("007/07_04.bvh", "gait", (0.9, 1.8), 30),
     "idle_1": ("049/49_16.bvh", "idle", (3.0, 6.0), 15), "idle_3": ("049/49_15.bvh", "idle", (3.0, 5.5), 15),
+    # animation library (research/humans.md R7): windows are seconds inside the take; kind "pose" = loop cut + xz centred
+    "shift_1": ("113/113_21.bvh", "pose", (5.0, 10.0), 15, (0, 11)), "shift_2": ("111/111_28.bvh", "pose", (4.0, 8.0), 15, (0, 9)),
+    "look_1": ("077/77_01.bvh", "pose", (5.0, 8.5), 15, (0, 9)), "stand_2": ("077/77_02.bvh", "pose", (2.5, 5.5), 15, (1, 7.6)),
+    "wait_1": ("040/40_10.bvh", "pose", (6.0, 12.0), 15, (5, 28)), "wait_2": ("141/141_20.bvh", "pose", (2.0, 4.5), 15, (0.5, 6.2)),
+    "talk_1": ("018/18_08.bvh", "pose", (5.0, 8.3), 15, (9, 17.3)), "talk_0": ("018/18_08.bvh", "pose", (5.0, 8.5), 15, (0.5, 9)),
+    "talk_2": ("019/19_08.bvh", "pose", (5.0, 10.0), 15, (0.5, 17.3)), "argue": ("080/80_48.bvh", "pose", (4.0, 7.0), 15, (1.5, 8.5)),
+    "call_l": ("080/80_25.bvh", "pose", (2.0, 4.0), 15, (3.0, 7.2)), "text": ("079/79_80.bvh", "pose", (2.5, 4.5), 15, (2.0, 7.0)),
+    "sit_1": ("114/114_05.bvh", "pose", (5.0, 11.0), 15, (1, 13)), "sit_talk": ("018/18_12.bvh", "pose", (4.0, 7.0), 15, (3.0, 10.4)),
+    "sit_2": ("019/19_12.bvh", "pose", (2.0, 3.5), 15, (5.8, 9.5)),
 }
 M = np.array([[1, 0, 0], [0, 0, -1], [0, 1, 0]], float)   # BVH (x left, y up, z fwd) -> Blender (x left, y back, z up)
 
@@ -50,8 +59,10 @@ def fixsign(q):
     return q
 
 def process(name, spec):
-    f, kind, (pmin, pmax), fps = spec
-    J, D, ft = bvh.parse(f"{RAW}/{f}"); L, W, P = bvh.fk(J, D); nf = len(D); nm = [j["name"] for j in J]
+    f, kind, (pmin, pmax), fps = spec[:4]; win = spec[4] if len(spec) > 4 else None
+    J, D, ft = bvh.parse(f"{RAW}/{f}")
+    if win: D = D[int(win[0] / ft):int(win[1] / ft)]               # take only a window (seconds) of the take
+    L, W, P = bvh.fk(J, D); nf = len(D); nm = [j["name"] for j in J]
     # heading: net displacement of the hips over the whole clip -> yaw so that travel is +Z
     d = P[-1, 0] - P[0, 0]; yaw = np.arctan2(d[0], d[2]) if kind == "gait" else 0.0
     c, s = np.cos(-yaw), np.sin(-yaw); Ry = np.array([[c, 0, s], [0, 1, 0], [-s, 0, c]])
@@ -73,7 +84,7 @@ def process(name, spec):
     ident = np.zeros_like(dq); ident[..., 0] = 1
     qq = qmul(slerp(ident, dq, t), qq)
     hp = P[a:a + Pf + 1, 0].copy(); disp = hp[-1] - hp[0]; vsrc = float(np.hypot(disp[0], disp[2]) / (Pf * ft))
-    for ax in (0, 2): hp[:, ax] -= disp[ax] * (idx / Pf) + (hp[:, ax] - disp[ax] * (idx / Pf)).mean() * (kind == "gait")   # in place, keep sway
+    for ax in (0, 2): hp[:, ax] -= disp[ax] * (idx / Pf) + (hp[:, ax] - disp[ax] * (idx / Pf)).mean() * (kind != "idle")   # in place, keep sway
     hp[:, 1] -= disp[1] * (idx / Pf)                                                                                      # absolute height, drift removed
     # phase: start at left-foot forward-most (heel strike) for gaits
     start = 0

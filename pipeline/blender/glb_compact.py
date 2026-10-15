@@ -2,12 +2,13 @@
 unused samplers/accessors/bufferViews and repack the binary chunk."""
 import json, struct
 
-def compact(path):
+def compact(path, keep_rot=None):
+    """keep_rot: node names whose rotation channels are kept (animation libraries: unmapped bones stay at rest)."""
     b = open(path, "rb").read(); L = struct.unpack("<I", b[12:16])[0]
     j = json.loads(b[20:20 + L]); off = 20 + L + 8; binc = b[off:]
     acc = j["accessors"]
     # quantise WEIGHTS_0 float32 -> normalized uint8 (sum forced to 255)
-    for m in j["meshes"]:
+    for m in j.get("meshes", []):
         for p in m["primitives"]:
             ai = p["attributes"].get("WEIGHTS_0")
             if ai is None or acc[ai]["componentType"] != 5126: continue
@@ -27,6 +28,7 @@ def compact(path):
         for ch in a["channels"]:
             s = a["samplers"][ch["sampler"]]
             if ch["target"]["path"] in ("translation", "scale") and acc[s["input"]]["count"] <= 2: continue
+            if keep_rot is not None and ch["target"]["path"] == "rotation" and j["nodes"][ch["target"]["node"]].get("name") not in keep_rot: continue
             keep.append(ch)
         a["channels"] = keep
         used = sorted({c["sampler"] for c in keep}); remap = {o: n for n, o in enumerate(used)}

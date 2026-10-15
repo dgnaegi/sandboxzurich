@@ -38,7 +38,8 @@ function parasol(b: QuadSink, p: Pt, u: number, v: number, r: number, col: THREE
 
 /** depth = free pavement (m) between facade and kerb; returns true when something was placed. */
 export function terrace(b: QuadSink, p: Pt, s: ShopSign, look: Look): boolean {
-  const pd = s.pd ?? 3.0, depth = Math.min(2.5, pd - 1.5), h = hash(s.name);
+  if (s.pd === undefined) return false;  // no paved strip measured (open lawn / unknown): no terrace
+  const pd = s.pd, depth = Math.min(2.5, pd - 1.5), h = hash(s.name);
   if (depth < 1.0) return false;
   const two = depth >= 1.9, span = Math.min(s.w - 0.4, 7.2), step = two ? 1.55 : 1.15;
   const n = Math.min(4, Math.floor(span / step));

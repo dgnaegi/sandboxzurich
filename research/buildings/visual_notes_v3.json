@@ -15,6 +15,27 @@
 "notiz": "sandbeige, Rustika-Sockel",
 "quelle": "panoramax:91da9e2e-a6c6-4d09-b8e7-5073619887ee"
 },
+"Ankerstrasse 124": {
+"hex": "#d5cdbb",
+"material": "putz",
+"stil": "gruenderzeit",
+"details": [
+"balkon"
+],
+"notiz": "Beige Stein, Balkone",
+"quelle": "panoramax:15417755-afb7-48d9-a315-e096cf67441b"
+},
+"Ankerstrasse 61": {
+"hex": "#bfbab0",
+"material": "putz",
+"stil": "gruenderzeit",
+"details": [
+"gesims",
+"balkon"
+],
+"notiz": "Hellgrau, Schmiedeeisen-Balkone",
+"quelle": "panoramax:cfa1ba37-68fb-4644-94eb-11328b53e31b"
+},
 "Ankerstrasse 65": {
 "hex": "#dfb878",
 "material": "putz",
@@ -305,6 +326,19 @@
 "notiz": "altrosa, graue Läden, Satteldächer",
 "quelle": "mapillary:858257206067781"
 },
+"Badenerstrasse 266": {
+"hex": "#e6d7a2",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "braun",
+"rahmen": "weiss",
+"stil": "gruenderzeit",
+"details": [
+"balkon"
+],
+"notiz": "Eckhaus, gelbcreme, braune Laeden, Balkone",
+"quelle": "panoramax:e3755a9f-ee49-4ab3-86fd-b4bf48da5ecd"
+},
 "Badenerstrasse 274": {
 "hex": "#dcd7a6",
 "material": "putz",
@@ -430,6 +464,18 @@
 "notiz": "graugrün verputzt, weisse Fenster",
 "quelle": "mapillary:256658683395447"
 },
+"Badenerstrasse 446": {
+"hex": "#d8a196",
+"material": "putz",
+"fenster": "hoch",
+"dach": "flach",
+"stil": "50er",
+"details": [
+"balkon"
+],
+"notiz": "Rosa Putz, Balkone mit dunklen Gelaendern",
+"quelle": "panoramax:7c5e823f-658c-4235-bc12-2a30fe28f1d3"
+},
 "Badenerstrasse 460": {
 "hex": "#e2e0d6",
 "material": "putz",
@@ -520,6 +566,48 @@
 "notiz": "beige, Balkone",
 "quelle": "mapillary:1057875965524168"
 },
+"Badenerstrasse 556": {
+"hex": "#d6c29c",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "gruen",
+"rahmen": "weiss",
+"dach": "flach",
+"stil": "heimatstil",
+"details": [
+"balkon"
+],
+"notiz": "Beige, gruene Laeden, Balkone",
+"quelle": "panoramax:a40e7144-d0b2-4ab7-8b8b-adb809f790f8"
+},
+"Badenerstrasse 560": {
+"hex": "#d8b98c",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "gruen",
+"rahmen": "weiss",
+"dach": "flach",
+"stil": "heimatstil",
+"details": [
+"balkon"
+],
+"notiz": "Ockerfarben, gruene Laeden, Balkone, Hecke davor",
+"quelle": "panoramax:b878746f-7cf8-4c82-9f87-e159367ddd40"
+},
+"Badenerstrasse 566": {
+"hex": "#d8b98c",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "gruen",
+"rahmen": "weiss",
+"dach": "flach",
+"stil": "heimatstil",
+"details": [
+"balkon"
+],
+"notiz": "Ockerfarben, gruene Laeden, Balkone",
+"quelle": "panoramax:910f4c3b-7ae8-4594-847f-1dfd9d5506e9"
+},
 "Badenerstrasse 567": {
 "hex": "#7d7d79",
 "material": "beton",
@@ -529,6 +617,20 @@
 "stil": "70er",
 "notiz": "dunkelgrauer Sichtbeton",
 "quelle": "mapillary:753868746944878"
+},
+"Badenerstrasse 568": {
+"hex": "#d8b98c",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "gruen",
+"rahmen": "weiss",
+"dach": "flach",
+"stil": "heimatstil",
+"details": [
+"balkon"
+],
+"notiz": "Ockerfarben, gruene Laeden, Balkone",
+"quelle": "panoramax:3ddd1578-3717-4d29-a1be-037a6c139453"
 },
 "Badenerstrasse 627": {
 "hex": "#e0ddd6",
@@ -831,6 +933,100 @@
 "notiz": "hellgrau, Arkade im EG, Balkon",
 "quelle": "mapillary:1652293405767089"
 },
+"Brauerstrasse 102": {
+"hex": "#a7c6e2",
+"material": "putz",
+"details": [
+"balkon"
+],
+"notiz": "Hellblau, Balkone",
+"quelle": "panoramax:546f7c17-840c-42e4-af64-0d9bec038b6b"
+},
+"Brauerstrasse 104": {
+"hex": "#eeeeea",
+"material": "putz",
+"dach": "flach",
+"details": [
+"balkon"
+],
+"notiz": "Weiss, Balkone",
+"quelle": "panoramax:29e13613-49c9-402f-88af-5df9f9d6b37e"
+},
+"Brauerstrasse 108": {
+"hex": "#eeece6",
+"material": "putz",
+"dach": "flach",
+"details": [
+"balkon"
+],
+"notiz": "Weiss, Balkone",
+"quelle": "panoramax:e6f77ca6-da92-49d7-bb4d-99c2aa188b4c"
+},
+"Brauerstrasse 126": {
+"hex": "#9fb7a0",
+"material": "putz",
+"laeden": "braun",
+"dach": "sattel",
+"stil": "gruenderzeit",
+"details": [
+"gauben"
+],
+"notiz": "Gruen-grau, Satteldach mit Gauben",
+"quelle": "panoramax:bb6aea05-b76e-43ac-880d-948362bd5afa"
+},
+"Brauerstrasse 13": {
+"hex": "#c6d4c2",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "gruen",
+"stil": "gruenderzeit",
+"notiz": "Blassgruen, gruene Laeden",
+"quelle": "panoramax:6cefc66b-8b73-4259-8493-103c5a2fa511"
+},
+"Brauerstrasse 45": {
+"hex": "#e7dac0",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "rot",
+"stil": "gruenderzeit",
+"notiz": "Cremebeige, rotbraune Laeden",
+"quelle": "panoramax:285f6bc6-90d5-4419-89eb-4129d4b5d9f1"
+},
+"Brauerstrasse 76": {
+"hex": "#efd98a",
+"material": "putz",
+"stil": "gruenderzeit",
+"details": [
+"balkon"
+],
+"notiz": "Gelb, Balkon mit Schmiedeeisen",
+"quelle": "panoramax:f6de2bc5-8b0c-4d7c-9e69-9c1751ed9aeb"
+},
+"Brauerstrasse 9": {
+"hex": "#e6e3d6",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "gruen",
+"rahmen": "weiss",
+"dach": "flach",
+"stil": "gruenderzeit",
+"details": [
+"gesims"
+],
+"notiz": "Cremeweiss, gruene Laeden, Gesims",
+"quelle": "panoramax:905df2d0-79b3-459d-b9b2-0b9e3a2f0207"
+},
+"Brauerstrasse 99": {
+"hex": "#e0b56a",
+"material": "putz",
+"fenster": "bogen",
+"stil": "gruenderzeit",
+"details": [
+"rustika"
+],
+"notiz": "Ocker, Rundbogenportal",
+"quelle": "panoramax:6b680bc1-041f-422a-9442-fe966572a410"
+},
 "Dienerstrasse 27": {
 "hex": "#d2a870",
 "material": "putz",
@@ -853,6 +1049,28 @@
 "notiz": "graugrün, Eckbau mit Fensterraster",
 "quelle": "panoramax:07de2e42-9fc2-41b7-8bc3-04b2762ee5dc"
 },
+"Dienerstrasse 51": {
+"hex": "#8c8e90",
+"material": "putz",
+"stil": "gruenderzeit",
+"notiz": "Grau verputzt",
+"quelle": "panoramax:80106f46-442f-4fa9-8cdd-92ac58a654aa"
+},
+"Dienerstrasse 53": {
+"hex": "#e6c77a",
+"material": "putz",
+"stil": "gruenderzeit",
+"notiz": "Gelb",
+"quelle": "panoramax:4b2709cf-a7ab-415d-b4ff-6b418cf31408"
+},
+"Dienerstrasse 57": {
+"hex": "#4d5b43",
+"material": "klinker",
+"dach": "flach",
+"stil": "neubau",
+"notiz": "Dunkelgruene Klinkerfassade",
+"quelle": "panoramax:9b2328e3-e97f-42cb-80d1-9c7b2079e490"
+},
 "Dienerstrasse 75": {
 "hex": "#d6e0c0",
 "material": "putz",
@@ -867,6 +1085,51 @@
 ],
 "notiz": "blassgrün, Fensterverdachungen, Rustika-Sockel",
 "quelle": "panoramax:d6f747f0-fd72-4a41-993b-0a8f871777b7"
+},
+"Dienerstrasse 77": {
+"hex": "#b8d4a4",
+"material": "putz",
+"laeden": "rot",
+"stil": "gruenderzeit",
+"details": [
+"balkon"
+],
+"notiz": "Hellgruen, rote Laeden, Balkone",
+"quelle": "panoramax:04306673-09fe-49d6-ac91-7f40069bb271"
+},
+"Dienerstrasse 79": {
+"hex": "#e8a27c",
+"material": "putz",
+"rahmen": "weiss",
+"stil": "gruenderzeit",
+"details": [
+"gesims",
+"balkon"
+],
+"notiz": "Pfirsichorange, weisse Fensterrahmen",
+"quelle": "panoramax:6e3a06dc-ec62-4cee-98d8-a8de67e75081"
+},
+"Dienerstrasse 81": {
+"hex": "#e8a27c",
+"material": "putz",
+"rahmen": "weiss",
+"stil": "gruenderzeit",
+"details": [
+"gesims"
+],
+"notiz": "Pfirsichorange, weisse Fensterrahmen",
+"quelle": "panoramax:8d64857f-e03c-4bc1-a31e-19948e3c1d5c"
+},
+"Dienerstrasse 83": {
+"hex": "#e8a27c",
+"material": "putz",
+"rahmen": "weiss",
+"stil": "gruenderzeit",
+"details": [
+"balkon"
+],
+"notiz": "Pfirsichorange, Balkone",
+"quelle": "panoramax:0ce6bab6-3dc3-4f60-8b07-871c401fcc1c"
 },
 "Engelstrasse 59": {
 "hex": "#e0c081",
@@ -893,6 +1156,78 @@
 "notiz": "hellgrau, gesprenkelter Putz",
 "quelle": "panoramax:fc514071-5c35-4737-a346-8c24b39a01bf"
 },
+"Feldstrasse 114": {
+"hex": "#e0c4b4",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "rot",
+"stil": "gruenderzeit",
+"details": [
+"balkon"
+],
+"notiz": "Altrosa, rote Laeden, Balkone",
+"quelle": "panoramax:c733cc16-815b-4d6d-a8d0-62978b3e4871"
+},
+"Feldstrasse 115": {
+"hex": "#e3b3a6",
+"material": "putz",
+"stil": "gruenderzeit",
+"details": [
+"balkon"
+],
+"notiz": "Rosa, Balkone",
+"quelle": "panoramax:07c942b2-c232-448a-bc67-0cfaa6431ce7"
+},
+"Feldstrasse 119": {
+"hex": "#e8c670",
+"material": "putz",
+"stil": "gruenderzeit",
+"details": [
+"balkon"
+],
+"notiz": "Gelb, Balkone",
+"quelle": "panoramax:7336a05f-996c-4a8d-a96b-cf83d3074120"
+},
+"Feldstrasse 134": {
+"hex": "#e3c98a",
+"material": "putz",
+"laeden": "braun",
+"stil": "60er",
+"notiz": "Gelbocker, braune Laeden",
+"quelle": "panoramax:8ff12a45-7790-4e90-ab95-e00f20ad5834"
+},
+"Feldstrasse 136": {
+"hex": "#e6cc8a",
+"material": "putz",
+"stil": "gruenderzeit",
+"notiz": "Hellocker",
+"quelle": "panoramax:4a8c3f08-28c6-4302-9e8b-8b8c83cb168e"
+},
+"Feldstrasse 138": {
+"hex": "#e2805f",
+"material": "putz",
+"laeden": "braun",
+"stil": "gruenderzeit",
+"notiz": "Orangerot, braune Laeden",
+"quelle": "panoramax:7305dec8-e22b-4083-abf7-13511b18f428"
+},
+"Feldstrasse 39": {
+"hex": "#b45a42",
+"material": "putz",
+"stil": "gruenderzeit",
+"details": [
+"balkon"
+],
+"notiz": "Rotbraun, Balkone",
+"quelle": "panoramax:3acc5242-4fa3-4646-8f12-4d8846380a6b"
+},
+"Feldstrasse 54": {
+"hex": "#e8c57e",
+"material": "putz",
+"stil": "gruenderzeit",
+"notiz": "Ockergelb",
+"quelle": "panoramax:835fb177-a5eb-40bc-a2c7-5a8f4f775a81"
+},
 "Feldstrasse 59": {
 "hex": "#e4c060",
 "material": "putz",
@@ -906,6 +1241,18 @@
 ],
 "notiz": "gelb, graue Läden, Balkone",
 "quelle": "panoramax:158e1650-3a0d-4a3c-8721-920f4bce1bf1"
+},
+"Feldstrasse 60": {
+"hex": "#cdc8bc",
+"material": "putz",
+"fenster": "bogen",
+"stil": "gruenderzeit",
+"details": [
+"rustika",
+"gesims"
+],
+"notiz": "Graubeige, Rundbogentor, Rustika-Sockel",
+"quelle": "panoramax:419f0c3c-b3cc-40e4-a3b9-0e6b44114537"
 },
 "Feldstrasse 61": {
 "hex": "#bcd8b8",
@@ -1017,6 +1364,16 @@
 ],
 "notiz": "ockerorange, Eisenbalkone",
 "quelle": "panoramax:3e556a96-d50b-49f9-8d9d-4ec8b81dcff8"
+},
+"Hardstrasse 70": {
+"hex": "#ece6d4",
+"material": "putz",
+"fenster": "hoch",
+"details": [
+"balkon"
+],
+"notiz": "Creme, Balkone",
+"quelle": "panoramax:4c329832-9e99-4fc2-815e-2a2c5e89ab6a"
 },
 "Heinrichstrasse 213": {
 "hex": "#bcc4d0",
@@ -1177,6 +1534,15 @@
 "notiz": "graue Plattenfassade, Fensterraster",
 "quelle": "mapillary:1127494262501442"
 },
+"Hohlstrasse 27": {
+"hex": "#e6e6e2",
+"material": "putz",
+"fenster": "band",
+"dach": "flach",
+"stil": "neubau",
+"notiz": "Hell, Neubau, Gewerbe im EG",
+"quelle": "panoramax:a00a3ac3-b0a0-4016-868a-f3afca19ebb4"
+},
 "Hohlstrasse 271": {
 "hex": "#cf8062",
 "material": "putz",
@@ -1246,6 +1612,34 @@
 ],
 "notiz": "rotorange, Eisenbalkon, Sockel aus grauem Naturstein",
 "quelle": "mapillary:1148311043009683"
+},
+"Hohlstrasse 49": {
+"hex": "#e0cdb8",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "gruen",
+"rahmen": "weiss",
+"stil": "gruenderzeit",
+"details": [
+"gesims"
+],
+"notiz": "Blassrosa-beige, gruene Laeden, Schriftzug in Fassade",
+"quelle": "panoramax:d597f39d-0335-48fd-bde7-27879ab80b40"
+},
+"Hohlstrasse 615": {
+"hex": "#9c7552",
+"material": "holz",
+"notiz": "Holzverschalung, gelbes Nachbarhaus",
+"quelle": "panoramax:235f48c9-c5fb-4f22-9504-2eac54648e38"
+},
+"Hohlstrasse 627": {
+"hex": "#eec59f",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "rot",
+"rahmen": "weiss",
+"notiz": "Pfirsich, rote Laeden",
+"quelle": "panoramax:a5120051-42f7-461d-989b-bac07ff663d8"
 },
 "Hohlstrasse 98": {
 "hex": "#9a4a38",
@@ -1994,6 +2388,18 @@
 "stil": "buero",
 "notiz": "moderner Glas-Beton-Raster, weisse Stützen",
 "quelle": "mapillary:1051686323704740"
+},
+"Militärstrasse 118": {
+"hex": "#a9a59c",
+"material": "putz",
+"fenster": "bogen",
+"laeden": "gruen",
+"rahmen": "weiss",
+"details": [
+"balkon"
+],
+"notiz": "Grau verputzt, Schmiedeeisen-Balkone, gruene Laeden",
+"quelle": "panoramax:ce73f409-f49d-40ab-b84c-f1f1a41e9dc9"
 },
 "Müllerstrasse 23": {
 "hex": "#d98060",

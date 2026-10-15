@@ -437,6 +437,24 @@
      -928.4
     ]
    ]
+  },
+  {
+   "name": "Roentgenplatz Randbau",
+   "model": "/models/landmarks/roentgen_randbau.glb",
+   "x": 780.8,
+   "y": 129.6,
+   "z": -6.36,
+   "heading": 0,
+   "hide": [
+    [
+     781.3,
+     129.9
+    ],
+    [
+     785.3,
+     124.2
+    ]
+   ]
   }
  ]
 }
