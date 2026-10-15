@@ -1,7 +1,7 @@
 """Numbered contact sheets per v3 site: preview/ref_v3_<id>.jpg (16 picks, 4x4, 1600 px wide) and
 preview/ref_v3_<id>_b.jpg (the remaining photos, if >= 6). Numbers = index in research/v3/photos.json[id].photos.
 
-Pick order for sheet a: up to 4 Commons, 2 Panoramax, 1 night shot, then Mapillary spread by bearing.
+Pick order for sheet a: up to 6 Commons, 2 Panoramax, 1 night shot, then Mapillary spread by bearing.
 Usage: python contact_sheet_v3.py [id,id]
 """
 import json
@@ -42,7 +42,8 @@ def main():
         if not ph:
             continue
         la, lo = meta[sid]["lat"], meta[sid]["lon"]
-        pick = [x for x in ph if x[1]["source"] == "commons"][:4] + [x for x in ph if x[1]["source"] == "panoramax"][:2]
+        cm = [x for x in ph if x[1]["source"] == "commons"]
+        pick = [x for x in cm if x[1].get("via")][:4] + [x for x in cm if not x[1].get("via")][:3] + [x for x in ph if x[1]["source"] == "panoramax"][:2]
         pick += [x for x in ph if x[1].get("night") and x not in pick][:1]
         ml = [x for x in ph if x[1]["source"] == "mapillary" and x not in pick]
         ml.sort(key=lambda x: math.atan2(x[1]["lon"] - lo, x[1]["lat"] - la))

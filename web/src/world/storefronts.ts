@@ -1,5 +1,7 @@
 import * as THREE from 'three';
 import { nightUniform } from '../engine/materials';
+import { hash, lookOf, mix, type ShopSign } from './storefront_style';
+import { planters, terrace } from './storefront_terrace';
 
 /**
  * Per-tile details for ground-floor venues (rows = tile meta `signs`): coloured awnings, neon blade signs with the real
@@ -8,18 +10,10 @@ import { nightUniform } from '../engine/materials';
  * Everything of a tile is merged into one vertex-coloured mesh (1 draw call) + one additive "spill" mesh.
  * Facade frame: u = along the wall (sign tangent), v = outward, h = height above the pavement (sign z - 3.45).
  */
-export interface VenueSign { x: number; y: number; z: number; tx: number; ty: number; w: number; name: string; kind: string }
+export type VenueSign = ShopSign;
 
 const NEON = ['#ff3caa', '#28e6dc', '#ff3caa', '#ffb43c', '#8c64ff'];
-const AWN = [0xb8202a, 0x2d6b45, 0x1f4e8c, 0xd9a020, 0x6e1428, 0x0f6f73, 0xc4441c];
 const BARS = ['bar', 'pub', 'nightclub', 'biergarten'];
-const AWNING_KINDS = ['cafe', 'bakery', 'pastry', 'restaurant', 'ice_cream', 'greengrocer', 'florist', 'fast_food', 'convenience'];
-
-function hash(s: string) {
-  let h = 2166136261;
-  for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619);
-  return h >>> 0;
-}
 
 /** Shared material: vertex colour x label atlas, `aGlow` = share of the colour that is self-lit at night. */
 let mat: THREE.MeshLambertMaterial | null = null;
@@ -98,13 +92,22 @@ function box(b: Builder, p: Pt, u: number, v: number, h0: number, du: number, dv
   b.quad(d, a, e, hh, c, 0);                       // -u
 }
 
-function awning(b: Builder, p: Pt, u0: number, u1: number, c: THREE.Color, h0 = 2.85) {
+function awning(b: Builder, p: Pt, u0: number, u1: number, c: THREE.Color, striped: boolean, h0 = 2.85) {
   const white = new THREE.Color(0xf0ece2), n = Math.max(2, Math.round((u1 - u0) / 0.32)), du = (u1 - u0) / n;
+  const shade = c.clone().multiplyScalar(0.82);
   for (let i = 0; i < n; i++) {
-    const col = i % 2 ? white : c, a = u0 + i * du, e = a + du;
+    const col = striped && i % 2 ? white : c, a = u0 + i * du, e = a + du;
     b.quad(p(a, 0.05, h0), p(e, 0.05, h0), p(e, 1.15, h0 - 0.5), p(a, 1.15, h0 - 0.5), col);          // sloped cloth
-    b.quad(p(a, 1.15, h0 - 0.5), p(e, 1.15, h0 - 0.5), p(e, 1.17, h0 - 0.74), p(a, 1.17, h0 - 0.74), col); // valance
+    b.quad(p(a, 1.15, h0 - 0.5), p(e, 1.15, h0 - 0.5), p(e, 1.17, h0 - 0.74), p(a, 1.17, h0 - 0.74), striped ? col : shade); // valance
   }
+}
+
+/** Ground-floor facade colour as pilasters at the wall ends + stall riser (only for venues with photo notes). */
+function framing(b: Builder, p: Pt, s: VenueSign, fc: string) {
+  if (s.w > 8.6) return;
+  const col = new THREE.Color(fc), riser = new THREE.Color(mix(fc, '#000000', 0.18)), e = s.w / 2 + 0.3, v = 0.05;
+  for (const sg of [-1, 1]) b.quad(p(sg * e, v, 0), p(sg * (e - 0.38), v, 0), p(sg * (e - 0.38), v, 3.9), p(sg * e, v, 3.9), col);
+  b.quad(p(-e, v, 0), p(e, v, 0), p(e, v, 0.42), p(-e, v, 0.42), riser);
 }
 
 function standingTable(b: Builder, p: Pt, u: number, v: number) {
@@ -148,13 +151,13 @@ function crates(b: Builder, p: Pt, u: number, rnd: number) {
 }
 
 /** Neon / illuminated label atlas: one 512x64 row per label. */
-function labelAtlas(rows: { text: string; color: string; cross?: boolean }[]) {
+function labelAtlas(rows: { text: string; color: string; bg?: string; cross?: boolean }[]) {
   const c = document.createElement('canvas'); c.width = 512; c.height = THREE.MathUtils.ceilPowerOfTwo(rows.length * 64 + 8);
   const g = c.getContext('2d')!;
   g.fillStyle = '#fff'; g.fillRect(0, 0, 8, 8);
   rows.forEach((r, i) => {
     const y = 8 + i * 64;
-    g.fillStyle = '#120d1a'; g.fillRect(0, y, 512, 64);
+    g.fillStyle = r.bg ?? '#120d1a'; g.fillRect(0, y, 512, 64);
     g.strokeStyle = r.color; g.lineWidth = 3; g.shadowColor = r.color; g.shadowBlur = 10; g.strokeRect(5, y + 5, 502, 54);
     g.fillStyle = r.color; g.textAlign = 'center'; g.textBaseline = 'middle';
     if (r.cross) {
@@ -174,22 +177,25 @@ function labelAtlas(rows: { text: string; color: string; cross?: boolean }[]) {
 
 export function buildStorefronts(signs: VenueSign[] | undefined): THREE.Object3D[] {
   if (!signs?.length) return [];
-  const b = new Builder(), spill = new Builder(), labels: { text: string; color: string; cross?: boolean }[] = [];
+  const b = new Builder(), spill = new Builder(), labels: { text: string; color: string; bg?: string; cross?: boolean }[] = [];
   const blades: { p: Pt; u: number; row: number; color: string }[] = [];
   for (const s of signs) {
-    const h = hash(s.name), p = frame(s), k = s.kind, wide = Math.min(s.w, 5.2);
+    const h = hash(s.name), p = frame(s), k = s.kind, wide = Math.min(s.w, 5.2), look = lookOf(s);
     const isBar = BARS.includes(k);
-    if (AWNING_KINDS.includes(k) && (k !== 'fast_food' && k !== 'convenience' || h % 2 === 0) && wide > 2.4)
-      awning(b, p, -wide / 2, wide / 2, new THREE.Color(AWN[(h >> 3) % AWN.length]));
+    if (look.fc) framing(b, p, s, look.fc);
+    if (look.aw && wide > 2.4) awning(b, p, -wide / 2, wide / 2, new THREE.Color(look.aw), look.stripes);
     const edge = s.w / 2 - 0.35;
-    if (isBar || k === 'pharmacy' || (k === 'restaurant' && h % 3 === 0) || (k === 'fast_food' && h % 2 === 1)) {
-      const color = k === 'pharmacy' ? '#32dc82' : k === 'restaurant' ? '#ffd28c' : k === 'fast_food' ? '#ff5a46' : NEON[(h >> 2) % NEON.length];
-      labels.push({ text: s.name, color, cross: k === 'pharmacy' });
+    if (look.blade || isBar || k === 'pharmacy' || (!s.v && ((k === 'restaurant' && h % 3 === 0) || (k === 'fast_food' && h % 2 === 1)))) {
+      const real = look.blade || !!s.v;
+      const color = k === 'pharmacy' ? '#32dc82' : real ? look.fg : k === 'restaurant' ? '#ffd28c' : k === 'fast_food' ? '#ff5a46' : NEON[(h >>> 2) % NEON.length];
+      labels.push({ text: s.name, color, bg: real && look.blade ? look.bg : undefined, cross: k === 'pharmacy' });
       blades.push({ p, u: h % 2 ? edge : -edge, row: labels.length - 1, color });
     }
+    if (look.seat) terrace(b, p, s, look);
+    if (look.plants) planters(b, p, s);
     if (isBar) {
-      for (const sx of [-1, 1]) if (h >> (4 + (sx > 0 ? 1 : 0)) & 1) standingTable(b, p, sx * Math.max(0.9, s.w / 2 - 0.9), 1.3);
-      const col = new THREE.Color(NEON[(h >> 2) % NEON.length]);
+      if (!look.seat) for (const sx of [-1, 1]) if (h >> (4 + (sx > 0 ? 1 : 0)) & 1) standingTable(b, p, sx * Math.max(0.9, s.w / 2 - 0.9), 1.3);
+      const col = new THREE.Color(look.neon ?? NEON[(h >>> 2) % NEON.length]);
       const r = k === 'nightclub' ? 2.6 : 1.9;
       spill.quad(p(-r * 1.4, 0.1, 0.06), p(r * 1.4, 0.1, 0.06), p(r * 1.4, 0.1 + r * 2, 0.06), p(-r * 1.4, 0.1 + r * 2, 0.06), col, 0, [0, 0, 1, 1]);
     }

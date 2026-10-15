@@ -48,41 +48,57 @@ function loadModel(type: string): Promise<THREE.Object3D | null> {
   return p;
 }
 
-const GLASS_LIN = { r: 0.011, b: 0.033 };
-/** Split a body geometry into paint (colour baked in) and glass triangles. */
-function splitBody(src: THREE.BufferGeometry, paint: THREE.Color): { body: THREE.BufferGeometry; glass: THREE.BufferGeometry } {
+/** Surface classes encoded in `_paint` by pipeline/cars/build_car.py: 1 lacquer, 0.3 glass, 0.15 chrome/alloy, 0 matte. */
+type Surf = 'paint' | 'glass' | 'chrome' | 'matte';
+const surfOf = (v: number): Surf => (v > 0.5 ? 'paint' : v > 0.22 ? 'glass' : v > 0.08 ? 'chrome' : 'matte');
+/** Split a geometry by surface class (non-indexed copies); lacquer vertices get the paint colour baked in. */
+function splitSurf(src: THREE.BufferGeometry, paint: THREE.Color | null): Record<Surf, THREE.BufferGeometry | null> {
   const g = src.index ? src.toNonIndexed() : src.clone();
   const n = g.getAttribute('position').count, col = g.getAttribute('color'), pa = g.getAttribute('_paint');
-  const isGlass = (v: number) => col && col.getZ(v) - col.getX(v) > 0.015 && Math.abs(col.getX(v) - GLASS_LIN.r) < 0.012 && Math.abs(col.getZ(v) - GLASS_LIN.b) < 0.02;
-  const take = (glass: boolean) => {
-    const pos: number[] = [], nor: number[] = [], cl: number[] = [];
-    const P = g.getAttribute('position'), N = g.getAttribute('normal');
-    for (let t = 0; t < n; t += 3) {
-      if (isGlass(t) !== glass) continue;
-      for (let k = 0; k < 3; k++) {
-        const v = t + k;
-        pos.push(P.getX(v), P.getY(v), P.getZ(v)); nor.push(N.getX(v), N.getY(v), N.getZ(v));
-        const f = pa && pa.getX(v) > 0.5;
-        cl.push(f ? paint.r : col?.getX(v) ?? 1, f ? paint.g : col?.getY(v) ?? 1, f ? paint.b : col?.getZ(v) ?? 1);
-      }
+  const P = g.getAttribute('position'), N = g.getAttribute('normal');
+  const acc: Record<Surf, { pos: number[]; nor: number[]; cl: number[] }> = { paint: { pos: [], nor: [], cl: [] }, glass: { pos: [], nor: [], cl: [] }, chrome: { pos: [], nor: [], cl: [] }, matte: { pos: [], nor: [], cl: [] } };
+  for (let t = 0; t < n; t += 3) {
+    const k = surfOf(pa ? pa.getX(t) : 0), o = acc[k];
+    for (let j = 0; j < 3; j++) {
+      const v = t + j;
+      o.pos.push(P.getX(v), P.getY(v), P.getZ(v)); o.nor.push(N.getX(v), N.getY(v), N.getZ(v));
+      if (k === 'paint' && paint) o.cl.push(paint.r, paint.g, paint.b);
+      else if (k === 'glass') o.cl.push(Math.min(1, (col?.getX(v) ?? 1) * 2.4), Math.min(1, (col?.getY(v) ?? 1) * 2.4), Math.min(1, (col?.getZ(v) ?? 1) * 2.4)); // tinted glass, lifted so it does not read black
+      else o.cl.push(col?.getX(v) ?? 1, col?.getY(v) ?? 1, col?.getZ(v) ?? 1);
     }
-    const o = new THREE.BufferGeometry();
-    o.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
-    o.setAttribute('normal', new THREE.Float32BufferAttribute(nor, 3));
-    o.setAttribute('color', new THREE.Float32BufferAttribute(cl, 3));
-    return o;
-  };
-  return { body: take(false), glass: take(true) };
+  }
+  const out = {} as Record<Surf, THREE.BufferGeometry | null>;
+  for (const k of Object.keys(acc) as Surf[]) {
+    const o = acc[k];
+    if (!o.pos.length) { out[k] = null; continue; }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(o.pos, 3));
+    geo.setAttribute('normal', new THREE.Float32BufferAttribute(o.nor, 3));
+    geo.setAttribute('color', new THREE.Float32BufferAttribute(o.cl, 3));
+    out[k] = geo;
+  }
+  return out;
 }
 
 export async function buildRig(type: string, paint: THREE.Color): Promise<Rig> {
   const src = await loadModel(type);
   const group = new THREE.Group();
   const geos: THREE.BufferGeometry[] = [];
-  const paintMat = new THREE.MeshPhysicalMaterial({ vertexColors: true, roughness: 0.42, metalness: 0.35, clearcoat: 1, clearcoatRoughness: 0.06, envMap, envMapIntensity: 0.9 });
-  const glassMat = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.06, metalness: 0.9, envMap, envMapIntensity: 1.1 });
-  const tyreMat = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.75, metalness: 0.1, envMap, envMapIntensity: 0.3 });
-  const mats: THREE.Material[] = [paintMat, glassMat, tyreMat];
+  // clear-coat lacquer, tinted reflective glass, polished chrome/alloy, matte plastic/rubber (only the driven car is Physical)
+  const paintMat = new THREE.MeshPhysicalMaterial({ vertexColors: true, roughness: 0.4, metalness: 0.12, clearcoat: 1, clearcoatRoughness: 0.05, envMap, envMapIntensity: 0.5 });
+  const glassMat = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.05, metalness: 0.35, envMap, envMapIntensity: 1.6 });
+  const chromeMat = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.22, metalness: 0.9, envMap, envMapIntensity: 1.1 });
+  const matteMat = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.78, metalness: 0.05, envMap, envMapIntensity: 0.25 });
+  const mats: THREE.Material[] = [paintMat, glassMat, chromeMat, matteMat];
+  const surfMat: Record<Surf, THREE.Material> = { paint: paintMat, glass: glassMat, chrome: chromeMat, matte: matteMat };
+  const addSurf = (parent: THREE.Object3D, geo: THREE.BufferGeometry, pc: THREE.Color | null) => {
+    const sp = splitSurf(geo, pc);
+    for (const k of Object.keys(sp) as Surf[]) {
+      const g = sp[k]; if (!g) continue;
+      geos.push(g); const m = new THREE.Mesh(g, surfMat[k]); m.castShadow = true; parent.add(m);
+    }
+    return sp;
+  };
   const wheels: { spin: THREE.Object3D; pivot: THREE.Object3D; front: boolean }[] = [];
   let length = 4.4, width = 1.8, wheelR = 0.31, wheelbase = 2.65;
   const headMat = new THREE.MeshBasicMaterial({ color: 0xcfc8b0, toneMapped: false });
@@ -98,13 +114,10 @@ export async function buildRig(type: string, paint: THREE.Color): Promise<Rig> {
     src.traverse((o) => { if ((o as THREE.Mesh).isMesh) parts[o.name] = o as THREE.Mesh; });
     const body = Object.entries(parts).find(([k]) => !/^(head|tail|wheel_)/.test(k))?.[1];
     if (body) {
-      const { body: b, glass } = splitBody(body.geometry, paint);
-      geos.push(b, glass);
-      const mb = new THREE.Mesh(b, paintMat), mg = new THREE.Mesh(glass, glassMat);
-      mb.castShadow = mg.castShadow = true;
-      group.add(mb, mg);
-      b.computeBoundingBox();
-      const bb = b.boundingBox!;
+      const sp = addSurf(group, body.geometry, paint);
+      const ref = (sp.paint ?? sp.matte)!;
+      ref.computeBoundingBox();
+      const bb = ref.boundingBox!;
       length = bb.max.z - bb.min.z; width = bb.max.x - bb.min.x;
     }
     for (const k of ['fl', 'fr', 'rl', 'rr']) {
@@ -112,8 +125,8 @@ export async function buildRig(type: string, paint: THREE.Color): Promise<Rig> {
       if (!w) continue;
       w.geometry.computeBoundingBox();
       wheelR = w.geometry.boundingBox!.max.y;
-      const pivot = new THREE.Group(), spin = new THREE.Mesh(w.geometry, tyreMat);
-      spin.castShadow = true;
+      const pivot = new THREE.Group(), spin = new THREE.Group();
+      addSurf(spin, w.geometry, null);
       pivot.position.copy(w.position); pivot.add(spin); group.add(pivot);
       wheels.push({ spin, pivot, front: k[0] === 'f' });
     }

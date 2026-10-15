@@ -39,6 +39,7 @@ MORE = ("Hardturmstrasse Zwinglistrasse Anwandstrasse Feldstrasse Konradstrasse 
         "Röntgenstrasse Sihlquai Aemtlerstrasse Zypressenstrasse Hallwylstrasse Quellenstrasse Zollstrasse Fabrikstrasse "
         "Schöneggstrasse Engelstrasse Kasernenstrasse Eichbühlstrasse Altstetterstrasse Müllerstrasse Erismannstrasse").split()
 CELL = 70.0
+CACHED_ONLY = False
 FOV = 70.0
 
 
@@ -86,28 +87,34 @@ def cell_images(cx, cy, tok):
     f = CELLS / f"{cx}_{cy}.json"
     if f.exists():
         return json.load(open(f))
+    if CACHED_ONLY:
+        return None
     lat0, lon0 = F.local_ll((cx + 0.5) * CELL, (cy + 0.5) * CELL)
     pad = 42  # a camera within 40 m of any house in the cell lies inside the bbox (bigger bboxes return truncated, inconsistent results)
     dlat, dlon = (CELL / 2 + pad) / 110574, (CELL / 2 + pad) / (111320 * math.cos(math.radians(lat0)))
     FIELDS = "id,thumb_1024_url,compass_angle,computed_compass_angle,computed_geometry,captured_at,creator,is_pano,camera_type,camera_parameters"
 
-    def q(x0, y0, x1, y1, tries=2):
-        for _ in range(tries):
-            r = F.get("ml", F.ML, {"access_token": tok, "bbox": f"{x0:.6f},{y0:.6f},{x1:.6f},{y1:.6f}", "fields": FIELDS, "limit": 2000}, pause=0.25)
-            if r:
-                return r.json().get("data", [])
-            time.sleep(3)
-        return None
-
-    data = q(lon0 - dlon, lat0 - dlat, lon0 + dlon, lat0 + dlat)
-    if data is None:  # dense cell: the API answers 500; ask quadrant by quadrant
-        data = []
-        for sx in (-1, 0):
-            for sy in (-1, 0):
-                part = q(lon0 + sx * dlon, lat0 + sy * dlat, lon0 + sx * dlon + dlon, lat0 + sy * dlat + dlat)
+    def q(x0, y0, x1, y1, depth=0):
+        """bbox query; the API refuses dense boxes ('reduce the amount of data') -> split into quadrants recursively."""
+        r = F.get("ml", F.ML, {"access_token": tok, "bbox": f"{x0:.6f},{y0:.6f},{x1:.6f},{y1:.6f}", "fields": FIELDS, "limit": 2000,
+                               "start_captured_at": "2020-01-01T00:00:00Z"}, pause=0.2, tries=1)
+        if r:
+            return r.json().get("data", [])
+        if depth >= 3:
+            return None
+        mx, my = (x0 + x1) / 2, (y0 + y1) / 2
+        out = []
+        for bx in ((x0, mx), (mx, x1)):
+            for by in ((y0, my), (my, y1)):
+                part = q(bx[0], by[0], bx[1], by[1], depth + 1)
                 if part is None:
                     return None
-                data += part
+                out += part
+        return out
+
+    data = q(lon0 - dlon, lat0 - dlat, lon0 + dlon, lat0 + dlat)
+    if data is None:
+        return None
     r = type("R", (), {"json": lambda self: {"data": data}})()
     ims = []
     for im in r.json().get("data", []):
@@ -168,7 +175,10 @@ def main():
     ap.add_argument("--list", action="store_true")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--streets", default="")
+    ap.add_argument("--cached-only", action="store_true", help="skip the cell prefetch and cells not yet cached (use after a flaky API run)")
     a = ap.parse_args()
+    global CACHED_ONLY
+    CACHED_ONLY = a.cached_only
     T = targets(set(a.streets.split(",")) if a.streets else None)
     TARGETS.parent.mkdir(parents=True, exist_ok=True)
     json.dump(T, open(TARGETS, "w"), ensure_ascii=False)
@@ -179,6 +189,13 @@ def main():
     cand = json.load(open(CAND)) if CAND.exists() else {}
     CROPS.mkdir(parents=True, exist_ok=True)
     n = ok = 0
+    from concurrent.futures import ThreadPoolExecutor
+    cells = [] if a.cached_only else sorted({(int(t["x"] // CELL), int(t["y"] // CELL)) for t in T if t["addr"] not in cand})
+    F.log(f"prefetching {len(cells)} cells")
+    with ThreadPoolExecutor(8) as ex:
+        for i, _ in enumerate(ex.map(lambda c: cell_images(c[0], c[1], tok), cells)):
+            if i % 50 == 0:
+                F.log(f"  cells {i}/{len(cells)}")
     for t in T:
         if t["addr"] in cand:
             continue

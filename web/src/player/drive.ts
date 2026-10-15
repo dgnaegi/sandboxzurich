@@ -24,6 +24,8 @@ export class DriveCar {
   private pitchV = 0; private rollV = 0; private zV = 0;
   wheelAngle = 0;
   braking = false; reversing = false;
+  /** Brake light on while braking and while coasting down (no throttle, still rolling); held briefly so it does not flicker. */
+  private brakeHold = 0;
   /** Smoothed engine state for audio/lights. */
   rpm = 0; gear = 1; throttle = 0;
   /** Latched indicator side (-1 left, 1 right) and its phase. */
@@ -192,6 +194,8 @@ export class DriveCar {
       if (this.blinkHold > 0.5) { this.blink = s < 0 ? -1 : 1; this.blinkAge = 0; this.blinkHold = 0; }
     } else if (this.blinkAge > 1.5 && Math.abs(s) < 0.12) this.blink = 0;
     this.blinkPhase += dt;
+    const coast = Math.abs(this.throttle) <= 0.05 && Math.abs(this.speed) > 0.3;
+    this.brakeHold = this.braking || coast ? 0.3 : Math.max(0, this.brakeHold - dt);
     const g = this.rig.group;
     g.position.set(this.x, this.z, -this.y);
     g.rotation.set(this.pitch, -this.h, this.roll, 'YXZ');
@@ -200,6 +204,6 @@ export class DriveCar {
 
   /** Update the lights (needs the day/night value). */
   lights(night: number) {
-    this.rig.setLights({ brake: this.braking, reverse: this.reversing, night, blink: this.blink, blinkOn: Math.floor(this.blinkPhase * 3) % 2 === 0 });
+    this.rig.setLights({ brake: this.brakeHold > 0, reverse: this.reversing, night, blink: this.blink, blinkOn: Math.floor(this.blinkPhase * 3) % 2 === 0 });
   }
 }

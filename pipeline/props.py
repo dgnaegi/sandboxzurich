@@ -6,6 +6,7 @@ import shapely
 from shapely.geometry import Point
 from shapely.strtree import STRtree
 
+import shopfronts_v3
 from styles import h32
 
 PARK_HW = {"residential", "tertiary", "unclassified"}
@@ -88,7 +89,22 @@ def signs(S, segs, tb):
         out.append({"x": round(s["x"], 2), "y": round(s["y"], 2), "z": round(s["z"], 2), "tx": round(s["tx"], 4),
                     "ty": round(s["ty"], 4), "w": round(min(s["w"] - 0.6, 9), 2), "name": poi["name"],
                     "kind": poi["kind"], "osm": poi["osm"]})
+        d = pavement_depth(S, out[-1])
+        if d is not None:
+            out[-1]["pd"] = d
+        v = shopfronts_v3.notes_for(poi)
+        if v:
+            out[-1]["v"] = v
     return out
+
+
+def pavement_depth(S, sg):
+    """Metres from the facade to the nearest carriageway edge (room for terraces); None if far/unknown."""
+    try:
+        d = Point(sg["x"] + sg["ty"] * 0.3, sg["y"] - sg["tx"] * 0.3).distance(S["roads"])
+    except Exception:
+        return None
+    return round(d, 1) if d < 9.0 else None
 
 
 def walk_paths(roads, plaza, tb):

@@ -5,23 +5,23 @@
   "drive": true,
   "length": 4.37,
   "width": 1.79,
-  "height": 1.47
+  "height": 1.48
  },
  {
   "type": "wagon",
   "file": "wagon.glb",
   "drive": true,
-  "length": 4.76,
+  "length": 4.75,
   "width": 1.82,
-  "height": 1.48
+  "height": 1.49
  },
  {
   "type": "small",
   "file": "small.glb",
   "drive": true,
-  "length": 3.61,
+  "length": 3.62,
   "width": 1.63,
-  "height": 1.5
+  "height": 1.51
  },
  {
   "type": "sedan",
@@ -29,23 +29,23 @@
   "drive": true,
   "length": 4.79,
   "width": 1.85,
-  "height": 1.45
+  "height": 1.46
  },
  {
   "type": "suv",
   "file": "suv.glb",
   "drive": true,
-  "length": 4.58,
+  "length": 4.57,
   "width": 1.84,
-  "height": 1.68
+  "height": 1.69
  },
  {
   "type": "van",
   "file": "van.glb",
   "drive": true,
-  "length": 4.97,
+  "length": 4.95,
   "width": 1.9,
-  "height": 1.98
+  "height": 1.99
  },
  {
   "type": "sport",
@@ -53,6 +53,22 @@
   "drive": true,
   "length": 4.61,
   "width": 1.85,
-  "height": 1.31
+  "height": 1.32
+ },
+ {
+  "type": "csuv",
+  "file": "csuv.glb",
+  "drive": true,
+  "length": 4.39,
+  "width": 1.81,
+  "height": 1.6
+ },
+ {
+  "type": "taxi",
+  "file": "taxi.glb",
+  "drive": true,
+  "length": 4.75,
+  "width": 1.82,
+  "height": 1.61
  }
 ]

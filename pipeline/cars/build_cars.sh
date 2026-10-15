@@ -2,7 +2,7 @@
 # Build all car GLBs + manifest + contact sheet. Log: logs/cars.log
 cd "$(dirname "$0")/../.." || exit 1
 B=/opt/homebrew/bin/blender
-for t in ${1:-hatch wagon small sedan suv van sport}; do
+for t in ${1:-hatch wagon small sedan suv csuv van taxi sport}; do
   echo "== $t"; $B -b -P pipeline/cars/build_car.py -- $t 2>&1 | grep -E "DONE|rror|Traceback|opt fail"
   $B -b -P pipeline/cars/build_car.py -- $t drive 2>&1 | grep -E "DONE|rror|Traceback|opt fail"
 done

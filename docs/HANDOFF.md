@@ -33,6 +33,11 @@ Decals (`decals.ts`): einheitliche UV (oben = Fahrtrichtung), Velo neu, Pfeile 7
 - Uhr: `ui/clock.ts` (GameClock: min/day/rate 1/10/60/paused, localStorage `sbz-clock`; URL `?t=`/`?day=` hat Vorrang). Klick/Tap auf die Uhr oben rechts öffnet das Panel. Tests: `web/tests/clock.mjs`, Bilder `web/tests/map_v2.mjs` + `map_v2_sheet.py` -> `preview/map_v2.jpg`.
 - Offen: Tram-Liniennummern auf der Karte, Velo-Overlay nur im Spielgebiet (Daten veloinfra.json).
 
+## Fassaden v3 (2026-10-15, Abend)
+- Bug «graues Fensterraster»: `neubau_b` (graue Paneele, nicht tintbar) bei 1/3 aller Neubauten; jetzt tintbar, Gewicht 1/5.
+- `research/buildings/visual_notes_v3.json` (aktuell ~109 Adressen, Mapillary, CC BY-SA, `CREDITS_v3.md`), Kontaktbögen `research/buildings/sheets_v3/NNN.jpg`, Rohnotizen `notes_raw_*.tsv` (Format in `pipeline/photos/facades_notes.py`). Nächste Bögen: `python pipeline/photos/facades_fetch.py --cached-only` (Mapillary-API flaky: «reduce the amount of data», Zellen 70 m, parallel; ohne --cached-only lädt es neue Zellen), dann `facades_sheets.py`, Bögen lesen, `notes_raw_NNN.tsv` schreiben, `facades_notes.py`. Ziel 2605 Adressen, `targets.json`; Stand siehe `sheets.json`.
+- Generator: `gen_facades3.py` + `facade_trim.py` + `styles.v3_layer_name/exact_tint`; Atlas neu (`gen_textures.py`, +2.4 MB), Shader `materials.ts` (facades3-Bereich, Gain, Normalen). Build-Schritte: `gen_facades3.py`, `gen_textures.py`, dann alle Kacheln neu (nur 3_-6 und 2_-6, -8_2, -9_2 sind neu gebaut).
+
 ## Neu (2026-10-15, Nachmittag: Detail-Runde mit 6 Agents)
 - Landmarks als GLB (`pipeline/landmarks/`, Loader `world/landmarks3d.ts`, Manifest `data/landmarks.json` via `pipeline/landmarks/merge.py`): Letzigrund, Toni-Areal, Volkshaus, Hardau II, Bhf Hardbrücke (detailliert); Prime Tower, KVA, Viadukt, Schiffbau, Lochergut, Kalkbreite, St. Jakob, Bullingerkirche, Kanzlei, Bhf Altstetten, Bhf Wiedikon (Brücke), Kirchen Altstetten/Wiedikon, Löwenbrunnen, Krematorium + Tor Sihlfeld. `hide`-Punkte entfernen swissBUILDINGS3D-Gebäude.
 - Spielgebiet + Friedhof Sihlfeld (6.88 km², 219+82 Kacheln). `terrain_cuts.json` (Bahneinschnitt Wiedikon).
@@ -70,3 +75,13 @@ Selbst erledigt: Laufen (Commit db8ee26); OSM-Parks nur noch Rasen, wo AV grün 
 - Pipeline: `bash pipeline/cars/build_cars.sh` baut jetzt auch `*_drive.glb`; `python3 pipeline/bikes/build_bikes.py` schreibt `rig` (Achsen, Sattel) ins Manifest.
 - Tests: `tests/drive.mjs` (Desktop+Touch), `tests/vehicles_sheet.mjs` (-> preview/vehicles_v2.jpg), `tests/bikes_ride.mjs`, `tests/perf_drive.mjs`. Perf Handy (4x CPU): zu Fuss 59 fps/192 Calls, im Auto 60 fps/153 Calls.
 - Offen: Fussgänger:innen weichen fahrenden Autos nicht aus (fahren durch); Scheinwerferkegel/Nachtlicht am gefahrenen Auto; Tacho/HUD; Lenker der Velos dreht nicht mit; `ridePose` Fussneigung nur grob.
+
+## Autos v3 (Agent, 2026-10-15)
+- Neu gebaut: `bash pipeline/cars/build_cars.sh` (9 Typen inkl. csuv/taxi, je normal + `_drive`). Sheet: `node web/tests/cars_sheet.mjs cars_v3.jpg` (Env `BASE`, `D`). Details in DECISIONS #31.
+- Ausweichen: `pedestrians.ts` (`update(..., car)`, in main.ts übergeben). Bremslicht: `drive.ts` `brakeHold`.
+- Offen: Verkehrs-Lichtoverlay (`trafficlights.ts`) sitzt noch auf festen Positionen statt je Typ; Polizeiauto weiterhin Wagon + Boxen; Nachtscheinwerferkegel.
+
+## Ladenfronten v3 (Foto-Notizen)
+- `pipeline/shopfronts_v3.py` haengt Notizen (shops_v3.json) per OSM-Id/Name an `signs[].v`; `props.signs` schreibt zusaetzlich `pd` (Trottoirtiefe). Laufzeit: `web/src/world/storefront_style.ts` (Look pro Lokal, echte Werte oder Hash-Mix nach Typ), `storefront_sign.ts` (Schildstile), `storefront_terrace.ts` (Aussensitz, Pflanzentroege), `storefronts.ts` (Markise uni/gestreift, Pilaster/Sockel in Fassadenfarbe). Kein neuer Atlas.
+- Neu gebaut: Kacheln 3_-4,4_-4,3_-6,2_-6,4_-3,3_-5,3_-3,2_-7,3_-7 (Build-Vorlauf ~1 h!). Uebrige Kacheln zeigen alte Schilder bis zum naechsten Build. Bogen: preview/shopfronts_v3.jpg.
+- Offen: Tuerposition/Schaufenstertyp (steckt in Atlas-Ebene, styles.shop_layer).

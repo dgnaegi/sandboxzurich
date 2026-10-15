@@ -277,6 +277,114 @@
 "notiz": "hellgelb, braune Läden, Balkone, grauer Sockel",
 "quelle": "mapillary:220380727269793"
 },
+"Badenerstrasse 290": {
+"hex": "#e6e4de",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "50er",
+"geschosse": 5,
+"details": [
+"balkon"
+],
+"notiz": "cremeweiss, runder Balkon",
+"quelle": "mapillary:542513358036468"
+},
+"Badenerstrasse 310": {
+"hex": "#d7c9cb",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "gruenderzeit",
+"geschosse": 4,
+"notiz": "helles Altrosa-Grau, heller Sockelstreifen",
+"quelle": "mapillary:935470374696727"
+},
+"Badenerstrasse 316": {
+"hex": "#ecebe7",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "rot",
+"rahmen": "weiss",
+"stil": "heimatstil",
+"geschosse": 4,
+"notiz": "weiss, rote Läden",
+"quelle": "mapillary:447243827648935"
+},
+"Badenerstrasse 324": {
+"hex": "#d0d0cc",
+"material": "putz",
+"fenster": "klein",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "heimatstil",
+"geschosse": 5,
+"notiz": "hellgrau, kleine quadratische Fenster, gerundete Ecke",
+"quelle": "mapillary:1138450563817797"
+},
+"Badenerstrasse 334": {
+"hex": "#b4c3c3",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "heimatstil",
+"geschosse": 4,
+"notiz": "blaugrau",
+"quelle": "mapillary:1419010222219759"
+},
+"Badenerstrasse 384": {
+"hex": "#e6c878",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "heimatstil",
+"geschosse": 5,
+"details": [
+"erker"
+],
+"notiz": "ockergelb, Erker, Fensterbänder, Eckhaus",
+"quelle": "mapillary:1647072092445226"
+},
+"Badenerstrasse 404": {
+"hex": "#dadad6",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "heimatstil",
+"geschosse": 5,
+"details": [
+"balkon"
+],
+"notiz": "hellgrau-weiss, runde Balkone",
+"quelle": "mapillary:472430615835281"
+},
+"Badenerstrasse 414": {
+"hex": "#bdbeb6",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "70er",
+"geschosse": 2,
+"notiz": "graugrün verputzt, weisse Fenster",
+"quelle": "mapillary:256658683395447"
+},
+"Badenerstrasse 460": {
+"hex": "#e2e0d6",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "50er",
+"geschosse": 7,
+"notiz": "cremeweiss Hochbau, blaue Brüstungen",
+"quelle": "mapillary:1193525195467671"
+},
 "Badenerstrasse 47": {
 "hex": "#cfc9bb",
 "material": "sandstein",
@@ -287,6 +395,95 @@
 "geschosse": 10,
 "notiz": "Natursteinplatten, Arkaden im EG",
 "quelle": "mapillary:681566137312735"
+},
+"Badenerstrasse 519": {
+"hex": "#e4e2dc",
+"material": "putz",
+"fenster": "klein",
+"laeden": "keine",
+"rahmen": "dunkel",
+"stil": "neubau",
+"notiz": "weisser Neubau, tiefe Laibungen",
+"quelle": "mapillary:1009002734697564"
+},
+"Badenerstrasse 527": {
+"hex": "#e0e0dc",
+"material": "putz",
+"fenster": "klein",
+"laeden": "keine",
+"rahmen": "dunkel",
+"stil": "neubau",
+"notiz": "weisser Neubau",
+"quelle": "mapillary:1663618217444193"
+},
+"Badenerstrasse 529": {
+"hex": "#e4e2dc",
+"material": "putz",
+"fenster": "klein",
+"laeden": "keine",
+"rahmen": "dunkel",
+"stil": "neubau",
+"notiz": "weisser Neubau",
+"quelle": "mapillary:4147284402205842"
+},
+"Badenerstrasse 531": {
+"hex": "#c9c4b8",
+"material": "putz",
+"fenster": "klein",
+"laeden": "keine",
+"rahmen": "dunkel",
+"stil": "neubau",
+"notiz": "beigegrau, tiefe Laibungen",
+"quelle": "mapillary:619904044007737"
+},
+"Badenerstrasse 540": {
+"hex": "#d6c9ae",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "50er",
+"geschosse": 6,
+"details": [
+"balkon"
+],
+"notiz": "sandbeige, Balkone, Eckbau mit Fensterband",
+"quelle": "mapillary:4511944612464093"
+},
+"Badenerstrasse 554": {
+"hex": "#d8cfb4",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "heimatstil",
+"geschosse": 4,
+"details": [
+"balkon"
+],
+"notiz": "beige, Balkone",
+"quelle": "mapillary:1057875965524168"
+},
+"Badenerstrasse 567": {
+"hex": "#7d7d79",
+"material": "beton",
+"fenster": "klein",
+"laeden": "keine",
+"rahmen": "dunkel",
+"stil": "70er",
+"notiz": "dunkelgrauer Sichtbeton",
+"quelle": "mapillary:753868746944878"
+},
+"Badenerstrasse 627": {
+"hex": "#e0ddd6",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "50er",
+"geschosse": 3,
+"notiz": "weisser Bau 3 Geschosse, Fensterreihen",
+"quelle": "mapillary:1191964979437608"
 },
 "Badenerstrasse 65": {
 "hex": "#e8e4d6",
@@ -382,6 +579,192 @@
 "geschosse": 4,
 "notiz": "gelbbeige Grossbau, Walmdach mit Gauben",
 "quelle": "mapillary:942810623580285"
+},
+"Hohlstrasse 114": {
+"hex": "#e8e6de",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "heimatstil",
+"geschosse": 5,
+"details": [
+"balkon"
+],
+"notiz": "cremeweiss, gerundete Balkontürme",
+"quelle": "mapillary:1244375040487751"
+},
+"Hohlstrasse 116": {
+"hex": "#e8e6de",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "heimatstil",
+"geschosse": 5,
+"details": [
+"balkon"
+],
+"notiz": "cremeweiss, Balkone, Rollläden",
+"quelle": "mapillary:1452863832628821"
+},
+"Hohlstrasse 118": {
+"hex": "#e8e6de",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "heimatstil",
+"geschosse": 5,
+"details": [
+"balkon"
+],
+"notiz": "cremeweiss, gerundete Balkontürme",
+"quelle": "mapillary:1116551757068055"
+},
+"Hohlstrasse 189": {
+"hex": "#e2b66a",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "gruenderzeit",
+"geschosse": 6,
+"details": [
+"balkon"
+],
+"notiz": "ockergelb, Eisenbalkone, Eckhaus",
+"quelle": "mapillary:1325599971501286"
+},
+"Hohlstrasse 191": {
+"hex": "#6f8bb0",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "heimatstil",
+"geschosse": 5,
+"details": [
+"balkon"
+],
+"notiz": "kräftiges Blau, Eisenbalkone, grauer Sockel",
+"quelle": "mapillary:272025215381298"
+},
+"Hohlstrasse 193": {
+"hex": "#6f8bb0",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "heimatstil",
+"geschosse": 5,
+"details": [
+"balkon"
+],
+"notiz": "kräftiges Blau, Eisenbalkone, grauer Sockel",
+"quelle": "mapillary:1295422011058147"
+},
+"Hohlstrasse 204": {
+"hex": "#bcc3cc",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "gruenderzeit",
+"geschosse": 4,
+"notiz": "helles Graublau, schlicht",
+"quelle": "mapillary:3002991333214789"
+},
+"Hohlstrasse 209": {
+"hex": "#d6b9b8",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "gruen",
+"rahmen": "weiss",
+"stil": "heimatstil",
+"geschosse": 4,
+"notiz": "altrosa, grüne Läden, grauer Sockel",
+"quelle": "mapillary:1630937454149987"
+},
+"Hohlstrasse 219": {
+"hex": "#d6895f",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "gruenderzeit",
+"geschosse": 5,
+"details": [
+"balkon"
+],
+"notiz": "terrakottaorange, Eisenbalkone, Rundbogenfenster oben",
+"quelle": "mapillary:994656994866151"
+},
+"Hohlstrasse 25": {
+"hex": "#999b99",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "dunkel",
+"stil": "70er",
+"geschosse": 7,
+"notiz": "graue Plattenfassade, Fensterraster",
+"quelle": "mapillary:1127494262501442"
+},
+"Hohlstrasse 36": {
+"hex": "#d9a974",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "rot",
+"rahmen": "weiss",
+"stil": "gruenderzeit",
+"geschosse": 5,
+"notiz": "ockerorange, rote Läden, Eckhaus",
+"quelle": "mapillary:1494272768840272"
+},
+"Hohlstrasse 46": {
+"hex": "#c5553f",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "gruenderzeit",
+"geschosse": 5,
+"details": [
+"balkon",
+"rustika"
+],
+"notiz": "rotorange, Eisenbalkon, Sockel aus grauem Naturstein",
+"quelle": "mapillary:1148311043009683"
+},
+"Hohlstrasse 48": {
+"hex": "#c5553f",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "gruenderzeit",
+"geschosse": 5,
+"details": [
+"balkon",
+"rustika"
+],
+"notiz": "rotorange, Eisenbalkon, Sockel aus grauem Naturstein",
+"quelle": "mapillary:1148311043009683"
+},
+"Hohlstrasse 98": {
+"hex": "#9a4a38",
+"material": "klinker",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "70er",
+"geschosse": 5,
+"details": [
+"balkon"
+],
+"notiz": "rotbrauner Backstein, Erkerbalkone",
+"quelle": "mapillary:1406180859997864"
 },
 "Langstrasse 103": {
 "material": "glas",
@@ -822,5 +1205,171 @@
 "stil": "buero",
 "notiz": "moderner Glas-Beton-Raster, weisse Stützen",
 "quelle": "mapillary:1051686323704740"
+},
+"Stauffacherstrasse 100": {
+"hex": "#e4dbbf",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "gruenderzeit",
+"geschosse": 5,
+"details": [
+"balkon"
+],
+"notiz": "cremebeige, Balkone",
+"quelle": "mapillary:2415050588826750"
+},
+"Stauffacherstrasse 155": {
+"hex": "#7f92a6",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "gruenderzeit",
+"geschosse": 5,
+"notiz": "dunkles Graublau",
+"quelle": "mapillary:814911704561017"
+},
+"Stauffacherstrasse 157": {
+"hex": "#9fb4d6",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "gruenderzeit",
+"geschosse": 5,
+"notiz": "hellblau verputzt, Hotel",
+"quelle": "mapillary:1700339580633037"
+},
+"Stauffacherstrasse 159": {
+"hex": "#9fb4d6",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "gruenderzeit",
+"geschosse": 5,
+"notiz": "hellblau verputzt, Hotel",
+"quelle": "mapillary:1867292780489661"
+},
+"Stauffacherstrasse 175": {
+"hex": "#b9bdc9",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "heimatstil",
+"notiz": "helles Graublau, Rollläden",
+"quelle": "mapillary:4290881197862407"
+},
+"Stauffacherstrasse 180": {
+"hex": "#c9c7c2",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "heimatstil",
+"geschosse": 5,
+"notiz": "hellgrau, schlichte Fenster",
+"quelle": "mapillary:1793251365402627"
+},
+"Stauffacherstrasse 27": {
+"hex": "#bdb5a4",
+"material": "sandstein",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "gruenderzeit",
+"geschosse": 6,
+"notiz": "graubeiger Naturstein-Quader, Rundbogen im EG",
+"quelle": "mapillary:2411550092566656"
+},
+"Stauffacherstrasse 31": {
+"hex": "#eae4d2",
+"material": "putz",
+"fenster": "verdachung",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "gruenderzeit",
+"geschosse": 5,
+"details": [
+"gesims"
+],
+"notiz": "cremeweiss verputzt, Fensterverdachungen",
+"quelle": "mapillary:530037885766336"
+},
+"Stauffacherstrasse 35": {
+"hex": "#ece6d6",
+"material": "putz",
+"fenster": "verdachung",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "gruenderzeit",
+"geschosse": 5,
+"details": [
+"gesims"
+],
+"notiz": "cremeweiss verputzt, Fensterverdachungen",
+"quelle": "mapillary:759477669042955"
+},
+"Stauffacherstrasse 58": {
+"hex": "#c98068",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"dach": "walm",
+"stil": "gruenderzeit",
+"geschosse": 4,
+"notiz": "terrakottarot, Walmdach",
+"quelle": "mapillary:809816264163082"
+},
+"Stauffacherstrasse 96": {
+"hex": "#9e9b93",
+"material": "sandstein",
+"fenster": "bogen",
+"laeden": "keine",
+"rahmen": "weiss",
+"dach": "mansard",
+"stil": "gruenderzeit",
+"geschosse": 6,
+"details": [
+"erker",
+"balkon"
+],
+"notiz": "grauer Sandstein, Neorenaissance, Mansarde, Erker",
+"quelle": "mapillary:2471698256362437"
+},
+"Stauffacherstrasse 98": {
+"hex": "#dfd5b8",
+"material": "putz",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"dach": "mansard",
+"stil": "gruenderzeit",
+"geschosse": 6,
+"details": [
+"balkon",
+"gauben"
+],
+"notiz": "beige, Eisenbalkone, Mansarde mit Gauben",
+"quelle": "mapillary:1073589007413426"
+},
+"Stauffacherstrasse 99": {
+"hex": "#bb8665",
+"material": "klinker",
+"fenster": "hoch",
+"laeden": "keine",
+"rahmen": "weiss",
+"stil": "gruenderzeit",
+"geschosse": 5,
+"achsen": 4,
+"details": [
+"balkon"
+],
+"notiz": "rötlicher Backstein, Eisenbalkone",
+"quelle": "mapillary:519813300908072"
 }
 }

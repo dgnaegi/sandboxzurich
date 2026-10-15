@@ -9,7 +9,7 @@ import { PedSpots } from './pedspots';
  */
 interface Ped {
   h: Human; path: number[][]; seg: number; t: number; dir: number; speed: number; x: number; y: number; tick: number;
-  lateral: number; extras: THREE.Object3D[]; dog?: { obj: THREE.Object3D; mixer: THREE.AnimationMixer }; leader?: Ped;
+  lateral: number; dx?: number; dy?: number; extras: THREE.Object3D[]; dog?: { obj: THREE.Object3D; mixer: THREE.AnimationMixer }; leader?: Ped;
 }
 
 /** Crowd hot spots (local metres): x, y, radius, weight by day, weight by night (Fri/Sat nightlife). */
@@ -20,6 +20,9 @@ const HOT: number[][] = [
   [-1336, 239, 110, 0.5, 0.2], [1315, -640, 160, 0.8, 0.6], [393, -1202, 90, 0.5, 0.5], [-1003, 13, 130, 0.3, 0.5], // Letzipark, HB-Rand, Kalkbreite, Letzigrund
 ];
 const AGE_W: [string, number][] = [['young', 0.56], ['mid', 0.33], ['old', 0.11]]; // adults only; children ride along
+
+/** Minimal view of the driven car (player/drive.ts DriveCar) for the dodge logic. */
+export interface DodgeCar { x: number; y: number; h: number; speed: number; half: { l: number; w: number } }
 
 export class Pedestrians {
   readonly group = new THREE.Group();
@@ -143,7 +146,29 @@ export class Pedestrians {
 
   private cap() { return Math.round(this.max * (1 + 0.45 * this.hot)); }
 
-  update(dt: number, px: number, py: number) {
+  /**
+   * Pedestrians hop out of the way of a fast car (the one the player drives): the car's swept corridor is kept clear,
+   * the offset eases in quickly and back out afterwards. Nobody is ever hit or hurt.
+   */
+  private dodge(p: Ped, dt: number, car: DodgeCar | null | undefined) {
+    let tx = 0, ty = 0;
+    if (car && Math.abs(car.speed) > 2.5) {
+      const dir = Math.sign(car.speed), fx = Math.sin(car.h) * dir, fy = Math.cos(car.h) * dir;
+      const rx = p.x - car.x, ry = p.y - car.y, along = rx * fx + ry * fy, lat = -rx * fy + ry * fx;
+      const reach = Math.abs(car.speed) * 1.4 + 3;                  // react about 1.4 s ahead of the bumper
+      const clear = car.half.w + 1.5;
+      if (along > -car.half.l - 0.8 && along < car.half.l + reach && Math.abs(lat) < clear) {
+        const side = lat >= 0 ? 1 : -1, push = clear - Math.abs(lat);
+        tx = -fy * side * push; ty = fx * side * push;            // sideways, away from the car's line
+      }
+    }
+    const k = Math.min(1, dt * ((tx || ty) ? 9 : 2.5)), ox = p.dx ?? 0, oy = p.dy ?? 0;
+    p.dx = ox + (tx - ox) * k; p.dy = oy + (ty - oy) * k;
+    if (Math.abs(p.dx) < 0.002 && Math.abs(p.dy) < 0.002) { p.dx = 0; p.dy = 0; }
+    p.x += p.dx; p.y += p.dy;
+  }
+
+  update(dt: number, px: number, py: number, car?: DodgeCar | null) {
     this.player = [px, py];
     this.frame++;
     this.peds = this.peds.filter((p) => {
@@ -174,6 +199,7 @@ export class Pedestrians {
       const hx = (d[0] - c[0]) * p.dir, hy = (d[1] - c[1]) * p.dir, hl = Math.hypot(hx, hy) || 1;
       p.x = c[0] + (d[0] - c[0]) * p.t + (hy / hl) * p.lateral;
       p.y = c[1] + (d[1] - c[1]) * p.t - (hx / hl) * p.lateral;
+      this.dodge(p, dt, car);
       // step aside around the player instead of walking through her
       const ax = p.x - this.player[0], ay = p.y - this.player[1], ad = Math.hypot(ax, ay);
       if (ad < 0.9 && ad > 1e-3) { p.x = this.player[0] + (ax / ad) * 0.9; p.y = this.player[1] + (ay / ad) * 0.9; }

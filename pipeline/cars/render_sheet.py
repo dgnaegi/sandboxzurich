@@ -4,7 +4,9 @@ R = "/Users/danielgnagi/sandboxzurich"
 args = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
 OUT = args[0] if args else f"{R}/preview/cars_sheet.jpg"
 AZ = float(args[1]) if len(args) > 1 else 145.0
-ONLY = args[2].split(",") if len(args) > 2 else None
+ONLY = args[2].split(",") if len(args) > 2 and args[2] != 'all' else None
+EL = float(args[3]) if len(args) > 3 else 28.0
+COLS = int(args[4]) if len(args) > 4 else 4
 for o in list(bpy.data.objects): bpy.data.objects.remove(o)
 man = json.load(open(f"{R}/web/public/models/cars/manifest.json"))
 def lin(c): return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
@@ -16,7 +18,7 @@ vc = nt.nodes.new("ShaderNodeVertexColor"); vc.layer_name = "Col"; nt.links.new(
 sx, sy = 5.6, 6.2; i = 0
 items = [dict(e, az=AZ) for e in man if not ONLY or e["type"] in ONLY]
 if not ONLY: items.append(dict(man[0], az=35.0))   # rear view of the hatch
-cols = min(4, len(items))
+cols = min(COLS, len(items))
 for e in items:
     before = set(bpy.data.objects); bpy.ops.import_scene.gltf(filepath=f"{R}/web/public/models/cars/{e['file']}")
     new = [o for o in bpy.data.objects if o not in before]
@@ -46,8 +48,8 @@ sun = bpy.data.lights.new("s", "SUN"); sun.energy = 4.0; so = bpy.data.objects.n
 cam = bpy.data.cameras.new("c"); cam.type = "ORTHO"; rows = (len(items) + cols - 1) // cols
 cam.ortho_scale = cols * sx * 1.02; co = bpy.data.objects.new("c", cam); sc.collection.objects.link(co); sc.camera = co
 cx, cy = (cols - 1) * sx / 2, -(rows - 1) * sy / 2 - 0.6
-d = 40; el = math.radians(28)
+d = 40; el = math.radians(EL)
 co.location = (cx, cy - d * math.cos(el), d * math.sin(el)); co.rotation_euler = (math.radians(90) - el, 0, 0)
-sc.render.resolution_x = 1600; sc.render.resolution_y = int(1600 * (rows * sy * .78 / (cols * sx * 1.02)) + 40)
+sc.render.resolution_x = 1600; sc.render.resolution_y = int(1600 * (rows * sy * .62 / (cols * sx * 1.02)) + 40)
 sc.render.image_settings.file_format = "JPEG"; sc.render.image_settings.quality = 88; sc.render.filepath = OUT
 bpy.ops.render.render(write_still=True); print("SHEET", OUT)

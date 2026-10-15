@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { carDay } from './cars';
 
 /**
  * Light overlay for the traffic cars (one InstancedMesh per kind, no per-car objects): brake lights while braking
@@ -33,6 +34,7 @@ export class TrafficLights {
 
   update(cars: Pos[], time: number, night: number, ground: (x: number, y: number) => number, px: number, py: number) {
     this.n.fill(0);
+    carDay.value = 1 - 0.85 * Math.min(1, Math.max(0, night));
     const dark = night > 0.3;
     for (const a of cars) {
       if (a.kind !== 'car' || (a.x - px) ** 2 + (a.y - py) ** 2 > 160 * 160) continue;

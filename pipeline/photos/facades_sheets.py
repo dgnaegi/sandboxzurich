@@ -26,7 +26,7 @@ def done_set():
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--street", default="")
-    ap.add_argument("--from", dest="start", type=int, default=0)
+    ap.add_argument("--flush", action="store_true", help="also make a last sheet with fewer than 12 houses")
     a = ap.parse_args()
     cand = json.load(open(D / "candidates.json"))
     def nrkey(v):
@@ -37,8 +37,11 @@ def main():
         font = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", 15)
     except OSError:
         font = ImageFont.load_default()
-    sheets = {}
-    for i in range(0, len(items), 12):
+    sheets = json.load(open(D / "sheets.json")) if (D / "sheets.json").exists() else {}   # append-only: numbering stays stable
+    seen = {addr for v in sheets.values() for addr in v}
+    items = [kv for kv in items if kv[0] not in seen]
+    base = len(sheets)
+    for i in range(0, len(items) - len(items) % 12 if not a.flush else len(items), 12):
         grp = items[i:i + 12]
         sheet = Image.new("RGB", (4 * W, 3 * (H + LAB)), (24, 24, 24))
         dr = ImageDraw.Draw(sheet)
@@ -47,12 +50,12 @@ def main():
             im = Image.open(RAW / v["imgs"][0]["file"]).resize((W - 2, H - 2))
             sheet.paste(im, (x + 1, y + LAB + 1))
             dr.text((x + 4, y + 2), f"{addr}  {v['year'] or '?'}  {v['floors'] or '?'}G", fill=(255, 230, 0), font=font)
-        n = i // 12 + 1
+        n = base + i // 12 + 1
         name = f"{n:03d}.jpg"
         sheet.save(D / name, "JPEG", quality=82)
         sheets[name] = [k for k, _ in grp]
     json.dump(sheets, open(D / "sheets.json", "w"), ensure_ascii=False, indent=0)
-    print(len(items), "houses,", len(sheets), "sheets")
+    print(len(items), "new houses,", len(sheets), "sheets total")
 
 
 if __name__ == "__main__":

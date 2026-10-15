@@ -1,25 +1,18 @@
 import * as THREE from 'three';
-import { buildStorefronts } from './storefronts';
+import { buildStorefronts, type VenueSign } from './storefronts';
+import { lookOf } from './storefront_style';
+import { drawSignRow } from './storefront_sign';
 
 /** Shop signs with real names (OSM), drawn into one canvas texture per tile. */
-export interface Sign { x: number; y: number; z: number; tx: number; ty: number; w: number; name: string; kind: string }
+export type Sign = VenueSign;
 
-const BG = ['#b8202a', '#1d1d1f', '#2d6b45', '#d9a020', '#6e1428', '#1f4e8c', '#efeeea', '#5a3a26', '#0f6f73', '#c4441c'];
 const ROW = 96, TEXW = 1024;
-
-function hash(s: string) {
-  let h = 2166136261;
-  for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619);
-  return h >>> 0;
-}
 
 /** All sign materials, so the night factor can light them up like illuminated shop signs. */
 const signMats = new Set<THREE.MeshLambertMaterial>();
 export function setSignNight(night: number) {
   for (const m of signMats) m.emissiveIntensity = 0.25 + night * (m.userData.neon ? 1.6 : 0.9);
 }
-
-const NEON_KINDS = ['bar', 'pub', 'nightclub', 'biergarten'], NEON_COL = ['#ff3caa', '#28e6dc', '#ff3caa', '#ffb43c'];
 
 /** Name signs (one mesh) plus the venue details of storefronts.ts (awnings, blade signs, props) as one group. */
 export function buildSigns(signs: Sign[]): THREE.Object3D | null {
@@ -38,29 +31,13 @@ function buildSignMesh(signs: Sign[]): THREE.Mesh | null {
   const g = c.getContext('2d')!;
   const pos: number[] = [], uv: number[] = [], nrm: number[] = [], idx: number[] = [];
   signs.forEach((s, i) => {
-    const neon = NEON_KINDS.includes(s.kind);
-    const bg = neon ? '#120d1a' : BG[hash(s.name) % BG.length];
-    const light = bg === '#efeeea' || bg === '#d9a020';
+    const look = lookOf(s);
     const y0 = i * ROW;
-    g.fillStyle = bg;
-    g.fillRect(0, y0, TEXW, ROW);
-    const ncol = NEON_COL[hash(s.name) >> 2 & 3];
-    g.fillStyle = neon ? ncol : light ? '#151515' : '#ffffff';
-    if (neon) { g.shadowColor = ncol; g.shadowBlur = 14; }
-    const text = s.name.toUpperCase();
-    let size = 74;
-    g.font = `700 ${size}px "Barlow Condensed", "Arial Narrow", sans-serif`;
-    const tw = g.measureText(text).width;
-    // sign width in metres follows the text length (≈0.32 m per glyph), capped by the facade
-    const wm = Math.max(1.6, Math.min(s.w, text.length * 0.3 + 0.6));
-    const maxPx = TEXW - 40;
-    if (tw > maxPx) { size = Math.floor(size * maxPx / tw); g.font = `700 ${size}px "Barlow Condensed", "Arial Narrow", sans-serif`; }
-    g.textAlign = 'center';
-    g.textBaseline = 'middle';
-    g.fillText(text, TEXW / 2, y0 + ROW / 2 + 3);
-    if (neon) { g.shadowBlur = 0; g.strokeStyle = ncol; g.lineWidth = 3; g.strokeRect(6, y0 + 6, TEXW - 12, ROW - 12); }
+    drawSignRow(g, y0, TEXW, ROW, s, look);
+    // sign width in metres follows the text length (about 0.3 m per glyph), capped by the facade
+    const wm = Math.max(1.6, Math.min(s.w, s.name.length * 0.3 + 0.6));
     // quad 0.15 m in front of the wall; outward normal = (ty, -tx)
-    const ox = s.ty, oy = -s.tx, hw = wm / 2, hh = wm * ROW / TEXW / 2 * 1.6;
+    const ox = s.ty, oy = -s.tx, hw = wm / 2, hh = wm * ROW / TEXW / 2 * 1.6 * look.hf;
     const cx = s.x + ox * 0.15, cy = s.y + oy * 0.15;
     const corners = [[-hw, -hh], [hw, -hh], [hw, hh], [-hw, hh]];
     const b = pos.length / 3;
