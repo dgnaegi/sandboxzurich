@@ -24,7 +24,7 @@
 - Keine Bilder gespeichert. Keine Websuchen wiederholt.
 
 ## Hilfsdateien
-- Eigenes Skript zum Anhängen: /private/tmp/claude-501/-Users-danielgnagi-gtazurich/2c85f10e-b4e1-4c95-8bd3-e132013d6298/scratchpad/k3_add.py (schreibt nur nach research/pois_kreis3.csv).
+- Eigenes Skript zum Anhängen: /private/tmp/claude-501/-Users-danielgnagi-sandboxzurich/2c85f10e-b4e1-4c95-8bd3-e132013d6298/scratchpad/k3_add.py (schreibt nur nach research/pois_kreis3.csv).
 - Hinweis: Im selben Scratchpad lag zwischenzeitlich ein fremdes add.py, das nach research/pois_kreis5.csv schreibt. Ich habe es nicht ausgeführt. research/pois_kreis5.csv existiert, stammt aber nicht von mir und wurde nicht verändert.
 
 ## Sitzung 2026-10-14 (Fortsetzung)

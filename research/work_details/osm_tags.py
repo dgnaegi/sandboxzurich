@@ -1,5 +1,5 @@
 import json, csv, ast, sys
-ROOT='/Users/danielgnagi/gtazurich'
+ROOT='/Users/danielgnagi/sandboxzurich'
 want={}
 for r in csv.DictReader(open(f'{ROOT}/research/work_details/signs_raw.csv')):
     want[str(r['osm'])]=r

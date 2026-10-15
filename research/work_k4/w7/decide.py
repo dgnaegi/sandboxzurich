@@ -1,5 +1,5 @@
 import csv, subprocess, re
-R='/Users/danielgnagi/gtazurich/research/'
+R='/Users/danielgnagi/sandboxzurich/research/'
 ok_map = {
  'n13540274646':('ok','','Zwinglistrasse 35, 8004 Zürich','https://katrahama.ch/'),
  'n13725108955':('ok','','Müllerstrasse 70, 8004 Zürich','https://gds.fm'),

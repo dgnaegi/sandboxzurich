@@ -344,7 +344,7 @@ def write_glb(path, prims, name):
         gprims.append({"attributes": attrs, "indices": ind, "material": k, "mode": 4})
     img = view(atlas)
     gltf = {
-        "asset": {"version": "2.0", "generator": "gtazurich pipeline/trees/gen_trees.py (WTFPL)"},
+        "asset": {"version": "2.0", "generator": "sandboxzurich pipeline/trees/gen_trees.py (WTFPL)"},
         "extensionsUsed": ["EXT_texture_webp"], "extensionsRequired": ["EXT_texture_webp"],
         "scene": 0, "scenes": [{"nodes": [0]}], "nodes": [{"mesh": 0, "name": name}],
         "meshes": [{"name": name, "primitives": gprims}],

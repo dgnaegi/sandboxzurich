@@ -1,5 +1,5 @@
 import json,urllib.request,urllib.parse,time
-UA='gtazurich-research/1.0 (daniel.gnaegi@outlook.com)'
+UA='sandboxzurich-research/1.0 (daniel.gnaegi@outlook.com)'
 def g(**p):
     p['format']='json';return json.load(urllib.request.urlopen(urllib.request.Request('https://de.wikipedia.org/w/api.php?'+urllib.parse.urlencode(p),headers={'User-Agent':UA}),timeout=30))
 for q in ['Bahnhof Zürich Altstetten','Bahnhof Zürich Wiedikon','Hohlstrasse Zürich','Badenerstrasse Zürich','Lindenplatz Altstetten','Schmiede Wiedikon Zürich','Alte Kirche Altstetten','Westlink Zürich']:

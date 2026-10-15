@@ -10,7 +10,7 @@ const cdp = await ctx.newCDPSession(page);
 await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
 const t0 = Date.now();
 await page.goto(`${BASE}/?at=785,-635,0.37&debug`);
-await page.waitForFunction(() => window.gtaReady, null, { timeout: 120000 });
+await page.waitForFunction(() => window.sbxReady, null, { timeout: 120000 });
 const loadS = (Date.now() - t0) / 1000;
 await page.evaluate(() => {
   window._f = 0;

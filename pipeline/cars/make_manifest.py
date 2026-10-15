@@ -1,5 +1,5 @@
 import json, struct, os
-D = "/Users/danielgnagi/gtazurich/web/public/models/cars"
+D = "/Users/danielgnagi/sandboxzurich/web/public/models/cars"
 import sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from specs import SPECS
 out = []

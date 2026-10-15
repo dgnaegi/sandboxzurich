@@ -7,7 +7,7 @@ import { gradeA, gradeB, gradeC, bloom } from './grading';
 type Ctx = ReturnType<typeof createRenderer>;
 
 /**
- * Art-directed keyframes in solar hours (Zurich, mid April: sunrise ~5:15, sunset ~18:45). Vice-City palette:
+ * Art-directed keyframes in solar hours (Zurich, mid April: sunrise ~5:15, sunset ~18:45). 80s neon palette:
  * turquoise noon, long pink/orange golden hour, violet-blue nights.
  * g = [saturation, contrast, shadow tint rgb, highlight tint rgb, bloom strength, bloom threshold]
  */

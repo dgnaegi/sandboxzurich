@@ -1,6 +1,6 @@
-# GRAND THEFT ZÜRI – Browser-Game
+# SANDBOX ZÜRICH – Browser-Game
 
-Open-World-Browsergame im GTA-3-Stil in den Zürcher Kreisen 3, 4, 5 und 9, mit Quests zu linken Wahlthemen (Wohnen, Freiraum, Verkehr, Schule). **Wahlkampfspiel der Alternativen Linken (AL)**; Plakate im Spiel: «radikal sozial» / «Alternative Linke» (Hochformat). Gehostet auf Scalingo. Wird fast vollständig von AI gebaut; der Mensch testet, entscheidet und gibt Feedback.
+Open-World-Browsergame im Arcade-Stil in den Zürcher Kreisen 3, 4, 5 und 9, mit Quests zu linken Wahlthemen (Wohnen, Freiraum, Verkehr, Schule). **Wahlkampfspiel der Alternativen Linken (AL)**; Plakate im Spiel: «radikal sozial» / «Alternative Linke» (Hochformat). Gehostet auf Scalingo. Wird fast vollständig von AI gebaut; der Mensch testet, entscheidet und gibt Feedback.
 
 Dieses Projekt ist **getrennt vom Reel** in `../gta6/` (lokal, nicht im Repo, eigene `CLAUDE.md`). Daten und Skripte von dort dürfen gelesen und wiederverwendet werden, aber nichts in `../gta6/` wird verändert.
 

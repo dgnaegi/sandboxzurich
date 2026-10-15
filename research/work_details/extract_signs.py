@@ -1,5 +1,5 @@
 import json, glob, csv, collections, os
-ROOT='/Users/danielgnagi/gtazurich'
+ROOT='/Users/danielgnagi/sandboxzurich'
 signs={}
 for f in sorted(glob.glob(f'{ROOT}/web/public/tiles/t_*.json')):
     d=json.load(open(f))

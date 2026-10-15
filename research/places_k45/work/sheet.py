@@ -1,6 +1,6 @@
 import json,sys
 from PIL import Image,ImageDraw
-R='/Users/danielgnagi/gtazurich'
+R='/Users/danielgnagi/sandboxzurich'
 meta=json.load(open(R+'/research/places_k45/places_photos.json'))
 for slug in sys.argv[1:]:
     recs=meta.get(slug,[])

@@ -30,7 +30,7 @@ import { Missions } from './gameplay/missions';
 import { VeloInfra } from './gameplay/velo';
 import { Anecdotes } from './gameplay/anecdotes';
 import { buildStops } from './world/stops';
-import { GtaMap } from './ui/map';
+import { CityMap } from './ui/map';
 import { Menu } from './ui/menu';
 import { Audio } from './engine/audio';
 
@@ -50,7 +50,7 @@ async function main() {
   const { renderer, scene, camera, followSun } = R;
   const daytime = new Daytime(R);
 
-  const map = new GtaMap();
+  const map = new CityMap();
   await Promise.all([loadTrees(), loadCars(), loadBikes(), loadFurniture()]);
   const [tiles, humans] = await Promise.all([
     Tiles.load(scene, !mobile, Math.min(8, renderer.capabilities.getMaxAnisotropy())),
@@ -264,7 +264,7 @@ async function main() {
     lawns.update(dt, player.x, player.y);
     updateBubble(dt);
     events.update(dt, weekday, gameMin, player.x, player.y);
-    // moving vehicles push the player aside (no damage, comic GTA bump); blocked cars honk
+    // moving vehicles push the player aside (no damage, comic bump); blocked cars honk
     honkT -= dt;
     for (const v of traffic.positions()) {
       if (v.kind !== 'car') continue;
@@ -323,7 +323,7 @@ async function main() {
       lastStats = acc;
     }
   });
-  Object.assign(window, { gtaReady: true, gtaPlayer: player, gtaScene: scene, gtaState: state, gtaBikes: bikes, gtaEvents: events, gtaTransit: transit, gtaRail: rail, gtaRenderer: renderer, gtaCamera: camera, gtaTiles: tiles }); // hooks for Playwright tests
+  Object.assign(window, { sbxReady: true, sbxPlayer: player, sbxScene: scene, sbxState: state, sbxBikes: bikes, sbxEvents: events, sbxTransit: transit, sbxRail: rail, sbxRenderer: renderer, sbxCamera: camera, sbxTiles: tiles }); // hooks for Playwright tests
 }
 
 main();

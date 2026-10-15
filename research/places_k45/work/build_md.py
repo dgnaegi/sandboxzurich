@@ -2,7 +2,7 @@ import json,sys
 sys.path.insert(0,'.')
 from places_def import PLACES
 from notes import N
-R='/Users/danielgnagi/gtazurich/research/places_k45'
+R='/Users/danielgnagi/sandboxzurich/research/places_k45'
 ph=json.load(open(R+'/places_photos.json')); ce=json.load(open('centers.json'))
 K={"char":"Charakter","landmarks":"Landmarks (Sichtbefunde)","facades":"Fassadenfarben/-stile","ground":"Bodenbelaege","furniture":"Stadtmobiliar","oev":"OeV","green":"Gruen","shops":"Laeden/Bars (Fakten)","atmo":"Atmosphaere"}
 out=[]

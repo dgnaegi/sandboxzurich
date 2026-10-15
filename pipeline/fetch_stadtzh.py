@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 import area  # noqa: E402
 
 OUT = area.ROOT / "data" / "raw" / "stadtzh"
-H = {"User-Agent": "gtazurich/0.1"}
+H = {"User-Agent": "sandboxzurich/0.1"}
 CKAN = "https://data.stadt-zuerich.ch/api/3/action/package_show"
 PACKAGES = [
     "geo_baumkataster", "geo_brunnen", "geo_velonetzplanung", "geo_fuss__und_velowegnetz",

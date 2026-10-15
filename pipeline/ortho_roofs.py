@@ -30,7 +30,7 @@ def fetch(bbox):
             if f.exists() and f.stat().st_size > 10000:
                 continue
             u = URL.format(x0=OX + ix * TILE, y0=OY + iy * TILE, x1=OX + (ix + 1) * TILE, y1=OY + (iy + 1) * TILE, px=PX)
-            req = urllib.request.Request(u, headers={"User-Agent": "gtazurich-pipeline (open data, roof colours)"})
+            req = urllib.request.Request(u, headers={"User-Agent": "sandboxzurich-pipeline (open data, roof colours)"})
             f.write_bytes(urllib.request.urlopen(req, timeout=60).read())
             n += 1
             time.sleep(1.5)

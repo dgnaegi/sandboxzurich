@@ -1,6 +1,6 @@
 """Jobs per Kreis, nationalities per Kreis, weekly residents, hotel guests. Prints compact JSON."""
 import csv, glob, collections, json
-RAW = "/Users/danielgnagi/gtazurich/data/raw/stats"
+RAW = "/Users/danielgnagi/sandboxzurich/data/raw/stats"
 KREISE = ["3", "4", "5", "9"]
 def rd(pat, delim=",", enc="utf-8-sig"):
     return csv.DictReader(open(glob.glob(f"{RAW}/{pat}")[0], encoding=enc), delimiter=delim)

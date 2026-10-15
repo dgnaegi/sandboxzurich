@@ -1,4 +1,4 @@
-"""Render the GTA-style map of Kreise 3/4/5/9 from OSM + Kreis borders, and resolve jump points.
+"""Render the arcade-style map of Kreise 3/4/5/9 from OSM + Kreis borders, and resolve jump points.
 
 Outputs web/public/map/map.webp, map.json (scale, origin, kreise, places). Usage: .venv/bin/python pipeline/build_map.py
 """

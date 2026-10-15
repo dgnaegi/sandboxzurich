@@ -26,7 +26,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[2]
 API = "https://commons.wikimedia.org/w/api.php"
-UA = "gtazurich/0.1 (research)"
+UA = "sandboxzurich/0.1 (research)"
 HEADERS = {"User-Agent": UA}
 THUMB_W = 1024
 SHEET_CELL = 200

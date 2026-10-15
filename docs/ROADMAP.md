@@ -4,7 +4,7 @@ Jedes Milestone endet mit etwas, das der User im Browser (auch auf dem Handy) au
 
 ## M0 – Projektstruktur ✅
 - [x] Unterordner `game/` mit Projektbeschreibung und Doku-Struktur
-- [x] Git-Repo `dgnaegi/gtazurich`, Lizenz WTFPL
+- [x] Git-Repo `dgnaegi/sandboxzurich`, Lizenz WTFPL
 - [x] OSM-Bestandsaufnahme (`research/osm_stats.md`)
 - [ ] Scalingo: separater Schritt (später)
 
@@ -14,11 +14,11 @@ Jedes Milestone endet mit etwas, das der User im Browser (auch auf dem Handy) au
 - [ ] POI-Recherche: OSM-Läden und -Cafés exportieren, per Web prüfen, `research/pois_*.csv`
 - [ ] Velo-Daten: Velovorzugsrouten und Velonetz (Stadt ZH OGD)
 - [x] Pipeline: Gebäude, Boden, Strassen inkl. Markierungen, Tram, Bäume → Kacheln (+ Brücken, Bahn, Amtliche Vermessung, Platz-/Strassenschilder)
-  - [x] GTA-Look: Textur-Array, Fassaden, Randsteine, Markierungen, Autos, Lampen
+  - [x] Arcade-Look: Textur-Array, Fassaden, Randsteine, Markierungen, Autos, Lampen
   - [x] Durchstich Testgebiet Langstrasse/Helvetiaplatz (Gebäude, Boden, Strassen, Tram, Bäume; ohne Markierungen)
 - [x] Web-App: Kachel-Streaming, Third-Person-Kamera, Laufen (Tastatur und Touch-Joystick), Kollision (Touch noch auf echtem Gerät testen)
 - [ ] Ladenschilder mit echten Namen (Code fertig, wartet auf vollständige OSM-POIs)
-- [x] Radar/Minimap und GTA-Karte mit Sprungpunkten
+- [x] Radar/Minimap und Stadtkarte mit Sprungpunkten
 - [x] Performance-Messung gegen die Budgets (2026-10-15: Handy ≤231 Calls, ≤1.1 Mio; PC ≤458 Calls, ≤2.9 Mio)
 - [ ] Screenshots an Landmarks → `preview/`, QA gegen Referenzfotos
 - [ ] Deploy auf Scalingo (Testlink)

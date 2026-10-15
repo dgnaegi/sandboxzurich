@@ -2,7 +2,7 @@
  "kind": "roads",
  "stage": "candidates",
  "source": "Wikimedia Commons (API, commons.wikimedia.org)",
- "user_agent": "gtazurich/0.1 (research)",
+ "user_agent": "sandboxzurich/0.1 (research)",
  "thumb_width": 1024,
  "generated": "2026-10-15",
  "count": 85,

@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "raw" / "stadtzh_extra"
 CKAN = "https://data.stadt-zuerich.ch/api/3/action/package_show?id="
 DATASET_PAGE = "https://data.stadt-zuerich.ch/dataset/"
-H = {"User-Agent": "gtazurich/0.1"}
+H = {"User-Agent": "sandboxzurich/0.1"}
 TIMEOUT = 60
 
 # out name -> CKAN package name (geo_* packages carry a WFS resource)

@@ -1,5 +1,5 @@
 import csv, math
-ROOT='/Users/danielgnagi/gtazurich'
+ROOT='/Users/danielgnagi/sandboxzurich'
 sig={r['osm']:r for r in csv.DictReader(open(f'{ROOT}/research/work_details/signs_raw.csv'))}
 rows=list(csv.DictReader(open(f'{ROOT}/research/work_details/osm_tags.csv')))
 NIGHT={'bar','pub','nightclub','restaurant','fast_food','cafe'}

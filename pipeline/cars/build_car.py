@@ -8,7 +8,7 @@ import bpy, bmesh
 from mathutils import Vector, Matrix
 from specs import SPECS, COL
 
-ROOT = "/Users/danielgnagi/gtazurich"
+ROOT = "/Users/danielgnagi/sandboxzurich"
 TYPE = sys.argv[sys.argv.index("--") + 1]
 S = SPECS[TYPE]
 L, W, R, TW = S["L"], S["W"], S["R"], S["tw"]

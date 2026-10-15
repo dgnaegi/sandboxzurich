@@ -1,6 +1,6 @@
 import json,time,re,os,urllib.request,collections
-UA='gtazurich-research/1.0 (daniel.gnaegi@outlook.com)'
-OUT='/Users/danielgnagi/gtazurich/data/raw/photos/places'
+UA='sandboxzurich-research/1.0 (daniel.gnaegi@outlook.com)'
+OUT='/Users/danielgnagi/sandboxzurich/data/raw/photos/places'
 cand=json.load(open('cand.json'));meta=json.load(open('meta.json'));sel={}
 bad=re.compile(r'Hauptbahnhof|swpsig|panoramio|Panorama|Luftbild|Karte|Plan|Logo|Wappen|map',re.I)
 for k,c in cand.items():

@@ -6,7 +6,7 @@ def loc(lat,lon):
 PL={'altstetten_bahnhof':(47.3913,8.4885,330),'lindenplatz':(47.3878,8.4848,230),
 'hohlstrasse_k9':(47.3866,8.4990,0),'wiedikon_bahnhof':(47.3716,8.5230,230),
 'schmiede_wiedikon':(47.3701,8.5245,200),'badenerstrasse_albisrieder_linden':(47.3830,8.4960,0)}
-d=json.load(open('/Users/danielgnagi/gtazurich/data/raw/osm/kreise.json'))['elements']
+d=json.load(open('/Users/danielgnagi/sandboxzurich/data/raw/osm/kreise.json'))['elements']
 # print centers for hohlstrasse
 hs=[e for e in d if 'lat' in e and e.get('tags',{}).get('addr:street')=='Hohlstrasse']
 xs=sorted((loc(e['lat'],e['lon']),e['tags'].get('addr:housenumber')) for e in hs)

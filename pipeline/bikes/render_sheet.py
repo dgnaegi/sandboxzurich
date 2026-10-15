@@ -1,7 +1,7 @@
 """Render bikes. blender -b -P pipeline/bikes/render_sheet.py -- sheet <out.jpg> [az] [types,..]
                                                          or  -- each <outdir> [az] [types,..]   (one png per type, for the compare sheet)"""
 import bpy, json, math, sys
-R = "/Users/danielgnagi/gtazurich"; D = f"{R}/web/public/models/bikes"
+R = "/Users/danielgnagi/sandboxzurich"; D = f"{R}/web/public/models/bikes"
 a = sys.argv[sys.argv.index("--") + 1:]
 MODE, OUT = a[0], a[1]; AZ = float(a[2]) if len(a) > 2 else 125.0; ONLY = a[3].split(",") if len(a) > 3 else None
 for o in list(bpy.data.objects): bpy.data.objects.remove(o)

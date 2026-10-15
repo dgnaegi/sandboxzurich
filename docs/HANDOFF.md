@@ -6,13 +6,13 @@ Wird am Ende jedes Arbeitsschritts überschrieben. Eine neue Session liest das z
 **Spielgebiet = ganze Kreise 4+5, Teile Kreis 9 (Hohlstrasse, Lindenplatz, Bhf Altstetten) und Kreis 3 (Bhf Wiedikon, Schmiede).** 6.44 km², 202 Spielkacheln + 77 Kulissenkacheln, Rand = Baustellenzaun («BAUSTELLE – DURCHGANG GESPERRT») mit Kollision. Keine Missionen (nur `?missions`).
 
 ### Pipeline (alles reproduzierbar)
-- `pipeline/playarea.py` → `data/build/playarea.json` (Polygon, Kacheln). `config.py` liest es; `GTZ_AREA=test` = altes Testgebiet.
-- `build_testarea.py` baut alle Kacheln parallel (~35–85 min, Log `logs/build_full2.log`). Einzelne Kacheln: `GTZ_TILES=ix_iy,…`. Fehler einer Kachel → «TILE FAILED» im Log, Rest läuft weiter.
+- `pipeline/playarea.py` → `data/build/playarea.json` (Polygon, Kacheln). `config.py` liest es; `SBZ_AREA=test` = altes Testgebiet.
+- `build_testarea.py` baut alle Kacheln parallel (~35–85 min, Log `logs/build_full2.log`). Einzelne Kacheln: `SBZ_TILES=ix_iy,…`. Fehler einer Kachel → «TILE FAILED» im Log, Rest läuft weiter.
 - Neu eingebunden: `bridges.py` (268 Brücken, Decks + Pfeiler, Boden darunter ausgeschnitten), `plazasigns.py` (43 Widmungstafeln am vermessenen Ort + Platzschilder an Fassaden/Pfosten), `overrides/landmark_signs.json` (grosses Rosa-Luxemburg-Platz-Schild mit Nelken), `groundcover.py` (Amtliche Vermessung: Innenhöfe Rasen/befestigt, Bahnareal = Schotter tief, Gleise von `railways.py` darauf).
 - Separat: `railways.py` (Gleise/Masten/Perrons → `web/public/models/trains/tiles`, `data/rail.json`), `scenes_build.py` (138 Easter Eggs/Szenen aus `overrides/scenes_src.json`), `anecdotes.py` (595 Texte inkl. 552 Strassennamen).
 
 ### Web
-- `engine/grading.ts` (Vice-City-Look: ACES + Split-Toning + Vignette), Bloom nur PC, neue Tageszeit-Keyframes.
+- `engine/grading.ts` (Neon-80er-Look: ACES + Split-Toning + Vignette), Bloom nur PC, neue Tageszeit-Keyframes.
 - `world/bridges.ts` + `Tiles.groundAt()` (Spielerin läuft auf Brücken), `world/railways.ts` (S-Bahn-Züge, Fahrleitung; Handy kleinerer Radius), `world/landmarks.ts`, `world/streetsigns.ts` (Schildlänge nach Name, Widmungstafel, Pfosten).
 - Tests: `web/tests/shots.mjs` (neu: `ONLY=a,b`, Punkte rosaluxemburg/altstetten/wiedikon), `look.mjs` (schnelle Einzelbilder), `raildbg.mjs`, `perf.mjs`, `gameplay.mjs`, `touch.mjs`.
 

@@ -14,7 +14,7 @@ export class Scenes {
   readonly group = new THREE.Group();
   private entries: Entry[] = [];
   private eggs: { egg: Egg; x: number; y: number }[] = [];
-  private found = new Set<string>(JSON.parse((() => { try { return localStorage.getItem('gtz-eggs') ?? '[]'; } catch { return '[]'; } })()));
+  private found = new Set<string>(JSON.parse((() => { try { return localStorage.getItem('sbz-eggs') ?? '[]'; } catch { return '[]'; } })()));
   onFound: (egg: Egg, n: number, total: number) => void = () => {};
 
   constructor(private lib: HumanLib, private ground: (x: number, y: number) => number) {}
@@ -73,7 +73,7 @@ export class Scenes {
     for (const e of this.eggs) {
       if (this.found.has(e.egg.id) || Math.hypot(e.x - px, e.y - py) > (e.egg.id === 'brunnen' ? 2.5 : 9)) continue;
       this.found.add(e.egg.id);
-      try { localStorage.setItem('gtz-eggs', JSON.stringify([...this.found])); } catch { /* private mode */ }
+      try { localStorage.setItem('sbz-eggs', JSON.stringify([...this.found])); } catch { /* private mode */ }
       this.onFound(e.egg, this.found.size, this.total);
     }
   }

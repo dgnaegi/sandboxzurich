@@ -22,6 +22,7 @@ import playgrounds
 import sites
 import citydata
 import gastro
+import ground_paint
 import osm_buildings
 import ortho_roofs
 import terrain_cuts
@@ -104,6 +105,11 @@ def ground_tile(gm, S, tb, H, white, yellow, rails, bed, bays_white=None, bays_b
 
 
 def _ground_tile(gm, S, tb, H, white, yellow, rails, bed, bays_white=None, bays_blue=None, grooves=None):
+    _ground_base(gm, S, tb, H, white, yellow, rails, bed, bays_white, bays_blue, grooves)
+    ground_paint.paint(gm, S, tb, H)  # coloured markings (pipeline/ground_paint.py)
+
+
+def _ground_base(gm, S, tb, H, white, yellow, rails, bed, bays_white=None, bays_blue=None, grooves=None):
     roads = S["roads"].intersection(tb)
     plaza, parks = S["plaza"].intersection(tb), S["parks"].intersection(tb)
     walk = tb.difference(S["roads"]).difference(S["plaza"]).difference(S["parks"])
@@ -404,7 +410,7 @@ def build():
     global _DO
     _DO = do_tile
     todo = tiles()
-    only = os.environ.get("GTZ_TILES")  # e.g. "4_-4,3_-5" to rebuild a few tiles
+    only = os.environ.get("SBZ_TILES")  # e.g. "4_-4,3_-5" to rebuild a few tiles
     if only:
         todo = [t for t in todo if f"{t[0]}_{t[1]}" in only.split(",")]
     with mp.get_context("fork").Pool(max(1, os.cpu_count() - 1)) as pool:

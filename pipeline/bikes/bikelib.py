@@ -195,7 +195,7 @@ def write_glb(m, path, png, lean_deg=0.0):
     iI = accessor(push(T.reshape(-1), 34963), 5123, T.size, "SCALAR")
     while len(buf) % 4: buf.append(0)
     views.append(dict(buffer=0, byteOffset=len(buf), byteLength=len(png))); buf.extend(png); imv = len(views) - 1
-    j = dict(asset=dict(version="2.0", generator="gtazurich pipeline/bikes"), scene=0, scenes=[dict(nodes=[0])], nodes=[dict(mesh=0, name="bike")],
+    j = dict(asset=dict(version="2.0", generator="sandboxzurich pipeline/bikes"), scene=0, scenes=[dict(nodes=[0])], nodes=[dict(mesh=0, name="bike")],
              meshes=[dict(name="bike", primitives=[dict(attributes=dict(POSITION=iP, NORMAL=iN, TEXCOORD_0=iU, COLOR_0=iC, _PAINT=iA), indices=iI, material=0, mode=4)])],
              materials=[dict(name="bike", doubleSided=True, alphaMode="MASK", alphaCutoff=0.3, pbrMetallicRoughness=dict(baseColorTexture=dict(index=0), metallicFactor=0.1, roughnessFactor=0.55))],
              textures=[dict(source=0, sampler=0)], samplers=[dict(magFilter=9729, minFilter=9987, wrapS=33071, wrapT=33071)], images=[dict(bufferView=imv, mimeType="image/png")],

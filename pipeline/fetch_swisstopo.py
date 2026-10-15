@@ -14,7 +14,7 @@ import area  # noqa: E402
 
 STAC = "https://data.geo.admin.ch/api/stac/v0.9/collections"
 RAW = area.ROOT / "data" / "raw"
-H = {"User-Agent": "gtazurich/0.1"}
+H = {"User-Agent": "sandboxzurich/0.1"}
 
 
 def items(coll):

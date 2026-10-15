@@ -42,7 +42,7 @@ def write(path, layers):
         meshes.append({"name": name, "primitives": [{"attributes": attrs, "indices": ia}]})
         nodes.append({"name": name, "mesh": len(meshes) - 1})
 
-    gltf = {"asset": {"version": "2.0", "generator": "gtazurich"}, "scene": 0,
+    gltf = {"asset": {"version": "2.0", "generator": "sandboxzurich"}, "scene": 0,
             "scenes": [{"nodes": list(range(len(nodes)))}], "nodes": nodes, "meshes": meshes,
             "accessors": accs, "bufferViews": views, "buffers": [{"byteLength": len(bin_)}]}
     js = json.dumps(gltf, separators=(",", ":")).encode()

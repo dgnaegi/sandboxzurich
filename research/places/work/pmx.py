@@ -1,6 +1,6 @@
 import json,time,urllib.request,os,random
-UA='gtazurich-research/1.0'
-OUT='/Users/danielgnagi/gtazurich/data/raw/photos/places'
+UA='sandboxzurich-research/1.0'
+OUT='/Users/danielgnagi/sandboxzurich/data/raw/photos/places'
 # bbox points: (name, lon, lat, d)
 P={'altstetten_bahnhof':[(8.4885,47.3913),(8.4880,47.3922)],
 'lindenplatz':[(8.4848,47.3878),(8.4842,47.3872)],

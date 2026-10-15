@@ -10,7 +10,7 @@ import requests
 from config import ROOT
 
 OUT = ROOT / "data" / "raw" / "stadtzh_all"
-H = {"User-Agent": "gtazurich/0.1 (research)"}
+H = {"User-Agent": "sandboxzurich/0.1 (research)"}
 CKAN = "https://data.stadt-zuerich.ch/api/3/action/package_search"
 BBOX_LV95 = "2675648,1245944,2683894,1250503,EPSG:2056"  # from WGS84 box, see research/ogd_catalog.md
 

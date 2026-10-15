@@ -14,7 +14,7 @@ MIRRORS = [
 ]
 # overpass-api.de answers 406 without a User-Agent.
 # overpass.kumi.systems returned 0 for area()/map_to_area queries (2026-10-14); use poly: filters.
-HEADERS = {"User-Agent": "gtazurich/0.1 (https://github.com/dgnaegi/gtazurich)"}
+HEADERS = {"User-Agent": "sandboxzurich/0.1 (https://github.com/dgnaegi/sandboxzurich)"}
 
 
 def run(query: str, timeout: int = 600) -> str:

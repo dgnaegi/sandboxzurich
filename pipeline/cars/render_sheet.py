@@ -1,6 +1,6 @@
 """Contact sheet: all cars in different paints, 3/4 view. blender -b -P pipeline/cars/render_sheet.py [-- out.jpg [az_deg]]"""
 import bpy, json, math, sys
-R = "/Users/danielgnagi/gtazurich"
+R = "/Users/danielgnagi/sandboxzurich"
 args = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
 OUT = args[0] if args else f"{R}/preview/cars_sheet.jpg"
 AZ = float(args[1]) if len(args) > 1 else 145.0

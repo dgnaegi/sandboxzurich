@@ -12,7 +12,7 @@ for (const vp of only) {
   page.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') console.log('console', m.text().slice(0, 160)); });
   for (const [n, at] of Object.entries(POINTS)) {
     await page.goto(`${BASE}/?at=${at}&debug`);
-    await page.waitForFunction(() => window.gtaReady, null, { timeout: 90000 });
+    await page.waitForFunction(() => window.sbxReady, null, { timeout: 90000 });
     await page.waitForTimeout(4000);
     await page.screenshot({ path: `${OUT}life_${n}_${vp}.png` });
     console.log(n, vp, await page.textContent('#stats'));

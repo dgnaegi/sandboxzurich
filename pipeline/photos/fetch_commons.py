@@ -20,7 +20,7 @@ import requests
 
 API = "https://commons.wikimedia.org/w/api.php"
 PANORAMAX_API = "https://api.panoramax.xyz/api/search"
-UA = "gtazurich/0.1 (research)"
+UA = "sandboxzurich/0.1 (research)"
 HEADERS = {"User-Agent": UA, "Api-User-Agent": UA}
 THUMB_WIDTH = 1280
 PANORAMAX_BBOX = "8.518,47.372,8.535,47.385"  # Kreis 4/5 core area

@@ -1,5 +1,5 @@
 import json, os
-R = "/Users/danielgnagi/gtazurich"; out = []
+R = "/Users/danielgnagi/sandboxzurich"; out = []
 SPD = {"child": 0.8, "young": 1.0, "mid": 0.95, "old": 0.6}   # walk-speed hint (multiplier on the game's base walk speed)
 for fid in ["player"] + [f"npc_{i:02d}" for i in range(40)]:
     m = json.load(open(f"{R}/data/cache/humans/{fid}.json"))

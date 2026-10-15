@@ -23,7 +23,7 @@ Ziel: Wer durch das Spiel läuft, erkennt sein Quartier an Hunderten kleiner Det
 - **Betrunkene:** comichaft torkelnd, nicht als Spott über Suchtkranke. Keine Darstellung von Drogenkonsum.
 
 ## 4. Reihenfolge
-1. Karte im Testgebiet fertig (Look, Läden, Schilder, Stadtmobiliar), GTA-Karte mit Sprungpunkten.
+1. Karte im Testgebiet fertig (Look, Läden, Schilder, Stadtmobiliar), Stadtkarte mit Sprungpunkten.
 2. Daten R1–R3 einlesen: Detailhändler, Schulen/Kitas, Brunnen, Velos.
 3. Ambient-NPCs mit Rollen (Einkauf, Schule, Nachtleben) und Tageszeit.
 4. Märkte/Flohmärkte nach Kalender.

@@ -1,6 +1,6 @@
 import json,time,sys,re,os,urllib.request,urllib.parse
-UA='gtazurich-research/1.0 (daniel.gnaegi@outlook.com)'
-OUT='/Users/danielgnagi/gtazurich/data/raw/photos/places'
+UA='sandboxzurich-research/1.0 (daniel.gnaegi@outlook.com)'
+OUT='/Users/danielgnagi/sandboxzurich/data/raw/photos/places'
 PL={
 'altstetten_bahnhof':{'geo':[(47.3913,8.4885,350),(47.3922,8.4880,250)],'q':['Bahnhof Zürich Altstetten','Passerelle Altstetten Bahnhof']},
 'lindenplatz':{'geo':[(47.3878,8.4848,250)],'q':['Lindenplatz Zürich Altstetten','Reformierte Kirche Altstetten Zürich','Altstetten Dorfkern']},

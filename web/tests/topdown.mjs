@@ -6,10 +6,10 @@ const [,, out, x, y, size = '180', px = '900'] = process.argv;
 const b = await chromium.launch({ args: ['--use-gl=angle', '--ignore-gpu-blocklist'] });
 const p = await (await b.newContext({ viewport: { width: Number(px), height: Number(px) } })).newPage();
 await p.goto(`http://localhost:5173/?at=${x},${y},0&t=12:00`);
-await p.waitForFunction(() => window.gtaReady, null, { timeout: 60000 });
+await p.waitForFunction(() => window.sbxReady, null, { timeout: 60000 });
 await p.waitForTimeout(6000);
 const url = await p.evaluate(([x, y, size]) => {
-  const { gtaRenderer: r, gtaScene: s, gtaCamera: c0, gtaTiles: t, gtaPlayer: pl } = window;
+  const { sbxRenderer: r, sbxScene: s, sbxCamera: c0, sbxTiles: t, sbxPlayer: pl } = window;
   pl.mesh.visible = false;
   t.cull(x, y, 400);
   const c = c0.clone(), H = 3000;

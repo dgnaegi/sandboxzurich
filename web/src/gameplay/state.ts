@@ -1,7 +1,7 @@
 /** Persistent player state (money, wanted level, finished missions) in localStorage, plus HUD binding. */
 export interface SaveData { money: number; missions: string[]; x?: number; y?: number }
 
-const KEY = 'gtz-save';
+const KEY = 'sbz-save';
 
 export class GameState {
   money = 312.4;

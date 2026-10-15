@@ -40,7 +40,7 @@ def _acc(rig, body, p, coll):
     o = Hm.mesh_obj(rig.name + "_hat", bm, Hm.col_mat("hat", col, rough), coll); Hm.parent_to_bone(o, rig, "head")
 Hm.add_accessories = _acc
 
-ROOT = "/Users/danielgnagi/gtazurich"
+ROOT = "/Users/danielgnagi/sandboxzurich"
 OUT = f"{ROOT}/web/public/models/humans"
 CACHE = f"{ROOT}/data/cache/humans"
 FID = sys.argv[sys.argv.index("--") + 1]

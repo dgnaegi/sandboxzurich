@@ -4,7 +4,7 @@ import sys
 
 from PIL import Image, ImageDraw
 
-ROOT = "/Users/danielgnagi/gtazurich"
+ROOT = "/Users/danielgnagi/sandboxzurich"
 META = ROOT + "/research/photos/streetscape.json"
 OUT = ROOT + "/preview/ref_streetscape.jpg"
 COLS, CELL_W, CELL_H, LABEL_H = 8, 200, 150, 16

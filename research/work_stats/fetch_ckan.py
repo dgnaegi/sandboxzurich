@@ -1,6 +1,6 @@
 import json, sys, urllib.request, os
 BASE = "https://data.stadt-zuerich.ch/api/3/action/package_show?id="
-OUT = "/Users/danielgnagi/gtazurich/data/raw/stats"
+OUT = "/Users/danielgnagi/sandboxzurich/data/raw/stats"
 pkgs = sys.argv[1:]
 for p in pkgs:
     try:

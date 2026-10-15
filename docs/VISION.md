@@ -1,7 +1,7 @@
 # Vision
 
 ## Ein Satz
-GTA 3 in Zürich: frei durch die echten Kreise 3, 4, 5 und 9 laufen und mit Quests zeigen, warum Wohnen, Freiraum, Verkehr und Schule politisch sind.
+Ein Open-World-Spiel in Zürich: frei durch die echten Kreise 3, 4, 5 und 9 laufen und mit Quests zeigen, warum Wohnen, Freiraum, Verkehr und Schule politisch sind.
 
 ## Zielgruppe
 - Junge, urbane Zürcher:innen, die über Instagram oder Telegram kommen. **Handy und PC sind gleich wichtig:** Viele kommen über das Handy, länger gespielt wird am PC.
@@ -10,7 +10,7 @@ GTA 3 in Zürich: frei durch die echten Kreise 3, 4, 5 und 9 laufen und mit Ques
 ## Ton
 - Humor, Satire und Züri-Insiderwitze wie im Reel («ja es Formular gern», SMG-MAFIA, Boccia-Grosis).
 - Die Politik steckt in den Situationen, nicht in Textwänden. Pro Quest höchstens ein Satz Botschaft.
-- Look: GTA 3 (stilisiert, Low-Poly, Nebel in der Ferne), aber mit echter Geometrie und echten Orten.
+- Look: Arcade (stilisiert, Low-Poly, Nebel in der Ferne), aber mit echter Geometrie und echten Orten.
 
 ## Kern-Erlebnis (in dieser Reihenfolge)
 1. **Wiedererkennen:** Die Stadt stimmt, inklusive Läden, Tram, Velowege und Brunnen.

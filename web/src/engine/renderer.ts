@@ -7,7 +7,7 @@ export function createRenderer(canvas: HTMLCanvasElement, mobile: boolean) {
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: !mobile, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, mobile ? 1.25 : 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
-  installGrading(renderer);   // custom tone mapper = ACES + Vice-City grade (see grading.ts)
+  installGrading(renderer);   // custom tone mapper = ACES + 80s neon grade (see grading.ts)
   renderer.toneMappingExposure = 1.05;
   renderer.shadowMap.enabled = !mobile;
   renderer.shadowMap.type = THREE.PCFShadowMap;

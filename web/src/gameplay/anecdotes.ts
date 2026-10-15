@@ -1,6 +1,6 @@
 /** Local stories (research/easter_eggs_testarea.md → public/data/anecdotes.json) shown once when passing by. */
 interface Anecdote { id: string; title: string; text: string; x: number; y: number; r: number; kind?: string }
-const KEY = 'gtz-anecdotes';
+const KEY = 'sbz-anecdotes';
 
 export class Anecdotes {
   private list: Anecdote[] = [];

@@ -2,7 +2,7 @@
 usage: python3 make_compare.py <renders_dir>"""
 import sys, glob, os
 from PIL import Image, ImageDraw
-R = "/Users/danielgnagi/gtazurich"; D = f"{R}/data/raw/photos/bikes"; rd = sys.argv[1]
+R = "/Users/danielgnagi/sandboxzurich"; D = f"{R}/data/raw/photos/bikes"; rd = sys.argv[1]
 pairs = [("131570544", "road"), ("73205588", "city"), ("75188048", "cargo"), ("81907949", "rental")]
 def find(k):
     for f in os.listdir(D):

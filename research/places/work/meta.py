@@ -1,5 +1,5 @@
 import json,time,urllib.request,urllib.parse,re
-UA='gtazurich-research/1.0 (daniel.gnaegi@outlook.com)'
+UA='sandboxzurich-research/1.0 (daniel.gnaegi@outlook.com)'
 cand=json.load(open('cand.json'));meta={}
 titles=sorted({t for c in cand.values() for t in c})
 for i in range(0,len(titles),40):

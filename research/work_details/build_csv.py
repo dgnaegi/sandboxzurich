@@ -1,5 +1,5 @@
 import csv, json
-R='/Users/danielgnagi/gtazurich/research/work_details'
+R='/Users/danielgnagi/sandboxzurich/research/work_details'
 facts={}
 for l in open(f'{R}/facts.jsonl'):
     if l.strip():
@@ -8,7 +8,7 @@ rows=list(csv.DictReader(open(f'{R}/batches.tsv'),delimiter='\t'))
 osm={r['osm']:r for r in csv.DictReader(open(f'{R}/osm_tags.csv'))}
 OSMMAP={'yes':'ja (OSM)','no':'nein (OSM)'}
 hdr=['name','osm_id','kind','address','cuisine_sortiment','opening_hours','opening_src','outdoor_seating','schild_schaufenster','stimmung_publikum','status','quelle_url','notiz']
-with open('/Users/danielgnagi/gtazurich/research/pois_testarea_details.csv','w',newline='') as fh:
+with open('/Users/danielgnagi/sandboxzurich/research/pois_testarea_details.csv','w',newline='') as fh:
     w=csv.writer(fh); w.writerow(hdr)
     for r in rows:
         f=facts.get(r['osm'],{}); o=osm.get(r['osm'],{})

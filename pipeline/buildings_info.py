@@ -23,7 +23,7 @@ OUT = ROOT / "research" / "buildings"
 PH = ROOT / "data" / "raw" / "photos" / "buildings"
 CACHE = PH / "_cache"
 PREVIEW = ROOT / "preview"
-UA = {"User-Agent": "gtazurich-research/0.1 (daniel.gnaegi@outlook.com)"}
+UA = {"User-Agent": "sandboxzurich-research/0.1 (daniel.gnaegi@outlook.com)"}
 STREETS = ["Langstrasse", "Militärstrasse", "Hohlstrasse", "Kanonengasse", "Helvetiaplatz", "Bäckerstrasse"]
 RELEVANT = ["building", "building:levels", "building:colour", "building:material", "building:part", "roof:shape",
             "roof:colour", "roof:levels", "name", "shop", "amenity", "tourism", "craft", "office", "leisure",

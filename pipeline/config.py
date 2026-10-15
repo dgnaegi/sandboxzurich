@@ -1,7 +1,7 @@
 """Shared pipeline settings: play area, tile grid, source paths.
 
 The play area is data/build/playarea.json (pipeline/playarea.py: Kreis 4 + 5 and parts of 3 and 9).
-GTZ_AREA=test switches back to the 600 m test area (Langstrasse/Helvetiaplatz) for quick builds.
+SBZ_AREA=test switches back to the 600 m test area (Langstrasse/Helvetiaplatz) for quick builds.
 """
 import json
 import os
@@ -15,7 +15,7 @@ TILE = 200.0  # metres
 HGRID = 2.0  # height grid spacing in metres (pipeline sampling and per-tile height maps)
 TEST_AREA = (600.0, -1000.0, 1200.0, -400.0)
 _PLAY = ROOT / "data" / "build" / "playarea.json"
-PLAY = json.load(open(_PLAY)) if _PLAY.exists() and os.environ.get("GTZ_AREA") != "test" else None
+PLAY = json.load(open(_PLAY)) if _PLAY.exists() and os.environ.get("SBZ_AREA") != "test" else None
 # x0 y0 x1 y1 in local metres (x east, y north)
 AREA = tuple(PLAY["bbox"]) if PLAY else TEST_AREA
 POLYGON = PLAY["polygon"] if PLAY else [[TEST_AREA[0], TEST_AREA[1]], [TEST_AREA[2], TEST_AREA[1]],

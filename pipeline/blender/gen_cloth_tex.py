@@ -9,7 +9,7 @@ from PIL import Image
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import human_specs as S
 SRC = "/Users/danielgnagi/Library/Application Support/Blender/5.2/extensions/.user/user_default/mpfb/data/clothes"
-OUT = "/Users/danielgnagi/gtazurich/data/cache/humans/clean"
+OUT = "/Users/danielgnagi/sandboxzurich/data/cache/humans/clean"
 K = 2048 / 500.0
 # logo clone-outs in 500px coords: (x0,y0,x1,y1, dx,dy) = copy the patch shifted by (dx,dy) over the rect
 CLONE = {

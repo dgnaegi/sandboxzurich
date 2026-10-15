@@ -21,7 +21,7 @@ import requests
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "raw" / "geo_more"
 CLIP = OUT / "clipped"
-H = {"User-Agent": "gtazurich/0.1 (research)"}
+H = {"User-Agent": "sandboxzurich/0.1 (research)"}
 TIMEOUT = 300
 
 # Gebiet (LV95 m) laut Auftrag D2

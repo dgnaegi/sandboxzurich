@@ -1,5 +1,5 @@
 {
- "_doc": "Jump points on the GTA map. 'osm' = name looked up in OSM (preferred); 'cross' = intersection of two streets; 'll' = [lat, lon] fallback (approximate, check against OSM).",
+ "_doc": "Jump points on the city map. 'osm' = name looked up in OSM (preferred); 'cross' = intersection of two streets; 'll' = [lat, lon] fallback (approximate, check against OSM).",
  "places": [
   {
    "name": "Helvetiaplatz",

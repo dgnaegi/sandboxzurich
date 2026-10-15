@@ -1,6 +1,6 @@
 """Weighted use frequency of Velo/OEV/Auto by Kreis from Bevoelkerungsbefragung 2019+ (OGD od4732)."""
 import csv, glob, collections, json
-F = glob.glob("/Users/danielgnagi/gtazurich/data/raw/stats/*BEV473OD4732.csv")[0]
+F = glob.glob("/Users/danielgnagi/sandboxzurich/data/raw/stats/*BEV473OD4732.csv")[0]
 VARS = {"velo": "A5002aa01", "oev": "A5004aa01", "auto": "A5006aa01"}
 rd = csv.DictReader(open(F, encoding="utf-8-sig"))
 years = collections.Counter(); res = collections.defaultdict(lambda: collections.defaultdict(float))

@@ -194,7 +194,7 @@ class Model:
             ia = add(np.array(m.idx, np.uint32), 5125, "SCALAR", 34963)
             meshes.append({"name": m.name, "primitives": [{"attributes": attrs, "indices": ia, "material": len(mats) - 1}]})
         nodes = [{"name": "landmark", "children": list(range(1, 1 + len(meshes)))}] + [{"name": mm["name"], "mesh": i} for i, mm in enumerate(meshes)]
-        g = {"asset": {"version": "2.0", "generator": "gtazurich k93"}, "scene": 0, "scenes": [{"nodes": [0]}], "nodes": nodes, "meshes": meshes,
+        g = {"asset": {"version": "2.0", "generator": "sandboxzurich k93"}, "scene": 0, "scenes": [{"nodes": [0]}], "nodes": nodes, "meshes": meshes,
              "materials": mats, "accessors": accs, "bufferViews": views, "buffers": [{"byteLength": len(bin_)}]}
         if imgs: g.update(images=imgs, textures=texs, samplers=samplers)
         js = json.dumps(g, separators=(",", ":")).encode(); js += b" " * (-len(js) % 4); bin_.extend(b"\0" * (-len(bin_) % 4))

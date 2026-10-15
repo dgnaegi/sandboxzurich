@@ -1,6 +1,6 @@
 import sys,glob,os
 from PIL import Image,ImageDraw
-P='/Users/danielgnagi/gtazurich/data/raw/photos/places'
+P='/Users/danielgnagi/sandboxzurich/data/raw/photos/places'
 def sheet(place,files,out,cols=4,w=400):
     ims=[]
     for f in files:

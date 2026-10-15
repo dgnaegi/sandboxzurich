@@ -75,7 +75,7 @@ def fetch(area):
                     r = requests.get(WFS, params={
                         "SERVICE": "WFS", "VERSION": "2.0.0", "REQUEST": "GetFeature", "TYPENAMES": LAYER,
                         "BBOX": ",".join(map(str, b)) + ",urn:ogc:def:crs:EPSG::2056", "COUNT": "100000",
-                        "OUTPUTFORMAT": "application/json"}, headers={"User-Agent": "gtazurich/0.1 (research)"}, timeout=300)
+                        "OUTPUTFORMAT": "application/json"}, headers={"User-Agent": "sandboxzurich/0.1 (research)"}, timeout=300)
                     r.raise_for_status()
                     f.write_bytes(r.content)
                     break

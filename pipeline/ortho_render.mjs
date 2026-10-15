@@ -12,13 +12,13 @@ p.on('pageerror', (e) => console.log('pageerror', e.message));
 for (const [name, [x, y]] of Object.entries(pts)) {
   if (only && !only.includes(name)) continue;
   await p.goto(`http://localhost:5173/?at=${x.toFixed(1)},${y.toFixed(1)},0&t=13:00&nopost=1`);
-  await p.waitForFunction(() => window.gtaReady, null, { timeout: 240000 });
+  await p.waitForFunction(() => window.sbxReady, null, { timeout: 240000 });
   await p.waitForTimeout(5000);
   const url = await p.evaluate(async ([x, y, W, PX]) => {
     const T = await import('/node_modules/.vite/deps/three.js');
     const r = new T.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
     r.setSize(PX, PX); r.shadowMap.enabled = true;
-    const s = window.gtaScene; const fn = s.fog?.near, ff = s.fog?.far; if (s.fog) { s.fog.near = 1e6; s.fog.far = 2e6; }
+    const s = window.sbxScene; const fn = s.fog?.near, ff = s.fog?.far; if (s.fog) { s.fog.near = 1e6; s.fog.far = 2e6; }
     const c = new T.OrthographicCamera(-W / 2, W / 2, W / 2, -W / 2, 1, 2000);
     c.position.set(x, 600, -y); c.up.set(0, 0, -1); c.lookAt(x, 0, -y);
     r.render(s, c);

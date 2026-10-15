@@ -1,7 +1,7 @@
 """Contact sheet: blender -b -P pipeline/trees/render_sheet.py"""
 import bpy, json, math, os
 from mathutils import Vector
-R = "/Users/danielgnagi/gtazurich"
+R = "/Users/danielgnagi/sandboxzurich"
 man = json.load(open(f"{R}/web/public/models/trees/manifest.json"))
 bpy.ops.wm.read_factory_settings(use_empty=True)
 sc = bpy.context.scene

@@ -41,7 +41,7 @@ for (const [vp, opts] of Object.entries(VIEWPORTS)) {
   page.on('pageerror', (e) => console.log('pageerror', e.message));
   for (const [name, at] of Object.entries(POINTS).filter(([n]) => !ONLY || ONLY.includes(n))) {
     await page.goto(`${BASE}/?at=${at}`);
-    await page.waitForFunction(() => window.gtaReady, null, { timeout: 60000 });
+    await page.waitForFunction(() => window.sbxReady, null, { timeout: 60000 });
     await page.waitForTimeout(2500);
     const f = `${OUT}${name}_${vp}.png`;
     await page.screenshot({ path: f });

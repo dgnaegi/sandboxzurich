@@ -6,7 +6,7 @@ Placement (bone / offset / rotation) is measured against the real rigs by measur
 """
 import bpy, bmesh, math, os, json
 from mathutils import Vector, Matrix
-ROOT = "/Users/danielgnagi/gtazurich"; OUT = f"{ROOT}/web/public/models/accessories"
+ROOT = "/Users/danielgnagi/sandboxzurich"; OUT = f"{ROOT}/web/public/models/accessories"
 os.makedirs(OUT, exist_ok=True)
 def lin(c): return tuple(((x + 0.055) / 1.055) ** 2.4 if x > 0.04045 else x / 12.92 for x in c)
 G = (0.62, 0.62, 0.62)   # tintable base grey (set material.color to tint)

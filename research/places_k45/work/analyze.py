@@ -6,7 +6,7 @@ T=Transformer.from_crs(4326,2056,always_xy=True)
 def loc(la,lo):
     e,n=T.transform(lo,la); return round(e-2681400),round(n-1248700)
 o=pickle.load(open('osm_slim.pkl','rb'))
-her=json.load(open('/Users/danielgnagi/gtazurich/data/raw/heritage/inv.geojson'))['features']
+her=json.load(open('/Users/danielgnagi/sandboxzurich/data/raw/heritage/inv.geojson'))['features']
 res={}
 for slug,(name,kr,la,lo,rad,_) in PLACES.items():
     cx,cy=loc(la,lo); L=[f"CENTER local x={cx} y={cy} r={rad}"]

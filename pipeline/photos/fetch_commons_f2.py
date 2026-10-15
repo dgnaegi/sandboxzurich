@@ -24,7 +24,7 @@ from PIL import Image, ImageDraw
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 API = "https://commons.wikimedia.org/w/api.php"
-UA = "gtazurich/0.1 (research)"
+UA = "sandboxzurich/0.1 (research)"
 HDR = {"User-Agent": UA}
 THUMB_W = 1024
 CELL = 200

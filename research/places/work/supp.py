@@ -1,6 +1,6 @@
 import json,time,re,os,urllib.request,urllib.parse,collections
-UA='gtazurich-research/1.0 (daniel.gnaegi@outlook.com)'
-OUT='/Users/danielgnagi/gtazurich/data/raw/photos/places'
+UA='sandboxzurich-research/1.0 (daniel.gnaegi@outlook.com)'
+OUT='/Users/danielgnagi/sandboxzurich/data/raw/photos/places'
 def api(**p):
     p['format']='json'
     for i in range(6):

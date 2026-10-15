@@ -1,5 +1,5 @@
 import csv, sys
-R='/Users/danielgnagi/gtazurich/research/'
+R='/Users/danielgnagi/sandboxzurich/research/'
 import re
 skip=re.compile(r'schul|kita|kindergarten|kinderkrippe|krippe|hort|school|kids? ?club|college|universit|berufsschule|gymnas', re.I)
 def done(fn):

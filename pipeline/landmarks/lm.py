@@ -197,7 +197,7 @@ class Model:
                 gm["emissiveTexture"] = {"index": image(m.emis)}; gm["emissiveFactor"] = [1, 1, 1]
             mats.append(gm)
             prims.append({"attributes": attrs, "indices": ia, "material": len(mats) - 1})
-        gltf = {"asset": {"version": "2.0", "generator": "gtazurich-landmarks"}, "scene": 0, "scenes": [{"nodes": [0]}],
+        gltf = {"asset": {"version": "2.0", "generator": "sandboxzurich-landmarks"}, "scene": 0, "scenes": [{"nodes": [0]}],
                 "nodes": [{"name": self.name, "mesh": 0}], "meshes": [{"name": self.name, "primitives": prims}],
                 "materials": mats, "accessors": accs, "bufferViews": views, "buffers": [{"byteLength": len(bin_)}],
                 "samplers": [{"magFilter": 9729, "minFilter": 9987, "wrapS": 10497, "wrapT": 10497}]}

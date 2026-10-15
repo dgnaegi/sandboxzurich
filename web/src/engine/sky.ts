@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { gradeUniforms } from './grading';
 
-/** Late-afternoon gradient sky dome (GTA-style), follows the camera. */
+/** Late-afternoon gradient sky dome (arcade-style), follows the camera. */
 export const HORIZON = new THREE.Color(0xf4b98e);
 export const ZENITH = new THREE.Color(0x3f74c4);
 

@@ -1,5 +1,5 @@
 import csv,re,sys
-R='/Users/danielgnagi/gtazurich/research/'
+R='/Users/danielgnagi/sandboxzurich/research/'
 osm=list(csv.DictReader(open(R+'pois_kreis3_osm.csv',encoding='utf-8')))
 done={r['osm_id'] for r in csv.DictReader(open(R+'pois_kreis3.csv',encoding='utf-8'))}
 SKIP=re.compile(r'kindergarten|childcare|school|playground|pitch|artwork|information|car_sharing|bicycle_rental|office=|architect|sports_centre|social_facility|kiosk|toilets|recycling|waste|bench|hospital|pharmacy|bank')

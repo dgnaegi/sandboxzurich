@@ -1,9 +1,9 @@
 import json,os,sys,time,re,requests
 sys.path.insert(0,os.path.dirname(__file__))
 from places_def import PLACES
-R='/Users/danielgnagi/gtazurich'
+R='/Users/danielgnagi/sandboxzurich'
 API="https://commons.wikimedia.org/w/api.php"
-UA={"User-Agent":"gtazurich/0.1 (research; daniel.gnaegi@outlook.com)"}
+UA={"User-Agent":"sandboxzurich/0.1 (research; daniel.gnaegi@outlook.com)"}
 PAUSE=3.6
 def get(url,params=None,stream=False):
     for a in range(6):

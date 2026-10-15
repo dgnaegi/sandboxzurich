@@ -1,5 +1,5 @@
 import csv, sys, re
-R='/Users/danielgnagi/gtazurich/research/'
+R='/Users/danielgnagi/sandboxzurich/research/'
 done=set()
 with open(R+'pois_kreis4.csv',newline='',encoding='utf-8') as f:
     for r in csv.DictReader(f): done.add(r['osm_id'])

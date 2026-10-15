@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
-/** Low-poly vehicle geometries (GTA3 style). Origin on the ground, front = -z. */
+/** Low-poly vehicle geometries (arcade style). Origin on the ground, front = -z. */
 const box = (w: number, h: number, d: number, x = 0, y = 0, z = 0) => new THREE.BoxGeometry(w, h, d).translate(x, y, z);
 const cyl = (r: number, w: number, x: number, y: number, z: number, seg = 8) =>
   new THREE.CylinderGeometry(r, r, w, seg).rotateZ(Math.PI / 2).translate(x, y, z);

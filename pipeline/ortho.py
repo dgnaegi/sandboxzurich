@@ -90,7 +90,7 @@ def fetch(name, x, y, win=WIN, px=1600):
     p = {"SERVICE": "WMS", "VERSION": "1.1.1", "REQUEST": "GetMap", "LAYERS": "ch.swisstopo.images-swissimage",
          "STYLES": "", "SRS": "EPSG:2056", "BBOX": f"{e0},{n0},{e0 + win},{n0 + win}", "WIDTH": px, "HEIGHT": px,
          "FORMAT": "image/jpeg"}
-    r = requests.get(WMS, params=p, timeout=90, headers={"User-Agent": "gtazurich-audit/1.0 (research)"})
+    r = requests.get(WMS, params=p, timeout=90, headers={"User-Agent": "sandboxzurich-audit/1.0 (research)"})
     r.raise_for_status()
     if not r.headers.get("content-type", "").startswith("image"):
         raise RuntimeError(r.text[:200])

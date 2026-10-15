@@ -1,4 +1,4 @@
-# Look: Vice City in Zürich
+# Look: Neon-80er in Zürich
 
 - Grading = custom tone mapper (`web/src/engine/grading.ts`): ACES, saturation, split toning (cool shadows / warm highlights), S-curve contrast, vignette. Overrides `tonemapping_pars_fragment`; uniforms `gradeA..D` are shared via `ShaderLib` (SharedVec4.clone() returns itself), so no extra pass on phones. Sky includes `tonemapping_fragment`. All zero = identity.
 - PC: N8AO -> UnrealBloomPass (half res, HDR threshold per time of day) -> OutputPass (same tone mapper).

@@ -1,6 +1,6 @@
 """Aggregate Stadt Zuerich OGD CSVs (data/raw/stats) for Kreise 3,4,5,9 and city total. Prints JSON."""
 import csv, glob, collections, json, sys
-RAW = "/Users/danielgnagi/gtazurich/data/raw/stats"
+RAW = "/Users/danielgnagi/sandboxzurich/data/raw/stats"
 KREISE = ["3", "4", "5", "9"]
 def rd(pat):
     return csv.DictReader(open(glob.glob(f"{RAW}/{pat}")[0], encoding="utf-8-sig"))

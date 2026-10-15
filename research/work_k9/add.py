@@ -1,7 +1,7 @@
 # stdin lines: osm_id|status|new_name|address|source_url ; name taken from pois_kreis9_osm.csv
 import csv, sys, datetime
-OUT = '/Users/danielgnagi/gtazurich/research/pois_kreis9.csv'
-OSM = '/Users/danielgnagi/gtazurich/research/pois_kreis9_osm.csv'
+OUT = '/Users/danielgnagi/sandboxzurich/research/pois_kreis9.csv'
+OSM = '/Users/danielgnagi/sandboxzurich/research/pois_kreis9_osm.csv'
 names = {r['osm_id']: r['name'] for r in csv.DictReader(open(OSM, encoding='utf-8'))}
 today = datetime.date.today().isoformat()
 rows = []

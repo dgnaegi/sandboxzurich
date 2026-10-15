@@ -7,7 +7,7 @@ import requests
 from config import ROOT
 
 OUT = ROOT / "data" / "raw" / "stadtzh_more"
-H = {"User-Agent": "gtazurich/0.1 (research)"}
+H = {"User-Agent": "sandboxzurich/0.1 (research)"}
 CKAN = "https://data.stadt-zuerich.ch/api/3/action/package_show"
 PACKAGES = ["geo_hydranten", "geo_widmungstafel", "geo_strassennamenverzeichnis"]
 

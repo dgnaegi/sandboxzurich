@@ -1,4 +1,4 @@
-import { chromium } from '/Users/danielgnagi/gtazurich/web/node_modules/playwright/index.mjs';
+import { chromium } from '/Users/danielgnagi/sandboxzurich/web/node_modules/playwright/index.mjs';
 const [,, out, ...qs] = process.argv;
 const b = await chromium.launch({ args: ['--use-gl=angle', '--enable-unsafe-swiftshader'] });
 const p = await (await b.newContext({ viewport: { width: 800, height: 450 } })).newPage();

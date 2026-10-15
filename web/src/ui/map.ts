@@ -1,8 +1,8 @@
-/** GTA-style radar (top left) and full-screen map; clicking inside the playable area jumps there. */
+/** arcade-style radar (top left) and full-screen map; clicking inside the playable area jumps there. */
 export interface MapPlace { name: string; sub: string; x: number; y: number; yaw: number; built: boolean }
 interface MapMeta { mpp: number; x0: number; y1: number; w: number; h: number; built: number[]; polygon?: number[][]; places: MapPlace[]; kreise: Record<string, number[][]> }
 
-export class GtaMap {
+export class CityMap {
   private img = new Image();
   private meta!: MapMeta;
   private radar = document.getElementById('radar') as HTMLCanvasElement;
@@ -87,7 +87,7 @@ export class GtaMap {
       }
     }
     g.restore();
-    // blips (missions, targets, police); clamped to the radar edge like in GTA
+    // blips (missions, targets, police); clamped to the radar edge like a classic arcade radar
     for (const b of blips) {
       const dx = (b.x - px) * zoom, dy = -(b.y - py) * zoom;
       const c = Math.cos(-yaw), s = Math.sin(-yaw);

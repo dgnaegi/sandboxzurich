@@ -1,7 +1,7 @@
 {
  "topic": "furniture",
  "source": "Wikimedia Commons API (commons.wikimedia.org/w/api.php)",
- "user_agent": "gtazurich/0.1 (research)",
+ "user_agent": "sandboxzurich/0.1 (research)",
  "fetched": "2026-10-15",
  "count": 112,
  "thumb_width": 1024,

@@ -1,6 +1,6 @@
 import json, os
 from PIL import Image, ImageDraw, ImageFont
-ROOT='/Users/danielgnagi/gtazurich'
+ROOT='/Users/danielgnagi/sandboxzurich'
 t=json.load(open(f'{ROOT}/research/buildings/testarea.json'))
 v=json.load(open(f'{ROOT}/research/buildings/visual_notes.json'))
 todo=[]

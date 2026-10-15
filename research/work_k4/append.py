@@ -1,12 +1,12 @@
 import csv, sys
-R='/Users/danielgnagi/gtazurich/research/pois_kreis4.csv'
+R='/Users/danielgnagi/sandboxzurich/research/pois_kreis4.csv'
 VALID={'ok','closed','renamed','moved','unclear','new'}
 done=set()
 with open(R,newline='',encoding='utf-8') as f:
     for r in csv.DictReader(f): done.add(r['osm_id'])
 out=[]
 names={}
-with open('/Users/danielgnagi/gtazurich/research/pois_kreis4_osm.csv',newline='',encoding='utf-8') as f:
+with open('/Users/danielgnagi/sandboxzurich/research/pois_kreis4_osm.csv',newline='',encoding='utf-8') as f:
     for r in csv.DictReader(f): names[r['osm_id']]=r['name']
 for line in sys.stdin:
     line=line.strip()

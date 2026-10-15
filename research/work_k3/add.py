@@ -1,5 +1,5 @@
 import csv,sys
-R='/Users/danielgnagi/gtazurich/research/'
+R='/Users/danielgnagi/sandboxzurich/research/'
 src=R+'pois_kreis3_osm.csv'; dst=R+'pois_kreis3.csv'
 osm={r['osm_id']:r for r in csv.DictReader(open(src,encoding='utf-8'))}
 done={r['osm_id'] for r in csv.DictReader(open(dst,encoding='utf-8'))}

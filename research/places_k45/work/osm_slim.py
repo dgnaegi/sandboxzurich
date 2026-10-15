@@ -1,5 +1,5 @@
 import json,pickle
-d=json.load(open('/Users/danielgnagi/gtazurich/data/raw/osm/kreise.json'))['elements']
+d=json.load(open('/Users/danielgnagi/sandboxzurich/data/raw/osm/kreise.json'))['elements']
 nodes={e['id']:(e['lat'],e['lon']) for e in d if e['type']=='node'}
 out=[]
 for e in d:

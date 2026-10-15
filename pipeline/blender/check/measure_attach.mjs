@@ -1,7 +1,7 @@
 // node measure_attach.mjs  -> measures rig bones in three.js and writes accessories/manifest.json + preview/humans_acc_sheet.jpg
-import { chromium } from "/Users/danielgnagi/gtazurich/web/node_modules/playwright/index.mjs";
+import { chromium } from "/Users/danielgnagi/sandboxzurich/web/node_modules/playwright/index.mjs";
 import { spawn } from "node:child_process"; import fs from "node:fs";
-const R = "/Users/danielgnagi/gtazurich";
+const R = "/Users/danielgnagi/sandboxzurich";
 const br = await chromium.launch({ args: ["--use-gl=swiftshader", "--enable-unsafe-swiftshader"] }); const pg = await br.newPage();
 pg.on("console", (m) => { if (m.type() === "error") console.log("ERR", m.text()); }); pg.on("pageerror", (e) => console.log("PAGEERR", e.message));
 const MIME = { html: "text/html", js: "text/javascript", mjs: "text/javascript", glb: "model/gltf-binary", json: "application/json" };
@@ -46,7 +46,7 @@ for (const sc of info) {
   const items = sc.items.map((it) => ({ ...it, acc: (it.acc || []).map((n) => { const a = typeof n === "string" ? { n } : n; const m = out.find((o) => o.name === a.n); return { file: m.file, bone: m.bone, offset: m.offset, rotation: m.rotation, scale: a.scale ?? m.scale, color: a.color ?? m.tint, at: a.at }; }) }));
   await pg.setViewportSize({ width: sc.w, height: sc.h });
   await pg.evaluate(([i, c]) => { document.querySelectorAll("canvas").forEach((x) => x.remove()); return window.show(i, c); }, [items, { w: sc.w, h: sc.h, pos: sc.pos, look: sc.look, fov: sc.fov }]);
-  const f = `/private/tmp/claude-501/-Users-danielgnagi-gtazurich/2c85f10e-b4e1-4c95-8bd3-e132013d6298/scratchpad/acc_${shots.length}.png`; await pg.screenshot({ path: f }); shots.push(f);
+  const f = `/private/tmp/claude-501/-Users-danielgnagi-sandboxzurich/2c85f10e-b4e1-4c95-8bd3-e132013d6298/scratchpad/acc_${shots.length}.png`; await pg.screenshot({ path: f }); shots.push(f);
 }
-fs.writeFileSync("/private/tmp/claude-501/-Users-danielgnagi-gtazurich/2c85f10e-b4e1-4c95-8bd3-e132013d6298/scratchpad/acc_shots.json", JSON.stringify(shots));
+fs.writeFileSync("/private/tmp/claude-501/-Users-danielgnagi-sandboxzurich/2c85f10e-b4e1-4c95-8bd3-e132013d6298/scratchpad/acc_shots.json", JSON.stringify(shots));
 await br.close();

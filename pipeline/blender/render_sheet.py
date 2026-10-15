@@ -1,5 +1,5 @@
 import bpy, sys, glob, json, os, math
-R = "/Users/danielgnagi/gtazurich"
+R = "/Users/danielgnagi/sandboxzurich"
 for o in list(bpy.data.objects): bpy.data.objects.remove(o)
 a = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else ["0", "16", "humans_sheet"]
 lo, hi, outname = int(a[0]), int(a[1]), a[2]

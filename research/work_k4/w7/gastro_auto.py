@@ -1,6 +1,6 @@
 import csv, re, sys
 from difflib import SequenceMatcher
-R='/Users/danielgnagi/gtazurich/research/'
+R='/Users/danielgnagi/sandboxzurich/research/'
 GASTRO={'restaurant','bar','cafe','fast_food','pub','biergarten','nightclub','ice_cream'}
 STOP=re.compile(r'\b(bar|restaurant|ristorante|pizzeria|cafe|café|kiosk|club|lounge|bistro)\b')
 def norm(s): return re.sub(r'[^a-z0-9]','',STOP.sub('',(s or '').lower().replace('ü','u').replace('ö','o').replace('ä','a').replace('é','e')))

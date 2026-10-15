@@ -1,7 +1,7 @@
 """Hourly pedestrian profile (FUSS_IN+OUT) for counters inside Kreis 4 polygon, 2024-2025. Prints JSON."""
 import csv, glob, collections, json
-RAW = "/Users/danielgnagi/gtazurich/data/raw/stats"
-poly = json.load(open("/Users/danielgnagi/gtazurich/research/kreise_poly_simplified.json"))
+RAW = "/Users/danielgnagi/sandboxzurich/data/raw/stats"
+poly = json.load(open("/Users/danielgnagi/sandboxzurich/research/kreise_poly_simplified.json"))
 def lv95_to_wgs(E, N):
     y = (E - 2600000) / 1e6; x = (N - 1200000) / 1e6
     lon = 2.6779094 + 4.728982*y + 0.791484*y*x + 0.1306*y*x*x - 0.0436*y**3
@@ -43,7 +43,7 @@ out = {"counters_in_kreis4_velo_2025": len(k4), "n_days": {g: len(days[g]) for g
 for g in prof:
     tot = sum(prof[g].values()) or 1
     out[g + "_hour_share_pct"] = [round(100 * prof[g][h] / tot, 2) for h in range(24)]
-json.dump(out, open("/Users/danielgnagi/gtazurich/research/work_stats/counter_profile.json", "w"))
+json.dump(out, open("/Users/danielgnagi/sandboxzurich/research/work_stats/counter_profile.json", "w"))
 print(json.dumps({k: v for k, v in out.items() if not k.endswith("pct")}, ensure_ascii=False))
 print([round(x, 1) for x in out.get("fri_sat_hour_share_pct", [])])
 print([round(x, 1) for x in out.get("wkday_mo_do_hour_share_pct", [])])
