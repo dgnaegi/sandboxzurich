@@ -2,6 +2,11 @@
 
 Usage: .venv/bin/python pipeline/build_testarea.py
 """
+import os
+
+# one BLAS/OpenMP thread per worker: 9 forked workers x N threads oversubscribed the CPU (load ~90 on 10 cores)
+for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS", "VECLIB_MAXIMUM_THREADS"):
+    os.environ.setdefault(_v, "1")
 import base64
 import json
 import time
