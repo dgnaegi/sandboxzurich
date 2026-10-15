@@ -35,7 +35,7 @@ def cornice(mesh, frame, z_eave, col, proj=0.32, hgt=0.42):
 
 def erker(mesh, frame, z_lo, z_hi, layer, tint, seed, w=2.7, depth=0.75):
     """One bay window: front (same facade texture, windows line up with the wall behind), two angled sides, flat roof + belly."""
-    u0, u1, t, nh, d, width, su, zb, hv = frame
+    u0, u1, t, nh, d, width, su, zb, hv = frame[:9]  # seg[9] = shop span (storefronts)
     if width < w + 3.0:
         return False
     uc = u0 + width * (0.5 if width < 10 else 0.32 + 0.36 * ((seed >> 3) % 2)) 

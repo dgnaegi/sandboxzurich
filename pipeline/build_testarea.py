@@ -286,13 +286,14 @@ def build():
             if pts:
                 c = np.mean(pts, axis=0)
                 addr_pts.append((Point(c), VIS[(t["addr:street"], t["addr:housenumber"])]))
+    addr_tree = STRtree([p for p, _ in addr_pts]) if addr_pts else None  # was O(buildings x addresses)
     for b in blds:
         fp = footprint(b)
-        if fp is None:
+        if fp is None or addr_tree is None:
             continue
-        hit = [v for p, v in addr_pts if fp.buffer(1.5).contains(p)]
-        if hit:
-            b["osm"]["_visual"] = hit[0]
+        hit = addr_tree.query(fp.buffer(1.5), predicate="contains")
+        if len(hit):
+            b["osm"]["_visual"] = addr_pts[int(min(hit))][1]  # first match in address order, as before
 
     # footprints of all buildings, to detect party walls (Brandmauern)
     fps = [(b["id"], footprint(b)) for b in sources.buildings(margin=60)]
