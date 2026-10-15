@@ -43,7 +43,6 @@ def build():
         if At.geom_type == "MultiPolygon": At = max(At.geoms, key=lambda p: p.area)
         At = orient(At.simplify(0.4), 1.0)
         m.flat(mf, Pl, ztop, hx("#8a8984"), up=True)
-        D.band(m, mf, r[0], r[1], ztop - 0.05, ztop + 0.1, 0.0, SLAB) if False else None
         for i, a, b, L, t, n in edge_iter(r):
             D.band(m, mf, a, b, ztop - 0.3, ztop + 0.3, 0.12, hx("#9b9891"))
         ra = list(At.exterior.coords)[:-1]

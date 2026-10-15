@@ -54,7 +54,7 @@ def raw_building(prefix):
     raise KeyError(prefix)
 
 
-def volumes(prefix, tol=0.8, min_area=2.0):
+def volumes(prefix, tol=0.8, min_area=14.0, simp=0.6):
     """Flat-roof height levels of a building: list of (ztop, Polygon/MultiPolygon) sorted by z (absolute game z)."""
     b = raw_building(prefix)
     roofs = []
@@ -65,7 +65,7 @@ def volumes(prefix, tol=0.8, min_area=2.0):
             except Exception:
                 continue
             if g.area > 0.3: roofs.append((float(p[:, 2].mean()), g))
-    roofs.sort()
+    roofs.sort(key=lambda t: t[0])
     out = []
     cl = []
     for z, g in roofs:
@@ -74,6 +74,8 @@ def volumes(prefix, tol=0.8, min_area=2.0):
         else: cl.append({"z": z, "zs": [z], "g": [g]})
     for c in cl:
         u = unary_union(c["g"]).buffer(0.3, join_style=2).buffer(-0.3, join_style=2)
+        u = u.simplify(simp)
+        u = unary_union([Polygon(q.exterior, [i for i in q.interiors if Polygon(i).area > 60]) for q in polys_of(u)])
         if u.area >= min_area: out.append((max(c["zs"]), u))
     out.sort(key=lambda t: t[0])
     return out
@@ -204,3 +206,92 @@ def gtex(key, m, im, em=None, rough=0.7):
     return m.mat(key, im, em, rough=rough)
 
 hexl = D.hexl
+
+
+def facade(m, mats, S, z0, z1, T=None, *, fh=3.5, bayw=3.0, hole=None, depth=0.3, wall_col=W4, reveal_col=None, rng=None, wmod=(4.0, 4.0),
+           eg_h=None, eg_hole=None, base=None, cornice=None, minl=1.0, wsill=None, plain=None, floor_bands=None, deep_z=9.0):
+    """Wall bands for the exposed edges of footprint S between z0..z1 (T = footprint of higher volumes: edges inside it are skipped).
+    hole(u0,u1,f0,f1,fi,L) -> (u,z) opening polygon or None. eg_h/eg_hole: lower storey (only when z0 <= 0.5) ; base=(z_from) plinth wall below z0.
+    cornice=(col, out, thick): projecting band at the top. plain(a,b)->True gives a blind wall. floor_bands=(col,out,thick): slab bands each floor."""
+    mw, mg, mf = mats
+    rng = rng or np.random.default_rng(1)
+    reveal_col = reveal_col or hexl("#cfcac0")
+    for a, b in edges_of(S, 0.15):
+        L, t, n = D.frame_of(a, b)
+        mid = ((a[0] + b[0]) / 2 + n[0] * 0.25, (a[1] + b[1]) / 2 + n[1] * 0.25)
+        if base is not None and z0 > base + 0.01 and z0 <= 0.5:
+            m.wall(mw, a, b, base, z0, wmod, wall_col)
+        zs = z0
+        if L < minl or (plain and plain(a, b)):
+            m.wall(mw, a, b, zs, z1, wmod, wall_col); continue
+        if eg_h and z0 <= 0.5:
+            zt = zs + eg_h
+            wall_run2(m, mw, mg, mf, a, b, zs, 1, eg_h, bayw, lambda u0, u1, f0, f1, f: eg_hole(u0, u1, f0, f1, 0, L), depth, wall_col, reveal_col, rng, wmod, wsill, deep_z)
+            zs = zt
+        nfl = max(1, int(round((z1 - zs) / fh))); h = (z1 - zs) / nfl
+        if z1 - zs > 0.3:
+            wall_run2(m, mw, mg, mf, a, b, zs, nfl, h, bayw, lambda u0, u1, f0, f1, f: hole(u0, u1, f0, f1, f, L), depth, wall_col, reveal_col, rng, wmod, wsill, deep_z)
+        if floor_bands:
+            for k in range(1, nfl):
+                D.band(m, mf, a, b, zs + k * h - floor_bands[2] / 2, zs + k * h + floor_bands[2] / 2, floor_bands[1], floor_bands[0])
+        if cornice: D.band(m, mf, a, b, z1 - cornice[2], z1, cornice[1], cornice[0])
+
+
+def roofs(m, mf, R, z, col, parapet=0.0, pcol=None):
+    for p in polys_of(R):
+        m.flat(mf, p, z, col)
+
+
+def hdz(x, y):
+    """Ground height at game xy relative to model origin helper."""
+    return ground(x, y)
+
+
+def bay_lite(m, mw, mg, mf, org, t, n, u0, u1, z0, z1, hole, depth, k, wall_col, reveal_col, wmod=(4.0, 4.0), sill=None, nv=D.NV):
+    """Like detail.bay but cheaper: reveal quads only for axis-aligned hole edges (arch segments get none); optional sill."""
+    Hh = Polygon(hole)
+    Wp = Polygon(D.rect_pts(u0, z0, u1, z1)).difference(Hh)
+    D.poly_wall(m, mw, Wp, org, t, n, 0.0, wall_col, lambda u, z: (u / wmod[0], z / wmod[1]))
+    h = list(hole)
+    for i in range(len(h)):
+        p, q = h[i], h[(i + 1) % len(h)]
+        du, dz = q[0] - p[0], q[1] - p[1]; l = math.hypot(du, dz)
+        if l < 0.12 or not (abs(du) < 1e-4 or abs(dz) < 1e-4): continue
+        nl = (t[0] * (-dz / l), t[1] * (-dz / l), du / l)
+        pts = [D.P3(org, t, n, p[0], p[1], 0), D.P3(org, t, n, q[0], q[1], 0), D.P3(org, t, n, q[0], q[1], -depth), D.P3(org, t, n, p[0], p[1], -depth)]
+        D._oriented(m, mf, pts, nl, [(0, 0), (1, 0), (1, 1), (0, 1)], reveal_col)
+    hz0 = min(p[1] for p in h); hz1 = max(p[1] for p in h); hu0 = min(p[0] for p in h); hu1 = max(p[0] for p in h)
+    cu0, cu1 = k / nv, (k + 1) / nv
+    guv = lambda u, z: (cu0 + (cu1 - cu0) * (u - hu0) / (hu1 - hu0), 0.25 + 0.75 * (z - hz0) / (hz1 - hz0))
+    D.poly_wall(m, mg, Hh, org, t, n, -depth, (255, 255, 255, 255), guv)
+    if sill:
+        su0, su1 = hu0 - 0.08, hu1 + 0.08; o = sill
+        D._oriented(m, mf, [D.P3(org, t, n, su0, hz0 - 0.12, o), D.P3(org, t, n, su1, hz0 - 0.12, o), D.P3(org, t, n, su1, hz0, o), D.P3(org, t, n, su0, hz0, o)],
+                    (n[0], n[1], 0), [(0, 0), (1, 0), (1, 1), (0, 1)], reveal_col)
+        D._oriented(m, mf, [D.P3(org, t, n, su0, hz0, o), D.P3(org, t, n, su1, hz0, o), D.P3(org, t, n, su1, hz0, 0), D.P3(org, t, n, su0, hz0, 0)],
+                    (0, 0, 1), [(0, 0), (1, 0), (1, 1), (0, 1)], reveal_col)
+
+
+def bay_flat(m, mw, mg, mf, org, t, n, u0, u1, z0, z1, hole, k, wall_col, wmod, nv=D.NV, off=0.03):
+    """Cheap bay: one wall quad + glass polygon painted on the wall plane (no recess). ~4-9 tris."""
+    m.quad(mw, [D.P3(org, t, n, u0, z0), D.P3(org, t, n, u1, z0), D.P3(org, t, n, u1, z1), D.P3(org, t, n, u0, z1)],
+           [(u0 / wmod[0], z0 / wmod[1]), (u1 / wmod[0], z0 / wmod[1]), (u1 / wmod[0], z1 / wmod[1]), (u0 / wmod[0], z1 / wmod[1])], wall_col, n=(n[0], n[1], 0))
+    h = list(hole); hz0 = min(p[1] for p in h); hz1 = max(p[1] for p in h); hu0 = min(p[0] for p in h); hu1 = max(p[0] for p in h)
+    cu0, cu1 = k / nv, (k + 1) / nv
+    guv = lambda u, z: (cu0 + (cu1 - cu0) * (u - hu0) / (hu1 - hu0), 0.25 + 0.75 * (z - hz0) / (hz1 - hz0))
+    D.poly_wall(m, mg, Polygon(hole), org, t, n, off, (255, 255, 255, 255), guv)
+
+
+def wall_run2(m, mw, mg, mf, a, b, z0, nfloor, fh, bayw, hole_fn, depth, wall_col, reveal_col, rng, wmod=(4.0, 4.0), sill=None, deep_z=1e9):
+    L, t, n = D.frame_of(a, b)
+    nb = max(1, int(round(L / bayw))); bw = L / nb
+    for f in range(nfloor):
+        for i in range(nb):
+            u0, u1 = i * bw, (i + 1) * bw
+            hole = hole_fn(u0, u1, z0 + f * fh, z0 + (f + 1) * fh, f)
+            if hole is None:
+                D.poly_wall(m, mw, Polygon(D.rect_pts(u0, z0 + f * fh, u1, z0 + (f + 1) * fh)), a, t, n, 0.0, wall_col, lambda u, z: (u / wmod[0], z / wmod[1]))
+            elif z0 + f * fh > deep_z:
+                bay_flat(m, mw, mg, mf, a, t, n, u0, u1, z0 + f * fh, z0 + (f + 1) * fh, hole, int(rng.integers(0, D.NV)), wall_col, wmod)
+            else:
+                bay_lite(m, mw, mg, mf, a, t, n, u0, u1, z0 + f * fh, z0 + (f + 1) * fh, hole, depth, int(rng.integers(0, D.NV)), wall_col, reveal_col, wmod, sill)

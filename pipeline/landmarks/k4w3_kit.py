@@ -61,7 +61,11 @@ def setup(parts, name_ids=None):
         c[key] = {"ox": ox, "oy": oy, "oz": ground(ox, oy), "b": [{"id": B["id"], "fp": B["fp"].wkt, "zmax": B["zmax"], "zmin": B["zmin"]} for B in Bs]}
         _CACHE.parent.mkdir(parents=True, exist_ok=True); json.dump(c, open(_CACHE, "w"))
     e = c[key]
-    Bs = [{"id": b["id"], "fp": wkt.loads(b["fp"]), "zmax": b["zmax"], "zmin": b["zmin"]} for b in e["b"]]
+    if len(e["b"]) > 1 and "gz" not in e["b"][0]:
+        for b in e["b"]:
+            cc = wkt.loads(b["fp"]).centroid; b["gz"] = ground(cc.x, cc.y)
+        json.dump(c, open(_CACHE, "w"))
+    Bs = [{"id": b["id"], "fp": wkt.loads(b["fp"]), "zmax": b["zmax"], "zmin": b["zmin"], "gz": b.get("gz", e["oz"])} for b in e["b"]]
     return Bs, e["ox"], e["oy"], e["oz"]
 
 
@@ -129,3 +133,55 @@ def gable_run(m, mr, mg, pts, z, rise, col, gcol=None):
 
 def info(m, name):
     print(name, m.tri_count(), "tris;", ", ".join(f"{k}={v.tris()}" for k, v in m.mats.items()))
+
+
+def slope_roof(m, mr, Pl, z0, rise, d, col, cap=True):
+    """Hip-like sloped roof over an arbitrary ring (shapely Polygon): one sloped quad per edge going inward by d, corner fill triangles at
+    convex corners, flat cap over Pl.buffer(-d). Works for L/U shapes where lm.taper (scale about centroid) does not."""
+    Pl = orient(Pl, 1.0); ring = list(Pl.exterior.coords)[:-1]; ne = len(ring)
+    nr = [D.frame_of(ring[i], ring[(i + 1) % ne])[2] for i in range(ne)]
+    for i in range(ne):
+        a, b = ring[i], ring[(i + 1) % ne]; n = nr[i]
+        if math.hypot(b[0] - a[0], b[1] - a[1]) < 1e-3: continue
+        m.quad(mr, [(a[0], a[1], z0), (b[0], b[1], z0), (b[0] - n[0] * d, b[1] - n[1] * d, z0 + rise), (a[0] - n[0] * d, a[1] - n[1] * d, z0 + rise)], col=col)
+    for i in range(ne):
+        v = ring[(i + 1) % ne]; n1, n2 = nr[i], nr[(i + 1) % ne]
+        cr = n1[0] * n2[1] - n1[1] * n2[0]
+        if cr < -1e-3:   # convex (CCW ring, outward normals turn clockwise)
+            p = [(v[0], v[1], z0), (v[0] - n1[0] * d, v[1] - n1[1] * d, z0 + rise), (v[0] - n2[0] * d, v[1] - n2[1] * d, z0 + rise)]
+            nn = np.cross(np.array(p[1]) - np.array(p[0]), np.array(p[2]) - np.array(p[0]))
+            if nn[2] < 0: p = [p[0], p[2], p[1]]
+            m.tri(mr, p, col=col)
+    if cap:
+        Q = Pl.buffer(-d, join_style=2)
+        for g in ([Q] if Q.geom_type == "Polygon" else list(Q.geoms)):
+            if g.area > 0.5: m.flat(mr, g, z0 + rise, col)
+
+
+def crenels(m, mf, a, b, z, pitch, w, h, d, col, off=0.0):
+    L, t, n = D.frame_of(a, b); nb = max(1, int(L / pitch)); ang = math.atan2(t[1], t[0])
+    for i in range(nb):
+        p = D.P3(a, t, n, (i + 0.5) * L / nb, 0, off - d / 2)
+        m.box(mf, p[0], p[1], w, d, z, z + h, rot=ang, col=col)
+
+
+def clock_painter(x0, face="#f1efe6", ring="#2a2a2a", hands="#222"):
+    """Sign painter drawing a 30 px clock face at x0 in the glass-atlas strip (use txtq with x0..x0+32)."""
+    def paint(d, de, x, y, w, hh):
+        cx, cy = x0 + 16, y + 16
+        d.ellipse([cx - 15, cy - 15, cx + 15, cy + 15], fill=hexc(ring)); d.ellipse([cx - 13, cy - 13, cx + 13, cy + 13], fill=hexc(face))
+        d.line([cx, cy, cx - 6, cy - 8], fill=hexc(hands), width=2); d.line([cx, cy, cx + 8, cy - 9], fill=hexc(hands), width=1)
+        de.ellipse([cx - 13, cy - 13, cx + 13, cy + 13], fill=(60, 56, 40))
+    return paint
+
+
+def both(*painters):
+    def paint(d, de, x, y, w, hh):
+        for p in painters: p(d, de, x, y, w, hh)
+    return paint
+
+
+def clock_quad(m, mg, a, t, n, u, z, size, x0, off=0.08):
+    p0 = D.P3(a, t, n, u - size / 2, z - size / 2, off); p1 = D.P3(a, t, n, u + size / 2, z - size / 2, off)
+    m.quad(mg, [p0, p1, (p1[0], p1[1], z + size / 2), (p0[0], p0[1], z + size / 2)],
+           [(x0 / 1024, 0.0), ((x0 + 32) / 1024, 0.0), ((x0 + 32) / 1024, 0.25), (x0 / 1024, 0.25)], n=(n[0], n[1], 0))

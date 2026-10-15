@@ -129,6 +129,7 @@ def facade(m, mw, mg, mf, ring, z0, nf, fh, st, rng, wcol=W4, rev=None, minL=1.5
                     D.poly_wall(m, mw, Polygon(D.rect_pts(u0, fb, u1, fb + fh)), a, t, n, 0.0, wcol, lambda u, z: (u / 4, z / 4)); continue
                 hl = [(u0 + p[0], p[1]) for p in hl]
                 D.bay(m, mw, mg, mf, a, t, n, u0, u1, fb, fb + fh, hl, sp.get("depth", .25), int(rng.integers(0, D.NV)), wcol, rev, sp.get("wmod", (4, 4)), None)
+                if sp.get("hook"): sp["hook"](m, a, t, n, u0, u1, hl, f, k)
                 if sp.get("surr") is not None:
                     D.surround(m, mw, a, t, n, hl, sp.get("surr_w", .12), sp["surr"], 0.04, sill=0.1 if sp.get("sill", True) else 0)
         for band in st.get("bands", ()):   # (z, h, out, color)
@@ -166,3 +167,36 @@ def finish39(model, name, title, ox, oy, oz, hide):
     d["landmarks"].append({"name": title, "model": f"/models/landmarks/{name}.glb", "x": round(ox, 2), "y": round(oy, 2), "z": round(oz, 2), "heading": 0, "hide": hh})
     json.dump(d, open(OVR39, "w"), indent=1, ensure_ascii=False)
     import merge; merge.main()
+
+
+def shutters(m, mat, a, t, n, hl, col, w=0.5, off=0.06):
+    """Pair of louvre shutters either side of opening hl (u,z polygon) as thin slabs on the wall plane."""
+    us = [p[0] for p in hl]; zs = [p[1] for p in hl]; u0, u1, z0, z1 = min(us), max(us), min(zs), max(zs)
+    for (ua, ub) in ((u0 - w - 0.04, u0 - 0.04), (u1 + 0.04, u1 + w + 0.04)):
+        D._oriented(m, mat, [D.P3(a, t, n, ua, z0, off), D.P3(a, t, n, ub, z0, off), D.P3(a, t, n, ub, z1, off), D.P3(a, t, n, ua, z1, off)], (n[0], n[1], 0),
+                    [(0, 0), (1, 0), (1, 1), (0, 1)], col)
+
+
+def roof_parts(prefix, ox, oy, oz, step=3.0, min_area=15.0, pitched_as_flat=True):
+    """Height-class massing from the swissBUILDINGS3D roof faces: [(Polygon local, height_above_ground)] sorted low -> high.
+    Roof polys of each class (height rounded to `step`) are unioned and slightly fused; small slivers dropped."""
+    import pickle, glob
+    from shapely.affinity import translate
+    classes = {}
+    for f in glob.glob(str(ROOT / "data/build/bld/*.pkl")):
+        for o in pickle.load(open(f, "rb")):
+            if o["id"][3:11] != prefix: continue
+            for k, q in o["polys"]:
+                if k != 2 or len(q) < 3: continue
+                try: g = Polygon(q[:, :2]).buffer(0)
+                except Exception: continue
+                if g.area < 0.5: continue
+                h = float(q[:, 2].max()) - oz; key = round(h / step) * step
+                classes.setdefault(key, []).append(g)
+    out = []
+    for key, gs in sorted(classes.items()):
+        u = unary_union([g.buffer(0.6, join_style=2) for g in gs]).buffer(-0.5, join_style=2)
+        for g in ([u] if u.geom_type == "Polygon" else list(u.geoms)):
+            if g.area >= min_area:
+                g = g.simplify(0.8).buffer(0); out.append((orient(translate(g, -ox, -oy), 1.0), max(key, step)))
+    return out

@@ -87,8 +87,8 @@ def facade_tints():
     for r in _load()["rows"]:
         hx = _hex(r.get("facade_color"))
         m = re.match(r"(.+?)\s+(\d+[a-zA-Z]?)\s*(,.*)?$", (r.get("address") or "").strip())
-        if not hx or not m:
-            continue
+        if not hx or not m or "unsicher" in (r.get("notes") or "").lower():
+            continue  # photo may show the neighbouring house: never tint a whole building from it
         rgb = [int(hx[i:i + 2], 16) for i in (1, 3, 5)]
         lum = (0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]) / 255
         if lum < 0.42:

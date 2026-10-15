@@ -2262,3 +2262,284 @@ Lizenz je Bild CC-BY-SA-4.0 (Panoramax: Feld license); Quelle und Urheber unten.
 | Budosport Nippon | mapillary | https://www.mapillary.com/app/?pKey=959533575470135 | kamilnikel_fb | 2023-04-27 | CC-BY-SA-4.0 |
 | Hera | panoramax | https://api.panoramax.xyz/api/collections/e89a56f9-a8cd-4110-ad56-bd7658a7a803/items/e91cfa59-16c1-43c1-85fd-f2a3bb64d821 | captaininler | 2024-04-29 | CC-BY-SA-4.0 |
 | Nord Take Away | panoramax | https://api.panoramax.xyz/api/collections/1de6f4a1-73ac-4c75-ab7f-2a2aabddf50a/items/5bb2cd23-b90f-4a51-9a5b-3cbd9c4adc3c | mapcomplete | 2022-10-05 | CC-BY-SA-4.0 |
+
+## Runde 3 (Panoramax/Mapillary, Fassadennormale aus OSM-Gebaeudeumriss; nur nicht bereits gesichtete Bilder)
+
+Lizenz je Bild CC-BY-SA-4.0 (Panoramax: Feld license). Ausschnitte in data/raw/photos/shops_r3/ sind abgeleitete Referenzbilder (nicht im Spiel).
+
+| Lokal | Quelle | Bild | Urheber | Datum | Lizenz |
+|---|---|---|---|---|---|
+| Leeward | mapillary | https://www.mapillary.com/app/?pKey=2960475930775167 | Danii1998 | 2024-11-20 | CC-BY-SA-4.0 |
+| Leeward | mapillary | https://www.mapillary.com/app/?pKey=918001906966116 | Danii1998 | 2024-11-20 | CC-BY-SA-4.0 |
+| Kir Royal | mapillary | https://www.mapillary.com/app/?pKey=376393505221864 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Kir Royal | mapillary | https://www.mapillary.com/app/?pKey=1732623924250323 | Danii1998 | 2024-11-20 | CC-BY-SA-4.0 |
+| La Penisola | mapillary | https://www.mapillary.com/app/?pKey=1490475938515246 | quickness805 | 2024-03-17 | CC-BY-SA-4.0 |
+| La Penisola | mapillary | https://www.mapillary.com/app/?pKey=261985509681377 | fcignat | 2023-10-26 | CC-BY-SA-4.0 |
+| Braschler‘s Bar | mapillary | https://www.mapillary.com/app/?pKey=1462556625402423 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| Braschler‘s Bar | mapillary | https://www.mapillary.com/app/?pKey=915160307931835 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| Casa Helvetia | mapillary | https://www.mapillary.com/app/?pKey=397571822978059 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Casa Helvetia | panoramax | https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/37831e47-d4d1-4294-9f9a-f7db44c74f31 | paulb_imagery | 2024-04-14 | CC-BY-SA-4.0 |
+| Wunderbar | mapillary | https://www.mapillary.com/app/?pKey=944260987108035 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Wunderbar | mapillary | https://www.mapillary.com/app/?pKey=1160107452638538 | fcignat | 2025-09-24 | CC-BY-SA-4.0 |
+| Hungry Duck | mapillary | https://www.mapillary.com/app/?pKey=36349648054626241 | Lezurex | 2026-05-20 | CC-BY-SA-4.0 |
+| Hungry Duck | mapillary | https://www.mapillary.com/app/?pKey=944260987108035 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Kanton Slice | mapillary | https://www.mapillary.com/app/?pKey=1723114264849647 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Kanton Slice | mapillary | https://www.mapillary.com/app/?pKey=1323315562512040 | fcignat | 2025-09-24 | CC-BY-SA-4.0 |
+| Burgermeister | mapillary | https://www.mapillary.com/app/?pKey=656910139845574 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Burgermeister | mapillary | https://www.mapillary.com/app/?pKey=3565266977056719 | quickness805 | 2024-03-18 | CC-BY-SA-4.0 |
+| Hiltl Sihlpost | panoramax | https://api.panoramax.xyz/api/collections/7804bb97-94ac-4973-bc86-7caf3b10035e/items/e53526c7-5c60-4408-9f23-3fd24615e041 | OneOSMUser | 2026-08-30 | CC-BY-SA-4.0 |
+| Hiltl Sihlpost | panoramax | https://api.panoramax.xyz/api/collections/7804bb97-94ac-4973-bc86-7caf3b10035e/items/fdfe3d5c-3cc5-4eeb-af53-6a7c0cb91613 | OneOSMUser | 2026-08-30 | CC-BY-SA-4.0 |
+| Baba Baos | mapillary | https://www.mapillary.com/app/?pKey=3575777452671002 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Baba Baos | mapillary | https://www.mapillary.com/app/?pKey=786523723369023 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Kle | mapillary | https://www.mapillary.com/app/?pKey=1136936200158847 | beat | 2020-06-28 | CC-BY-SA-4.0 |
+| Kle | mapillary | https://www.mapillary.com/app/?pKey=469275757477412 | beat | 2020-06-28 | CC-BY-SA-4.0 |
+| Le Cèdre | mapillary | https://www.mapillary.com/app/?pKey=415278121187550 | quickness805 | 2024-03-18 | CC-BY-SA-4.0 |
+| Le Cèdre | mapillary | https://www.mapillary.com/app/?pKey=499713371068524 | kashifmukh | 2019-01-30 | CC-BY-SA-4.0 |
+| Nanimale Glacéria | mapillary | https://www.mapillary.com/app/?pKey=3556716484487917 | Lezurex | 2026-05-20 | CC-BY-SA-4.0 |
+| Nanimale Glacéria | mapillary | https://www.mapillary.com/app/?pKey=998193859359547 | Lezurex | 2026-05-20 | CC-BY-SA-4.0 |
+| Lugano Bar | mapillary | https://www.mapillary.com/app/?pKey=1791625021263481 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Lugano Bar | panoramax | https://api.panoramax.xyz/api/collections/b61f36d5-7ba0-4620-8f60-5ee8b8301b5e/items/bc290399-f1f1-4540-a5d3-fd9a2b645aaa | captaininler | 2024-05-03 | CC-BY-SA-4.0 |
+| Petit Saigon | mapillary | https://www.mapillary.com/app/?pKey=9537798239590706 | varun959 | 2025-04-12 | CC-BY-SA-4.0 |
+| Petit Saigon | mapillary | https://www.mapillary.com/app/?pKey=643121168608217 | varun959 | 2025-04-12 | CC-BY-SA-4.0 |
+| Il Salotto | mapillary | https://www.mapillary.com/app/?pKey=781598017217146 | quickness805 | 2024-03-17 | CC-BY-SA-4.0 |
+| Il Salotto | mapillary | https://www.mapillary.com/app/?pKey=785979998774839 | kashifmukh | 2019-01-30 | CC-BY-SA-4.0 |
+| Collective Bakery | mapillary | https://www.mapillary.com/app/?pKey=726054718426390 | IVOcyril | 2022-05-19 | CC-BY-SA-4.0 |
+| Bierlab | panoramax | https://api.panoramax.xyz/api/collections/7804bb97-94ac-4973-bc86-7caf3b10035e/items/55ee54a9-4360-4e1c-b1f1-1df08c5e480b | OneOSMUser | 2026-08-30 | CC-BY-SA-4.0 |
+| Bierlab | panoramax | https://api.panoramax.xyz/api/collections/7804bb97-94ac-4973-bc86-7caf3b10035e/items/9b6431a5-afa9-4524-b447-1416aebc0b61 | OneOSMUser | 2026-08-30 | CC-BY-SA-4.0 |
+| RepairHub Zürich | mapillary | https://www.mapillary.com/app/?pKey=1958047791000620 | till | 2015-09-25 | CC-BY-SA-4.0 |
+| RepairHub Zürich | mapillary | https://www.mapillary.com/app/?pKey=386024209118827 | till | 2015-09-25 | CC-BY-SA-4.0 |
+| Oni Bakery | mapillary | https://www.mapillary.com/app/?pKey=1086212109270204 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Oni Bakery | panoramax | https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/7d533218-1146-43d3-861b-28d615b5618a | paulb_imagery | 2024-04-14 | CC-BY-SA-4.0 |
+| Farbwaren Strehler | panoramax | https://api.panoramax.xyz/api/collections/7804bb97-94ac-4973-bc86-7caf3b10035e/items/901dbba6-3b5c-419e-a86c-493c849e5b4a | OneOSMUser | 2026-08-30 | CC-BY-SA-4.0 |
+| Farbwaren Strehler | mapillary | https://www.mapillary.com/app/?pKey=1403638377478974 | varun959 | 2025-04-12 | CC-BY-SA-4.0 |
+| Werners Head Shop | mapillary | https://www.mapillary.com/app/?pKey=1095362122207895 | Danii1998 | 2024-11-20 | CC-BY-SA-4.0 |
+| Werners Head Shop | mapillary | https://www.mapillary.com/app/?pKey=917701916937719 | Danii1998 | 2024-11-20 | CC-BY-SA-4.0 |
+| Risa | mapillary | https://www.mapillary.com/app/?pKey=2820221051703846 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| Risa | mapillary | https://www.mapillary.com/app/?pKey=915160307931835 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| Soeder | mapillary | https://www.mapillary.com/app/?pKey=1808840226359224 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| Soeder | mapillary | https://www.mapillary.com/app/?pKey=2820221051703846 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| Colmadon | mapillary | https://www.mapillary.com/app/?pKey=1133469147783902 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Colmadon | panoramax | https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/3db9d434-787e-4e4b-9967-64183aeda089 | paulb_imagery | 2024-04-14 | CC-BY-SA-4.0 |
+| vomFASS | mapillary | https://www.mapillary.com/app/?pKey=781244519259974 | matrixphotographer | 2016-07-16 | CC-BY-SA-4.0 |
+| vomFASS | mapillary | https://www.mapillary.com/app/?pKey=1803057433493078 | fcignat | 2023-10-19 | CC-BY-SA-4.0 |
+| Aelita | mapillary | https://www.mapillary.com/app/?pKey=428566266251328 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Aelita | panoramax | https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/b61e4ff9-a057-4de4-82d0-e1fdfcd8c778 | Lezurex | 2025-01-18 | CC-BY-SA-4.0 |
+| Prima Schuh & Schlüsselservice | panoramax | https://api.panoramax.xyz/api/collections/7804bb97-94ac-4973-bc86-7caf3b10035e/items/901dbba6-3b5c-419e-a86c-493c849e5b4a | OneOSMUser | 2026-08-30 | CC-BY-SA-4.0 |
+| Prima Schuh & Schlüsselservice | mapillary | https://www.mapillary.com/app/?pKey=656718610556724 | varun959 | 2025-04-12 | CC-BY-SA-4.0 |
+| Street-Files Studio | mapillary | https://www.mapillary.com/app/?pKey=1455129688446501 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Street-Files Studio | mapillary | https://www.mapillary.com/app/?pKey=2188933378585455 | Harshali | 2026-03-17 | CC-BY-SA-4.0 |
+| Cassare | mapillary | https://www.mapillary.com/app/?pKey=2850361171892651 | fifi | 2015-06-14 | CC-BY-SA-4.0 |
+| Criz | mapillary | https://www.mapillary.com/app/?pKey=1260776302019642 | fcignat | 2025-08-19 | CC-BY-SA-4.0 |
+| Criz | mapillary | https://www.mapillary.com/app/?pKey=1177621864402757 | fcignat | 2025-08-07 | CC-BY-SA-4.0 |
+| BP Service Wiedikon | mapillary | https://www.mapillary.com/app/?pKey=723524499902125 | quickness805 | 2024-03-15 | CC-BY-SA-4.0 |
+| BP Service Wiedikon | mapillary | https://www.mapillary.com/app/?pKey=26459980833626108 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| Atelier Alsamendi | mapillary | https://www.mapillary.com/app/?pKey=301457942824419 | fcignat | 2023-10-26 | CC-BY-SA-4.0 |
+| Atelier Alsamendi | mapillary | https://www.mapillary.com/app/?pKey=3583739095172835 | fcignat | 2023-10-26 | CC-BY-SA-4.0 |
+| Casino Fashion | mapillary | https://www.mapillary.com/app/?pKey=3572680176329909 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Casino Fashion | mapillary | https://www.mapillary.com/app/?pKey=1542615613190242 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Kiosk Josefwiese | mapillary | https://www.mapillary.com/app/?pKey=927029964813115 | fifi | 2015-04-22 | CC-BY-SA-4.0 |
+| Kiosk Josefwiese | mapillary | https://www.mapillary.com/app/?pKey=1055319798323957 | fifi | 2015-04-22 | CC-BY-SA-4.0 |
+| Cabinet | mapillary | https://www.mapillary.com/app/?pKey=34621484820769079 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| Cabinet | mapillary | https://www.mapillary.com/app/?pKey=1241695344186027 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| Velonauta | mapillary | https://www.mapillary.com/app/?pKey=922439460286779 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| Velonauta | mapillary | https://www.mapillary.com/app/?pKey=34621484820769079 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| Gerolds Markt | mapillary | https://www.mapillary.com/app/?pKey=371451044186011 | fifi | 2015-06-14 | CC-BY-SA-4.0 |
+| Gerolds Markt | mapillary | https://www.mapillary.com/app/?pKey=743937152950854 | fifi | 2015-06-14 | CC-BY-SA-4.0 |
+| Codes | mapillary | https://www.mapillary.com/app/?pKey=909625405185435 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| Codes | mapillary | https://www.mapillary.com/app/?pKey=2660125294353096 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| IDA 14 | mapillary | https://www.mapillary.com/app/?pKey=1299206421840423 | fcignat | 2025-09-15 | CC-BY-SA-4.0 |
+| IDA 14 | mapillary | https://www.mapillary.com/app/?pKey=1409405030147764 | fcignat | 2025-09-15 | CC-BY-SA-4.0 |
+| musik & form | mapillary | https://www.mapillary.com/app/?pKey=1172653000775242 | quickness805 | 2024-03-17 | CC-BY-SA-4.0 |
+| k kiosk | mapillary | https://www.mapillary.com/app/?pKey=826723467944282 | pmatuszy | 2021-05-03 | CC-BY-SA-4.0 |
+| k kiosk | mapillary | https://www.mapillary.com/app/?pKey=331194098722995 | pmatuszy | 2021-05-03 | CC-BY-SA-4.0 |
+| Barkat Cash & Carry | mapillary | https://www.mapillary.com/app/?pKey=826723467944282 | pmatuszy | 2021-05-03 | CC-BY-SA-4.0 |
+| Barkat Cash & Carry | mapillary | https://www.mapillary.com/app/?pKey=331194098722995 | pmatuszy | 2021-05-03 | CC-BY-SA-4.0 |
+| Huncho | mapillary | https://www.mapillary.com/app/?pKey=961656470113184 | Lezurex | 2026-05-20 | CC-BY-SA-4.0 |
+| Huncho | mapillary | https://www.mapillary.com/app/?pKey=1516863342467780 | fcignat | 2023-10-26 | CC-BY-SA-4.0 |
+| Delhi-Bistro | mapillary | https://www.mapillary.com/app/?pKey=1582415889116293 | varun959 | 2025-03-30 | CC-BY-SA-4.0 |
+| Delhi-Bistro | mapillary | https://www.mapillary.com/app/?pKey=232492825988191 | lto | 2023-04-21 | CC-BY-SA-4.0 |
+| Vegelateria | mapillary | https://www.mapillary.com/app/?pKey=885883513225624 | quickness805 | 2024-03-17 | CC-BY-SA-4.0 |
+| Vegelateria | mapillary | https://www.mapillary.com/app/?pKey=434301509110365 | quickness805 | 2024-03-17 | CC-BY-SA-4.0 |
+| Wiedikon Point | mapillary | https://www.mapillary.com/app/?pKey=1050186025510318 | pmatuszy | 2021-05-03 | CC-BY-SA-4.0 |
+| Wiedikon Point | mapillary | https://www.mapillary.com/app/?pKey=950231265753762 | kashifmukh | 2019-01-30 | CC-BY-SA-4.0 |
+| Cinchona Bar | mapillary | https://www.mapillary.com/app/?pKey=429461553109338 | abuhlma2 | 2024-10-07 | CC-BY-SA-4.0 |
+| Cinchona Bar | panoramax | https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/ba71b423-ab45-4205-a4b2-ba1eb3e525f2 | Lezurex | 2025-01-18 | CC-BY-SA-4.0 |
+| Mythos | mapillary | https://www.mapillary.com/app/?pKey=759477669042955 | lto | 2023-04-21 | CC-BY-SA-4.0 |
+| Mythos | mapillary | https://www.mapillary.com/app/?pKey=530037885766336 | lto | 2023-04-21 | CC-BY-SA-4.0 |
+| A Fatt | mapillary | https://www.mapillary.com/app/?pKey=217404666591995 | pablopita | 2019-12-16 | CC-BY-SA-4.0 |
+| Vegitat | mapillary | https://www.mapillary.com/app/?pKey=7375878815866580 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Vegitat | mapillary | https://www.mapillary.com/app/?pKey=380960901449591 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Subway | mapillary | https://www.mapillary.com/app/?pKey=2204088163393232 | fcignat | 2025-09-15 | CC-BY-SA-4.0 |
+| Subway | mapillary | https://www.mapillary.com/app/?pKey=1301747204761844 | fcignat | 2025-09-15 | CC-BY-SA-4.0 |
+| Spoon Schiffbau | mapillary | https://www.mapillary.com/app/?pKey=306231798873467 | quickness805 | 2024-03-19 | CC-BY-SA-4.0 |
+| Spoon Schiffbau | mapillary | https://www.mapillary.com/app/?pKey=591296301829648 | till | 2015-04-27 | CC-BY-SA-4.0 |
+| Shilla | panoramax | https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/148dc2c8-cdaf-49dd-aa38-5d72bd4e2cc8 | Lezurex | 2025-05-23 | CC-BY-SA-4.0 |
+| Shilla | panoramax | https://api.panoramax.xyz/api/collections/60329322-169c-4659-beeb-742811975879/items/835ca2b6-0c98-47e2-8ebe-6d2dd20d7873 | captaininler | 2024-06-05 | CC-BY-SA-4.0 |
+| Vulkan | panoramax | https://api.panoramax.xyz/api/collections/60329322-169c-4659-beeb-742811975879/items/e44cc538-39c1-43c7-930e-418797a19d44 | captaininler | 2024-06-05 | CC-BY-SA-4.0 |
+| Vulkan | mapillary | https://www.mapillary.com/app/?pKey=323717182817273 | jopparn | 2019-06-08 | CC-BY-SA-4.0 |
+| Edy's | mapillary | https://www.mapillary.com/app/?pKey=3671180689821275 | quickness805 | 2024-03-18 | CC-BY-SA-4.0 |
+| Valentin's | mapillary | https://www.mapillary.com/app/?pKey=138261464978211 | till | 2015-07-01 | CC-BY-SA-4.0 |
+| Valentin's | mapillary | https://www.mapillary.com/app/?pKey=1252256980256730 | fcignat | 2025-10-16 | CC-BY-SA-4.0 |
+| Chicago Bar | mapillary | https://www.mapillary.com/app/?pKey=1087680929178231 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Chicago Bar | panoramax | https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/e52da285-9400-4ada-92c6-2c21d92c8514 | Lezurex | 2025-01-18 | CC-BY-SA-4.0 |
+| An Chay | mapillary | https://www.mapillary.com/app/?pKey=412624275207780 | Yha1 | 2025-01-25 | CC-BY-SA-4.0 |
+| An Chay | mapillary | https://www.mapillary.com/app/?pKey=762377133136312 | fcignat | 2025-07-19 | CC-BY-SA-4.0 |
+| LILY'S | mapillary | https://www.mapillary.com/app/?pKey=2489389184757882 | fcignat | 2025-09-15 | CC-BY-SA-4.0 |
+| LILY'S | mapillary | https://www.mapillary.com/app/?pKey=1404473607314217 | fcignat | 2025-09-15 | CC-BY-SA-4.0 |
+| Diwan Shisha | mapillary | https://www.mapillary.com/app/?pKey=1197584344541684 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Diwan Shisha | panoramax | https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/52a98e9d-8485-4946-92ed-1f6375d2be15 | Lezurex | 2025-01-18 | CC-BY-SA-4.0 |
+| Bibim Shack | mapillary | https://www.mapillary.com/app/?pKey=1084631479508266 | quickness805 | 2024-03-15 | CC-BY-SA-4.0 |
+| McCafé | mapillary | https://www.mapillary.com/app/?pKey=820502707303068 | fcignat | 2025-09-15 | CC-BY-SA-4.0 |
+| McCafé | mapillary | https://www.mapillary.com/app/?pKey=1469499120956056 | fcignat | 2025-09-15 | CC-BY-SA-4.0 |
+| Riviera | mapillary | https://www.mapillary.com/app/?pKey=1566533984080722 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Riviera | mapillary | https://www.mapillary.com/app/?pKey=1319521290391256 | Lezurex | 2025-01-18 | CC-BY-SA-4.0 |
+| Hardhof | mapillary | https://www.mapillary.com/app/?pKey=374416332147495 | quickness805 | 2024-03-18 | CC-BY-SA-4.0 |
+| Hardhof | mapillary | https://www.mapillary.com/app/?pKey=8930611150383048 | Yha1 | 2025-01-25 | CC-BY-SA-4.0 |
+| Matahari Bar | mapillary | https://www.mapillary.com/app/?pKey=951945915553350 | till | 2015-07-07 | CC-BY-SA-4.0 |
+| Matahari Bar | panoramax | https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/0a072bca-84eb-42f8-a42d-17225e60d0e1 | Lezurex | 2025-05-23 | CC-BY-SA-4.0 |
+| Zekis World | mapillary | https://www.mapillary.com/app/?pKey=1345325706956668 | fcignat | 2025-09-15 | CC-BY-SA-4.0 |
+| Zekis World | panoramax | https://api.panoramax.xyz/api/collections/ac9004b1-19ef-46fe-a017-00544802e2d2/items/a5a9ad57-d051-46b9-81de-40b446fba51c | captaininler | 2024-06-05 | CC-BY-SA-4.0 |
+| Vito | mapillary | https://www.mapillary.com/app/?pKey=384931017733759 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Vito | mapillary | https://www.mapillary.com/app/?pKey=432218935848461 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| Kaimug | mapillary | https://www.mapillary.com/app/?pKey=465757431156408 | till | 2015-07-10 | CC-BY-SA-4.0 |
+| Kaimug | mapillary | https://www.mapillary.com/app/?pKey=619784469419036 | till | 2015-07-10 | CC-BY-SA-4.0 |
+| Dieci Pizzakurier | mapillary | https://www.mapillary.com/app/?pKey=1291917556084957 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| Dieci Pizzakurier | mapillary | https://www.mapillary.com/app/?pKey=1228325228975989 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| D'Ouro | mapillary | https://www.mapillary.com/app/?pKey=1455143948163467 | beat | 2019-10-27 | CC-BY-SA-4.0 |
+| D'Ouro | mapillary | https://www.mapillary.com/app/?pKey=181592450512886 | beat | 2019-10-27 | CC-BY-SA-4.0 |
+| Auer & Co | mapillary | https://www.mapillary.com/app/?pKey=1475334496131935 | jopparn | 2019-06-08 | CC-BY-SA-4.0 |
+| Auer & Co | mapillary | https://www.mapillary.com/app/?pKey=376661457021139 | jopparn | 2019-06-08 | CC-BY-SA-4.0 |
+| Salotto | mapillary | https://www.mapillary.com/app/?pKey=5110481219007789 | IVOcyril | 2022-05-19 | CC-BY-SA-4.0 |
+| Salotto | mapillary | https://www.mapillary.com/app/?pKey=303741034461666 | alexus37 | 2019-04-02 | CC-BY-SA-4.0 |
+| Cucina | mapillary | https://www.mapillary.com/app/?pKey=754749649229304 | IVOcyril | 2022-05-19 | CC-BY-SA-4.0 |
+| Cucina | mapillary | https://www.mapillary.com/app/?pKey=169346812154720 | IVOcyril | 2022-05-19 | CC-BY-SA-4.0 |
+| Rucola Pizza | mapillary | https://www.mapillary.com/app/?pKey=5212276938865292 | IVOcyril | 2022-05-19 | CC-BY-SA-4.0 |
+| Rucola Pizza | mapillary | https://www.mapillary.com/app/?pKey=592065681771732 | toaoa | 2020-03-11 | CC-BY-SA-4.0 |
+| Coop Restaurant | mapillary | https://www.mapillary.com/app/?pKey=1507836674017845 | Lezurex | 2026-05-20 | CC-BY-SA-4.0 |
+| Coop Restaurant | mapillary | https://www.mapillary.com/app/?pKey=1504872978057408 | Lezurex | 2026-05-20 | CC-BY-SA-4.0 |
+| The Coconut | mapillary | https://www.mapillary.com/app/?pKey=1747574739564874 | Lezurex | 2026-05-20 | CC-BY-SA-4.0 |
+| The Coconut | mapillary | https://www.mapillary.com/app/?pKey=996203733293932 | Lezurex | 2026-05-20 | CC-BY-SA-4.0 |
+| Taj Mahal | mapillary | https://www.mapillary.com/app/?pKey=744903008335004 | fcignat | 2025-07-19 | CC-BY-SA-4.0 |
+| Taj Mahal | mapillary | https://www.mapillary.com/app/?pKey=775007635031203 | fcignat | 2025-07-19 | CC-BY-SA-4.0 |
+| Musti Grill | mapillary | https://www.mapillary.com/app/?pKey=1075944864678835 | fcignat | 2025-07-19 | CC-BY-SA-4.0 |
+| Musti Grill | mapillary | https://www.mapillary.com/app/?pKey=2784646188402500 | fcignat | 2025-07-19 | CC-BY-SA-4.0 |
+| Suan Long | mapillary | https://www.mapillary.com/app/?pKey=607552605328328 | Yha1 | 2025-02-07 | CC-BY-SA-4.0 |
+| Suan Long | mapillary | https://www.mapillary.com/app/?pKey=330187359656996 | fcignat | 2022-12-27 | CC-BY-SA-4.0 |
+| Coop | mapillary | https://www.mapillary.com/app/?pKey=428158509891158 | quickness805 | 2024-03-18 | CC-BY-SA-4.0 |
+| Coop | mapillary | https://www.mapillary.com/app/?pKey=1270034073929617 | lto | 2023-04-21 | CC-BY-SA-4.0 |
+| Lachenmeier Farben | mapillary | https://www.mapillary.com/app/?pKey=153030703357951 | fifi | 2015-06-14 | CC-BY-SA-4.0 |
+| Lachenmeier Farben | panoramax | https://api.panoramax.xyz/api/collections/a09b31df-cdcb-47c2-bc50-c1ebd5fe6483/items/eb0862bc-cd71-4967-927c-5fbe2ce36bce | captaininler | 2024-06-05 | CC-BY-SA-4.0 |
+| Total Bar | panoramax | https://api.panoramax.xyz/api/collections/d004fd7e-d18d-498f-86e0-64791fc094de/items/b6f6432f-50ce-459d-a16c-27d87207b487 | captaininler | 2024-05-03 | CC-BY-SA-4.0 |
+| Total Bar | panoramax | https://api.panoramax.xyz/api/collections/d004fd7e-d18d-498f-86e0-64791fc094de/items/02c3a049-642d-4ba2-b5d8-7b3c55c9d4e4 | captaininler | 2024-05-03 | CC-BY-SA-4.0 |
+| Peeeng | panoramax | https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/e5a29d82-911e-4c9c-84e5-5b5a6b18193d | paulb_imagery | 2024-04-14 | CC-BY-SA-4.0 |
+| Houdini | panoramax | https://api.panoramax.xyz/api/collections/2ef16198-e401-46dc-8c08-43295da57341/items/849cfdd5-449c-4b25-b674-f37c7f495442 | captaininler | 2024-05-03 | CC-BY-SA-4.0 |
+| Houdini | panoramax | https://api.panoramax.xyz/api/collections/2ef16198-e401-46dc-8c08-43295da57341/items/05afa119-87c2-4f16-9a92-7d7c0a98d521 | captaininler | 2024-05-03 | CC-BY-SA-4.0 |
+| Bar OTRO | panoramax | https://api.panoramax.xyz/api/collections/e83ec0de-2150-44dd-9bf0-11839e864156/items/a2d9fb59-ec39-4bc5-9cf1-c1c0c74dcbf2 | captaininler | 2024-05-03 | CC-BY-SA-4.0 |
+| Bar OTRO | panoramax | https://api.panoramax.xyz/api/collections/1954fab7-8d45-40fd-a9f4-a0d8d5ff6e2c/items/d1b68972-19d5-4106-a69e-7ee6c0b1cbc6 | Daylight ASAP | 2024-11-27 | CC-BY-SA-4.0 |
+| Morgenstern da Mario | panoramax | https://api.panoramax.xyz/api/collections/0415ef80-3d46-4479-a266-146713a283f8/items/ec7fd4c3-a1a0-48a0-a537-be20b6e21ef4 | Daylight ASAP | 2024-09-23 | CC-BY-SA-4.0 |
+| Morgenstern da Mario | panoramax | https://api.panoramax.xyz/api/collections/d004fd7e-d18d-498f-86e0-64791fc094de/items/8f5e40cb-a729-475c-b57f-13ffff47677f | captaininler | 2024-05-03 | CC-BY-SA-4.0 |
+| SO Pizza | mapillary | https://www.mapillary.com/app/?pKey=1111834403591070 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| SO Pizza | panoramax | https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/4e2e484a-d928-42a6-aa44-841be08b6dce | Lezurex | 2025-01-18 | CC-BY-SA-4.0 |
+| Ambrosi | mapillary | https://www.mapillary.com/app/?pKey=1944398975763596 | fifi | 2015-04-22 | CC-BY-SA-4.0 |
+| Ambrosi | mapillary | https://www.mapillary.com/app/?pKey=793162691309501 | till | 2015-06-24 | CC-BY-SA-4.0 |
+| Cafe le mur | mapillary | https://www.mapillary.com/app/?pKey=921617905739445 | kamilnikel_fb | 2023-04-27 | CC-BY-SA-4.0 |
+| Cafe le mur | mapillary | https://www.mapillary.com/app/?pKey=177002734873272 | kamilnikel_fb | 2023-04-27 | CC-BY-SA-4.0 |
+| raedli | mapillary | https://www.mapillary.com/app/?pKey=1238861321457152 | Lezurex | 2026-05-20 | CC-BY-SA-4.0 |
+| raedli | mapillary | https://www.mapillary.com/app/?pKey=750197178121032 | Lezurex | 2026-05-20 | CC-BY-SA-4.0 |
+| Late Bloomers | panoramax | https://api.panoramax.xyz/api/collections/308d890b-836a-449a-bcb0-834c282542b5/items/75faff62-b858-4618-9b1c-e881372632dd | captaininler | 2024-05-03 | CC-BY-SA-4.0 |
+| Late Bloomers | panoramax | https://api.panoramax.xyz/api/collections/308d890b-836a-449a-bcb0-834c282542b5/items/76de9913-a518-4a8f-9c4c-6013416d56e4 | captaininler | 2024-05-03 | CC-BY-SA-4.0 |
+| 60 Seconds to Napoli | mapillary | https://www.mapillary.com/app/?pKey=4758211597757445 | Lezurex | 2026-05-20 | CC-BY-SA-4.0 |
+| 60 Seconds to Napoli | mapillary | https://www.mapillary.com/app/?pKey=1482539170032419 | Lezurex | 2026-05-20 | CC-BY-SA-4.0 |
+| Tipsy Tiger | mapillary | https://www.mapillary.com/app/?pKey=1303400711096538 | Danii1998 | 2024-11-20 | CC-BY-SA-4.0 |
+| Tipsy Tiger | mapillary | https://www.mapillary.com/app/?pKey=586960980357173 | Danii1998 | 2024-11-20 | CC-BY-SA-4.0 |
+| Now We Go Vegan | mapillary | https://www.mapillary.com/app/?pKey=1178243966226411 | kamilnikel_fb | 2023-04-27 | CC-BY-SA-4.0 |
+| Now We Go Vegan | mapillary | https://www.mapillary.com/app/?pKey=184632734454213 | kamilnikel_fb | 2023-04-27 | CC-BY-SA-4.0 |
+| shop-in-shop | mapillary | https://www.mapillary.com/app/?pKey=1677080929491566 | k3rn3lp4n1c | 2024-03-15 | CC-BY-SA-4.0 |
+| shop-in-shop | mapillary | https://www.mapillary.com/app/?pKey=1219560556781574 | Lezurex | 2025-01-18 | CC-BY-SA-4.0 |
+| Things we love | mapillary | https://www.mapillary.com/app/?pKey=815461234924187 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| Things we love | mapillary | https://www.mapillary.com/app/?pKey=1541463427345370 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| Express Shop | panoramax | https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/f334322e-f0de-480c-b8a1-93ad67ab7a07 | paulb_imagery | 2024-04-14 | CC-BY-SA-4.0 |
+| Express Shop | panoramax | https://api.panoramax.xyz/api/collections/67d5ba41-9733-42a3-a3e3-3d30927edd76/items/edd18c25-90da-4382-9d0a-d39b73a9ece0 | captaininler | 2024-05-03 | CC-BY-SA-4.0 |
+| Kaboom | panoramax | https://api.panoramax.xyz/api/collections/308d890b-836a-449a-bcb0-834c282542b5/items/b43b7a3c-20ca-435b-a364-d91a38597d30 | captaininler | 2024-05-03 | CC-BY-SA-4.0 |
+| Kaboom | panoramax | https://api.panoramax.xyz/api/collections/308d890b-836a-449a-bcb0-834c282542b5/items/021e0e3e-06f4-4c44-b914-a54c4852e41a | captaininler | 2024-05-03 | CC-BY-SA-4.0 |
+| Migrolino fresh | mapillary | https://www.mapillary.com/app/?pKey=1949640532197751 | Danii1998 | 2024-11-20 | CC-BY-SA-4.0 |
+| Migrolino fresh | panoramax | https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/ec70abae-34f4-4de1-b673-141925076baa | paulb_imagery | 2024-04-14 | CC-BY-SA-4.0 |
+| Denner Express | mapillary | https://www.mapillary.com/app/?pKey=1517402505653999 | quickness805 | 2024-03-18 | CC-BY-SA-4.0 |
+| Denner Express | mapillary | https://www.mapillary.com/app/?pKey=536609275332669 | lto | 2023-04-21 | CC-BY-SA-4.0 |
+| Amuthan kiosk shop | panoramax | https://api.panoramax.xyz/api/collections/fff9e6be-877f-4708-930f-73c47c51e033/items/8caee718-3797-42b9-9ad3-5e7aa118f5ad | captaininler | 2024-05-22 | CC-BY-SA-4.0 |
+| Amuthan kiosk shop | panoramax | https://api.panoramax.xyz/api/collections/fff9e6be-877f-4708-930f-73c47c51e033/items/ffa1e1d8-be93-445a-ba94-b470e8c689dd | captaininler | 2024-05-22 | CC-BY-SA-4.0 |
+| Bord | panoramax | https://api.panoramax.xyz/api/collections/bb36f160-a9c1-402e-a505-09daa1572558/items/3764615b-6a40-49d0-87f7-cfd7ca5dd1f0 | captaininler | 2024-05-03 | CC-BY-SA-4.0 |
+| Bord | panoramax | https://api.panoramax.xyz/api/collections/bb36f160-a9c1-402e-a505-09daa1572558/items/f7206330-0bbf-41e2-8fe5-27b8e507f0be | captaininler | 2024-05-03 | CC-BY-SA-4.0 |
+| Midway | panoramax | https://api.panoramax.xyz/api/collections/bb54e57e-6073-409b-8d5d-9d2dac03b17e/items/67b9dbb2-47cc-4b89-a13f-7a68860f9028 | Daylight ASAP | 2024-09-23 | CC-BY-SA-4.0 |
+| Midway | panoramax | https://api.panoramax.xyz/api/collections/bb54e57e-6073-409b-8d5d-9d2dac03b17e/items/f62623f3-c584-459a-b2df-acf51f0db1d8 | Daylight ASAP | 2024-09-23 | CC-BY-SA-4.0 |
+| Emilio | panoramax | https://api.panoramax.xyz/api/collections/7804bb97-94ac-4973-bc86-7caf3b10035e/items/06cb0593-3280-4c2c-a982-23d232ce255c | OneOSMUser | 2026-08-30 | CC-BY-SA-4.0 |
+| Emilio | panoramax | https://api.panoramax.xyz/api/collections/7804bb97-94ac-4973-bc86-7caf3b10035e/items/d64e6c8b-77f2-4deb-9b73-8951562e27b4 | OneOSMUser | 2026-08-30 | CC-BY-SA-4.0 |
+| Schmiede | mapillary | https://www.mapillary.com/app/?pKey=2434151463636649 | varun959 | 2025-04-12 | CC-BY-SA-4.0 |
+| Schmiede | mapillary | https://www.mapillary.com/app/?pKey=724828723832236 | varun959 | 2025-04-12 | CC-BY-SA-4.0 |
+| Gamper Bar | panoramax | https://api.panoramax.xyz/api/collections/385ecab9-7cdc-47e3-9f62-5d88b73aaf82/items/fd674b7d-d5de-48e7-b18c-6a03441f5a4f | Daylight ASAP | 2024-09-23 | CC-BY-SA-4.0 |
+| Gamper Bar | panoramax | https://api.panoramax.xyz/api/collections/2ff58fbb-ccc3-41b6-83c9-62b96a5f33bd/items/1d0e977e-e2ec-4243-95fa-539325a41a99 | Daylight ASAP | 2024-09-23 | CC-BY-SA-4.0 |
+| Yu-An | panoramax | https://api.panoramax.xyz/api/collections/b6308b4b-fc0a-43c3-b2ab-146eaa77cc40/items/854c63dd-1aea-4636-baff-385f118b0767 | Lezurex | 2025-05-27 | CC-BY-SA-4.0 |
+| Yu-An | mapillary | https://www.mapillary.com/app/?pKey=313558448042242 | k3rn3lp4n1c | 2024-03-16 | CC-BY-SA-4.0 |
+| Burger King | panoramax | https://api.panoramax.xyz/api/collections/b828b75a-6476-42a3-ba2b-16148ac3e489/items/f872b453-a9e5-4d30-b66b-f63baf43540b | paulb_imagery | 2024-06-10 | CC-BY-SA-4.0 |
+| Burger King | panoramax | https://api.panoramax.xyz/api/collections/b828b75a-6476-42a3-ba2b-16148ac3e489/items/6a5ec4e1-2af1-457d-b583-eea991da3a7d | paulb_imagery | 2024-06-10 | CC-BY-SA-4.0 |
+| Besteas Bar | panoramax | https://api.panoramax.xyz/api/collections/7804bb97-94ac-4973-bc86-7caf3b10035e/items/fa7a5513-e15b-4f44-b10e-d2d8cc9177c0 | OneOSMUser | 2026-08-30 | CC-BY-SA-4.0 |
+| Besteas Bar | panoramax | https://api.panoramax.xyz/api/collections/7804bb97-94ac-4973-bc86-7caf3b10035e/items/7b34136f-8946-474c-9a39-2353a26f4164 | OneOSMUser | 2026-08-30 | CC-BY-SA-4.0 |
+| La Contrada | panoramax | https://api.panoramax.xyz/api/collections/b828b75a-6476-42a3-ba2b-16148ac3e489/items/0c83d4d2-d262-41ab-942b-1841e190c745 | paulb_imagery | 2024-06-10 | CC-BY-SA-4.0 |
+| La Contrada | panoramax | https://api.panoramax.xyz/api/collections/b828b75a-6476-42a3-ba2b-16148ac3e489/items/f57e5ded-741f-4370-9147-55a7776d9c9a | paulb_imagery | 2024-06-10 | CC-BY-SA-4.0 |
+| Fulin | mapillary | https://www.mapillary.com/app/?pKey=1254476976073674 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| Fulin | mapillary | https://www.mapillary.com/app/?pKey=1449650059962492 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| Subway | mapillary | https://www.mapillary.com/app/?pKey=394450618250271 | sunflower | 2019-03-17 | CC-BY-SA-4.0 |
+| Subway | mapillary | https://www.mapillary.com/app/?pKey=675085873274436 | sunflower | 2019-03-17 | CC-BY-SA-4.0 |
+| Restaurant Krone | mapillary | https://www.mapillary.com/app/?pKey=1078463336353493 | sp8962de | 2022-06-12 | CC-BY-SA-4.0 |
+| Restaurant Krone | mapillary | https://www.mapillary.com/app/?pKey=1255034801852295 | fcignat | 2022-12-27 | CC-BY-SA-4.0 |
+| RRRevolve | panoramax | https://api.panoramax.xyz/api/collections/b828b75a-6476-42a3-ba2b-16148ac3e489/items/430ef4ed-976c-458b-b244-c4b62e0e6130 | paulb_imagery | 2024-06-10 | CC-BY-SA-4.0 |
+| RRRevolve | panoramax | https://api.panoramax.xyz/api/collections/b828b75a-6476-42a3-ba2b-16148ac3e489/items/36369f28-f6fb-4532-9f45-da129a22c4f0 | paulb_imagery | 2024-06-10 | CC-BY-SA-4.0 |
+| Kaspar Blumen | panoramax | https://api.panoramax.xyz/api/collections/b828b75a-6476-42a3-ba2b-16148ac3e489/items/42574e21-54d8-407e-bdf8-4eca4190116e | paulb_imagery | 2024-06-10 | CC-BY-SA-4.0 |
+| Kaspar Blumen | panoramax | https://api.panoramax.xyz/api/collections/b828b75a-6476-42a3-ba2b-16148ac3e489/items/430ef4ed-976c-458b-b244-c4b62e0e6130 | paulb_imagery | 2024-06-10 | CC-BY-SA-4.0 |
+| KENU Boutique | panoramax | https://api.panoramax.xyz/api/collections/7804bb97-94ac-4973-bc86-7caf3b10035e/items/7fe75a37-003f-4eb1-9dfe-478ef810d853 | OneOSMUser | 2026-08-30 | CC-BY-SA-4.0 |
+| KENU Boutique | panoramax | https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/09dc11d8-eb77-4493-9708-651a2e13bc48 | Lezurex | 2025-01-18 | CC-BY-SA-4.0 |
+| Budosport Nippon | panoramax | https://api.panoramax.xyz/api/collections/b61f36d5-7ba0-4620-8f60-5ee8b8301b5e/items/d522b96f-4d58-4c42-b982-3ffaaef6e145 | captaininler | 2024-05-03 | CC-BY-SA-4.0 |
+| Budosport Nippon | panoramax | https://api.panoramax.xyz/api/collections/b61f36d5-7ba0-4620-8f60-5ee8b8301b5e/items/e942a722-5963-443a-aecc-067b74cfe59f | captaininler | 2024-05-03 | CC-BY-SA-4.0 |
+| Hera | panoramax | https://api.panoramax.xyz/api/collections/e89a56f9-a8cd-4110-ad56-bd7658a7a803/items/40ccee0e-c860-4e54-a1f2-5585c9834742 | captaininler | 2024-04-29 | CC-BY-SA-4.0 |
+| Hera | mapillary | https://www.mapillary.com/app/?pKey=2096773957355473 | quickness805 | 2024-03-17 | CC-BY-SA-4.0 |
+| Starbucks | mapillary | https://www.mapillary.com/app/?pKey=31463181123327579 | varun959 | 2025-09-21 | CC-BY-SA-4.0 |
+| Starbucks | mapillary | https://www.mapillary.com/app/?pKey=2105979313265273 | varun959 | 2025-09-21 | CC-BY-SA-4.0 |
+| Gelateria di Berna | mapillary | https://www.mapillary.com/app/?pKey=1467039948469198 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| Gelateria di Berna | mapillary | https://www.mapillary.com/app/?pKey=1664430961380344 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| Don Weber | panoramax | https://api.panoramax.xyz/api/collections/b828b75a-6476-42a3-ba2b-16148ac3e489/items/1646c8cc-7982-4872-b2d2-a1531414b1df | paulb_imagery | 2024-06-10 | CC-BY-SA-4.0 |
+| Don Weber | panoramax | https://api.panoramax.xyz/api/collections/b828b75a-6476-42a3-ba2b-16148ac3e489/items/133fbe1b-3a84-4dc6-8216-9441147881e6 | paulb_imagery | 2024-06-10 | CC-BY-SA-4.0 |
+| Paneolio | panoramax | https://api.panoramax.xyz/api/collections/7804bb97-94ac-4973-bc86-7caf3b10035e/items/55ee54a9-4360-4e1c-b1f1-1df08c5e480b | OneOSMUser | 2026-08-30 | CC-BY-SA-4.0 |
+| Paneolio | panoramax | https://api.panoramax.xyz/api/collections/7804bb97-94ac-4973-bc86-7caf3b10035e/items/aad26d6b-436b-4e63-b7c3-60bfd56542cf | OneOSMUser | 2026-08-30 | CC-BY-SA-4.0 |
+| Limmathof | mapillary | https://www.mapillary.com/app/?pKey=206835861347538 | u001 | 2021-05-29 | CC-BY-SA-4.0 |
+| Limmathof | mapillary | https://www.mapillary.com/app/?pKey=488393645760387 | u001 | 2021-05-29 | CC-BY-SA-4.0 |
+| EY Restaurant Platform | mapillary | https://www.mapillary.com/app/?pKey=1726010230940292 | till | 2015-09-26 | CC-BY-SA-4.0 |
+| EY Restaurant Platform | mapillary | https://www.mapillary.com/app/?pKey=372548207439378 | endszbrxns | 2015-06-29 | CC-BY-SA-4.0 |
+| Audika Hörcenter Zürich-Kalkbreite | mapillary | https://www.mapillary.com/app/?pKey=250171177494582 | lto | 2023-04-21 | CC-BY-SA-4.0 |
+| Audika Hörcenter Zürich-Kalkbreite | panoramax | https://api.panoramax.xyz/api/collections/2ef16198-e401-46dc-8c08-43295da57341/items/6d87884a-1397-4c3e-8069-f6e2cb106f9e | captaininler | 2024-05-03 | CC-BY-SA-4.0 |
+| doodah | mapillary | https://www.mapillary.com/app/?pKey=2341527756244032 | varun959 | 2025-09-21 | CC-BY-SA-4.0 |
+| doodah | mapillary | https://www.mapillary.com/app/?pKey=568461837452795 | matrixphotographer | 2016-07-20 | CC-BY-SA-4.0 |
+| Longside | mapillary | https://www.mapillary.com/app/?pKey=519813300908072 | abuhlma2 | 2024-10-07 | CC-BY-SA-4.0 |
+| EGO Movement | panoramax | https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/548ef8f1-2df9-4762-a47e-a27180dcddfb | Lezurex | 2025-05-23 | CC-BY-SA-4.0 |
+| orthoschritt.ch Navarra | mapillary | https://www.mapillary.com/app/?pKey=1965021947167550 | lto | 2023-04-21 | CC-BY-SA-4.0 |
+| orthoschritt.ch Navarra | mapillary | https://www.mapillary.com/app/?pKey=1251388255789978 | lto | 2023-04-21 | CC-BY-SA-4.0 |
+| novotelcafe | mapillary | https://www.mapillary.com/app/?pKey=306276597533824 | till | 2015-07-01 | CC-BY-SA-4.0 |
+| novotelcafe | mapillary | https://www.mapillary.com/app/?pKey=5074201335989954 | IVOcyril | 2022-05-12 | CC-BY-SA-4.0 |
+| Kai Sushi | mapillary | https://www.mapillary.com/app/?pKey=542884280882313 | IVOcyril | 2022-05-19 | CC-BY-SA-4.0 |
+| Kai Sushi | mapillary | https://www.mapillary.com/app/?pKey=662750668465684 | IVOcyril | 2022-05-19 | CC-BY-SA-4.0 |
+| Café du Bonheur | mapillary | https://www.mapillary.com/app/?pKey=1488373529496145 | Lezurex | 2026-05-20 | CC-BY-SA-4.0 |
+| Café du Bonheur | mapillary | https://www.mapillary.com/app/?pKey=1445647707362869 | Lezurex | 2026-05-20 | CC-BY-SA-4.0 |
+| Joe & The Juice | mapillary | https://www.mapillary.com/app/?pKey=1403110800576735 | quickness805 | 2024-03-17 | CC-BY-SA-4.0 |
+| Joe & The Juice | mapillary | https://www.mapillary.com/app/?pKey=1027218821515090 | FridolinH | 2022-05-16 | CC-BY-SA-4.0 |
+| Il Giglio | mapillary | https://www.mapillary.com/app/?pKey=456949818729202 | till | 2015-05-30 | CC-BY-SA-4.0 |
+| naanu | mapillary | https://www.mapillary.com/app/?pKey=1580667760730427 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| naanu | mapillary | https://www.mapillary.com/app/?pKey=1444106987353126 | osmplus_org | 2026-02-25 | CC-BY-SA-4.0 |
+| Galactic Dance | mapillary | https://www.mapillary.com/app/?pKey=1016387706689563 | Yha1 | 2024-07-06 | CC-BY-SA-4.0 |
+| Galactic Dance | mapillary | https://www.mapillary.com/app/?pKey=3221661137966993 | Yha1 | 2024-07-06 | CC-BY-SA-4.0 |
+| Akara‘s | mapillary | https://www.mapillary.com/app/?pKey=167555995273620 | fifi | 2016-06-29 | CC-BY-SA-4.0 |
+| Akara‘s | panoramax | https://api.panoramax.xyz/api/collections/f74e8b20-b710-411f-9a9a-0b3f941ca284/items/2f32c951-1316-49f4-ad67-0dfdff261803 | paulb_imagery | 2024-06-07 | CC-BY-SA-4.0 |
+| Santa Lucia | mapillary | https://www.mapillary.com/app/?pKey=1663508960989661 | fcignat | 2025-07-19 | CC-BY-SA-4.0 |
+| Santa Lucia | mapillary | https://www.mapillary.com/app/?pKey=335085515869345 | fcignat | 2022-12-27 | CC-BY-SA-4.0 |
+| Harlekin | mapillary | https://www.mapillary.com/app/?pKey=285754616477800 | till | 2015-05-30 | CC-BY-SA-4.0 |
+| Lost & Found | mapillary | https://www.mapillary.com/app/?pKey=285754616477800 | till | 2015-05-30 | CC-BY-SA-4.0 |
+| Kazu | mapillary | https://www.mapillary.com/app/?pKey=2061446957771442 | Lezurex | 2026-05-20 | CC-BY-SA-4.0 |
+| Kazu | mapillary | https://www.mapillary.com/app/?pKey=1665185574747499 | Lezurex | 2026-05-20 | CC-BY-SA-4.0 |

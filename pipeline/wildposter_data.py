@@ -15,7 +15,8 @@ STREETS = {"langstrasse": (47.3768, 8.5290), "hohlstrasse": (47.3762, 8.5240), "
            "sihlquai": (47.3800, 8.5335), "zollstrasse": (47.3795, 8.5260), "bäckeranlage": (47.3750, 8.5250),
            "röntgenstrasse": (47.3815, 8.5300), "werdstrasse": (47.3712, 8.5265), "müllerstrasse": (47.3745, 8.5290),
            "hardstrasse": (47.3865, 8.5190), "schiffbau": (47.3870, 8.5230), "gessnerallee": (47.3775, 8.5340),
-           "lagerstrasse": (47.3770, 8.5340), "seebahnstrasse": (47.3720, 8.5230), "sihlfeld": (47.3722, 8.5185)}
+           "lagerstrasse": (47.3770, 8.5340), "seebahnstrasse": (47.3720, 8.5230), "sihlfeld": (47.3722, 8.5185), "seestrasse 395": (47.3430, 8.5370),
+           "rote fabrik": (47.3430, 8.5370), "wasserwerkstrasse": (47.3890, 8.5400), "walcheplatz": (47.3790, 8.5400)}
 SAMPLE = [
     {"id": "t1", "title": "Nacht der Tiefe", "subtitle": "Techno bis Sonnenaufgang", "date": "2019-11-09", "time": "23:00",
      "venue": "Club Beispiel", "address": "Hardstrasse 1", "kind": "club", "lineup": ["DJ Alpha", "Beta b2b Gamma", "Delta live"],
@@ -73,8 +74,8 @@ def year(ev):
 
 def kind_of(ev):
     k = (ev.get("kind", "") + " " + ev.get("title", "")).lower()
-    for style, keys in (("flohmarkt", ("flohmarkt", "markt", "trödel", "bazar")), ("theater", ("theater", "lesung", "tanz", "slam", "kabarett", "oper", "performance", "film")),
-                        ("neon", ("club", "party", "rave", "dj", "techno", "nacht", "disco")), ("lineup", ("konzert", "live", "festival", "open air", "band", "gig"))):
+    for style, keys in (("flohmarkt", ("flohmarkt", "markt", "trödel", "bazar")), ("theater", ("theater", "lesung", "reading", "tanz", "slam", "kabarett", "oper", "performance", "film")),
+                        ("neon", ("club", "party", "rave", "dj", "techno", "nacht", "disco")), ("lineup", ("konzert", "concert", "benefit", "live", "festival", "open air", "band", "gig"))):
         if any(w in k for w in keys):
             return style
     return "swiss"

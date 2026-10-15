@@ -49,6 +49,148 @@
      266.2
     ]
    ]
+  },
+  {
+   "name": "Restaurant Krone Altstetten",
+   "model": "/models/landmarks/k39w3_krone.glb",
+   "x": -2487.5,
+   "y": 436.1,
+   "z": -8.39,
+   "heading": 0,
+   "hide": [
+    [
+     -2487.6,
+     436.1
+    ],
+    [
+     -2489.1,
+     444.1
+    ]
+   ]
+  },
+  {
+   "name": "Zwinglihaus Aemtlerstrasse",
+   "model": "/models/landmarks/k39w3_zwingli.glb",
+   "x": -84.2,
+   "y": -1371.7,
+   "z": 4.9,
+   "heading": 0,
+   "hide": [
+    [
+     -91.7,
+     -1389.5
+    ],
+    [
+     -84.2,
+     -1371.8
+    ]
+   ]
+  },
+  {
+   "name": "Bethaus Wiedikon",
+   "model": "/models/landmarks/k39w3_bethaus.glb",
+   "x": 253.6,
+   "y": -1639.9,
+   "z": 3.04,
+   "heading": 0,
+   "hide": [
+    [
+     252.9,
+     -1640.1
+    ],
+    [
+     248.6,
+     -1632.0
+    ]
+   ]
+  },
+  {
+   "name": "Zum Froschauer",
+   "model": "/models/landmarks/k39w3_froschauer.glb",
+   "x": 432.8,
+   "y": -1639.0,
+   "z": 2.89,
+   "heading": 0,
+   "hide": [
+    [
+     413.6,
+     -1637.4
+    ]
+   ]
+  },
+  {
+   "name": "Wohnhochhaus Altstetten (Vulkanstrasse)",
+   "model": "/models/landmarks/k39w3_hochhaus_vulkan.glb",
+   "x": -1729.0,
+   "y": 441.6,
+   "z": -10.31,
+   "heading": 0,
+   "hide": [
+    [
+     -1729.0,
+     441.6
+    ]
+   ]
+  },
+  {
+   "name": "Kirche Buehl Wiedikon",
+   "model": "/models/landmarks/k39w3_buehl.glb",
+   "x": 37.7,
+   "y": -1796.7,
+   "z": 24.16,
+   "heading": 0,
+   "hide": [
+    [
+     37.4,
+     -1795.4
+    ],
+    [
+     23.6,
+     -1797.1
+    ],
+    [
+     39.5,
+     -1784.4
+    ]
+   ]
+  },
+  {
+   "name": "Kirche St. Konrad Albisrieden",
+   "model": "/models/landmarks/k39w3_konrad.glb",
+   "x": -1517.8,
+   "y": -1139.1,
+   "z": 5.93,
+   "heading": 0,
+   "hide": [
+    [
+     -1518.0,
+     -1139.4
+    ],
+    [
+     -1530.2,
+     -1142.4
+    ],
+    [
+     -1506.8,
+     -1143.6
+    ],
+    [
+     -1505.5,
+     -1137.1
+    ],
+    [
+     -1509.1,
+     -1127.6
+    ],
+    [
+     -1514.5,
+     -1123.2
+    ],
+    [
+     -1527.4,
+     -1115.9
+    ]
+   ]
   }
  ]
 }

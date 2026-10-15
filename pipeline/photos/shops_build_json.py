@@ -45,6 +45,22 @@ for k, v in R2.items():
 for k, a in ann2.items():   # R2 annotations made on an R1 photo (venue without R2 photo)
     e = byid.get(k)
     if e and not e["photo_ok"]: e.update(a); e["photo_ok"] = True; e["annotated_from"] = "r1-sheet22+:mapillary"
+# --- round 3 (wider radius, facade-normal obliquity, unseen images only): photos_r3.json + annotations_r3.jsonl; never overwrites earlier annotations ---
+R3 = json.load(open(D / "photos_r3.json")) if (D / "photos_r3.json").exists() else {}
+ann3 = {}
+if (D / "annotations_r3.jsonl").exists():
+    for l in open(D / "annotations_r3.jsonl"):
+        if l.strip(): a = json.loads(l); ann3[a.pop("id")] = a
+for k, v in R3.items():
+    if not v["photos"]: continue
+    e = byid.get(k)
+    if e is None:
+        c = cand[k]; e = dict(id=k, name=c["name"], address=c["address"], kind=c["kind"], area=c["area"], x=round(c["x"], 1), y=round(c["y"], 1), photos=[], sheet=None, photo_ok=False)
+        out.append(e); byid[k] = e
+    e["photos_r3"] = [dict(file=p["file"], source=p["source"], pano=p["pano"], page=p["page"], date=p["date"], creator=p["creator"], license=p["license"],
+                           dist_m=p["dist_m"], obliq=p.get("obliq")) for p in v["photos"]]
+    if k in ann3 and not e["photo_ok"]:
+        e.update(ann3[k]); e["photo_ok"] = True; e["annotated_from"] = "r3:" + e["photos_r3"][0]["source"]
 json.dump(out, open(D / "shops_v3.json", "w"), ensure_ascii=False, indent=1)
 import collections
 src = collections.Counter(e.get("annotated_from", "mapillary r1") for e in out if e["photo_ok"])
@@ -60,4 +76,9 @@ cr += ["", "## Runde 2 (Panoramax und Mapillary-360°, perspektivische Ausschnit
        "| Lokal | Quelle | Bild | Urheber | Datum | Lizenz |", "|---|---|---|---|---|---|"]
 for e in out:
     for p in e.get("photos_r2", []): cr.append(f"| {e['name'].replace('|','/')} | {p['source']} | {p['page']} | {p['creator']} | {p['date']} | {p['license']} |")
+cr += ["", "## Runde 3 (Panoramax/Mapillary, Fassadennormale aus OSM-Gebaeudeumriss; nur nicht bereits gesichtete Bilder)", "", "Lizenz je Bild CC-BY-SA-4.0 (Panoramax: Feld license). Ausschnitte in data/raw/photos/shops_r3/ sind abgeleitete Referenzbilder (nicht im Spiel).", "",
+       "| Lokal | Quelle | Bild | Urheber | Datum | Lizenz |", "|---|---|---|---|---|---|"]
+for e in out:
+    for p in e.get("photos_r3", []):
+        if e.get("annotated_from", "").startswith("r3:"): cr.append(f"| {e['name'].replace('|','/')} | {p['source']} | {p['page']} | {p['creator']} | {p['date']} | {p['license']} |")
 (D / "CREDITS.md").write_text("\n".join(cr) + "\n")

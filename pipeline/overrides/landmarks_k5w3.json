@@ -17,6 +17,164 @@
      177.0
     ]
    ]
+  },
+  {
+   "name": "Loewenbraeu-Areal",
+   "model": "/models/landmarks/loewenbraeu.glb",
+   "x": 699.3,
+   "y": 523.4,
+   "z": -7.54,
+   "heading": 0,
+   "hide": [
+    [
+     652.6,
+     419.7
+    ],
+    [
+     670.6,
+     435.1
+    ],
+    [
+     692.1,
+     532.5
+    ],
+    [
+     673.5,
+     544.7
+    ],
+    [
+     705.1,
+     618.4
+    ],
+    [
+     730.0,
+     525.7
+    ],
+    [
+     734.4,
+     576.4
+    ],
+    [
+     725.5,
+     599.2
+    ],
+    [
+     735.9,
+     563.6
+    ]
+   ]
+  },
+  {
+   "name": "Westpark (Galaxus)",
+   "model": "/models/landmarks/westpark.glb",
+   "x": -177.0,
+   "y": 704.8,
+   "z": -8.78,
+   "heading": 0,
+   "hide": [
+    [
+     -169.1,
+     656.0
+    ],
+    [
+     -166.5,
+     779.6
+    ]
+   ]
+  },
+  {
+   "name": "Mobimo Tower",
+   "model": "/models/landmarks/mobimo_tower.glb",
+   "x": -181.5,
+   "y": 447.4,
+   "z": -8.1,
+   "heading": 0,
+   "hide": [
+    [
+     -177.5,
+     440.5
+    ]
+   ]
+  },
+  {
+   "name": "Technopark",
+   "model": "/models/landmarks/technopark.glb",
+   "x": -2.7,
+   "y": 754.4,
+   "z": -8.16,
+   "heading": 0,
+   "hide": [
+    [
+     -28.0,
+     761.2
+    ],
+    [
+     -2.9,
+     718.5
+    ],
+    [
+     9.8,
+     764.7
+    ]
+   ]
+  },
+  {
+   "name": "Puls 5",
+   "model": "/models/landmarks/puls5.glb",
+   "x": 80.5,
+   "y": 717.3,
+   "z": -8.21,
+   "heading": 0,
+   "hide": [
+    [
+     79.4,
+     716.6
+    ]
+   ]
+  },
+  {
+   "name": "Migros-Hochhaus Limmatplatz",
+   "model": "/models/landmarks/migros_limmatplatz.glb",
+   "x": 1128.6,
+   "y": 187.8,
+   "z": -7.63,
+   "heading": 0,
+   "hide": [
+    [
+     1122.9,
+     185.9
+    ]
+   ]
+  },
+  {
+   "name": "Frau Gerolds Garten",
+   "model": "/models/landmarks/frau_gerolds_garten.glb",
+   "x": 203.3,
+   "y": 167.4,
+   "z": -6.28,
+   "heading": 0,
+   "hide": [
+    [
+     196.3,
+     150.9
+    ],
+    [
+     192.1,
+     153.6
+    ],
+    [
+     192.3,
+     161.3
+    ],
+    [
+     242.1,
+     159.9
+    ],
+    [
+     170.1,
+     190.9
+    ]
+   ]
   }
  ]
 }
