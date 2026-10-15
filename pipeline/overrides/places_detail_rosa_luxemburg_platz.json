@@ -149,7 +149,18 @@
      "col": "#e6b422",
      "h": 15
     }
-   ]
+   ],
+   "ortho_ground": {
+    "within": {
+     "circle": [
+      0,
+      0,
+      75
+     ]
+    },
+    "paved": null,
+    "grass": true
+   }
   }
  ]
 }

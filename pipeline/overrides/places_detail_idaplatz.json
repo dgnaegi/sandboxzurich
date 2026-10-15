@@ -148,9 +148,9 @@
    "ortho_ground": {
     "within": {
      "circle": [
-      -5,
-      25,
-      38
+      0,
+      0,
+      75
      ]
     }
    }

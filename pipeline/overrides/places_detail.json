@@ -173,6 +173,15 @@
     "t": "arch",
     "face": "centre",
     "a": 8.5
+   },
+   "ortho_ground": {
+    "within": {
+     "circle": [
+      0,
+      0,
+      75
+     ]
+    }
    }
   }
  ]

@@ -132,7 +132,16 @@
      "a": 1.6,
      "col": "#4f7a62"
     }
-   ]
+   ],
+   "ortho_ground": {
+    "within": {
+     "circle": [
+      0,
+      0,
+      75
+     ]
+    }
+   }
   },
   {
    "id": "kasernenwiese",

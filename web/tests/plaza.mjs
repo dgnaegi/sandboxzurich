@@ -3,10 +3,10 @@
 // node tests/plaza.mjs [id,id,...]   (dev server on :5173)
 import { chromium } from 'playwright';
 const VIEWS = {
-  roentgenplatz: '766,108,-0.22', helvetiaplatz: '770,-865,2.5', baeckeranlage: '540,-715,-0.35', josefwiese: '490,195,-0.45',
+  roentgenplatz: '766,108,-0.22', helvetiaplatz: '785,-885,2.53', baeckeranlage: '505,-690,0.36', josefwiese: '500,185,-0.55',
   kasernenareal: '1190,-960,0.1', idaplatz: '-140,-1135,0.4', lindenplatz: '-2395,350,1.3', albisriederplatz: '-495,-668,-0.76',
-  limmatplatz: '1135,25,-0.1', escher_wyss_platz: '455,715,-0.1', turbinenplatz: '0,600,0.25', stauffacher: '955,-1255,-0.1',
-  bullingerplatz: '-41,-530,0.1', hardplatz: '-110,-175,2.75', rosa_luxemburg_platz: '-1448,452,-1.06',
+  limmatplatz: '1135,25,-0.1', escher_wyss_platz: '455,715,-0.1', turbinenplatz: '0,600,0.25', stauffacher: '960,-1245,0.1',
+  bullingerplatz: '-41,-522,0.17', hardplatz: '-110,-175,2.75', rosa_luxemburg_platz: '-1448,452,-1.06',
 };
 const only = process.argv[2]?.split(',');
 const OUT = new URL('../../preview/', import.meta.url).pathname;

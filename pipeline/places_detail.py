@@ -163,7 +163,7 @@ def ground(gm, tb, H, roads=None):
         if og:
             for mat, geom in _ortho_patches(pl, og, tb, roads):
                 layer, col = MAT[mat]
-                drape(gm, geom, H, og.get("lift", 0.011), col, cell=10, layer=LAYER[layer], uv_scale=5.0 if mat == "grass" else 2.5)
+                drape(gm, geom, H, og.get("lift", 0.0115), col, cell=10, layer=LAYER[layer], uv_scale=5.0 if mat == "grass" else 2.5)
                 n += 1
         for i, g in enumerate(pl.get("ground", [])):
             geom = _shape(g, c, roads).intersection(tb)
@@ -171,7 +171,7 @@ def ground(gm, tb, H, roads=None):
                 continue
             layer, col = MAT[g["mat"]]
             col = tuple(g["color"]) if "color" in g else col
-            drape(gm, geom, H, g.get("lift", 0.012) + 0.002 * i, col, cell=10, layer=LAYER[layer], uv_scale=g.get("uv", 3.0))
+            drape(gm, geom, H, max(g.get("lift", 0.012), 0.013) + 0.002 * i, col, cell=10, layer=LAYER[layer], uv_scale=g.get("uv", 3.0))
             n += 1
     if n:
         print(f"  places_detail: {n} ground patches", flush=True)

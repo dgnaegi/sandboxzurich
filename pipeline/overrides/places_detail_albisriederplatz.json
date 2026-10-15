@@ -42,9 +42,9 @@
    "ortho_ground": {
     "within": {
      "circle": [
-      -30,
-      10,
-      28
+      0,
+      0,
+      75
      ]
     }
    }

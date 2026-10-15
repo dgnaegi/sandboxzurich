@@ -92,7 +92,7 @@ for d, x, y, i, j in cands:
     ox, oy = -math.sin(yaw + math.pi / 2) * 0, 0
     nx_, ny_ = -math.sin(yaw), math.cos(yaw)
     cx_, cy_ = x + nx_ * 1.0, y + ny_ * 1.0
-    bc = r_.choice((hexc("#6b5a48"), hexc("#7d7466"), hexc("#4f6a45"), hexc("#a39a86")))
+    bc = r_.choice((hexc("#4f4034"), hexc("#5d564b"), hexc("#3f5a38"), hexc("#7b7364")))
     ca_, sa_ = math.cos(yaw), math.sin(yaw)
     P = lambda du, dv: (cx_ + du * ca_ - dv * sa_, cy_ + du * sa_ + dv * ca_, z + 0.05)
     M.quad(S, P(-0.47, -0.85), P(0.47, -0.85), P(0.47, 0.85), P(-0.47, 0.85), bc)
