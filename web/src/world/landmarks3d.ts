@@ -8,12 +8,13 @@ import { nightUniform } from '../engine/materials';
  *  (x east, y north, z = ground height of the model origin). Local -> Three: (x, z, -y). */
 interface Entry { name: string; model: string; x: number; y: number; z: number; heading: number }
 
-const LOAD_R = 600, DROP_R = 700;
+const LOAD_R = 600, DROP_R = 700, SHADOW_R = 220; // shadows only near the player (shadow pass is the expensive part)
 
 export class Landmarks3D {
   private entries: Entry[] = [];
   private live = new Map<string, THREE.Group | null>();   // null = loading
   private lit: THREE.MeshLambertMaterial[] = [];
+  private casting = new Map<string, boolean>();
   private loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
 
   constructor(private scene: THREE.Scene) {}
@@ -30,7 +31,11 @@ export class Landmarks3D {
     for (const e of this.entries) {
       const d = Math.hypot(e.x - px, e.y - py), g = this.live.get(e.name);
       if (g === undefined && d < LOAD_R) { this.live.set(e.name, null); void this.spawn(e); }
-      else if (g) g.visible = d < DROP_R;
+      else if (g) {
+        g.visible = d < DROP_R;
+        const near = d < SHADOW_R;
+        if (this.casting.get(e.name) !== near) { this.casting.set(e.name, near); g.traverse((o) => { if ((o as THREE.Mesh).isMesh) o.castShadow = near; }); }
+      }
     }
     const n = nightUniform.value;
     for (const m of this.lit) m.emissiveIntensity = n * 0.9;
@@ -46,7 +51,7 @@ export class Landmarks3D {
       g.traverse((o) => {
         const m = o as THREE.Mesh;
         if (!m.isMesh) return;
-        m.castShadow = true; m.receiveShadow = true;
+        m.castShadow = false; m.receiveShadow = true; // castShadow toggled by distance in update()
         const s = m.material as THREE.MeshStandardMaterial;
         const l = new THREE.MeshLambertMaterial({ map: s.map, vertexColors: !!m.geometry.attributes.color, name: s.name });
         if (s.emissiveMap) { l.emissiveMap = s.emissiveMap; l.emissive = new THREE.Color(0xffffff); l.emissiveIntensity = 0; this.lit.push(l); }

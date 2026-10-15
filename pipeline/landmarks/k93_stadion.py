@@ -151,7 +151,7 @@ STEEL = M.mat("steel", rough=0.5, metal=0.0)
 TXT = {}
 P3 = lambda xy, z: (float(xy[0]), float(xy[1]), z)
 lerp = lambda a, b, t: a + (b - a) * t
-RED = [hexc("#c62a2f"), hexc("#bb2329"), hexc("#d0343a"), hexc("#c62a2f")]
+RED = [hexc("#a8222a"), hexc("#9a1e26"), hexc("#b42a31"), hexc("#a8222a")]
 def seat_col(i, k, tier):
     r = random.Random(i // 3 * 131 + k // 4 * 17 + tier * 1000)
     c = r.choice(RED)
@@ -204,7 +204,7 @@ for i in range(N):
 
 # facade: lower dark-metal skin with ribs, glazed loge band under the roof (lit at night)
 ZPL, ZTOP = 9.0, 23.0
-zr_in, zr_out = 17.0, 23.0
+zr_in, zr_out = 13.0, 23.6
 ZG0 = zu = UPP["z0"] + UPP["dz"] * UPP["rows"]
 for i in range(N):
     j = (i + 1) % N
@@ -225,10 +225,10 @@ for i in range(N):
     ci = hexc("#3b2f2d"); cf = hexc("#7d3b2c")
     M.quad(CONC, P3(RI[i], zr_in), P3(RO[i], zr_out), P3(RO[j], zr_out), P3(RI[j], zr_in), shade(ci, 0.9 + 0.1 * math.cos(ths[i])))
     d0 = np.linalg.norm(RO[i] - RI[i])
-    M.quad(ROOFU, P3(RI[i], zr_in - 0.5), P3(RI[j], zr_in - 0.5), P3(RO[j], zr_out - 0.5), P3(RO[i], zr_out - 0.5), shade(WHITE, 1.0),
+    M.quad(ROOFU, P3(RI[i], zr_in - 0.5), P3(RI[j], zr_in - 0.5), P3(RO[j], zr_out - 0.5), P3(RO[i], zr_out - 0.5), shade(WHITE, 0.82),
            [(cum[i] / 12.0, 0), (cum[i + 1] / 12.0, 0), (cum[i + 1] / 12.0, d0 / 12.0), (cum[i] / 12.0, d0 / 12.0)])
     M.quad(CONC, P3(RO[i], zr_out - 0.9), P3(RO[j], zr_out - 0.9), P3(RO[j], zr_out + 0.15), P3(RO[i], zr_out + 0.15), cf)
-    M.quad(CONC, P3(RI[i], zr_in - 1.4), P3(RI[j], zr_in - 1.4), P3(RI[j], zr_in + 0.1), P3(RI[i], zr_in + 0.1), cf)   # inner fascia (towards pitch)
+    M.quad(CONC, P3(RI[i], zr_in - 1.9), P3(RI[j], zr_in - 1.9), P3(RI[j], zr_in + 0.1), P3(RI[i], zr_in + 0.1), cf)   # inner fascia (towards pitch)
     pdir = np.array(C) - RI[i]; pdir = pdir / np.linalg.norm(pdir)
     # downlights on the underside (3 per ray every 2nd ray)
     if i % 2 == 0:

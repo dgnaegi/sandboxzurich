@@ -71,7 +71,7 @@ def build():
             a, b_ = ring[i], ring[(i + 1) % ne]; L, t, n = D.frame_of(a, b_)
             if L < 1.0: continue
             if L > 12:    # long facade: ribbon band with slab edges
-                D.ribbon_floors(m, mw, mg, mf, a, b_, gz + 3.2, n0, FH, 1.0, 1.35, 0.2, mul('#e4dfd0'), SLAB, rng, wmod=(5.2, 2.9), seg=2.6, slab_out=0.35, slab_col=SLAB, pier=0.06)
+                D.ribbon_floors(m, mw, mg, mf, a, b_, gz + 3.2, n0, FH, 1.0, 1.35, 0.2, mul('#e4dfd0'), SLAB, rng, wmod=(5.2, 2.9), seg=3.9, slab_out=0.35, slab_col=SLAB, pier=0.0)
             else:         # end / narrow wall: brown panel with punched windows
                 def hole(u0, u1, f0, f1, fl):
                     if (u1 - u0) < 1.4: return None

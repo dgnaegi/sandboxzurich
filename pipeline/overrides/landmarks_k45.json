@@ -33,64 +33,6 @@
    ]
   },
   {
-   "name": "Lochergut",
-   "model": "/models/landmarks/lochergut.glb",
-   "x": 105.1,
-   "y": -891.7,
-   "z": 1.08,
-   "heading": 0,
-   "hide": [
-    [
-     77.4,
-     -916.5
-    ],
-    [
-     115.4,
-     -947.3
-    ],
-    [
-     105.5,
-     -877.5
-    ],
-    [
-     107.2,
-     -861.4
-    ],
-    [
-     106.3,
-     -919.6
-    ],
-    [
-     101.5,
-     -902.5
-    ],
-    [
-     111.7,
-     -896.8
-    ],
-    [
-     104.7,
-     -893.4
-    ],
-    [
-     108.2,
-     -845.5
-    ],
-    [
-     101.1,
-     -844.9
-    ],
-    [
-     100.7,
-     -937.2
-    ],
-    [
-     111.3,
-     -928.4
-    ]
-   ]
-  },
-  {
    "name": "Kirche St. Jakob",
    "model": "/models/landmarks/st_jakob.glb",
    "x": 949.6,
@@ -105,6 +47,130 @@
     [
      933.4,
      -1109.0
+    ]
+   ]
+  },
+  {
+   "name": "Kanzlei-Schulhaus",
+   "model": "/models/landmarks/kanzlei_schulhaus.glb",
+   "x": 706.8,
+   "y": -943.2,
+   "z": -0.56,
+   "heading": 0,
+   "hide": [
+    [
+     706.4,
+     -944.3
+    ]
+   ]
+  },
+  {
+   "name": "Kalkbreite",
+   "model": "/models/landmarks/kalkbreite.glb",
+   "x": 400.2,
+   "y": -1208.8,
+   "z": 1.24,
+   "heading": 0,
+   "hide": [
+    [
+     414.0,
+     -1218.7
+    ]
+   ]
+  },
+  {
+   "name": "Bullingerkirche",
+   "model": "/models/landmarks/bullingerkirche.glb",
+   "x": -96.4,
+   "y": -437.8,
+   "z": -1.92,
+   "heading": 0,
+   "hide": [
+    [
+     -97.6,
+     -439.8
+    ],
+    [
+     -96.8,
+     -469.1
+    ]
+   ]
+  },
+  {
+   "name": "Schiffbau",
+   "model": "/models/landmarks/schiffbau.glb",
+   "x": 150.4,
+   "y": 533.3,
+   "z": -8.05,
+   "heading": 0,
+   "hide": [
+    [
+     153.3,
+     533.4
+    ],
+    [
+     193.1,
+     500.3
+    ],
+    [
+     163.5,
+     550.7
+    ],
+    [
+     203.3,
+     583.1
+    ]
+   ]
+  },
+  {
+   "name": "Hardau II (4 Wohntuerme)",
+   "model": "/models/landmarks/hardau_towers.glb",
+   "x": -516.5,
+   "y": -321.0,
+   "z": -0.34,
+   "heading": 0,
+   "hide": [
+    [
+     -490.2,
+     -318.8
+    ],
+    [
+     -510.8,
+     -221.9
+    ],
+    [
+     -561.7,
+     -338.8
+    ],
+    [
+     -502.9,
+     -403.7
+    ],
+    [
+     -535.9,
+     -352.6
+    ]
+   ]
+  },
+  {
+   "name": "Prime Tower + Platform",
+   "model": "/models/landmarks/prime_tower.glb",
+   "x": 45.0,
+   "y": 222.6,
+   "z": -6.12,
+   "heading": 0,
+   "hide": [
+    [
+     45.6,
+     219.6
+    ],
+    [
+     -42.6,
+     197.7
+    ],
+    [
+     -31.0,
+     227.9
     ]
    ]
   },
@@ -279,87 +345,6 @@
    ]
   },
   {
-   "name": "Kanzlei-Schulhaus",
-   "model": "/models/landmarks/kanzlei_schulhaus.glb",
-   "x": 706.8,
-   "y": -943.2,
-   "z": -0.56,
-   "heading": 0,
-   "hide": [
-    [
-     706.4,
-     -944.3
-    ]
-   ]
-  },
-  {
-   "name": "Kalkbreite",
-   "model": "/models/landmarks/kalkbreite.glb",
-   "x": 400.2,
-   "y": -1208.8,
-   "z": 1.24,
-   "heading": 0,
-   "hide": [
-    [
-     414.0,
-     -1218.7
-    ]
-   ]
-  },
-  {
-   "name": "Bullingerkirche",
-   "model": "/models/landmarks/bullingerkirche.glb",
-   "x": -96.4,
-   "y": -437.8,
-   "z": -1.92,
-   "heading": 0,
-   "hide": [
-    [
-     -97.6,
-     -439.8
-    ],
-    [
-     -96.8,
-     -469.1
-    ]
-   ]
-  },
-  {
-   "name": "Schiffbau",
-   "model": "/models/landmarks/schiffbau.glb",
-   "x": 150.4,
-   "y": 533.3,
-   "z": -8.05,
-   "heading": 0,
-   "hide": [
-    [
-     153.3,
-     533.4
-    ],
-    [
-     193.1,
-     500.3
-    ],
-    [
-     163.5,
-     550.7
-    ],
-    [
-     203.3,
-     583.1
-    ]
-   ]
-  },
-  {
-   "name": "KVA-Kamin Josefstrasse",
-   "model": "/models/landmarks/kva_chimney.glb",
-   "x": 433.5,
-   "y": 291.7,
-   "z": -7.06,
-   "heading": 0,
-   "hide": []
-  },
-  {
    "name": "Bahnhof Hardbruecke",
    "model": "/models/landmarks/bahnhof_hardbruecke.glb",
    "x": 28.0,
@@ -378,54 +363,78 @@
    ]
   },
   {
-   "name": "Hardau II (4 Wohntuerme)",
-   "model": "/models/landmarks/hardau_towers.glb",
-   "x": -516.5,
-   "y": -321.0,
-   "z": -0.34,
+   "name": "KVA-Kamin Josefstrasse",
+   "model": "/models/landmarks/kva_chimney.glb",
+   "x": 433.5,
+   "y": 291.7,
+   "z": -7.06,
    "heading": 0,
    "hide": [
     [
-     -490.2,
-     -318.8
+     416.4,
+     305.4
     ],
     [
-     -510.8,
-     -221.9
-    ],
-    [
-     -561.7,
-     -338.8
-    ],
-    [
-     -502.9,
-     -403.7
-    ],
-    [
-     -535.9,
-     -352.6
+     380.3,
+     348.2
     ]
    ]
   },
   {
-   "name": "Prime Tower + Platform",
-   "model": "/models/landmarks/prime_tower.glb",
-   "x": 45.0,
-   "y": 222.6,
-   "z": -6.12,
+   "name": "Lochergut",
+   "model": "/models/landmarks/lochergut.glb",
+   "x": 105.1,
+   "y": -891.7,
+   "z": 1.08,
    "heading": 0,
    "hide": [
     [
-     45.6,
-     219.6
+     77.4,
+     -916.5
     ],
     [
-     -42.6,
-     197.7
+     115.4,
+     -947.3
     ],
     [
-     -31.0,
-     227.9
+     105.5,
+     -877.5
+    ],
+    [
+     107.2,
+     -861.4
+    ],
+    [
+     106.3,
+     -919.6
+    ],
+    [
+     101.5,
+     -902.5
+    ],
+    [
+     111.7,
+     -896.8
+    ],
+    [
+     104.7,
+     -893.4
+    ],
+    [
+     108.2,
+     -845.5
+    ],
+    [
+     101.1,
+     -844.9
+    ],
+    [
+     100.7,
+     -937.2
+    ],
+    [
+     111.3,
+     -928.4
     ]
    ]
   }

@@ -1,11 +1,22 @@
 """KVA Josefstrasse chimney (90 m, white concrete shaft with three red bands + crown). Overlays the swissBUILDINGS3D spike (no hide)."""
 from common import *
 from lm import *
+import numpy as np
+from PIL import Image, ImageDraw
+import k45_kva_plant as KP
 
 
 def build():
     ox, oy = 433.5, 291.7; oz = ground(ox, oy)
     m = Model("kva"); mf = m.mat("flat", solid((255, 255, 255, 255)))
+    pim = Image.new("RGBA", (128, 128), hexc("#aab1b6")); pd = ImageDraw.Draw(pim)
+    for yy in range(0, 128, 8): pd.line([0, yy, 128, yy], fill=hexc("#8f969b"), width=2)
+    for xx in range(0, 128, 64): pd.line([xx, 0, xx, 128], fill=hexc("#7c8388"), width=2)
+    pd.rectangle([0, 52, 128, 74], fill=hexc("#5f7480")); pd.line([0, 63, 128, 63], fill=hexc("#aab1b6"), width=2)   # window band
+    mw = m.mat("wall", pim)
+    for x0, y0, x1, y1, h in KP.boxes(3.0, 6.0):
+        cx, cy = (x0 + x1) / 2 - ox, (y0 + y1) / 2 - oy
+        m.box(mw, cx, cy, x1 - x0, y1 - y0, -3.0, h - 3.0, mod=(12.0, 16.0), mr=mf, rcol=hexc("#7d8286"))
     W, R, G = hexc("#ecebe6"), hexc("#c4322a"), hexc("#d7d5cf")
     z, H = -6.0, 90.5
     r_at = lambda zz: 3.9 - 1.2 * (zz + 6) / 96.5   # slight taper
@@ -24,7 +35,7 @@ def build():
     # peregrine falcon nest box + service ladder strip
     m.box(mf, 3.5, 0, 1.0, 1.2, 80, 81.2, col=hexc("#8a6a3d"))
     m.quad(mf, [(r_at(10), -0.3, 0), (r_at(10) + 0.12, -0.3, 0), (r_at(10) + 0.12, -0.3, 82), (r_at(10), -0.3, 82)][::1], col=hexc("#4b4b4b")) if False else None
-    finish(m, "kva_chimney", "KVA-Kamin Josefstrasse", ox, oy, oz, [])
+    finish(m, "kva_chimney", "KVA-Kamin Josefstrasse", ox, oy, oz, hide_union("KVA-Kamin Josefstrasse", [[round(g.representative_point().x, 1), round(g.representative_point().y, 1)] for g in (bid("ID_C5351824")["fp"].geoms if hasattr(bid("ID_C5351824")["fp"], "geoms") else [bid("ID_C5351824")["fp"]])]))
 
 
 if __name__ == "__main__":

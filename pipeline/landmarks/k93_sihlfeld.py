@@ -30,23 +30,23 @@ def gate_leaf(M, mat, gold, p0, tg, w=1.75, h=2.3, hang=0.0):
     """Wrought-iron leaf: 0.42 m lattice of thin bars with gold roundels (open leaf, rotated by `hang` around the hinge)."""
     ang = math.atan2(tg[1], tg[0]) + hang; t = np.array([math.cos(ang), math.sin(ang)]); n_ = int(w / 0.42)
     for k in range(n_ + 1):
-        q = p0 + t * (k * w / n_); M.box(mat, (q[0], q[1], h / 2), (0.035, 0.035, h), hexc("#1c1f23"), rot=ang)
+        q = p0 + t * (k * w / n_); M.box(mat, (q[0], q[1], h / 2), (0.05, 0.05, h), hexc("#1c1f23"), rot=ang)
     rows_ = int(h / 0.42)
     for r_ in range(rows_ + 1):
-        q = p0 + t * w / 2; M.box(mat, (q[0], q[1], r_ * h / rows_), (w, 0.035, 0.035), hexc("#1c1f23"), rot=ang)
+        q = p0 + t * w / 2; M.box(mat, (q[0], q[1], r_ * h / rows_), (w, 0.05, 0.05), hexc("#1c1f23"), rot=ang)
     for r_ in range(1, rows_, 2):
         for k in range(n_):
             if (r_ + k) % 3 == 0:
-                q = p0 + t * ((k + 0.5) * w / n_); M.cyl(gold, (q[0], q[1]), 0.15, r_ * h / rows_ - 0.15, r_ * h / rows_ + 0.15, hexc("#c89a30"), n=8, cap=False) if False else M.box(gold, (q[0], q[1], r_ * h / rows_ + 0.0), (0.26, 0.04, 0.26), hexc("#c89a30"), rot=ang)
+                q = p0 + t * ((k + 0.5) * w / n_); M.cyl(gold, (q[0], q[1]), 0.15, r_ * h / rows_ - 0.15, r_ * h / rows_ + 0.15, hexc("#c89a30"), n=8, cap=False) if False else M.box(gold, (q[0], q[1], r_ * h / rows_ + 0.0), (0.34, 0.07, 0.34), hexc("#d1a03a"), rot=ang)
 
 
 def sphinx(M, mat, p, z, ang, col=hexc("#8f8a7e")):
     """Recumbent sphinx/lion on the pier: body block, forepaws, raised head with mane."""
     ux, uy = math.cos(ang), math.sin(ang)
-    M.box(mat, (p[0], p[1], z + 0.35), (1.7, 0.8, 0.7), col, rot=ang)
+    M.box(mat, (p[0], p[1], z + 0.45), (1.9, 1.1, 0.9), col, rot=ang)
     M.box(mat, (p[0] + ux * 1.0, p[1] + uy * 1.0, z + 0.2), (0.7, 0.55, 0.4), shade(col, 0.95), rot=ang)
-    M.box(mat, (p[0] + ux * 0.6, p[1] + uy * 0.6, z + 0.95), (0.5, 0.65, 0.65), shade(col, 1.05), rot=ang)
-    M.dome(mat, (p[0] + ux * 0.62, p[1] + uy * 0.62), 0.36, z + 1.0, shade(col, 1.0), n=8, rings=2)
+    M.box(mat, (p[0] + ux * 0.6, p[1] + uy * 0.6, z + 1.2), (0.7, 0.8, 0.8), shade(col, 1.05), rot=ang)
+    M.dome(mat, (p[0] + ux * 0.62, p[1] + uy * 0.62), 0.45, z + 1.5, shade(col, 1.0), n=8, rings=2)
     M.box(mat, (p[0] - ux * 0.9, p[1] - uy * 0.9, z + 0.3), (0.5, 0.2, 0.2), shade(col, 0.9), rot=ang + 0.3)
 
 
@@ -138,19 +138,21 @@ for oid, eave, rise, gable in ((37007820, 5.6, 2.8, False), (212107152, 6.0, 3.2
 cem = Polygon([nodes[n] for n in W[10634343]["nodes"]])
 q = cem.exterior.interpolate(cem.exterior.project(Point(*GATE))); q2 = cem.exterior.interpolate(cem.exterior.project(Point(*GATE)) + 2.0)
 tg = np.array([q2.x - q.x, q2.y - q.y]); tg /= np.hypot(*tg); gang = math.atan2(tg[1], tg[0]); gc = np.array([q.x, q.y]); gz_ = z_at(*gc)
+PIER = M.mat("pier", rough=0.95, tex=K.metal_panel_tex("#a39e90", 256, 6, rust=0.0), repeat=True)
 for sg in (-1, 1):
-    p_ = gc + tg * sg * 3.6
-    K.box_tex(M, STONE, (p_[0], p_[1], gz_ + 1.75), (2.2, 2.2, 3.5), rot=gang, col=WHITE, tile=(1.8, 1.0), top=hexc("#a8a396"))
-    M.box(ms, (p_[0], p_[1], gz_ + 3.62), (2.5, 2.5, 0.25), hexc("#b3ae9f"), rot=gang)          # cap slab
-    M.box(ms, (p_[0], p_[1], gz_ + 3.0), (2.28, 2.28, 0.12), hexc("#8d897d"), rot=gang)          # garland band edge
-    sphinx(M, ms, p_, gz_ + 3.74, gang + (math.pi / 2 if sg > 0 else -math.pi / 2) + 0.0)
+    p_ = gc + tg * sg * 3.1
+    K.box_tex(M, PIER, (p_[0], p_[1], gz_ + 2.1), (1.7, 1.7, 4.2), rot=gang, col=WHITE, tile=(1.7, 4.2), top=hexc("#a8a396"))
+    M.box(ms, (p_[0], p_[1], gz_ + 0.25), (2.0, 2.0, 0.5), hexc("#8f8a7e"), rot=gang)             # base course
+    M.box(ms, (p_[0], p_[1], gz_ + 4.3), (2.1, 2.1, 0.3), hexc("#b3ae9f"), rot=gang)             # cap slab
+    sphinx(M, ms, p_, gz_ + 4.45, gang + (math.pi / 2 if sg > 0 else -math.pi / 2), col=hexc("#7f7a6e"))
     for k in range(1, 6):                                                                         # boundary wall with coping
-        p2_ = gc + tg * sg * (3.6 + 1.1 + k * 3.0 - 1.5)
+        p2_ = gc + tg * sg * (3.1 + 0.85 + k * 3.0 - 1.5)
         K.box_tex(M, STONE, (p2_[0], p2_[1], gz_ + 1.0), (3.0, 0.6, 2.0), rot=gang, col=WHITE, tile=(2.0, 1.0), top=hexc("#9a9588"))
         M.box(ms, (p2_[0], p2_[1], gz_ + 2.08), (3.1, 0.8, 0.16), hexc("#8d897d"), rot=gang)
-    # open iron leaf, swung back against the pier
-    hinge = gc + tg * sg * 2.5
-    gate_leaf(M, ms, GOLD, hinge, tg * -sg, w=1.7, h=2.3, hang=0.0)
+# gate: one leaf closed in the opening (left), the other swung open (right), both 2.4 m wide
+gate_leaf(M, ms, GOLD, gc - tg * 2.2, tg, w=2.2, h=2.7, hang=0.0)
+hinge = gc + tg * 2.2
+gate_leaf(M, ms, GOLD, hinge, -tg, w=2.2, h=2.7, hang=math.radians(-75))
 # fixed lantern posts at the entrance
 for sg in (-1, 1):
     p_ = gc + tg * sg * 5.6 + np.array([-tg[1], tg[0]]) * 1.4

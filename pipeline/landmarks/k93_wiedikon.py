@@ -9,7 +9,7 @@ from k93_lib import hexc, shade
 OUTD = F.ROOT + "/web/public/models/landmarks/"
 WHITE = (255, 255, 255, 255)
 
-def bay_tex(wallc="#d4b583", w=5.4, h=12.6, ppm=22):
+def bay_tex(wallc="#d0ad73", w=5.4, h=12.6, ppm=22):
     """One facade bay of the Reiterbahnhof: ochre ashlar wall, two pilaster strips, tall two-storey window with
     stone frame and small-pane lattice, frieze band, cornice. Returns (base, emissive) for a 1x1 module."""
     W_, H_ = int(w * ppm), int(h * ppm)

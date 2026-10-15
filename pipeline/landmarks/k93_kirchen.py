@@ -26,12 +26,11 @@ def tower_tex(w=7.0, h=45.0, ppm=14):
     W_, H_ = int(w * ppm), int(h * ppm); wc = K.rgb("#c6c0b0")
     im = K.noisy(Image.new("RGB", (W_, H_), wc), 5, 5, 0.5); d = ImageDraw.Draw(im); em = Image.new("RGB", (W_, H_), (0, 0, 0)); de = ImageDraw.Draw(em)
     px = lambda m: int(m * ppm)
-    nx_ = 5; cw = w / nx_
-    for r in range(0, int((h - 11) / 2.4)):
-        y = px(2.0 + r * 2.4)
+    nx_ = 4; cw = w / nx_
+    for r in range(0, int((h - 11) / 1.3)):
+        y = px(2.0 + r * 1.3)
         for c in range(nx_):
-            x = px(c * cw + cw * 0.34); d.rectangle([x, H_ - y - px(1.2), x + px(cw * 0.32), H_ - y], fill=K.mix(wc, (0, 0, 0), 0.62))
-            d.line([x, H_ - y - px(1.0), x + px(cw * 0.44), H_ - y - px(1.0)], fill=K.mix(wc, (255, 255, 255), 0.25))
+            x = px(c * cw + cw * 0.3); d.rectangle([x, H_ - y - px(0.7), x + px(cw * 0.4), H_ - y], fill=K.mix(wc, (0, 0, 0), 0.7))
     # belfry: tall open arches
     for c in range(3):
         x = px(0.9 + c * 1.8); d.rectangle([x, px(2.0), x + px(1.3), px(7.3)], fill=(46, 48, 52)); d.pieslice([x, px(1.2), x + px(1.3), px(2.8)], 180, 360, fill=(46, 48, 52))
@@ -55,7 +54,7 @@ def church(M, M_, oid, p, eave, rise, ttop, spire, tw, style):
     old = style == "old"
     WALL, PLINTH, ROOF, TRIM, SPIRE, TOWER, CLK = M_
     K.wall_band(M, PLINTH, pts, base, z0 + 0.9, 3.0, 1.5)
-    K.wall_band(M, WALL, pts, z0 + 0.9, z0 + eave, 4.4 if old else 4.0, eave - 0.9, nx=4, ny=1)
+    K.wall_band(M, WALL, pts, z0 + 0.9, z0 + eave, 4.4 if old else 4.0, eave - 0.9 if old else eave - 0.9, nx=4, ny=1)
     M.prism(TRIM, list(fp.buffer(0.2, join_style=2).exterior.coords)[:-1], z0 + eave - 0.5, z0 + eave + 0.05, hexc("#d9d2bf") if old else hexc("#b1aa9a"), top=False)
     K.pitched(M, ROOF, tuple(ctr), Lg, Sh, z0 + eave, rise, rot=ang, eave=0.5 if old else 0.9, tile=1.0, col=WHITE, gable_mat=TRIM, gable_col=hexc("#eee8d8") if old else hexc("#cbc3b0"), gable_tile=(4.0, 3.0))
     tc = ctr + u * sgn * (Lg / 2 - tw / 2 + 0.3)
@@ -105,7 +104,19 @@ def build(name, items, origin_xy, outname, mats_fn):
 def mats_altstetten(M):
     clk = K.tile  # noqa
     old_win = K.tile(4, 1, 72, 96, K.window(wall="#eee8d8", frame="#f6f2e6", glass="#38424d", fw=0.30, fh=0.52, top=0.28, cols=2, rows=4, arch=True, surround="#e0d9c4", sill="#d4ccb8", noise=4, lit_col=(255, 214, 150)), seed=41, lit=0.0)
-    new_win = K.tile(4, 1, 72, 128, K.window(wall="#cbc3b0", frame="#6a645a", glass="#3c4650", fw=0.30, fh=0.66, top=0.16, cols=2, rows=6, surround=None, sill="#b9b2a0", noise=4, lit_col=(255, 214, 150)), seed=42, lit=0.35)
+    def hall_mod(d, de, x, y, w, h, rng, on, ix, iy):
+        wc = K.rgb("#cdc6b4"); d.rectangle([x, y, x + w - 1, y + h - 1], fill=tuple(int(v * (1 + (rng.random() - 0.5) * 0.04)) for v in wc))
+        d.line([x, y, x, y + h], fill=K.mix(wc, (0, 0, 0), 0.18), width=2)
+        gh = int(h * 0.30)                                              # glazed ground floor behind slim columns
+        d.rectangle([x + 4, y + h - gh, x + w - 4, y + h - 3], fill=(44, 54, 62))
+        for k in (0.5,): d.line([x + int(w * k), y + h - gh, x + int(w * k), y + h - 3], fill=(150, 146, 136), width=2)
+        d.rectangle([x, y + h - gh - 4, x + w, y + h - gh], fill=K.mix(wc, (0, 0, 0), 0.25))
+        for k in range(3):                                              # clerestory slits under the eaves
+            sx = x + int(w * (0.12 + k * 0.30)); d.rectangle([sx, y + int(h * 0.12), sx + int(w * 0.2), y + int(h * 0.2)], fill=(52, 60, 68))
+        if on:
+            de.rectangle([x + 5, y + h - gh + 1, x + w - 5, y + h - 4], fill=(255, 214, 150))
+            de.line([x + int(w * 0.5), y + h - gh, x + int(w * 0.5), y + h - 3], fill=(0, 0, 0), width=2)
+    new_win = K.tile(4, 1, 80, 260, hall_mod, seed=42, lit=0.35)
     WO = M.mat("wall_old", rough=0.95, tex=old_win[0], emis=old_win[1], repeat=True)
     WN = M.mat("wall_new", rough=0.95, tex=new_win[0], emis=new_win[1], repeat=True)
     PL = M.mat("plinth", rough=0.95, tex=K.stone_tex("#8f8a7c", 0.25, seed=6, rustic=0.1), repeat=True)
@@ -133,6 +144,6 @@ if __name__ == "__main__":
     os.makedirs(OUTD, exist_ok=True)
     build("Kirchen Altstetten", [
         dict(oid="96D18134", p=(-2388, 254), eave=7.5, rise=6.5, ttop=32.7, spire=11.0, tw=5.4, style="old", mats="old"),
-        dict(oid="82C92B3A", p=(-2425, 245), eave=13.0, rise=3.4, ttop=45.7, spire=5.0, tw=7.0, style="new", mats="new"),
+        dict(oid="82C92B3A", p=(-2425, 245), eave=13.0, rise=1.6, ttop=45.7, spire=5.0, tw=6.0, style="new", mats="new"),
     ], (-2405.0, 250.0), "k93_kirche_altstetten.glb", mats_altstetten)
     build("Dreifaltigkeit", [dict(oid="756BF729", p=(457, -1185), eave=17.0, rise=6.0, ttop=32.5, spire=9.0, tw=5.8, style="old")], (457.0, -1185.0), "k93_dreifaltigkeit.glb", lambda M: mats_dreifaltigkeit(M))

@@ -8,6 +8,7 @@ const ctx = await browser.newContext({ ...devices['iPhone 13'], viewport: { widt
 const page = await ctx.newPage();
 const cdp = await ctx.newCDPSession(page);
 await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+if (process.env.NOLM) await page.route('**/models/landmarks/**', (r) => r.abort());
 const t0 = Date.now();
 await page.goto(`${BASE}/?at=${process.argv[3] ?? "785,-635,0.37"}&debug`);
 await page.waitForFunction(() => window.sbxReady, null, { timeout: 120000 });

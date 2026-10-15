@@ -1,5 +1,6 @@
 """Bahnhof Zuerich Hardbruecke: two elevated platforms with long steel/glass canopies, columns, lamps, benches, glazed stair/lift towers."""
 import math
+from PIL import Image, ImageDraw
 from common import *
 from lm import *
 import detail as D
@@ -13,6 +14,11 @@ def build():
     sgn = D.letters_strip([(0, 640, "Zürich Hardbrücke", "#ffffff", "#c8372d", (255, 255, 255)), (640, 1024, "SBB CFF FFS", "#ffffff", "#eb0000", (255, 240, 240))], size=26)
     mg = m.mat("glass", *D.glass_atlas_g(frame="#dfe3e4", glass="#35505f", sky="#a9c5d3", cols=3, rows=5, seed=21, lit_p=0.5, curtains=False, bar=3, sign=sgn), rough=0.3)
     mf = m.mat("flat", solid((255, 255, 255, 255)))
+    pim = Image.new("RGBA", (128, 128), hexc("#b9bdc1")); pd = ImageDraw.Draw(pim)
+    for yy in range(3, 128, 8):
+        for xx in range(3, 128, 8): pd.ellipse([xx, yy, xx + 3, yy + 3], fill=hexc("#7b8084"))
+    for xx in range(0, 128, 32): pd.line([xx, 0, xx, 128], fill=hexc("#dfe2e4"), width=2)
+    mm = m.mat("metal", pim, None, rough=0.5)
     lines = [[(35, 145), (2, 91)], [(20, 80), (54, 133)]]
     STEEL, CONC, ROOF = hexc("#8a9094"), hexc("#b9b6ae"), hexc("#c9d3d8")
     for pts in lines:
@@ -57,6 +63,29 @@ def build():
             # hanging strip lights
             for u in np.arange(4.0, L - 3, 4.0):
                 q = Q(u, 0, zr - 0.4); m.box(mf, q[0], q[1], 0.25, 3.0, zr - 0.5, zr - 0.35, rot=ang, col=hexc("#f6f2d8"))
+    # red platform buildings (kiosk / stair cores) on each platform
+    for pts in lines:
+        pl = [(x - ox, y - oy) for x, y in pts]; a, b = pl[0], pl[1]; L, t, n = D.frame_of(a, b); ang = math.atan2(t[1], t[0])
+        for u in np.arange(18.0, L - 10, 40.0):
+            q = (a[0] + t[0] * u + n[0] * 1.8, a[1] + t[1] * u + n[1] * 1.8)
+            m.box(mf, q[0], q[1], 6.0, 2.6, 0.0, 2.8, rot=ang, col=hexc("#c8372d")); m.box(mf, q[0], q[1], 6.6, 3.2, 2.8, 3.05, rot=ang, col=hexc("#8d9296"))
+    # silver perforated facade box above the tracks at the north end of the first canopy, with a sloped glass end
+    a, b = [(x - ox, y - oy) for x, y in lines[0]]; L, t, n = D.frame_of(a, b); ang = math.atan2(t[1], t[0])
+    c = (a[0] + t[0] * (L - 22) + 0, a[1] + t[1] * (L - 22))
+    Lb, Wb, z0b, z1b = 40.0, 16.0, 6.0, 20.0
+    A_ = [(c[0] + t[0] * u + n[0] * v, c[1] + t[1] * u + n[1] * v) for u, v in ((-Lb / 2, -Wb / 2), (Lb / 2, -Wb / 2), (Lb / 2, Wb / 2), (-Lb / 2, Wb / 2))]
+    for i in range(4):
+        p, q = A_[i], A_[(i + 1) % 4]
+        if i == 1:    # sloped glass end: wedge
+            continue
+        m.wall(mm, p, q, z0b, z1b, (6.0, 4.0), (255, 255, 255, 255))
+    m.flat(mf, Polygon(A_), z1b, hexc("#9ea3a7")); m.flat(mf, Polygon(A_), z0b, hexc("#5b6064"), up=False)
+    e0, e1 = A_[1], A_[2]
+    m.quad(mg, [(e0[0], e0[1], z0b), (e1[0], e1[1], z0b), (e1[0], e1[1], z1b), (e0[0], e0[1], z1b)], [(0, 0.25), (0.125, 0.25), (0.125, 1.0), (0, 1.0)], n=(t[0], t[1], 0))
+    for k in (-1, 1):
+        for q in range(2):
+            pp = (c[0] + t[0] * (Lb / 2 - 1) + n[0] * k * Wb / 2 * 0.9, c[1] + t[1] * (Lb / 2 - 1) + n[1] * k * Wb / 2 * 0.9); m.cylinder(mf, pp[0], pp[1], 0.4, 0.0, z0b, n=8, col=hexc("#8d8d8a"))
+        pp = (c[0] - t[0] * Lb / 4 + n[0] * k * Wb / 2 * 0.9, c[1] - t[1] * Lb / 4 + n[1] * k * Wb / 2 * 0.9); m.cylinder(mf, pp[0], pp[1], 0.4, 0.0, z0b, n=8, col=hexc("#8d8d8a"))
     # glazed stair/lift towers (existing small swissBUILDINGS3D prisms), from street level up to the platform and beyond
     hide = []
     for i in ("ID_A68D0DB4", "ID_B39C7F11"):

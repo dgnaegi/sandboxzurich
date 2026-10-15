@@ -123,8 +123,11 @@ for sd in (1, -1):
     K.quad_tex(M, CKM, pc_ + out * 0.12 - d_ * 0.55, pc_ + out * 0.12 + d_ * 0.55, 3.4, 4.5)
 # Luginbuehl «IBM-Stengel»: rust-red welded steel sculpture on a round base plate
 sx, sy = -2133.2, 755.6
-RED = hexc("#b44a30"); RED2 = hexc("#9e3d27")
-M.cyl(C, (sx, sy), 2.0, 0, 0.18, hexc("#8d8c88"), n=18)
+RED = hexc("#8a3523"); RED2 = hexc("#74291a")
+M.cyl(C, (sx, sy), 2.2, 0, 0.18, hexc("#8d8c88"), n=18)
+M.box(C, (sx, sy, 0.3), (2.6, 1.6, 0.25), RED2, rot=0.4)
+for a_ in (0.3, 1.9, 3.5, 5.1):
+    K.tube(M, C, (sx + 1.1 * math.cos(a_), sy + 1.1 * math.sin(a_), 0.25), (sx + 0.25 * math.cos(a_ + 0.6), sy + 0.25 * math.sin(a_ + 0.6), 3.4), 0.11, RED, n=6)
 for dx_, dy_, h_, w_ in ((-0.55, 0.1, 6.2, 0.45), (0.5, -0.15, 5.4, 0.4), (0.0, 0.5, 4.2, 0.35)):
     M.box(C, (sx + dx_, sy + dy_, h_ / 2 + 0.2), (w_, 0.32, h_), RED, rot=0.25)
 for z, a_, l_ in ((1.8, 0.4, 3.4), (3.4, 2.1, 2.8), (4.9, 1.1, 3.6), (5.7, 3.5, 2.4), (2.6, 5.2, 2.6)):

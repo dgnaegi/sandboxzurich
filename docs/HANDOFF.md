@@ -96,3 +96,4 @@ Selbst erledigt: Laufen (Commit db8ee26); OSM-Parks nur noch Rasen, wo AV grün 
 - Vertex-Farben sind im Engine linear: Hex fuer Flat-Material immer mit `D.hexl()`.
 - Vergleichsbilder `preview/lm3_<id>.jpg`, Gesamtbogen `preview/lm3_k45.jpg`. Viadukt-hide (40 Einheiten) und Bullinger-Turm-hide brauchen einen Kachel-Neubau, sonst ueberdecken alte Gebaeude die Modelle.
 - Offen: Toni/Schiffbau-Neubauten, Perron-Gleisfeld Hardbruecke, Viadukt-Stahlbruecke; Fotovergleich im Spiel erst nach Kachel-Neubau.
+- Runde 3b: Viadukt (Fahrleitungsmasten, 2 Stahlfachwerkbruecken in Strassenluecken), Hardbruecke (silber-perforierte Box, rote Perronbauten), KVA (Anlagegebaeude aus swissBUILDINGS3D-Hoehenraster `k45_kva_plant.py`, Alt-Gebaeude C5351824 per hide ersetzt -> Kachel-Neubau noetig). Perf: `NOLM=1 node web/tests/perf_lm.mjs <base> <x,y,yaw>` misst ohne Landmarks.
