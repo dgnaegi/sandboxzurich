@@ -8,7 +8,7 @@ interface LineJson { ref: string; mode: 'tram' | 'bus' | 'trolleybus'; colour: s
 interface Seg { s0: number; s1: number; t0: number; T: number; es: boolean; ee: boolean }
 interface Line {
   ref: string; tram: boolean; pts: number[][]; cum: number[]; segs: Seg[]; trip: number; offset: number; len: number;
-  pitch: number; mods: number; speed: number; label: THREE.Material;
+  pitch: number; mods: number; speed: number; label: THREE.Material; trolley: boolean;
 }
 export interface TransitCollider { x: number; y: number; heading: number; len: number; width: number }
 
@@ -52,18 +52,21 @@ function busModule(kind: number): THREE.BufferGeometry {
 }
 
 const labelCache = new Map<string, THREE.Material>();
-function labelMat(ref: string, colour: string): THREE.Material {
-  let m = labelCache.get(ref);
+function labelMat(ref: string, dest: string): THREE.Material {
+  const key = `${ref}|${dest}`;
+  let m = labelCache.get(key);
   if (m) return m;
-  const c = document.createElement('canvas'); c.width = 128; c.height = 48;
+  const c = document.createElement('canvas'); c.width = 256, c.height = 96;
   const x = c.getContext('2d')!;
-  x.fillStyle = '#05070a'; x.fillRect(0, 0, 128, 48);
-  x.fillStyle = '#ffb347'; x.font = 'bold 36px monospace'; x.textAlign = 'center'; x.textBaseline = 'middle';
-  x.fillText(ref, 64, 26);
-  void colour;
+  x.fillStyle = '#05070a'; x.fillRect(0, 0, 256, 96);
+  x.fillStyle = '#ffb347'; x.textBaseline = 'middle'; x.textAlign = 'left';
+  x.font = 'bold 54px monospace'; x.fillText(ref, 10, 32);   // LED orange: line number
+  x.fillStyle = '#f4f4ee'; x.font = 'bold 26px monospace';   // white: destination, squeezed to fit
+  const w = x.measureText(dest).width, fit = Math.min(1, 236 / Math.max(1, w));
+  x.save(); x.translate(10, 76); x.scale(fit, 1); x.fillText(dest, 0, 0); x.restore();
   const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace;
   m = new THREE.MeshBasicMaterial({ map: tex, side: THREE.FrontSide });
-  labelCache.set(ref, m);
+  labelCache.set(key, m);
   return m;
 }
 
@@ -79,6 +82,18 @@ export class Transit {
   private modLen = new Map<string, number>();
   private vehicles: Record<string, VehicleSpec> = {};
   readonly group = new THREE.Group();
+  private nightU = { value: 0 };
+  /** 0..1 night amount (lit interiors). */
+  set night(v: number) { this.nightU.value = v; }
+  /** Called when a tram/bus near the player pulls away from a stop (audio bell). */
+  onBell: (() => void) | null = null;
+  private bellT = 0;
+  private modDoors = new Map<string, { r: number[]; l: number[] }>();
+  private doorMesh!: THREE.InstancedMesh;
+  private paxBody!: THREE.InstancedMesh;
+  private paxHead!: THREE.InstancedMesh;
+  private nDoor = 0;
+  private nPax = 0;
   /** Game seconds per real second used to derive vehicle time (1 = vehicles move at real speed). */
   timeScale = 1;
   /** Seconds between vehicles per line and direction. */
@@ -101,13 +116,26 @@ export class Transit {
       tram: [0, 1, 2].map((k) => mk(tramModule(k), 24)),
       bus: [0, 1].map((k) => mk(busModule(k), 24)),
     };
+    this.doorMesh = new THREE.InstancedMesh(new THREE.PlaneGeometry(1.2, 1.9).translate(0, 1.3, 0),
+      new THREE.MeshBasicMaterial({ color: 0xf2e6c0, side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: -2 }), 48);
+    this.paxBody = new THREE.InstancedMesh(new THREE.BoxGeometry(0.38, 0.95, 0.24).translate(0, 0.95, 0), new THREE.MeshLambertMaterial({ color: 0xffffff }), 48);
+    this.paxHead = new THREE.InstancedMesh(new THREE.BoxGeometry(0.2, 0.22, 0.2).translate(0, 1.55, 0), new THREE.MeshLambertMaterial({ color: 0xd9a88a }), 48);
+    for (const m of [this.doorMesh, this.paxBody, this.paxHead]) { m.frustumCulled = false; m.count = 0; this.group.add(m); }
     scene.add(this.group);
   }
 
   async loadModels(base = '/models/transit'): Promise<void> {
     const man = await (await fetch(`${base}/manifest.json`)).json() as { modules: Record<string, { file: string; length: number }>; vehicles: Record<string, VehicleSpec> };
     const loader = new GLTFLoader();
+    for (const [n, m] of Object.entries(man.modules as Record<string, { doors_r?: number[]; doors_l?: number[] }>)) this.modDoors.set(n, { r: m.doors_r ?? [], l: m.doors_l ?? [] });
     const mat = new THREE.MeshLambertMaterial({ vertexColors: true });
+    // night: dark window panels glow warm (lit interior)
+    mat.onBeforeCompile = (sh) => {
+      sh.uniforms.uTrNight = this.nightU;
+      sh.fragmentShader = 'uniform float uTrNight;\n' + sh.fragmentShader.replace('#include <color_fragment>',
+        '#include <color_fragment>\nfloat trWin = step(1.35 * vColor.r, vColor.b) * step(0.09, vColor.b) * step(vColor.b, 0.4) * step(vColor.r, 0.15);\n')
+        .replace('#include <opaque_fragment>', 'outgoingLight += trWin * uTrNight * vec3(0.95, 0.78, 0.45) * 0.38;\n#include <opaque_fragment>');
+    };
     await Promise.all(Object.entries(man.modules).map(async ([name, m]) => {
       const g = await loader.loadAsync(`${base}/${m.file}`);
       const parts: THREE.BufferGeometry[] = [];
@@ -161,15 +189,18 @@ export class Transit {
     }
     let h = 0;
     for (const ch of l.ref + l.dir) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
-    return { ref: l.ref, tram, pts: l.pts, cum, segs, trip: t, offset: h % this.headway, len, pitch, mods, speed, label: labelMat(l.ref, l.colour) };
+    return { ref: l.ref, tram, pts: l.pts, cum, segs, trip: t, offset: h % this.headway, len, pitch, mods, speed, label: labelMat(l.ref, l.stops.length ? l.stops[l.stops.length - 1].name : ''), trolley: l.mode === 'trolleybus' };
   }
 
   /** Front-tip arc position at trip time tau (s), or -1 if not on the line. */
+  private dwellU = -1;
   private arc(L: Line, tau: number): number {
+    this.dwellU = -1;
     if (tau < 0 || tau > L.trip) return -1;
+    let prev: Seg | null = null;
     for (const g of L.segs) {
-      if (tau > g.t0 + g.T) continue; // after this segment (dwell or later)
-      if (tau < g.t0) return g.s0;
+      if (tau > g.t0 + g.T) { prev = g; continue; } // after this segment (dwell or later)
+      if (tau < g.t0) { if (prev && prev.ee) this.dwellU = (tau - prev.t0 - prev.T) / DWELL; return g.s0; }
       const u = (tau - g.t0) / g.T;
       const f = g.es && g.ee ? (1 - Math.cos(Math.PI * u)) / 2 : g.es ? 1 - Math.cos((Math.PI * u) / 2) : g.ee ? Math.sin((Math.PI * u) / 2) : u;
       return g.s0 + (g.s1 - g.s0) * f;
@@ -190,7 +221,7 @@ export class Transit {
 
   update(_dt: number, gameMinutes: number, px: number, py: number): void {
     const time = (gameMinutes * 60) / this.timeScale;
-    this.cols.length = 0; this.nDisp = 0; this.vis = 0;
+    this.cols.length = 0; this.nDisp = 0; this.vis = 0; this.nDoor = 0; this.nPax = 0; this.bellT -= _dt;
     const cn = { tram: [0, 0, 0], bus: [0, 0] };
     const modCount = new Map<string, number>();
     const p = [0, 0], q = [0, 0], r = [0, 0];
@@ -205,8 +236,8 @@ export class Transit {
         const kinds = L.tram ? cn.tram : cn.bus;
         const im = L.tram ? this.meshes.tram : this.meshes.bus;
         const half = L.tram ? 6.1 : 4.5;
-        const spec = this.modMesh.size ? this.vehicles[L.tram ? (k % 2 ? 'tram_flexity' : 'tram_cobra') : 'trolleybus'] : undefined;
-        if (spec) { this.placeModels(L, sh, spec, modCount); continue; }
+        const spec = this.modMesh.size ? this.vehicles[L.tram ? (k % 2 ? 'tram_flexity' : 'tram_cobra') : L.trolley ? 'trolleybus' : 'bus_gelenk'] : undefined;
+        if (spec) { this.placeModels(L, sh, spec, modCount, this.dwellU, px, py); continue; }
         for (let i = 0; i < L.mods; i++) {
           const sc = sh - (L.tram ? 7.0 : 5.0) - i * L.pitch + (L.tram ? 0.2 : 0.5);
           this.sample(L, sc, p); this.sample(L, sc + 4, q); this.sample(L, sc - 4, r);
@@ -226,6 +257,10 @@ export class Transit {
         }
       }
     }
+    this.doorMesh.count = this.nDoor; this.doorMesh.instanceMatrix.needsUpdate = true;
+    this.paxBody.count = this.paxHead.count = this.nPax;
+    this.paxBody.instanceMatrix.needsUpdate = this.paxHead.instanceMatrix.needsUpdate = true;
+    if (this.paxBody.instanceColor) this.paxBody.instanceColor.needsUpdate = true;
     for (const [name, im] of this.modMesh) { im.count = modCount.get(name) ?? 0; im.instanceMatrix.needsUpdate = true; }
     this.meshes.tram.forEach((m, i) => { m.count = cn.tram[i]; m.instanceMatrix.needsUpdate = true; });
     this.meshes.bus.forEach((m, i) => { m.count = cn.bus[i]; m.instanceMatrix.needsUpdate = true; });
@@ -233,7 +268,7 @@ export class Transit {
   }
 
   /** Place each module of a vehicle along the line; front tip at arc position sh. */
-  private placeModels(L: Line, sh: number, spec: VehicleSpec, count: Map<string, number>) {
+  private placeModels(L: Line, sh: number, spec: VehicleSpec, count: Map<string, number>, du: number, px: number, py: number) {
     const p = [0, 0], q = [0, 0], r = [0, 0];
     spec.sequence.forEach((it, i) => {
       const im = this.modMesh.get(it.module), len = this.modLen.get(it.module) ?? 6;
@@ -248,15 +283,47 @@ export class Transit {
       const n = count.get(it.module) ?? 0;
       if (n < 24) { im.setMatrixAt(n, tpl.matrix); count.set(it.module, n + 1); }
       this.cols.push({ x: p[0], y: p[1], heading: Math.atan2(hy, hx), len, width: L.tram ? 2.4 : 2.55 });
+      if (du > 0.06 && du < 0.94) this.openDoors(it, tpl.matrix, du, Math.hypot(p[0] - px, p[1] - py) < 90);
+      else if (du >= 0.94 && this.bellT <= 0 && L.tram && Math.hypot(p[0] - px, p[1] - py) < 45) { this.bellT = 6; this.onBell?.(); }
       const last = i === spec.sequence.length - 1;
       if (i === 0 || (last && L.tram)) this.displayAt(L, tpl.matrix, half - 0.25, L.tram ? 2.85 : 2.75);
     });
   }
 
+  private static readonly TMP = new THREE.Matrix4();
+  private static readonly TQ = new THREE.Quaternion();
+  private static readonly TS = new THREE.Vector3(1, 1, 1);
+  private static readonly TV = new THREE.Vector3();
+  /** Lit door openings on the right side and a few passengers stepping off (first half) or on (second half). */
+  private openDoors(it: SeqItem, m: THREE.Matrix4, du: number, near: boolean) {
+    const d = this.modDoors.get(it.module); if (!d) return;
+    const flip = !!it.rotateY180, list = flip ? d.l : d.r, hx = it.module.startsWith('bus') || it.module.startsWith('trolley') ? 1.29 : 1.2;
+    const side = flip ? -1 : 1, T = Transit.TMP, Q = Transit.TQ, V = Transit.TV;
+    for (const zd of list) {
+      if (this.nDoor >= 48) return;
+      const zz = flip ? -zd : zd;  // flipped module: local z mirrored when expressed in vehicle frame is handled by matrix; keep local coords
+      void zz;
+      const lz = zd, lx = side * (hx + 0.02);
+      T.copy(m).multiply(new THREE.Matrix4().makeTranslation(lx, 0, lz)).multiply(new THREE.Matrix4().makeRotationY(Math.PI / 2));
+      this.doorMesh.setMatrixAt(this.nDoor++, T);
+      if (!near || this.nPax >= 47) continue;
+      const out = du < 0.5, u = out ? du / 0.5 : (1 - du) / 0.5;      // 0 at door, 1 at waiting spot
+      const dist = 0.3 + Math.min(1, Math.max(0, u)) * 2.2, lat = (lz > 0 ? 0.5 : -0.5) * Math.min(1, u) + (this.nPax % 2 ? 0.2 : -0.2);
+      const k = Math.abs(Math.sin(lz * 12.9 + this.nDoor)) ;
+      if (k < 0.25) continue;
+      V.set(side * (hx + dist), 0, lz + lat).applyMatrix4(m);
+      Q.identity(); T.compose(V, Q, Transit.TS);
+      this.paxBody.setMatrixAt(this.nPax, T); this.paxHead.setMatrixAt(this.nPax, T);
+      this.paxBody.setColorAt(this.nPax, Transit.PAX.setHSL((k * 7) % 1, 0.35, 0.3 + 0.25 * k));
+      this.nPax++;
+    }
+  }
+  private static readonly PAX = new THREE.Color();
+
   private displayAt(L: Line, m: THREE.Matrix4, zFront: number, y: number) {
     let d = this.displays[this.nDisp];
     if (!d) {
-      d = new THREE.Mesh(new THREE.PlaneGeometry(1.5, 0.45)); d.matrixAutoUpdate = false; d.frustumCulled = false;
+      d = new THREE.Mesh(new THREE.PlaneGeometry(1.7, 0.64)); d.matrixAutoUpdate = false; d.frustumCulled = false;
       this.group.add(d); this.displays.push(d);
     }
     this.nDisp++;
@@ -267,7 +334,7 @@ export class Transit {
   private display(L: Line, m: THREE.Matrix4, front: boolean) {
     let d = this.displays[this.nDisp];
     if (!d) {
-      const g = new THREE.PlaneGeometry(1.5, 0.56);
+      const g = new THREE.PlaneGeometry(1.7, 0.64);
       d = new THREE.Mesh(g); d.matrixAutoUpdate = false; d.frustumCulled = false;
       this.group.add(d); this.displays.push(d);
     }

@@ -61,7 +61,7 @@ def city_props(C, S, tb, H, curb):
     for name, layer in (("benches", "benches"), ("fountains", "fountains"), ("bins", "bins")):
         for r in filter(inside, C.get(layer, [])):
             heading, _, _ = _road_dir(S, lines, r[0], r[1])
-            out[name].append([r[0], r[1], z(r[0], r[1]), round(heading, 3)])
+            out[name].append([r[0], r[1], z(r[0], r[1]), round(heading, 3), *r[2:3]] if name != "fountains" else [r[0], r[1], z(r[0], r[1]), round(heading, 3)])
     out["racks"] = []
     for x, y, n, art in filter(inside, C.get("bikes", [])):
         if "Motor" in art:

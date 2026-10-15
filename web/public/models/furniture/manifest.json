@@ -52,20 +52,80 @@
  {
   "name": "bin",
   "file": "bin.glb",
-  "tris": 184,
+  "tris": 140,
   "size": [
-   0.447,
-   0.96,
-   0.47
+   0.476,
+   0.961,
+   0.5
+  ]
+ },
+ {
+  "name": "bin_ash",
+  "file": "bin_ash.glb",
+  "tris": 172,
+  "size": [
+   0.476,
+   0.961,
+   0.545
+  ]
+ },
+ {
+  "name": "bin_hai",
+  "file": "bin_hai.glb",
+  "tris": 120,
+  "size": [
+   0.571,
+   1.02,
+   0.61
+  ]
+ },
+ {
+  "name": "bin_robidog",
+  "file": "bin_robidog.glb",
+  "tris": 56,
+  "size": [
+   0.32,
+   1.25,
+   0.266
+  ]
+ },
+ {
+  "name": "bench_cast",
+  "file": "bench_cast.glb",
+  "tris": 240,
+  "size": [
+   1.8,
+   0.996,
+   0.594
+  ]
+ },
+ {
+  "name": "bench_flat",
+  "file": "bench_flat.glb",
+  "tris": 72,
+  "size": [
+   1.8,
+   0.47,
+   0.42
+  ]
+ },
+ {
+  "name": "bench_table",
+  "file": "bench_table.glb",
+  "tris": 108,
+  "size": [
+   1.9,
+   0.765,
+   1.7
   ]
  },
  {
   "name": "hydrant",
   "file": "hydrant.glb",
-  "tris": 230,
+  "tris": 282,
   "size": [
-   0.3,
-   0.81,
+   0.36,
+   0.815,
    0.29
   ]
  },

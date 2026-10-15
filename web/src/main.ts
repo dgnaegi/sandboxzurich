@@ -172,6 +172,7 @@ async function main() {
   };
   map.onJump = (x, y) => { if (player.driving) carUse.exit(); player.dismount(); jump(x, y); };
   const audio = new Audio();
+  transit.onBell = () => audio.tramBell(0.18);
   const menu = new Menu();
   menu.onMute = (m) => audio.setMuted(m);
   menu.onMap = () => map.toggle(true);
@@ -319,6 +320,7 @@ async function main() {
         player.x += -s * push; player.y += c * push;
       }
     }
+    transit.night = daytime.night;
     transit.update(dt, transitMin, player.x, player.y);
     rail.update(dt, transitMin, player.x, player.y);
     landmarks3d.update(player.x, player.y);

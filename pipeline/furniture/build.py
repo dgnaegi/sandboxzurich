@@ -82,16 +82,62 @@ def bench_metal():
     for i in range(3):
         y=0.6+i*0.12; m.box((0,y,0.23-(y-0.5)*0.2),(L,0.09,0.025),LGREEN,rx=-12)
     return m
-def bin_():
+def bin_(ash=False):
+    """Zueri-Kuebel (110 l): grey steel cylinder, flat top with wide opening, optional ashtray on the side."""
+    m=Model(); S=0x7d8387; SL=0x9aa0a3
+    m.cyl(0,0,0,0.2,0.2,0.06,DARK,seg=10)                            # foot ring
+    m.cyl(0,0.06,0,0.23,0.23,0.84,S,seg=10)                          # body
+    m.cyl(0,0.9,0,0.25,0.25,0.06,SL,seg=10)                          # lid ring
+    m.box((0,0.955,0.0),(0.3,0.012,0.22),0x1d1f20)                   # wide insertion opening (front, flat top)
+    m.cyl(0,0.5,0,0.236,0.236,0.03,DARK,seg=10,cap0=False,cap1=False)  # band
+    if ash:
+        m.box((0,0.78,-0.255),(0.1,0.12,0.06),DARK)                  # ashtray box
+        m.cyl(0,0.84,-0.255,0.04,0.04,0.02,0x1d1f20,seg=6)
+    return m
+def bin_ash(): return bin_(True)
+def bin_hai():
+    """Abfallhai: concrete tub, conical-sloped top with a mouth."""
     m=Model()
-    m.cyl(0,0,0,0.2,0.2,0.05,DARK,seg=10)
-    m.cyl(0,0.05,0,0.21,0.21,0.8,0x555b5e,seg=10)
-    m.cyl(0,0.5,0,0.215,0.215,0.06,0x9aa0a3,seg=10,cap0=False,cap1=False)
-    m.cyl(0,0.85,0,0.21,0.235,0.08,0x9aa0a3,seg=10,cap0=False)
-    m.cyl(0,0.93,0,0.235,0.235,0.03,0x9aa0a3,seg=10,cap0=False)
-    m.cyl(0,0.933,0,0.17,0.17,0.005,0x1d1f20,seg=10)                  # dark opening
-    m.box((0,0.97,0.0),(0.1,0.03,0.4),0x9aa0a3) if False else None
-    m.box((0,0.76,-0.215),(0.12,0.012,0.012),0xe8e8e8) if False else None
+    m.cyl(0,0,0,0.27,0.25,0.7,CONC,seg=10)
+    m.cyl(0,0.7,0,0.25,0.3,0.28,CONC,seg=10)
+    m.box((0,0.92,-0.26),(0.34,0.2,0.1),0x2b2d2e)                    # dark mouth
+    m.cyl(0,0.98,0,0.3,0.3,0.03,CONC_D,seg=10)
+    return m
+def bin_robidog():
+    """Robidog: green post with dispenser box on top."""
+    m=Model(); G=0x2f6b3c
+    m.box((0,0.45,0),(0.14,0.9,0.14),G)
+    m.box((0,1.08,0),(0.32,0.34,0.26),G)
+    m.box((0,1.0,-0.131),(0.2,0.1,0.01),0x1d1f20)
+    m.cyl(0,0,0,0.12,0.12,0.03,DARK,seg=6)
+    return m
+def bench_cast():
+    """Classic Zuerich park bench: cast-iron ends, wooden slats, curved backrest."""
+    m=Model(); L=1.8
+    for sx in (-0.82,0.82):
+        m.box((sx,0.2,-0.16),(0.05,0.4,0.05),DARK); m.box((sx,0.2,0.2),(0.05,0.4,0.05),DARK)
+        m.box((sx,0.43,0.02),(0.06,0.04,0.5),DARK)
+        m.box((sx,0.7,0.26),(0.05,0.6,0.04),DARK,rx=-14)
+        m.box((sx,0.64,-0.05),(0.06,0.04,0.34),DARK)               # armrest
+        m.box((sx,0.53,-0.2),(0.04,0.22,0.04),DARK)
+    for i in range(5): m.box((0,0.46,-0.2+i*0.1),(L,0.035,0.085),WOOD)
+    for i in range(3):
+        y=0.62+i*0.13; m.box((0,y,0.25-(y-0.5)*0.24),(L,0.1,0.03),WOOD_D,rx=-14)
+    return m
+def bench_flat():
+    """Backless bench (ohne Rueckenlehne): slab seat on two concrete cheeks."""
+    m=Model()
+    for sx in (-0.75,0.75): m.box((sx,0.21,0),(0.12,0.42,0.42),CONC)
+    for i in range(4): m.box((0,0.445,-0.15+i*0.1),(1.8,0.05,0.085),WOOD)
+    return m
+def bench_table():
+    """Table-bench combination: table in the middle, two benches."""
+    m=Model()
+    m.box((0,0.74,0),(1.9,0.05,0.8),WOOD_D)
+    for sx in (-0.8,0.8):
+        m.box((sx,0.37,0),(0.1,0.74,0.7),DARK)
+        m.box((sx,0.43,-0.65),(0.08,0.05,0.4),DARK); m.box((sx,0.43,0.65),(0.08,0.05,0.4),DARK)
+    for z in (-0.65,0.65): m.box((0,0.46,z),(1.9,0.05,0.28),WOOD)
     return m
 def hydrant():
     m=Model(); HG=0x858b90; HD=0x5c6266
@@ -106,6 +152,8 @@ def hydrant():
     for sx in (-1,1):
         m.cyl(sx*0.05,0.58,0,0.032,0.032,0.1,HD,seg=6,rz=-90*sx)
     m.cyl(0,0.56,-0.06,0.065,0.065,0.1,HD,seg=8,rx=-90)
+    for sx in (-1,1): m.cyl(sx*0.15,0.58,0,0.05,0.05,0.03,HG,seg=6,rz=-90*sx)  # nozzle caps
+    m.box((0,0.8,0),(0.05,0.03,0.05),HD)                              # operating nut
     return m
 def pingpong():
     m=Model(); L,W=2.74,1.525
@@ -165,7 +213,7 @@ def sign_pole():
     return m
 
 ITEMS=[('fountain_trough',fountain_trough,400),('fountain_round',fountain_round,400),('fountain_drink',fountain_drink,400),
- ('bench_slat',bench_slat,400),('bench_metal',bench_metal,400),('bin',bin_,400),('hydrant',hydrant,400),
+ ('bench_slat',bench_slat,400),('bench_metal',bench_metal,400),('bin',bin_,400),('bin_ash',bin_ash,400),('bin_hai',bin_hai,400),('bin_robidog',bin_robidog,400),('bench_cast',bench_cast,400),('bench_flat',bench_flat,400),('bench_table',bench_table,400),('hydrant',hydrant,400),
  ('pingpong',pingpong,400),('lamp_cable',lamp_cable,250),('lamp_mast',lamp_mast,250),('lamp_classic',lamp_classic,400),
  ('bollard',bollard,400),('sign_pole',sign_pole,250)]
 os.makedirs(OUT,exist_ok=True)

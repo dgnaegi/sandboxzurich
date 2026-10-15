@@ -7,6 +7,10 @@ os.makedirs(OUT, exist_ok=True)
 
 NOSE_TRAM = dict(dz=[0, .45, 1.0, 1.6], sx=[.80, .91, .97, 1.0], back=[.75, .38, .12, 0], drop=[.30, .18, .07, 0],
                  lights=(2, .66), red=.95, glass=.82, display=(3, .55, .12, .88))
+NOSE_COBRA = dict(dz=[0, .3, .7, 1.2, 1.8], sx=[.66, .84, .93, .98, 1.0], back=[.95, .62, .34, .13, 0], drop=[.36, .26, .15, .06, 0],
+                  lights=(2, .62), red=.9, glass=.84, display=(3, .55, .12, .88))
+NOSE_FLEX = dict(dz=[0, .22, .6, 1.1], sx=[.9, .97, 1.0, 1.0], back=[.55, .2, .05, 0], drop=[.22, .1, .03, 0],
+                 lights=(2, .72), red=1.0, glass=.9, display=(3, .6, .1, .9))
 NOSE_BUS = dict(dz=[0, .12, .3], sx=[.985, 1.0, 1.0], back=[.35, .1, 0], drop=[.12, .05, 0], lights=(2, .78), red=None, glass=.9, display=(3, .75, .1, .9))
 TAIL_BUS = dict(dz=[0, .1, .3], sx=[.985, 1.0, 1.0], back=[.08, .02, 0], drop=[.0, .0, 0])
 
@@ -17,12 +21,12 @@ FLEX = dict(frame=G.lin((150, 156, 162)), hx=1.2, y0=.30, belt=1.05, wtop=2.40, 
 BUS = dict(hx=1.275, y0=.32, belt=1.0, wtop=2.30, ytop=3.05, r1=.45, rx=.35, blue=G.BLUE, white=G.WHITE, pillar=G.WHITE,
            roof=G.lin((205, 210, 215)), roofbox=G.GREY)
 
-def cobra_ko(): return G.body(COBRA, 7.8, dict(r=[-.2, 2.1], l=[-.2, 2.1][1:]), nose=NOSE_TRAM, bogies=[-1.6])
+def cobra_ko(): return G.body(COBRA, 7.8, dict(r=[-.2, 2.1], l=[-.2, 2.1][1:]), nose=NOSE_COBRA, bogies=[-1.6])
 def cobra_zw(): return G.body(COBRA, 5.2, dict(r=[0], l=[0]), extra=lambda m, P, L: G.roof_boxes(m, P, L, [-1.0], 1.0, .2, 1.8))
 def cobra_mi():
     return G.body(COBRA, 10.0, dict(r=[-3.0, 3.0], l=[-3.0, 3.0]), bogies=[0],
                   extra=lambda m, P, L: (G.roof_boxes(m, P, L, [3.3], 1.0, .2, 2.0), G.pantograph(m, P, 0.4)))
-def flex_ko(): return G.body(FLEX, 6.9, dict(r=[-.0, 1.9], l=[1.9]), nose=NOSE_TRAM, bogies=[-1.2])
+def flex_ko(): return G.body(FLEX, 6.9, dict(r=[-.0, 1.9], l=[1.9]), nose=NOSE_FLEX, bogies=[-1.2])
 def flex_mi(): return G.body(FLEX, 6.8, dict(r=[0], l=[0]), bogies=[0])
 def flex_zw():
     return G.body(FLEX, 4.4, dict(r=[0], l=[0]), extra=lambda m, P, L: (G.roof_boxes(m, P, L, [-1.0], 1.0, .2, 1.4), G.pantograph(m, P, .4)))
@@ -30,6 +34,8 @@ def bus_front(): return G.body(BUS, 9.2, dict(r=[-3.0, 0.6], l=[0.6]), nose=NOSE
                                extra=lambda m, P, L: (bus_wheels(m, [-2.9, 2.8]), G.roof_boxes(m, P, L, [1.8], 1.4, .18, 2.2)))
 def bus_rear(): return G.body(BUS, 8.4, dict(r=[-2.3, 0.6], l=[-2.3]), tail=TAIL_BUS, wheels_r=.5,
                               extra=lambda m, P, L: (bus_wheels(m, [2.3]), G.roof_boxes(m, P, L, [-1.0], 1.4, .18, 2.2), G.trolley_poles(m, 1.6, L/2)))
+def bus_rear_d(): return G.body(BUS, 8.4, dict(r=[-2.3, 0.6], l=[-2.3]), tail=TAIL_BUS, wheels_r=.5,
+                              extra=lambda m, P, L: (bus_wheels(m, [2.3]), G.roof_boxes(m, P, L, [-1.0], 1.2, .3, 2.6), G.roof_boxes(m, P, L, [2.6], .8, .2, 1.4)))
 def bus_wheels(m, zs):
     for z in zs:
         for x0, x1 in ((-1.31, -1.05), (1.05, 1.31)):
@@ -50,7 +56,10 @@ def bus_joint():
 MODS = {  # name: (builder, length)
     'cobra_kopf': (cobra_ko, 7.8), 'cobra_zwischen': (cobra_zw, 5.2), 'cobra_mittel': (cobra_mi, 10.0),
     'flexity_kopf': (flex_ko, 6.9), 'flexity_mittel': (flex_mi, 6.8), 'flexity_zwischen': (flex_zw, 4.4),
-    'trolley_vorne': (bus_front, 9.2), 'trolley_hinten': (bus_rear, 8.4), 'trolley_gelenk': (bus_joint, 1.1)}
+    'trolley_vorne': (bus_front, 9.2), 'trolley_hinten': (bus_rear, 8.4), 'trolley_gelenk': (bus_joint, 1.1), 'bus_hinten': (bus_rear_d, 8.4)}
+DOORS = {'cobra_kopf': ([-.2, 2.1], [], 7.8), 'cobra_mittel': ([-3.0, 3.0], [-3.0, 3.0], 10.0), 'cobra_zwischen': ([], [], 5.2),
+         'flexity_kopf': ([0, 1.9], [1.9], 6.9), 'flexity_mittel': ([0], [0], 6.8), 'flexity_zwischen': ([], [], 4.4),
+         'trolley_vorne': ([-3.0, 0.6], [0.6], 9.2), 'trolley_hinten': ([-2.3, 0.6], [-2.3], 8.4), 'bus_hinten': ([-2.3, 0.6], [-2.3], 8.4)}
 
 def to_blender(name, mesh, disp):
     verts, faces, cols = [], [], []
@@ -97,7 +106,7 @@ if __name__ == '__main__':
         for o in objs: o.select_set(True)
         bpy.ops.export_scene.gltf(filepath=os.path.join(OUT, name+'.glb'), export_format='GLB', use_selection=True,
                                   export_yup=True, export_attributes=True, export_materials='EXPORT')
-        manifest['modules'][name] = {'file': name+'.glb', 'length': L, 'triangles': mesh.tris(), 'has_display': bool(disp)}
+        manifest['modules'][name] = {'file': name+'.glb', 'length': L, 'triangles': mesh.tris(), 'has_display': bool(disp), 'doors_r': DOORS.get(name, ([], [], 0))[0], 'doors_l': DOORS.get(name, ([], [], 0))[1]}
         print(name, mesh.tris(), 'tris')
     S = lambda n: manifest['modules'][n]['length']
     def seq(parts):
@@ -112,6 +121,7 @@ if __name__ == '__main__':
             {'bogie_z_local': {'cobra_kopf': [-1.6], 'cobra_mittel': [0.0]}, 'note': 'rotateY180 modules: bogie z sign flips; pantograph head y=5.45 on cobra_mittel; line 8 / Glattal'}),
         'tram_flexity': veh([('flexity_kopf', 0), ('flexity_mittel', 0), ('flexity_zwischen', 0), ('flexity_mittel', 0), ('flexity_zwischen', 0), ('flexity_mittel', 0), ('flexity_kopf', 1)],
             {'bogie_z_local': {'flexity_kopf': [-1.2], 'flexity_mittel': [0.0]}, 'note': 'pantograph head y=5.45 on flexity_zwischen'}),
+        'bus_gelenk': veh([('trolley_vorne', 0), ('trolley_gelenk', 0), ('bus_hinten', 0)], {'note': 'diesel articulated bus, no poles'}),
         'trolleybus': veh([('trolley_vorne', 0), ('trolley_gelenk', 0), ('trolley_hinten', 0)],
             {'axles_z_local': {'trolley_vorne': [-2.9, 2.8], 'trolley_hinten': [2.3]}, 'note': 'poles on trolley_hinten reach y=5.55, tips 3.2 m behind module end; wire spacing 0.6 m, wire y~5.5'})}
     json.dump(manifest, open(os.path.join(OUT, 'manifest.json'), 'w'), indent=1)

@@ -33,7 +33,10 @@ def build():
         q = D.P3(a, t, n, 0, 0, 0); ang = math.atan2(t[1], t[0])
         for k in range(int(L // 6) + 1):
             u = min(L - 0.4, 0.4 + k * 6.0); p = D.P3(a, t, n, u, 0.3, -0.2)
-            m.cylinder(mf, p[0], p[1], 0.32, 0.3, FL - 0.1, n=8, col=BLUE, mod=(2, 6))
+            m.cylinder(mf, p[0], p[1], 0.32, 0.3, FL + 1.2, n=8, col=BLUE, mod=(2, 6))
+            m.cylinder(mf, p[0], p[1], 0.22, FL + 1.2, FL + 1.35, n=8, col=hexl('#dfe6ea'))
+            m.cylinder(mf, p[0], p[1], 0.38, FL + 1.35, FL + 1.85, n=8, col=hexl('#f6f6f0'))
+            m.cylinder(mf, p[0], p[1], 0.22, FL + 1.85, FL + 2.0, n=8, col=hexl('#f6f6f0'))
         # canopy slab and underside
         pts = [D.P3(a, t, n, 0, FL - 0.1, 0.1), D.P3(b, (0, 0), n, 0, 0, 0)] if False else None
         m.quad(mf, [D.P3(a, t, n, 0, FL - 0.1, -2.2), D.P3(a, t, n, L, FL - 0.1, -2.2), D.P3(a, t, n, L, FL - 0.1, 0.5), D.P3(a, t, n, 0, FL - 0.1, 0.5)], col=DARK, n=(0, 0, -1))

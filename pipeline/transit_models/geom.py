@@ -95,7 +95,8 @@ def cap(m, r, cols, ref, glass=None, frame=WHITE):
     for i in range(len(r)-1):
         if glass and i == 2:
             pt = lambda p, u: (p[0]*u, p[1], p[2])
-            for a, b, c in ((1, glass, frame), (glass, -glass, cols[i]), (-glass, -1, frame)):
+            ws = (max(cols[i][0], 0.16),) + tuple(cols[i][1:])  # windscreen: just outside the night 'lit window' test (transit.ts)
+            for a, b, c in ((1, glass, frame), (glass, -glass, ws), (-glass, -1, frame)):
                 m.quad([pt(r[i], a), pt(r[i], b), pt(r[i+1], b), pt(r[i+1], a)], c, ref)
         else:
             m.quad([r[i], L[i], L[i+1], r[i+1]], cols[i], ref)

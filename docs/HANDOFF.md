@@ -44,3 +44,9 @@ Spielgebiet: Kreise 4+5, Teile 9 und 3, Friedhof Sihlfeld (6.88 km², 219 Spiel-
 - Download bis spielbar (Prod-Build, unkomprimiert): 26.8 MB (Budget 20 MB). Mit Brotli am CDN ≈ 21–23 MB. Grösste Posten: Figuren 4.0 MB, Fassaden-Atlas 2.7, Bäume 1.95, Karte 1.9 (gz 0.7). Messen: `node web/tests/netsize_prod.mjs` gegen `vite preview`.
 - Tests grün: gameplay, touch, drive.
 - Bekannte Kleinigkeiten: offene Parkflächen nachts sehr dunkel (wenig Laternen); einzelne Landmarks (Zeughäuser, Kaserne, Letzipark) grob; Westpark im Spiel ok.
+
+## Transit v2 (Tram/Bus)
+- Zielanzeige vorne: Liniennummer (LED-orange) + Ziel (letzte Haltestelle, weiss) pro Linie/Richtung (`transit.ts` labelMat).
+- Diesel-Gelenkbus `bus_gelenk` (Modul `bus_hinten`, ohne Stangen) fuer mode=bus; Trolleybus nur fuer mode=trolleybus. Manifest enthaelt `doors_r/doors_l`.
+- Nacht: Fensterflaechen leuchten warm (`transit.night`, Shader-Patch). Halt: Tueren offen (helle Tuerflaechen), wenige Fahrgaeste steigen aus/ein, Klingel bei Abfahrt in der Naehe (`onBell`).
+- Offen: Tram 2000 nicht modelliert; Haltestellen (stops.ts) unveraendert; Kontrolle `web/tests/transit_v2.mjs`.

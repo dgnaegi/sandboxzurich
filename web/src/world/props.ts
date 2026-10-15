@@ -84,6 +84,7 @@ export async function loadFurniture(base = '/models/furniture') {
   if (F.bench_slat) T.bench = F.bench_slat;
   if (F.bench_metal) T.bench2 = F.bench_metal;
   if (F.bin) T.bin = F.bin;
+  for (const k of ['bin_ash', 'bin_hai', 'bin_robidog', 'bench_cast', 'bench_flat', 'bench_table']) if (F[k]) T[k] = F[k];
   if (F.fountain_trough) T.fountain = F.fountain_trough;
   if (F.fountain_round) T.fountain2 = F.fountain_round;
   if (F.fountain_drink) T.fountain3 = F.fountain_drink;
@@ -123,9 +124,18 @@ export function buildProps(meta: PropMeta, shadows: boolean): THREE.Object3D[] {
     parts.push(tpl.clone().applyMatrix4(m4.compose(p.set(x, z, -y), q.setFromAxisAngle(Y, rot), s.set(sx, 1, 1))));
   for (const r of lamps) { place(T.lamp, r[0], r[1], r[2], -r[3]); place(T.cable, r[0], r[1], r[2], -r[3], r[4]); }
   for (const r of masts) place(T.mast, r[0], r[1], r[2], -r[3]);
-  for (const r of benches) place((Math.abs(r[0] * 13 + r[1]) % 3 < 1 && T.bench2) || T.bench, r[0], r[1], r[2], -r[3] + Math.PI / 2);
+  // bench type from Sitzbankkataster (r[4]): 0 back-rest, 1 none, 2 table-bench, 3 "046" modern, 4 table, 5 other; old tiles: no r[4]
+  for (const r of benches) {
+    const t = r[4], h = Math.abs(r[0] * 13 + r[1]) % 3 < 1;
+    const tpl = t === 1 ? T.bench_flat : t === 2 || t === 4 ? T.bench_table : t === 3 ? T.bench : t === 0 ? (h ? T.bench_cast : T.bench2) : undefined;
+    place(tpl || (h && T.bench2) || T.bench, r[0], r[1], r[2], -r[3] + Math.PI / 2);
+  }
   for (const r of fountains) { const k = Math.floor(Math.abs(r[0] * 7 + r[1] * 3)) % 4; place((k === 1 && T.fountain2) || (k === 2 && T.fountain3) || T.fountain, r[0], r[1], r[2], -r[3]); }
-  for (const r of bins) place(T.bin, r[0], r[1], r[2], 0);
+  // bin type (r[4] = type*2 + ashtray): 0 Zueri-Kuebel, 1 Abfallhai, 2 Robidog, 3 other
+  for (const r of bins) {
+    const t = r[4] === undefined ? 0 : r[4] >> 1, ash = (r[4] ?? 0) & 1;
+    place((t === 1 && T.bin_hai) || (t === 2 && T.bin_robidog) || (ash && T.bin_ash) || T.bin, r[0], r[1], r[2], -r[3] + Math.PI);
+  }
   for (const r of meta.racks ?? []) place(T.rack, r[0], r[1], r[2], -r[3] + Math.PI / 2);
   for (const r of (meta as unknown as { terraces?: number[][] }).terraces ?? []) {
     place(T.terrace, r[0], r[1], r[2], -r[3]);

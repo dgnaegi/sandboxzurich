@@ -8,56 +8,115 @@
   "cobra_kopf": {
    "file": "cobra_kopf.glb",
    "length": 7.8,
-   "triangles": 394,
-   "has_display": true
+   "triangles": 418,
+   "has_display": true,
+   "doors_r": [
+    -0.2,
+    2.1
+   ],
+   "doors_l": []
   },
   "cobra_zwischen": {
    "file": "cobra_zwischen.glb",
    "length": 5.2,
    "triangles": 174,
-   "has_display": false
+   "has_display": false,
+   "doors_r": [],
+   "doors_l": []
   },
   "cobra_mittel": {
    "file": "cobra_mittel.glb",
    "length": 10.0,
    "triangles": 498,
-   "has_display": false
+   "has_display": false,
+   "doors_r": [
+    -3.0,
+    3.0
+   ],
+   "doors_l": [
+    -3.0,
+    3.0
+   ]
   },
   "flexity_kopf": {
    "file": "flexity_kopf.glb",
    "length": 6.9,
    "triangles": 386,
-   "has_display": true
+   "has_display": true,
+   "doors_r": [
+    0,
+    1.9
+   ],
+   "doors_l": [
+    1.9
+   ]
   },
   "flexity_mittel": {
    "file": "flexity_mittel.glb",
    "length": 6.8,
    "triangles": 350,
-   "has_display": false
+   "has_display": false,
+   "doors_r": [
+    0
+   ],
+   "doors_l": [
+    0
+   ]
   },
   "flexity_zwischen": {
    "file": "flexity_zwischen.glb",
    "length": 4.4,
    "triangles": 246,
-   "has_display": false
+   "has_display": false,
+   "doors_r": [],
+   "doors_l": []
   },
   "trolley_vorne": {
    "file": "trolley_vorne.glb",
    "length": 9.2,
    "triangles": 454,
-   "has_display": true
+   "has_display": true,
+   "doors_r": [
+    -3.0,
+    0.6
+   ],
+   "doors_l": [
+    0.6
+   ]
   },
   "trolley_hinten": {
    "file": "trolley_hinten.glb",
    "length": 8.4,
    "triangles": 418,
-   "has_display": false
+   "has_display": false,
+   "doors_r": [
+    -2.3,
+    0.6
+   ],
+   "doors_l": [
+    -2.3
+   ]
   },
   "trolley_gelenk": {
    "file": "trolley_gelenk.glb",
    "length": 1.1,
    "triangles": 168,
-   "has_display": false
+   "has_display": false,
+   "doors_r": [],
+   "doors_l": []
+  },
+  "bus_hinten": {
+   "file": "bus_hinten.glb",
+   "length": 8.4,
+   "triangles": 358,
+   "has_display": false,
+   "doors_r": [
+    -2.3,
+    0.6
+   ],
+   "doors_l": [
+    -2.3
+   ]
   }
  },
  "vehicles": {
@@ -174,6 +233,34 @@
     ]
    },
    "note": "pantograph head y=5.45 on flexity_zwischen"
+  },
+  "bus_gelenk": {
+   "length": 18.7,
+   "sequence": [
+    {
+     "module": "trolley_vorne",
+     "file": "trolley_vorne.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 4.6
+    },
+    {
+     "module": "trolley_gelenk",
+     "file": "trolley_gelenk.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 9.75
+    },
+    {
+     "module": "bus_hinten",
+     "file": "bus_hinten.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 14.5
+    }
+   ],
+   "joints_z_from_front": [
+    9.2,
+    10.3
+   ],
+   "note": "diesel articulated bus, no poles"
   },
   "trolleybus": {
    "length": 18.7,

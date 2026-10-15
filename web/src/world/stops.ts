@@ -5,19 +5,31 @@ import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js
 interface LineJson { ref: string; mode: string; pts: number[][]; stops: { name: string; s: number }[] }
 
 function panel(name: string, lines: string[]): THREE.Texture {
-  const c = document.createElement('canvas'); c.width = 256; c.height = 192;
+  const c = document.createElement('canvas'); c.width = 256; c.height = 256;
   const g = c.getContext('2d')!;
-  g.fillStyle = '#ffffff'; g.fillRect(0, 0, 256, 192);
-  g.fillStyle = '#1f6db6'; g.fillRect(0, 0, 256, 56);
-  g.fillStyle = '#ffffff'; g.font = '34px Anton, sans-serif'; g.textAlign = 'center'; g.fillText('H', 128, 42);
-  g.fillStyle = '#111'; g.font = '700 26px "Barlow Condensed", sans-serif';
-  const fit = Math.min(26, (240 / Math.max(1, g.measureText(name).width)) * 26);
-  g.font = `700 ${fit}px "Barlow Condensed", sans-serif`; g.fillText(name, 128, 100);
-  lines.forEach((l, i) => {
-    const x = 128 + (i - (lines.length - 1) / 2) * 50;
-    g.fillStyle = '#1f6db6'; g.fillRect(x - 20, 124, 40, 40);
-    g.fillStyle = '#fff'; g.font = '26px Anton, sans-serif'; g.fillText(l, x, 155);
+  g.fillStyle = '#ffffff'; g.fillRect(0, 0, 256, 256);
+  g.fillStyle = '#16a34a'; g.beginPath(); g.arc(128, 62, 52, 0, Math.PI * 2); g.fill();   // generic green stop disc with H shape
+  g.fillStyle = '#ffffff'; g.fillRect(100, 34, 12, 56); g.fillRect(144, 34, 12, 56); g.fillRect(100, 56, 56, 12);
+  g.fillStyle = '#111'; g.textAlign = 'center';
+  const fit = Math.min(30, (240 / Math.max(1, (g.font = '700 30px "Barlow Condensed", sans-serif', g.measureText(name).width))) * 30);
+  g.font = `700 ${fit}px "Barlow Condensed", sans-serif`; g.fillText(name, 128, 140);
+  lines.slice(0, 5).forEach((l, i, a) => {
+    const x = 128 + (i - (a.length - 1) / 2) * 48;
+    g.fillStyle = '#1f6db6'; g.fillRect(x - 20, 168, 40, 40);
+    g.fillStyle = '#fff'; g.font = '26px Anton, sans-serif'; g.fillText(l, x, 199);
   });
+  g.fillStyle = '#d8dde2'; g.fillRect(0, 236, 256, 20);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+}
+
+/** Passenger information display (dark LED box: next departures as orange text). */
+function infoTex(lines: string[]): THREE.Texture {
+  const c = document.createElement('canvas'); c.width = 128; c.height = 64;
+  const g = c.getContext('2d')!;
+  g.fillStyle = '#07090c'; g.fillRect(0, 0, 128, 64);
+  g.fillStyle = '#ffb347'; g.font = 'bold 15px monospace'; g.textAlign = 'left';
+  lines.slice(0, 3).forEach((l, i) => { g.fillText(`${l.padEnd(3)} ${2 + i * 4 + (l.length * 3) % 5} min`, 8, 18 + i * 19); });
   const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
   return t;
 }
@@ -46,7 +58,7 @@ export function buildStops(data: { lines: LineJson[] }, ground: (x: number, y: n
     const z = ground(st.x, st.y), o = new THREE.Group();
     o.position.set(st.x, z, -st.y); o.rotation.y = -st.h;
     const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 2.9, 6).translate(0, 1.45, 0), grey);
-    const sign = new THREE.Mesh(new THREE.PlaneGeometry(0.62, 0.46).translate(0, 2.65, 0),
+    const sign = new THREE.Mesh(new THREE.PlaneGeometry(0.6, 0.6).translate(0, 2.5, 0),
       new THREE.MeshLambertMaterial({ map: panel(name, [...st.lines].sort()), side: THREE.DoubleSide }));
     sign.rotation.y = Math.PI / 2;
     pole.position.x = sign.position.x = 0.4;
@@ -57,7 +69,10 @@ export function buildStops(data: { lines: LineJson[] }, ground: (x: number, y: n
     ].map((g) => g.toNonIndexed()))!;
     const roof = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.08, 3.6).translate(1.3, 2.45, 0), roofMat);
     const back = new THREE.Mesh(new THREE.BoxGeometry(0.03, 2.0, 3.2).translate(1.75, 1.25, 0), glass);
-    o.add(pole, sign, new THREE.Mesh(frame, grey), roof, back);
+    const info = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.25).translate(1.72, 1.7, -1.0),
+      new THREE.MeshBasicMaterial({ map: infoTex([...st.lines].sort()) }));
+    info.rotation.y = 0; info.position.x = 0; info.rotateY(-Math.PI / 2); info.position.set(-0.01, 0, 0);
+    o.add(info, pole, sign, new THREE.Mesh(frame, grey), roof, back);
     group.add(o);
   }
   return group;

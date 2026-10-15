@@ -29,28 +29,6 @@
    ]
   },
   {
-   "name": "Letzipark",
-   "model": "/models/landmarks/k39w3_letzipark.glb",
-   "x": -1318.3,
-   "y": 236.2,
-   "z": -9.72,
-   "heading": 0,
-   "hide": [
-    [
-     -1330.4,
-     224.5
-    ],
-    [
-     -1314.7,
-     284.3
-    ],
-    [
-     -1273.7,
-     266.2
-    ]
-   ]
-  },
-  {
    "name": "Restaurant Krone Altstetten",
    "model": "/models/landmarks/k39w3_krone.glb",
    "x": -2487.5,
@@ -189,6 +167,28 @@
     [
      -1527.4,
      -1115.9
+    ]
+   ]
+  },
+  {
+   "name": "Letzipark",
+   "model": "/models/landmarks/k39w3_letzipark.glb",
+   "x": -1318.3,
+   "y": 236.2,
+   "z": -9.72,
+   "heading": 0,
+   "hide": [
+    [
+     -1330.4,
+     224.5
+    ],
+    [
+     -1314.7,
+     284.3
+    ],
+    [
+     -1273.7,
+     266.2
     ]
    ]
   }

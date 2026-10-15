@@ -71,56 +71,48 @@
    ]
   },
   {
-   "name": "Kaserne Zuerich",
-   "model": "/models/landmarks/kaserne.glb",
-   "x": 1232.8,
-   "y": -928.4,
-   "z": -0.93,
+   "name": "Kirche St. Peter und Paul",
+   "model": "/models/landmarks/peterpaul.glb",
+   "x": 857.4,
+   "y": -1318.2,
+   "z": 0.82,
    "heading": 0,
    "hide": [
     [
-     1241.1,
-     -923.7
+     855.2,
+     -1316.5
     ],
     [
-     1179.4,
-     -947.2
-    ],
+     838.6,
+     -1299.1
+    ]
+   ]
+  },
+  {
+   "name": "Hotel 25hours Langstrasse",
+   "model": "/models/landmarks/hotel25.glb",
+   "x": 917.0,
+   "y": -396.3,
+   "z": -2.98,
+   "heading": 0,
+   "hide": [
     [
-     1220.1,
-     -982.9
-    ],
+     917.0,
+     -396.3
+    ]
+   ]
+  },
+  {
+   "name": "Kollerhof",
+   "model": "/models/landmarks/kollerhof.glb",
+   "x": 751.9,
+   "y": -772.9,
+   "z": -1.14,
+   "heading": 0,
+   "hide": [
     [
-     1214.9,
-     -934.9
-    ],
-    [
-     1241.5,
-     -952.6
-    ],
-    [
-     1240.4,
-     -953.1
-    ],
-    [
-     1245.3,
-     -946.4
-    ],
-    [
-     1252.3,
-     -936.3
-    ],
-    [
-     1252.3,
-     -935.7
-    ],
-    [
-     1256.6,
-     -929.1
-    ],
-    [
-     1258.0,
-     -860.4
+     750.9,
+     -774.4
     ]
    ]
   },
@@ -219,48 +211,56 @@
    ]
   },
   {
-   "name": "Kirche St. Peter und Paul",
-   "model": "/models/landmarks/peterpaul.glb",
-   "x": 857.4,
-   "y": -1318.2,
-   "z": 0.82,
+   "name": "Kaserne Zuerich",
+   "model": "/models/landmarks/kaserne.glb",
+   "x": 1232.8,
+   "y": -928.4,
+   "z": -0.93,
    "heading": 0,
    "hide": [
     [
-     855.2,
-     -1316.5
+     1241.1,
+     -923.7
     ],
     [
-     838.6,
-     -1299.1
-    ]
-   ]
-  },
-  {
-   "name": "Hotel 25hours Langstrasse",
-   "model": "/models/landmarks/hotel25.glb",
-   "x": 917.0,
-   "y": -396.3,
-   "z": -2.98,
-   "heading": 0,
-   "hide": [
+     1179.4,
+     -947.2
+    ],
     [
-     917.0,
-     -396.3
-    ]
-   ]
-  },
-  {
-   "name": "Kollerhof",
-   "model": "/models/landmarks/kollerhof.glb",
-   "x": 751.9,
-   "y": -772.9,
-   "z": -1.14,
-   "heading": 0,
-   "hide": [
+     1220.1,
+     -982.9
+    ],
     [
-     750.9,
-     -774.4
+     1214.9,
+     -934.9
+    ],
+    [
+     1241.5,
+     -952.6
+    ],
+    [
+     1240.4,
+     -953.1
+    ],
+    [
+     1245.3,
+     -946.4
+    ],
+    [
+     1252.3,
+     -936.3
+    ],
+    [
+     1252.3,
+     -935.7
+    ],
+    [
+     1256.6,
+     -929.1
+    ],
+    [
+     1258.0,
+     -860.4
     ]
    ]
   }
