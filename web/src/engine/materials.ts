@@ -13,7 +13,7 @@ export const hemiK = { value: 1 };
 
 export async function loadWorldMaterial(base: string, anisotropy: number, pbr = false): Promise<THREE.Material> {
   const meta = await (await fetch(`${base}/layers.json`)).json() as { size: number; cols: number; count: number; facades: number; shops_end: number; normals: number; normals3?: number; facades3?: [number, number]; layers?: string[]; shops2?: [number, number]; ground_n?: number[] };
-  const [rgb, mask, nimg] = await Promise.all([loadImage(`${base}/atlas.webp`), loadImage(`${base}/atlas_mask.png`), loadImage(`${base}/atlas_n.webp`)]);
+  const [rgb, mask, nimg] = await Promise.all([loadImage(`${base}/atlas.webp`), loadImage(`${base}/atlas_mask.png`), loadImage(`${base}/atlas_n${pbr ? '' : '_half'}.webp`).catch(() => loadImage(`${base}/atlas_n.webp`))]);
   const L = meta.size, n = meta.count;
   const pix = (img: HTMLImageElement) => {
     const c = document.createElement('canvas');
@@ -35,12 +35,13 @@ export async function loadWorldMaterial(base: string, anisotropy: number, pbr = 
   }
   // normal array (R,G = normal xy, B = roughness, unused with Lambert): only the layers that have one
   const gN = meta.ground_n ?? [];   // ground layers with normal+roughness slots after the v3 facades
-  const nn = meta.normals + (meta.normals3 ?? 0) + gN.length, nd = new Uint8Array(L * L * 4 * nn), np_ = pix(nimg);
+  const Ln = Math.round((L * nimg.width) / rgb.width);   // phones load a half-size normal atlas
+  const nn = meta.normals + (meta.normals3 ?? 0) + gN.length, nd = new Uint8Array(Ln * Ln * 4 * nn), np_ = pix(nimg);
   for (let k = 0; k < nn; k++) {
-    const ox = (k % meta.cols) * L, oy = Math.floor(k / meta.cols) * L;
-    for (let y = 0; y < L; y++) {
-      let src = ((oy + y) * nimg.width + ox) * 4, dst = (k * L * L + y * L) * 4;
-      for (let x = 0; x < L; x++, src += 4, dst += 4) {
+    const ox = (k % meta.cols) * Ln, oy = Math.floor(k / meta.cols) * Ln;
+    for (let y = 0; y < Ln; y++) {
+      let src = ((oy + y) * nimg.width + ox) * 4, dst = (k * Ln * Ln + y * Ln) * 4;
+      for (let x = 0; x < Ln; x++, src += 4, dst += 4) {
         nd[dst] = np_[src]; nd[dst + 1] = np_[src + 1]; nd[dst + 2] = np_[src + 2]; nd[dst + 3] = 255;
       }
     }
@@ -56,7 +57,7 @@ export async function loadWorldMaterial(base: string, anisotropy: number, pbr = 
     return t;
   };
   const tex = setup(new THREE.DataArrayTexture(data, L, L, n), true);
-  const ntex = setup(new THREE.DataArrayTexture(nd, L, L, nn), false);
+  const ntex = setup(new THREE.DataArrayTexture(nd, Ln, Ln, nn), false);
   const F = meta.facades.toFixed(1), S = meta.shops_end.toFixed(1), N = meta.normals.toFixed(1);
   const [A3, B3] = (meta.facades3 ?? [9999, 9999]).map((v) => v.toFixed(1));
 

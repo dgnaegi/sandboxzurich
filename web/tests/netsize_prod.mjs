@@ -1,0 +1,17 @@
+// Bytes transferred until ready, grouped by folder (prod preview). node tests/netsize_prod.mjs [base]
+import { chromium, devices } from 'playwright';
+const BASE = process.argv[2] ?? 'http://localhost:4173';
+const b = await chromium.launch({ args: ['--use-gl=angle', '--ignore-gpu-blocklist'] });
+const ctx = await b.newContext({ ...devices['iPhone 13'], viewport: { width: 844, height: 390 } });
+const p = await ctx.newPage();
+const by = {};
+p.on('response', async (r) => {
+  try { const buf = await r.body(); const u = new URL(r.url()); const k = u.pathname.split('/').slice(0, 3).join('/'); by[k] = (by[k] ?? 0) + buf.length; } catch { /* redirects */ }
+});
+await p.goto(`${BASE}/?at=785,-635,0.37`);
+await p.waitForFunction(() => window.sbxReady, null, { timeout: 120000 });
+if (!process.env.AFTER) { } else await p.waitForTimeout(4000);
+const tot = Object.values(by).reduce((a, c) => a + c, 0);
+console.log('total MB (uncompressed bodies)', (tot / 1e6).toFixed(1));
+for (const [k, v] of Object.entries(by).sort((a, c) => c[1] - a[1]).slice(0, 14)) console.log((v / 1e6).toFixed(2).padStart(7), k);
+await b.close();

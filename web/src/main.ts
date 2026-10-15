@@ -57,7 +57,7 @@ async function main() {
   const daytime = new Daytime(R);
 
   const map = new CityMap();
-  await Promise.all([loadTrees(), loadCars(), loadBikes(), loadFurniture()]);
+  await Promise.all([loadTrees('/models/trees', mobile ? 1 : 2), loadCars(), loadBikes(), loadFurniture()]);
   treeField.init(renderer, mobile, !mobile);
   const [tiles, humans] = await Promise.all([
     Tiles.load(scene, !mobile, Math.min(8, renderer.capabilities.getMaxAnisotropy())),

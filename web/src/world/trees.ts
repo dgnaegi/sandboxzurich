@@ -44,7 +44,8 @@ function prepare(root: THREE.Object3D): THREE.BufferGeometry | null {
   return parts.length ? mergeGeometries(parts, false) : null;
 }
 
-export async function loadTrees(base = '/models/trees') {
+/** variants: how many lod-0 variants per class to load (phones: 1, the field falls back to variant 0). */
+export async function loadTrees(base = '/models/trees', variants = 2) {
   const manifest = (await (await fetch(`${base}/manifest.json`)).json()) as { cls: string; file: string; variant: number; lod: number; zb: number }[];
   const img = new Image();
   const loaded = new Promise<void>((res, rej) => { img.onload = () => res(); img.onerror = rej; });
@@ -53,7 +54,7 @@ export async function loadTrees(base = '/models/trees') {
   atlas.image = img; atlas.flipY = false; atlas.colorSpace = THREE.SRGBColorSpace;
   atlas.generateMipmaps = true; atlas.minFilter = THREE.LinearMipmapLinearFilter; atlas.anisotropy = 4; atlas.needsUpdate = true;
   const loader = new GLTFLoader();
-  await Promise.all(manifest.map(async (e) => {
+  await Promise.all(manifest.filter((e) => e.lod || e.variant < variants).map(async (e) => {
     const g = await loader.loadAsync(`${base}/${e.file}`);
     const geo = prepare(g.scene);
     const ci = CLASSES.indexOf(e.cls);

@@ -53,7 +53,8 @@ export class HumanLib {
     const order = [...npcs.filter((_, i) => i % 3 === 0), ...npcs.filter((_, i) => i % 3 === 1), ...npcs.filter((_, i) => i % 3 === 2)].slice(0, max);
     await lib.loadLibs(base);
     await lib.fetch(base, [...player, ...order.slice(0, first)]);
-    void lib.fetch(base, order.slice(first)).then(() => lib.loadAccessories());
+    // the other figures only add variety: load them after the start so they do not compete with the first tiles
+    setTimeout(() => void lib.fetch(base, order.slice(first)).then(() => lib.loadAccessories()), 8000);
     return lib;
   }
 

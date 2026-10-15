@@ -191,6 +191,8 @@ def main():
     rgb.save(OUT / "atlas.webp", quality=82, method=6)
     mask.save(OUT / "atlas_mask.png", optimize=True)
     nat.save(OUT / "atlas_n.webp", quality=90, method=6)  # R,G = normal xy, B = roughness
+    # phones: half resolution (download budget); the shader samples with normalised UVs, so only detail changes
+    nat.resize((nat.width // 2, nat.height // 2), Image.LANCZOS).save(OUT / "atlas_n_half.webp", quality=88, method=6)
     json.dump({"size": L, "cols": COLS, "count": n, "layers": list(LAYERS), "facades": len(FACADES),
                "shops_end": len(FACADES) + len(SHOPS), "normals": n_norm, "normals3": len(FACADES3),
                "shops2": [list(LAYERS).index(SHOPS_EXTRA[0]), list(LAYERS).index(SHOPS_EXTRA[0]) + len(SHOPS_EXTRA)],
