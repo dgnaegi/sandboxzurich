@@ -35,7 +35,6 @@ Jedes Milestone endet mit etwas, das der User im Browser (auch auf dem Handy) au
 - [ ] Zerstörbare Objekte
 - [x] Sterne-System, Polizei (comichaft)
 - [x] Velo fahren (klauen, fahren, absteigen)
-- [x] Auto klauen und fahren (2026-10-15)
 - [x] Autos v3 (Loft, Scheiben, Kontrollschild, csuv/taxi, Ausweichen) – DECISIONS #31
 - [x] Auto klauen und fahren (parkiert + Verkehr, Physik, Kollision, Lichter), Auto-/Velo-Realismus v2 (DECISIONS #30)
 - [x] HUD wie im Reel, Menüs, Credits, Impressum (Impressum-Verantwortliche TODO)
