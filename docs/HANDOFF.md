@@ -64,3 +64,9 @@ Selbst erledigt: Laufen (Commit db8ee26); OSM-Parks nur noch Rasen, wo AV grün 
 5. Build dauerte 86 statt 32 min → Profiling (vermutlich Groundcover-Verschnitt).
 6. Spawn auf Brücke per Teleport landet unten (groundAt braucht z) – bei Bedarf Deck-Suche beim Teleport.
 7. Commit: noch nie committet; User fragen.
+
+## Neu (2026-10-15 abends): Autos klauen/fahren, Auto- und Velo-Realismus (Agent)
+- Steuerung: E (Touch: E-Knopf) nimmt das nächste Auto oder Velo (je nach Distanz); Auto: WASD/Pfeile oder Joystick = Gas/Lenkung, Shift/⇧ = Turbo, E = aussteigen (bremst erst bis Stillstand). Code: `player/drive.ts`, `vehicle_model.ts`, `vehicle_player.ts` (Kamera), `vehicle_use.ts` (einsteigen/aussteigen/Fahrer), `world/parkedcars.ts`, `Traffic.findCar`, `world/trafficlights.ts`, Ton `Audio.engine/carCrash/carDoor`.
+- Pipeline: `bash pipeline/cars/build_cars.sh` baut jetzt auch `*_drive.glb`; `python3 pipeline/bikes/build_bikes.py` schreibt `rig` (Achsen, Sattel) ins Manifest.
+- Tests: `tests/drive.mjs` (Desktop+Touch), `tests/vehicles_sheet.mjs` (-> preview/vehicles_v2.jpg), `tests/bikes_ride.mjs`, `tests/perf_drive.mjs`. Perf Handy (4x CPU): zu Fuss 59 fps/192 Calls, im Auto 60 fps/153 Calls.
+- Offen: Fussgänger:innen weichen fahrenden Autos nicht aus (fahren durch); Scheinwerferkegel/Nachtlicht am gefahrenen Auto; Tacho/HUD; Lenker der Velos dreht nicht mit; `ridePose` Fussneigung nur grob.

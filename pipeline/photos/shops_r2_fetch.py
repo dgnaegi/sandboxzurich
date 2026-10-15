@@ -12,7 +12,7 @@ OUT = ROOT / "data/raw/photos/shops_r2"; API = OUT / "_api"; SRC = OUT / "_src"
 for d in (API, SRC): d.mkdir(parents=True, exist_ok=True)
 CAND = ROOT / "research/shops_v3/candidates.json"; META = ROOT / "research/shops_v3/photos_r2.json"
 UA = {"User-Agent": "sandboxzurich-research/1.0 (daniel.gnaegi@outlook.com)"}
-lock = threading.Lock()
+lock = threading.Lock(); RECROP = '--recrop' in sys.argv
 
 def log(*a): print(time.strftime("%H:%M:%S"), *a, flush=True)
 def token():
@@ -105,8 +105,13 @@ def crop(f, heading, az, fov=60, W=1024, H=768):
     out = (im[v0, u0] * (1 - fu) * (1 - fv) + im[v0, u1] * fu * (1 - fv) + im[v0 + 1, u0] * (1 - fu) * fv + im[v0 + 1, u1] * fu * fv)
     return Image.fromarray(out.astype(np.uint8))
 
-def flat(f, W=1024):
-    im = Image.open(f).convert("RGB"); im.thumbnail((W, W)); return im
+def flat(f, rel, hfov=110, W=1024):
+    """Flat (non-360) camera: crop a 4:3 window centred on the venue direction (rel = bearing - heading, deg), assumed hfov."""
+    im = Image.open(f).convert("RGB"); w, h = im.size
+    cx = w / 2 + (w / 2) * math.tan(math.radians(max(-50, min(50, rel)))) / math.tan(math.radians(hfov / 2))
+    cw = min(w * 0.5, w); ch = cw * 0.75
+    x0 = min(max(cx - cw / 2, 0), w - cw); y0 = min(max(h * 0.42 - ch / 2, 0), h - ch)
+    return im.crop((int(x0), int(y0), int(x0 + cw), int(y0 + ch))).resize((W, int(W * 0.75)), Image.LANCZOS)
 
 def work(c, tok, meta):
     try:
@@ -116,8 +121,8 @@ def work(c, tok, meta):
             f = source(im)
             if f is None: continue
             out = OUT / f"{c['id']}_{n}.jpg"
-            if not out.exists():
-                (crop(f, im["bearing"], im["az"]) if im["pano"] else flat(f)).save(out, quality=88)
+            if not out.exists() or (not im['pano'] and RECROP):
+                (crop(f, im["bearing"], im["az"]) if im["pano"] else flat(f, (im['bearing'] - im['az'] + 180) % 360 - 180)).save(out, quality=88)
             res.append(dict(file=str(out.relative_to(ROOT)), source=im["src"], pano=im["pano"], id=im["id"], page=im["page"], date=im["date"],
                             creator=im["creator"], license=im["license"], dist_m=im["dist"], bearing=im["bearing"], angle_diff=im["angle_diff"]))
         with lock: meta[c["id"]] = dict(name=c["name"], address=c["address"], kind=c["kind"], area=c["area"], x=c["x"], y=c["y"], photos=res)
@@ -133,7 +138,6 @@ if __name__ == "__main__":
     with ThreadPoolExecutor(6) as ex:
         for _ in ex.map(lambda c: work(c, tok, meta), todo):
             done += 1
-            if done % 50 == 0:
-                log(done, "done,", sum(1 for v in meta.values() if v["photos"]), "with photos"); json.dump(meta, open(META, "w"), ensure_ascii=False)
+            if done % 100 == 0: log(done, "done")
     json.dump(meta, open(META, "w"), ensure_ascii=False, indent=0)
     log("FINISHED", len(meta), sum(1 for v in meta.values() if v["photos"]))

@@ -11,7 +11,8 @@ ann2 = set()
 if (D / "annotations_r2.jsonl").exists(): ann2 = {json.loads(l)["id"] for l in open(D / "annotations_r2.jsonl") if l.strip()}
 items = []
 pri = lambda k: (k not in R1, R1.get(k, {}).get("photo_ok") is not None)   # null first (never seen), then false
-r2ids = sorted([k for k, v in R2.items() if v["photos"] and k not in ok and k not in ann2], key=lambda k: (R1[k]["photo_ok"] is not None if k in R1 else False, k not in R1))
+CI = {c['id']: i for i, c in enumerate(json.load(open(D / 'candidates.json')))}
+r2ids = sorted([k for k, v in R2.items() if v["photos"] and k not in ok and k not in ann2], key=lambda k: CI[k])
 for k in r2ids: items.append((k, R2[k]["name"], R2[k]["address"], R2[k]["photos"][0]["file"]))
 for k, e in R1.items():
     if k in ok or k in R2 and R2[k]["photos"]: continue
