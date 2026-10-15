@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { NIGHT_LIGHT_GLSL, nlPos, nlCol, nlCar, nlDir, nlWet } from '../world/night_lights';
 
 /** Shared night factor (0 = day .. 1 = night) for all patched materials (windows, shopfronts, lamps). */
 export const nightUniform = { value: 0 };
@@ -69,13 +70,14 @@ export async function loadWorldMaterial(base: string, anisotropy: number, pbr = 
     sh.uniforms.atlas = { value: tex };
     sh.uniforms.night = nightUniform;
     sh.uniforms.hemiK = hemiK;
+    sh.uniforms.nlPos = nlPos; sh.uniforms.nlCol = nlCol; sh.uniforms.nlCar = nlCar; sh.uniforms.nlDir = nlDir; sh.uniforms.nlWet = nlWet;
     sh.uniforms.normalAtlas = { value: ntex };
     sh.vertexShader = sh.vertexShader
       .replace('#include <common>', '#include <common>\n#ifndef USE_UV1\nattribute vec2 uv1;\n#endif\nvarying vec2 vTex;\nvarying float vLayer;\nvarying vec3 vWorld;\nvarying vec3 vWN;')
       .replace('#include <beginnormal_vertex>', '#include <beginnormal_vertex>\nvWN = normalize(mat3(modelMatrix) * objectNormal);')
       .replace('#include <begin_vertex>', '#include <begin_vertex>\nvTex = uv;\nvLayer = uv1.x;\nvWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;');
     sh.fragmentShader = sh.fragmentShader
-      .replace('#include <common>', '#include <common>\nuniform highp sampler2DArray atlas;\nuniform highp sampler2DArray normalAtlas;\nuniform float night;\nuniform float hemiK;\nvarying vec2 vTex;\nvarying float vLayer;\nvarying vec3 vWorld;\nvarying vec3 vWN;\n' + groundSlotFn(gN, GB) + GROUND_FN + nightFn(F, S, shopHours(meta, F), (meta.shops2?.[0] ?? 9999).toFixed(1), (meta.shops2?.[1] ?? 9999).toFixed(1), A3, B3))
+      .replace('#include <common>', '#include <common>\nuniform highp sampler2DArray atlas;\nuniform highp sampler2DArray normalAtlas;\nuniform float night;\nuniform float hemiK;\nvarying vec2 vTex;\nvarying float vLayer;\nvarying vec3 vWorld;\nvarying vec3 vWN;\n' + NIGHT_LIGHT_GLSL + groundSlotFn(gN, GB) + GROUND_FN + nightFn(F, S, shopHours(meta, F), (meta.shops2?.[0] ?? 9999).toFixed(1), (meta.shops2?.[1] ?? 9999).toFixed(1), A3, B3))
       .replace('#include <color_fragment>',
         'vec4 tx = texture(atlas, vec3(vTex, floor(vLayer + 0.5)));\n' +
         'float fl3 = step(' + A3 + ' - 0.5, vLayer) * step(vLayer, ' + B3 + ' - 0.5);\n' +
@@ -92,11 +94,11 @@ export async function loadWorldMaterial(base: string, anisotropy: number, pbr = 
         // glass = unmasked dark texels on wall faces of facade layers (same test as the night windows)
         'float glass = 0.0;\n' +
         'if (abs(vWN.y) < 0.5 && (vLayer < ' + F + ' - 0.5 || fl3 > 0.5)) glass = glassMask(tx);')
-      .replace('#include <roughnessmap_fragment>', '#include <roughnessmap_fragment>\n' + (pbr ? 'roughnessFactor = mix(vLayer > ' + G0 + ' - 0.5 && vLayer < ' + G1 + ' + 0.5 ? 0.93 : 0.82, 0.16, glass);\n{ float gs = groundSlot(floor(vLayer + 0.5)); if (gs > -0.5) roughnessFactor = texture(normalAtlas, vec3(vTex, gs)).b; }' : ''))
+      .replace('#include <roughnessmap_fragment>', '#include <roughnessmap_fragment>\n' + (pbr ? 'roughnessFactor = mix(vLayer > ' + G0 + ' - 0.5 && vLayer < ' + G1 + ' + 0.5 ? 0.93 : 0.82, 0.16, glass);\n{ float gs = groundSlot(floor(vLayer + 0.5)); if (gs > -0.5) roughnessFactor = texture(normalAtlas, vec3(vTex, gs)).b; }\nroughnessFactor *= 1.0 - 0.55 * nlWet * step(abs(vLayer - ' + AS + '), 0.5);' : ''))
       .replace('#include <metalnessmap_fragment>', '#include <metalnessmap_fragment>\n' + (pbr ? 'metalnessFactor = glass * 0.4;' : ''))
       .replace('#include <lights_fragment_maps>', '#include <lights_fragment_maps>\n' + (pbr ? 'irradiance *= hemiK;' : ''))
       .replace('#include <normal_fragment_maps>', '#include <normal_fragment_maps>\n' + normalPatch(N, A3, B3, gN, pbr))
-      .replace('#include <emissivemap_fragment>', '#include <emissivemap_fragment>\ntotalEmissiveRadiance += nightEmissive(tx, floor(vLayer + 0.5), vWorld);');
+      .replace('#include <emissivemap_fragment>', '#include <emissivemap_fragment>\ntotalEmissiveRadiance += nightEmissive(tx, floor(vLayer + 0.5), vWorld);\nif (night > 0.02) totalEmissiveRadiance += diffuseColor.rgb * nightLight(vWorld, normalize(vWN)) * night;');
   };
   return mat;
 }

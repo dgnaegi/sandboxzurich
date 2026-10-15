@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { registerLights } from './night_lights';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { CAR_GEO, carMaterial, carPick } from './cars';
 import { parkedCars } from './parkedcars';
@@ -133,6 +134,10 @@ export function buildProps(meta: PropMeta, shadows: boolean): THREE.Object3D[] {
   const extra = meta as unknown as { hydrants?: number[][]; bollards?: number[][]; pingpong?: number[][] };
   for (const [key, tpl] of [['hydrants', 'hydrant'], ['bollards', 'bollard'], ['pingpong', 'pingpong']] as const)
     if (T[tpl]) for (const r of extra[key] ?? []) place(T[tpl], r[0], r[1], r[2], r[3]);
+  const lampPts: number[] = [];
+  for (const r of lamps) lampPts.push(r[0], r[2] + 7.0, -r[1], 17, 1.7, 1.05, 0.5);
+  for (const r of masts) lampPts.push(r[0] - Math.sin(r[3]) * 1.4, r[2] + 7.0, -(r[1] - Math.cos(r[3]) * 1.4), 17, 1.7, 1.05, 0.5);
+  if (lampPts.length) { const owner = new THREE.Object3D(); registerLights(owner, lampPts); out.push(owner); }
   const pools = [...lamps.map((r) => [r[0], r[1], r[2] - 0.1, 11]), ...masts.map((r) => [r[0] - Math.sin(r[3]) * 1.4, r[1] - Math.cos(r[3]) * 1.4, r[2], 9])];
   if (pools.length) {
     const im = new THREE.InstancedMesh(poolGeo, poolMat, pools.length);

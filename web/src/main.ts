@@ -37,6 +37,7 @@ import { Menu } from './ui/menu';
 import { Audio } from './engine/audio';
 import { CarUse } from './player/vehicle_use';
 import { TrafficLights } from './world/trafficlights';
+import { addCar } from './world/night_lights';
 import { parkedCars } from './world/parkedcars';
 import type { Obb } from './player/drive';
 
@@ -324,6 +325,7 @@ async function main() {
     carUse.update(dt);
     traffic.update(dt, player.x, player.y, player.driving ? player.driving.circlesWorld() : [{ x: player.x, y: player.y, r: 1.4 }]);
     trafficLights.update(traffic.positions(), acc, daytime.night, ground, player.x, player.y);
+    if (player.driving && daytime.night > 0.3) { const hx = Math.sin(player.heading), hy = Math.cos(player.heading); addCar(player.x + hx * 2.2, ground(player.x, player.y) + 0.7, -(player.y + hy * 2.2), hx, -hy, Math.min(1, daytime.night)); }
     if (QUESTS) missions.update(dt, player.x, player.y, !!player.riding);
     if (GAMEPLAY && police.update(dt, player.x, player.y, state.stars)) { busted(); audio.jingle(false); }
     audio.update(dt, daytime.night, state.stars > 0, police.nearest(player.x, player.y));

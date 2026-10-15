@@ -3,6 +3,7 @@ import type { createRenderer } from './renderer';
 import { HORIZON, ZENITH } from './sky';
 import { nightUniform, hemiK } from './materials';
 import { SkyProbe } from './env';
+import { refreshLights, nlWet } from '../world/night_lights';
 import { gradeA, gradeB, gradeC, bloom } from './grading';
 
 type Ctx = ReturnType<typeof createRenderer>;
@@ -17,7 +18,7 @@ interface Key { h: number; zen: number; hor: number; sun: number; sunI: number; 
 const GN: G = [1.0, 0.10, -0.01, 0.0, 0.03, 0.05, 0.02, -0.04, 0.5, 0.9];       // night: cool shadows, warm lamp highlights
 const GD: G = [1.12, 0.14, -0.01, 0.0, 0.02, 0.02, 0.01, -0.01, 0.15, 1.9];        // day: natural
 const GG: G = [1.12, 0.12, 0.0, 0.0, 0.0, 0.07, 0.03, -0.05, 0.28, 1.4];          // golden hour: warm highlights
-const NIGHT = { zen: 0x070a1c, hor: 0x1e2842, sun: 0x6f86c8, sunI: 0, hs: 0x5468a0, hg: 0x1c1e2c, hI: 1.25, cLo: 0x1c2442, cHi: 0x2c385c, exp: 1.5, night: 1, stars: 1, g: GN };
+const NIGHT = { zen: 0x070a1c, hor: 0x1e2842, sun: 0x6f86c8, sunI: 0, hs: 0x6a74a0, hg: 0x2a2630, hI: 1.4, cLo: 0x1c2442, cHi: 0x2c385c, exp: 1.75, night: 1, stars: 1, g: GN };
 const DAY = { zen: 0x4a84c6, hor: 0xc6d9e6, sun: 0xfff4e6, sunI: 3.4, hs: 0xbcd2ee, hg: 0x7a7668, hI: 1.45, cLo: 0xdfe5ec, cHi: 0xffffff, exp: 1.0, night: 0, stars: 0, g: GD };
 const K: Key[] = [
   { h: 0, ...NIGHT },
@@ -57,6 +58,7 @@ export class Daytime {
   /** Sun elevation as sin(angle). */
   sunUp = 1;
   private lamps: THREE.PointLight[] = [];
+  private fr = 0;
   private shadowFrames = 0;
   private moonDir = new THREE.Vector3();
   private sunV = new THREE.Vector3();
@@ -80,6 +82,7 @@ export class Daytime {
 
   /** Place the lamp lights around the player (call once per frame next to followSun). */
   follow(p: THREE.Vector3): void {
+    if ((this.fr++ & 3) === 0) refreshLights(p.x, p.z, this.night);
     for (let i = 0; i < this.lamps.length; i++) {
       const a = (i / this.lamps.length) * Math.PI * 2 + 0.6;
       this.lamps[i].position.set(p.x + Math.cos(a) * 11, p.y + 6.5, p.z + Math.sin(a) * 11);
@@ -126,6 +129,7 @@ export class Daytime {
     gradeC.set(g[5], g[6], g[7], 0);
     bloom.strength = g[8]; bloom.threshold = g[9];
     this.night = L(a.night, b.night);
+    if (!this.ctx.mobile) nlWet.value = 0.9 * sstep(21, 23, hr >= 12 ? hr : hr + 24) * (hr >= 12 || hr < 5 ? 1 : 0);
     nightUniform.value = this.night;
 
     // one directional light: sun by day, bluish moon at night (blended by weight)

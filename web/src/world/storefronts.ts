@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { nightUniform } from '../engine/materials';
+import { registerLights } from './night_lights';
 import { hash, lookOf, mix, type ShopSign } from './storefront_style';
 import { planters, terrace } from './storefront_terrace';
 
@@ -177,11 +178,20 @@ function labelAtlas(rows: { text: string; color: string; bg?: string; cross?: bo
 
 export function buildStorefronts(signs: VenueSign[] | undefined): THREE.Object3D[] {
   if (!signs?.length) return [];
+  const shopPts: number[] = [];
   const b = new Builder(), spill = new Builder(), labels: { text: string; color: string; bg?: string; cross?: boolean }[] = [];
   const blades: { p: Pt; u: number; row: number; color: string }[] = [];
   for (const s of signs) {
     const h = hash(s.name), p = frame(s), k = s.kind, wide = Math.min(s.w, 5.2), look = lookOf(s);
     const isBar = BARS.includes(k);
+    {   // window light on the pavement in front (night_lights): bars neon-coloured, other open shops warm white
+      const lit = isBar || ((['restaurant', 'fast_food', 'convenience', 'kiosk', 'pharmacy', 'tobacco'].includes(k) ? 0.8 : 0.35) > (h % 100) / 100);
+      if (lit) {
+        const q = p(0, 1.3, 1.4), nc = isBar ? new THREE.Color(look.neon ?? NEON[(h >>> 2) % NEON.length]) : new THREE.Color(1, 0.8, 0.5);
+        const k2 = isBar ? 1.0 : 0.7;
+        shopPts.push(q[0], q[1], q[2], isBar ? 8 : 6.5, nc.r * k2, nc.g * k2, nc.b * k2);
+      }
+    }
     if (look.fc) framing(b, p, s, look.fc);
     if (look.aw && wide > 2.4 && s.pd !== undefined && s.pd >= 0.9) awning(b, p, -wide / 2, wide / 2, new THREE.Color(look.aw), look.stripes);
     const edge = s.w / 2 - 0.35;
@@ -229,6 +239,7 @@ export function buildStorefronts(signs: VenueSign[] | undefined): THREE.Object3D
     const mesh = b.mesh(material());
     if (mesh) out.push(mesh);
   }
+  if (shopPts.length) { const owner = new THREE.Object3D(); registerLights(owner, shopPts); out.push(owner); }
   const sp = spill.mesh(spillMaterial(), false);
   if (sp) { sp.renderOrder = 2; out.push(sp); }
   return out;

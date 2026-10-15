@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { carDay } from './cars';
+import { beginCars, addCar, endCars } from './night_lights';
 
 /**
  * Light overlay for the traffic cars (one InstancedMesh per kind, no per-car objects): brake lights while braking
@@ -36,6 +37,15 @@ export class TrafficLights {
     this.n.fill(0);
     carDay.value = 1 - 0.85 * Math.min(1, Math.max(0, night));
     const dark = night > 0.3;
+    beginCars();
+    if (dark) {   // headlight cones for the nearest cars (night_lights picks them up in the world shader)
+      const near = cars.filter((a) => a.kind === 'car' && (a.x - px) ** 2 + (a.y - py) ** 2 < 70 * 70 && a.v > 0.3).sort((a, b) => ((a.x - px) ** 2 + (a.y - py) ** 2) - ((b.x - px) ** 2 + (b.y - py) ** 2));
+      for (const a of near) {
+        const th = a.heading - Math.PI / 2, c = Math.cos(th), s = Math.sin(th), hl = a.len / 2;
+        addCar(a.x - s * hl, ground(a.x, a.y) + 0.7, -a.y - c * hl, -s, -c, Math.min(1, night));
+      }
+    }
+    endCars();
     for (const a of cars) {
       if (a.kind !== 'car' || (a.x - px) ** 2 + (a.y - py) ** 2 > 160 * 160) continue;
       const th = a.heading - Math.PI / 2, c = Math.cos(th), s = Math.sin(th), gy = ground(a.x, a.y) - 0.12, hl = a.len / 2 - 0.04;
