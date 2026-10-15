@@ -153,7 +153,8 @@ def _ortho_patches(pl, og, tb, roads):
 
 
 def ground(gm, tb, H, roads=None):
-    """Draped patches. Order = file order (later on top, +0.002 per step)."""
+    """Draped patches. Order = file order (later on top, +6 mm per step). Lifts are large (3-11 cm) because drape() samples the
+    terrain only at cell corners (base layers use 20 m cells), so thinner layers would z-fight on sloping ground."""
     n = 0
     for pl in load():
         c = pl["center"]
@@ -161,9 +162,13 @@ def ground(gm, tb, H, roads=None):
             continue
         og = pl.get("ortho_ground")
         if og:
+            occupied = shapely.union_all([_shape(g, c, roads) for g in pl.get("ground", [])] or [Polygon()]).buffer(0.05)  # no overlap -> no z-fighting
             for mat, geom in _ortho_patches(pl, og, tb, roads):
+                geom = geom.difference(occupied)
+                if geom.is_empty:
+                    continue
                 layer, col = MAT[mat]
-                drape(gm, geom, H, og.get("lift", 0.0115), col, cell=10, layer=LAYER[layer], uv_scale=5.0 if mat == "grass" else 2.5)
+                drape(gm, geom, H, og.get("lift", 0.03), col, cell=5, layer=LAYER[layer], uv_scale=5.0 if mat == "grass" else 2.5)
                 n += 1
         for i, g in enumerate(pl.get("ground", [])):
             geom = _shape(g, c, roads).intersection(tb)
@@ -171,7 +176,7 @@ def ground(gm, tb, H, roads=None):
                 continue
             layer, col = MAT[g["mat"]]
             col = tuple(g["color"]) if "color" in g else col
-            drape(gm, geom, H, max(g.get("lift", 0.012), 0.013) + 0.002 * i, col, cell=10, layer=LAYER[layer], uv_scale=g.get("uv", 3.0))
+            drape(gm, geom, H, 0.05 + 0.006 * min(i, 10) + max(g.get("lift", 0.0) - 0.02, 0.0), col, cell=5, layer=LAYER[layer], uv_scale=g.get("uv", 3.0))
             n += 1
     if n:
         print(f"  places_detail: {n} ground patches", flush=True)

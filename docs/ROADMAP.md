@@ -22,6 +22,7 @@ Jedes Milestone endet mit etwas, das der User im Browser (auch auf dem Handy) au
 - [x] Radar/Minimap und Stadtkarte mit Sprungpunkten
 - [x] Performance-Messung gegen die Budgets (2026-10-15: Handy ≤231 Calls, ≤1.1 Mio; PC ≤458 Calls, ≤2.9 Mio)
 - [ ] Screenshots an Landmarks → `preview/`, QA gegen Referenzfotos (k93 v3 gebaut: `preview/lm3_*.jpg`, k45 offen)
+- [x] Plätze/Parks v3: Bodenbelag, Möblierung, Brunnen/Kiosk/Fahnenmasten an 15 Plätzen (`places_detail`, `preview/plaza3_*.jpg`)
 - [ ] Deploy auf Scalingo (Testlink)
 
 ## M2 – Lebendige Stadt
