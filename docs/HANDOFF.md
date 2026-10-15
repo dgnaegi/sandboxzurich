@@ -37,5 +37,10 @@ Spielgebiet: Kreise 4+5, Teile 9 und 3, Friedhof Sihlfeld (6.88 km², 219 Spiel-
 5. Vor MVP (User): Tests auf echten Handys, Impressum, Kennzeichnung politische Werbung, Freigabe Plakate durch Kampagne, Deploy nach `docs/DEPLOY.md`.
 6. Spawn auf Brücke per Teleport landet unten (groundAt braucht z).
 
-## Letzte Kontrolle
-(wird nach dem 2. Komplett-Build ergänzt)
+## Letzte Kontrolle (2026-10-16, ~01 Uhr, nach 3. Komplett-Build)
+- Build: 301 Kacheln, 0 Fehler, 62 min (unter Last; ab jetzt 1 BLAS-Thread pro Worker → schneller erwartet).
+- Bilder: `preview/qa_night3_desktop.jpg`, `qa_night3_phone.jpg` (27 Punkte), Vorher/Nachher der Nacht: `preview/nachtlauf_vorher_nachher.jpg`.
+- Perf (Dev-Server): Handy 4× gedrosselt 58 fps, 166 Calls, 0.52 Mio Dreiecke ✔. PC 51 fps Mittel / 60 Spitze, 432 Calls, 2.6 Mio (vorher 58 → Nachtlicht-Schleife im Fragment-Shader prüfen, z. B. tagsüber abschalten).
+- Download bis spielbar (Prod-Build, unkomprimiert): 26.8 MB (Budget 20 MB). Mit Brotli am CDN ≈ 21–23 MB. Grösste Posten: Figuren 4.0 MB, Fassaden-Atlas 2.7, Bäume 1.95, Karte 1.9 (gz 0.7). Messen: `node web/tests/netsize_prod.mjs` gegen `vite preview`.
+- Tests grün: gameplay, touch, drive.
+- Bekannte Kleinigkeiten: offene Parkflächen nachts sehr dunkel (wenig Laternen); einzelne Landmarks (Zeughäuser, Kaserne, Letzipark) grob; Westpark im Spiel ok.
