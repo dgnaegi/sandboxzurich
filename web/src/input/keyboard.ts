@@ -1,4 +1,5 @@
 import { actions } from './actions';
+import { settings } from '../ui/settings';
 
 /** Keyboard (WASD/arrows, Shift) and mouse drag / pointer lock for the camera. */
 export function initKeyboardMouse(canvas: HTMLCanvasElement) {
@@ -25,7 +26,7 @@ export function initKeyboardMouse(canvas: HTMLCanvasElement) {
   canvas.addEventListener('dblclick', () => canvas.requestPointerLock?.());
   window.addEventListener('mousemove', (e) => {
     if (!dragging && document.pointerLockElement !== canvas) return;
-    actions.look.yaw += e.movementX * 0.004;
-    actions.look.pitch += e.movementY * 0.003;
+    actions.look.yaw += e.movementX * 0.004 * settings.sens;
+    actions.look.pitch += e.movementY * 0.003 * settings.sens;
   });
 }

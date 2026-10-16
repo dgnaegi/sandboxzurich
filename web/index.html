@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
   <title>Sandbox Zürich</title>
+  <link rel="preload" href="/fonts/Anton-Regular.ttf" as="font" type="font/ttf" crossorigin />
   <link rel="stylesheet" href="/src/ui/hud.css" />
 </head>
 <body>
@@ -24,9 +25,14 @@
   <div id="menu">
     <div class="m-page" data-page="main">
       <h1>SANDBOX <b>ZÜRICH</b></h1>
-      <button id="m-continue">Weiter</button><button id="m-map">Karte</button><button id="m-quality">Grafik: auto</button><button id="m-sound">Ton: an</button>
+      <button id="m-continue">Weiter</button><button id="m-map">Karte</button><button id="m-settings">Einstellungen</button>
       <button id="m-credits">Credits</button><button id="m-imprint">Impressum</button>
     </div>
+    <div class="m-page" data-page="settings"><h2>Einstellungen</h2>
+      <div class="s-row"><label>Grafik</label><div class="s-seg"><button data-gfx="auto"></button><button data-gfx="sparen"></button><button data-gfx="hoch"></button></div><p id="s-gfx-hint"></p></div>
+      <div class="s-row"><label for="s-sens">Kamera-Empfindlichkeit</label><input id="s-sens" type="range" min="0.4" max="2.5" step="0.1" value="1" /></div>
+      <div class="s-row"><button id="s-sound"></button><button id="s-stick"></button></div>
+      <button class="m-back">Zurück</button></div>
     <div class="m-page" data-page="credits"><h2>Credits</h2>
       <p>Kartendaten © OpenStreetMap-Mitwirkende (ODbL) · Gebäude und Gelände: © swisstopo (swissBUILDINGS3D, swissALTI3D) · Stadt Zürich Open Data (CC0): Baumkataster, Beleuchtung ewz, Parkplätze, Sitzbänke, Brunnen, Abfallgefässe, Zweiradparkierung, Hydranten, Strassennamenverzeichnis, Widmungstafeln, Gastwirtschaftsbetriebe, Denkmalpflege-Inventar, Statistik · BFS, Eidg. Gebäude- und Wohnungsregister (GWR) · VBZ-Linien aus OSM · Anekdoten mit Quellen in research/ · Figuren: MakeHuman/MPFB (CC0) · Bewegungen: CMU Graphics Lab Motion Capture Database (mocap.cs.cmu.edu) · Baumhöhen: swisstopo swissSURFACE3D · Schriften: Anton, Barlow, Archivo (SIL OFL) · Code: WTFPL</p>
       <button class="m-back">Zurück</button></div>
@@ -43,7 +49,7 @@
     <button id="bigmap-close">✕</button>
     <div id="bigmap-zoom"><button id="bigmap-in">+</button><button id="bigmap-out">−</button></div>
   </div>
-  <div id="loading">loading...</div>
+  <div id="loading"><div id="ld-title">SANDBOX <b>ZÜRICH</b></div><div id="ld-bar"><i id="ld-fill"></i></div><div id="ld-msg"></div></div>
   <script type="module" src="/src/main.ts"></script>
 </body>
 </html>

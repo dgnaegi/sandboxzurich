@@ -1,4 +1,5 @@
 import { actions } from './actions';
+import { settings } from '../ui/settings';
 
 /** Touch: floating joystick on the left half, camera swipe on the right half. */
 export function initTouch(stick: HTMLElement, knob: HTMLElement) {
@@ -13,13 +14,14 @@ export function initTouch(stick: HTMLElement, knob: HTMLElement) {
     const b = document.getElementById(id);
     b?.addEventListener('touchstart', (e) => { e.stopPropagation(); e.preventDefault(); on(); }, { passive: false });
   }
-  const isUi = (t: EventTarget | null) => !!(t as HTMLElement | null)?.closest?.('button, #radar, #bigmap, #menu, #clock, #clockpanel');
+  const isUi = (t: EventTarget | null) => !!(t as HTMLElement | null)?.closest?.('button, #radar, #bigmap, #menu, #clock, #clockpanel, #helpcard');
   const start = (e: TouchEvent) => {
     document.body.classList.add('touch');
     if (Array.from(e.changedTouches).every((t) => isUi(t.target))) return; // let taps on UI become clicks
     for (const t of Array.from(e.changedTouches)) {
       if (isUi(t.target)) continue;
-      if (t.clientX < window.innerWidth / 2 && moveId === null) {
+      const stickSide = settings.stickRight ? t.clientX >= window.innerWidth / 2 : t.clientX < window.innerWidth / 2;
+      if (stickSide && moveId === null) {
         moveId = t.identifier; ox = t.clientX; oy = t.clientY;
         stick.style.left = `${ox}px`; stick.style.top = `${oy}px`; stick.style.display = 'block';
       } else if (lookId === null) {
@@ -38,8 +40,8 @@ export function initTouch(stick: HTMLElement, knob: HTMLElement) {
         knob.style.transform = `translate(${dx}px, ${dy}px)`;
         actions.move.x = dx / R; actions.move.y = -dy / R;
       } else if (t.identifier === lookId) {
-        actions.look.yaw += (t.clientX - lx) * 0.008;
-        actions.look.pitch += (t.clientY - ly) * 0.006;
+        actions.look.yaw += (t.clientX - lx) * 0.008 * settings.sens;
+        actions.look.pitch += (t.clientY - ly) * 0.006 * settings.sens;
         lx = t.clientX; ly = t.clientY;
       }
     }

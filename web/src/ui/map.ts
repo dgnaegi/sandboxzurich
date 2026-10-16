@@ -44,7 +44,7 @@ export class CityMap {
 
   private buildUi() {
     const legend = document.getElementById('bigmap-legend')!;
-    legend.innerHTML = '<i class="dot p"></i> spielbar · hineintippen oder Ort antippen zum Hinspringen &nbsp;·&nbsp; <i class="ln"></i> Tram';
+    legend.innerHTML = 'Irgendwo im Spielgebiet hintippen, um hinzuspringen &nbsp;·&nbsp; <i class="ln"></i> Tram';
     const tools = document.createElement('div');
     tools.id = 'bigmap-tools';
     const mk = (id: string, label: string, title: string, fn: () => void) => {
@@ -157,7 +157,7 @@ export class CityMap {
       const o = { ...this.opts, velo: this.showVelo, dpr };
       drawWorld(bg, this.data, v, CLASSIC, o);
       drawBorders(bg, v, CLASSIC, o);
-      drawLabels(bg, this.data, v, CLASSIC, { dpr, kreise: this.meta.kreise, jumps: this.meta.places, pins: this.pins });
+      drawLabels(bg, this.data, v, CLASSIC, { dpr, kreise: this.meta.kreise, jumps: [], pins: this.pins });
     }
     g.setTransform(1, 0, 0, 1, 0, 0);
     g.drawImage(this.base, 0, 0);

@@ -34,6 +34,9 @@ import { Anecdotes } from './gameplay/anecdotes';
 import { buildStops } from './world/stops';
 import { CityMap } from './ui/map';
 import { Menu } from './ui/menu';
+import { loading, hasWebGL2 } from './ui/loading';
+import { initHelp } from './ui/help';
+import { settings } from './ui/settings';
 import { Audio } from './engine/audio';
 import { CarUse } from './player/vehicle_use';
 import { TrafficLights } from './world/trafficlights';
@@ -53,18 +56,21 @@ async function main() {
   const canvas = $('view') as HTMLCanvasElement;
   const mobile = matchMedia('(pointer: coarse)').matches;
   const params = new URLSearchParams(location.search);
+  if (GAMEPLAY) document.body.classList.add('gameplay'); // wanted stars only shown with gameplay
+  initHelp(mobile);
   const R = createRenderer(canvas, mobile);
   const { renderer, scene, camera, followSun } = R;
   const daytime = new Daytime(R);
 
+  const L = (p: Promise<unknown>) => loading.track(p);
   const map = new CityMap();
-  await Promise.all([loadTrees('/models/trees', mobile ? 1 : 2), loadCars(), loadBikes(), loadFurniture()]);
+  await Promise.all([L(loadTrees('/models/trees', mobile ? 1 : 2)), L(loadCars()), L(loadBikes()), L(loadFurniture())]);
   treeField.init(renderer, mobile, !mobile);
   const [tiles, humans] = await Promise.all([
-    Tiles.load(scene, !mobile, Math.min(8, renderer.capabilities.getMaxAnisotropy())),
-    HumanLib.load('/models/humans', 4, mobile ? 14 : 40),
-    map.load(),
-    document.fonts.load('26px Anton'),
+    loading.track(Tiles.load(scene, !mobile, Math.min(8, renderer.capabilities.getMaxAnisotropy()))),
+    loading.track(HumanLib.load('/models/humans', 4, mobile ? 14 : 40)),
+    L(map.load()),
+    L(document.fonts.load('26px Anton')),
   ]);
   const ground = (x: number, y: number) => tiles.ground(x, y);
   const bikes = new Bikes(scene);
@@ -88,7 +94,7 @@ async function main() {
   bindHud(state);
   const at = params.get('at')?.split(',').map(Number);
   const [sx, sy, syaw] = at && at.length >= 2 ? at : saved?.x ? [saved.x, saved.y!, 0] : [SPAWN.x, SPAWN.y, SPAWN.yaw];
-  await tiles.update(sx, sy);
+  await L(tiles.update(sx, sy));
   const player = new Player(sx, sy, tiles, humans.instance(humans.player));
   player.teleport(sx, sy, syaw ?? 0);
   scene.add(player.mesh);
@@ -119,14 +125,14 @@ async function main() {
   const events = new Events(humans, ground, mobile);
   const velo = new VeloInfra();
   const anecdotes = new Anecdotes();
-  const npc = (await (await fetch('/data/npc.json')).json()) as { hourly: number[] };
+  const npc = (await loading.track(fetch('/data/npc.json').then((r) => r.json()))) as { hourly: number[] };
   // passer-by density by hour (Statistik Stadt Zürich proxy) + Fri/Sat nightlife on the Langstrasse
   const density = (min: number, wd: number) => {
     const h = Math.floor(min / 60) % 24, f = npc.hourly[h] ?? 0.5;
     const night = (wd === 4 || wd === 5) && (h >= 21 || h <= 3) ? 0.85 : 0;
     return 0.3 + 0.7 * Math.max(f, night);
   };
-  await Promise.all([landmarks3d.load(), rail.load(), transit.load(), transit.loadModels(), traffic.load(), scenes.load(), events.load(), velo.load(), anecdotes.load()]);
+  await Promise.all([landmarks3d.load(), rail.load(), transit.load(), transit.loadModels(), traffic.load(), scenes.load(), events.load(), velo.load(), anecdotes.load()].map(L));
   scene.add(events.group);
   traffic.maxCars = mobile ? 20 : 45;
   traffic.maxBikes = mobile ? 8 : 20;
@@ -189,12 +195,14 @@ async function main() {
   carUse.onTheft = onCarTheft;
 
   const post = !mobile && !params.has('nopost') ? createPost(renderer, scene, camera) : null;
-  const quality = new Quality(renderer, mobile, !!post);
+  const quality = new Quality(renderer, mobile, !!post, scene.fog as THREE.Fog | null);
   menu.onQuality = (q) => quality.force(q);
+  quality.force(settings.gfx); // saved choice (Einstellungen)
+  audio.setMuted(settings.muted);
   renderer.info.autoReset = false;
   initKeyboardMouse(canvas);
   initTouch($('stick'), $('knob'));
-  $('loading').remove();
+  loading.finish();
   if (params.has('map')) map.toggle(true);
   if (params.has('debug')) document.body.classList.add('debug');
 
@@ -330,7 +338,10 @@ async function main() {
     if (player.driving && daytime.night > 0.3) { const hx = Math.sin(player.heading), hy = Math.cos(player.heading); addCar(player.x + hx * 2.2, ground(player.x, player.y) + 0.7, -(player.y + hy * 2.2), hx, -hy, Math.min(1, daytime.night)); }
     if (QUESTS) missions.update(dt, player.x, player.y, !!player.riding);
     if (GAMEPLAY && police.update(dt, player.x, player.y, state.stars)) { busted(); audio.jingle(false); }
-    audio.update(dt, daytime.night, state.stars > 0, police.nearest(player.x, player.y));
+    audio.update(dt, daytime.night, state.stars > 0, police.nearest(player.x, player.y), {
+      x: player.x, y: player.y, heading: player.heading, night: daytime.night, density: density(clk.min, clk.day), hour: Math.floor(clk.min / 60) % 24,
+      trams: transit.colliders(),
+    });
     if ((frames & 63) === 0 && transit.colliders().some((v) => Math.hypot(v.x - player.x, v.y - player.y) < 25) && Math.random() < 0.3) audio.tramBell();
     state.tick(dt, police.nearest(player.x, player.y) < 50);
     updateSignals(acc);
@@ -363,7 +374,12 @@ async function main() {
       lastStats = acc;
     }
   });
-  Object.assign(window, { sbxReady: true, sbxPlayer: player, sbxScene: scene, sbxState: state, sbxBikes: bikes, sbxCarUse: carUse, sbxParked: parkedCars, sbxTraffic: traffic, sbxEvents: events, sbxTransit: transit, sbxRail: rail, sbxRenderer: renderer, sbxCamera: camera, sbxTiles: tiles, sbxDaytime: daytime, sbxMap: map }); // hooks for Playwright tests
+  Object.assign(window, { sbxReady: true, sbxPlayer: player, sbxScene: scene, sbxState: state, sbxBikes: bikes, sbxCarUse: carUse, sbxParked: parkedCars, sbxTraffic: traffic, sbxEvents: events, sbxTransit: transit, sbxRail: rail, sbxRenderer: renderer, sbxCamera: camera, sbxTiles: tiles, sbxDaytime: daytime, sbxMap: map, sbxCrowd: crowd }); // hooks for Playwright tests
 }
 
-main();
+if (!hasWebGL2()) loading.fail('Dein Browser unterstützt WebGL 2 nicht oder hat es abgeschaltet. Bitte aktualisiere den Browser (Chrome, Firefox, Safari ab iOS 15) oder aktiviere die Hardwarebeschleunigung.', false);
+else {
+  const fail = (e: unknown) => { console.error(e); loading.fail('Das Spiel konnte nicht geladen werden. Bitte prüfe die Verbindung und lade neu.'); };
+  main().catch(fail);
+  window.addEventListener('unhandledrejection', (e) => fail(e.reason));
+}
