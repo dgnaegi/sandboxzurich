@@ -14,9 +14,9 @@ WIRE_H = 5.5         # contact wire above rail head
 SPAN = 60.0          # mast spacing
 BALLAST_TOP = 0.08
 
-C_BALLAST, C_SLOPE = (112, 106, 99), (96, 91, 85)
+C_BALLAST, C_SLOPE = (150, 144, 136), (120, 115, 108)   # multiplied with the ballast texture
 C_SLEEP = (168, 164, 158)
-C_HEAD, C_WEB = (150, 140, 130), (88, 82, 76)
+C_HEAD, C_WEB = (205, 198, 190), (70, 66, 62)
 C_TONGUE, C_FROG, C_BOX = (205, 205, 210), (64, 58, 54), (58, 62, 66)
 C_MAST, C_SIGPOLE, C_SIGHEAD = (92, 98, 104), (200, 200, 200), (36, 38, 42)
 C_BUFFER, C_PORTAL, C_DARK = (150, 52, 44), (150, 148, 144), (24, 24, 26)
@@ -57,36 +57,28 @@ def decimate(pts, tol=0.06, tol_z=0.03):
     return pts[keep]
 
 
-def add_track(acc, pts, shoulders=True):
-    """Ballast (with shoulders on main tracks), sleepers (every 1.6 m) and rails (head + foot) for one polyline."""
+def add_track(acc, pts, shoulders=True, jitter=1.0):
+    """Track bed on a TrackAcc: ballast quad textured with the sleeper raster (u across, v along), shoulders, rails."""
     pts = decimate(pts)
     t, L = frames(pts)
     z0 = pts[:, 2]
+    seg = np.linalg.norm(np.diff(pts[:, :2], axis=0), axis=1)
+    v = np.concatenate([[0], np.cumsum(seg)]) / 2.4       # texture period = 2.4 m = 4 sleepers
     def at(u, dz):
         return np.column_stack([pts[:, 0] + L[:, 0] * u, pts[:, 1] + L[:, 1] * u, z0 + dz])
-    def strip(u0, d0, u1, d1, color, layer=None, hint=UP):
+    def strip(u0, d0, u1, d1, color, tex=None):
         A, B = at(u0, d0), at(u1, d1)
-        n = len(A) - 1
-        h = UP if hint is UP else hint[:-1]
-        acc.quads(np.stack([A[:-1], B[:-1], B[1:], A[1:]], 1), h, color, layer)
-    strip(-1.85, BALLAST_TOP, 1.85, BALLAST_TOP, C_BALLAST, "dach_kies")
+        uv = None
+        if tex is not None:
+            ua, ub = (u0 + 2.75) / 5.5 * 0.8, (u1 + 2.75) / 5.5 * 0.8
+            uv = np.stack([np.column_stack([np.full(len(v) - 1, ua), v[:-1]]), np.column_stack([np.full(len(v) - 1, ub), v[:-1]]),
+                           np.column_stack([np.full(len(v) - 1, ub), v[1:]]), np.column_stack([np.full(len(v) - 1, ua), v[1:]])], 1)
+        acc.quads(np.stack([A[:-1], B[:-1], B[1:], A[1:]], 1), UP, color, None, uv)
+    j = lambda c: tuple(int(min(255, x * jitter)) for x in c)
+    strip(-1.85, BALLAST_TOP, 1.85, BALLAST_TOP, j(C_BALLAST), True)
     if shoulders:
-        strip(-2.75, -0.1, -1.85, BALLAST_TOP, C_SLOPE, "dach_kies")
-        strip(1.85, BALLAST_TOP, 2.75, -0.1, C_SLOPE, "dach_kies")
-    # sleepers
-    seg = pts[1:, :2] - pts[:-1, :2]
-    ln = np.linalg.norm(seg, axis=1)
-    cnt = np.maximum(1, np.round(ln / 1.6).astype(int))
-    si = np.repeat(np.arange(len(seg)), cnt)
-    k = np.concatenate([np.arange(c) for c in cnt])
-    f = ((k + 0.5) / cnt[si])[:, None]
-    ctr = pts[si, :] + (pts[si + 1, :] - pts[si, :]) * f
-    ts, ls = t[si], L[si]
-    zz = ctr[:, 2] + 0.115
-    def sl(a, b):
-        return np.column_stack([ctr[:, 0] + ts[:, 0] * a + ls[:, 0] * b, ctr[:, 1] + ts[:, 1] * a + ls[:, 1] * b, zz])
-    acc.quads(np.stack([sl(-0.14, -1.3), sl(0.14, -1.3), sl(0.14, 1.3), sl(-0.14, 1.3)], 1), UP, C_SLEEP)
-    # rails: head strip + wider foot strip
+        strip(-2.75, -0.1, -1.85, BALLAST_TOP, j(C_SLOPE), True)
+        strip(1.85, BALLAST_TOP, 2.75, -0.1, j(C_SLOPE), True)
     for s in (-1, 1):
         u = s * 0.7175
         strip(u - 0.04, RAIL_TOP, u + 0.04, RAIL_TOP, C_HEAD)
@@ -115,7 +107,7 @@ def node_index(net):
     return idx
 
 
-def add_track_detail(net, accs, nidx):
+def add_track_detail(net, accs, nidx, taccs):
     """Switch tongues, frogs, point machines, diamonds, signals, buffer stops."""
     ns = nsig = nbuf = 0
     for n, t in net.nodetags.items():
@@ -139,7 +131,7 @@ def add_track_detail(net, accs, nidx):
                 continue
             if t.get("railway:switch") == "double_slip" or rt == "railway_crossing":
                 d = dirs[0] if dirs else np.array([1.0, 0])
-                add_diamond(acc, x, y, zs, d, dirs)
+                add_diamond(taccs[tile_of(x, y)], x, y, zs, d, dirs)
                 ns += 1
                 continue
             # stem = branch roughly opposite to the other two; diverging = the one deviating most from the stem axis
@@ -156,7 +148,7 @@ def add_track_detail(net, accs, nidx):
             if len(others) < 1:
                 continue
             ns += 1
-            add_switch(acc, x, y, zs, stem, div)
+            add_switch(taccs[tile_of(x, y)], accs[tile_of(x, y)], x, y, zs, stem, div)
         elif rt == "signal":
             nsig += add_signal(net, accs, n, t, occ)
         elif rt == "buffer_stop":
@@ -164,7 +156,7 @@ def add_track_detail(net, accs, nidx):
     return ns, nsig, nbuf
 
 
-def add_switch(acc, x, y, z, stem, div):
+def add_switch(acc, wacc, x, y, z, stem, div):
     """Tongue blades along the diverging branch, frog beyond, point machine beside the stem."""
     zt = z + RAIL_TOP + 0.012
     straight = -stem
@@ -184,7 +176,7 @@ def add_switch(acc, x, y, z, stem, div):
                [*(c + straight * 1.4 + w * 0.2), zt + 0.002], [*(c - straight * 1.4 + w), zt + 0.002]], UP, C_FROG)
     m = np.array([x, y]) + straight * 4.0 - nrm * sg * 2.15
     ang = math.atan2(straight[1], straight[0])
-    acc.box(-0.45, 0.45, -0.25, 0.25, z - 0.05, z + 0.55, C_BOX, ang, m[0], m[1])
+    wacc.box(-0.45, 0.45, -0.25, 0.25, z - 0.05, z + 0.55, C_BOX, ang, m[0], m[1])
 
 
 def add_diamond(acc, x, y, z, d, dirs):

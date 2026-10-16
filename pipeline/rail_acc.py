@@ -27,6 +27,9 @@ class Acc:
         c = np.asarray(color) / 255
         lin = np.where(c <= 0.04045, c / 12.92, ((c + 0.055) / 1.055) ** 2.4)
         col = np.append(np.round(lin * 255), 255)
+        if uv is not None:
+            uv = np.asarray(uv, np.float64).reshape(-1, 4, 2)
+            uv = np.where(flip[:, None, None], uv[:, ::-1], uv)
         self.P.append(P.astype(np.float32))
         self.N.append(np.repeat(n[:, None], 4, 1).astype(np.float32))
         self.C.append(np.broadcast_to(col, (len(P), 4, 4)))
@@ -57,3 +60,14 @@ class Acc:
         uv = uv - np.floor(uv.min(0))
         return {"pos": sw(P), "nrm": sw(N), "col": np.concatenate(self.C).reshape(-1, 4), "idx": idx.astype(np.uint32),
                 "uv": uv, "layer": np.concatenate(self.L).reshape(-1)}
+
+
+class TrackAcc(Acc):
+    """Track-bed mesh: samples the sleeper/ballast texture (u < 0.8) or the plain white column (u = 0.9) for flat colours."""
+    FLAT = (0.9, 0.5)
+
+    def quads(self, P, hint, color, layer=None, uv=None):
+        if uv is None:
+            n = np.asarray(P, np.float64).reshape(-1, 4, 3).shape[0]
+            uv = np.broadcast_to(np.asarray(self.FLAT), (n, 4, 2))
+        super().quads(P, hint, color, layer, uv)

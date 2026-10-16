@@ -25,7 +25,7 @@ import rail_net
 import rail_routes
 import terrain
 from config import ROOT, TILE, tiles
-from rail_acc import Acc
+from rail_acc import Acc, TrackAcc
 from rail_build import tile_of
 
 OUT_DIR = ROOT / "web" / "public" / "models" / "trains" / "tiles"
@@ -176,7 +176,7 @@ def add_platforms(polys, tracks, ways, roofs, accs, H, signs, stops):
     return n_roof
 
 
-def build_tracks(ways, accs, runs):
+def build_tracks(ways, taccs, runs):
     """Distribute track geometry over tile accumulators; collect electrified runs per tile (wires are built in the client)."""
     for w in ways:
         if w["cls"] == "tunnel":
@@ -192,21 +192,21 @@ def build_tracks(ways, accs, runs):
             run = pts[i:j + 2]
             if len(run) >= 2:
                 key = (int(keys[i][0]), int(keys[i][1]))
-                RB.add_track(accs[key], run, w["svc"] is None)
+                RB.add_track(taccs[key], run, w["svc"] is None, 0.9 + 0.2 * (((w["id"] * 2654435761) >> 9) % 100) / 100)
                 if w["elec"] and w["svc"] in (None, "yard", "crossover", "siding"):
                     runs[("wr" if w["svc"] is None else "w1", key)].append(np.round(run * 10).astype(int).ravel().tolist())
             i = j + 1
 
 
-def write_tiles(accs, runs, signs, routes, parked):
+def write_tiles(accs, taccs, runs, signs, routes, parked):
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     RAW_DIR.mkdir(parents=True, exist_ok=True)
-    for f in OUT_DIR.glob("r_*.glb"):
+    for f in list(OUT_DIR.glob("r_*.glb")) + list(OUT_DIR.glob("rt_*.glb")):
         f.unlink()
     keep = {(ix, iy) for ix, iy in tiles()}
     names = sorted({s[4] for v in signs.values() for s in v})
     meta, tris = {}, 0
-    keys = set(accs) | {k for (_, k) in runs} | set(parked)
+    keys = set(accs) | set(taccs) | {k for (_, k) in runs} | set(parked)
     for key in sorted(keys):
         if key not in keep:
             continue
@@ -228,6 +228,14 @@ def write_tiles(accs, runs, signs, routes, parked):
             m["pk"] = parked[key]
         if arr is not None:
             m["glb"] = 1
+        tarr = taccs[key].arrays() if key in taccs else None
+        if tarr is not None:
+            raw = RAW_DIR / f"rt_{key[0]}_{key[1]}.glb"
+            glb.write(raw, {"track": tarr})
+            subprocess.run(["npx", "--no-install", "gltfpack", "-i", str(raw), "-o", str(OUT_DIR / f"rt_{key[0]}_{key[1]}.glb"), "-cc", "-kv", "-km", "-vtf", "-vp", "15"],
+                           cwd=ROOT / "web", check=True, capture_output=True)
+            tris += len(tarr["idx"])
+            m["tg"] = 1
         meta[f"{key[0]}_{key[1]}"] = m
     DATA.write_text(json.dumps({"tile": TILE, "stations": names, "tiles": meta, "routes": routes}, separators=(",", ":")))
     print("tiles", len(meta), "tris", tris, "rail.json KB", DATA.stat().st_size // 1024)
@@ -237,10 +245,10 @@ def main():
     H = terrain.heights(TERRAIN_AREA, 2.0, z_shift=Z_SHIFT)
     net = rail_net.load(H)
     ways = net.ways
-    accs, runs, signs = defaultdict(Acc), defaultdict(list), defaultdict(list)
-    build_tracks(ways, accs, runs)
+    accs, taccs, runs, signs = defaultdict(Acc), defaultdict(TrackAcc), defaultdict(list), defaultdict(list)
+    build_tracks(ways, taccs, runs)
     nidx = RB.node_index(net)
-    ns, nsig, nbuf = RB.add_track_detail(net, accs, nidx)
+    ns, nsig, nbuf = RB.add_track_detail(net, accs, nidx, taccs)
     npt = RB.add_portals(net, accs, nidx)
     nm = RB.add_masts(ways, accs, H)
     polys, tracks, _ = platform_polys(net.plats, ways)
@@ -252,7 +260,7 @@ def main():
     for r in routes:
         del r["ways"]
     parked = RB.parked_trains(net, used)
-    write_tiles(accs, runs, signs, routes, parked)
+    write_tiles(accs, taccs, runs, signs, routes, parked)
 
 
 if __name__ == "__main__":

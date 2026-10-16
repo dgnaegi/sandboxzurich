@@ -8,7 +8,7 @@ import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js
  * S-Bahn trains on the OSM tracks. Per tile: 1 mesh (world material) + 1 wire LineSegments + 1 sign mesh = 3 draw calls.
  * Train positions are a pure function of game time (like Transit).
  */
-interface TileData { wr?: number[][]; w1?: number[][]; sg?: number[][]; pk?: number[][]; glb?: number }
+interface TileData { wr?: number[][]; w1?: number[][]; sg?: number[][]; pk?: number[][]; glb?: number; tg?: number }
 interface RouteJson { name: string; dir: number; len: number; stops: { name: string; s: number }[]; pts: number[]; v?: number; cars?: number; head?: number; ts?: number; te?: number }
 interface RailJson { tile: number; stations: string[]; tiles: Record<string, TileData>; routes: RouteJson[] }
 interface Seg { s0: number; s1: number; t0: number; T: number; es: boolean; ee: boolean }
@@ -54,6 +54,8 @@ export class Railways {
   private pMid: THREE.InstancedMesh | null = null;
   private parkDirty = false;
   private parked = new Map<string, number[][]>();
+  private trackMat: THREE.MeshLambertMaterial | null = null;
+  private lastPx = 1e9; private lastPy = 1e9;
   private signMat: THREE.MeshBasicMaterial | null = null;
   private routes: Route[] = [];
   private head: THREE.InstancedMesh | null = null;
@@ -120,6 +122,32 @@ export class Railways {
     return t;
   }
 
+  /** Track bed texture: u 0..0.8 = ballast (5.5 m) with concrete sleepers, v period 2.4 m = 4 sleepers; u 0.8..1 = plain white (flat colours). */
+  private trackTexture(): THREE.Texture {
+    const W = 160, Hh = 96, c = document.createElement('canvas'); c.width = W; c.height = Hh;
+    const x = c.getContext('2d')!;
+    const img = x.createImageData(W, Hh);
+    let seed = 7; const rnd = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
+    for (let j = 0; j < Hh; j++) for (let i = 0; i < W; i++) {
+      const o = (j * W + i) * 4;
+      let r = 255, g = 255, b = 255;
+      if (i < 128) {
+        const n = 0.82 + rnd() * 0.36 + (((i >> 3) + (j >> 3)) % 3) * 0.03;
+        r = 118 * n; g = 112 * n; b = 104 * n;               // grey-brown ballast
+        const sj = (j + 6) % 24;                               // 4 sleepers per 96 px
+        if (sj < 9 && i > 34 && i < 94) {                      // concrete sleeper 2.6 m x 0.3 m, partly embedded
+          const k = 0.88 + rnd() * 0.18 - (sj < 2 || sj > 7 ? 0.1 : 0) - (i < 40 || i > 88 ? 0.12 : 0) - (rnd() < 0.18 ? 0.15 : 0);
+          r = 138 * k; g = 134 * k; b = 128 * k;
+        }
+      }
+      img.data[o] = r; img.data[o + 1] = g; img.data[o + 2] = b; img.data[o + 3] = 255;
+    }
+    x.putImageData(img, 0, 0);
+    const t = new THREE.CanvasTexture(c);
+    t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.anisotropy = 4;
+    return t;
+  }
+
   private signMesh(list: number[][]): THREE.Mesh {
     const n = this.data!.stations.length, H = n + 1;
     const pos: number[] = [], uv: number[] = [], idx: number[] = [];
@@ -151,6 +179,16 @@ export class Railways {
         m.receiveShadow = true; m.matrixAutoUpdate = false; m.updateMatrix();
       });
       g.add(gl.scene);
+    }
+    if (d.tg) {
+      const gt = await this.loader.loadAsync(`${this.base}/tiles/rt_${key}.glb`);
+      this.trackMat ??= new THREE.MeshLambertMaterial({ map: this.trackTexture(), vertexColors: true });
+      gt.scene.traverse((o) => {
+        const m = o as THREE.Mesh;
+        if (!m.isMesh) return;
+        m.material = this.trackMat!; m.receiveShadow = true; m.matrixAutoUpdate = false; m.updateMatrix();
+      });
+      g.add(gt.scene);
     }
     if (d.wr) g.add(new THREE.LineSegments(wireGeo(d.wr), this.wireMat));
     if (d.w1) g.add(new THREE.LineSegments(wireGeo(d.w1, true), this.wireMat));
@@ -263,21 +301,23 @@ export class Railways {
     this.head.instanceMatrix.needsUpdate = true; this.mid.instanceMatrix.needsUpdate = true;
     if (this.head.instanceColor) this.head.instanceColor.needsUpdate = true;
     if (this.mid.instanceColor) this.mid.instanceColor.needsUpdate = true;
-    if (this.parkDirty) this.rebuildParked();
+    if (this.parkDirty || Math.hypot(px - this.lastPx, py - this.lastPy) > 30) { this.lastPx = px; this.lastPy = py; this.rebuildParked(px, py); }
   }
 
   /** Parked rakes of the loaded tiles (static instances). */
-  private rebuildParked() {
+  private rebuildParked(px: number, py: number) {
     this.parkDirty = false;
     if (!this.pHead || !this.pMid) return;
     let nh = 0, nm = 0;
+    const R = 330 * this.reach, cap = this.reach < 1 ? 48 : PARKMAX;   // phone: fewer, nearer parked rakes
     for (const list of this.parked.values()) {
       for (const [x, y, z, yaw, pitch, kind, tint] of list) {
+        if (Math.hypot(x - px, y - py) > R) continue;
         tpl.position.set(x, z + RAIL_TOP, -y);
         tpl.rotation.set(pitch, yaw, 0);
         tpl.updateMatrix();
-        if (kind === 0) { if (nh < PARKMAX) { this.pHead.setColorAt(nh, PTINT[tint]); this.pHead.setMatrixAt(nh++, tpl.matrix); } }
-        else if (nm < PARKMAX) { this.pMid.setColorAt(nm, PTINT[tint]); this.pMid.setMatrixAt(nm++, tpl.matrix); }
+        if (kind === 0) { if (nh < cap) { this.pHead.setColorAt(nh, PTINT[tint]); this.pHead.setMatrixAt(nh++, tpl.matrix); } }
+        else if (nm < cap) { this.pMid.setColorAt(nm, PTINT[tint]); this.pMid.setMatrixAt(nm++, tpl.matrix); }
       }
     }
     this.pHead.count = nh; this.pMid.count = nm;
