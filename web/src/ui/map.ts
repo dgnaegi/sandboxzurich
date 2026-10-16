@@ -1,6 +1,6 @@
 /** Arcade radar (top left) and full-screen city map (M / tap on the radar). Vector data from pipeline/mapdata.py. */
 import { MapData } from './map_data';
-import { DARK, LIGHT, applyView, drawBorders, drawWorld, type DrawOpts, type View } from './map_render';
+import { CLASSIC, DARK, applyView, drawBorders, drawWorld, type DrawOpts, type View } from './map_render';
 import { drawLabels, type Jump, type PinHit } from './map_labels';
 
 export type MapPlace = Jump;
@@ -155,9 +155,9 @@ export class CityMap {
       this.baseKey = key;
       const bg = this.base.getContext('2d')!;
       const o = { ...this.opts, velo: this.showVelo, dpr };
-      drawWorld(bg, this.data, v, LIGHT, o);
-      drawBorders(bg, v, LIGHT, o);
-      drawLabels(bg, this.data, v, LIGHT, { dpr, kreise: this.meta.kreise, jumps: this.meta.places, pins: this.pins });
+      drawWorld(bg, this.data, v, CLASSIC, o);
+      drawBorders(bg, v, CLASSIC, o);
+      drawLabels(bg, this.data, v, CLASSIC, { dpr, kreise: this.meta.kreise, jumps: this.meta.places, pins: this.pins });
     }
     g.setTransform(1, 0, 0, 1, 0, 0);
     g.drawImage(this.base, 0, 0);

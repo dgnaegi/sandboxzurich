@@ -1,4 +1,4 @@
-/** Canvas renderer for the vector city map: shared by the radar (dark, rotating) and the big map (light). */
+/** Canvas renderer for the vector city map: shared by the radar (dark, rotating) and the big map (classic dark). */
 import type { MapData } from './map_data';
 
 export interface View { cx: number; cy: number; s: number; rot: number; w: number; h: number }
@@ -22,6 +22,16 @@ export const DARK: Theme = {
   roads: ['#e0a458', '#e6cf7a', '#d9d29a', '#a9b3b8', '#97a2a7', '#6d777c', '#7d8589', '#6d777c'],
   casing: ['#6e4a1d', '#6e5b22', '#625e3a', '#3a4348', '#394246', '#333b3f', '#394246', '#394246'],
   railLine: '#7d838a', tram: '#ff6a6a', text: '#fff', halo: '#000', kreis: '#c9a7e0', play_: '#ff4fa0',
+  veloLane: '#3fd0ff', veloPath: '#4be39a', veloRoad: '#b88cff',
+};
+
+/** Big map: the palette of the original raster map (pipeline/build_map.py before 2026-10-15) – user preferred its look. */
+export const CLASSIC: Theme = {
+  bg: '#22282c', land: '#343c40', dim: '#22282c', bld: '#4a5256', bldLine: '#555e63', water: '#2e5c84', green: '#3a5c38', wood: '#335233', sport: '#3e6340',
+  cemetery: '#3a5a3c', play: '#3e6340', allot: '#3d5a3a', rail: '#3a3f44', plaza: '#3f474c',
+  roads: ['#d6c478', '#d6c478', '#c9bd84', '#828a8e', '#7a8286', '#62696d', '#6f777b', '#5c6367'],
+  casing: ['#6a5c2a', '#6a5c2a', '#5e5636', '#2c3337', '#2c3337', '#2a3034', '#2c3337', '#2c3337'],
+  railLine: '#5c6064', tram: '#ff6a6a', text: '#fff', halo: '#000', kreis: '#ececec', play_: '#ff4fa0',
   veloLane: '#3fd0ff', veloPath: '#4be39a', veloRoad: '#b88cff',
 };
 

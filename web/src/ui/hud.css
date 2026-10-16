@@ -71,7 +71,7 @@ body.touch #touchbtns { display: flex; }
 #bubble::after { content: ''; position: absolute; left: 50%; bottom: -6px; border: 6px solid transparent; border-top-color: #fff; border-bottom: 0; transform: translateX(-50%); }
 /* city map v2 */
 #bigmap { background: #e6e2d9; }
-#bigmap-title { color: #2f2a24; text-shadow: 0 2px 0 #fffc; } #bigmap-title span { color: #e4007d; }
+#bigmap-title span { color: #ff4fa0; }  /* classic dark map: white title (line 28), pink accent */
 #bigmap-legend { color: #2f2a24; background: #fffe; box-shadow: 0 2px 8px #0003; }
 #bigmap-legend .dot.p { background: #e4007d; border-color: #fff; }
 #bigmap-legend .ln { display: inline-block; width: 18px; height: 3px; background: #b3262d; vertical-align: 3px; }
