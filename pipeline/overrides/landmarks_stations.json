@@ -1,0 +1,31 @@
+{
+ "landmarks": [
+  {
+   "name": "Perrons Z\u00fcrich Hardbr\u00fccke",
+   "model": "/models/landmarks/stp_hardbruecke.glb",
+   "x": 50.3,
+   "y": 118.6,
+   "z": -5.91,
+   "heading": 0,
+   "hide": []
+  },
+  {
+   "name": "Perrons Z\u00fcrich Altstetten",
+   "model": "/models/landmarks/stp_altstetten.glb",
+   "x": -2080.4,
+   "y": 811.5,
+   "z": -11.99,
+   "heading": 0,
+   "hide": []
+  },
+  {
+   "name": "Perrons Z\u00fcrich Wiedikon",
+   "model": "/models/landmarks/stp_wiedikon.glb",
+   "x": 424.5,
+   "y": -1285.6,
+   "z": -5.79,
+   "heading": 0,
+   "hide": []
+  }
+ ]
+}

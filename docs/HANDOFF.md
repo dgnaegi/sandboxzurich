@@ -61,3 +61,8 @@ Erledigt laut DECISIONS #38. Test: `web/tests/crash.mjs` (Kontaktbogen preview/c
 
 ## Fidelity-Lauf (2026-10-16, Fotos nachbauen)
 75 Panoramax-Paare `preview/fidelity_k45_1..15.jpg`, Auswertung `research/fidelity.md` (systematische Abweichungen S1–S13 + Vorschläge). Tools: `web/tests/fidelity_shots.mjs` (Ego-Screenshot an Foto-Pose), `pipeline/photos/fidelity_{sheet,labels,grid,notes}.py`. +82 Fassadennotizen in `visual_notes_v3.json` (greifen erst nach Komplett-Build). Objekte: `overrides/fidelity.json` → `pipeline/fidelity.py` → `places_detail_fidelity.json`. 6 Kacheln neu gebaut (0_3,-1_3,0_-2,2_-5,3_-4,-2_5). Nächster Schritt: Komplett-Build, dann S1 (grüne Velostreifen) und S2 (Trottoir zu hell).
+
+## Bahnhöfe Perron-Ebene (2026-10-16, Agent Bahnhöfe)
+- Hardbrücke/Altstetten/Wiedikon: `stp_*.glb` (Perron-Möblierung, Schilder, Treppenläufe zur Brücke bzw. Strasse, Treppenöffnungen zur Passage, Lifttürme, Glas-Wartehäuschen, Velo-Bügel; Altstetten 3/4 + 6/7 komplett inkl. Sichtbetondach, weil in OSM fehlend). Daten `research/stations/` (`platforms.json` für `railways.py`, `<id>.md` Notizen, `spots_<id>.json` Wartende/Sitzplätze für pedspots, `photos_<id>.json`), Fotobögen `preview/ref_station_*.jpg`, Vergleich `preview/station_cmp_*.jpg`.
+- Neu bauen: `st_osm.py` → `st_data.py` → `st_station.py` (alles `.venv/bin/python pipeline/landmarks/…`), Vergleich `st_cmp.py`. Keine Kachel-Builds nötig, keine hide-Punkte.
+- Begehbar: `web/public/data/station_decks.json` (Perronflächen + Treppen), geladen in `engine/tiles.ts`. Offen: Bahn-Agent soll Perrons mit `in_osm=false` nicht doppelt bauen; Wiedikon-Perrondach (gewölbt, dunkle Stahlstützen) ist noch die flache OSM-Platte; Hardbrücke Perron 2/3 ohne amtliche Gleisnummern.

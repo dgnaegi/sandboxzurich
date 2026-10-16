@@ -59,7 +59,10 @@ export class Tiles {
       fetch(`${BASE}/world.json`).then((r) => r.json() as Promise<World>),
       loadWorldMaterial('/tex', anisotropy, shadows)   // shadows = desktop tier = PBR + IBL,
     ]);
-    return new Tiles(world, scene, shadows, mat);
+    const t = new Tiles(world, scene, shadows, mat);
+    // station platforms and stairs as walkable decks (pipeline/landmarks/st_station.py); optional file
+    try { const r = await fetch('/data/station_decks.json'); if (r.ok) t.bridges.add(await r.json() as BridgeRows, 'stations'); } catch { /* no station decks */ }
+    return t;
   }
 
   get area() { return this.world.area; }

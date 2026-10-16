@@ -17,9 +17,9 @@ const place = (v) => {
   if (!w.__hid) { w.__hid = 1; const st = document.createElement('style'); st.textContent = 'body > *:not(canvas){display:none !important}'; document.head.appendChild(st); }
   if (v.nob) w.sbxScene.traverse((o) => { if (o.name === 'buildings') o.visible = false; });
   const P = v.p, L = v.l;
-  cam.__set(P[0], g(P[0], P[1]) + P[2], -P[1]);
+  cam.__set(P[0], v.az !== undefined ? v.az : g(P[0], P[1]) + P[2], -P[1]);   // az/lz: absolute eye / look z (local metres)
   cam.fov = v.fov || 50; cam.updateProjectionMatrix();
-  cam.__look(L[0], g(L[0], L[1]) + L[2], -L[1]);
+  cam.__look(L[0], v.lz !== undefined ? v.lz : g(L[0], L[1]) + L[2], -L[1]);
 };
 for (const v of views) {
   for (let attempt = 0; attempt < 3; attempt++) {
