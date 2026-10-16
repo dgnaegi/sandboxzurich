@@ -58,8 +58,11 @@ export function buildStops(data: { lines: LineJson[] }, ground: (x: number, y: n
     const z = ground(st.x, st.y), o = new THREE.Group();
     o.position.set(st.x, z, -st.y); o.rotation.y = -st.h;
     const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 2.9, 6).translate(0, 1.45, 0), grey);
-    const sign = new THREE.Mesh(new THREE.PlaneGeometry(0.6, 0.6).translate(0, 2.5, 0),
-      new THREE.MeshLambertMaterial({ map: panel(name, [...st.lines].sort()), side: THREE.DoubleSide }));
+    // two faces back to back: a DoubleSide plane shows the name mirrored from behind
+    const signMat = new THREE.MeshLambertMaterial({ map: panel(name, [...st.lines].sort()) });
+    const sign = new THREE.Group();
+    sign.add(new THREE.Mesh(new THREE.PlaneGeometry(0.6, 0.6).translate(0, 2.5, 0.006), signMat),
+      new THREE.Mesh(new THREE.PlaneGeometry(0.6, 0.6).rotateY(Math.PI).translate(0, 2.5, -0.006), signMat));
     sign.rotation.y = Math.PI / 2;
     pole.position.x = sign.position.x = 0.4;
     // shelter: roof, back glass, two posts, bench

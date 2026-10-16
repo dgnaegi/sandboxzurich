@@ -37,19 +37,11 @@ Spielgebiet: Kreise 4+5, Teile 9 und 3, Friedhof Sihlfeld (6.88 km², 219 Spiel-
 5. Vor MVP (User): Tests auf echten Handys, Impressum, Kennzeichnung politische Werbung, Freigabe Plakate durch Kampagne, Deploy nach `docs/DEPLOY.md`.
 6. Spawn auf Brücke per Teleport landet unten (groundAt braucht z).
 
-## Letzte Kontrolle (2026-10-16, ~01 Uhr, nach 3. Komplett-Build)
-- Build: 301 Kacheln, 0 Fehler, 62 min (unter Last; ab jetzt 1 BLAS-Thread pro Worker → schneller erwartet).
-- Bilder: `preview/qa_night3_desktop.jpg`, `qa_night3_phone.jpg` (27 Punkte), Vorher/Nachher der Nacht: `preview/nachtlauf_vorher_nachher.jpg`.
-- Perf (Dev-Server): Handy 4× gedrosselt 58 fps, 166 Calls, 0.52 Mio Dreiecke ✔. PC 51 fps Mittel / 60 Spitze, 432 Calls, 2.6 Mio (vorher 58 → Nachtlicht-Schleife im Fragment-Shader prüfen, z. B. tagsüber abschalten).
-- Download bis spielbar (Prod-Build, unkomprimiert): 26.8 MB (Budget 20 MB). Mit Brotli am CDN ≈ 21–23 MB. Grösste Posten: Figuren 4.0 MB, Fassaden-Atlas 2.7, Bäume 1.95, Karte 1.9 (gz 0.7). Messen: `node web/tests/netsize_prod.mjs` gegen `vite preview`.
-- Tests grün: gameplay, touch, drive.
-- Bekannte Kleinigkeiten: offene Parkflächen nachts sehr dunkel (wenig Laternen); einzelne Landmarks (Zeughäuser, Kaserne, Letzipark) grob; Westpark im Spiel ok.
-
-## Transit v2 (Tram/Bus)
-- Zielanzeige vorne: Liniennummer (LED-orange) + Ziel (letzte Haltestelle, weiss) pro Linie/Richtung (`transit.ts` labelMat).
-- Diesel-Gelenkbus `bus_gelenk` (Modul `bus_hinten`, ohne Stangen) fuer mode=bus; Trolleybus nur fuer mode=trolleybus. Manifest enthaelt `doors_r/doors_l`.
-- Nacht: Fensterflaechen leuchten warm (`transit.night`, Shader-Patch). Halt: Tueren offen (helle Tuerflaechen), wenige Fahrgaeste steigen aus/ein, Klingel bei Abfahrt in der Naehe (`onBell`).
-- Offen: Tram 2000 nicht modelliert; Haltestellen (stops.ts) unveraendert; Kontrolle `web/tests/transit_v2.mjs`.
-
-## Landmark-Check lm6 (2026-10-16)
-Spiel-Kontaktbögen `preview/lm6_check_0..3.jpg` (48 Landmarks, Luftperspektive), Foto-Vergleiche `preview/lm6_<id>.jpg` + `lm6_all.jpg`. Keine schwebenden/versunkenen/überdeckten Landmarks gefunden, keine neuen hide-Punkte. Überarbeitet: Zeughäuser (Torbögen, Laibungen, Pilaster, Ziegeldach), Kaserne (4 Türme, Portal, Backsteindach), Letzipark (Kugelleuchten auf Säulen), Toni (dunkleres Streckmetall), Kalkbreite (Ocker-Putz), Bhf Hardbrücke (Lamellenfassade). Offen: Bezirksgebäude-Fenster zeigen teils Dreiecksartefakte; Hardbrücke Schrägglas-Giebel fehlt.
+## Letzte Kontrolle (2026-10-16, 03 Uhr, nach 4. Komplett-Build)
+- Build `logs/build_full7.log`: 301 Kacheln, 0 Fehler, 55 min.
+- Bilder: `preview/qa_final_desktop.jpg`, `preview/qa_final_phone.jpg` (27 Punkte), Nacht vorher/nachher `preview/nachtlauf_vorher_nachher.jpg`.
+- Perf (Dev-Server): Handy 4× gedrosselt 58 fps, 167 Calls, 0.53 Mio ✔; PC 58 fps, 425 Calls, 2.6 Mio ✔.
+- Tests: gameplay 5/5, touch 4/4, drive 18/18, clock 12/12.
+- Download bis spielbar (Prod, unkomprimiert) 26.8 MB, Budget 20 MB → mit Brotli am CDN ≈ 21–23 MB; nächste Hebel: Figuren-Texturen (4 MB), Karte lazy laden (1.9 MB), Fassaden-Atlas.
+- Zuletzt behoben: Haltestellenschild von hinten gespiegelt (zwei Flächen), Tram-Frontscheibe leuchtete nachts, Nachtlicht erst ab Nachtanteil 0.12 (PC-Dämmerung 51 → 56 fps).
+- Bekannt offen: Bezirksgebäude-Fenster mit Dreiecksartefakten (`k4w3_bezirk.py`), Hardau-Türme ca. 2 m tief (prüfen), offene Parks nachts dunkel, Tram 2000 fehlt, Kandelaber-Typen (keine Daten).
