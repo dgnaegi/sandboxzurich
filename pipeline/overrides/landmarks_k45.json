@@ -47,20 +47,6 @@
    ]
   },
   {
-   "name": "Kalkbreite",
-   "model": "/models/landmarks/kalkbreite.glb",
-   "x": 400.2,
-   "y": -1208.8,
-   "z": 1.24,
-   "heading": 0,
-   "hide": [
-    [
-     414.0,
-     -1218.7
-    ]
-   ]
-  },
-  {
    "name": "Bullingerkirche",
    "model": "/models/landmarks/bullingerkirche.glb",
    "x": -96.4,
@@ -301,24 +287,6 @@
    ]
   },
   {
-   "name": "Bahnhof Hardbruecke",
-   "model": "/models/landmarks/bahnhof_hardbruecke.glb",
-   "x": 28.0,
-   "y": 112.0,
-   "z": 0.9,
-   "heading": 0,
-   "hide": [
-    [
-     48.4,
-     111.0
-    ],
-    [
-     54.2,
-     118.4
-    ]
-   ]
-  },
-  {
    "name": "KVA-Kamin Josefstrasse",
    "model": "/models/landmarks/kva_chimney.glb",
    "x": 433.5,
@@ -413,24 +381,6 @@
    ]
   },
   {
-   "name": "Toni-Areal",
-   "model": "/models/landmarks/toni_areal.glb",
-   "x": -348.5,
-   "y": 757.7,
-   "z": -9.35,
-   "heading": 0,
-   "hide": [
-    [
-     -352.1,
-     749.8
-    ],
-    [
-     -378.9,
-     674.7
-    ]
-   ]
-  },
-  {
    "name": "Schiffbau",
    "model": "/models/landmarks/schiffbau.glb",
    "x": 150.4,
@@ -465,6 +415,56 @@
     [
      244.3,
      547.7
+    ]
+   ]
+  },
+  {
+   "name": "Toni-Areal",
+   "model": "/models/landmarks/toni_areal.glb",
+   "x": -348.5,
+   "y": 757.7,
+   "z": -9.35,
+   "heading": 0,
+   "hide": [
+    [
+     -352.1,
+     749.8
+    ],
+    [
+     -378.9,
+     674.7
+    ]
+   ]
+  },
+  {
+   "name": "Kalkbreite",
+   "model": "/models/landmarks/kalkbreite.glb",
+   "x": 400.2,
+   "y": -1208.8,
+   "z": 1.24,
+   "heading": 0,
+   "hide": [
+    [
+     414.0,
+     -1218.7
+    ]
+   ]
+  },
+  {
+   "name": "Bahnhof Hardbruecke",
+   "model": "/models/landmarks/bahnhof_hardbruecke.glb",
+   "x": 28.0,
+   "y": 112.0,
+   "z": 0.9,
+   "heading": 0,
+   "hide": [
+    [
+     48.4,
+     111.0
+    ],
+    [
+     54.2,
+     118.4
     ]
    ]
   }

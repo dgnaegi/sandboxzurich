@@ -8,7 +8,7 @@ import detail as D
 import osmq
 from shapely.geometry import Polygon, MultiLineString, LineString, Point
 
-METAL = hexc("#7a766c"); CONC = D.hexl("#a9a69e")
+METAL = hexc("#625e55"); CONC = D.hexl("#a9a69e")
 
 
 def metal_tex(seed=2):
@@ -30,7 +30,7 @@ def finned(ga, cw=64, ch=96, pitch=8):
     base, em = ga; d, de = ImageDraw.Draw(base), ImageDraw.Draw(em)
     for k in range(8):
         for x in range(k * cw + 2, (k + 1) * cw, pitch):
-            d.rectangle([x, 0, x + 2, ch - 1], fill=hexc("#575349")); de.rectangle([x, 0, x + 2, ch - 1], fill=(0, 0, 0))
+            d.rectangle([x, 0, x + 2, ch - 1], fill=hexc("#45423b")); de.rectangle([x, 0, x + 2, ch - 1], fill=(0, 0, 0))
     return base, em
 
 

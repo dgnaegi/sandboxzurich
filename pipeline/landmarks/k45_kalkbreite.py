@@ -14,7 +14,7 @@ def build():
     ring = list(Pl.exterior.coords)[:-1]; ne = len(ring)
     rng = np.random.default_rng(14)
     m = Model("kalkbreite")
-    mw = m.mat("wall", plaster(hexc("#cac5b9"), seed=12, stains=0.03))
+    mw = m.mat("wall", plaster(hexc("#cdbf9c"), seed=12, stains=0.03))
     sign = D.letters_strip([(0, 1024, "KALKBREITE", "#1e1e1e", "#cac5b9", None)], size=28)
     ga = D.glass_atlas_g(frame="#4a4a46", glass="#2f3b44", sky="#8da3b2", cols=2, rows=2, seed=15, bar=3, lit_p=0.4, sign=sign, curtain_cols=[(232, 228, 216), (210, 206, 196), (240, 238, 232), (180, 186, 190), (200, 190, 170)])
     mg = m.mat("glass", *ga, rough=0.3); mf = m.mat("flat", solid((255, 255, 255, 255)))

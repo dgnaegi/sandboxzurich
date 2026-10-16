@@ -50,3 +50,6 @@ Spielgebiet: Kreise 4+5, Teile 9 und 3, Friedhof Sihlfeld (6.88 km², 219 Spiel-
 - Diesel-Gelenkbus `bus_gelenk` (Modul `bus_hinten`, ohne Stangen) fuer mode=bus; Trolleybus nur fuer mode=trolleybus. Manifest enthaelt `doors_r/doors_l`.
 - Nacht: Fensterflaechen leuchten warm (`transit.night`, Shader-Patch). Halt: Tueren offen (helle Tuerflaechen), wenige Fahrgaeste steigen aus/ein, Klingel bei Abfahrt in der Naehe (`onBell`).
 - Offen: Tram 2000 nicht modelliert; Haltestellen (stops.ts) unveraendert; Kontrolle `web/tests/transit_v2.mjs`.
+
+## Landmark-Check lm6 (2026-10-16)
+Spiel-Kontaktbögen `preview/lm6_check_0..3.jpg` (48 Landmarks, Luftperspektive), Foto-Vergleiche `preview/lm6_<id>.jpg` + `lm6_all.jpg`. Keine schwebenden/versunkenen/überdeckten Landmarks gefunden, keine neuen hide-Punkte. Überarbeitet: Zeughäuser (Torbögen, Laibungen, Pilaster, Ziegeldach), Kaserne (4 Türme, Portal, Backsteindach), Letzipark (Kugelleuchten auf Säulen), Toni (dunkleres Streckmetall), Kalkbreite (Ocker-Putz), Bhf Hardbrücke (Lamellenfassade). Offen: Bezirksgebäude-Fenster zeigen teils Dreiecksartefakte; Hardbrücke Schrägglas-Giebel fehlt.

@@ -14,10 +14,10 @@ def build():
     sgn = D.letters_strip([(0, 640, "Zürich Hardbrücke", "#ffffff", "#c8372d", (255, 255, 255)), (640, 1024, "SBB CFF FFS", "#ffffff", "#eb0000", (255, 240, 240))], size=26)
     mg = m.mat("glass", *D.glass_atlas_g(frame="#dfe3e4", glass="#35505f", sky="#a9c5d3", cols=3, rows=5, seed=21, lit_p=0.5, curtains=False, bar=3, sign=sgn), rough=0.3)
     mf = m.mat("flat", solid((255, 255, 255, 255)))
-    pim = Image.new("RGBA", (128, 128), hexc("#b9bdc1")); pd = ImageDraw.Draw(pim)
-    for yy in range(3, 128, 8):
-        for xx in range(3, 128, 8): pd.ellipse([xx, yy, xx + 3, yy + 3], fill=hexc("#7b8084"))
-    for xx in range(0, 128, 32): pd.line([xx, 0, xx, 128], fill=hexc("#dfe2e4"), width=2)
+    pim = Image.new("RGBA", (128, 128), hexc("#c3c8cc")); pd = ImageDraw.Draw(pim)
+    for xx in range(0, 128, 4):   # vertical silver lamellae (photo #26)
+        pd.line([xx, 0, xx, 128], fill=hexc("#e4e8ea") if (xx // 4) % 2 else hexc("#9fa5aa"), width=2)
+    for yy in range(0, 128, 64): pd.line([0, yy, 128, yy], fill=hexc("#7d8388"), width=2)
     mm = m.mat("metal", pim, None, rough=0.5)
     lines = [[(35, 145), (2, 91)], [(20, 80), (54, 133)]]
     STEEL, CONC, ROOF = hexc("#8a9094"), hexc("#b9b6ae"), hexc("#c9d3d8")
