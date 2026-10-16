@@ -43,3 +43,6 @@ preview/ref_*.jpg
 research/shops_v3/sheets*/
 research/buildings/sheets_v3/
 research/posters/raw/
+
+# wrangler local state
+.wrangler/

@@ -1,0 +1,10 @@
+{
+  // Static site on Cloudflare Workers (static assets). Build first: npm run build. Deploy: npm run deploy
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sandboxzurich",
+  "compatibility_date": "2026-10-12",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "none"
+  }
+}
