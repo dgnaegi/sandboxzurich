@@ -79,3 +79,13 @@ Zett-Haus, Apollo-Haus, Hotelbau Badenerstr. 420, Albisriederplatz Eck, Langstra
 
 ## Wasser (2026-10-16)
 `pipeline/water.py` + `web/src/world/water.ts` (DECISIONS Wasser). Nur 4 Testkacheln gebaut (6_-8, 6_-5, 5_2, 3_3), alle anderen Wasserkacheln brauchen den Komplett-Build. Tests: tsc, gameplay OK; Phone-Perf am Fluss 46 fps (Maschine unter Last, Load ~9). Offen: Geländer, Treppen, Wehre, Kiesbänke, Spawn/Kamera am Sihlhölzli prüfen.
+
+## Strassen glätten (2026-10-16, Agent Strassen)
+- Neu: `pipeline/road_height.py` (Strassenhöhe in H, Brücken-Exklusion unter Decks), `streets.tidy_roads` (Polygon), `pipeline/roads_audit.py` + `roads_places.py`, Tests `web/tests/roads_ride.mjs` / `roads_shots.mjs` / `roads_sheet.py`. Bericht `research/roads_audit.md`, Bilder `preview/roads_fix_0..7.jpg` (vorher/nachher), Karte `preview/roads_audit_map*.jpg`.
+- Nur 8 Testkacheln neu gebaut (-3_-2, 2_-7, 1_-3, 1_-4, 5_-1, 0_-5, 4_-9, 4_-2). **Ein Komplett-Build ist nötig**, sonst sind die Kachelränder uneinheitlich (Nachbarkacheln haben die alte Höhe).
+- Offen: Brückendeck-Höhen gestuft (web/src/world/bridges.ts), Trottoir-Absätze an Rampen, Haltelinien-Striche unter Decks fehlen teils.
+
+## fid2 (Fidelity-Korrekturen S1-S4, S6, S9-S11), 2026-10-16
+- Boden: Trottoir dunkler/glatter, Asphalt/Trottoir wärmer (Texturen + Shader-Warmfaktor in `materials.ts`), Rinne 0.22 m; Atlas neu (gilt überall sofort).
+- Neu im Tile-Build (nur in Kacheln -5_-1, -1_4, -2_5, 0_3, 0_-2, -1_-3 sichtbar, sonst Komplett-Build nötig): grüne Velostreifen (`overrides/velo_green.json`, Foto-belegt), OSM-Veloständer/Roller/Poller-Linien (`cityprops._osm_extras`, `mopeds.ts`), Bodenzahl «30»/«20», Blaue-Zone-Tafeln (`traffic_signs._blue_zone_signs`), Blauzonen-Parkdichte 90 %, entsättigte Default-Fassadentöne (`styles.TINTS`).
+- Vorher/Nachher: `preview/fidelity2_a|b|c|d.jpg`. Details: `research/fidelity.md` (Abschnitt «Nachführung fid2»).

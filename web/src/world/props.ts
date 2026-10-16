@@ -7,6 +7,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 import { glowMaterialPatch } from '../engine/daytime';
 import { nightUniform } from '../engine/materials';
+import { mopedGeo } from './mopeds';
 
 
 /**
@@ -138,6 +139,7 @@ export function buildProps(meta: PropMeta, shadows: boolean): THREE.Object3D[] {
     place((t === 1 && T.bin_hai) || (t === 2 && T.bin_robidog) || (ash && T.bin_ash) || T.bin, r[0], r[1], r[2], -r[3] + Math.PI);
   }
   for (const r of meta.racks ?? []) place(T.rack, r[0], r[1], r[2], -r[3] + Math.PI / 2);
+  for (const r of (meta as unknown as { mopeds?: number[][] }).mopeds ?? []) place(mopedGeo(r[4]), r[0], r[1], r[2], -r[3]);
   for (const r of (meta as unknown as { terraces?: number[][] }).terraces ?? []) {
     place(T.terrace, r[0], r[1], r[2], -r[3]);
     if (r[4]) place(T.parasol, r[0], r[1], r[2], 0);

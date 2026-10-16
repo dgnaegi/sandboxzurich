@@ -318,6 +318,9 @@ def decals(S, tb, H, curb=0.12):
                 if enter == "z30" and other != "z30":
                     ss = min(max(s + sgn * 8, 5), L - 5)
                     add(ln.interpolate(ss), heading(ln, ss) + (0 if sgn > 0 else np.pi), 3)
+                elif enter == "beg" and other not in ("beg", "fuss"):  # Begegnungszone: painted "20" (fidelity S11)
+                    ss = min(max(s + sgn * 8, 5), L - 5)
+                    add(ln.interpolate(ss), heading(ln, ss) + (0 if sgn > 0 else np.pi), 11)
                 elif enter == "t30" and other not in ("z30", "t30") and w["hw"] in ("primary", "secondary", "tertiary"):
                     ss = min(max(s + sgn * 10, 5), L - 5)
                     add(ln.interpolate(ss), heading(ln, ss) + (0 if sgn > 0 else np.pi), 6)

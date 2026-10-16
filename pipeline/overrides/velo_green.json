@@ -1,0 +1,59 @@
+{
+ "_doc": "Green-coloured Velostreifen (strip between the lane line and the kerb). OGD / OSM carry no surface colour for green lanes, so the sections are listed from photo evidence (Panoramax CC-BY-SA, research/fidelity.md S1). A lane interval is painted where it lies within r m of one of the evidence points and the way has that name.",
+ "sections": [
+  {
+   "name": "Hardturmstrasse",
+   "photos": [
+    16,
+    27,
+    40,
+    50
+   ],
+   "pts": [
+    [
+     -701,
+     1073
+    ],
+    [
+     -502,
+     1066
+    ],
+    [
+     -324,
+     1047
+    ],
+    [
+     -79,
+     940
+    ]
+   ],
+   "r": 170
+  },
+  {
+   "name": "Baslerstrasse",
+   "photos": [
+    2
+   ],
+   "pts": [
+    [
+     -873,
+     -63
+    ]
+   ],
+   "r": 120
+  },
+  {
+   "name": "Stauffacherstrasse",
+   "photos": [
+    55
+   ],
+   "pts": [
+    [
+     83,
+     -530
+    ]
+   ],
+   "r": 100
+  }
+ ]
+}

@@ -2,9 +2,9 @@ import * as THREE from 'three';
 
 /**
  * Road decals from the pipeline: rows [x, y, z, heading, kind]; kind 0 bike pictogram (yellow, Swiss lanes),
- * 1 manhole cover, 2 gully grate, 3 "ZONE 30" entry marking, 4 straight arrow, 5 BUS, 6 painted 30 roundel, 7 left, 8 right, 9 straight+left, 10 straight+right arrow. One merged mesh per tile, atlas drawn at runtime.
+ * 1 manhole cover, 2 gully grate, 3 "30" zone entry marking, 11 "20" Begegnungszone entry marking, 4 straight arrow, 5 BUS, 6 painted 30 roundel, 7 left, 8 right, 9 straight+left, 10 straight+right arrow. One merged mesh per tile, atlas drawn at runtime.
  */
-const SIZE: [number, number][] = [[1.0, 1.9], [0.72, 0.72], [0.55, 0.36], [2.6, 3.4], [1.4, 4.2], [1.7, 3.0], [1.8, 1.8], [1.7, 4.2], [1.7, 4.2], [2.2, 4.2], [2.2, 4.2]]; // width, length (m)
+const SIZE: [number, number][] = [[1.0, 1.9], [0.72, 0.72], [0.55, 0.36], [2.0, 4.0], [1.4, 4.2], [1.7, 3.0], [1.8, 1.8], [1.7, 4.2], [1.7, 4.2], [2.2, 4.2], [2.2, 4.2], [2.0, 4.0]]; // width, length (m)
 const COLS = 4, ROWS = 4;
 let atlas: THREE.Texture | null = null;
 
@@ -34,10 +34,11 @@ function makeAtlas(): THREE.Texture {
   g.fillStyle = '#2f3134'; g.fillRect(-120, -80, 240, 160);
   g.fillStyle = '#121314'; for (let i = -100; i <= 90; i += 24) g.fillRect(i, -64, 12, 128);
   g.restore();
-  // 3: ZONE 30
-  g.save(); g.translate(896, 128); g.fillStyle = '#f2f2ee'; g.textAlign = 'center'; g.textBaseline = 'middle';
-  g.font = '44px Anton, sans-serif'; g.fillText('ZONE', 0, -78);
-  g.font = '150px Anton, sans-serif'; g.fillText('30', 0, 30); g.restore();
+  // 3 / 11: zone entry markings painted as the big number only ("30" Zone 30, "20" Begegnungszone), like on the real streets (fidelity S11)
+  for (const [cx, txt] of [[896, '30'], [896, '20']] as const) {
+    g.save(); g.translate(cx, txt === '30' ? 128 : 640); g.fillStyle = '#f2f2ee'; g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.font = '232px Anton, sans-serif'; g.fillText(txt, 0, 8); g.restore();
+  }
   // arrows (white, canvas up = driving direction): 4 straight, 7 left, 8 right, 9 straight+left, 10 straight+right
   const head = (x: number, y: number, ang: number) => { g.save(); g.translate(x, y); g.rotate(ang); g.beginPath(); g.moveTo(0, -40); g.lineTo(46, 20); g.lineTo(-46, 20); g.closePath(); g.fill(); g.restore(); };
   const arrow = (cx: number, cy: number, dirs: ('f' | 'l' | 'r')[]) => {

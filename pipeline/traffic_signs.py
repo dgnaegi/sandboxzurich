@@ -113,6 +113,48 @@ def _regime_signs(w, hw, half, oneway, L, add):
             add(q, h, code)
 
 
+def _blue_zone_signs(roads, deg, at_node, add, area):
+    """«Blaue Zone» sign where a street with real blue-zone parking (Stadt Zürich OGD Parkfelder, art «Blaue Zone») meets a street
+    without any: the zone entrances (fidelity S10). Facing traffic that enters the blue zone."""
+    import citydata
+    from shapely.geometry import LineString, Point
+    from shapely.strtree import STRtree
+    C = citydata.load((area[0] - 260, area[1] - 260, area[2] + 260, area[3] + 260))  # same key as build_testarea (cached)
+    pts = [Point(r[0], r[1]) for r in C.get("parking", []) if "Blau" in r[2]]
+    if not pts:
+        return
+    tree = STRtree(pts)
+    blue = {}
+    for w in roads:
+        if w["t"]["highway"] not in LOCAL | MAIN:
+            continue
+        ln = LineString(w["pts"])
+        n = len(tree.query(ln.buffer(7.0)))
+        blue[w["id"]] = n / max(ln.length, 1.0) > 0.04 and n >= 4
+    done = []
+    for n, lst in at_node.items():
+        bw = [(w, i) for w, i in lst if blue.get(w["id"])]
+        ow = [(w, i) for w, i in lst if not blue.get(w["id"]) and w["t"]["highway"] in LOCAL | MAIN]
+        if not bw or not ow:
+            continue
+        w, i = bw[0]
+        p = w["pts"]
+        if i == 0:
+            d = _dir(p, 0, 1)
+        elif i == len(p) - 1:
+            d = _dir(p, len(p) - 1, -1)
+        else:
+            continue
+        # d points into the blue street; sign stands 6 m inside, facing entering traffic
+        if w["t"].get("oneway") == "yes" and i != 0 or w["t"].get("oneway") == "-1" and i == 0:
+            continue
+        q, h = _place(p[i], d, _w(w["t"]) / 2, 6.0)
+        if any(abs(q[0] - a) < 35 and abs(q[1] - b) < 35 for a, b in done):
+            continue
+        done.append((q[0], q[1]))
+        add(q, h, "blauzone")
+
+
 def sign_rows(area, H, nodes=None, els=None):
     nodes, ways, ntags = _load(area, nodes, els)
     x0, y0, x1, y1 = area
@@ -183,6 +225,7 @@ def sign_rows(area, H, nodes=None, els=None):
             q, h = _place(pts[0], _dir(pts, 0, 1), 1.2, 0.5)
             add(q, h, "fussweg")
 
+    _blue_zone_signs(roads, deg, at_node, add, area)
     # stop / give way / pedestrian crossings on road nodes
     for n, t in ntags.items():
         cand = at_node.get(n, [])

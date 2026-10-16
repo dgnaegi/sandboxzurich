@@ -9,17 +9,17 @@ Einschränkung: GPS der Fotos ±5 m und Blickrichtung ±10°, deshalb sitzt die 
 
 | # | Thema | Foto | Spiel | Fotos | Status |
 |---|---|---|---|---|---|
-| S1 | Grüne Velostreifen (Farbbelag) | grün gefärbte Velostreifen/Radwege an Hardstr., Badenerstr., Hohlstr., Pfingstweidstr. | fehlen komplett | 2,10,16,27,40,50,55 | Vorschlag: `roadgraph.py` Streifen mit `cycleway=lane` + Farbe (nicht mein Bereich) |
-| S2 | Trottoir-Farbe/Textur | mittelgrau, glatt, Asphalt- bzw. Betonplatten, warm | sehr hell (fast weiss), körnig, stark kontrastierend zur Fahrbahn | fast alle | Vorschlag: `ground_tex.py` Trottoir-Multiplikator ~0.80 und weniger Körnung (Komplett-Build) |
-| S3 | Fahrbahn-Farbe | warm-neutralgrau, mit Flickstellen | kühl bläulich-grau, Pflasterband-Muster zu auffällig | fast alle | Vorschlag: Asphalt leicht wärmer tönen |
-| S4 | Randstein/Rinne | grauer Granitrandstein, schmale Rinne | breite, helle Rinnenbänder mit Würfelmuster, zu dominant | 42,72,87,96,109 | Vorschlag: Rinnenband schmaler (0.25 m) |
-| S5 | Blaue Zone / Parkfelder | blaue Linie, parkierte Autos dicht | Linie vorhanden, aber nur wenige Autos; Autos zu kantig/niedrig | 42,44,89,96,108,109,113 | Parkdichte erhöhen (`traffic.ts`, nicht mein Bereich) |
-| S6 | Fassadenfarben | gedeckte Töne: weiss, hellgrau, creme, graublau; Putz glatt | Altbauten sehr gelb/orange/lachs gesättigt, dunkelblaue Fenster | 9,54,57,70,72,86–89,96–104 | teils behoben: 82 Adressen in `visual_notes_v3.json`; Rest: Default-Palette entsättigen (`styles.py`) |
+| S1 | Grüne Velostreifen (Farbbelag) | grün gefärbte Velostreifen/Radwege an Hardstr., Badenerstr., Hohlstr., Pfingstweidstr. | fehlen komplett | 2,10,16,27,40,50,55 | umgesetzt (fid2): grüner Streifen (Linie→Randstein) auf Abschnitten aus `pipeline/overrides/velo_green.json` (Foto-belegt: Hardturmstr., Baslerstr.; keine Farbdaten in OSM/OGD), `ground_paint.green_lanes`. Offen: weitere Strassen nur mit Foto-Beleg |
+| S2 | Trottoir-Farbe/Textur | mittelgrau, glatt, Asphalt- bzw. Betonplatten, warm | sehr hell (fast weiss), körnig, stark kontrastierend zur Fahrbahn | fast alle | umgesetzt (fid2): Trottoir Basis 154→110, Körnung/Relief ~halbiert (`ground_tex.trottoir`, Atlas neu) |
+| S3 | Fahrbahn-Farbe | warm-neutralgrau, mit Flickstellen | kühl bläulich-grau, Pflasterband-Muster zu auffällig | fast alle | umgesetzt (fid2): Asphalt R×1.09/B×0.90 statt bläulich; Rest-Blaustich kommt vom Himmelslicht |
+| S4 | Randstein/Rinne | grauer Granitrandstein, schmale Rinne | breite, helle Rinnenbänder mit Würfelmuster, zu dominant | 42,72,87,96,109 | umgesetzt (fid2): `GUT` 0.30→0.22 m, Rinne dunkler/ruhiger, Fugen weniger kontrastreich |
+| S5 | Blaue Zone / Parkfelder | blaue Linie, parkierte Autos dicht | Linie vorhanden, aber nur wenige Autos; Autos zu kantig/niedrig | 42,44,89,96,108,109,113 | teils (fid2): parkierte Autos auf Blaue-Zone-Feldern 72→90 % (`cityprops.py`); Fahrzeugform unverändert |
+| S6 | Fassadenfarben | gedeckte Töne: weiss, hellgrau, creme, graublau; Putz glatt | Altbauten sehr gelb/orange/lachs gesättigt, dunkelblaue Fenster | 9,54,57,70,72,86–89,96–104 | teils behoben: 82 Adressen in `visual_notes_v3.json`; Default-Palette entsättigt (fid2: `styles.TINTS` 45 % Richtung Grau; Notiz-/gemessene Töne unverändert) |
 | S7 | Fensterläden/Balkone | Läden grün/grau/braun, Glas-/Stahlbalkone | Läden meist rot/grün in Zufallsfarbe, Balkone fehlen bei 50er-Bauten | 42,57,72,96 | teils via Notizen (`laeden`, `balkon`) |
 | S8 | Bäume | Sommerlaub (Foto Mai/Juni) | Herbstfarben (gewollt, Oktober) | alle | gewollt |
-| S9 | Poller, Veloständer, Motorrad-/Rollerparkplätze | Betonpoller in Reihen, Roller dicht an Fassade, Veloständer an Ecken | fehlen meist | 34,49,57,64,65,86 | Poller/Veloständer behoben (s. u.); Roller als Parkobjekt: Vorschlag `props` |
-| S10 | Schilder/Signale | Tafeln (Zone 30, Velo-Route, Parkplatz), Ampelmasten | nur Verbotssignale/Ampeln, keine Hinweistafeln | 10,35,37,99,112 | Vorschlag: `signs` um Zone-30-/P-Tafeln erweitern |
-| S11 | Bodenmarkierung | «30»-, «20»-Boden-Zahlen, Velo-Piktogramm, gelbe Kreuze | «ZONE»-Schriftzug teils falsch/abgeschnitten; Piktogramm vorhanden | 43,62,87,97,116 | Vorschlag: Zonenzahl «30» statt «ZONE» |
+| S9 | Poller, Veloständer, Motorrad-/Rollerparkplätze | Betonpoller in Reihen, Roller dicht an Fassade, Veloständer an Ecken | fehlen meist | 34,49,57,64,65,86 | fid2: systematisch aus Daten: OSM `bicycle_parking` (+809 Standorte ohne OGD-Eintrag), `motorcycle_parking` + OGD «Motorrad» als parkierte Roller (`mopeds.ts`), Poller-Linien (`barrier=bollard` Ways, +368); Kachel-Neubau nötig |
+| S10 | Schilder/Signale | Tafeln (Zone 30, Velo-Route, Parkplatz), Ampelmasten | nur Verbotssignale/Ampeln, keine Hinweistafeln | 10,35,37,99,112 | fid2: Zone-30-/Begegnungs-Tafeln gab es schon (aus OGD-Zonen); neu «Blaue Zone»-Tafeln an Zoneneingängen aus OGD-Parkfeldern (`traffic_signs._blue_zone_signs`, 281 im Gesamtgebiet) |
+| S11 | Bodenmarkierung | «30»-, «20»-Boden-Zahlen, Velo-Piktogramm, gelbe Kreuze | «ZONE»-Schriftzug teils falsch/abgeschnitten; Piktogramm vorhanden | 43,62,87,97,116 | umgesetzt (fid2): Bodenmarkierung nur die grosse Zahl «30» (Zone 30) bzw. «20» (Begegnungszone, neu, `decals.ts` Kind 11, `props.decals`) |
 | S12 | Tramgleise / Fahrleitung | Gleisrillen eingelassen, Fahrleitungen quer | Gleise vorhanden (gut), Fahrleitungen vorhanden | 16,27,67,88,115 | OK |
 | S13 | Brücken/Viadukt (Hardbrücke, Bahn) | massive Betonbrüstung, Gehweg unter Hochstrasse | Brüstung/Auflager grob, Kamera landet im Pfeiler | 22,25,45,58,77 | Landmark-Thema, nur dokumentiert |
 
@@ -89,3 +89,7 @@ Nicht ausgewertet (Nacht/Armaturenbrett/Treppe): 30, 31, 46, 52, 56, 59–61, 74
 4. Parkierte Autos in blauer Zone dichter (S5), Roller-/Motorrad-Parkfelder.
 5. Hinweistafeln Zone 30/P/Velo (S10) und Bodenzahlen «30»/«20» (S11).
 6. Alle 82 neuen Notizen greifen erst nach einem Komplett-Build; bis dahin nur in den 6 neu gebauten Kacheln sichtbar.
+
+## Nachführung fid2 (2026-10-16)
+Vorher/Nachher: `preview/fidelity2_a.jpg` (#2, 40, 50), `preview/fidelity2_b.jpg` (#55, 49, 64): Foto | vorher | nachher. Kacheln: `logs/fid2_tiles*.log`.
+S5/S7/S8/S12/S13 unverändert (S5 nur Parkdichte). Alle neuen Objekte/Markierungen/Tafeln erscheinen ausserhalb der 12 neu gebauten Kacheln erst nach einem Komplett-Build; die Boden-Texturen (Atlas) gelten sofort überall.

@@ -85,13 +85,13 @@ export async function loadWorldMaterial(base: string, anisotropy: number, pbr = 
         'vec4 tx = texture(atlas, vec3(vTex, floor(vLayer + 0.5)));\n' +
         'float fl3 = step(' + A3 + ' - 0.5, vLayer) * step(vLayer, ' + B3 + ' - 0.5);\n' +
         'diffuseColor.rgb *= tx.rgb * mix(vec3(1.0), vColor.rgb * mix(1.0, 1.35, fl3), tx.a);\n' +
-        'diffuseColor.rgb *= 1.0 - 0.3 * step(abs(vLayer - ' + AS + '), 0.5);     // asphalt darker\n' +
+        'diffuseColor.rgb *= 1.0 - 0.18 * step(abs(vLayer - ' + AS + '), 0.5);     // asphalt darker\n' +
         // ground: world-space macro variation (breaks the 2.5-5 m texture repeat) + rotated low-frequency detail sample (PC)
         'if (groundSlot(floor(vLayer + 0.5)) > -0.5) {\n' +
         '  vec2 wp = vWorld.xz;\n' +
         '  float m = vn2(wp / 31.0) * 0.55 + vn2(wp / 8.5 + 3.7) * 0.3 + vn2(wp / 2.3 + 9.1) * 0.15;\n' +
         '  float h2 = vn2(wp / 47.0 + 21.0);\n' +
-        '  diffuseColor.rgb *= (0.84 + 0.32 * m) * vec3(1.0 + 0.05 * (h2 - 0.5), 1.0, 1.0 - 0.05 * (h2 - 0.5));\n' +
+        '  diffuseColor.rgb *= (0.84 + 0.32 * m) * vec3(1.0 + 0.05 * (h2 - 0.5), 1.0, 1.0 - 0.05 * (h2 - 0.5)) * vec3(1.15, 1.0, 0.86);   // warm: counters the cool sky light (fidelity S3)\n' +
         (pbr ? '  if (abs(vWN.y) > 0.5) {\n    vec3 t2 = vec3(mat2(0.8, 0.6, -0.6, 0.8) * vTex * 0.43 + 0.37, floor(vLayer + 0.5));\n    float dl = dot(textureLod(atlas, t2, 2.0).rgb - textureLod(atlas, t2, 9.0).rgb, vec3(0.333));\n    diffuseColor.rgb *= 1.0 + 0.9 * dl;\n  }\n' : '') +
         '}\n' +
         // glass = unmasked dark texels on wall faces of facade layers (same test as the night windows)

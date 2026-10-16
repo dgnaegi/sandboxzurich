@@ -9,8 +9,17 @@ LAYER = {n: i for i, n in enumerate(LAYERS)}
 LAYER_NAME = {i: n for n, i in LAYER.items()}
 
 # Zürich plaster tints (sRGB): cream, ochre, light grey, salmon, pale green, white, sand, pale blue
-TINTS = [(240, 226, 196), (232, 200, 140), (214, 212, 206), (236, 196, 176), (206, 222, 200),
-         (246, 244, 236), (226, 210, 170), (204, 214, 224), (238, 214, 160), (220, 186, 160)]
+TINTS_RAW = [(240, 226, 196), (232, 200, 140), (214, 212, 206), (236, 196, 176), (206, 222, 200),
+             (246, 244, 236), (226, 210, 170), (204, 214, 224), (238, 214, 160), (220, 186, 160)]
+
+
+def _desat(c, k=0.45):
+    """Fidelity S6: generic (not photo-measured) plaster tints are calmer than the old palette (photo comparison: white, light grey, cream)."""
+    y = 0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2]
+    return tuple(int(round(y + (v - y) * (1 - k))) for v in c)
+
+
+TINTS = [_desat(c) for c in TINTS_RAW]  # only the generic fallback; measured / noted colours stay exact
 FLOOR_H = 12.8  # one facade layer covers 4 floors
 BAY_W = 12.0    # and 4 window bays
 SHOP_H = 4.0

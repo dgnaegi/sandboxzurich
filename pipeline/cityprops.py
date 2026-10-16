@@ -1,5 +1,8 @@
 """Place real objects from Stadt Zürich OGD: trees (by genus), street lights, parked cars on real parking
 spaces (with bay markings), benches, fountains, bins, bike stands with bikes."""
+import json
+from pathlib import Path
+
 import numpy as np
 import shapely
 from shapely.geometry import Point, Polygon
@@ -102,10 +105,16 @@ def street_parking(C, S, reach=4.5):
     return out
 
 
+def _underpass():
+    f = Path(__file__).resolve().parent.parent / "research" / "v3" / "langstr_unterf_deck.json"
+    return Polygon(json.load(open(f))["poly"]) if f.exists() else None
+
+
 def city_props(C, S, tb, H, curb):
     """Return meta dict parts and extra ground markings (white, blue) for tile box tb."""
     _osm_extras(C, S)
-    inside = lambda r: tb.contains(Point(r[0], r[1]))
+    under = _underpass()  # no street furniture/trees inside the sunken Langstrassen-Unterfuehrung (they stand on the rail deck above)
+    inside = lambda r: tb.contains(Point(r[0], r[1])) and not (under is not None and under.contains(Point(r[0], r[1])))
     z = lambda x, y: round(float(H.at(x, y)), 2)
     roads = S["roads"]
     lines = STRtree([w["line"] for w in S["ways"]])

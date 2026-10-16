@@ -102,7 +102,7 @@ def asphalt():
     for cx, cy, rx, ry in [(210, 120, 26, 15), (450, 410, 18, 30), (95, 460, 20, 12)]:
         oil = np.maximum(oil, blob(cx, cy, rx, ry, 1.6) ** 1.5 * (0.6 + 0.4 * tnoise(r, 6)))
     g -= 22 * oil
-    rgb = np.stack([g * 1.0, g * 0.995, g * 1.03], -1)
+    rgb = np.stack([g * 1.05, g * 1.0, g * 0.94], -1)  # warm neutral grey (fidelity S3: was bluish)
     rough = np.clip(0.93 - 0.18 * oil - 0.04 * (stones > 0) + 0.02 * macro, 0.4, 1.0)
     return _img(rgb), _mask(), normal_rough(h, 2.2, rough)
 
@@ -115,8 +115,8 @@ def trottoir():
     fine = tnoise(r, 1.4)
     stones = (r.random((L, L)) > 0.965).astype(np.float32) * r.uniform(14, 36, (L, L)).astype(np.float32)
     pits = (r.random((L, L)) > 0.98).astype(np.float32) * 16
-    g = 154 + 5 * macro + 6 * fine + 5 * grain + stones - pits
-    h = 0.45 * fine + 0.2 * grain + 0.5 * (stones > 0)
+    g = 110 + 4 * macro + 3 * fine + 2.5 * grain + 0.45 * (stones - pits)  # fidelity S2: darker, smoother
+    h = 0.3 * fine + 0.1 * grain + 0.2 * (stones > 0)
     # trench patch (horizontal band, tiles trivially) + an inspection-cover patch
     for cy, wd, dv in [(170, 62, -14), (440, 30, +7)]:
         band = (np.abs(pd(_Y, cy)) < wd / 2).astype(np.float32)
@@ -134,7 +134,7 @@ def trottoir():
     g -= 30 * spots
     stain = np.clip(tnoise(r, 28) - 0.7, 0, 1.5) * 12
     g -= stain
-    rgb = np.stack([g, g * 0.99, g * 0.965], -1)
+    rgb = np.stack([g * 1.03, g * 0.995, g * 0.95], -1)
     rough = np.clip(0.92 - 0.03 * macro, 0.5, 1.0)
     return _img(rgb), _mask(), normal_rough(h, 2.0, rough)
 
@@ -218,10 +218,10 @@ def gutter():
     stone = d > wj
     grain = r.normal(0, 1, (L, L)).astype(np.float32)
     mac = fbm(r, [60, 18], [0.7, 0.5])
-    base = 104 + 14 * tone + 6 * mac + 5 * grain + 10 * (dome - 0.5) - 14 * np.clip(tnoise(r, 10) - 0.4, 0, 2)
+    base = 112 + 7 * tone + 4 * mac + 3 * grain + 5 * (dome - 0.5) - 8 * np.clip(tnoise(r, 10) - 0.4, 0, 2)  # S4: calmer, closer to kerb tone
     col = np.stack([base, base * 0.985, base * 0.955], -1)
-    joint = np.stack([np.full((L, L), 52.0), np.full((L, L), 48.0), np.full((L, L), 42.0)], -1) + 6 * grain[..., None]
+    joint = np.stack([np.full((L, L), 78.0), np.full((L, L), 74.0), np.full((L, L), 68.0)], -1) + 4 * grain[..., None]
     rgb = np.where(stone[..., None], col, joint)
     h = np.where(stone, 0.3 + 0.7 * dome, 0.0) + 0.04 * grain
     rough = np.where(stone, 0.8, 0.95).astype(np.float32)
-    return _img(rgb), _mask(), normal_rough(h, 4.0, rough)
+    return _img(rgb), _mask(), normal_rough(h, 2.2, rough)
