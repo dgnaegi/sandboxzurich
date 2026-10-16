@@ -38,6 +38,41 @@
     3.0
    ]
   },
+  "tram2000_kopf": {
+   "file": "tram2000_kopf.glb",
+   "length": 11.0,
+   "triangles": 590,
+   "has_display": true,
+   "doors_r": [
+    -1.4,
+    1.2,
+    3.6
+   ],
+   "doors_l": [
+    1.2,
+    3.6
+   ]
+  },
+  "tram2000_mittel": {
+   "file": "tram2000_mittel.glb",
+   "length": 7.0,
+   "triangles": 310,
+   "has_display": false,
+   "doors_r": [
+    0.0
+   ],
+   "doors_l": [
+    0.0
+   ]
+  },
+  "tram2000_zwischen": {
+   "file": "tram2000_zwischen.glb",
+   "length": 2.6,
+   "triangles": 142,
+   "has_display": false,
+   "doors_r": [],
+   "doors_l": []
+  },
   "flexity_kopf": {
    "file": "flexity_kopf.glb",
    "length": 6.9,
@@ -169,6 +204,131 @@
     ]
    },
    "note": "rotateY180 modules: bogie z sign flips; pantograph head y=5.45 on cobra_mittel; line 8 / Glattal"
+  },
+  "tram_2000": {
+   "length": 34.2,
+   "sequence": [
+    {
+     "module": "tram2000_kopf",
+     "file": "tram2000_kopf.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 5.5
+    },
+    {
+     "module": "tram2000_zwischen",
+     "file": "tram2000_zwischen.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 12.3
+    },
+    {
+     "module": "tram2000_mittel",
+     "file": "tram2000_mittel.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 17.1
+    },
+    {
+     "module": "tram2000_zwischen",
+     "file": "tram2000_zwischen.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 21.9
+    },
+    {
+     "module": "tram2000_kopf",
+     "file": "tram2000_kopf.glb",
+     "rotateY180": 1,
+     "z_center_from_front": 28.7
+    }
+   ],
+   "joints_z_from_front": [
+    11.0,
+    13.6,
+    20.6,
+    23.2
+   ],
+   "bogie_z_local": {
+    "tram2000_kopf": [
+     -3.3,
+     3.3
+    ]
+   },
+   "note": "Be 4/6 Tram 2000, boxy; pantograph on tram2000_mittel"
+  },
+  "tram_2000_doppel": {
+   "length": 68.4,
+   "sequence": [
+    {
+     "module": "tram2000_kopf",
+     "file": "tram2000_kopf.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 5.5
+    },
+    {
+     "module": "tram2000_zwischen",
+     "file": "tram2000_zwischen.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 12.3
+    },
+    {
+     "module": "tram2000_mittel",
+     "file": "tram2000_mittel.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 17.1
+    },
+    {
+     "module": "tram2000_zwischen",
+     "file": "tram2000_zwischen.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 21.9
+    },
+    {
+     "module": "tram2000_kopf",
+     "file": "tram2000_kopf.glb",
+     "rotateY180": 1,
+     "z_center_from_front": 28.7
+    },
+    {
+     "module": "tram2000_kopf",
+     "file": "tram2000_kopf.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 39.7
+    },
+    {
+     "module": "tram2000_zwischen",
+     "file": "tram2000_zwischen.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 46.5
+    },
+    {
+     "module": "tram2000_mittel",
+     "file": "tram2000_mittel.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 51.3
+    },
+    {
+     "module": "tram2000_zwischen",
+     "file": "tram2000_zwischen.glb",
+     "rotateY180": 0,
+     "z_center_from_front": 56.1
+    },
+    {
+     "module": "tram2000_kopf",
+     "file": "tram2000_kopf.glb",
+     "rotateY180": 1,
+     "z_center_from_front": 62.9
+    }
+   ],
+   "joints_z_from_front": [
+    11.0,
+    13.6,
+    20.6,
+    23.2,
+    34.2,
+    45.2,
+    47.8,
+    54.8,
+    57.4
+   ],
+   "note": "double traction"
   },
   "tram_flexity": {
    "length": 43.0,

@@ -4,7 +4,8 @@ Run after any model build (Blender scripts write uncompressed GLBs):
     .venv/bin/python pipeline/pack_models.py [dir ...]      default: all dirs below
 Originals are kept in data/build/models_raw/<dir>/ so a run can be repeated or undone.
 -noq: no quantisation (runtime code reads raw float attributes: trees.ts prepare, tint.ts skin weights, bike rig);
-trees are NOT packed: trees.ts merges trunk/leaf meshes by order and attributes, which gltfpack changes.
+trees, cars and bikes are NOT packed (cars/bikes: gltfpack drops the custom _PAINT attribute even with -kv); trees: trees.ts merges trunk/leaf meshes by order and attributes, which gltfpack changes.
+-kv keeps custom vertex attributes (cars: _PAINT surface code, else all cars render white);
 -kn/-km/-ke: keep node names (bones for accessories/ride pose), materials and extras.
 """
 import json
@@ -18,7 +19,7 @@ from config import ROOT
 
 MODELS = ROOT / "web" / "public" / "models"
 RAW = ROOT / "data" / "build" / "models_raw"
-DIRS = ["humans", "bikes", "cars", "furniture", "transit", "accessories"]
+DIRS = ["humans", "furniture", "transit", "accessories"]
 
 
 def packed(f: Path) -> bool:
@@ -39,7 +40,7 @@ def main(dirs):
                 raw.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(f, raw)  # fresh build output becomes the new original
             tmp = f.with_suffix(".tmp.glb")
-            subprocess.run(["npx", "--no-install", "gltfpack", "-i", str(raw), "-o", str(tmp), "-cc", "-noq", "-kn", "-km", "-ke"],
+            subprocess.run(["npx", "--no-install", "gltfpack", "-i", str(raw), "-o", str(tmp), "-cc", "-noq", "-kn", "-km", "-ke", "-kv"],
                            cwd=ROOT / "web", check=True, capture_output=True)
             before += raw.stat().st_size
             after += tmp.stat().st_size
