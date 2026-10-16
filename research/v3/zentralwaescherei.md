@@ -1,24 +1,11 @@
-# Zentralwaescherei (zentralwaescherei)
-Typ: place | lat/lon 47.3871, 8.5204 | Fotos: 17 (Bogen preview/ref_v3_zentralwaescherei.jpg, Nummern = Index in photos.json)
+# Zentralwäscherei (Kulturhaus, Neue Hard 12, Kreis 5) (zentralwaescherei)
+Typ: landmark | Modell: pipeline/landmarks/k4w4_zentralwaescherei.py | Fotos: 149 (Kontaktbogen preview/ref_v3_zentralwaescherei.jpg, Nummern = Index in photos_k4w4_zw.json) | Quelle Geometrie: swissBUILDINGS3D + SWISSIMAGE
 
-**Grundform/Massen:** Zentralwäscherei Zürich (Hardturmstrasse): gewerblich-kulturelle Zwischennutzung: lange 3-4-geschossige Bürobau-Zeile mit auskragendem Betonbalkon, Strasse mit Mittelstreifen (Gras, Bäume), Graffiti-Wände, Container, Bunker-Gestaltung
-**Geschosse:** 3-4 (Zeile), Nachbar Zürcher Kantonalbank 5
-**Fassade:** Beton-/Metallverkleidung dunkelgrau, Glasbänder; Altbau-Teil mit buntem Graffiti (Orange/Pink/Schwarz); Farben #6a6e70, #2a2e34, #e8762a, #d84a8a, #f5c518. Fassade Graubraun, Graffiti-Murals bunt; 'Zentra(lwäscherei)' Schriftzug in Pop-Farben
-**Fenster:** Bandfenster Achse 2.4 m, dunkle Rahmen; Rahmen #2a2e34
-**Dach:** Flachdach, Aufbauten
-**Erdgeschoss/Eingänge:** Offene Sockelzone mit Arkaden (Betonstützen), Kantonalbank-Filiale (Glas, Logo K), Werkstatt/Atelier-Räume, Velostreifen gelb, Abfallcontainer schwarz mit Graffiti
-**Beschriftungen:** «Zentra[lwäscherei]» #f5c518 auf Graffiti, Wand-Graffiti Eckgebäude, 1 m Buchstaben; «Zürcher Kantonalbank (Logo)» weiss auf blau/grau, Fassade EG; «... PUB (Irish-Pub, rotes Haus)» grün/weiss auf rot, Ecke Haus Zebrastreifen
-**Details:**
-- Innenwerkstatt: Bastelraum mit Werkbank, Elektronik, Bücherregal, Stehlampen (Digitale Gesellschaft)
-- Tramgleise der Hardbrücke-Unterführung (Brücke mit Betondeck, Ampeln)
-- Herbstlaub gelb auf nassem Asphalt
-- Schwarz-weiss-gestreifte Prellböcke (Betonpoller)
-- Rotes Pub-Gebäude mit Terrasse (Weinfass als Tisch)
-**Boden:** Asphalt, Gras-Mittelstreifen, Betonplatten
-**Möblierung:** Graffiti-Container, Weinfass-Tisch, Bäume Platanen
-**Nacht:** Strassenlampen weiss, Pub rot-warm
-**Referenzfotos (Index):** 16, 1, 4, 6, 7, 3, 0
-**Lücken:** Standort ist Zwischennutzung; Innenfotos (8-10) nur als Stimmung
-
-## Abweichungen zum jetzigen Spiel
-- Keine Abgleichdaten in research/ gefunden; Spielstand vor Umbau im Spiel prüfen.
+**Masse:** Hauptbau 101 x 42 m (swissBUILDINGS3D ID_6DCCD334, OSM «Zentralwäscherei Zurich», 6 Geschosse laut OSM). Halle (NE) Traufe 9.3 m mit Sheddach (5 Streifen à 8.4 m, Anstieg 2.4 m, Glasbrüstung nach NW); Aufbauten 12.6 / 18.4 / 22.3 / 25.3 m, Treppenturm 27.8 m (Stufen aus den Dachflächen). Kiosk 66 m², 3.4 m. Wasserturm im Hof bei (334, 277): Tank r 3.4 m, 5.2 m hoch, auf 10 m Stahlgerüst, Gesamthöhe ca. 18 m.
+**Farben (Hex):** Putz #cfcabd (Halle), #cdc8ba / #dcd8cc / #c7c2b4 (Aufbauten), Sockel #96928a, Fensterrahmen dunkel #2f3335, Kiosk rosa #e8a2b0 mit Plakaten/Graffiti, Schriftschild #efede6 / schwarz #141414, Band grau #787876, Wasserturm Rost #7a4a36, gelber Tank #e8be28, Turmbeschriftung «HC BR» #96dc3c, «ZW» #287a3c
+**Fensterraster:** Halle: Achse 3.0 m, Fenster 2.3 x 2.0 m mit Sprossen, Brüstung 1.0 m; EG alle 5. Achse Rolltor-Öffnung 3 x 3.4 m; Aufbauten: Bandfenster 2.6 x 1.6 m, Achse 2.9 m.
+**Erdgeschoss/Läden:** Kiosk/Eingangsbau an der Strasse (Neue Hard): rosa, überklebt mit Plakaten und Graffiti, Dach mit Pergola und Pflanzen; Mauern mit Graffiti beidseits; Hofeinfahrt; Eingang «ZW» (Glastür, im Nachtbild leuchtend)
+**Schriften:** «Zentral wäscherei» (Barlow Bold, schwarz auf weiss), Band «BAR | KULTUR» und «CAFE | RESTAURANT» (weiss auf grau); am Turm «HC BR» und «ZW» im Graffiti-Stil (freie Schrift Permanent Marker)
+**Details:** Plakat-/Graffitiflächen als Atlas (prozedural, keine echten Werke); gelber Tank auf dem SW-Block; roter-weisser Kamin im Hintergrund = KVA-Kamin (bestehendes Landmark); Wasserturm mit Leiter und Ringverstrebung; Dachterrasse mit Pflanzkisten
+**Nacht:** Fensterleuchten (30–40 % warm), Schild weiss, Eingang ZW
+**Referenzfotos:** Panoramax #108, Commons #34 #35 #36 #7, Mapillary #78 #90 #79 #123 #132 #145 #148; Luftbild SWISSIMAGE (Dachformen, Hof, Wasserturm)

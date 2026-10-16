@@ -1,0 +1,61 @@
+{
+ "_doc": "Underpass deck under the SBB track field (Langstrasse). Rails keep their raw DTM height (railways.py reads terrain.heights without terrain_cuts), so tracks already lie on this deck; polygon + top height (game z) for rail consumers that need the deck explicitly.",
+ "name": "Langstrassen-Unterfuehrung",
+ "poly": [
+  [
+   882.05,
+   -358.67
+  ],
+  [
+   906.03,
+   -369.21
+  ],
+  [
+   943.67,
+   -283.55
+  ],
+  [
+   919.69,
+   -273.01
+  ]
+ ],
+ "top_z": [
+  [
+   0.0,
+   -2.2
+  ],
+  [
+   32.0,
+   -2.3
+  ],
+  [
+   40.0,
+   -2.6
+  ],
+  [
+   60.0,
+   -2.85
+  ],
+  [
+   93.6,
+   -2.7
+  ]
+ ],
+ "thickness": 1.3,
+ "floor_z": [
+  -8.2,
+  -8.8
+ ],
+ "clear_height": 4.6,
+ "axis": [
+  [
+   894.04,
+   -363.94
+  ],
+  [
+   931.68,
+   -278.28
+  ]
+ ],
+ "length": 93.56
+}

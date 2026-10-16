@@ -2080,3 +2080,115 @@ Referenzbilder nur zur Recherche, nicht als Textur.
 - #15 commons | CC BY-SA 4.0 | Ank Kumar | https://commons.wikimedia.org/wiki/File:Prime_tower,_Hardbrucke_(Ank_Kumar,_Infosys_limited)_08.jpg
 - #16 commons | CC BY-SA 4.0 | Ank Kumar | https://commons.wikimedia.org/wiki/File:Prime_tower,_Hardbrucke_(Ank_Kumar,_Infosys_limited)_09.jpg
 - #17 commons | CC BY-SA 4.0 | Ank Kumar | https://commons.wikimedia.org/wiki/File:Prime_tower,_Hardbrucke_(Ank_Kumar,_Infosys_limited)_10.jpg
+
+## langstr_unterf
+- #0 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=787647663678225
+- #1 mapillary | CC BY-SA 4.0 | anna-kristina | https://www.mapillary.com/app/?pKey=1687945612090018
+- #2 mapillary | CC BY-SA 4.0 | anna-kristina | https://www.mapillary.com/app/?pKey=1743979879867338
+- #3 mapillary | CC BY-SA 4.0 | Lezurex | https://www.mapillary.com/app/?pKey=1675774530275166
+- #4 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=948589165877160
+- #5 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=762483866413923
+- #6 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1444622363431715
+- #7 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1854083115491994
+- #8 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=760665731258590
+- #9 mapillary | CC BY-SA 4.0 | ingked | https://www.mapillary.com/app/?pKey=757942618422957
+- #10 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=2058337864905457
+- #11 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1150100940350957
+- #12 mapillary | CC BY-SA 4.0 | k3rn3lp4n1c | https://www.mapillary.com/app/?pKey=959318409111659
+- #13 mapillary | CC BY-SA 4.0 | k3rn3lp4n1c | https://www.mapillary.com/app/?pKey=424095130176199
+- #14 mapillary | CC BY-SA 4.0 | anna-kristina | https://www.mapillary.com/app/?pKey=981597829965851
+- #15 mapillary | CC BY-SA 4.0 | indibart | https://www.mapillary.com/app/?pKey=446616479968976
+- #16 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_192201.jpg
+- #17 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_192907.jpg
+- #18 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_192934.jpg
+- #19 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_192958.jpg
+- #20 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_192839.jpg
+- #21 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_193344.jpg
+- #22 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_192456.jpg
+- #23 commons | CC BY-SA 4.0 | Bernie Ongewe | https://commons.wikimedia.org/wiki/File:Zurich_-2.jpg
+- #24 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=04a0e00d-6f2d-4b55-a56d-7ca8382e4387
+- #25 panoramax | CC-BY-SA-4.0 | Lezurex | https://api.panoramax.xyz/#focus=pic&pic=0d224723-bf79-4a74-9c56-2514fe8e3f09
+- #26 panoramax | CC-BY-SA-4.0 | Lezurex | https://api.panoramax.xyz/#focus=pic&pic=a8d9eafc-3f6f-4637-8959-ea7dc01dc105
+- #27 commons | CC BY 4.0 (Commons "Attribution") | Micha L. Rieser | https://commons.wikimedia.org/wiki/File:Wandgestaltung_Langstrassenunterf%C3%BChrung,_1986,_J%C3%BCrg_Grau_-_2014-09-23_-_Bild_1.JPG
+- #28 commons | CC BY 4.0 (Commons "Attribution") | Micha L. Rieser | https://commons.wikimedia.org/wiki/File:Wandgestaltung_Langstrassenunterf%C3%BChrung,_1986,_J%C3%BCrg_Grau_-_2014-09-23_-_Bild_2.JPG
+- #29 commons | CC BY 4.0 (Commons "Attribution") | Micha L. Rieser | https://commons.wikimedia.org/wiki/File:Wandgestaltung_Langstrassenunterf%C3%BChrung,_1986,_J%C3%BCrg_Grau_-_2014-09-23_-_Bild_3.JPG
+- #30 commons | CC BY 4.0 (Commons "Attribution") | Micha L. Rieser | https://commons.wikimedia.org/wiki/File:Wandgestaltung_Langstrassenunterf%C3%BChrung,_1986,_J%C3%BCrg_Grau_-_2014-09-23_-_Bild_4.JPG
+
+## langstr_unterf_sued
+- #0 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1939824196798162
+- #1 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1489821372132413
+- #2 mapillary | CC BY-SA 4.0 | Lezurex | https://www.mapillary.com/app/?pKey=1617359929326047
+- #3 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1315977946724416
+- #4 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=2650427395301204
+- #5 mapillary | CC BY-SA 4.0 | Lezurex | https://www.mapillary.com/app/?pKey=1675774530275166
+- #6 mapillary | CC BY-SA 4.0 | Lezurex | https://www.mapillary.com/app/?pKey=1402708311663593
+- #7 mapillary | CC BY-SA 4.0 | raven44 | https://www.mapillary.com/app/?pKey=136098101898422
+- #8 mapillary | CC BY-SA 4.0 | raven44 | https://www.mapillary.com/app/?pKey=157518139716665
+- #9 mapillary | CC BY-SA 4.0 | raven44 | https://www.mapillary.com/app/?pKey=462590655034521
+- #10 mapillary | CC BY-SA 4.0 | raven44 | https://www.mapillary.com/app/?pKey=946797392760241
+- #11 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_191945.jpg
+- #12 commons | CC BY-SA 4.0 | Bernie Ongewe | https://commons.wikimedia.org/wiki/File:Zurich_-2.jpg
+- #13 commons | CC BY-SA 3.0 | UCaetano | https://commons.wikimedia.org/wiki/File:Wandgestaltung_Unterf%C3%BChrung_Langstrasse.jpg
+- #14 commons | CC BY-SA 3.0 | UCaetano | https://commons.wikimedia.org/wiki/File:Robert-Stephenson-Weg.jpg
+- #15 commons | CC BY-SA 3.0 | UCaetano | https://commons.wikimedia.org/wiki/File:25hours_Hotel_Langstrasse.jpg
+- #16 commons | CC BY-SA 3.0 | UCaetano | https://commons.wikimedia.org/wiki/File:Kosmos_(1).jpg
+- #17 commons | CC BY 3.0 | Rene Nueesch | https://commons.wikimedia.org/wiki/File:Neufrankengasse_-_panoramio.jpg
+- #18 commons | CC0 | Rjh | https://commons.wikimedia.org/wiki/File:Swiss_International_Airlines_Airplane_with_Special_Painting.JPG
+- #19 panoramax | CC-BY-SA-4.0 | Lezurex | https://api.panoramax.xyz/#focus=pic&pic=9ca9ebff-04c1-4077-9875-08c919a6ca56
+- #20 panoramax | CC-BY-SA-4.0 | Lezurex | https://api.panoramax.xyz/#focus=pic&pic=36cc9b20-104e-49ff-8023-72b945289dce
+
+## langstr_unterf_nord
+- #0 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=773966475272543
+- #1 mapillary | CC BY-SA 4.0 | Lezurex | https://www.mapillary.com/app/?pKey=988340667080337
+- #2 mapillary | CC BY-SA 4.0 | anna-kristina | https://www.mapillary.com/app/?pKey=1268904208568660
+- #3 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=760193721306732
+- #4 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=2107736852969877
+- #5 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=757809670479668
+- #6 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1122228143202063
+- #7 mapillary | CC BY-SA 4.0 | ingked | https://www.mapillary.com/app/?pKey=475057553727319
+- #8 mapillary | CC BY-SA 4.0 | ingked | https://www.mapillary.com/app/?pKey=282752316837790
+- #9 mapillary | CC BY-SA 4.0 | k3rn3lp4n1c | https://www.mapillary.com/app/?pKey=920043033134653
+- #10 mapillary | CC BY-SA 4.0 | k3rn3lp4n1c | https://www.mapillary.com/app/?pKey=730618969192261
+- #11 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_192201.jpg
+- #12 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_192907.jpg
+- #13 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_192934.jpg
+- #14 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_192958.jpg
+- #15 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_192839.jpg
+- #16 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_193344.jpg
+- #17 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_192621.jpg
+- #18 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_192524.jpg
+- #19 panoramax | CC-BY-SA-4.0 | Lezurex | https://api.panoramax.xyz/#focus=pic&pic=705bed26-6b01-4d8b-b0c1-7e7e6d9541fa
+- #20 panoramax | CC-BY-SA-4.0 | Lezurex | https://api.panoramax.xyz/#focus=pic&pic=1a7eb0c0-9361-444a-af01-e87d5a3c1802
+
+## oleole
+- #0 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=4179952428943284
+- #1 mapillary | CC BY-SA 4.0 | fifi | https://www.mapillary.com/app/?pKey=956181558485275
+- #2 mapillary | CC BY-SA 4.0 | indibart | https://www.mapillary.com/app/?pKey=803049250629731
+- #3 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1132095552327086
+- #4 mapillary | CC BY-SA 4.0 | Danii1998 | https://www.mapillary.com/app/?pKey=586960980357173
+- #5 mapillary | CC BY-SA 4.0 | Danii1998 | https://www.mapillary.com/app/?pKey=926037282801939
+- #6 mapillary | CC BY-SA 4.0 | Danii1998 | https://www.mapillary.com/app/?pKey=1020276733186575
+- #7 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=461588591786327
+- #8 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1541779816949293
+- #9 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1353206372897627
+- #10 mapillary | CC BY-SA 4.0 | Lezurex | https://www.mapillary.com/app/?pKey=1509437290858898
+- #11 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=2075482845923841
+- #12 mapillary | CC BY-SA 4.0 | ingked | https://www.mapillary.com/app/?pKey=3919629418124294
+- #13 mapillary | CC BY-SA 4.0 | Danii1998 | https://www.mapillary.com/app/?pKey=1464573714210438
+- #14 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=2227198554420935
+- #15 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1309705957594995
+- #16 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_191945.jpg
+- #17 commons | CC BY-SA 4.0 | Robot8A | https://commons.wikimedia.org/wiki/File:SBB_Giruno_21_42_27_025000.jpeg
+- #18 commons | CC BY-SA 4.0 | Robot8A | https://commons.wikimedia.org/wiki/File:SBB_Giruno_21_42_32_679000.jpeg
+- #19 commons | CC BY-SA 3.0 | UCaetano | https://commons.wikimedia.org/wiki/File:25hours_Hotel_Langstrasse.jpg
+- #20 commons | CC BY-SA 3.0 | UCaetano | https://commons.wikimedia.org/wiki/File:Kosmos_(1).jpg
+- #21 commons | CC BY 3.0 | Rene Nueesch | https://commons.wikimedia.org/wiki/File:Neufrankengasse_-_panoramio.jpg
+- #22 commons | CC BY-SA 3.0 | UCaetano | https://commons.wikimedia.org/wiki/File:Wandgestaltung_Unterf%C3%BChrung_Langstrasse.jpg
+- #23 commons | CC BY-SA 3.0 | UCaetano | https://commons.wikimedia.org/wiki/File:Robert-Stephenson-Weg.jpg
+- #24 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=fe30cce4-3746-438e-ab2e-1dcc7489ddfe
+- #25 panoramax | CC-BY-SA-4.0 | Lezurex | https://api.panoramax.xyz/#focus=pic&pic=2d4d32cb-5138-493c-a650-f50cab48afcc
+- #26 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=d8091e62-9c54-459c-b2c8-6da3e784dd23
+
+
+## hz_egli / hz_hohl291 / hz_lighthouse (Egli-Siedlung, Hohlstrasse 283-305, Zuercher Lighthouse), 78 Fotos
+Mapillary (CC BY-SA 4.0; Autoren Yha1, fcignat, quickness805; Bild-IDs = Dateinamen ml_<id>.jpg in data/raw/photos/v3/hz_*/), Wikimedia Commons CC BY-SA 3.0 Tschubby (File:Kindergarten Egli.jpg, https://commons.wikimedia.org/wiki/File:Kindergarten_Egli.jpg), Panoramax CC-BY-SA-4.0 captaininler (px_9871588b-23d). Metadaten je Foto: research/v3/photos.json (Schluessel hz_*). Nur als Referenz gelesen, nie als Textur.

@@ -1,0 +1,26 @@
+[
+ {
+  "id": "hz_egli",
+  "name": "Egli-Siedlung (Eglistrasse)",
+  "kind": "place",
+  "lat": 47.383525,
+  "lon": 8.510993,
+  "radius": 110
+ },
+ {
+  "id": "hz_hohl291",
+  "name": "Hohlstrasse 291-301",
+  "kind": "place",
+  "lat": 47.383199,
+  "lon": 8.512179,
+  "radius": 90
+ },
+ {
+  "id": "hz_lighthouse",
+  "name": "Zuercher Lighthouse (Eglistrasse 1)",
+  "kind": "place",
+  "lat": 47.383955,
+  "lon": 8.511227,
+  "radius": 55
+ }
+]

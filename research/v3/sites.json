@@ -310,5 +310,37 @@
   "lat": 47.388495,
   "lon": 8.497278,
   "radius": 80
+ },
+ {
+  "id": "langstr_unterf",
+  "name": "Langstrassen-Unterfuehrung (Mitte)",
+  "kind": "landmark",
+  "lat": 47.381102,
+  "lon": 8.528664,
+  "radius": 75
+ },
+ {
+  "id": "langstr_unterf_sued",
+  "name": "Langstrassen-Unterfuehrung Portal Sued (Ole-Ole-Seite)",
+  "kind": "landmark",
+  "lat": 47.3807,
+  "lon": 8.528391,
+  "radius": 45
+ },
+ {
+  "id": "langstr_unterf_nord",
+  "name": "Langstrassen-Unterfuehrung Portal Nord (Kreis 5)",
+  "kind": "landmark",
+  "lat": 47.381504,
+  "lon": 8.52895,
+  "radius": 45
+ },
+ {
+  "id": "oleole",
+  "name": "Ole Ole Bar, Langstrasse 138",
+  "kind": "landmark",
+  "lat": 47.380028,
+  "lon": 8.528059,
+  "radius": 55
  }
 ]

@@ -1,0 +1,154 @@
+[
+ {
+  "id": "limmathaus",
+  "name": "Limmathaus (Limmatstrasse 118, Limmatplatz)",
+  "kind": "landmark",
+  "lat": 47.384211,
+  "lon": 8.532833,
+  "radius": 70
+ },
+ {
+  "id": "johanneskirche",
+  "name": "Johanneskirche Limmatplatz",
+  "kind": "landmark",
+  "lat": 47.3838,
+  "lon": 8.533434,
+  "radius": 60
+ },
+ {
+  "id": "zett_haus",
+  "name": "Zett-Haus (Badenerstrasse/Seebahnstrasse)",
+  "kind": "landmark",
+  "lat": 47.373914,
+  "lon": 8.530609,
+  "radius": 80
+ },
+ {
+  "id": "stauffacher_turm",
+  "name": "Hochhaus Stauffacher (Badenerstrasse/Stauffacherstrasse)",
+  "kind": "landmark",
+  "lat": 47.373966,
+  "lon": 8.529008,
+  "radius": 70
+ },
+ {
+  "id": "apollo_stauffacher",
+  "name": "Apollo-Haus Stauffacherstrasse",
+  "kind": "landmark",
+  "lat": 47.374146,
+  "lon": 8.528005,
+  "radius": 60
+ },
+ {
+  "id": "baeckeranlage_pavillon",
+  "name": "Quartierzentrum Baeckeranlage Pavillon",
+  "kind": "landmark",
+  "lat": 47.377786,
+  "lon": 8.524451,
+  "radius": 60
+ },
+ {
+  "id": "crowne_plaza",
+  "name": "Crowne Plaza Zuerich (Badenerstrasse 420)",
+  "kind": "landmark",
+  "lat": 47.380347,
+  "lon": 8.5064,
+  "radius": 90
+ },
+ {
+  "id": "alto_tower",
+  "name": "Alto Tower / Badenerstrasse 600 area",
+  "kind": "landmark",
+  "lat": 47.38451,
+  "lon": 8.500775,
+  "radius": 90
+ },
+ {
+  "id": "swissmill",
+  "name": "Swissmill Tower (Sihlquai/Limmat)",
+  "kind": "landmark",
+  "lat": 47.389762,
+  "lon": 8.526947,
+  "radius": 120
+ },
+ {
+  "id": "st_joseph",
+  "name": "Pfarrkirche St. Joseph",
+  "kind": "landmark",
+  "lat": 47.386777,
+  "lon": 8.527787,
+  "radius": 70
+ },
+ {
+  "id": "kw_letten",
+  "name": "Wasserkraftwerk Letten",
+  "kind": "landmark",
+  "lat": 47.387108,
+  "lon": 8.532787,
+  "radius": 80
+ },
+ {
+  "id": "james_hochhaus",
+  "name": "James Hochhaus Badenerstrasse",
+  "kind": "landmark",
+  "lat": 47.381598,
+  "lon": 8.495605,
+  "radius": 90
+ },
+ {
+  "id": "docks_langstrasse",
+  "name": "The Docks / Langstrasse",
+  "kind": "landmark",
+  "lat": 47.382018,
+  "lon": 8.529729,
+  "radius": 70
+ },
+ {
+  "id": "idaplatz_block",
+  "name": "Grossblock Idaplatz/Hohlstrasse",
+  "kind": "landmark",
+  "lat": 47.374372,
+  "lon": 8.520237,
+  "radius": 100
+ },
+ {
+  "id": "albisriederplatz_ost",
+  "name": "Albisriederplatz Bauten",
+  "kind": "landmark",
+  "lat": 47.377917,
+  "lon": 8.509543,
+  "radius": 70
+ },
+ {
+  "id": "langstrasse_sued",
+  "name": "Langstrasse Eckbauten Sued",
+  "kind": "landmark",
+  "lat": 47.378096,
+  "lon": 8.525954,
+  "radius": 70
+ },
+ {
+  "id": "langstrasse_nord",
+  "name": "Langstrasse Eckbauten Nord",
+  "kind": "landmark",
+  "lat": 47.379712,
+  "lon": 8.527245,
+  "radius": 70
+ },
+ {
+  "id": "roentgen_zeile",
+  "name": "Roentgenstrasse Zeile",
+  "kind": "landmark",
+  "lat": 47.384475,
+  "lon": 8.526733,
+  "radius": 70
+ },
+ {
+  "id": "wiedikon_platz",
+  "name": "Bahnhof Wiedikon Platz Bauten",
+  "kind": "landmark",
+  "lat": 47.371318,
+  "lon": 8.522598,
+  "radius": 70
+ }
+]

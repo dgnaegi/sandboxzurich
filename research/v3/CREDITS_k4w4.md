@@ -1,0 +1,522 @@
+# Credits Foto-Recherche Welle 4 (k4w4)
+
+Referenzbilder nur zur Recherche (data/raw/photos/v3/), nicht für Spieltexturen. Mapillary: CC BY-SA 4.0, Namensnennung des Autors. Commons: Lizenz pro Datei. Panoramax: Lizenz pro Bild.
+
+
+## limmathaus
+- #0 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1356132376004793
+- #1 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1548884876266043
+- #2 mapillary | CC BY-SA 4.0 | samara_widmer | https://www.mapillary.com/app/?pKey=827791228746132
+- #3 mapillary | CC BY-SA 4.0 | samara_widmer | https://www.mapillary.com/app/?pKey=1453721392041748
+- #4 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=399473549473140
+- #5 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=808088825380235
+- #6 mapillary | CC BY-SA 4.0 | samara_widmer | https://www.mapillary.com/app/?pKey=255335657463283
+- #7 mapillary | CC BY-SA 4.0 | samara_widmer | https://www.mapillary.com/app/?pKey=3565805417038850
+- #8 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=330222496248809
+- #9 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=274473895708240
+- #10 mapillary | CC BY-SA 4.0 | Yha1 | https://www.mapillary.com/app/?pKey=1500615660872502
+- #11 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=229592545631233
+- #12 mapillary | CC BY-SA 4.0 | indibart | https://www.mapillary.com/app/?pKey=616161326008210
+- #13 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=474869617061499
+- #14 commons | CC BY 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Ben_Eine_Love_At_First_Sight_mural_in_Z%C3%BCrich.jpg
+- #15 commons | CC BY-SA 4.0 | Captaininler | https://commons.wikimedia.org/wiki/File:Love_at_first_sight.jpg
+- #16 commons | CC BY 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Love_At_First_Sight_on_Ausstellungsstrasse_in_Z%C3%BCrich.jpg
+- #17 commons | CC BY 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Ausstellungsstrasse_100.jpg
+- #18 commons | CC BY-SA 4.0 | Bobo11 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Migros_Hochhaus1K4A8510.jpg
+- #19 commons | CC BY-SA 4.0 | Bobo11 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Migros_Hochhaus1K4A8511.jpg
+- #20 commons | CC BY-SA 4.0 | Bobo11 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Migros_Hochhaus1K4A8512.jpg
+- #21 commons | CC BY-SA 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Ackerstrasse_01.jpg
+- #22 panoramax | CC-BY-SA-4.0 | Lezurex | https://api.panoramax.xyz/#focus=pic&pic=89e2c86c-39f3-4ff2-a3d8-3e6145f2affc
+- #23 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=9f7131d1-9504-4bf0-8d3c-cd1693e09c0b
+- #24 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=cb26eef2-f322-4615-8cc2-91c9ebe3d51b
+
+## johanneskirche
+- #0 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1916830998869965
+- #1 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=759471649233789
+- #2 mapillary | CC BY-SA 4.0 | Yha1 | https://www.mapillary.com/app/?pKey=1463700547874802
+- #3 mapillary | CC BY-SA 4.0 | samara_widmer | https://www.mapillary.com/app/?pKey=3788370254782892
+- #4 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=376090005318591
+- #5 mapillary | CC BY-SA 4.0 | jopparn | https://www.mapillary.com/app/?pKey=222398572651309
+- #6 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=963029221874745
+- #7 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=390275743716751
+- #8 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=336512972218144
+- #9 mapillary | CC BY-SA 4.0 | jopparn | https://www.mapillary.com/app/?pKey=488036318983678
+- #10 commons | CC BY-SA 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Ackerstrasse_01.jpg
+- #11 commons | CC BY-SA 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Ackerstrasse_03.jpg
+- #12 commons | CC0 | Ralfhauser | https://commons.wikimedia.org/wiki/File:Schulhaus_Limmat,_Aussenseite_1.jpg
+- #13 commons | CC0 | Ralfhauser | https://commons.wikimedia.org/wiki/File:Schulhaus_Limmat,_Aussenseite_2.jpg
+- #14 commons | CC0 | Ralfhauser | https://commons.wikimedia.org/wiki/File:Schulhaus_Limmat,_Im_Hofe.jpg
+- #15 commons | CC BY-SA 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Ackerstrasse_02.jpg
+- #16 commons | CC BY 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Ausstellungsstrasse_02.jpg
+- #17 commons | CC BY-SA 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Ackerstrasse_04.jpg
+- #18 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=4fe5c56e-081c-4008-adc9-7dd333bf6647
+- #19 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=51702678-928b-4aff-a48f-ebfb61d38fae
+
+## zett_haus
+- #0 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=950122490073121
+- #1 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=147010067382583
+- #2 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=737255141876956
+- #3 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=917629336764959
+- #4 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=1725016061241734
+- #5 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=623936003244355
+- #6 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=510745709926637
+- #7 commons | CC BY 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Badenerstrasse_street_sign.jpg
+- #8 commons | CC BY-SA 3.0 | Chris j wood | https://commons.wikimedia.org/wiki/File:Zurich_Stauffacher_2012_03.jpg
+- #9 commons | CC BY 2.0 | Thomas8047 | https://commons.wikimedia.org/wiki/File:Hey!_(15030065521).jpg
+- #10 commons | CC BY 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_B%C3%A4ckerstrasse_04.jpg
+- #11 commons | CC BY-SA 3.0 | Chris j wood | https://commons.wikimedia.org/wiki/File:Zurich_Stauffacher_2012_02.jpg
+- #12 commons | CC BY-SA 4.0 | SolAymee | https://commons.wikimedia.org/wiki/File:Brunnen_am_Stauffacher_B.jpg
+- #13 commons | CC BY-SA 3.0 | Chris j wood | https://commons.wikimedia.org/wiki/File:Zurich_Stauffacher_2012_01.jpg
+- #14 commons | CC BY-SA 4.0 | SolAymee | https://commons.wikimedia.org/wiki/File:Brunnen_am_Stauffacher_a.jpg
+- #15 panoramax | CC-BY-SA-4.0 | captaininler | https://api.panoramax.xyz/#focus=pic&pic=b454e9e5-768b-4863-bb39-6a898100e29b
+
+## stauffacher_turm
+- #0 mapillary | CC BY-SA 4.0 | lto | https://www.mapillary.com/app/?pKey=750947193173820
+- #1 mapillary | CC BY-SA 4.0 | lto | https://www.mapillary.com/app/?pKey=157372290329517
+- #2 mapillary | CC BY-SA 4.0 | lto | https://www.mapillary.com/app/?pKey=568595897885516
+- #3 mapillary | CC BY-SA 4.0 | toaoa | https://www.mapillary.com/app/?pKey=796768067610636
+- #4 mapillary | CC BY-SA 4.0 | pablopita | https://www.mapillary.com/app/?pKey=937952747026253
+- #5 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=514865256311722
+- #6 mapillary | CC BY-SA 4.0 | beat | https://www.mapillary.com/app/?pKey=527266975116344
+- #7 mapillary | CC BY-SA 4.0 | lto | https://www.mapillary.com/app/?pKey=541172511505686
+- #8 mapillary | CC BY-SA 4.0 | toaoa | https://www.mapillary.com/app/?pKey=1702560116798914
+- #9 mapillary | CC BY-SA 4.0 | toaoa | https://www.mapillary.com/app/?pKey=3870089729712735
+- #10 mapillary | CC BY-SA 4.0 | beat | https://www.mapillary.com/app/?pKey=1171280013296956
+- #11 mapillary | CC BY-SA 4.0 | beat | https://www.mapillary.com/app/?pKey=1406131569753907
+- #12 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=992393058246867
+- #13 commons | CC BY 2.0 | Thomas8047 | https://commons.wikimedia.org/wiki/File:All_we_hear_is_Radio_ga_ga_(16035511391).jpg
+- #14 commons | CC BY 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:St._Jakob_church_in_Z%C3%BCrich.jpg
+- #15 commons | CC BY 2.0 | Thomas8047 | https://commons.wikimedia.org/wiki/File:10000_mails_checken_(15310904292).jpg
+- #16 commons | CC BY-SA 3.0 | Ikiwaner | https://commons.wikimedia.org/wiki/File:Zuerich_St._Jakobskirche.jpg
+- #17 commons | CC BY-SA 4.0 | beat | https://commons.wikimedia.org/wiki/File:Mapillary_(beat)_2019-10-27_14H43M02S376_(196081949028227_at_kz5gwbkxj3u6119av6jzu8).jpg
+- #18 commons | CC BY-SA 4.0 | beat | https://commons.wikimedia.org/wiki/File:Mapillary_(beat)_2019-10-27_14H43M00S379_(1143590152720297_at_kz5gwbkxj3u6119av6jzu8).jpg
+- #19 commons | CC BY-SA 4.0 | beat | https://commons.wikimedia.org/wiki/File:Mapillary_(beat)_2019-10-27_14H43M04S378_(527266975116344_at_kz5gwbkxj3u6119av6jzu8).jpg
+- #20 commons | CC BY-SA 4.0 | beat | https://commons.wikimedia.org/wiki/File:Mapillary_(beat)_2019-10-27_14H42M58S379_(3009978182605385_at_kz5gwbkxj3u6119av6jzu8).jpg
+- #21 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=ef684e33-8850-4e71-ae91-196bb4c1850b
+
+## apollo_stauffacher
+- #0 mapillary | CC BY-SA 4.0 | toaoa | https://www.mapillary.com/app/?pKey=960110308150706
+- #1 mapillary | CC BY-SA 4.0 | beat | https://www.mapillary.com/app/?pKey=487475535792272
+- #2 mapillary | CC BY-SA 4.0 | lto | https://www.mapillary.com/app/?pKey=335804621241777
+- #3 mapillary | CC BY-SA 4.0 | lto | https://www.mapillary.com/app/?pKey=192617862603782
+- #4 commons | CC BY 2.0 | Thomas8047 | https://commons.wikimedia.org/wiki/File:Z%C3%BCri_Linie_(14459120388).jpg
+- #5 commons | CC BY 2.0 | Thomas8047 | https://commons.wikimedia.org/wiki/File:10000_mails_checken_(15310904292).jpg
+- #6 commons | CC BY 2.0 | Thomas8047 | https://commons.wikimedia.org/wiki/File:All_we_hear_is_Radio_ga_ga_(16035511391).jpg
+- #7 commons | CC BY 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:St._Jakob_church_in_Z%C3%BCrich.jpg
+- #8 commons | CC BY-SA 3.0 | Flominator (talk) | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Wikipedia-Sommerfest_2010_1000880.jpg
+- #9 commons | CC BY-SA 3.0 | Flominator (talk) | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Wikipedia-Sommerfest_2010_1000883.jpg
+- #10 commons | CC BY-SA 4.0 | beat | https://commons.wikimedia.org/wiki/File:Mapillary_(beat)_2019-10-27_14H42M54S373_(294575688953492_at_kz5gwbkxj3u6119av6jzu8).jpg
+- #11 commons | CC BY-SA 4.0 | beat | https://commons.wikimedia.org/wiki/File:Mapillary_(beat)_2019-10-27_14H42M52S363_(2892707037663642_at_kz5gwbkxj3u6119av6jzu8).jpg
+- #12 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=d3ad2962-af5a-435a-8ddb-72e6599cf7c2
+
+## baeckeranlage_pavillon
+- #0 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=297058296740416
+- #1 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=1071126997328652
+- #2 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=3621846181402328
+- #3 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:B%C3%A4ckeranlage_Z%C3%BCrich_20181112_145306.jpg
+- #4 commons | CC BY 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_B%C3%A4ckeranlage_01.jpg
+- #5 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:B%C3%A4ckeranlage_Z%C3%BCrich_20181112_145836.jpg
+- #6 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:B%C3%A4ckeranlage_Z%C3%BCrich_20181112_145607.jpg
+- #7 commons | CC BY-SA 3.0 | StevenL | https://commons.wikimedia.org/wiki/File:Zurich_-_2015_-_panoramio_(37).jpg
+- #8 commons | CC BY-SA 4.0 | beat | https://commons.wikimedia.org/wiki/File:Mapillary_(beat)_2019-10-27_14H41M24S373_(246005997313857_at_kz5gwbkxj3u6119av6jzu8).jpg
+- #9 commons | CC BY-SA 4.0 | beat | https://commons.wikimedia.org/wiki/File:Mapillary_(beat)_2019-10-27_14H41M26S374_(931811800986414_at_kz5gwbkxj3u6119av6jzu8).jpg
+- #10 commons | CC BY-SA 4.0 | beat | https://commons.wikimedia.org/wiki/File:Mapillary_(beat)_2019-10-27_14H41M22S361_(917573872364426_at_kz5gwbkxj3u6119av6jzu8).jpg
+- #11 panoramax | CC-BY-SA-4.0 | captaininler | https://api.panoramax.xyz/#focus=pic&pic=5631aca3-c6a3-4242-b889-4978012f8fc0
+
+## crowne_plaza
+- #0 commons | CC BY-SA 2.0 | BriYYZ from Toronto, Canada | https://commons.wikimedia.org/wiki/File:Crowne_Plaza_Z%C3%BCrich_(6688013529).jpg
+- #1 commons | CC BY-SA 4.0 | fcignat | https://commons.wikimedia.org/wiki/File:Mapillary_Z%C3%BCrich_1640896079862130_(u3iVcplwqT9IFZXPjQEbyA_by_fcignat_%E2%80%93_2025-03-10_05H39M21S366).jpg
+- #2 commons | CC BY-SA 4.0 | fcignat | https://commons.wikimedia.org/wiki/File:Mapillary_Z%C3%BCrich_1640896079862130_(u3iVcplwqT9IFZXPjQEbyA_by_fcignat_%E2%80%93_2025-03-10_05H39M21S366)_(cropped).jpg
+- #3 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=24fa7e26-b7ac-450c-a5a9-6558e5687bd5
+
+## alto_tower
+- #0 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=259243957243939
+- #1 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=7132658310116395
+- #2 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=1104161813958917
+- #3 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=428120236389176
+- #4 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=7110383965738896
+- #5 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=646298121856173
+- #6 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1278982043708046
+- #7 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1322918269358823
+- #8 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=1396371194579709
+- #9 mapillary | CC BY-SA 4.0 | toaoa | https://www.mapillary.com/app/?pKey=982410825847203
+- #10 mapillary | CC BY-SA 4.0 | sunflower | https://www.mapillary.com/app/?pKey=1196653280769216
+- #11 mapillary | CC BY-SA 4.0 | toaoa | https://www.mapillary.com/app/?pKey=219384769687207
+- #12 mapillary | CC BY-SA 4.0 | toaoa | https://www.mapillary.com/app/?pKey=467603130974861
+- #13 commons | CC BY-SA 4.0 | Comet Photo AG (Zürich) | https://commons.wikimedia.org/wiki/File:ETH-BIB_Com_FC26-0001-349_Zuerich_Vorbahnhof_xx1189.jpg
+- #14 panoramax | CC-BY-SA-4.0 | captaininler | https://api.panoramax.xyz/#focus=pic&pic=f732f9b4-152d-4664-962b-70273efa3206
+
+## swissmill
+- #0 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=900320320534104
+- #1 mapillary | CC BY-SA 4.0 | guzzo | https://www.mapillary.com/app/?pKey=936794683726803
+- #2 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=278217840632957
+- #3 mapillary | CC BY-SA 4.0 | u001 | https://www.mapillary.com/app/?pKey=3238286039719268
+- #4 mapillary | CC BY-SA 4.0 | Yha1 | https://www.mapillary.com/app/?pKey=452528571150596
+- #5 mapillary | CC BY-SA 4.0 | Yha1 | https://www.mapillary.com/app/?pKey=1051509416622255
+- #6 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1475265360215128
+- #7 mapillary | CC BY-SA 4.0 | guzzo | https://www.mapillary.com/app/?pKey=527502171721470
+- #8 mapillary | CC BY-SA 4.0 | Yha1 | https://www.mapillary.com/app/?pKey=866859705638003
+- #9 mapillary | CC BY-SA 4.0 | Yha1 | https://www.mapillary.com/app/?pKey=879335127477974
+- #10 mapillary | CC BY-SA 4.0 | u001 | https://www.mapillary.com/app/?pKey=239410381279158
+- #11 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=943158926496330
+- #12 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=304487884507295
+- #13 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1323988055785529
+- #14 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=24188078550892198
+- #15 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1514316899739943
+- #16 commons | CC BY-SA 4.0 | FreeclimbZurich | https://commons.wikimedia.org/wiki/File:Roofer_auf_dem_Swissmill-Tower.jpg
+- #17 commons | CC BY-SA 4.0 | FreeclimbZurich | https://commons.wikimedia.org/wiki/File:Rooftopper_Swissmill.jpg
+- #18 commons | CC BY-SA 4.0 | Jag9889 | https://commons.wikimedia.org/wiki/File:Dammsteg_%C3%BCber_die_Limmat,_Stadt_Z%C3%BCrich_20180908-jag9889.jpg
+- #19 commons | CC BY-SA 4.0 | Olga Ernst | https://commons.wikimedia.org/wiki/File:Flussbad_Unterer_Letten,_Z%C3%BCrich.jpg
+- #20 commons | CC BY-SA 4.0 | Olga Ernst | https://commons.wikimedia.org/wiki/File:Flussbad_Unterer_Letten_(Z%C3%BCrich).jpg
+- #21 commons | CC0 | 1904.CC | https://commons.wikimedia.org/wiki/File:B%C3%BCcherschrank_in_Z%C3%BCrich_Limmatstrasse_01.jpg
+- #22 commons | CC BY-SA 4.0 | Sdkb | https://commons.wikimedia.org/wiki/File:%22Disobedience_Archive_(Canopy_for_Broken_Time)%22_exhibition_at_the_Migros_Museum_of_Contemporary_Art.jpg
+- #23 commons | CC0 | 1904.CC | https://commons.wikimedia.org/wiki/File:B%C3%BCcherschrank_in_Z%C3%BCrich_Limmatstrasse_02.jpg
+
+## st_joseph
+- #0 mapillary | CC BY-SA 4.0 | pablopita | https://www.mapillary.com/app/?pKey=478487819918033
+- #1 mapillary | CC BY-SA 4.0 | pablopita | https://www.mapillary.com/app/?pKey=3928824880498988
+- #2 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=508298710218977
+- #3 mapillary | CC BY-SA 4.0 | fifi | https://www.mapillary.com/app/?pKey=396482628002980
+- #4 mapillary | CC BY-SA 4.0 | fifi | https://www.mapillary.com/app/?pKey=217976943085535
+- #5 mapillary | CC BY-SA 4.0 | pablopita | https://www.mapillary.com/app/?pKey=1295240894206566
+- #6 mapillary | CC BY-SA 4.0 | ingked | https://www.mapillary.com/app/?pKey=287576516324527
+- #7 mapillary | CC BY-SA 4.0 | pablopita | https://www.mapillary.com/app/?pKey=946075572809176
+- #8 mapillary | CC BY-SA 4.0 | pablopita | https://www.mapillary.com/app/?pKey=553642475627427
+- #9 mapillary | CC BY-SA 4.0 | pablopita | https://www.mapillary.com/app/?pKey=191486196174171
+- #10 mapillary | CC BY-SA 4.0 | pablopita | https://www.mapillary.com/app/?pKey=194943459154674
+- #11 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=448841136213514
+- #12 commons | CC BY-SA 4.0 | Andreas Faessler | https://commons.wikimedia.org/wiki/File:St.Josef_ZH.jpg
+- #13 commons | CC BY-SA 4.0 | Bobo11 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Migros_Hochhaus_1K4A8221.jpg
+- #14 commons | CC BY-SA 4.0 | Bobo11 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Migros_Hochhaus1K4A8224.jpg
+- #15 commons | CC BY-SA 4.0 | Bobo11 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Migros_Hochhaus_1K4A8222.jpg
+- #16 commons | CC BY-SA 4.0 | Bobo11 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Migros_Hochhaus_1K4A8230.jpg
+- #17 commons | CC BY-SA 4.0 | Bobo11 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Migros_Hochhaus_1K4A8233.jpg
+- #18 commons | CC BY-SA 4.0 | Bobo11 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Migros_Hochhaus1K4A8226.jpg
+- #19 commons | CC BY-SA 4.0 | Bobo11 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Migros_Hochhaus_1K4A8225.jpg
+- #20 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=955bbfea-a09c-4977-99ce-9729929915e5
+
+## kw_letten
+- #0 mapillary | CC BY-SA 4.0 | abuhlma2 | https://www.mapillary.com/app/?pKey=510232028498311
+- #1 mapillary | CC BY-SA 4.0 | albinfo | https://www.mapillary.com/app/?pKey=511871846892388
+- #2 mapillary | CC BY-SA 4.0 | albinfo | https://www.mapillary.com/app/?pKey=936726373816352
+- #3 mapillary | CC BY-SA 4.0 | albinfo | https://www.mapillary.com/app/?pKey=4072248616172019
+- #4 mapillary | CC BY-SA 4.0 | albinfo | https://www.mapillary.com/app/?pKey=935958650563032
+- #5 mapillary | CC BY-SA 4.0 | albinfo | https://www.mapillary.com/app/?pKey=1573410496365976
+- #6 mapillary | CC BY-SA 4.0 | fifi | https://www.mapillary.com/app/?pKey=1076363439523278
+- #7 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=503763730632450
+- #8 mapillary | CC BY-SA 4.0 | fifi | https://www.mapillary.com/app/?pKey=324735012651538
+- #9 commons | CC BY-SA 4.0 | XBRJo | https://commons.wikimedia.org/wiki/File:XBRJo2020.jpg
+- #10 commons | CC BY-SA 4.0 | Jag9889 | https://commons.wikimedia.org/wiki/File:EWZ_Kraftwerk_Letten_Br%C3%BCcke_an_der_Limmat,_Stadt_Z%C3%BCrich_20180908-jag9889.jpg
+- #11 commons | CC BY-SA 3.0 | Verum | https://commons.wikimedia.org/wiki/File:Migros-Hochhaus_am_Limmat.jpg
+- #12 commons | CC BY 2.0 | Deensel | https://commons.wikimedia.org/wiki/File:Swissmill,_Zurich_(46232609535).jpg
+- #13 commons | CC BY-SA 3.0 | Chris j wood | https://commons.wikimedia.org/wiki/File:Zurich_Letten_former_railway_station.jpg
+- #14 commons | CC BY-SA 2.0 | Laika ac from USA | https://commons.wikimedia.org/wiki/File:Laika_ac_Gingerbread_Hearts_(6686143645).jpg
+- #15 commons | CC BY-SA 2.0 | Laika ac from USA | https://commons.wikimedia.org/wiki/File:Laika_ac_Swarovski_Christmas_Tree_(6686135069).jpg
+- #16 commons | CC BY-SA 2.0 | Laika ac from USA | https://commons.wikimedia.org/wiki/File:Laika_ac_Swarovski_Christmas_Tree_(6686139967).jpg
+
+## james_hochhaus
+- #0 mapillary | CC BY-SA 4.0 | fifi | https://www.mapillary.com/app/?pKey=1279746645753288
+- #1 mapillary | CC BY-SA 4.0 | fifi | https://www.mapillary.com/app/?pKey=516451446033097
+- #2 mapillary | CC BY-SA 4.0 | fifi | https://www.mapillary.com/app/?pKey=215333493401834
+- #3 mapillary | CC BY-SA 4.0 | fifi | https://www.mapillary.com/app/?pKey=3868044626624988
+- #4 mapillary | CC BY-SA 4.0 | fifi | https://www.mapillary.com/app/?pKey=271966804613585
+- #5 mapillary | CC BY-SA 4.0 | fifi | https://www.mapillary.com/app/?pKey=745752679432560
+- #6 commons | CC BY-SA 3.0 | Port(u*o)s | https://commons.wikimedia.org/wiki/File:Motorroller_James_-_Gm%C3%BCr_%26_Geschwentner_Architekten_AG_Albisrieden.jpg
+- #7 commons | CC BY 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:New_Apostolic_church_building_on_Anemonenstrasse,_Z%C3%BCrich.jpg
+- #8 commons | CC BY 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Anemonenstrasse_street_sign.jpg
+- #9 commons | CC BY 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Anemonenstrasse_01.jpg
+- #10 commons | CC BY-SA 3.0 | gertrudis2010 | https://commons.wikimedia.org/wiki/File:Minimum_Bouldering_-_panoramio.jpg
+- #11 panoramax | CC-BY-SA-4.0 | captaininler | https://api.panoramax.xyz/#focus=pic&pic=a95143f7-658e-4167-860e-0c4ca5452a75
+
+## docks_langstrasse
+- #0 mapillary | CC BY-SA 4.0 | k3rn3lp4n1c | https://www.mapillary.com/app/?pKey=926964822507116
+- #1 mapillary | CC BY-SA 4.0 | fifi | https://www.mapillary.com/app/?pKey=135202755210137
+- #2 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=2602558070044416
+- #3 mapillary | CC BY-SA 4.0 | fifi | https://www.mapillary.com/app/?pKey=575443926683592
+- #4 mapillary | CC BY-SA 4.0 | Lezurex | https://www.mapillary.com/app/?pKey=27251096404494293
+- #5 mapillary | CC BY-SA 4.0 | k3rn3lp4n1c | https://www.mapillary.com/app/?pKey=1245445770128736
+- #6 mapillary | CC BY-SA 4.0 | k3rn3lp4n1c | https://www.mapillary.com/app/?pKey=380960901449591
+- #7 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=5461459020562411
+- #8 mapillary | CC BY-SA 4.0 | ingked | https://www.mapillary.com/app/?pKey=864447607470193
+- #9 mapillary | CC BY-SA 4.0 | k3rn3lp4n1c | https://www.mapillary.com/app/?pKey=343290215379690
+- #10 mapillary | CC BY-SA 4.0 | Lezurex | https://www.mapillary.com/app/?pKey=1524753599177266
+- #11 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1404473607314217
+- #12 mapillary | CC BY-SA 4.0 | Lezurex | https://www.mapillary.com/app/?pKey=1680951043186777
+- #13 mapillary | CC BY-SA 4.0 | fifi | https://www.mapillary.com/app/?pKey=158663396091350
+- #14 mapillary | CC BY-SA 4.0 | fifi | https://www.mapillary.com/app/?pKey=307904057404737
+- #15 mapillary | CC BY-SA 4.0 | fifi | https://www.mapillary.com/app/?pKey=516588552679061
+- #16 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_192251.jpg
+- #17 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_193344.jpg
+- #18 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_192621.jpg
+- #19 commons | CC BY-SA 4.0 | Quinhonk | https://commons.wikimedia.org/wiki/File:Standing_Together.jpg
+- #20 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_192201.jpg
+- #21 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_192524.jpg
+- #22 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_192839.jpg
+- #23 commons | CC BY-SA 4.0 | Moritz Twente | https://commons.wikimedia.org/wiki/File:ZVB019_Zuerich-Langstrasse_MaxVogt_20240721_192456.jpg
+- #24 panoramax | CC-BY-SA-4.0 | Lezurex | https://api.panoramax.xyz/#focus=pic&pic=6a916c77-cf94-49e0-b0b5-7927a9a4f75f
+
+## idaplatz_block
+- #0 mapillary | CC BY-SA 4.0 | lto | https://www.mapillary.com/app/?pKey=228878399825829
+- #1 mapillary | CC BY-SA 4.0 | lto | https://www.mapillary.com/app/?pKey=954546912656998
+- #2 mapillary | CC BY-SA 4.0 | ahojnnes | https://www.mapillary.com/app/?pKey=762719716320587
+- #3 mapillary | CC BY-SA 4.0 | Harshali | https://www.mapillary.com/app/?pKey=885587194481065
+- #4 mapillary | CC BY-SA 4.0 | ahojnnes | https://www.mapillary.com/app/?pKey=1403050891001936
+- #5 mapillary | CC BY-SA 4.0 | canadarunner | https://www.mapillary.com/app/?pKey=224903425679947
+- #6 mapillary | CC BY-SA 4.0 | Yha1 | https://www.mapillary.com/app/?pKey=388056837323121
+- #7 mapillary | CC BY-SA 4.0 | lto | https://www.mapillary.com/app/?pKey=1306988693532794
+- #8 mapillary | CC BY-SA 4.0 | canadarunner | https://www.mapillary.com/app/?pKey=1378108769222536
+- #9 mapillary | CC BY-SA 4.0 | canadarunner | https://www.mapillary.com/app/?pKey=2212370915561099
+- #10 mapillary | CC BY-SA 4.0 | kamilnikel_fb | https://www.mapillary.com/app/?pKey=724050266135389
+- #11 mapillary | CC BY-SA 4.0 | ahojnnes | https://www.mapillary.com/app/?pKey=1912804476233413
+- #12 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=9142991835785522
+- #13 mapillary | CC BY-SA 4.0 | kamilnikel_fb | https://www.mapillary.com/app/?pKey=2178604242329849
+- #14 mapillary | CC BY-SA 4.0 | kamilnikel_fb | https://www.mapillary.com/app/?pKey=1285928851999531
+- #15 mapillary | CC BY-SA 4.0 | kamilnikel_fb | https://www.mapillary.com/app/?pKey=543937094585149
+- #16 commons | CC BY-SA 4.0 | PizzaToast | https://commons.wikimedia.org/wiki/File:Kalki_Umsonst_Regal_in_der_Badenerstrasse_171_im_November_2019.jpg
+- #17 commons | CC BY-SA 4.0 | Captaininler | https://commons.wikimedia.org/wiki/File:FLOW_Mural.jpg
+- #18 commons | CC BY 2.0 | Paolo Gamba from Paris, France | https://commons.wikimedia.org/wiki/File:U_T_O_Kino_(31719746057).jpg
+- #19 commons | CC BY-SA 4.0 | WalterSchaerer | https://commons.wikimedia.org/wiki/File:Kpmg-switzerland-office-zurich.jpg
+- #20 commons | CC BY-SA 3.0 | Tschubby | https://commons.wikimedia.org/wiki/File:Lochergut_Z%C3%BCrich.JPG
+- #21 commons | CC BY-SA 4.0 | Christophe Jacquet (ChrisJ) | https://commons.wikimedia.org/wiki/File:Zurich_S4_train_in_Wiedikon.jpg
+- #22 commons | CC BY 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Three_generations_of_Z%C3%BCrich_trams.jpg
+- #23 commons | CC BY 2.0 | Alain GAVILLET from Chêne-Bougeries, Suisse | https://commons.wikimedia.org/wiki/File:Trains_du_Forchbahn_(Suisse)_(6339891876).jpg
+- #24 panoramax | CC-BY-SA-4.0 | captaininler | https://api.panoramax.xyz/#focus=pic&pic=6334a331-0883-4f65-9e84-7d8c56a3872c
+
+## albisriederplatz_ost
+- #0 commons | CC BY 2.0 | Thomas8047 | https://commons.wikimedia.org/wiki/File:Meditation_(15208930175).jpg
+- #1 commons | CC BY-SA 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Albisriederplatz_01.jpg
+- #2 commons | CC BY-SA 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Albisriederstrasse_(2023)_08.jpg
+- #3 commons | CC BY 2.0 | Thomas8047 | https://commons.wikimedia.org/wiki/File:The_weather_will_brighten_up_tomorrow._(10442033274).jpg
+- #4 commons | CC BY-SA 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Albisriederplatz_03.jpg
+- #5 commons | CC BY-SA 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_Albisriederplatz_02.jpg
+- #6 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=4fe7f258-72a7-43c3-8267-b832491509cf
+- #7 panoramax | CC-BY-SA-4.0 | stillhart | https://api.panoramax.xyz/#focus=pic&pic=5817e79d-44f3-4ece-bd98-d3d409feeefd
+
+## langstrasse_sued
+- #0 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1351924503035933
+- #1 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=789893397265906
+- #2 mapillary | CC BY-SA 4.0 | fifi | https://www.mapillary.com/app/?pKey=126675529422034
+- #3 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=794626359984113
+- #4 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=821003330434604
+- #5 commons | CC BY-SA 2.0 | thomas stein | https://commons.wikimedia.org/wiki/File:Perla_Mode_Langstrasse_Zurich.jpg
+- #6 commons | CC BY-SA 3.0 | StevenL | https://commons.wikimedia.org/wiki/File:Zurich_-_2015_-_panoramio_(37).jpg
+- #7 panoramax | CC-BY-SA-4.0 | Daylight ASAP | https://api.panoramax.xyz/#focus=pic&pic=67910a49-7a8d-494f-8e86-0a714d2321af
+
+## langstrasse_nord
+- #0 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=2102744830194747
+- #1 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1803052783938534
+- #2 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=2466723423526582
+- #3 mapillary | CC BY-SA 4.0 | Danii1998 | https://www.mapillary.com/app/?pKey=414809014899242
+- #4 mapillary | CC BY-SA 4.0 | ingked | https://www.mapillary.com/app/?pKey=467208617682709
+- #5 mapillary | CC BY-SA 4.0 | ingked | https://www.mapillary.com/app/?pKey=308451644005850
+- #6 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1331054757612289
+- #7 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=313152004388610
+- #8 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=230212646811247
+- #9 mapillary | CC BY-SA 4.0 | abuhlma2 | https://www.mapillary.com/app/?pKey=552899193907603
+- #10 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1467027530938997
+- #11 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=2769100996771868
+- #12 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=6778330655578662
+- #13 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=509029441459777
+- #14 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=579587494869695
+- #15 mapillary | CC BY-SA 4.0 | indibart | https://www.mapillary.com/app/?pKey=219805612816292
+- #16 panoramax | CC-BY-SA-4.0 | captaininler | https://api.panoramax.xyz/#focus=pic&pic=5369656d-2ad1-4851-a08b-1f17f1576785
+- #17 panoramax | CC-BY-SA-4.0 | captaininler | https://api.panoramax.xyz/#focus=pic&pic=1ebb9aaf-22ad-4241-987d-65db917c56ba
+- #18 panoramax | CC-BY-SA-4.0 | captaininler | https://api.panoramax.xyz/#focus=pic&pic=f0dfa355-629e-44d1-a187-028723cc46af
+
+## roentgen_zeile
+- #0 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=1366004677111956
+- #1 mapillary | CC BY-SA 4.0 | fifi | https://www.mapillary.com/app/?pKey=206450014365416
+- #2 mapillary | CC BY-SA 4.0 | ingked | https://www.mapillary.com/app/?pKey=1153119601820424
+- #3 mapillary | CC BY-SA 4.0 | ingked | https://www.mapillary.com/app/?pKey=1617793658417755
+- #4 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=149628490463404
+- #5 commons | CC BY 2.0 | Fred Romero from Paris, France | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_(48677544001).jpg
+- #6 commons | CC BY 2.0 | Fred Romero from Paris, France | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_(48677716637).jpg
+- #7 commons | CC BY 2.0 | Fred Romero from Paris, France | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_(48677716737).jpg
+- #8 commons | CC BY 2.0 | Fred Romero from Paris, France | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_(48677544371).jpg
+- #9 commons | CC BY 2.0 | Fred Romero from Paris, France | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_(48677543396).jpg
+- #10 commons | CC BY 2.0 | Fred Romero from Paris, France | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_(48677543851).jpg
+- #11 commons | CC BY 2.0 | Fred Romero from Paris, France | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_(48677544496).jpg
+- #12 commons | CC BY 2.0 | Fred Romero from Paris, France | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_(48677544586).jpg
+- #13 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=d00b66c8-2d48-435d-af27-476c0ff0bbc3
+- #14 panoramax | CC-BY-SA-4.0 | captaininler | https://api.panoramax.xyz/#focus=pic&pic=05e5e736-cce7-46ba-a003-d4b1561bf71b
+- #15 panoramax | CC-BY-SA-4.0 | captaininler | https://api.panoramax.xyz/#focus=pic&pic=2c4fafac-3bcb-4fce-b628-d0bedb706098
+
+## wiedikon_platz
+- #0 mapillary | CC BY-SA 4.0 | Yha1 | https://www.mapillary.com/app/?pKey=1000415864777893
+- #1 mapillary | CC BY-SA 4.0 | Yha1 | https://www.mapillary.com/app/?pKey=1131290594629268
+- #2 mapillary | CC BY-SA 4.0 | Yha1 | https://www.mapillary.com/app/?pKey=993995998718362
+- #3 mapillary | CC BY-SA 4.0 | Lezurex | https://www.mapillary.com/app/?pKey=1770001684165574
+- #4 mapillary | CC BY-SA 4.0 | Yha1 | https://www.mapillary.com/app/?pKey=385639604436694
+- #5 mapillary | CC BY-SA 4.0 | Yha1 | https://www.mapillary.com/app/?pKey=256620280178968
+- #6 mapillary | CC BY-SA 4.0 | Yha1 | https://www.mapillary.com/app/?pKey=1688298085001633
+- #7 mapillary | CC BY-SA 4.0 | canadarunner | https://www.mapillary.com/app/?pKey=260750342464305
+- #8 mapillary | CC BY-SA 4.0 | canadarunner | https://www.mapillary.com/app/?pKey=818087328811418
+- #9 mapillary | CC BY-SA 4.0 | canadarunner | https://www.mapillary.com/app/?pKey=1888383511308854
+- #10 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=3574926589423072
+- #11 mapillary | CC BY-SA 4.0 | Yha1 | https://www.mapillary.com/app/?pKey=993718665723456
+- #12 mapillary | CC BY-SA 4.0 | Yha1 | https://www.mapillary.com/app/?pKey=363633649670947
+- #13 mapillary | CC BY-SA 4.0 | Yha1 | https://www.mapillary.com/app/?pKey=1008345757305231
+- #14 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1483404693092484
+- #15 mapillary | CC BY-SA 4.0 | Yha1 | https://www.mapillary.com/app/?pKey=792326155911779
+- #16 commons | CC BY-SA 4.0 | SolAymee | https://commons.wikimedia.org/wiki/File:Liegender_(zweiteiliges_Werk).jpg
+- #17 commons | CC BY 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Mobile_air_quality_monitoring_station_in_Z%C3%BCrich.jpg
+- #18 commons | CC BY 2.0 | hrs51 | https://commons.wikimedia.org/wiki/File:4_1392_und_1530_beim_Bahnhof_Wiedikon_in_Z%C3%BCrich_-_32230234685.jpg
+- #19 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:Bahnhof_Wiedikon_2012-02-18_14-08-54_(SX230)_ShiftN.jpg
+- #20 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:Wiedikon_-_Bahnhof_2012-02-18_14-09-08_(SX230).JPG
+- #21 commons | CC BY-SA 3.0 | Athos75 | https://commons.wikimedia.org/wiki/File:Schimmelstrasse_16_Zurich.JPG
+- #22 commons | CC BY 4.0 | HonysTorresArt | https://commons.wikimedia.org/wiki/File:Exhibition_view_with_artist_%E2%80%93_Ausstellung_M%C3%A4rz%E2%80%9924,_Galerie_111,_Z%C3%BCrich.jpg
+- #23 commons | CC BY 4.0 | HonysTorresArt | https://commons.wikimedia.org/wiki/File:Exhibition_view_%E2%80%93_Ausstellung_M%C3%A4rz%E2%80%9924,_Galerie_111,_Z%C3%BCrich.jpg
+- #24 panoramax | CC-BY-SA-4.0 | Lezurex | https://api.panoramax.xyz/#focus=pic&pic=ca2a5274-80a4-434c-93d1-872fad99bd94
+
+## zentralwaescherei
+- #0 commons | CC BY-SA 4.0 | Ursina Gabriela Roesch | https://commons.wikimedia.org/wiki/File:4_Frauendenkm%C3%A4ler,_Matrimoine_Bitw%C3%A4scherei_More_Women.jpg
+- #1 commons | CC BY 4.0 | OpenCatMap | https://commons.wikimedia.org/wiki/File:Bitwaescherei_Balcony,_Zurich,_2025-03-26_(1).png
+- #2 commons | CC BY 4.0 | OpenCatMap | https://commons.wikimedia.org/wiki/File:Bitwaescherei_Balcony,_Zurich,_2025-03-26_(2).png
+- #3 commons | CC BY 4.0 | OpenCatMap | https://commons.wikimedia.org/wiki/File:Bitwaescherei_Balcony-Hallway,_Zurich,_2025-03-26.png
+- #4 commons | CC BY 4.0 | OpenCatMap | https://commons.wikimedia.org/wiki/File:Bitw%C3%A4scherei,_Inside.jpg
+- #5 commons | CC BY-SA 4.0 | Medea7 | https://commons.wikimedia.org/wiki/File:Bitw%C3%A4scherei_Flur.jpg
+- #6 commons | CC BY-SA 4.0 | Medea7 | https://commons.wikimedia.org/wiki/File:Bitw%C3%A4scherei_Treppenhaus.jpg
+- #7 commons | CC BY-SA 4.0 | Medea7 | https://commons.wikimedia.org/wiki/File:Bitw%C3%A4scherei_Z%C3%BCrich_Eingang.jpg
+- #8 commons | CC BY-SA 4.0 | Kevin.B | https://commons.wikimedia.org/wiki/File:Bombardier_Cobra_n%C2%B03024,_line_4_Z%C3%BCrich_(2019).jpg
+- #9 commons | CC BY 2.0 | Thomas8047 | https://commons.wikimedia.org/wiki/File:Datenhighway_(8881103509).jpg
+- #10 commons | CC0 | OpenCatMap | https://commons.wikimedia.org/wiki/File:Digiges_Flag,_Bitwaescherei.png
+- #11 commons | CC BY-SA 4.0 | Jules Vogt | https://commons.wikimedia.org/wiki/File:ETH-BIB-Z%C3%BCrich,_Baustelle_%C3%9Cberbauung_Limmatstrasse,_Gesch%C3%A4ftshaus_Sihlcenter,_Limmat_Com_FC24-8000-0778.jpg
+- #12 commons | CC BY-SA 4.0 | Medea7 | https://commons.wikimedia.org/wiki/File:Editathon_Bitw%C3%A4scherei.jpg
+- #13 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:Escher_Wyss_-_Schiffbau_2011-08-08_13-50-40_ShiftN2.jpg
+- #14 commons | CC BY-SA 4.0 | Ursina Gabriela Roesch | https://commons.wikimedia.org/wiki/File:Frauendenkm%C3%A4ler,_Matrimoine_Bitw%C3%A4scherei,_Z%C3%BCrich_More_Women_f%C3%BCr_Wikipedia.jpg
+- #15 commons | CC BY 4.0 | OpenCatMap | https://commons.wikimedia.org/wiki/File:Fridge,_Bitwaescherei,_2025-03.png
+- #16 commons | CC BY-SA 3.0 | Adrian Michael | https://commons.wikimedia.org/wiki/File:Hardbr%C3%BCcke_Juni_2010.jpg
+- #17 commons | CC BY 2.0 | Thomas8047 | https://commons.wikimedia.org/wiki/File:In_any_wind_and_weather_(14342870911).jpg
+- #18 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:Industriequartier_-_Prime_Tower_2011-08-08_13-48-24_ShiftN2.jpg
+- #19 commons | CC BY 2.0 | Thomas8047 | https://commons.wikimedia.org/wiki/File:Jump_Street_(14220728888).jpg
+- #20 commons | CC BY-SA 3.0 | Tschubby | https://commons.wikimedia.org/wiki/File:Kehrichtverbrennungsanlage_Z%C3%BCrich-Josefstrasse_2025.jpg
+- #21 commons | CC BY-SA 4.0 | Ursina Gabriela Roesch | https://commons.wikimedia.org/wiki/File:Laura_K%C3%A4gi,_Frauendenkm%C3%A4ler,_Matrimoine_Bitw%C3%A4scherei,_Z%C3%BCrich.jpg
+- #22 commons | CC BY-SA 4.0 | Fallou Gamma | https://commons.wikimedia.org/wiki/File:MN22_20220527_Siselabonga_03.jpg
+- #23 commons | CC BY-SA 4.0 | Medea7 | https://commons.wikimedia.org/wiki/File:Objects_at_Editathon.jpg
+- #24 commons | CC BY-SA 4.0 | Ursina Gabriela Roesch | https://commons.wikimedia.org/wiki/File:Rani_Le_Prince_(IND)_Frauendenkm%C3%A4ler,_Matrimoine_Bitw%C3%A4scherei,_Z%C3%BCrich.jpg
+- #25 commons | CC BY 2.0 | Thomas8047 | https://commons.wikimedia.org/wiki/File:SEAUX_TIGERS_(14251117627).jpg
+- #26 commons | CC BY-SA 4.0 | Ursina Gabriela Roesch | https://commons.wikimedia.org/wiki/File:Sandra_Becker_(DE)_Frauendenkm%C3%A4ler,_Matrimoine_Bitw%C3%A4scherei,_Z%C3%BCrich.jpg
+- #27 commons | CC BY 3.0 | CyberCop | https://commons.wikimedia.org/wiki/File:Schiffbau_(an_old_shipyard_housing_restaurants_%26_bars)_-_panoramio.jpg
+- #28 commons | CC BY-SA 4.0 | Peterwysszh | https://commons.wikimedia.org/wiki/File:Schiffbau_zh_west.jpg
+- #29 commons | CC BY-SA 4.0 | Kevin.B | https://commons.wikimedia.org/wiki/File:Tram_2000,_line_8_Z%C3%BCrich_(2019).jpg
+- #30 commons | CC BY-SA 4.0 | Kevin.B | https://commons.wikimedia.org/wiki/File:Tram_2000_n%C2%B02120,_line_8_Z%C3%BCrich_(2019).jpg
+- #31 commons | CC BY-SA 4.0 | Ursina Gabriela Roesch | https://commons.wikimedia.org/wiki/File:Ursina_Gabriela_Roesch_(CH)_Frauendenkm%C3%A4ler,_Matrimoine_Bitw%C3%A4scherei,_Z%C3%BCrich.jpg
+- #32 commons | CC BY-SA 4.0 | Jules Vogt | https://commons.wikimedia.org/wiki/File:Wohnsiedlung_Limmat_II_im_Bau.jpg
+- #33 commons | CC BY 4.0 | OpenCatMap | https://commons.wikimedia.org/wiki/File:Zentralwaescherei_3rd_floor_elevator.png
+- #34 commons | CC BY-SA 4.0 | OpenCatMap | https://commons.wikimedia.org/wiki/File:Zentralw%C3%A4scherei,_Z%C3%BCrich.jpg
+- #35 commons | CC0 | OpenCatMap | https://commons.wikimedia.org/wiki/File:Zentralw%C3%A4scherei,_Z%C3%BCrich.png
+- #36 commons | CC0 | OpenCatMap | https://commons.wikimedia.org/wiki/File:Zentralw%C3%A4scherei_3rd_floor_balcony_view.jpg
+- #37 commons | CC BY 2.0 | Fred Romero from Paris, France | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_(48677545001).jpg
+- #38 commons | CC BY 2.0 | Fred Romero from Paris, France | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_(48705024923).jpg
+- #39 commons | CC BY-SA 4.0 | PPSPH. | https://commons.wikimedia.org/wiki/File:Epstein_billboard_in_Zurich.jpg
+- #40 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:Escher_Wyss_-_Schiffbau_-_Innenansicht_2011-08-08_13-51-46_ShiftN.jpg
+- #41 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:Escher_Wyss_-_Schiffbau_2011-08-08_14-00-08_ShiftN2.jpg
+- #42 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:Escher_Wyss_-_Schiffbau_2011-08-08_14-01-06.jpg
+- #43 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:Escher_Wyss_-_Schiffbau_2011-08-08_14-01-40.jpg
+- #44 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:Escher_Wyss_-_Schiffbau_2011-08-08_14-02-40_ShiftN.jpg
+- #45 commons | CC0 | Wendelin Jacober from Luzern, Schweiz | https://commons.wikimedia.org/wiki/File:Fight_for_a_better_World_(14702022001).jpg
+- #46 commons | CC BY-SA 3.0 | Tschubby | https://commons.wikimedia.org/wiki/File:Freitag_Tower_2021.jpg
+- #47 commons | CC BY 3.0 | Abderitestatos | https://commons.wikimedia.org/wiki/File:GeroldstrAussersihlI.jpg
+- #48 commons | CC BY-SA 3.0 | Tschubby | https://commons.wikimedia.org/wiki/File:Hardstrasse_223.jpg
+- #49 commons | CC BY-SA 2.0 | nr1 | https://commons.wikimedia.org/wiki/File:Hive_Club_Zurich.jpg
+- #50 commons | CC BY-SA 3.0 | UCaetano | https://commons.wikimedia.org/wiki/File:Neue_Hard.jpg
+- #51 commons | CC BY-SA 4.0 | Anidaat | https://commons.wikimedia.org/wiki/File:Peugeot_404_Equipe_Les_Halles.jpg
+- #52 commons | CC BY-SA 4.0 | Anidaat | https://commons.wikimedia.org/wiki/File:Peugeot_405_Equipe_Les_Halles.jpg
+- #53 commons | CC BY-SA 4.0 | Anidaat | https://commons.wikimedia.org/wiki/File:Peugeot_406_Equipe_Les_Halles.jpg
+- #54 commons | CC BY-SA 4.0 | Anidaat | https://commons.wikimedia.org/wiki/File:Peugeot_407_Equipe_Les_Halles.jpg
+- #55 commons | CC BY 3.0 | Kurt Spalinger-Røes | https://commons.wikimedia.org/wiki/File:PrimeTower_-_panoramio.jpg
+- #56 commons | CC BY 3.0 | Kurt Spalinger-Røes | https://commons.wikimedia.org/wiki/File:PrimeTower_-_panoramio_(2).jpg
+- #57 commons | CC BY 3.0 | Kurt Spalinger-Røes | https://commons.wikimedia.org/wiki/File:PrimeTower_-_panoramio_(3).jpg
+- #58 commons | CC BY 3.0 | Kurt Spalinger-Røes | https://commons.wikimedia.org/wiki/File:PrimeTower_-_panoramio_(5).jpg
+- #59 commons | CC BY-SA 2.0 | Thomas Woodtli from Zürich, Switzerland | https://commons.wikimedia.org/wiki/File:Prime_Tower_-_Z%C3%BCrich_(49763715067).jpg
+- #60 commons | CC BY-SA 4.0 | Daniel Reust | https://commons.wikimedia.org/wiki/File:Prime_Tower_Z%C3%BCrich_2.jpg
+- #61 commons | CC BY-SA 4.0 | Ank Kumar | https://commons.wikimedia.org/wiki/File:Prime_tower,_Hardbrucke_(Ank_Kumar,_Infosys_limited)_02.jpg
+- #62 commons | CC BY-SA 3.0 | Berger at German Wikipedia
+
+Later versions were uploaded by Ikiwaner at de.wikipedia. | https://commons.wikimedia.org/wiki/File:Schiffbau.JPG
+- #63 commons | CC BY 2.0 | Thomas8047 | https://commons.wikimedia.org/wiki/File:Serenading_(14303662557).jpg
+- #64 commons | CC BY 2.0 | Fred Romero from Paris, France | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_(48677545356).jpg
+- #65 commons | CC BY 2.0 | Fred Romero from Paris, France | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_(48677717622).jpg
+- #66 commons | CC BY 2.0 | Fred Romero from Paris, France | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_(48677717837).jpg
+- #67 commons | CC BY 2.0 | Fred Romero from Paris, France | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_(48705024698).jpg
+- #68 commons | CC BY 2.0 | Fred Romero from Paris, France | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_-_Freitag_Flagship_Store_Z%C3%BCrich_(48677206908).jpg
+- #69 commons | CC BY 2.0 | Fred Romero from Paris, France | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_-_Freitag_Flagship_Store_Z%C3%BCrich_(48677543516).jpg
+- #70 commons | CC BY 2.0 | Fred Romero from Paris, France | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_-_Im_Viadukt_(48677206008).jpg
+- #71 commons | CC BY 2.0 | Fred Romero from Paris, France | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_-_Im_Viadukt_(48677544731).jpg
+- #72 commons | CC BY 2.0 | Fred Romero from Paris, France | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_-_Im_Viadukt_(48677545131).jpg
+- #73 commons | CC BY-SA 4.0 | JoachimKohler-HB | https://commons.wikimedia.org/wiki/File:ZKB-Verwaltungsgeb%C3%A4ude_Neue_Hard_9_in_Z%C3%BCrich.jpg
+- #74 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=880630445820787
+- #75 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=175154741185013
+- #76 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=341749077377571
+- #77 mapillary | CC BY-SA 4.0 | sp8962de | https://www.mapillary.com/app/?pKey=5351145388289629
+- #78 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=697197269849658
+- #79 mapillary | CC BY-SA 4.0 | openrailme | https://www.mapillary.com/app/?pKey=1576948890329643
+- #80 mapillary | CC BY-SA 4.0 | osmplus_org | https://www.mapillary.com/app/?pKey=1404241408383867
+- #81 mapillary | CC BY-SA 4.0 | sunflower | https://www.mapillary.com/app/?pKey=585923052360532
+- #82 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=1996261200769511
+- #83 mapillary | CC BY-SA 4.0 | canadarunner | https://www.mapillary.com/app/?pKey=211742644096488
+- #84 mapillary | CC BY-SA 4.0 | IVOcyril | https://www.mapillary.com/app/?pKey=1446166819187003
+- #85 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=1058735195359170
+- #86 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=761566662349313
+- #87 mapillary | CC BY-SA 4.0 | IVOcyril | https://www.mapillary.com/app/?pKey=417334866580625
+- #88 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=771246191765609
+- #89 mapillary | CC BY-SA 4.0 | sunflower | https://www.mapillary.com/app/?pKey=1012196639310944
+- #90 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1915927552572323
+- #91 mapillary | CC BY-SA 4.0 | IVOcyril | https://www.mapillary.com/app/?pKey=770398250617654
+- #92 mapillary | CC BY-SA 4.0 | osmplus_org | https://www.mapillary.com/app/?pKey=918111570800096
+- #93 mapillary | CC BY-SA 4.0 | Yha1 | https://www.mapillary.com/app/?pKey=1110170000230740
+- #94 mapillary | CC BY-SA 4.0 | IVOcyril | https://www.mapillary.com/app/?pKey=379814034204985
+- #95 mapillary | CC BY-SA 4.0 | canadarunner | https://www.mapillary.com/app/?pKey=1095201847655903
+- #96 mapillary | CC BY-SA 4.0 | canadarunner | https://www.mapillary.com/app/?pKey=136103408509789
+- #97 mapillary | CC BY-SA 4.0 | canadarunner | https://www.mapillary.com/app/?pKey=302776384664013
+- #98 mapillary | CC BY-SA 4.0 | sunflower | https://www.mapillary.com/app/?pKey=1180348595798572
+- #99 mapillary | CC BY-SA 4.0 | sunflower | https://www.mapillary.com/app/?pKey=318937152936364
+- #100 mapillary | CC BY-SA 4.0 | IVOcyril | https://www.mapillary.com/app/?pKey=363897425584366
+- #101 mapillary | CC BY-SA 4.0 | sunflower | https://www.mapillary.com/app/?pKey=1872733052894246
+- #102 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=302656582596350
+- #103 mapillary | CC BY-SA 4.0 | quickness805 | https://www.mapillary.com/app/?pKey=1532585927681070
+- #104 mapillary | CC BY-SA 4.0 | sunflower | https://www.mapillary.com/app/?pKey=478101226777079
+- #105 mapillary | CC BY-SA 4.0 | sunflower | https://www.mapillary.com/app/?pKey=314569923589871
+- #106 mapillary | CC BY-SA 4.0 | osmplus_org | https://www.mapillary.com/app/?pKey=962308466665163
+- #107 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1333924508305654
+- #108 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=3b890687-0e30-400b-b9f3-820dca2fabf8
+- #109 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=401a54e5-cd37-4400-ae5d-e6f43258d5ad
+- #110 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=9ce7ebb0-8a08-42ba-90a2-4826edea03e7
+- #111 panoramax | CC-BY-SA-4.0 | stillhart | https://api.panoramax.xyz/#focus=pic&pic=2fa59ca0-bdf1-404c-a3ee-8a712ebcd0ff
+- #112 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=7bbb5f41-6379-470b-b429-33275a4341eb
+- #113 panoramax | CC-BY-SA-4.0 | stillhart | https://api.panoramax.xyz/#focus=pic&pic=3a16c590-2fe3-4e31-87a9-8fe20389fba3
+- #114 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=8b7520a6-bcf3-4ac2-9bed-6acd3e19573d
+- #115 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=5ee7ace4-197a-40e2-b762-72c46e0f0a59
+- #116 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=a677b78d-bce2-44c5-9b93-291c54fa774d
+- #117 panoramax | CC-BY-SA-4.0 | stillhart | https://api.panoramax.xyz/#focus=pic&pic=702990df-18f3-4c41-9c59-0099b2471f75
+- #118 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=d7535092-7954-4a52-9ff8-76c7fd168358
+- #119 panoramax | CC-BY-SA-4.0 | nleanba | https://api.panoramax.xyz/#focus=pic&pic=8f3a25b3-6fde-4fe6-9b8d-5b23448f9d12
+- #120 panoramax | CC-BY-SA-4.0 | stillhart | https://api.panoramax.xyz/#focus=pic&pic=8f2b45f8-385b-4948-8a7c-8e223409e8ec
+- #121 panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=9f3a2019-63ba-4be8-b422-c385150f342a
+- #122 mapillary | CC BY-SA 4.0 | sp8962de | https://www.mapillary.com/app/?pKey=836982433562367
+- #123 mapillary | CC BY-SA 4.0 | openrailme | https://www.mapillary.com/app/?pKey=1125791796407346
+- #124 mapillary | CC BY-SA 4.0 | sp8962de | https://www.mapillary.com/app/?pKey=370247454332235
+- #125 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=380365809857103
+- #126 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=668090843983828
+- #127 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=174866614512653
+- #128 mapillary | CC BY-SA 4.0 | openrailme | https://www.mapillary.com/app/?pKey=750816057971318
+- #129 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=141863624621192
+- #130 mapillary | CC BY-SA 4.0 | sp8962de | https://www.mapillary.com/app/?pKey=280511530392125
+- #131 mapillary | CC BY-SA 4.0 | sunflower | https://www.mapillary.com/app/?pKey=926460338155343
+- #132 mapillary | CC BY-SA 4.0 | opencatmap | https://www.mapillary.com/app/?pKey=1153273949762080
+- #133 mapillary | CC BY-SA 4.0 | sunflower | https://www.mapillary.com/app/?pKey=165294052177323
+- #134 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=1164900187669835
+- #135 mapillary | CC BY-SA 4.0 | Yha1 | https://www.mapillary.com/app/?pKey=1481112272469593
+- #136 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=496521771489314
+- #137 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=5725609364175861
+- #138 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1369576414320125
+- #139 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=1004805148534973
+- #140 mapillary | CC BY-SA 4.0 | sunflower | https://www.mapillary.com/app/?pKey=4064881743596686
+- #141 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=228573209064284
+- #142 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=1685565814962772
+- #143 mapillary | CC BY-SA 4.0 | sunflower | https://www.mapillary.com/app/?pKey=1838279486321663
+- #144 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=755912283534038
+- #145 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=3457826357692010
+- #146 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=1671211826601784
+- #147 mapillary | CC BY-SA 4.0 | till | https://www.mapillary.com/app/?pKey=285897976539385
+- #148 mapillary | CC BY-SA 4.0 | fcignat | https://www.mapillary.com/app/?pKey=730048446380983

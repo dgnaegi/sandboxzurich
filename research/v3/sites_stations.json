@@ -1,0 +1,98 @@
+[
+ {
+  "id": "st_hb_w",
+  "name": "Bahnhof Hardbruecke Perron West",
+  "kind": "landmark",
+  "lat": 47.385457,
+  "lon": 8.515999,
+  "radius": 60
+ },
+ {
+  "id": "st_hb_m",
+  "name": "Bahnhof Hardbruecke Perron Mitte / Aufgaenge Hardbruecke",
+  "kind": "landmark",
+  "lat": 47.385133,
+  "lon": 8.517052,
+  "radius": 60
+ },
+ {
+  "id": "st_hb_e",
+  "name": "Bahnhof Hardbruecke Perron Ost",
+  "kind": "landmark",
+  "lat": 47.384897,
+  "lon": 8.518239,
+  "radius": 60
+ },
+ {
+  "id": "st_hb_zug",
+  "name": "Bahnhof Hardbruecke Zugang Turbinenstrasse / Velostation",
+  "kind": "landmark",
+  "lat": 47.384729,
+  "lon": 8.516911,
+  "radius": 50
+ },
+ {
+  "id": "st_alt_w",
+  "name": "Bahnhof Altstetten Perron West",
+  "kind": "landmark",
+  "lat": 47.391787,
+  "lon": 8.487913,
+  "radius": 60
+ },
+ {
+  "id": "st_alt_m",
+  "name": "Bahnhof Altstetten Perron Mitte / Unterfuehrung",
+  "kind": "landmark",
+  "lat": 47.391498,
+  "lon": 8.489139,
+  "radius": 60
+ },
+ {
+  "id": "st_alt_e",
+  "name": "Bahnhof Altstetten Perron Ost",
+  "kind": "landmark",
+  "lat": 47.391181,
+  "lon": 8.490285,
+  "radius": 60
+ },
+ {
+  "id": "st_alt_zug",
+  "name": "Bahnhof Altstetten Bahnhofplatz / Zugang Nord",
+  "kind": "landmark",
+  "lat": 47.39227,
+  "lon": 8.489247,
+  "radius": 50
+ },
+ {
+  "id": "st_wie_w",
+  "name": "Bahnhof Wiedikon Perron Sued",
+  "kind": "landmark",
+  "lat": 47.373358,
+  "lon": 8.520918,
+  "radius": 60
+ },
+ {
+  "id": "st_wie_m",
+  "name": "Bahnhof Wiedikon Perron Mitte",
+  "kind": "landmark",
+  "lat": 47.372492,
+  "lon": 8.522172,
+  "radius": 55
+ },
+ {
+  "id": "st_wie_e",
+  "name": "Bahnhof Wiedikon Perron Nord / Aufnahmegebaeude",
+  "kind": "landmark",
+  "lat": 47.371627,
+  "lon": 8.523267,
+  "radius": 55
+ },
+ {
+  "id": "st_wie_zug",
+  "name": "Bahnhof Wiedikon Zugang Treppen / Vorplatz",
+  "kind": "landmark",
+  "lat": 47.371444,
+  "lon": 8.523594,
+  "radius": 50
+ }
+]
