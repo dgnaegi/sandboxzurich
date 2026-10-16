@@ -1,0 +1,8 @@
+{
+ "_doc": "Extra play-area parts (local metres), unioned into the polygon by pipeline/playarea.py. Oriented rect: centre, angle_deg of the d axis (x'=cos,sin), d range along it, c range across it (c axis = d rotated +90 deg).",
+ "rects": [
+  {"name": "Zuerich HB (Haupthalle, Querhalle, Perronkopf, Bahnhofplatz-Rand)", "center": [1760, -650], "angle_deg": -21,
+   "d": [-125, 138], "c": [-100, 72],
+   "why": "User 2026-10-16: HB lies ~180 m east of the old edge; Hauptgebaeude spans d -30..110, c -35..60 (research/hb/README.md)"}
+ ]
+}

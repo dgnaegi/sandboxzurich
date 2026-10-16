@@ -72,6 +72,15 @@ def main():
             if len(pts) >= 4:
                 sites.append(Polygon(pts))
                 print("site", t.get("name"), round(Polygon(pts).area))
+    # manual extensions (pipeline/overrides/playarea_extra.json): oriented rects, e.g. Zuerich HB
+    extra = ROOT / "pipeline" / "overrides" / "playarea_extra.json"
+    if extra.exists():
+        for r in json.load(open(extra)).get("rects", []):
+            a, (cx, cy) = np.radians(r["angle_deg"]), r["center"]
+            d, c = np.array([np.cos(a), np.sin(a)]), np.array([-np.sin(a), np.cos(a)])
+            parts.append(Polygon([(cx + d[0] * u + c[0] * v, cy + d[1] * u + c[1] * v)
+                                  for u, v in ((r["d"][0], r["c"][0]), (r["d"][1], r["c"][0]), (r["d"][1], r["c"][1]), (r["d"][0], r["c"][1]))]))
+            print("extra rect", r["name"])
     main = shapely.union_all(parts)
     for g in sites:  # site + a walkable connection to the main area (e.g. Sihlfeld quarter between Kreis 4 and the cemetery)
         a, b = shapely.ops.nearest_points(g, main)

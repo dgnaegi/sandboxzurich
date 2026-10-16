@@ -6,7 +6,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 def main():
     out = []
     for f in sorted(glob.glob(os.path.join(ROOT, "pipeline", "overrides", "landmarks_*.json"))):
-        out += json.load(open(f)).get("landmarks", [])
+        out += [{k: v for k, v in e.items() if k not in ("colliders", "hide_ids")}   # colliders / hide_ids are build-time only (build_testarea.py reads the overrides)
+                for e in json.load(open(f)).get("landmarks", [])]
     json.dump({"landmarks": out}, open(os.path.join(ROOT, "web", "public", "data", "landmarks.json"), "w"), separators=(",", ":"))
     print("landmarks.json:", len(out), "entries")
 

@@ -16,8 +16,12 @@ import { buildDecals } from '../world/decals';
 import { buildPlaces, type PlaceMeta } from '../world/places_detail';
 import { buildDoors } from '../world/doors';
 import { buildConstruction, buildCranes, buildFence, buildScooters, buildSites } from '../world/construction';
+import { parkedCars } from '../world/parkedcars';
+import { purgeLights } from '../world/night_lights';
+import { forgetSignMat } from '../world/signs';
 import { buildAFrames, buildSacks, sackGroups } from '../world/streetlife';
-import { buildTrafficSigns, buildSignals } from '../world/trafficsigns';
+import { buildTrafficSigns, buildSignals, purgeSignals } from '../world/trafficsigns';
+import { waterMaterial, disposeWater, type WaterMeta } from '../world/water'; // water
 
 interface TileRef { name: string; ix: number; iy: number }
 export interface Place { name: string; sub: string; x: number; y: number; yaw: number }
@@ -46,6 +50,7 @@ export class Tiles {
   bikeRadius = 150;
   private seen = new Set<string>(); // colliders/paths registered once per tile
   private hmaps = new Map<string, Heights>();
+  private waters = new Map<string, THREE.Mesh[]>();  // water surfaces per tile (inWater queries)
   private masks = new Map<string, { m: Mask; bytes: Uint8Array }>();
   private loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
 
@@ -62,6 +67,8 @@ export class Tiles {
     const t = new Tiles(world, scene, shadows, mat);
     // station platforms and stairs as walkable decks (pipeline/landmarks/st_station.py); optional file
     try { const r = await fetch('/data/station_decks.json'); if (r.ok) t.bridges.add(await r.json() as BridgeRows, 'stations'); } catch { /* no station decks */ }
+    // Zuerich HB: raised platforms 3-18 (pipeline/landmarks/hb_perron.py); optional file
+    try { const r = await fetch('/data/hb_decks.json'); if (r.ok) t.bridges.add(await r.json() as BridgeRows, 'hb'); } catch { /* no HB decks */ }
     return t;
   }
 
@@ -81,6 +88,41 @@ export class Tiles {
 
   /** Bridge deck within reach of height z, else the ground. */
   groundAt(x: number, y: number, z: number): number { return this.bridges.heightAt(x, y, z) ?? this.ground(x, y); }
+
+  /** Is local (x, y) on a carriageway (lowered kerb mask)? */
+  onRoad(x: number, y: number): boolean {
+    const s = this.world.tile, e = this.masks.get(`t_${Math.floor(x / s)}_${Math.floor(y / s)}`);
+    if (!e) return false;
+    const cx = Math.floor((x - e.m.x0) / e.m.res), cy = Math.floor((y - e.m.y0) / e.m.res), i = cy * e.m.n + cx;
+    return cx >= 0 && cy >= 0 && cx < e.m.n && ((e.bytes[i >> 3] >> (7 - (i & 7))) & 1) === 1;
+  }
+
+  /** Is local (x, y) over a river/lake surface? (vertical ray against the loaded water meshes) */
+  inWater(x: number, y: number): boolean {
+    const s = this.world.tile, ms = this.waters.get(`t_${Math.floor(x / s)}_${Math.floor(y / s)}`);
+    if (!ms?.length) return false;
+    const rc = new THREE.Raycaster(new THREE.Vector3(x, 500, -y), new THREE.Vector3(0, -1, 0), 0, 1000);
+    const sides = ms.map((m) => (m.material as THREE.Material).side);
+    ms.forEach((m) => { (m.material as THREE.Material).side = THREE.DoubleSide; });
+    const hit = rc.intersectObjects(ms, false).length > 0;
+    ms.forEach((m, i) => { (m.material as THREE.Material).side = sides[i]; });
+    return hit;
+  }
+
+  /** Solid bridge/deck geometry within `h` metres above feet height z at (x, y)? (up-ray against the tile's bridge meshes) */
+  ceilingAbove(x: number, y: number, z: number, h: number): boolean {
+    const s = this.world.tile, g = this.loaded.get(`t_${Math.floor(x / s)}_${Math.floor(y / s)}`);
+    const roots = g?.children.filter((o) => o.name === 'bridges') ?? [];
+    if (!roots.length) return false;
+    const ms: THREE.Mesh[] = [];
+    for (const r of roots) r.traverse((o) => { if ((o as THREE.Mesh).isMesh) ms.push(o as THREE.Mesh); });
+    const sides = ms.map((m) => (m.material as THREE.Material).side);
+    ms.forEach((m) => { (m.material as THREE.Material).side = THREE.DoubleSide; });
+    const rc = new THREE.Raycaster(new THREE.Vector3(x, z + 1.0, -y), new THREE.Vector3(0, 1, 0), 0, h);
+    const hit = rc.intersectObjects(ms, false).length > 0;
+    ms.forEach((m, i) => { (m.material as THREE.Material).side = sides[i]; });
+    return hit;
+  }
 
   /** Walkable ground height at local (x, y): terrain minus the kerb drop on carriageways. */
   ground(x: number, y: number): number {
@@ -113,28 +155,45 @@ export class Tiles {
     for (const t of this.world.tiles) {
       if (Math.hypot((t.ix + 0.5) * s - x, (t.iy + 0.5) * s - y) < (this.shadows ? LOAD_RADIUS_PC : LOAD_RADIUS_PHONE) && !this.loaded.has(t.name)) {
         this.loaded.set(t.name, null);
-        jobs.push(this.loadTile(t));
+        jobs.push(this.loadTile(t).catch((err) => { console.warn('tile failed', t.name, err); })); // a missing tile must not block jumps (stays marked, no retry)
       }
     }
+    let purged = false;
     // free GPU memory of far tiles (important on phones); colliders and masks stay (small)
     for (const [name, g] of this.loaded) {
       const t = this.props.get(name);
       if (!g || !t || Math.hypot(t.x - x, t.y - y) < (this.shadows ? LOAD_RADIUS_PC : LOAD_RADIUS_PHONE) + UNLOAD_EXTRA) continue;
       this.scene.remove(g);
-      g.traverse((o) => {
-        const m = o as THREE.Mesh;
-        if (m.geometry) m.geometry.dispose();
-        const mat = m.material as THREE.MeshLambertMaterial | undefined;
-        if (mat && mat !== this.mat && mat.map && (mat.map as THREE.CanvasTexture).isCanvasTexture) { mat.map.dispose(); mat.dispose(); }
-      });
+      this.disposeTile(g);
       for (const b of t.bikes) this.bikes?.forget(b);
       g.traverse((o) => sackGroups.delete(o));
       this.loaded.delete(name);
       this.props.delete(name);
       this.bridges.remove(name);
       treeField.remove(name);
+      this.waters.delete(name);
+      purged = true;
     }
+    if (purged) { parkedCars.purge(); purgeLights(); purgeSignals(); }
     await Promise.all(jobs);
+  }
+
+  /** Free GPU + CPU resources of a removed tile group: geometries, materials (except the shared world material), their textures. */
+  private disposeTile(root: THREE.Object3D) {
+    root.traverse((o) => {
+      const m = o as THREE.Mesh;
+      if ((o as THREE.InstancedMesh).isInstancedMesh) (o as THREE.InstancedMesh).dispose();
+      if (!m.isMesh && !(m as unknown as THREE.Line).isLine && !(m as unknown as THREE.Points).isPoints) return;
+      m.geometry?.dispose();
+      const mats = Array.isArray(m.material) ? m.material : m.material ? [m.material] : [];
+      for (const mat of mats) {
+        if (mat === this.mat) continue;
+        if (mat.userData?.tex) { disposeWater(mat); continue; } // water shader material
+        forgetSignMat(mat);
+        for (const v of Object.values(mat)) if ((v as THREE.Texture | undefined)?.isTexture) (v as THREE.Texture).dispose(); // shared ones are simply re-uploaded when drawn again
+        mat.dispose();
+      }
+    });
   }
 
   private async loadTile(t: TileRef) {
@@ -143,8 +202,10 @@ export class Tiles {
       fetch(`${BASE}/${t.name}.json`).then((r) => r.json() as Promise<TileMeta>),
     ]);
     const g = gltf.scene;
+    const wmeta = (meta as unknown as { water?: WaterMeta }).water; // water: own shader, no shadows
     g.traverse((o) => {
       if (!(o instanceof THREE.Mesh)) return;
+      if ((o.material as THREE.Material).name === 'water') { if (wmeta) { o.material = waterMaterial(wmeta, this.shadows); (this.waters.get(t.name) ?? this.waters.set(t.name, []).get(t.name)!).push(o); } else o.visible = false; o.matrixAutoUpdate = false; o.updateMatrix(); return; }
       o.material = this.mat;
       o.receiveShadow = this.shadows;
       o.castShadow = this.shadows && o.name === 'buildings';

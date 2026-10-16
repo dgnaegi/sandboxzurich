@@ -1,8 +1,86 @@
 {
-  "_doc": "Terrain corrections where the DTM is interpolated under buildings/bridges: corridor (line + width) lowered to z ('min' = lowest DTM height along the line). Applied in build_testarea.py via terrain_cuts.py.",
-  "cuts": [
-    {"name": "Bahnhof Wiedikon: rail cutting under the bridge building up to the tunnel portal",
-     "line": [[490, -1346], [537, -1395], [548, -1407]], "width": 18, "blend": 3, "z": "min",
-     "source": "OSM railway cutting/tunnel (ways 111516674, 110591354), landmark k93_wiedikon"}
-  ]
+ "_doc": "Terrain corrections where the DTM is interpolated under buildings/bridges: corridor (line + width) lowered to z ('min' = lowest DTM height along the line). Applied in build_testarea.py via terrain_cuts.py.",
+ "cuts": [
+  {
+   "name": "Bahnhof Wiedikon: rail cutting under the bridge building up to the tunnel portal",
+   "line": [
+    [
+     490,
+     -1346
+    ],
+    [
+     537,
+     -1395
+    ],
+    [
+     548,
+     -1407
+    ]
+   ],
+   "width": 18,
+   "blend": 3,
+   "z": "min",
+   "source": "OSM railway cutting/tunnel (ways 111516674, 110591354), landmark k93_wiedikon"
+  },
+  {
+   "name": "Zuerich HB: Haupthalle/Querhalle/Suedtrakt floor level (flat, both ways)",
+   "poly": [
+    [
+     1691.8,
+     -696.6
+    ],
+    [
+     1843.0,
+     -754.7
+    ],
+    [
+     1888.1,
+     -637.1
+    ],
+    [
+     1736.9,
+     -579.0
+    ]
+   ],
+   "blend": 3,
+   "z": -2.9,
+   "source": "pipeline/landmarks/hb_geom.py (hall floor = model z 0, walkable interior)"
+  },
+  {
+   "name": "Langstrassen-Unterfuehrung: sunken road + passages (floor profile along the OSM tunnel axis, approaches as troughs)",
+   "axis": [
+    [
+     894.04,
+     -363.94
+    ],
+    [
+     931.68,
+     -278.28
+    ]
+   ],
+   "profile": [
+    [
+     -75.0,
+     -2.995
+    ],
+    [
+     0,
+     -8.2
+    ],
+    [
+     93.56,
+     -8.8
+    ],
+    [
+     168.6,
+     -3.595
+    ]
+   ],
+   "half": 12.6,
+   "blend": 1.0,
+   "mode": "min",
+   "lock": true,
+   "source": "OSM tunnel way 4592588 + footway tunnels 4803419/4803422; pipeline/landmarks/lu_geom.py; photos research/v3/langstr_unterf.md"
+  }
+ ]
 }

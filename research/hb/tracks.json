@@ -1,0 +1,890 @@
+{
+ "frame": {
+  "angle_deg": -21,
+  "note": "x=d*cos+c*(-sin); d toward the head end (east-south-east), c to the north-east"
+ },
+ "platforms": [
+  {
+   "ref": "10;11",
+   "level": "0",
+   "src": "osm relation 5832475",
+   "head_d": 1831.0,
+   "edge_sw_c": 14.1,
+   "edge_ne_c": 23.7,
+   "head_corner_sw": [
+    1714.5,
+    -643.0
+   ],
+   "head_corner_ne": [
+    1717.9,
+    -634.1
+   ],
+   "head_centre": [
+    1716.2,
+    -638.6
+   ],
+   "width_m": 9.6
+  },
+  {
+   "ref": "12;13",
+   "level": "0",
+   "src": "osm relation 5832469",
+   "head_d": 1831.0,
+   "edge_sw_c": 31.3,
+   "edge_ne_c": 40.9,
+   "head_corner_sw": [
+    1720.6,
+    -627.0
+   ],
+   "head_corner_ne": [
+    1724.0,
+    -618.0
+   ],
+   "head_centre": [
+    1722.3,
+    -622.5
+   ],
+   "width_m": 9.6
+  },
+  {
+   "ref": "14;15",
+   "level": "0",
+   "src": "osm relation 5832470",
+   "head_d": 1831.0,
+   "edge_sw_c": 48.5,
+   "edge_ne_c": 58.1,
+   "head_corner_sw": [
+    1726.8,
+    -610.8
+   ],
+   "head_corner_ne": [
+    1730.2,
+    -602.0
+   ],
+   "head_centre": [
+    1728.5,
+    -606.4
+   ],
+   "width_m": 9.5
+  },
+  {
+   "ref": "16;17",
+   "level": "0",
+   "src": "osm relation 5832471",
+   "head_d": 1831.0,
+   "edge_sw_c": 65.5,
+   "edge_ne_c": 75.0,
+   "head_corner_sw": [
+    1732.8,
+    -595.0
+   ],
+   "head_corner_ne": [
+    1736.2,
+    -586.2
+   ],
+   "head_centre": [
+    1734.5,
+    -590.6
+   ],
+   "width_m": 9.5
+  },
+  {
+   "ref": "18",
+   "level": "0",
+   "src": "osm relation 5832585",
+   "head_d": 1830.9,
+   "edge_sw_c": 83.1,
+   "edge_ne_c": 90.0,
+   "head_corner_sw": [
+    1739.1,
+    -578.6
+   ],
+   "head_corner_ne": [
+    1741.6,
+    -572.1
+   ],
+   "head_centre": [
+    1740.3,
+    -575.4
+   ],
+   "width_m": 6.9
+  },
+  {
+   "ref": "3",
+   "level": "0",
+   "src": "osm way 107555897",
+   "head_d": 1831.2,
+   "edge_sw_c": -51.0,
+   "edge_ne_c": -45.2,
+   "head_corner_sw": [
+    1691.3,
+    -703.9
+   ],
+   "head_corner_ne": [
+    1693.3,
+    -698.5
+   ],
+   "head_centre": [
+    1692.3,
+    -701.2
+   ],
+   "width_m": 5.8
+  },
+  {
+   "ref": "4;5",
+   "level": "0",
+   "src": "osm relation 5832472",
+   "head_d": 1831.1,
+   "edge_sw_c": -37.5,
+   "edge_ne_c": -28.0,
+   "head_corner_sw": [
+    1696.1,
+    -691.2
+   ],
+   "head_corner_ne": [
+    1699.5,
+    -682.3
+   ],
+   "head_centre": [
+    1697.8,
+    -686.8
+   ],
+   "width_m": 9.5
+  },
+  {
+   "ref": "6;7",
+   "level": "0",
+   "src": "osm relation 5832473",
+   "head_d": 1831.1,
+   "edge_sw_c": -20.3,
+   "edge_ne_c": -11.3,
+   "head_corner_sw": [
+    1702.2,
+    -675.2
+   ],
+   "head_corner_ne": [
+    1705.4,
+    -666.7
+   ],
+   "head_centre": [
+    1703.8,
+    -670.9
+   ],
+   "width_m": 9.0
+  },
+  {
+   "ref": "8;9",
+   "level": "0",
+   "src": "osm relation 5832474",
+   "head_d": 1831.1,
+   "edge_sw_c": -2.9,
+   "edge_ne_c": 6.1,
+   "head_corner_sw": [
+    1708.4,
+    -658.9
+   ],
+   "head_corner_ne": [
+    1711.6,
+    -650.5
+   ],
+   "head_centre": [
+    1710.0,
+    -654.7
+   ],
+   "width_m": 9.1
+  },
+  {
+   "ref": "31;32",
+   "level": "-4",
+   "src": "osm relation 6620000",
+   "head_d": 1900.9,
+   "edge_sw_c": -33.8,
+   "edge_ne_c": -22.9,
+   "head_corner_sw": [
+    1762.6,
+    -712.8
+   ],
+   "head_corner_ne": [
+    1766.5,
+    -702.6
+   ],
+   "head_centre": [
+    1764.5,
+    -707.7
+   ],
+   "width_m": 10.9
+  },
+  {
+   "ref": "33;34",
+   "level": "-4",
+   "src": "osm relation 6620001",
+   "head_d": 1901.0,
+   "edge_sw_c": -15.3,
+   "edge_ne_c": -3.4,
+   "head_corner_sw": [
+    1769.3,
+    -695.6
+   ],
+   "head_corner_ne": [
+    1773.6,
+    -684.4
+   ],
+   "head_centre": [
+    1771.4,
+    -690.0
+   ],
+   "width_m": 12.0
+  },
+  {
+   "ref": "41;42",
+   "level": "-3",
+   "src": "osm relation 6647429",
+   "head_d": 1967.0,
+   "edge_sw_c": 75.2,
+   "edge_ne_c": 85.2,
+   "head_corner_sw": [
+    1863.3,
+    -634.7
+   ],
+   "head_corner_ne": [
+    1866.9,
+    -625.4
+   ],
+   "head_centre": [
+    1865.1,
+    -630.0
+   ],
+   "width_m": 10.0
+  },
+  {
+   "ref": "43;44",
+   "level": "-3",
+   "src": "osm relation 6647430",
+   "head_d": 1952.3,
+   "edge_sw_c": 91.5,
+   "edge_ne_c": 103.0,
+   "head_corner_sw": [
+    1855.4,
+    -614.2
+   ],
+   "head_corner_ne": [
+    1859.5,
+    -603.5
+   ],
+   "head_centre": [
+    1857.5,
+    -608.8
+   ],
+   "width_m": 11.5
+  }
+ ],
+ "tracks": [
+  {
+   "track": 3,
+   "level": "0",
+   "c": -43.3,
+   "head_d": 1831.2,
+   "buffer_stop": [
+    1694.1,
+    -696.7
+   ],
+   "platform": "3"
+  },
+  {
+   "track": 4,
+   "level": "0",
+   "c": -39.4,
+   "head_d": 1831.1,
+   "buffer_stop": [
+    1695.4,
+    -693.0
+   ],
+   "platform": "4;5"
+  },
+  {
+   "track": 5,
+   "level": "0",
+   "c": -26.1,
+   "head_d": 1831.1,
+   "buffer_stop": [
+    1700.1,
+    -680.6
+   ],
+   "platform": "4;5"
+  },
+  {
+   "track": 6,
+   "level": "0",
+   "c": -22.2,
+   "head_d": 1831.1,
+   "buffer_stop": [
+    1701.5,
+    -676.9
+   ],
+   "platform": "6;7"
+  },
+  {
+   "track": 7,
+   "level": "0",
+   "c": -9.4,
+   "head_d": 1831.1,
+   "buffer_stop": [
+    1706.1,
+    -665.0
+   ],
+   "platform": "6;7"
+  },
+  {
+   "track": 8,
+   "level": "0",
+   "c": -4.8,
+   "head_d": 1831.1,
+   "buffer_stop": [
+    1707.8,
+    -660.7
+   ],
+   "platform": "8;9"
+  },
+  {
+   "track": 9,
+   "level": "0",
+   "c": 8.0,
+   "head_d": 1831.1,
+   "buffer_stop": [
+    1712.3,
+    -648.7
+   ],
+   "platform": "8;9"
+  },
+  {
+   "track": 10,
+   "level": "0",
+   "c": 12.2,
+   "head_d": 1831.0,
+   "buffer_stop": [
+    1713.8,
+    -644.8
+   ],
+   "platform": "10;11"
+  },
+  {
+   "track": 11,
+   "level": "0",
+   "c": 25.6,
+   "head_d": 1831.0,
+   "buffer_stop": [
+    1718.6,
+    -632.3
+   ],
+   "platform": "10;11"
+  },
+  {
+   "track": 12,
+   "level": "0",
+   "c": 29.4,
+   "head_d": 1831.0,
+   "buffer_stop": [
+    1719.9,
+    -628.7
+   ],
+   "platform": "12;13"
+  },
+  {
+   "track": 13,
+   "level": "0",
+   "c": 42.8,
+   "head_d": 1831.0,
+   "buffer_stop": [
+    1724.7,
+    -616.2
+   ],
+   "platform": "12;13"
+  },
+  {
+   "track": 14,
+   "level": "0",
+   "c": 46.6,
+   "head_d": 1831.0,
+   "buffer_stop": [
+    1726.1,
+    -612.7
+   ],
+   "platform": "14;15"
+  },
+  {
+   "track": 15,
+   "level": "0",
+   "c": 60.0,
+   "head_d": 1831.0,
+   "buffer_stop": [
+    1730.9,
+    -600.2
+   ],
+   "platform": "14;15"
+  },
+  {
+   "track": 16,
+   "level": "0",
+   "c": 63.6,
+   "head_d": 1831.0,
+   "buffer_stop": [
+    1732.2,
+    -596.8
+   ],
+   "platform": "16;17"
+  },
+  {
+   "track": 17,
+   "level": "0",
+   "c": 76.9,
+   "head_d": 1831.0,
+   "buffer_stop": [
+    1736.9,
+    -584.4
+   ],
+   "platform": "16;17"
+  },
+  {
+   "track": 18,
+   "level": "0",
+   "c": 81.2,
+   "head_d": 1830.9,
+   "buffer_stop": [
+    1738.4,
+    -580.3
+   ],
+   "platform": "18"
+  },
+  {
+   "track": 31,
+   "level": "-4",
+   "c": -35.7,
+   "head_d": 1900.9,
+   "buffer_stop": [
+    1761.8,
+    -714.6
+   ],
+   "platform": "31;32"
+  },
+  {
+   "track": 32,
+   "level": "-4",
+   "c": -21.0,
+   "head_d": 1900.9,
+   "buffer_stop": [
+    1767.1,
+    -700.8
+   ],
+   "platform": "31;32"
+  },
+  {
+   "track": 33,
+   "level": "-4",
+   "c": -17.2,
+   "head_d": 1901.0,
+   "buffer_stop": [
+    1768.6,
+    -697.3
+   ],
+   "platform": "33;34"
+  },
+  {
+   "track": 34,
+   "level": "-4",
+   "c": -1.5,
+   "head_d": 1901.0,
+   "buffer_stop": [
+    1774.2,
+    -682.7
+   ],
+   "platform": "33;34"
+  },
+  {
+   "track": 41,
+   "level": "-3",
+   "c": 73.3,
+   "head_d": 1967.0,
+   "buffer_stop": [
+    1862.6,
+    -636.5
+   ],
+   "platform": "41;42"
+  },
+  {
+   "track": 42,
+   "level": "-3",
+   "c": 87.1,
+   "head_d": 1967.0,
+   "buffer_stop": [
+    1867.6,
+    -623.6
+   ],
+   "platform": "41;42"
+  },
+  {
+   "track": 43,
+   "level": "-3",
+   "c": 89.6,
+   "head_d": 1952.3,
+   "buffer_stop": [
+    1854.7,
+    -616.0
+   ],
+   "platform": "43;44"
+  },
+  {
+   "track": 44,
+   "level": "-3",
+   "c": 104.9,
+   "head_d": 1952.3,
+   "buffer_stop": [
+    1860.2,
+    -601.7
+   ],
+   "platform": "43;44"
+  }
+ ],
+ "sbb_perron": [
+  {
+   "bps_name": "Zurich HB Museumstrasse",
+   "perrontyp": "Mittelperron",
+   "p_nr": "41/42",
+   "p_lange": 358,
+   "perronflach_brutto_m2": 3226
+  },
+  {
+   "bps_name": "Zurich HB",
+   "perrontyp": "Mittelperron",
+   "p_nr": "10/11",
+   "p_lange": 424,
+   "perronflach_brutto_m2": 3657
+  },
+  {
+   "bps_name": "Zurich HB",
+   "perrontyp": "Mittelperron",
+   "p_nr": "6/7",
+   "p_lange": 428,
+   "perronflach_brutto_m2": 3787
+  },
+  {
+   "bps_name": "Zurich HB",
+   "perrontyp": "Mittelperron",
+   "p_nr": "8/9",
+   "p_lange": 426,
+   "perronflach_brutto_m2": 3855
+  },
+  {
+   "bps_name": "Zurich HB",
+   "perrontyp": "Mittelperron",
+   "p_nr": "4/5",
+   "p_lange": 425,
+   "perronflach_brutto_m2": 3755
+  },
+  {
+   "bps_name": "Zurich HB Lowenstrasse",
+   "perrontyp": "Mittelperron",
+   "p_nr": "31/32",
+   "p_lange": 532,
+   "perronflach_brutto_m2": 5560
+  },
+  {
+   "bps_name": "Zurich HB Museumstrasse",
+   "perrontyp": "Mittelperron",
+   "p_nr": "43/44",
+   "p_lange": 358,
+   "perronflach_brutto_m2": 3177
+  },
+  {
+   "bps_name": "Zurich HB",
+   "perrontyp": "Mittelperron",
+   "p_nr": "12/13",
+   "p_lange": 433,
+   "perronflach_brutto_m2": 3908
+  },
+  {
+   "bps_name": "Zurich HB",
+   "perrontyp": "Mittelperron",
+   "p_nr": "16/17",
+   "p_lange": 418,
+   "perronflach_brutto_m2": 3704
+  },
+  {
+   "bps_name": "Zurich HB Lowenstrasse",
+   "perrontyp": "Mittelperron",
+   "p_nr": "33/34",
+   "p_lange": 532,
+   "perronflach_brutto_m2": 5407
+  },
+  {
+   "bps_name": "Zurich HB",
+   "perrontyp": "Aussenperron",
+   "p_nr": "18",
+   "p_lange": 426,
+   "perronflach_brutto_m2": 2238
+  },
+  {
+   "bps_name": "Zurich HB",
+   "perrontyp": "Mittelperron",
+   "p_nr": "14/15",
+   "p_lange": 427,
+   "perronflach_brutto_m2": 3606
+  },
+  {
+   "bps_name": "Zurich HB",
+   "perrontyp": "Aussenperron",
+   "p_nr": "3",
+   "p_lange": 425,
+   "perronflach_brutto_m2": 2238
+  }
+ ],
+ "sbb_langshallen": [
+  [
+   "4",
+   "BA-Dach_BE Langshalle 3"
+  ],
+  [
+   "5",
+   "BA-Dach_BE Langshalle 3"
+  ],
+  [
+   "6",
+   "BA-Dach_BE Langshalle 4"
+  ],
+  [
+   "7",
+   "BA-Dach_BE Langshalle 4"
+  ],
+  [
+   "8",
+   "BA-Dach_BE Langshalle 5"
+  ],
+  [
+   "9",
+   "BA-Dach_BE Langshalle 5"
+  ],
+  [
+   "10",
+   "BA-Dach_BE Langshalle 6"
+  ],
+  [
+   "11",
+   "BA-Dach_BE Langshalle 6"
+  ],
+  [
+   "12",
+   "BA-Dach_BE Langshalle 7"
+  ],
+  [
+   "13",
+   "BA-Dach_BE Langshalle 7"
+  ],
+  [
+   "14",
+   "BA-Dach_BE Langshalle 8"
+  ],
+  [
+   "15",
+   "BA-Dach_BE Langshalle 8"
+  ],
+  [
+   "16",
+   "BA-Dach_BE Langshalle 8"
+  ],
+  [
+   "17",
+   "BA-Dach_BE Langshalle 8"
+  ]
+ ],
+ "osm_rail_ends": [
+  {
+   "osm_way": 107363846,
+   "d": -49.2,
+   "c": -67.4,
+   "xy": [
+    1689.9,
+    -695.3
+   ],
+   "ref": "720"
+  },
+  {
+   "osm_way": 107363831,
+   "d": -51.1,
+   "c": -63.3,
+   "xy": [
+    1689.6,
+    -690.8
+   ],
+   "ref": "720"
+  },
+  {
+   "osm_way": 637079503,
+   "d": -49.1,
+   "c": -63.3,
+   "xy": [
+    1691.4,
+    -691.5
+   ],
+   "ref": null
+  },
+  {
+   "osm_way": 107363810,
+   "d": -49.0,
+   "c": -50.2,
+   "xy": [
+    1696.2,
+    -679.3
+   ],
+   "ref": "720"
+  },
+  {
+   "osm_way": 107363816,
+   "d": -49.0,
+   "c": -45.6,
+   "xy": [
+    1697.9,
+    -675.0
+   ],
+   "ref": "720"
+  },
+  {
+   "osm_way": 107363842,
+   "d": -48.9,
+   "c": -33.1,
+   "xy": [
+    1702.5,
+    -663.4
+   ],
+   "ref": "720"
+  },
+  {
+   "osm_way": 107363804,
+   "d": -48.9,
+   "c": -28.6,
+   "xy": [
+    1704.1,
+    -659.2
+   ],
+   "ref": "720"
+  },
+  {
+   "osm_way": 107370180,
+   "d": -50.5,
+   "c": -16.1,
+   "xy": [
+    1707.0,
+    -646.9
+   ],
+   "ref": "720"
+  },
+  {
+   "osm_way": 639357908,
+   "d": -48.8,
+   "c": -16.1,
+   "xy": [
+    1708.7,
+    -647.6
+   ],
+   "ref": null
+  },
+  {
+   "osm_way": 107370194,
+   "d": -48.8,
+   "c": -11.3,
+   "xy": [
+    1710.4,
+    -643.1
+   ],
+   "ref": "720"
+  },
+  {
+   "osm_way": 107370116,
+   "d": -48.7,
+   "c": 1.6,
+   "xy": [
+    1715.1,
+    -631.1
+   ],
+   "ref": "720"
+  },
+  {
+   "osm_way": 107370133,
+   "d": -48.6,
+   "c": 5.8,
+   "xy": [
+    1716.7,
+    -627.1
+   ],
+   "ref": "720"
+  },
+  {
+   "osm_way": 107382919,
+   "d": -48.5,
+   "c": 18.3,
+   "xy": [
+    1721.3,
+    -615.5
+   ],
+   "ref": "710"
+  },
+  {
+   "osm_way": 107382926,
+   "d": -48.4,
+   "c": 23.5,
+   "xy": [
+    1723.2,
+    -610.7
+   ],
+   "ref": "710"
+  },
+  {
+   "osm_way": 107382935,
+   "d": -48.4,
+   "c": 35.8,
+   "xy": [
+    1727.7,
+    -599.2
+   ],
+   "ref": "710"
+  },
+  {
+   "osm_way": 107382916,
+   "d": -50.0,
+   "c": 40.5,
+   "xy": [
+    1727.9,
+    -594.3
+   ],
+   "ref": "710"
+  },
+  {
+   "osm_way": 638668137,
+   "d": -48.4,
+   "c": 40.5,
+   "xy": [
+    1729.3,
+    -594.9
+   ],
+   "ref": null
+  },
+  {
+   "osm_way": 107382917,
+   "d": -48.2,
+   "c": 53.2,
+   "xy": [
+    1734.1,
+    -583.0
+   ],
+   "ref": "710"
+  },
+  {
+   "osm_way": 107382907,
+   "d": -48.2,
+   "c": 57.7,
+   "xy": [
+    1735.6,
+    -578.8
+   ],
+   "ref": null
+  }
+ ]
+}

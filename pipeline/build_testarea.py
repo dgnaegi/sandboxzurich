@@ -33,6 +33,8 @@ import places_detail
 import osm_buildings
 import ortho_roofs
 import terrain_cuts
+import water  # rivers/canals (pipeline/water.py)
+import road_height
 import groundcover
 import visual_overrides
 import shopfronts_v3
@@ -49,7 +51,7 @@ from mesh import Heights, Mesh, drape
 from styles import LAYER, h32
 
 CURB = 0.12  # carriageway is lowered by this much
-GUT = 0.30  # Rinnstein width
+GUT = 0.22  # Rinnstein width (fidelity S4: narrower)
 RAW_OUT = OUT.parent.parent.parent / "data" / "build" / "tiles_raw"
 
 
@@ -102,7 +104,7 @@ def curbs(mesh, segs, H):
         L = np.hypot(*d)
         mesh.add(pts, np.array([[0, 2, 1], [0, 3, 2]], np.uint32), n, (255, 255, 255),  # procedural granite (ground_tex.curb), tint = none
                  uv=np.array([[0, 0], [L, 0], [L, CURB], [0, CURB]]), layer=LAYER["curb"])
-        if L > 0.3:  # Rinnstein: 3 rows of setts, 0.3 m wide, along the curb foot
+        if L > 0.3:  # Rinnstein: setts, 0.22 m wide, along the curb foot
             q = np.array([[a[0], a[1], za - CURB + 0.004], [b[0], b[1], zb - CURB + 0.004],
                           [b[0] + n[0] * GUT, b[1] + n[1] * GUT, zb - CURB + 0.004], [a[0] + n[0] * GUT, a[1] + n[1] * GUT, za - CURB + 0.004]], np.float32)
             mesh.add(q, np.array([[0, 1, 2], [0, 2, 3]], np.uint32), np.array([0, 0, 1.0]), (255, 255, 255),
@@ -128,6 +130,8 @@ def _ground_base(gm, S, tb, H, white, yellow, rails, bed, bays_white=None, bays_
     roads = S["roads"].intersection(tb)
     plaza, parks = S["plaza"].intersection(tb), S["parks"].intersection(tb)
     walk = tb.difference(S["roads"]).difference(S["plaza"]).difference(S["parks"])
+    if S.get("water_poly") is not None:  # water bodies: bed + water surface come from pipeline/water.py
+        walk = walk.difference(S["water_poly"])
     if S.get("av_rail") is not None:  # railway land: low ballast, the rail tiles (railways.py) sit on top
         rl = walk.intersection(S["av_rail"].intersection(tb))
         drape(gm, rl, H, -0.45, (150, 142, 132), cell=TILE / 10, layer=LAYER["dach_kies"], uv_scale=1.5)
@@ -175,8 +179,14 @@ def build():
     nodes0, els0 = sources.osm()
     # detailed landmark models replace swissBUILDINGS3D buildings: overrides/landmarks_*.json "hide" points
     import glob as _g
-    hide = [Point(p) for f in _g.glob(os.path.join(os.path.dirname(__file__), "overrides", "landmarks_*.json"))
-            for e in json.load(open(f)).get("landmarks", []) for p in e.get("hide", [])]
+    _lme = [e for f in _g.glob(os.path.join(os.path.dirname(__file__), "overrides", "landmarks_*.json"))
+            for e in json.load(open(f)).get("landmarks", [])]
+    hide = [Point(p) for e in _lme for p in e.get("hide", [])]
+    hide_ids = tuple(i for e in _lme for i in e.get("hide_ids", []))  # swissBUILDINGS3D / OSM building ids (roof-only canopies have no footprint to hit)
+    # walkable landmarks (e.g. Zuerich HB hall): the hidden buildings' footprints are NOT colliders; the entry's own "colliders" rings are
+    walk_hide = [Point(p) for e in _lme if e.get("walkable") for p in e.get("hide", [])]
+    walk_ids = tuple(i for e in _lme if e.get("walkable") for i in e.get("hide_ids", []))
+    lm_colliders = [r for e in _lme for r in e.get("colliders", [])]
     # tram/bus shelters come from world/stops.ts: drop low swissBUILDINGS3D canopies right at stops
     _st = shapely.points([nodes0[e["id"]] for e in els0 if e["type"] == "node" and e["id"] in nodes0 and (
         (e.get("tags") or {}).get("public_transport") in ("platform", "stop_position")
@@ -192,11 +202,13 @@ def build():
     blds = [b for b in blds if not _shelter(b)]
     print(f"stops: {n0 - len(blds)} shelter canopies dropped")
     def _hidden(b):
+        if hide_ids and str(b.get("id", "")).startswith(hide_ids):
+            return True
         return any(Polygon(np.asarray(p)[:, :2]).buffer(0).contains(h)
                    for h in hide if abs(h.x - b["center"][0]) < 200 and abs(h.y - b["center"][1]) < 200
                    for k, p in b["polys"] if k == 0 and len(p) >= 3)
     lm_hidden = []  # buildings replaced by landmark models: no mesh, but their footprint stays a collider
-    if hide:
+    if hide or hide_ids:
         n0 = len(blds)
         lm_hidden += [b for b in blds if _hidden(b)]
         blds = [b for b in blds if not _hidden(b)]
@@ -206,8 +218,11 @@ def build():
     H = terrain.heights(BIG, HGRID, z_shift=-3.06)
     terrain_cuts.apply(H)  # rail cuttings under buildings (overrides/terrain_cuts.json)
     nodes, els = nodes0, els0
+    S = streets.parse(nodes, els)
+    road_height.apply(H, S["ways"])  # smooth road surface (pipeline/road_height.py): carriageway, sidewalks, hmap, vehicles share it
+    terrain_cuts.apply(H, lock_only=True)  # sunken underpass floors ("lock": true) must survive the road smoothing (Langstrassen-Unterfuehrung)
     blds = osm_buildings.update(blds, nodes, els, H, footprint, Polygon(POLYGON))  # post-2019 changes
-    if hide:  # OSM re-adds footprints of the hidden landmarks (no 2019 building left under them): hide them again
+    if hide or hide_ids:  # OSM re-adds footprints of the hidden landmarks (no 2019 building left under them): hide them again
         n0 = len(blds)
         lm_hidden += [b for b in blds if _hidden(b)]
         blds = [b for b in blds if not _hidden(b)]
@@ -216,7 +231,6 @@ def build():
            for s in json.load(open(os.path.join(os.path.dirname(__file__), "overrides", "landmark_signs.json")))["signs"]]
     BR = bridges.bridge_ways(nodes, els, AREA, H)  # elevated decks + piers (research/bridges.md)
     EX = bridges.exclusion(BR)
-    S = streets.parse(nodes, els)
     _lap("osm/terrain/bridges/streets")
     G = groundcover.load(BIG)  # Amtliche Vermessung land cover (research/groundcover.md)
     # snapped to 1 cm: robust overlays with the OSM-derived street polygons
@@ -227,9 +241,18 @@ def build():
     parks = S["parks"]
     S["parks"] = shapely.set_precision(parks.intersection(S["av_green"].buffer(0.5)), 0.01)
     S["av_paved"] = shapely.set_precision(shapely.union_all([S["av_paved"], parks.difference(S["parks"])]), 0.01)
-    S["ways"] = bridges.clip_ways(S["ways"], EX)  # no ground road/markings under bridge decks
-    S["roads"] = S["roads"].difference(EX)
+    # ground streets that pass UNDER a deck keep their carriageway (the exclusion only removes the bridge's own chain)
+    EXR = road_height.ground_exclusion(EX, BR, S["ways"])
+    S["ways"] = bridges.clip_ways(S["ways"], EXR)  # no ground road/markings under the bridge's own deck
+    S["roads"] = S["roads"].difference(EXR)
     S["plaza"] = S["plaza"].difference(EX)
+    # --- water (pipeline/water.py): lowers the bed into H, removes the water polygon from the ground layers
+    W = water.prepare(H, G, EX, BR, nodes, els)
+    S["water_poly"] = None if W.empty else W.poly
+    if not W.empty:
+        for _k in ("roads", "plaza", "parks"):
+            S[_k] = S[_k].difference(W.poly)
+    # --- /water
     S["tram"] = [g for ln in S["tram"] for g in shapely.get_parts(ln.difference(EX)) if g.geom_type == "LineString" and g.length > 0.5]
     gastro.add_missing(S, box(*AREA).buffer(30))  # official licensed restaurants/bars (OGD) complete the OSM list
     # visible (above-ground) hydrants from the city water utility (OGD WVZ)
@@ -375,7 +398,14 @@ def build():
                 for p in getattr(fp, "geoms", [fp]):
                     if p.geom_type == "Polygon":
                         colliders.append(np.round(np.asarray(p.exterior.coords)[:-1], 2).tolist())
+        for ring in lm_colliders:  # walkable landmarks bring their own wall rings (every tile the ring's bbox touches)
+            rx, ry = [p[0] for p in ring], [p[1] for p in ring]
+            if min(rx) < tb.bounds[2] and max(rx) > tb.bounds[0] and min(ry) < tb.bounds[3] and max(ry) > tb.bounds[1]:
+                colliders.append(ring)
         for b in lm_hidden:  # landmark models have no colliders of their own: walls of the replaced buildings
+            if (walk_ids and str(b.get("id", "")).startswith(walk_ids)) or any(Polygon(np.asarray(p)[:, :2]).buffer(0).contains(h) for h in walk_hide
+                                                                                  for k, p in b["polys"] if k == 0 and len(p) >= 3):
+                continue  # walkable interior: no solid footprint
             if tb.contains(Point(b["center"][:2])):
                 fp = footprint(b)
                 for p in getattr(fp, "geoms", [fp]) if fp is not None and not fp.is_empty else []:
@@ -384,17 +414,20 @@ def build():
         name = f"t_{ix}_{iy}"
         if backdrop:  # outside the fence: buildings, ground and trees only
             ground_tile(gm, S, tb, H, white, yellow, rails, bed, None, None, grooves)
+            WM = water.tile(W, gm, tb)  # water
             raw = RAW_OUT / f"{name}.glb"
-            glb.write(raw, {"ground": gm.arrays(), "buildings": bm.arrays()})
+            glb.write(raw, {"ground": gm.arrays(), "buildings": bm.arrays(), "water": WM.arrays() if WM else None})
             pack(raw, OUT / f"{name}.glb")
             mask, mask_n = props.road_mask(S["roads"], tb)
-            meta = {"backdrop": 1, "colliders": [], "signs": [], "posters": [], "paths": [], "hmap": hmap(tb),
+            meta = {"backdrop": 1, **water.meta(W, tb), "colliders": [], "signs": [], "posters": [], "paths": [], "hmap": hmap(tb),
                     "trees": cityprops.city_props(C, S, tb, H, CURB)[0]["trees"],
                     "mask": {"x0": tb.bounds[0], "y0": tb.bounds[1], "n": mask_n, "res": 1.0, "depth": CURB, "bits": mask}}
             json.dump(meta, open(OUT / f"{name}.json", "w"), separators=(",", ":"))
             return {"name": name, "ix": ix, "iy": iy, "backdrop": 1}
         P, bays_w, bays_b = cityprops.city_props(C, S, tb, H, CURB)
         ground_tile(gm, S, tb, H, white, yellow, rails, bed, bays_w, bays_b, grooves)
+        WM = water.tile(W, gm, tb)  # water
+        colliders += water.colliders(W, tb)  # water
         colliders += cityprops.car_colliders(P["cars"])
         mask, mask_n = props.road_mask(S["roads"], tb)
         P["bikes"] += props.wall_bikes(segs, tb, H)
@@ -411,6 +444,7 @@ def build():
         colliders += SM.pop("colliders")
         meta = {
             **SM,
+            **water.meta(W, tb),  # water
             "places": PD,
             "playground": [r for r in PG if tb.contains(Point(r[0], r[1]))],
             "colliders": colliders,
@@ -442,7 +476,7 @@ def build():
             "mask": {"x0": tb.bounds[0], "y0": tb.bounds[1], "n": mask_n, "res": 1.0, "depth": CURB, "bits": mask},
         }
         raw = RAW_OUT / f"{name}.glb"
-        glb.write(raw, {"ground": gm.arrays(), "buildings": bm.arrays()})
+        glb.write(raw, {"ground": gm.arrays(), "buildings": bm.arrays(), "water": WM.arrays() if WM else None})
         pack(raw, OUT / f"{name}.glb")
         json.dump(meta, open(OUT / f"{name}.json", "w"), separators=(",", ":"))
         print(f"{name}: glb {(OUT / f'{name}.glb').stat().st_size / 1e6:.2f} MB, "

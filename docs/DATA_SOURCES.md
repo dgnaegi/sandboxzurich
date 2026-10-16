@@ -42,3 +42,10 @@ Skripte: `pipeline/fetch_osm.py`, `fetch_swisstopo.py`, `fetch_stadtzh.py`; Abla
 | Stadt Zürich: Baumkataster, Brunnen, Velonetzplanung, Fuss- und Velowegnetz, Verkehrszonen, Stadtkreise, öffentliche Beleuchtung (ewz), Sitzbankkataster, Abfallgefässe, ZüriWC, Strassenparkplätze (OGD + DAV) | `data/raw/stadtzh/*.geojson` | je CC0 (laut CKAN `license_id`), Quelle «Stadt Zürich» angeben |
 | Fussgängerstreifen, Tempo-30 (Kanton ZH, OGDZHWFS) | nicht geladen (OSM liefert Fussgängerstreifen, Tempo-30 über `geo_verkehrszonen`) | CC0 |
 | SBB Open Data «BehiG Haltekantesegment» (data.sbb.ch, `21197_behig-haltekantesegment`): Perron-Nr., Typ, Kantenlänge, Gleisachsen-Position (nur Zürich-Bahnhöfe, 203 Zeilen) | `data/raw/stations/behig_seg_zh.json` (Abruf 2026-10-16) | SBB Open-Data-Lizenz (https://data.sbb.ch/page/licence): Nutzung frei inkl. kommerziell, Quellenangabe «Quelle: SBB». Nur Zahlen, keine Pläne/Logos. Bahnhofplan-PDFs von sbb.ch nur angeschaut, nicht übernommen |
+
+## Zürich HB (2026-10-16, Details `research/hb/README.md`)
+| Datensatz | Ablage | Lizenz |
+|---|---|---|
+| SBB Open Data (data.sbb.ch): `perron`, `perronoberflache`, `sektortafel`, `haltestelle-uhr`, `billetautomat`, `mobiliar-im-bahnhof` im 450-m-Umkreis des HB (Perrontyp/-länge/-fläche, Längshallen-Zuordnung der Sektortafeln) | `data/raw/sbb/hb_records.json` | SBB Open Data, https://data.sbb.ch/page/licence (Quellenangabe «SBB»); nur Fakten, kein SBB-Logo, keine SBB-Uhr |
+| OSM `building:part` (Wannerhalle, Nord-/Südtrakt), `railway=platform`-Relationen 3–18/31–34/41–44, `indoor=*` | `research/hb/osm.json`, `osm_platforms.json`, `tracks.json` | ODbL |
+| Referenzfotos HB (Wikimedia Commons Kategorie «Zürich Hauptbahnhof» + Unterkategorien, Mapillary, Panoramax), 632 Dateien | `data/raw/photos/hb/`, Lizenz je Bild in `research/hb/CREDITS.md` | CC BY / CC BY-SA / CC0 / PD; nur Referenz, nie Textur oder Rekonstruktionsvorlage |
