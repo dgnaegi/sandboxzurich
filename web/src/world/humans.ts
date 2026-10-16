@@ -2,7 +2,8 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 import * as SkeletonUtils from 'three/examples/jsm/utils/SkeletonUtils.js';
-import { dress } from './tint';
+import { dress, setTop, type Look } from './tint';
+import { applyKit, rollKit, trolleyFor } from './humankit';
 
 /**
  * Realistic MakeHuman/MPFB characters (CC0), exported by pipeline/blender. Per-figure clips (CMU mocap, retargeted): idle, walk, run, walk_slow.
@@ -10,7 +11,8 @@ import { dress } from './tint';
  * talk2, argue, call, text, crossed, crossed2, pockets, pockets2, sit, sit_talk, sit_chat (see research/humans.md R7).
  */
 interface Entry { id: string; file: string; role: 'player' | 'npc'; sex: string; age: string; height?: number; props?: string[]; clip_speed?: ClipSpeed }
-export interface Model { scene: THREE.Object3D; clips: THREE.AnimationClip[]; age: string; height: number; props: string[]; speeds?: ClipSpeed; cls: string }
+export type Role = 'any' | 'builder' | 'student' | 'office' | 'courier';
+export interface Model { sex: string; id: string; scene: THREE.Object3D; clips: THREE.AnimationClip[]; age: string; height: number; props: string[]; speeds?: ClipSpeed; cls: string }
 
 /** Reference figure height (m) of each library class (the figure the clips were retargeted on). */
 const LIB_REF: Record<string, number> = { A_young: 1.757, B_young: 1.467, A_old: 1.767, B_old: 1.491 };
@@ -29,6 +31,14 @@ const PHONE_FIT: Record<string, { bone: string; offset: number[]; rotation: numb
 /** Old name kept for scenes: stand_phone = texting. */
 const ALIAS: Record<string, string> = { stand_phone: 'text' };
 let scarfGeo: THREE.BufferGeometry | undefined;
+const BAGS = new Set(['backpack', 'shoulder_bag', 'tote_bag']);
+const BAG_COLORS = [0x44546a, 0x15171a, 0x4a5a2e, 0x7a2430, 0x6b4a38, 0x6b7077, 0x1d4a36, 0xb8862b, 0xd8cdb6, 0x3a3f66, 0xa5522a, 0x2c6a73];
+const bagMats = new Map<string, THREE.MeshStandardMaterial>();
+const bagMat = (src: THREE.MeshStandardMaterial, c: number) => {
+  const k = `${src.uuid}:${c}`; let m = bagMats.get(k);
+  if (!m) { m = src.clone(); m.color.set(c); bagMats.set(k, m); }
+  return m;
+};
 const SCARF_COLORS = [0x7a2430, 0xb8862b, 0x1d4a36, 0x3a3f66, 0xd8cdb6, 0xa5522a, 0x6b7077, 0xd9a2b0, 0x15171a];
 const LEG_NODES = /^(pelvis|spine_0\d|thigh_|calf_|foot_|ball_)/;
 interface Accessory { name: string; obj: THREE.Object3D; bone: string | null; offset: number[]; rotation: number[]; clips: THREE.AnimationClip[] }
@@ -102,6 +112,10 @@ export class HumanLib {
     const parent = a.bone ? h.root.getObjectByName(a.bone) : h.root;
     if (!parent) return null;
     o.position.fromArray(a.offset); o.rotation.fromArray(a.rotation as [number, number, number]); o.scale.setScalar(scale);
+    if (BAGS.has(name)) {   // every bag its own colour (materials cloned per colour, cached)
+      const c = BAG_COLORS[Math.floor(Math.random() * BAG_COLORS.length)];
+      o.traverse((x) => { const mm = x as THREE.Mesh; if (mm.isMesh) mm.material = bagMat(mm.material as THREE.MeshStandardMaterial, c); });
+    }
     parent.add(o);
     return o;
   }
@@ -123,7 +137,7 @@ export class HumanLib {
       g.scene.traverse((o) => { if ((o as THREE.Mesh).isMesh) { o.castShadow = true; o.frustumCulled = false; } });
       const age = e.age ?? 'young', height = e.height ?? 1.75, cls = `${e.sex === 'm' ? 'A' : 'B'}_${age === 'old' ? 'old' : 'young'}`;
       const own = g.animations.filter((c) => c.name !== 'stand_phone');
-      const m: Model = { scene: g.scene, clips: e.role === 'player' ? own : [...own, ...this.libClips(cls, height)], age, height, props: e.props ?? [], speeds: e.clip_speed, cls };
+      const m: Model = { sex: e.sex, id: e.id, scene: g.scene, clips: e.role === 'player' ? own : [...own, ...this.libClips(cls, height)], age, height, props: e.props ?? [], speeds: e.clip_speed, cls };
       if (e.role === 'player') this.player = m; else this.npcs.push(m);
     }));
   }
@@ -131,11 +145,18 @@ export class HumanLib {
   instance(m: Model): Human { const h = new Human(SkeletonUtils.clone(m.scene), m.clips, m.speeds); h.lib = this; h.model = m; return h; }
 
   /** New random autumn outfit colours (jacket, trousers, shoes) for a pooled person; the player keeps her own. */
-  dress(h: Human) {
+  dress(h: Human, role: Role = 'any') {
     if (!h.model) return;
-    dress(h, h.model);
-    this.scarf(h, h.model.age !== 'child' && Math.random() < 0.22);
+    if (role === 'any' && h.model.age !== 'child') { const r = Math.random(); role = r < 0.025 ? 'builder' : r < 0.11 ? 'student' : r < 0.2 ? 'office' : 'any'; }   // Baustellen, Hochschulen, Europaallee
+    const look = h.look = dress(h, h.model, 0.25, role);
+    const m = h.model, kit = look ? rollKit(m, look.top, look.hair, m.sex === 'm', role) : {};
+    if (kit.hex?.hood !== undefined) setTop(h, kit.hex.hood);
+    applyKit(h, m, kit);
+    this.scarf(h, m.age !== 'child' && !kit.head?.includes('hood') && Math.random() < 0.22);
   }
+
+  /** Shopping trolley pulled at the right side (old people, shoppers); returns the object so the caller can remove it on release. */
+  trolley(h: Human): THREE.Object3D { return trolleyFor(h); }
 
   /** Wool scarf (snood) around the neck: one shared torus, colour from the autumn palette. */
   private scarf(h: Human, on: boolean) {
@@ -190,6 +211,9 @@ export class Human {
   phone?: THREE.Object3D;
   model?: Model;
   scarfObj?: THREE.Mesh;
+  /** procedural head / torso kit meshes (humankit.ts) */
+  kit?: { head?: THREE.Mesh; torso?: THREE.Mesh };
+  look?: Look | null;
   current = 'idle';
 
   constructor(readonly root: THREE.Object3D, clips: THREE.AnimationClip[], private speeds: ClipSpeed = DEFAULT_SPEED) {

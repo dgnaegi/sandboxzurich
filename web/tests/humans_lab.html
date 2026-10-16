@@ -2,6 +2,7 @@
 <script type="module">
 import * as THREE from 'three';
 import { HumanLib } from '/src/world/humans.ts';
+import { applyKit } from '/src/world/humankit.ts';
 const q = new URLSearchParams(location.search);
 const ids = (q.get('ids') || '0,1,2,3,4,5,6,7').split(',').map(Number), zoom = q.get('zoom') || 'full', night = q.has('night');
 const W = +q.get('w') || 1600, H = +q.get('h') || 450, per = +q.get('per') || 8;
@@ -14,13 +15,13 @@ sc.add(new THREE.HemisphereLight(night ? 0x6070a0 : 0xdfe8f5, 0x55503f, night ? 
 const floor = new THREE.Mesh(new THREE.PlaneGeometry(60, 20), new THREE.MeshLambertMaterial({ color: 0x6b6b68 })); floor.rotation.x = -Math.PI / 2; sc.add(floor);
 const hs = [];
 ids.forEach((id, i) => {
-  const m = lib.npcs.find((x) => x.id === 'npc_' + String(id).padStart(2, '0')); const h = lib.instance(m); lib.dress(h); h.mixer.setTime(0.4);
+  const m = lib.npcs.find((x) => x.id === 'npc_' + String(id).padStart(2, '0')); const h = lib.instance(m); lib.dress(h, q.get('role') || 'any'); if (q.has('trolley')) lib.trolley(h); if (q.get('kit')) applyKit(h, m, JSON.parse(q.get('kit'))); h.mixer.setTime(0.4);
   h.root.position.set((i - (ids.length - 1) / 2) * (zoom === 'full' ? 0.85 : 0.62), 0, 0); sc.add(h.root); hs.push(h);
 });
 const c = new THREE.PerspectiveCamera(30, W / H, 0.05, 100);
 const n = ids.length, span = (n - 1) * (zoom === 'full' ? 0.85 : 0.62);
 if (zoom === 'full') { c.position.set(0, 1.1, 2.6 + span * 0.62); c.lookAt(0, 0.9, 0); }
 else { const d = +q.get('d') || 1.5; c.position.set(0, +q.get('cy') || 1.55, d + span * 0.6); c.lookAt(0, +q.get('ly') || 1.5, 0); c.fov = 26; c.updateProjectionMatrix(); }
-for (const h of hs) { h.root.rotation.y = Math.PI; h.play(q.get('clip') || 'walk', 0, 0); for (let k = 0; k < 40; k++) h.mixer.update(0.02); }
+for (const h of hs) { h.root.rotation.y = Math.PI; h.play(q.get('clip') || 'walk', 0, 0); for (let k = 0; k < 40; k++) h.mixer.update(0.02); if (q.has('rest')) { h.mixer.stopAllAction(); h.mixer.uncacheRoot(h.root); h.root.updateMatrixWorld(true); } if (q.get('ry')) h.root.rotation.y = +q.get('ry'); }
 r.render(sc, c); window.lib = lib; window.THREE = THREE; window.hs = hs; window.done = true;
 </script>
