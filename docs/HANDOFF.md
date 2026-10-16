@@ -2,6 +2,14 @@
 
 Wird am Ende jedes Arbeitsschritts überschrieben. Eine neue Session liest das zuerst.
 
+## NÄCHSTE RUNDE: QUALITÄT VOR NEUEM (User 2026-10-16 Abend)
+User nach Build 10: «very buggy … cars in water, HB looks really off». Nächste Runde **keine neuen Inhalte**, sondern Qualität und viele Realitäts-Checks mit mehreren Agents (max. 3 gleichzeitig, siehe Arbeitsweise).
+1. **Zuerst Cache ausschliessen:** Browser hält Kacheln/Modelle/data bis 1 Tag (+7 Tage stale) – alte Kacheln + neue `landmarks.json` mischen sich. Fix: Versions-Parameter (`?v=<commit>`) an alle Daten-/Kachel-/Modell-URLs; danach erst Bugs beurteilen (privates Fenster).
+2. **Autos im Wasser:** Verkehrsgraph/Parkautos/Brücken gegen `water.py`-Polygone prüfen (Skript analog `pipeline/audit_rail.py`), Ursache vermutlich neue AV-Fahrbahn (#45) oder Brücken-Ausschluss.
+3. **HB:** Gesamtbild prüfen (Halle, Perrondächer neue Farbe, Untergeschosse/Stencil-Schnitt #48, Escher-Platz/Rasen statt Pflaster). Notfalls Untergeschosse per Manifest abschalten.
+4. **Realitäts-Checks:** feste Kamerapunkte (Foto | Spiel) an 30+ Orten, je Agent ein Gebiet; jede Abweichung als Ticket in `research/qa_round/` mit Ursache und Fix; Fixes nur über Pipeline/Overrides; nach jedem Fix Testkacheln + Vergleichsbild.
+5. Erst wenn die Liste leer ist: neue Häuser/Details.
+
 ## Abend 2026-10-16 (Build 10) – kurz
 Ziel weiterhin: **mehr Details, echtere Karte**. Heute neu (Details in den Abschnitten unten und DECISIONS #45–#48):
 - Langstrasse: 42 Häuser als Landmarks nach Fotos (langA 8, langB 19, langC 15: u. a. Klaus, Rothaus, Longstreet, Fat Tony), Markierung aus SWISSIMAGE (`markings_override.py`).
