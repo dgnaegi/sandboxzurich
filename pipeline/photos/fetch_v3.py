@@ -128,6 +128,14 @@ def sites():
         S.append((pid, n, "place", la, lo, r))
     la, lo = local_ll(-1468.0, 468.5)
     S.append(("rosa_luxemburg_platz", "Rosa-Luxemburg-Platz (Hohlstrasse 444, K9)", "place", la, lo, 80))
+    for sid, n, x, y, r in [  # Langstrasse-Unterfuehrung (OSM tunnel way 4592588, ped tunnels 4803419/4803422) and Ole Ole Bar (OSM node 4424003110)
+        ("langstr_unterf", "Langstrassen-Unterfuehrung (Mitte)", 913, -321, 75),
+        ("langstr_unterf_sued", "Langstrassen-Unterfuehrung Portal Sued (Ole-Ole-Seite)", 893, -366, 45),
+        ("langstr_unterf_nord", "Langstrassen-Unterfuehrung Portal Nord (Kreis 5)", 934, -276, 45),
+        ("oleole", "Ole Ole Bar, Langstrasse 138", 869, -441, 55),
+    ]:
+        la, lo = local_ll(x, y)
+        S.append((sid, n, "landmark", la, lo, r))
     return S
 
 

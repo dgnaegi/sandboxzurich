@@ -10,7 +10,7 @@ FLOAT, UINT32, UBYTE = 5126, 5125, 5121
 def write(path, layers):
     """layers: dict name -> Mesh.arrays() dict (pos, nrm, col, idx, uv, layer) in three.js axes, or None."""
     bin_ = bytearray()
-    views, accs, meshes, nodes = [], [], [], []
+    views, accs, meshes, nodes, mats = [], [], [], [], []
 
     def add(arr, comp, typ, target, norm=False, minmax=False):
         while len(bin_) % 4:
@@ -39,12 +39,18 @@ def write(path, layers):
             "TEXCOORD_1": add(np.column_stack([m["layer"], np.zeros(len(m["layer"]))]).astype(np.float32), FLOAT, "VEC2", 34962),
         }
         ia = add(m["idx"].astype(np.uint32).reshape(-1), UINT32, "SCALAR", 34963)
-        meshes.append({"name": name, "primitives": [{"attributes": attrs, "indices": ia}]})
+        prim = {"attributes": attrs, "indices": ia}
+        if name == "water":  # a named material keeps the mesh out of gltfpack's merge (-km); web/src/engine/tiles.ts swaps in the water shader
+            mats.append({"name": "water", "pbrMetallicRoughness": {"baseColorFactor": [0.02, 0.2, 0.2, 1.0], "metallicFactor": 0.0}})
+            prim["material"] = len(mats) - 1
+        meshes.append({"name": name, "primitives": [prim]})
         nodes.append({"name": name, "mesh": len(meshes) - 1})
 
     gltf = {"asset": {"version": "2.0", "generator": "sandboxzurich"}, "scene": 0,
             "scenes": [{"nodes": list(range(len(nodes)))}], "nodes": nodes, "meshes": meshes,
             "accessors": accs, "bufferViews": views, "buffers": [{"byteLength": len(bin_)}]}
+    if mats:
+        gltf["materials"] = mats
     js = json.dumps(gltf, separators=(",", ":")).encode()
     js += b" " * (-len(js) % 4)
     bin_.extend(b"\0" * (-len(bin_) % 4))

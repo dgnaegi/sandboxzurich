@@ -76,3 +76,6 @@ Erledigt laut DECISIONS #38. Test: `web/tests/crash.mjs` (Kontaktbogen preview/c
 
 ## Welle 5 (k4w5, 10 Gebäude)
 Zett-Haus, Apollo-Haus, Hotelbau Badenerstr. 420, Albisriederplatz Eck, Langstrasse Eck + grau, Hochhaus Pfingstweid, Europaallee x2, Altstetten Bahnhofplatz-Riegel. Modelle `pipeline/landmarks/k4w5_*.py`, Overrides `landmarks_k4w5.json`, Vergleich `preview/lm10_all.jpg`. Kacheln mit neuen hide-Punkten müssen neu gebaut werden (Komplett-Build).
+
+## Wasser (2026-10-16)
+`pipeline/water.py` + `web/src/world/water.ts` (DECISIONS Wasser). Nur 4 Testkacheln gebaut (6_-8, 6_-5, 5_2, 3_3), alle anderen Wasserkacheln brauchen den Komplett-Build. Tests: tsc, gameplay OK; Phone-Perf am Fluss 46 fps (Maschine unter Last, Load ~9). Offen: Geländer, Treppen, Wehre, Kiesbänke, Spawn/Kamera am Sihlhölzli prüfen.

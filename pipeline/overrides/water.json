@@ -1,0 +1,30 @@
+{
+ "_doc": "Water (pipeline/water.py). flow_ref: downstream direction where OSM has no river way (Limmat: north-west). flow: regional overrides {c,r,dir}. walls: bank wall material per region {c,r,layer,color,uv}. access: bathing / stair zones (no collider, shallow bed, ramp instead of wall).",
+ "flow_ref": [
+  -0.25,
+  0.95
+ ],
+ "flow": [],
+ "walls": [
+  {
+   "c": [
+    700,
+    500
+   ],
+   "r": 1700,
+   "layer": "curb",
+   "color": [
+    200,
+    190,
+    172
+   ],
+   "uv": 1.5
+  }
+ ],
+ "access": [],
+ "access_names": [
+  "Flussbad Unterer Letten",
+  "Flussbad Oberer Letten"
+ ],
+ "access_buffer": 30
+}
