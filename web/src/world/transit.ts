@@ -5,11 +5,13 @@ import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js
 
 /** Trams and buses on the real OSM lines (pipeline/transit.py). Positions are a pure function of game time. */
 interface Stop { name: string; s: number }
-interface LineJson { ref: string; mode: 'tram' | 'bus' | 'trolleybus'; colour: string; dir: number; pts: number[][]; stops: Stop[] }
+interface LineJson { ref: string; mode: 'tram' | 'bus' | 'trolleybus'; colour: string; dir: number; pts: number[][]; stops: Stop[]; z?: (number | null)[] }
 interface Seg { s0: number; s1: number; t0: number; T: number; es: boolean; ee: boolean }
 interface Line {
   ref: string; tram: boolean; pts: number[][]; cum: number[]; segs: Seg[]; trip: number; offset: number; len: number;
   pitch: number; mods: number; speed: number; label: THREE.Material; trolley: boolean;
+  /** bridge deck height per point (null = terrain), from pipeline/transit.py */
+  zs?: (number | null)[];
 }
 export interface TransitCollider { x: number; y: number; heading: number; len: number; width: number }
 
@@ -25,6 +27,14 @@ const box = (c: THREE.Color, w: number, h: number, d: number, x = 0, y = 0, z = 
   return g;
 };
 const merge = (g: THREE.BufferGeometry[]) => mergeGeometries(g)!;
+
+/** Vehicle type per trip: Tram 2000 still runs on many lines (some in double traction), mixed with Cobra/Flexity. */
+const T2000_LINES = new Set(['3', '4', '5', '6', '7', '9', '10', '11', '13', '14', '15']);
+function tramType(ref: string, k: number): string {
+  const j = ((k % 6) + 6) % 6;
+  if (T2000_LINES.has(ref) && j < 4) return j === 3 ? 'tram_2000_doppel' : 'tram_2000';
+  return j % 2 ? 'tram_flexity' : 'tram_cobra';
+}
 
 /** Tram module (≈11.6 m long, front = -z). kind: 0 head, 1 mid, 2 tail. */
 function tramModule(kind: number): THREE.BufferGeometry {
@@ -190,7 +200,7 @@ export class Transit {
     }
     let h = 0;
     for (const ch of l.ref + l.dir) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
-    return { ref: l.ref, tram, pts: l.pts, cum, segs, trip: t, offset: h % this.headway, len, pitch, mods, speed, label: labelMat(l.ref, l.stops.length ? l.stops[l.stops.length - 1].name : ''), trolley: l.mode === 'trolleybus' };
+    return { ref: l.ref, tram, pts: l.pts, cum, segs, trip: t, offset: h % this.headway, len, pitch, mods, speed, label: labelMat(l.ref, l.stops.length ? l.stops[l.stops.length - 1].name : ''), trolley: l.mode === 'trolleybus', zs: l.z };
   }
 
   /** Front-tip arc position at trip time tau (s), or -1 if not on the line. */
@@ -218,6 +228,8 @@ export class Transit {
     const a = pts[i], b = pts[i + 1], sl = Math.max(1e-6, cum[i + 1] - cum[i]);
     const t = (s - cum[i]) / sl; // may extrapolate beyond the ends
     out[0] = a[0] + (b[0] - a[0]) * t; out[1] = a[1] + (b[1] - a[1]) * t;
+    const z0 = L.zs?.[i], z1 = L.zs?.[i + 1];   // deck height on bridges, NaN = terrain
+    out[2] = z0 == null && z1 == null ? NaN : z0 == null ? z1! : z1 == null ? z0 : z0 + (z1 - z0) * Math.min(1, Math.max(0, t));
   }
 
   update(_dt: number, gameMinutes: number, px: number, py: number): void {
@@ -225,7 +237,7 @@ export class Transit {
     this.cols.length = 0; this.nDisp = 0; this.vis = 0; this.nDoor = 0; this.nPax = 0; this.bellT -= _dt;
     const cn = { tram: [0, 0, 0], bus: [0, 0] };
     const modCount = new Map<string, number>();
-    const p = [0, 0], q = [0, 0], r = [0, 0];
+    const p = [0, 0, NaN], q = [0, 0, NaN], r = [0, 0, NaN];
     for (const L of this.lines) {
       const k0 = Math.ceil((time - L.offset - L.trip) / this.headway), k1 = Math.floor((time - L.offset) / this.headway);
       for (let k = k0; k <= k1; k++) {
@@ -237,7 +249,7 @@ export class Transit {
         const kinds = L.tram ? cn.tram : cn.bus;
         const im = L.tram ? this.meshes.tram : this.meshes.bus;
         const half = L.tram ? 6.1 : 4.5;
-        const spec = this.modMesh.size ? this.vehicles[L.tram ? (k % 2 ? 'tram_flexity' : 'tram_cobra') : L.trolley ? 'trolleybus' : 'bus_gelenk'] : undefined;
+        const spec = this.modMesh.size ? this.vehicles[L.tram ? tramType(L.ref, k) : L.trolley ? 'trolleybus' : 'bus_gelenk'] : undefined;
         if (spec) { this.placeModels(L, sh, spec, modCount, this.dwellU, px, py); continue; }
         for (let i = 0; i < L.mods; i++) {
           const sc = sh - (L.tram ? 7.0 : 5.0) - i * L.pitch + (L.tram ? 0.2 : 0.5);
@@ -245,10 +257,11 @@ export class Transit {
           const hx = q[0] - r[0], hy = q[1] - r[1];
           const yaw = Math.atan2(-hx, hy);
           const hd = Math.hypot(hx, hy) || 1, ux = hx / hd, uy = hy / hd;
-          const gf = this.ground(p[0] + ux * half, p[1] + uy * half), gb = this.ground(p[0] - ux * half, p[1] - uy * half);
-          const gz = this.ground(p[0], p[1]) - ROAD_DROP;
+          const deck = !Number.isNaN(p[2]);
+          const gf = deck ? q[2] : this.ground(p[0] + ux * half, p[1] + uy * half), gb = deck ? r[2] : this.ground(p[0] - ux * half, p[1] - uy * half);
+          const gz = deck ? p[2] : this.ground(p[0], p[1]) - ROAD_DROP;
           tpl.position.set(p[0], gz, -p[1]);
-          tpl.rotation.set(Math.atan2(gf - gb, half * 2), yaw, 0);
+          tpl.rotation.set(deck ? (Number.isNaN(gf + gb) ? 0 : Math.atan2(gf - gb, 8)) : Math.atan2(gf - gb, half * 2), yaw, 0);
           tpl.updateMatrix();
           const kind = L.tram ? (i === 0 ? 0 : i === L.mods - 1 ? 2 : 1) : (i === 0 ? 0 : 1);
           const mesh = im[kind];
@@ -270,16 +283,17 @@ export class Transit {
 
   /** Place each module of a vehicle along the line; front tip at arc position sh. */
   private placeModels(L: Line, sh: number, spec: VehicleSpec, count: Map<string, number>, du: number, px: number, py: number) {
-    const p = [0, 0], q = [0, 0], r = [0, 0];
+    const p = [0, 0, NaN], q = [0, 0, NaN], r = [0, 0, NaN];
     spec.sequence.forEach((it, i) => {
       const im = this.modMesh.get(it.module), len = this.modLen.get(it.module) ?? 6;
       if (!im) return;
       const sc = sh - it.z_center_from_front, half = len / 2;
       this.sample(L, sc, p); this.sample(L, sc + half, q); this.sample(L, sc - half, r);
       const hx = q[0] - r[0], hy = q[1] - r[1], hd = Math.hypot(hx, hy) || 1, ux = hx / hd, uy = hy / hd;
-      const gf = this.ground(p[0] + ux * half, p[1] + uy * half), gb = this.ground(p[0] - ux * half, p[1] - uy * half);
-      tpl.position.set(p[0], this.ground(p[0], p[1]) - ROAD_DROP, -p[1]);
-      tpl.rotation.set(Math.atan2(gf - gb, len), Math.atan2(-hx, hy) + (it.rotateY180 ? Math.PI : 0), 0, 'YXZ');
+      const deck = !Number.isNaN(p[2]);
+      const gf = deck ? q[2] : this.ground(p[0] + ux * half, p[1] + uy * half), gb = deck ? r[2] : this.ground(p[0] - ux * half, p[1] - uy * half);
+      tpl.position.set(p[0], deck ? p[2] : this.ground(p[0], p[1]) - ROAD_DROP, -p[1]);
+      tpl.rotation.set(deck && Number.isNaN(gf + gb) ? 0 : Math.atan2(gf - gb, len), Math.atan2(-hx, hy) + (it.rotateY180 ? Math.PI : 0), 0, 'YXZ');
       tpl.updateMatrix();
       const n = count.get(it.module) ?? 0;
       if (n < 24) { im.setMatrixAt(n, tpl.matrix); count.set(it.module, n + 1); }

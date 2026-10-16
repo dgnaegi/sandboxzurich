@@ -18,7 +18,7 @@ interface Key { h: number; zen: number; hor: number; sun: number; sunI: number; 
 const GN: G = [1.0, 0.10, -0.01, 0.0, 0.03, 0.05, 0.02, -0.04, 0.5, 0.9];       // night: cool shadows, warm lamp highlights
 const GD: G = [1.12, 0.14, -0.01, 0.0, 0.02, 0.02, 0.01, -0.01, 0.15, 1.9];        // day: natural
 const GG: G = [1.12, 0.12, 0.0, 0.0, 0.0, 0.07, 0.03, -0.05, 0.28, 1.4];          // golden hour: warm highlights
-const NIGHT = { zen: 0x070a1c, hor: 0x1e2842, sun: 0x6f86c8, sunI: 0, hs: 0x6a74a0, hg: 0x2a2630, hI: 1.4, cLo: 0x1c2442, cHi: 0x2c385c, exp: 1.75, night: 1, stars: 1, g: GN };
+const NIGHT = { zen: 0x070a1c, hor: 0x1e2842, sun: 0x6f86c8, sunI: 0, hs: 0x7480b0, hg: 0x34303c, hI: 1.85, cLo: 0x1c2442, cHi: 0x2c385c, exp: 1.75, night: 1, stars: 1, g: GN };
 const DAY = { zen: 0x4a84c6, hor: 0xc6d9e6, sun: 0xfff4e6, sunI: 3.4, hs: 0xbcd2ee, hg: 0x7a7668, hI: 1.45, cLo: 0xdfe5ec, cHi: 0xffffff, exp: 1.0, night: 0, stars: 0, g: GD };
 const K: Key[] = [
   { h: 0, ...NIGHT },
@@ -134,7 +134,7 @@ export class Daytime {
 
     // one directional light: sun by day, bluish moon at night (blended by weight)
     const sunW = L(a.sunI, b.sunI) * sstep(-0.04, 0.1, sinE);
-    const moonW = 0.5 * this.night * sstep(0.0, 0.2, -sinE);
+    const moonW = 0.7 * this.night * sstep(0.0, 0.2, -sinE);
     const w = sunW + moonW;
     sun.color.copy(sunCol).multiplyScalar(sunW).add(c1.setHex(0x7f93d0).multiplyScalar(moonW)).multiplyScalar(w > 0 ? 1 / w : 0);
     sun.intensity = w;

@@ -11,6 +11,10 @@ NOSE_COBRA = dict(dz=[0, .3, .7, 1.2, 1.8], sx=[.66, .84, .93, .98, 1.0], back=[
                   lights=(2, .62), red=.9, glass=.84, display=(3, .55, .12, .88))
 NOSE_FLEX = dict(dz=[0, .22, .6, 1.1], sx=[.9, .97, 1.0, 1.0], back=[.55, .2, .05, 0], drop=[.22, .1, .03, 0],
                  lights=(2, .72), red=1.0, glass=.9, display=(3, .6, .1, .9))
+NOSE_T2000 = dict(dz=[0, .12, .4], sx=[.97, 1.0, 1.0], back=[.18, .05, 0], drop=[.05, .02, 0],
+                  lights=(2, .72), red=1.0, glass=.9, display=(3, .6, .1, .9))
+T2000 = dict(frame=G.lin((120, 126, 132)), hx=1.2, y0=.30, belt=1.05, wtop=2.30, ytop=3.45, r1=.14, rx=.2, blue=G.BLUE, white=G.WHITE, pillar=G.WHITE,
+             roof=G.lin((200, 205, 210)), roofbox=G.lin((130, 136, 142)))
 NOSE_BUS = dict(dz=[0, .12, .3], sx=[.985, 1.0, 1.0], back=[.35, .1, 0], drop=[.12, .05, 0], lights=(2, .78), red=None, glass=.9, display=(3, .75, .1, .9))
 TAIL_BUS = dict(dz=[0, .1, .3], sx=[.985, 1.0, 1.0], back=[.08, .02, 0], drop=[.0, .0, 0])
 
@@ -30,6 +34,9 @@ def flex_ko(): return G.body(FLEX, 6.9, dict(r=[-.0, 1.9], l=[1.9]), nose=NOSE_F
 def flex_mi(): return G.body(FLEX, 6.8, dict(r=[0], l=[0]), bogies=[0])
 def flex_zw():
     return G.body(FLEX, 4.4, dict(r=[0], l=[0]), extra=lambda m, P, L: (G.roof_boxes(m, P, L, [-1.0], 1.0, .2, 1.4), G.pantograph(m, P, .4)))
+def t2k_ko(): return G.body(T2000, 11.0, dict(r=[-1.4, 1.2, 3.6], l=[1.2, 3.6]), nose=NOSE_T2000, bogies=[-3.3, 3.3])
+def t2k_mi(): return G.body(T2000, 7.0, dict(r=[0.0], l=[0.0]), extra=lambda m, P, L: (G.roof_boxes(m, P, L, [-1.6], 1.4, .25, 2.2), G.pantograph(m, P, 0.8)))
+def t2k_zw(): return G.body(T2000, 2.6, dict(r=[], l=[]), extra=lambda m, P, L: G.roof_boxes(m, P, L, [0.0], 1.0, .15, 1.2))
 def bus_front(): return G.body(BUS, 9.2, dict(r=[-3.0, 0.6], l=[0.6]), nose=NOSE_BUS, bogies=[], wheels_r=.5,
                                extra=lambda m, P, L: (bus_wheels(m, [-2.9, 2.8]), G.roof_boxes(m, P, L, [1.8], 1.4, .18, 2.2)))
 def bus_rear(): return G.body(BUS, 8.4, dict(r=[-2.3, 0.6], l=[-2.3]), tail=TAIL_BUS, wheels_r=.5,
@@ -55,9 +62,11 @@ def bus_joint():
 
 MODS = {  # name: (builder, length)
     'cobra_kopf': (cobra_ko, 7.8), 'cobra_zwischen': (cobra_zw, 5.2), 'cobra_mittel': (cobra_mi, 10.0),
+    'tram2000_kopf': (t2k_ko, 11.0), 'tram2000_mittel': (t2k_mi, 7.0), 'tram2000_zwischen': (t2k_zw, 2.6),
     'flexity_kopf': (flex_ko, 6.9), 'flexity_mittel': (flex_mi, 6.8), 'flexity_zwischen': (flex_zw, 4.4),
     'trolley_vorne': (bus_front, 9.2), 'trolley_hinten': (bus_rear, 8.4), 'trolley_gelenk': (bus_joint, 1.1), 'bus_hinten': (bus_rear_d, 8.4)}
-DOORS = {'cobra_kopf': ([-.2, 2.1], [], 7.8), 'cobra_mittel': ([-3.0, 3.0], [-3.0, 3.0], 10.0), 'cobra_zwischen': ([], [], 5.2),
+DOORS = {'tram2000_kopf': ([-1.4, 1.2, 3.6], [1.2, 3.6], 11.0), 'tram2000_mittel': ([0.0], [0.0], 7.0), 'tram2000_zwischen': ([], [], 2.6),
+         'cobra_kopf': ([-.2, 2.1], [], 7.8), 'cobra_mittel': ([-3.0, 3.0], [-3.0, 3.0], 10.0), 'cobra_zwischen': ([], [], 5.2),
          'flexity_kopf': ([0, 1.9], [1.9], 6.9), 'flexity_mittel': ([0], [0], 6.8), 'flexity_zwischen': ([], [], 4.4),
          'trolley_vorne': ([-3.0, 0.6], [0.6], 9.2), 'trolley_hinten': ([-2.3, 0.6], [-2.3], 8.4), 'bus_hinten': ([-2.3, 0.6], [-2.3], 8.4)}
 
@@ -119,6 +128,11 @@ if __name__ == '__main__':
     manifest['vehicles'] = {
         'tram_cobra': veh([('cobra_kopf', 0), ('cobra_zwischen', 0), ('cobra_mittel', 0), ('cobra_zwischen', 0), ('cobra_kopf', 1)],
             {'bogie_z_local': {'cobra_kopf': [-1.6], 'cobra_mittel': [0.0]}, 'note': 'rotateY180 modules: bogie z sign flips; pantograph head y=5.45 on cobra_mittel; line 8 / Glattal'}),
+        'tram_2000': veh([('tram2000_kopf', 0), ('tram2000_zwischen', 0), ('tram2000_mittel', 0), ('tram2000_zwischen', 0), ('tram2000_kopf', 1)],
+            {'bogie_z_local': {'tram2000_kopf': [-3.3, 3.3]}, 'note': 'Be 4/6 Tram 2000, boxy; pantograph on tram2000_mittel'}),
+        'tram_2000_doppel': veh([('tram2000_kopf', 0), ('tram2000_zwischen', 0), ('tram2000_mittel', 0), ('tram2000_zwischen', 0), ('tram2000_kopf', 1),
+                                 ('tram2000_kopf', 0), ('tram2000_zwischen', 0), ('tram2000_mittel', 0), ('tram2000_zwischen', 0), ('tram2000_kopf', 1)],
+            {'note': 'double traction'}),
         'tram_flexity': veh([('flexity_kopf', 0), ('flexity_mittel', 0), ('flexity_zwischen', 0), ('flexity_mittel', 0), ('flexity_zwischen', 0), ('flexity_mittel', 0), ('flexity_kopf', 1)],
             {'bogie_z_local': {'flexity_kopf': [-1.2], 'flexity_mittel': [0.0]}, 'note': 'pantograph head y=5.45 on flexity_zwischen'}),
         'bus_gelenk': veh([('trolley_vorne', 0), ('trolley_gelenk', 0), ('bus_hinten', 0)], {'note': 'diesel articulated bus, no poles'}),

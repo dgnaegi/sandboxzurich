@@ -65,36 +65,6 @@
    ]
   },
   {
-   "name": "Hardau II (4 Wohntuerme)",
-   "model": "/models/landmarks/hardau_towers.glb",
-   "x": -516.5,
-   "y": -321.0,
-   "z": -0.34,
-   "heading": 0,
-   "hide": [
-    [
-     -490.2,
-     -318.8
-    ],
-    [
-     -510.8,
-     -221.9
-    ],
-    [
-     -561.7,
-     -338.8
-    ],
-    [
-     -502.9,
-     -403.7
-    ],
-    [
-     -535.9,
-     -352.6
-    ]
-   ]
-  },
-  {
    "name": "Prime Tower + Platform",
    "model": "/models/landmarks/prime_tower.glb",
    "x": 45.0,
@@ -465,6 +435,36 @@
     [
      54.2,
      118.4
+    ]
+   ]
+  },
+  {
+   "name": "Hardau II (4 Wohntuerme)",
+   "model": "/models/landmarks/hardau_towers.glb",
+   "x": -516.5,
+   "y": -321.0,
+   "z": -0.34,
+   "heading": 0,
+   "hide": [
+    [
+     -490.2,
+     -318.8
+    ],
+    [
+     -510.8,
+     -221.9
+    ],
+    [
+     -561.7,
+     -338.8
+    ],
+    [
+     -502.9,
+     -403.7
+    ],
+    [
+     -535.9,
+     -352.6
     ]
    ]
   }

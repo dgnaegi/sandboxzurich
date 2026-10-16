@@ -12,6 +12,12 @@ POD = "ID_616085CB"
 ACC = ["#c49a72"] * 4
 
 
+def fp_ground(fp, oz):
+    """(base, lowest) model-space z of the terrain along a footprint outline: tower stands on the highest point, skirt reaches the lowest."""
+    ext = fp.exterior; gs = [ground(*ext.interpolate(t).coords[0]) for t in np.linspace(0, ext.length, 48)]
+    return max(gs) - oz, min(gs) - oz
+
+
 def edges(P):
     r = list(orient(P, 1.0).exterior.coords)[:-1]; return [(r[i], r[(i + 1) % len(r)]) for i in range(len(r))]
 
@@ -28,8 +34,8 @@ def build():
     mf = m.mat("flat", solid((255, 255, 255, 255)))
     W = (255, 255, 255, 255); CONC = D.hexl("#cfa77c"); REV = D.hexl("#8a5a3a")
     # ---- podium (Sockelbau)
-    Pp = orient(localize(pfp, ox, oy), 1.0); gzp = ground(pfp.centroid.x, pfp.centroid.y) - oz
-    m.extrude(mf, mf, Pp, gzp - 3, gzp, col=D.hexl("#8f8780"), roof=False)
+    Pp = orient(localize(pfp, ox, oy), 1.0); gzp, gzp_lo = fp_ground(pfp, oz)   # base = highest terrain on the footprint, skirt down to the lowest
+    m.extrude(mf, mf, Pp, gzp_lo - 0.6, gzp, col=D.hexl("#8f8780"), roof=False)
     GFH, FH2 = 4.5, 3.4
     for a, b in edges(Pp):
         L, t, n = D.frame_of(a, b)
@@ -41,7 +47,8 @@ def build():
     # ---- towers
     for i, (b, fp) in enumerate(zip(bs, fps)):
         P = orient(localize(fp, ox, oy), 1.0)
-        g0 = ground(fp.centroid.x, fp.centroid.y); gz = g0 - oz; H = b["zmax"] - g0
+        gz, gz_lo = fp_ground(fp, oz); g0 = gz + oz; H = b["zmax"] - g0
+        m.extrude(mf, mf, P, gz_lo - 0.6, gz, col=D.hexl("#8f8780"), roof=False)   # foundation skirt: terraced terrain (-2..+2 m) must not bury the tower
         n_fl = int(round((H - 4.0) / 3.0)); top = 4.0 + n_fl * 3.0
         acc = D.hexl(ACC[i])
         for a, b2 in edges(P):
