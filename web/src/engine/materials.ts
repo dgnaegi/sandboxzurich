@@ -69,6 +69,8 @@ export async function loadWorldMaterial(base: string, anisotropy: number, pbr = 
   const GB = (meta.normals + (meta.normals3 ?? 0)).toFixed(1);
   const li = (name: string) => (meta.layers?.indexOf(name) ?? -1).toFixed(1);
   const AS = li('asphalt'), G0 = li('sidewalk'), G1 = li('white');
+  // hb3: the tile geometry is not drawn where an hb3 stencil mask (landmark material hb3_mask, value 1) cuts open a stair well
+  mat.stencilWrite = true; mat.stencilRef = 1; mat.stencilFunc = THREE.NotEqualStencilFunc; mat.stencilFail = mat.stencilZFail = mat.stencilZPass = THREE.KeepStencilOp;
   mat.onBeforeCompile = (sh) => {
     sh.uniforms.atlas = { value: tex };
     sh.uniforms.night = nightUniform;

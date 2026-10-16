@@ -1,0 +1,238 @@
+{
+ "landmarks": [
+  {
+   "name": "Kir Royal Langstrasse 62",
+   "model": "/models/landmarks/langC_kirroyal.glb",
+   "x": 729.0,
+   "y": -808.6,
+   "z": -1.03,
+   "heading": 0,
+   "hide": [
+    [
+     730.2,
+     -806.0
+    ]
+   ]
+  },
+  {
+   "name": "Longstreet Bar Club Langstrasse 92",
+   "model": "/models/landmarks/langC_longstreet.glb",
+   "x": 791.5,
+   "y": -655.9,
+   "z": -1.66,
+   "heading": 0,
+   "hide": [
+    [
+     791.4,
+     -656.5
+    ]
+   ]
+  },
+  {
+   "name": "Leeward Bar dunkelgruene Front",
+   "model": "/models/landmarks/langC_leeward.glb",
+   "x": 707.6,
+   "y": -774.1,
+   "z": -1.17,
+   "heading": 0,
+   "hide": [
+    [
+     701.1,
+     -776.5
+    ],
+    [
+     709.3,
+     -773.9
+    ],
+    [
+     707.1,
+     -768.0
+    ],
+    [
+     712.8,
+     -784.3
+    ]
+   ]
+  },
+  {
+   "name": "Spaccio Langstrasse 61 Caffe",
+   "model": "/models/landmarks/langC_spaccio.glb",
+   "x": 698.0,
+   "y": -805.3,
+   "z": -0.93,
+   "heading": 0,
+   "hide": [
+    [
+     698.2,
+     -804.9
+    ],
+    [
+     700.7,
+     -810.8
+    ]
+   ]
+  },
+  {
+   "name": "Peeeng Langstrasse 67 bunte Hausfront",
+   "model": "/models/landmarks/langC_peeeng.glb",
+   "x": 716.4,
+   "y": -766.9,
+   "z": -1.14,
+   "heading": 0,
+   "hide": [
+    [
+     716.6,
+     -767.0
+    ]
+   ]
+  },
+  {
+   "name": "Allegrotto Chickeria Langstrasse 81 Ecklokal",
+   "model": "/models/landmarks/langC_allegrotto.glb",
+   "x": 745.8,
+   "y": -702.4,
+   "z": -1.48,
+   "heading": 0,
+   "hide": [
+    [
+     746.2,
+     -703.0
+    ]
+   ]
+  },
+  {
+   "name": "Tipsy Tiger Langstrasse 133 hellblaues Eckhaus",
+   "model": "/models/landmarks/langC_tipsy.glb",
+   "x": 838.1,
+   "y": -456.9,
+   "z": -2.88,
+   "heading": 0,
+   "hide": [
+    [
+     837.6,
+     -458.3
+    ]
+   ]
+  },
+  {
+   "name": "Rasputin Bar gelbliche Fassade",
+   "model": "/models/landmarks/langC_rasputin.glb",
+   "x": 826.3,
+   "y": -795.2,
+   "z": -1.41,
+   "heading": 0,
+   "hide": [
+    [
+     825.7,
+     -794.9
+    ]
+   ]
+  },
+  {
+   "name": "Tenz Momo Hohlstrasse 44 Bierhalle-Haus",
+   "model": "/models/landmarks/langC_tenzmomo.glb",
+   "x": 738.6,
+   "y": -716.2,
+   "z": -1.43,
+   "heading": 0,
+   "hide": [
+    [
+     737.0,
+     -717.1
+    ]
+   ]
+  },
+  {
+   "name": "Aargauerhof Hohlstrasse 43 Eckhaus",
+   "model": "/models/landmarks/langC_aargauerhof.glb",
+   "x": 728.1,
+   "y": -742.0,
+   "z": -1.3,
+   "heading": 0,
+   "hide": [
+    [
+     722.1,
+     -744.0
+    ],
+    [
+     728.2,
+     -742.4
+    ]
+   ]
+  },
+  {
+   "name": "Midway Bar hellblaues Eckhaus",
+   "model": "/models/landmarks/langC_midway.glb",
+   "x": 735.6,
+   "y": -511.2,
+   "z": -2.7,
+   "heading": 0,
+   "hide": [
+    [
+     734.7,
+     -511.1
+    ]
+   ]
+  },
+  {
+   "name": "Golden Gate Bar Schoeneggstrasse 15",
+   "model": "/models/landmarks/langC_goldengate.glb",
+   "x": 764.1,
+   "y": -444.2,
+   "z": -3.03,
+   "heading": 0,
+   "hide": [
+    [
+     764.1,
+     -444.5
+    ]
+   ]
+  },
+  {
+   "name": "Piro Eckhaus Brauerstrasse 45",
+   "model": "/models/landmarks/langC_piro.glb",
+   "x": 754.6,
+   "y": -672.3,
+   "z": -1.56,
+   "heading": 0,
+   "hide": [
+    [
+     754.7,
+     -672.9
+    ]
+   ]
+  },
+  {
+   "name": "Stuebae Brauerstrasse 42",
+   "model": "/models/landmarks/langC_stuba.glb",
+   "x": 800.0,
+   "y": -676.7,
+   "z": -1.79,
+   "heading": 0,
+   "hide": [
+    [
+     799.5,
+     -677.5
+    ],
+    [
+     797.6,
+     -669.0
+    ]
+   ]
+  },
+  {
+   "name": "Monroe Brauerstrasse 26 dunkelblaues Eckhaus",
+   "model": "/models/landmarks/langC_monroe.glb",
+   "x": 864.9,
+   "y": -726.5,
+   "z": -1.63,
+   "heading": 0,
+   "hide": [
+    [
+     864.9,
+     -726.5
+    ]
+   ]
+  }
+ ]
+}

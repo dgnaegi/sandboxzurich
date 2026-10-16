@@ -6,6 +6,7 @@ from shapely import STRtree
 from shapely.ops import substring
 
 from config import AREA
+import carriageway
 
 WIDTH = {"primary": 13, "secondary": 11, "tertiary": 9, "residential": 7, "unclassified": 6,
          "service": 3.5, "primary_link": 7, "secondary_link": 7, "tertiary_link": 6}
@@ -136,11 +137,34 @@ def parse(nodes, els):
         if (t.get("leisure") in ("park", "playground", "garden") or t.get("landuse") in ("grass", "village_green")) \
                 and pts[0] == pts[-1] and len(pts) >= 4:
             parks.append(Polygon(pts).buffer(0))
-    roads = tidy_roads(shapely.union_all([w["line"].buffer(w["w"] / 2, cap_style="round", join_style="round", quad_segs=10)
-                                          for w in ways] + cycle))
+    cyc_geo = shapely.union_all(cycle) if cycle else shapely.Polygon()
+    cal, av_road = None, None
+    if carriageway.enabled():  # carriageway from the official survey (AV), OSM width only as calibrated fallback (carriageway.py)
+        import groundcover
+        G = groundcover.load((AREA[0] - 260, AREA[1] - 260, AREA[2] + 260, AREA[3] + 260))
+        cap, fb, node_half, cal, cstats, car = carriageway.apply(ways, G)
+        av_road = car.g
+        discs = carriageway.junction_discs(ways, node_half, nodes)
+        keep = shapely.union_all([cap, *discs]) if discs else cap
+        av = car.g.intersection(shapely.set_precision(keep.buffer(0), 0.01))
+        roads = tidy_roads(shapely.union_all([av, fb, cyc_geo, carriageway.axis_gaps([w for w in ways if w["hw"] != "service"], shapely.union_all([av, fb]))]))
+        print("carriageway:", cstats, "calibrated widths:", {"/".join(map(str, k)): round(v, 1) for k, v in cal.items() if len(k) == 1})
+    else:
+        roads = tidy_roads(shapely.union_all([w["line"].buffer(w["w"] / 2, cap_style="round", join_style="round", quad_segs=10)
+                                              for w in ways] + cycle))
     plaza = shapely.union_all(plazas).difference(roads)
     return {"ways": ways, "roads": roads, "plaza": plaza, "parks": shapely.union_all(parks).difference(roads).difference(plaza),
-            "tram": tram, "trees": trees, "crossings": crossings, "pois": pois, "benches": benches, **extras}
+            "carriageway_cal": cal or {}, "av_road": av_road, "tram": tram, "trees": trees, "crossings": crossings, "pois": pois, "benches": benches, **extras}
+
+
+def mline(w):
+    """Centre line of the carriageway: the OSM axis shifted by the measured offset (carriageway.py), cached. Markings and
+    kerbside props are placed relative to it, so lanes and bike lines follow the real carriageway edges."""
+    if "_mline" not in w:
+        ln, off = w["line"], w.get("off", 0.0)
+        m = ln.offset_curve(off) if abs(off) > 0.2 else ln
+        w["_mline"] = m if (m.geom_type == "LineString" and not m.is_empty and abs(m.length - ln.length) < 0.15 * ln.length + 1) else ln
+    return w["_mline"]
 
 
 def dashes(line, dash, gap, start=0.0):
@@ -305,15 +329,15 @@ def markings(S):
     if tram is not None:
         shapely.prepare(tram)
     for w in S["ways"]:
-        ln, t = w["line"], w["tags"]
+        ln, t = mline(w), w["tags"]
         if w["hw"] == "service" or w["zone"] in ("beg", "fuss"):
             continue
-        L = ln.length
+        L = w["line"].length
         # centre line (Leitlinie): classified streets with two-way traffic, not inside zone 30, not on the tram track
         lanes = int(_num(t.get("lanes"), 0))
         if w["hw"] in MAIN and not w["oneway"] and w["w"] >= 7 and w["zone"] is None and w["tempo"] != 20 and lanes != 1:
             for a, b in _minus([(0, L)], w["gaps"] + [(L - 3, L + 3), (-3, 3)]):
-                sub = substring(ln, a, b)
+                sub = _sub(ln, a, b, L)
                 for d in dashes(sub, 3, 6, 0.5):
                     if tram is None or not tram.intersects(d):
                         white.append(d.buffer(0.06, cap_style="flat"))
@@ -339,7 +363,7 @@ def markings(S):
     # bus lanes: yellow line 3.2 m from the kerb, broken at side streets
     for w in S["ways"]:
         for side in bus_sides(w):
-            ln, L = w["line"], w["line"].length
+            ln, L = mline(w), w["line"].length
             off = ln.offset_curve((1 if side == "left" else -1) * (w["w"] / 2 - 3.2))
             if not off.is_empty and off.geom_type == "LineString":
                 yellow += [_sub(off, a, b, L).buffer(0.07, cap_style="flat") for a, b in _minus([(0, L)], w["gaps"])]
@@ -361,12 +385,14 @@ def markings(S):
             continue
         ln = w["line"]
         d = _tangent(ln, ln.project(Point(x, y)))
-        yellow += zebra(x, y, d, w["w"] / 2 - 0.3)
+        off = w.get("off", 0.0)  # centre the stripes on the carriageway (left normal = (-d1, d0))
+        yellow += zebra(x - d[1] * off, y + d[0] * off, d, w["w"] / 2 - 0.3)
         placed.append((x, y))
     # signalised approaches: stop line (Haltelinie) at the signal, crossing 1 m beyond it if none is mapped there
     for a in signal_arms(S):
         p, t, w = np.array(a["p"]), a["t"], a["way"]
         r = np.array([t[1], -t[0]])
+        p = p - r * w.get("off", 0.0)  # signal sits on the OSM axis, the stop line / crossing on the carriageway centre (carriageway.py)
         zc = p + t * 3.1
         if not any(np.hypot(zc[0] - q[0], zc[1] - q[1]) < 9 for q in placed) and a["half"] >= 2.5:
             yellow += zebra(zc[0], zc[1], t, a["half"] - 0.3)

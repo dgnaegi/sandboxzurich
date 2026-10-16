@@ -10,8 +10,10 @@ the lowest deck that does so is the slope-limited envelope (road 6 %) of those r
 ground height at both chain ends. Ends are extended along the continuing non-bridge ways (OSM ramps), so the
 deck meets the ground there. See research/bridges.md.
 """
+import json
 import math
 from collections import defaultdict
+from pathlib import Path
 
 import numpy as np
 import shapely
@@ -86,7 +88,21 @@ def _resample(pts, core):
     return np.array(P), np.array(C, bool)
 
 
+CHAINS_CACHE = Path(__file__).resolve().parent.parent / "data" / "build" / "deck_chains.json"
+
+
+def save_chains(out):
+    """Deck chains of the real build (terrain smoothed by road_height) for decktrack.DeckTrack: vehicles, trams and the player
+    then share exactly the deck heights of the tile meshes (callers without H compute on the raw terrain, up to ~1 m off)."""
+    CHAINS_CACHE.write_text(json.dumps([{k: b[k] for k in ("ids", "kind", "w", "p", "name")} for b in out]))
+
+
+def load_chains():
+    return json.loads(CHAINS_CACHE.read_text()) if CHAINS_CACHE.exists() else None
+
+
 def bridge_ways(nodes, els, area, H=None):
+    H_given = H is not None
     if H is None:
         from terrain import heights
         H = heights(tuple(area), 2.0, z_shift=-3.06)
@@ -248,6 +264,7 @@ def bridge_ways(nodes, els, area, H=None):
             sl = SLOPE[ch["kind"]]
             for mult in (1.0, 1.5, 2.0):
                 z = _envelope(ch["s"], req, ch["g"], sl * mult, free)
+                z = _envelope(ch["s"], _fair(ch["s"], z, req), ch["g"], sl * mult, free)  # no roller-coaster between obstacles
                 ok = np.all(z[np.isfinite(req)] >= req[np.isfinite(req)] - 0.4)
                 if ok:
                     break
@@ -316,6 +333,9 @@ def bridge_ways(nodes, els, area, H=None):
                     "p": np.column_stack([P, z]).round(2).tolist(), "g": g.round(2).tolist(), "b": bot.round(2).tolist(),
                     "piers": piers, "excl": excl, "max_el": float(el.max()), "max_slope": _maxslope(s, z),
                     "len": float(s[-1])})
+    _snap_foot(out)
+    if H_given:
+        save_chains(out)
     # ground ways beneath must stay drawn: subtract them from the exclusion
     for b in out:
         if b["excl"].is_empty:
@@ -328,6 +348,25 @@ def bridge_ways(nodes, els, area, H=None):
         if under:
             b["excl"] = b["excl"].difference(shapely.union_all(under))
     return out
+
+
+FAIR_FILL = 35.0   # m: dips shorter than 2x this between higher parts of the deck are filled (a driveable, flat-topped deck)
+FAIR_SMOOTH = 12.0  # m: vertical-curve rounding of the filled profile
+
+
+def _fair(s, z, req):
+    """Fill dips (dilation) and round the kinks (moving average) of the lowest feasible profile z; never below z or req."""
+    from numpy.lib.stride_tricks import sliding_window_view as win
+    grid = np.arange(s[0], s[-1] + 1e-6, 3.0)
+    if len(grid) < 4:
+        return z
+    zg = np.interp(grid, s, z)
+    k = int(FAIR_FILL / 3)
+    dil = win(np.pad(zg, k, mode="edge"), 2 * k + 1).max(axis=1)
+    k2 = int(FAIR_SMOOTH / 3)
+    sm = win(np.pad(dil, k2, mode="edge"), 2 * k2 + 1).mean(axis=1)
+    out = np.maximum(np.interp(s, grid, sm), z)
+    return np.where(np.isfinite(req), np.maximum(out, req), out)
 
 
 def _envelope(s, req, g, sl, free=()):
@@ -350,6 +389,36 @@ def _envelope(s, req, g, sl, free=()):
     for i in range(n - 2, -1, -1):
         f[i] = min(f[i], f[i + 1] + sl * (s[i + 1] - s[i]))
     return np.maximum(np.where(z < -1e8, g, z), f)
+
+
+def _snap_foot(out):
+    """Footways running alongside a road deck take the road deck's height (walking sideways off the carriageway must not step).
+    Snap fully within the common width + 2.5 m, fade out over 5 m more; crossings at another level (|dz| >= 1.5 m) stay."""
+    roads = [b for b in out if b["kind"] in ("road", "tram")]
+    if not roads:
+        return
+    lines, cums = [], []
+    for b in roads:
+        P = np.array(b["p"])
+        lines.append(LineString(P[:, :2]))
+        cums.append((np.concatenate([[0], np.cumsum(np.hypot(*np.diff(P[:, :2], axis=0).T))]), P[:, 2]))
+    tree = STRtree(lines)
+    for f in out:
+        if f["kind"] != "foot":
+            continue
+        for i, (x, y, z) in enumerate(f["p"]):
+            pt, best = Point(x, y), None
+            for j in tree.query(pt.buffer(14)):
+                d = lines[j].distance(pt)
+                lim = roads[j]["w"] / 2 + f["w"] / 2 + 2.5
+                if d < lim + 5 and (best is None or d < best[0]):
+                    sj = lines[j].project(pt)
+                    best = (d, lim, float(np.interp(sj, cums[j][0], cums[j][1])))
+            if best and abs(best[2] - z) < 1.5:
+                w = 1.0 if best[0] <= best[1] else 1 - (best[0] - best[1]) / 5
+                nz = z + (best[2] - z) * w
+                f["b"][i] = round(f["b"][i] + nz - z, 2)
+                f["p"][i][2] = round(nz, 2)
 
 
 def _maxslope(s, z):
@@ -395,8 +464,13 @@ def tile_rows(bridges, tile_box, with_excl=False):
         if cur:
             runs.append(cur)
         for r in runs:
-            decks.append({"p": [p[i] for i in r], "g": [b["g"][i] for i in r], "b": [b["b"][i] for i in r],
-                          "w": b["w"], "kind": b["kind"], "name": b["name"]})
+            row = {"p": [p[i] for i in r], "g": [b["g"][i] for i in r], "b": [b["b"][i] for i in r],
+                   "w": b["w"], "kind": b["kind"], "name": b["name"]}
+            if r[0] > 0:   # context vertices of a row cut at the tile border: same offset normals on both sides
+                row["pa"] = p[r[0] - 1][:2]
+            if r[-1] < len(p) - 1:
+                row["pb"] = p[r[-1] + 1][:2]
+            decks.append(row)
         piers += [q + [b["kind"]] for q in b["piers"] if x0 <= q[0] < x1 and y0 <= q[1] < y1]
         if with_excl and not b["excl"].is_empty:
             part = b["excl"].intersection(tb)

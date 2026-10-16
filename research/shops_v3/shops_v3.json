@@ -26,7 +26,7 @@
    }
   ],
   "sheet": 1,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n10799596831_0.jpg",
@@ -71,6 +71,45 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 36.8,
     "obliq": 35
+   }
+  ],
+  "facade_color": "#3c4046",
+  "fascia": {
+   "bg": "#f2f0ea",
+   "text": "#222222",
+   "style": "box"
+  },
+  "awning": null,
+  "shopwindow": "klein",
+  "door": "unsicher",
+  "seating": false,
+  "plants": false,
+  "notes": "House of Momos Ecke: dunkelgraues Haus, weisses Schild CENTRAL",
+  "annotated_from": "langB:mapillary/panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n10799596831_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/5aaf0bb9-f465-4621-b172-641bf420ee66/items/631ffaec-c702-41fe-94dd-4d16547c98fc",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10799596831_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/5aaf0bb9-f465-4621-b172-641bf420ee66/items/47dee99d-c527-4e3c-b112-f5f7a0c16c42",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10799596831_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/5aaf0bb9-f465-4621-b172-641bf420ee66/items/146af7bc-2853-4765-926f-1ed7a1868140",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -144,7 +183,33 @@
   "seating": false,
   "plants": false,
   "notes": "dunkelgrauer Sockel/Putz, quadratisches weisses Auslegerschild 'CENTRAL', Eckhaus",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n582219350_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/5aaf0bb9-f465-4621-b172-641bf420ee66/items/352a060c-8632-4b9c-bc44-e729a266cb2c",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n582219350_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/5aaf0bb9-f465-4621-b172-641bf420ee66/items/96c9114e-f0cc-4b2a-8d61-af25b5b2b1cb",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n582219350_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/5aaf0bb9-f465-4621-b172-641bf420ee66/items/146af7bc-2853-4765-926f-1ed7a1868140",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n3070546033",
@@ -366,7 +431,25 @@
   "seating": true,
   "plants": false,
   "notes": "dunkelgruene Fassade mit sehr grosser Glasfront, Holzbaenke/Tische auf dem Trottoir, dunkelrote Markise am Eck",
-  "annotated_from": "r3:mapillary"
+  "annotated_from": "r3:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n920508508_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/03801eb7-107f-4471-90d3-d891303a8723",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n920508508_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/fdbef1d5-04e2-4ee7-bd9e-c52772841ca4",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n9870919799",
@@ -501,6 +584,32 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 16.9
    }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n656649586_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/f17390d8-664e-4ed3-8e2b-2412e4e75a0a",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656649586_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/2b912853-9bd9-4011-8976-26cdb0502c33",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656649586_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/4fe0a1b8-bed8-4c76-bc3e-62c1f17ede68",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   }
   ]
  },
  {
@@ -583,7 +692,7 @@
    }
   ],
   "sheet": 1,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n311607628_0.jpg",
@@ -618,6 +727,45 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 14.3,
     "obliq": 10
+   }
+  ],
+  "facade_color": "#d8d0ac",
+  "fascia": {
+   "bg": null,
+   "text": "#7a2a22",
+   "style": "paint"
+  },
+  "awning": null,
+  "shopwindow": "klein",
+  "door": "mitte",
+  "seating": false,
+  "plants": false,
+  "notes": "Tenz Momo Hohlstrasse 44: Bierhalle-Haus, Granitsockel, Rundbogentor",
+  "annotated_from": "langB:mapillary/panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n311607628_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/17ed8565-c9d3-4287-af0e-129878a5b8bc/items/406bec89-b047-442e-b51e-91a3634bb004",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n311607628_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/b28787e3-c812-4cf4-8c89-67dff7e6565d",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n311607628_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/17ed8565-c9d3-4287-af0e-129878a5b8bc/items/324e793f-fc44-413b-b78b-6e2cf54b60e2",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -744,7 +892,33 @@
   "seating": false,
   "plants": false,
   "notes": "Langstrasse 62: rotbrauner Putz, Holzrahmen-Schaufenster links und rechts, Tuer mittig, Baumscheibe davor",
-  "annotated_from": "r3:mapillary"
+  "annotated_from": "r3:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n362915349_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/22a34fc5-f3d7-4a63-a7f8-3ef5510659ab",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n362915349_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/202ab28f-b4b5-4ef2-ac25-6083d4aa159e",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n362915349_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/fc077d62-b39e-4bcb-8639-00552898b359",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n656516103",
@@ -1423,7 +1597,7 @@
    }
   ],
   "sheet": 2,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r3": [
    {
     "file": "data/raw/photos/shops_r3/n1240180975_0.jpg",
@@ -1446,6 +1620,32 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 9.7,
     "obliq": 7
+   }
+  ],
+  "facade_color": "#8a9088",
+  "fascia": {
+   "bg": "#c4262e",
+   "text": "#ffffff",
+   "style": "box"
+  },
+  "awning": {
+   "color": "#2c4a3a",
+   "stripes": false
+  },
+  "shopwindow": "gross",
+  "door": "unsicher",
+  "seating": true,
+  "plants": true,
+  "notes": "Pizzeria Milano Militaerstrasse: rot-weisse Leuchtschrift MILANO, Terrasse mit Heckenkuebeln",
+  "annotated_from": "langB:mapillary/panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n1240180975_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f8bd64b9-084e-464a-aade-7e9fd56c35fb/items/d439bfc4-6445-4f67-a03c-beede59a80f8",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -1710,7 +1910,25 @@
   "seating": false,
   "plants": false,
   "notes": "dunkle Front, grosses Schaufenster, Schild 'Chickeria'",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n4869996367_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=28020658487523727",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n4869996367_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/94f33bc3-b128-4f99-b2c1-3463dcf275c5",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n8912884300",
@@ -2596,7 +2814,33 @@
   "seating": false,
   "plants": true,
   "notes": "Natursteineckhaus mit Rundbogenfenstern, orange Schriftzug 'ROOSTER' ueber Eckeingang, Thujen in Toepfen; Identitaet unsicher",
-  "annotated_from": "r3:mapillary"
+  "annotated_from": "r3:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n311607525_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/4c7a2f7c-6001-4cf4-9534-b78d9ddc8cc7",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n311607525_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/836e8979-d886-42db-b65a-d1cf54f49e0f",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n311607525_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/90659cd2-5baa-4475-89b3-fca4031da70a",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n3024205605",
@@ -2701,7 +2945,33 @@
   "seating": false,
   "plants": true,
   "notes": "Kiosk, blaues Schild 'Treff-Point Kiosk', Fensterauslage mit Blumen, Pflanzenkisten",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n869269142_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/7ceac969-ee88-4233-8a8b-52e1b86b77b7",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n869269142_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/efe579c9-008c-4af2-886c-89dd24797389",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n869269142_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/7559e709-4c7a-4190-a7fb-cfe5138dc2d6",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n871794824",
@@ -2765,6 +3035,32 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 35.2,
     "obliq": 5
+   }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n871794824_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/7e5822d1-768f-4db9-a6de-b36da29e6a63/items/f8684b8d-c7e2-4663-97dd-b56cda5955f3",
+    "date": "2024-11-27",
+    "creator": "Daylight ASAP",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n871794824_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/7e5822d1-768f-4db9-a6de-b36da29e6a63/items/47d3046f-835c-4103-b702-259430876b8b",
+    "date": "2024-11-27",
+    "creator": "Daylight ASAP",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n871794824_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/3b52f7a8-7dc3-4191-ab1c-eb8623b93eb6/items/081330f5-5159-4a24-8558-b94cf321c0e5",
+    "date": "2024-09-23",
+    "creator": "Daylight ASAP",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -2894,7 +3190,33 @@
   "seating": false,
   "plants": false,
   "notes": "Neubau Klinker grau-braun, Hausnr 84, Fensterband mit bunten Streifen und Vordach, Tuer rechts in Glas; Identitaet unsicher",
-  "annotated_from": "r3:mapillary"
+  "annotated_from": "r3:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n9676271554_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1468848944995760",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n9676271554_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1335859935306293",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n9676271554_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=821846880691470",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n2051292454",
@@ -3194,6 +3516,32 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 17.2
    }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n3024205609_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/2c9d387c-3f78-4c84-a4bb-3c52516aaefa/items/d27b0357-68ab-46c3-be6c-10757a2b9058",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n3024205609_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/2c9d387c-3f78-4c84-a4bb-3c52516aaefa/items/97349b1c-efcc-46c0-b5c8-120ea1c19114",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n3024205609_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/2c9d387c-3f78-4c84-a4bb-3c52516aaefa/items/bbb0fe3d-862e-454a-a363-471d444c59dc",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
   ]
  },
  {
@@ -3290,7 +3638,33 @@
   "seating": true,
   "plants": false,
   "notes": "Klinkerfassade grau, rotes Schild 'HUNGRY DUCK' ueber Fenster, rundes Ausleger-Logo, Tuer rechts in Glas, Tische am Fenster",
-  "annotated_from": "r3:mapillary"
+  "annotated_from": "r3:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n12652457762_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=36349648054626241",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n12652457762_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1929366257717835",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n12652457762_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1722827335677612",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n7614241198",
@@ -3487,7 +3861,33 @@
   "seating": true,
   "plants": false,
   "notes": "blau-weiss gestreifte Markise mit gelber Schrift 'Biergarten', Grill, Tische draussen",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n656634932_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e89a56f9-a8cd-4110-ad56-bd7658a7a803/items/ce2af2dc-9fc0-4a56-bd61-e2326f2565fc",
+    "date": "2024-04-29",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656634932_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/37cc8202-01bb-4130-9a23-3339f582ae04/items/eeebc037-12be-4696-a89a-d82303030fed",
+    "date": "2025-05-23",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656634932_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e89a56f9-a8cd-4110-ad56-bd7658a7a803/items/6baf3f45-209d-4e54-a758-f1dc590c34f5",
+    "date": "2024-04-29",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n5128008062",
@@ -3557,6 +3957,32 @@
     "creator": "Lezurex",
     "license": "CC-BY-SA-4.0",
     "dist_m": 15.2
+   }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n5128008062_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/1c2f7af3-74e6-4800-bc7c-7d794cca6682",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n5128008062_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/1159c59a-6ad1-4739-a8a9-c3f3cdeb973e",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n5128008062_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/3ed40da0-6624-439a-8b71-0421fd8966a1",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -3693,7 +4119,33 @@
   "seating": false,
   "plants": false,
   "notes": "Klinkerfassade grau-braun, zwei grosse Schaufenster mit bunt gestreiftem Band und Schriftzug 'DRINKS', dunkle Fensterrahmen, schwarze Markisenkaesten",
-  "annotated_from": "r3:mapillary"
+  "annotated_from": "r3:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n13920868271_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1468848944995760",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n13920868271_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=36349648054626241",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n13920868271_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1335859935306293",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n848938980",
@@ -4023,7 +4475,33 @@
   "seating": true,
   "plants": false,
   "notes": "Eckhaus, weisse Markise, grünes Schild 'piro', rote Fensterläden oben, Tische draussen",
-  "annotated_from": "r2:mapillary"
+  "annotated_from": "r2:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n9893261279_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1295315562759398",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n9893261279_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1522761936161419",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n9893261279_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=28020658487523727",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n813914380",
@@ -4296,7 +4774,7 @@
    }
   ],
   "sheet": 6,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n1240044507_0.jpg",
@@ -4341,6 +4819,45 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 7.8,
     "obliq": 9
+   }
+  ],
+  "facade_color": "#d8d8d4",
+  "fascia": {
+   "bg": "#d8d8d4",
+   "text": "#2a3fb4",
+   "style": "paint"
+  },
+  "awning": null,
+  "shopwindow": "Sprossen",
+  "door": "mitte",
+  "seating": false,
+  "plants": false,
+  "notes": "Sudaka: hellgrauer Bau mit blauem Sockel, weisse Sprossenfenster, blaue Graffiti-Schrift Sudaka, kleines Vordach",
+  "annotated_from": "langB:mapillary/panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n1240044507_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f8bd64b9-084e-464a-aade-7e9fd56c35fb/items/cc6ac218-043f-4a85-a1a2-1aa3f2906c80",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1240044507_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f8bd64b9-084e-464a-aade-7e9fd56c35fb/items/cf2470ea-58fc-4da7-afdf-92e4476bbf30",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1240044507_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f8bd64b9-084e-464a-aade-7e9fd56c35fb/items/7c79e6d4-422b-4523-a28b-005f118141ef",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -4457,6 +4974,32 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 16.6,
     "obliq": 10
+   }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n3024205607_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/2c9d387c-3f78-4c84-a4bb-3c52516aaefa/items/ec58b8d2-6a35-4bf2-87c8-08b487864f81",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n3024205607_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/2c9d387c-3f78-4c84-a4bb-3c52516aaefa/items/c9671858-040c-4445-81a3-229e1cabdea3",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n3024205607_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/2c9d387c-3f78-4c84-a4bb-3c52516aaefa/items/e73524d1-7c1f-49e4-9217-74c433e77832",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -4579,7 +5122,33 @@
   "seating": false,
   "plants": false,
   "notes": "weisse Front, helle Markise, orange Plakate/Schriftzüge, Taiwan-Schild",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n10647472305_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e83ec0de-2150-44dd-9bf0-11839e864156/items/22432f46-0f00-411b-b870-7800198c2b21",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10647472305_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e83ec0de-2150-44dd-9bf0-11839e864156/items/46628af0-ecb2-4035-8ca0-08e8ceaa5efd",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10647472305_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e83ec0de-2150-44dd-9bf0-11839e864156/items/7a2a4f78-8341-428f-bebc-52061c0f4fb2",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n1967357695",
@@ -5026,7 +5595,33 @@
   "seating": true,
   "plants": false,
   "notes": "Natursteinsockel (Bossen), rote Markise, Aussentische auf dem Trottoir",
-  "annotated_from": "r2:mapillary"
+  "annotated_from": "r2:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n656699893_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1722827335677612",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656699893_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1929366257717835",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656699893_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1335859935306293",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n9893261276",
@@ -5063,7 +5658,7 @@
    }
   ],
   "sheet": 7,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n9893261276_0.jpg",
@@ -5108,6 +5703,41 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 18.8,
     "obliq": 23
+   }
+  ],
+  "facade_color": "#c9a96a",
+  "fascia": {
+   "bg": "#1d1d1d",
+   "text": "#e8e0d0",
+   "style": "box"
+  },
+  "awning": {
+   "color": "#2a2a2a",
+   "stripes": false
+  },
+  "shopwindow": "klein",
+  "door": "unsicher",
+  "seating": false,
+  "plants": false,
+  "notes": "Rasputin Bar: gelbliche Fassade mit Granitsockel, dunkle Schraegmarkise, Laternen, rotes Neon an der Tuer",
+  "annotated_from": "langB:mapillary/panoramax",
+  "neon": true,
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n9893261276_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e89a56f9-a8cd-4110-ad56-bd7658a7a803/items/0a7a8698-2f01-4169-be6e-fa31a416bfcc",
+    "date": "2024-04-29",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n9893261276_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e89a56f9-a8cd-4110-ad56-bd7658a7a803/items/f94f78b7-ca93-46bc-b145-24cc1f517eb3",
+    "date": "2024-04-29",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -5826,7 +6456,7 @@
    }
   ],
   "sheet": 8,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n1016012582_0.jpg",
@@ -5871,6 +6501,46 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 12.5,
     "obliq": 19
+   }
+  ],
+  "facade_color": "#14151b",
+  "fascia": {
+   "bg": "#0e0f14",
+   "text": "#e8ecf4",
+   "style": "letters"
+  },
+  "awning": null,
+  "shopwindow": "gross",
+  "door": "corner",
+  "seating": false,
+  "plants": false,
+  "notes": "Bagatelle 93 / Diamond: schwarze Front, blauer Neonstreifen",
+  "annotated_from": "langB:mapillary/panoramax",
+  "neon": true,
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n1016012582_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=990317507041464",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1016012582_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1295315562759398",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1016012582_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1808234213484653",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -6673,6 +7343,32 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 21.5
    }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n9343150799_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/6edbeb3e-0b18-460d-994f-b2865298369d",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n9343150799_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/b2591933-19f4-4b62-be92-05416e26ed79",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n9343150799_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/3dcbffef-7d3d-40ce-810d-9aa44a77c9dc",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
   ]
  },
  {
@@ -6901,7 +7597,33 @@
   "seating": false,
   "plants": false,
   "notes": "Natursteinsockel mit Rundbogenfenstern, blaue Schrift 'GRILL', blaues Schild",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n656623537_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1522761936161419",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656623537_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/1abe16b8-1d1a-4d2b-878b-1f4fe8662b98",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656623537_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=821846880691470",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n5694462820",
@@ -7205,6 +7927,32 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 19.5
    }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n2867994617_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1522761936161419",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n2867994617_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=821846880691470",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n2867994617_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/4248008e-aaa6-4707-97ad-5d97ab4fb9c6",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   }
   ]
  },
  {
@@ -7242,7 +7990,7 @@
    }
   ],
   "sheet": 10,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n2112530380_0.jpg",
@@ -7287,6 +8035,49 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 9.1,
     "obliq": 14
+   }
+  ],
+  "facade_color": "#d6a8a2",
+  "fascia": {
+   "bg": "#16120f",
+   "text": "#e8d9c8",
+   "style": "neon"
+  },
+  "awning": {
+   "color": "#6a2020",
+   "stripes": false
+  },
+  "shopwindow": "klein",
+  "door": "mitte",
+  "seating": false,
+  "plants": false,
+  "notes": "Klaus Langstrasse 112: dunkles Erdgeschoss, rosa Haus darueber, Leuchtschild",
+  "annotated_from": "langB:mapillary/panoramax",
+  "neon": true,
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n2112530380_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e83ec0de-2150-44dd-9bf0-11839e864156/items/f8b1b453-f638-4c83-824c-79807c01ff14",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n2112530380_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/58d861e4-e1dc-4a63-92db-df872e58878e",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n2112530380_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/42df73e1-a11f-4a62-86e3-d87235b3bf30",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -7768,7 +8559,33 @@
   "seating": false,
   "plants": false,
   "notes": "Langstrasse 108: rotbrauner Putz, grosse Schrift 'LUGANO BAR' ueber Eingang, Tuer mittig mit Treppe, Gitter vor kleinem Fenster, Hausnummer 108",
-  "annotated_from": "r3:mapillary"
+  "annotated_from": "r3:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n656810963_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=890727635354064",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656810963_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/72075a07-228c-46c8-a370-a6fa49bb412d",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656810963_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/d31e9268-da99-4016-b5f2-cf9ff657a59b",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n656518918",
@@ -8056,7 +8873,7 @@
    }
   ],
   "sheet": 12,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n7038861915_0.jpg",
@@ -8101,6 +8918,46 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 39.5,
     "obliq": 12
+   }
+  ],
+  "facade_color": "#4a4a48",
+  "fascia": {
+   "bg": "#1b1410",
+   "text": "#f2b53a",
+   "style": "neon"
+  },
+  "awning": null,
+  "shopwindow": "klein",
+  "door": "mitte",
+  "seating": false,
+  "plants": false,
+  "notes": "Lambada Bar/Club/Disco Langstrasse 97: dunkler Eckbau, goldene Leuchtschrift LAMBADA BAR, weisse Leuchtbuchstaben CLUB DISCO BAR, blaue Tuerrahmen",
+  "annotated_from": "langB:mapillary/panoramax",
+  "neon": true,
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n7038861915_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/1267eb24-ce5b-428c-8b28-c8eb98f4b8a9",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n7038861915_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/9857b4e7-a7af-40f9-9058-35629b72cb55",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n7038861915_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/b828b75a-6476-42a3-ba2b-16148ac3e489/items/39695be0-19ff-428e-b442-fbefe40175ce",
+    "date": "2024-06-10",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -8422,7 +9279,33 @@
   "seating": true,
   "plants": true,
   "notes": "dunkle Markise, Aussensitzplätze, viele Pflanzentöpfe, Wärmestrahler",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n9666216542_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1637121993962691",
+    "date": "2026-02-25",
+    "creator": "osmplus_org",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n9666216542_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/772f21d2-e42b-4d0c-936d-fc561b6f0f31/items/a9c3b5e4-0723-4dcd-a72f-625686a3f9e8",
+    "date": "2024-12-31",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n9666216542_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/772f21d2-e42b-4d0c-936d-fc561b6f0f31/items/a4be9d2c-4b93-4c4a-9ec6-93627e9a94f9",
+    "date": "2024-12-31",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n11113267417",
@@ -8513,6 +9396,32 @@
     "creator": "paulb_imagery",
     "license": "CC-BY-SA-4.0",
     "dist_m": 15.3
+   }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n656824967_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/e7f2a29f-558c-49e2-8c35-92a8102ffb81",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656824967_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/2ddda4d2-53ce-42db-b0d6-f9ddb3de1061",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656824967_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/3786e4ad-07cf-4158-99e9-b4bdf6e31d36",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -8874,6 +9783,32 @@
     "dist_m": 33.9,
     "obliq": 13
    }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n10819134862_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/772f21d2-e42b-4d0c-936d-fc561b6f0f31/items/2dc33e63-5fe1-418e-b1ad-86b397fc16d1",
+    "date": "2024-12-31",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10819134862_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/772f21d2-e42b-4d0c-936d-fc561b6f0f31/items/d10008cb-20ed-4e1d-ae42-2de304b9db20",
+    "date": "2024-12-31",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10819134862_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1433402011589536",
+    "date": "2026-02-25",
+    "creator": "osmplus_org",
+    "license": "CC-BY-SA-4.0"
+   }
   ]
  },
  {
@@ -8930,7 +9865,33 @@
   "seating": false,
   "plants": false,
   "notes": "Ecke aus grauem Beton, Auskragung, helle Schriftzüge 'LAMBADA BAR', 'DISCO', 'BAR'",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n656616749_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/1267eb24-ce5b-428c-8b28-c8eb98f4b8a9",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656616749_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/308d890b-836a-449a-bcb0-834c282542b5/items/5ef8a325-2b5b-4748-be2a-03f6800b6089",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656616749_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/e115879b-87d8-4edc-8324-c44084ffffa0",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n582265531",
@@ -8967,7 +9928,7 @@
    }
   ],
   "sheet": 13,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n582265531_0.jpg",
@@ -9012,6 +9973,45 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 8.1,
     "obliq": 6
+   }
+  ],
+  "facade_color": "#a9b891",
+  "fascia": {
+   "bg": "#f2f0ea",
+   "text": "#222222",
+   "style": "box"
+  },
+  "awning": null,
+  "shopwindow": "gross",
+  "door": "corner",
+  "seating": false,
+  "plants": false,
+  "notes": "Gambrinus Langstrasse 103: gruenes Eckhaus mit grauem Natursteinsockel, weisse Schildtafel",
+  "annotated_from": "langB:mapillary/panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n582265531_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=890727635354064",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n582265531_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=127515973644366",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n582265531_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1209481116311221",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -9197,7 +10197,33 @@
   "seating": true,
   "plants": false,
   "notes": "Roter Eckbau (EG rot, dunkelgrüner Sockel, Rundbogenfenster, grüner Eckeingang mit Stufen), OG orange-rot mit grünen Fensterläden, grünes Schild 'OLÉ OLÉ BAR' mit bunten Buchstaben an der Ecke; als Landmark-Modell lu_oleole (research/v3/oleole.md)",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n4424003110_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/9fa7bb9e-77b7-4065-9bf3-1d1be5cb9ce8",
+    "date": "2025-05-23",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n4424003110_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/a1a9f601-1b8a-4185-967d-e88483a4271e",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n4424003110_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/b828b75a-6476-42a3-ba2b-16148ac3e489/items/fe30cce4-3746-438e-ab2e-1dcc7489ddfe",
+    "date": "2024-06-10",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n1360830654",
@@ -9308,7 +10334,7 @@
    }
   ],
   "sheet": 13,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n12714134817_0.jpg",
@@ -9353,6 +10379,46 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 25.9,
     "obliq": 31
+   }
+  ],
+  "facade_color": "#3a3a3e",
+  "fascia": {
+   "bg": "#1b1b1e",
+   "text": "#e8452f",
+   "style": "neon"
+  },
+  "awning": null,
+  "shopwindow": "gross",
+  "door": "corner",
+  "seating": false,
+  "plants": false,
+  "notes": "Tipsy Tiger: dunkle Glasfront mit roten Neonlinien auf den Scheiben, breite dunkle Auskragung",
+  "annotated_from": "langB:mapillary/panoramax",
+  "neon": true,
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n12714134817_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/dd13cef8-1120-4bb1-a882-71f54c6bb838",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n12714134817_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/07e7a200-d7cb-4ed8-ac0a-56c5b84cb7b0",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n12714134817_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/46262550-bf10-4634-9c83-4a3f817b14f8",
+    "date": "2025-05-23",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -9620,7 +10686,33 @@
   "seating": true,
   "plants": false,
   "notes": "orange Fassade, rot-weiss gestreifte Markise, blaue Klapptische, Eckhaus",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n1241219838_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/308d890b-836a-449a-bcb0-834c282542b5/items/757e9c09-e616-4d62-821c-865e9f71508a",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1241219838_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/308d890b-836a-449a-bcb0-834c282542b5/items/83722b19-4692-4375-982d-4db67a8320f5",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1241219838_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/308d890b-836a-449a-bcb0-834c282542b5/items/6184848f-5cc9-4a01-a24a-741b583d1e80",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n313026928",
@@ -9814,6 +10906,32 @@
     "creator": "captaininler",
     "license": "CC-BY-SA-4.0",
     "dist_m": 12.4
+   }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n2298795774_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/2c9d387c-3f78-4c84-a4bb-3c52516aaefa/items/ad0310fe-c5e9-41b4-be1f-53bbca03129d",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n2298795774_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/2c9d387c-3f78-4c84-a4bb-3c52516aaefa/items/215a892d-99f2-4c14-b699-da0a0723f0a4",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n2298795774_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/bb36f160-a9c1-402e-a505-09daa1572558/items/7e616f62-92c0-4500-ab92-8f710b7573d5",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -10057,7 +11175,7 @@
    }
   ],
   "sheet": 14,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r3": [
    {
     "file": "data/raw/photos/shops_r3/n1241219738_0.jpg",
@@ -10080,6 +11198,37 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 33.3,
     "obliq": 0
+   }
+  ],
+  "facade_color": "#d9c26a",
+  "fascia": {
+   "bg": "#222222",
+   "text": "#e8e0d0",
+   "style": "plain"
+  },
+  "awning": null,
+  "shopwindow": "klein",
+  "door": "unsicher",
+  "seating": false,
+  "plants": false,
+  "notes": "Dienerstrasse 50: gelbes Haus mit grauem Steinsockel",
+  "annotated_from": "langB:mapillary/panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n1241219738_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=184632734454213",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1241219738_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/308d890b-836a-449a-bcb0-834c282542b5/items/4c102066-542d-4515-be85-a9c104df4b18",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -11150,7 +12299,33 @@
   "seating": false,
   "plants": false,
   "notes": "Langstrasse 64: dunkle Stahl-Glas-Fassade (Nachkriegsbau), lange Fensterbaender, zwei grosse Schaufenster im EG, Eingang mittig, rosa Kreidetafel auf dem Trottoir",
-  "annotated_from": "r3:mapillary"
+  "annotated_from": "r3:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n14175317258_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/9f0f3f26-fe27-4d5e-b82f-1551fbaa54cc",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n14175317258_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/5e650b48-9357-4970-b988-d4dba5329529",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n14175317258_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/e7fdabe1-1be6-4b12-ae57-c66b7fa0cee3",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n6311310786",
@@ -11916,6 +13091,32 @@
     "creator": "paulb_imagery",
     "license": "CC-BY-SA-4.0",
     "dist_m": 12.8
+   }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n11216070983_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/fc077d62-b39e-4bcb-8639-00552898b359",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n11216070983_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/32b54ec0-80ca-4033-bfc0-09709d2ec79a",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n11216070983_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/7d533218-1146-43d3-861b-28d615b5618a",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -12726,7 +13927,33 @@
   "seating": false,
   "plants": false,
   "notes": "Eckhaus Naturstein-Sockel hell, schwarzes Schild mit weisser Schrift am Eck, Fenster mit Gewaende, Einbahn-Signal, Kreidetafel",
-  "annotated_from": "r3:mapillary"
+  "annotated_from": "r3:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n11216071001_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/b28787e3-c812-4cf4-8c89-67dff7e6565d",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n11216071001_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/07a177f9-8238-43a7-96cc-a8419c7f7ae1",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n11216071001_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/53e89c7f-2c36-4833-ae05-727cd6227053",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n5940793889",
@@ -13048,7 +14275,33 @@
   "seating": false,
   "plants": false,
   "notes": "Langstrasse 80: rotbrauner Altbau, EG mit mehreren Schaufenstern voller Plakate/Schilder, Eckbau daneben mit gruener Spielsalon-Beschriftung; Identitaet unsicher",
-  "annotated_from": "r3:mapillary"
+  "annotated_from": "r3:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n656739301_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/8d822717-ca0c-45cc-98ca-75a4c47e353f",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656739301_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/f8e3f1a8-21fa-45ea-b9c1-ab7dda665e04",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656739301_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/500801ba-61e2-42cf-9b16-ee1385bf1bfe",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n8194979186",
@@ -13332,7 +14585,25 @@
   "seating": false,
   "plants": false,
   "notes": "orange Eckhaus, grauer Natursteinsockel, grosse Eckfenster, Holzkisten vor der Front",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n11246759771_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/7e5822d1-768f-4db9-a6de-b36da29e6a63/items/f8d5fdfe-3429-45b7-bde4-f55170612322",
+    "date": "2024-11-27",
+    "creator": "Daylight ASAP",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n11246759771_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/7e5822d1-768f-4db9-a6de-b36da29e6a63/items/0f687b05-7611-49e4-9517-912fdaac02a5",
+    "date": "2024-11-27",
+    "creator": "Daylight ASAP",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n845207449",
@@ -13673,7 +14944,33 @@
   "seating": false,
   "plants": false,
   "notes": "Eckbau mit orange-beigem Putz neben Natursteinhaus, rotes Schriftband ueber Schaufenster, blaue Markisen am Nachbarn, Baeumchen davor; Identitaet unsicher",
-  "annotated_from": "r3:mapillary"
+  "annotated_from": "r3:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n11216071006_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/ebe1e731-340d-444f-bdfa-261d0e9ec899",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n11216071006_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/16b36fc5-120d-4594-8bb4-ab8c8e133146",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n11216071006_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/b61e4ff9-a057-4de4-82d0-e1fdfcd8c778",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n10691349204",
@@ -14061,6 +15358,16 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 13.0,
     "obliq": 23
+   }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n3019163163_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/ba41a95d-54c9-46cf-abd0-f5b905223e45/items/10c0c7f1-7203-4751-9d17-a19482aa0c87",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -14985,6 +16292,16 @@
     "dist_m": 25.7,
     "obliq": 46
    }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n13722730706_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/2c9d387c-3f78-4c84-a4bb-3c52516aaefa/items/c9671858-040c-4445-81a3-229e1cabdea3",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
   ]
  },
  {
@@ -15446,7 +16763,17 @@
   "seating": false,
   "plants": false,
   "notes": "Militaerstrasse 115: Neubau-Eck beige, EG-Glasfront mit weisser Beschriftung 'CRIZ', dunkelgruenes Fensterband, Vordach darueber",
-  "annotated_from": "r3:mapillary"
+  "annotated_from": "r3:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n12252306817_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f8bd64b9-084e-464a-aade-7e9fd56c35fb/items/8456fbac-d45a-4942-80d5-1ad5183779b3",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n301208147",
@@ -16487,7 +17814,33 @@
   "seating": true,
   "plants": false,
   "notes": "dunkle Front, rote Coca-Cola-Neonschrift, blau-weiss gestreifte Markise, Imbiss mit Tischen",
-  "annotated_from": "r2:mapillary"
+  "annotated_from": "r2:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n11216070999_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=28020658487523727",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n11216070999_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1468848944995760",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n11216070999_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=821846880691470",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n4954892623",
@@ -16706,7 +18059,25 @@
   "seating": false,
   "plants": false,
   "notes": "Natursteinecke, blaues vertikales Schild 'Jamarico', Schaufenster EG",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n3932358336_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/662021e8-598d-4786-952a-14298ad856e8",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n3932358336_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/5e30cc37-ba66-4d3a-a23a-d2daa8d9f0fb",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n1570006644",
@@ -17903,7 +19274,7 @@
    }
   ],
   "sheet": 25,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n11216070998_0.jpg",
@@ -17948,6 +19319,46 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 23.7,
     "obliq": 29
+   }
+  ],
+  "facade_color": "#14151b",
+  "fascia": {
+   "bg": "#0e0f14",
+   "text": "#e8ecf4",
+   "style": "letters"
+  },
+  "awning": null,
+  "shopwindow": "gross",
+  "door": "corner",
+  "seating": false,
+  "plants": false,
+  "notes": "Diamond (24 Shop Ecke): schwarze Glasfront mit blauem Neonband, weisse Schrift DIAMOND, blaue Diamant-Motive",
+  "annotated_from": "langB:mapillary/panoramax",
+  "neon": true,
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n11216070998_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=990317507041464",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n11216070998_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1684784372646401",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n11216070998_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1521915886215230",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -18438,7 +19849,7 @@
    }
   ],
   "sheet": 25,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n4896466767_0.jpg",
@@ -18483,6 +19894,45 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 9.9,
     "obliq": 10
+   }
+  ],
+  "facade_color": "#c4553f",
+  "fascia": {
+   "bg": "#1f5fb0",
+   "text": "#ffffff",
+   "style": "box"
+  },
+  "awning": null,
+  "shopwindow": "klein",
+  "door": "unsicher",
+  "seating": false,
+  "plants": false,
+  "notes": "Kiosk Asmin Langstrasse 110: blaues Kioskschild, rotes Haus, Zeitungsstaender",
+  "annotated_from": "langB:mapillary/panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n4896466767_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=890727635354064",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n4896466767_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/fc2692c0-8f52-4c2e-bb51-3d073ffdfdd6",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n4896466767_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/8cadba29-a42c-4b7d-84ed-09880cd751a4",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -18646,7 +20096,7 @@
    }
   ],
   "sheet": 26,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n11685184270_0.jpg",
@@ -18681,6 +20131,29 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 15.9,
     "obliq": 56
+   }
+  ],
+  "facade_color": "#9b9b97",
+  "fascia": {
+   "bg": null,
+   "text": null,
+   "style": "plain"
+  },
+  "awning": null,
+  "shopwindow": "gross",
+  "door": "unsicher",
+  "seating": false,
+  "plants": false,
+  "notes": "VeloKliniK: grauer Betonbau mit grossen Schaufenstern",
+  "annotated_from": "langB:mapillary/panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n11685184270_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/d5ecbcbf-f420-4b6b-ada8-437d4c8484ba",
+    "date": "2025-05-23",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -19162,7 +20635,33 @@
   "seating": false,
   "plants": false,
   "notes": "grauer Natursteinsockel, Ecke, grosse Industrie-Sprossenfenster, Roller davor",
-  "annotated_from": "r2:mapillary"
+  "annotated_from": "r2:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n10889806813_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=200359666187173",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10889806813_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/9abc24e7-fc43-46b6-beb3-03eddced6d77",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10889806813_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/2f7138d0-b540-4316-9238-93bb7572e804",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n5341084571",
@@ -19264,7 +20763,7 @@
    }
   ],
   "sheet": 27,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n11963250714_0.jpg",
@@ -19309,6 +20808,45 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 31.4,
     "obliq": 6
+   }
+  ],
+  "facade_color": "#8c8c88",
+  "fascia": {
+   "bg": null,
+   "text": null,
+   "style": "plain"
+  },
+  "awning": null,
+  "shopwindow": "Sprossen",
+  "door": "corner",
+  "seating": false,
+  "plants": false,
+  "notes": "apeVape Eckhaus: grauer Granitsockel, grosse Stahl-Sprossenfenster, Veloparkplatz",
+  "annotated_from": "langB:mapillary/panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n11963250714_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=200359666187173",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n11963250714_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=5994515120597297",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n11963250714_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=2018996545106184",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -19723,6 +21261,32 @@
     "dist_m": 33.8,
     "obliq": 10
    }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n10824395544_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/772f21d2-e42b-4d0c-936d-fc561b6f0f31/items/2dc33e63-5fe1-418e-b1ad-86b397fc16d1",
+    "date": "2024-12-31",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10824395544_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/772f21d2-e42b-4d0c-936d-fc561b6f0f31/items/d10008cb-20ed-4e1d-ae42-2de304b9db20",
+    "date": "2024-12-31",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10824395544_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/772f21d2-e42b-4d0c-936d-fc561b6f0f31/items/ef422250-93e3-419e-8634-a3a553e59af2",
+    "date": "2024-12-31",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
   ]
  },
  {
@@ -19787,7 +21351,33 @@
   "seating": false,
   "plants": false,
   "notes": "Kleiderständer vor dem Laden, verglaste Front mit Graffiti am Nachbarhaus",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n4838594329_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/67d5ba41-9733-42a3-a3e3-3d30927edd76/items/7c8238d4-a35b-4416-a203-8bbcd1e254f7",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n4838594329_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/67d5ba41-9733-42a3-a3e3-3d30927edd76/items/0999e24a-74f7-49c6-afe0-5f1d358a6d0e",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n4838594329_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/67d5ba41-9733-42a3-a3e3-3d30927edd76/items/22fbf5f4-d549-4651-8a87-73b4de97ff02",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n4515947589",
@@ -20424,6 +22014,24 @@
     "dist_m": 32.8,
     "obliq": 9
    }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n10819134866_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/772f21d2-e42b-4d0c-936d-fc561b6f0f31/items/fc46e02c-6c37-41ce-85cc-fc6504eb1817",
+    "date": "2024-12-31",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10819134866_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/772f21d2-e42b-4d0c-936d-fc561b6f0f31/items/d991dd81-f076-4050-984a-a1ad1547d4cc",
+    "date": "2024-12-31",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
   ]
  },
  {
@@ -20560,6 +22168,24 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 10.6,
     "obliq": 59
+   }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n5054920397_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/03e7bd87-2fb7-4d91-90aa-5f69e8951803/items/beb89ecf-cef9-4679-a795-8e48bac1e9c1",
+    "date": "2024-12-31",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n5054920397_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/03e7bd87-2fb7-4d91-90aa-5f69e8951803/items/40ad4c16-5187-4862-b587-0fcb17cfa91d",
+    "date": "2024-12-31",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -20733,7 +22359,7 @@
    }
   ],
   "sheet": 29,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n10095152137_0.jpg",
@@ -20778,6 +22404,45 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 10.9,
     "obliq": 27
+   }
+  ],
+  "facade_color": "#c8c8c4",
+  "fascia": {
+   "bg": null,
+   "text": null,
+   "style": "plain"
+  },
+  "awning": null,
+  "shopwindow": "gross",
+  "door": "corner",
+  "seating": false,
+  "plants": false,
+  "notes": "Kiosk Schoenegg: weisser Bau, Eckladen mit Kleiderstaendern und Graffiti-Wand",
+  "annotated_from": "langB:mapillary/panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n10095152137_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/67d5ba41-9733-42a3-a3e3-3d30927edd76/items/f0dfa355-629e-44d1-a187-028723cc46af",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10095152137_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/67d5ba41-9733-42a3-a3e3-3d30927edd76/items/dac6c91a-d0e2-4f9a-b2b8-e023de4f2bc4",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10095152137_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/67d5ba41-9733-42a3-a3e3-3d30927edd76/items/a3c8bd9a-b06b-4a3b-9923-ac64e1b8ffe6",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -21253,6 +22918,24 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 23.8
    }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n10819134856_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/772f21d2-e42b-4d0c-936d-fc561b6f0f31/items/2cd1e45f-cae2-4462-ae67-1981990569ce",
+    "date": "2024-12-31",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10819134856_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/772f21d2-e42b-4d0c-936d-fc561b6f0f31/items/b3973a3f-7e77-4854-b1fa-fa83bb31e240",
+    "date": "2024-12-31",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
   ]
  },
  {
@@ -21490,6 +23173,32 @@
     "dist_m": 18.6,
     "obliq": 5
    }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n10819134865_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/772f21d2-e42b-4d0c-936d-fc561b6f0f31/items/f7940e84-d721-448b-a1d2-c1c25ec8b080",
+    "date": "2024-12-31",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10819134865_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/772f21d2-e42b-4d0c-936d-fc561b6f0f31/items/c9d2ba90-713c-4259-bd2a-72b93f4a0e3b",
+    "date": "2024-12-31",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10819134865_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/bb36f160-a9c1-402e-a505-09daa1572558/items/9e9eda3b-4c55-4ac5-8d64-f0abbd094fc8",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
   ]
  },
  {
@@ -21562,6 +23271,24 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 22.0,
     "obliq": 5
+   }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n4385066740_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/5c393b27-e82d-4e82-9071-ca9f34694f5a/items/8bd28a5b-5bf6-458f-82fb-1194bc2b419d",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n4385066740_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/2c9d387c-3f78-4c84-a4bb-3c52516aaefa/items/27385e2d-0a3f-4c75-9da5-3f3fd06c7268",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -22716,7 +24443,25 @@
   "seating": true,
   "plants": true,
   "notes": "Langstrasse 150: Terrasse hinter dichter Bepflanzung (Foehren, Toepfe, Gruenwand), gelbe Schrift ueber dem Eingang, gruene Markise",
-  "annotated_from": "r3:mapillary"
+  "annotated_from": "r3:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n7273882085_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/5e8e78c3-00e9-439f-a239-64f886696a57",
+    "date": "2025-05-23",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n7273882085_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/4cfbfecb-7454-483b-8ffb-d22c5bbccfb9",
+    "date": "2025-05-23",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n656649674",
@@ -26690,19 +28435,19 @@
     "obliq": 11
    }
   ],
-  "facade_color": "#B5B7B8",
+  "facade_color": "#E2E0DA",
   "fascia": {
-   "bg": "#1E1E1E",
-   "text": "#4AC060",
-   "style": "lightbox"
+   "bg": "#2f6b3a",
+   "text": "#f4f4ee",
+   "style": "letters"
   },
   "awning": null,
   "shopwindow": "gross",
   "door": "mitte",
   "seating": false,
   "plants": false,
-  "notes": "Langstrasse 192: grauer Putz, schwarzes Schild mit gruener Schrift 'Vegitat', Glasfront mit 'WELCOME', daneben orange 'ria'-Schild, Info-Saeule davor",
-  "annotated_from": "r3:mapillary"
+  "notes": "Langstrasse 192, moderner Weissbau, dunkler Granitsockel",
+  "annotated_from": "langA:panoramax"
  },
  {
   "id": "n2924593640",
@@ -26853,10 +28598,10 @@
     "obliq": 21
    }
   ],
-  "facade_color": "#C8D4E0",
+  "facade_color": "#D9D4C8",
   "fascia": {
-   "bg": "#2F9A4A",
-   "text": "#F2F2F2",
+   "bg": "#1f7a3c",
+   "text": "#f2c230",
    "style": "lightbox"
   },
   "awning": null,
@@ -26864,8 +28609,8 @@
   "door": "mitte",
   "seating": false,
   "plants": false,
-  "notes": "Langstrasse 191: blaugrauer Altbau, EG mit gruenem Leuchtschild und Glasfront, Schaufenster mit Plakaten, Bankomat-Zeichen",
-  "annotated_from": "r3:mapillary"
+  "notes": "Langstrasse 191, gruen-gelbes Leuchtschild",
+  "annotated_from": "langA:panoramax"
  },
  {
   "id": "n390465118",
@@ -27707,7 +29452,7 @@
    }
   ],
   "sheet": 38,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n5435149441_0.jpg",
@@ -27753,7 +29498,23 @@
     "dist_m": 16.0,
     "obliq": 10
    }
-  ]
+  ],
+  "facade_color": "#BFB6A6",
+  "fascia": {
+   "bg": "#2a2a2a",
+   "text": "#e8e0d0",
+   "style": "letters"
+  },
+  "awning": {
+   "color": "#CC8844",
+   "stripes": true
+  },
+  "shopwindow": "gross",
+  "door": "mitte",
+  "seating": false,
+  "plants": false,
+  "notes": "Samarkand, Langstrasse 193: dunkle Glasfront, bunte Wimpel",
+  "annotated_from": "langA:panoramax"
  },
  {
   "id": "n1391312210",
@@ -28607,19 +30368,23 @@
     "obliq": 3
    }
   ],
-  "facade_color": "#C9B090",
+  "facade_color": "#E2B886",
   "fascia": {
-   "bg": "#C8392B",
-   "text": "#C8392B",
-   "style": "letters"
+   "bg": "#3a1414",
+   "text": "#f1e3c8",
+   "style": "painted"
   },
-  "awning": null,
+  "awning": {
+   "color": "#6b1f1f",
+   "stripes": false
+  },
   "shopwindow": "gross",
   "door": "corner",
   "seating": false,
   "plants": false,
-  "notes": "Neugasse 42: beiger Eckbau mit rotem Vordach, rote Schreibschrift 'Chicago Bar' am Eck, Glastuer-Eingang im Eck, Laternen",
-  "annotated_from": "r3:mapillary"
+  "notes": "Chicago Bar, Eckhaus Neugasse 42: dunkelrote Marquise, dunkle Glasfront, Neon nachts (Foto 2024)",
+  "annotated_from": "langA:panoramax",
+  "neon": true
  },
  {
   "id": "n4968281140",
@@ -28874,22 +30639,22 @@
     "obliq": 18
    }
   ],
-  "facade_color": "#D8DCD0",
+  "facade_color": "#B9C4C8",
   "fascia": {
-   "bg": null,
-   "text": null,
-   "style": null
+   "bg": "#f0e2e0",
+   "text": "#6a3a3a",
+   "style": "painted"
   },
   "awning": {
-   "color": "#C8A8C8",
-   "stripes": false
+   "color": "#2f8f8a",
+   "stripes": true
   },
   "shopwindow": "gross",
   "door": "corner",
-  "seating": false,
-  "plants": false,
-  "notes": "Langstrasse 197: weiss-gruener Eckbau mit Balkonen, EG hellgruen mit bunt gestreifter Markise, grosses Eckfenster, Fussgaengerstreifen davor",
-  "annotated_from": "r3:mapillary"
+  "seating": true,
+  "plants": true,
+  "notes": "Langstrasse 197 Eckhaus: blassgruener EG, tuerkis gestreifte Markise, Stuehle und Pflanzen",
+  "annotated_from": "langA:panoramax"
  },
  {
   "id": "n320526598",
@@ -29080,10 +30845,10 @@
     "obliq": 8
    }
   ],
-  "facade_color": "#D4D4D0",
+  "facade_color": "#D56A46",
   "fascia": {
-   "bg": "#1E1E1E",
-   "text": "#F2F2F2",
+   "bg": "#2a2d33",
+   "text": "#f0f0f0",
    "style": "letters"
   },
   "awning": null,
@@ -29091,8 +30856,8 @@
   "door": "mitte",
   "seating": false,
   "plants": false,
-  "notes": "Langstrasse 206: hellgrauer Putz, Eingang mit Treppe und Schriftzug 'DIWAN' ueber der Tuer, schwarze Schaufenster mit Plakaten 'Diwan Shisha Lounge', Ausleger-Schild",
-  "annotated_from": "r3:mapillary"
+  "notes": "Langstrasse 206, Shisha-Cafe",
+  "annotated_from": "langA:panoramax"
  },
  {
   "id": "n1916287498",
@@ -29361,19 +31126,20 @@
     "dist_m": 10.7
    }
   ],
-  "facade_color": "#D8764A",
+  "facade_color": "#D56A46",
   "fascia": {
-   "bg": "#2E5BA8",
-   "text": "#FFFFFF",
+   "bg": "#1e5bb8",
+   "text": "#ffffff",
    "style": "lightbox"
   },
   "awning": null,
   "shopwindow": "gross",
-  "door": null,
+  "door": "mitte",
   "seating": false,
   "plants": false,
-  "notes": "orange Fassade, blaues Leuchtschild, Schaufenster mit Aushängen",
-  "annotated_from": "r2:panoramax"
+  "notes": "Langstrasse 206, terrakottarotes Haus, blaue Leuchtschilder Kiosk/Telecom",
+  "annotated_from": "langA:panoramax",
+  "neon": true
  },
  {
   "id": "n1375347145",
@@ -29873,10 +31639,10 @@
     "obliq": 6
    }
   ],
-  "facade_color": "#C8D8A8",
+  "facade_color": "#8E9399",
   "fascia": {
-   "bg": "#F2F2F2",
-   "text": "#D2232A",
+   "bg": "#7c8085",
+   "text": "#ffffff",
    "style": "letters"
   },
   "awning": null,
@@ -29884,8 +31650,8 @@
   "door": "mitte",
   "seating": false,
   "plants": false,
-  "notes": "McDonald's Langstrasse: grosses Vordach/Arkade mit schraegem Schriftzug 'McDonald's' und gelbem M-Logo, gruene Hausfassade darueber; Identitaet McCafe im selben Lokal",
-  "annotated_from": "r3:mapillary"
+  "notes": "Langstrasse 201, grauer Vorbau mit grosser Glasfront",
+  "annotated_from": "langA:panoramax"
  },
  {
   "id": "n4827130203",
@@ -31016,7 +32782,7 @@
    }
   ],
   "sheet": 42,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n3862642766_0.jpg",
@@ -31062,7 +32828,20 @@
     "dist_m": 20.9,
     "obliq": 0
    }
-  ]
+  ],
+  "facade_color": "#E5C79B",
+  "fascia": {
+   "bg": "#33363a",
+   "text": "#f0e8d8",
+   "style": "letters"
+  },
+  "awning": null,
+  "shopwindow": "gross",
+  "door": "corner",
+  "seating": false,
+  "plants": false,
+  "notes": "MeiXin, Josefstrasse 102: ockerfarbenes Eckhaus, dunkelgrauer EG-Streifen",
+  "annotated_from": "langA:panoramax"
  },
  {
   "id": "n312592661",
@@ -31699,19 +33478,19 @@
     "dist_m": 19.5
    }
   ],
-  "facade_color": "#E8B8B0",
+  "facade_color": "#D9A08C",
   "fascia": {
-   "bg": "#1E1E1E",
-   "text": "#F0ECE2",
-   "style": "logo"
+   "bg": "#ffffff",
+   "text": "#1a1a1a",
+   "style": "box"
   },
   "awning": null,
-  "shopwindow": "klein",
-  "door": null,
-  "seating": false,
+  "shopwindow": "gross",
+  "door": "mitte",
+  "seating": true,
   "plants": false,
-  "notes": "Imbisswagen/-kiosk mit Totenkopf-Logo, Kreidetafel, rosa Altbau dahinter",
-  "annotated_from": "r2:panoramax"
+  "notes": "Hanswurst, Langstrasse 238: lachsrosa Haus, schwarz-weisses Schild, gelbe Sitzbaenke",
+  "annotated_from": "langA:panoramax"
  },
  {
   "id": "n4857867455",
@@ -36505,6 +38284,32 @@
     "dist_m": 30.8,
     "obliq": 14
    }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n495576109_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f50a9349-b897-4b3b-80a7-3a48b7357cb1/items/1ec6001c-34d1-454c-b67f-acf1152f648b",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n495576109_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/5aaf0bb9-f465-4621-b172-641bf420ee66/items/47ca0399-829e-453b-aa45-531315c8f7d6",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n495576109_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/5aaf0bb9-f465-4621-b172-641bf420ee66/items/98cd6c11-6df9-4fa2-98a6-0ac244aca41e",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
   ]
  },
  {
@@ -36639,7 +38444,33 @@
   "seating": true,
   "plants": false,
   "notes": "Langstrasse 69, bunte Hausfront, gestreifte Markise hell, Sitzgruppe unter Markise, Schaufenster klebrig plakatiert",
-  "annotated_from": "r3:panoramax"
+  "annotated_from": "r3:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n13307980101_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/e9355143-995c-4ec9-83cb-d4b2d08d57b7",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n13307980101_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/a270a56f-0f06-4c81-92eb-8a3f2305b845",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n13307980101_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/261b0cdc-e33e-4857-9e14-2233b2d37754",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n334300587",
@@ -36686,7 +38517,33 @@
   "seating": false,
   "plants": false,
   "notes": "Eckhaus, grauer EG-Sockel, Schriftzug 'AARGAUERHOF' auf Wand, helle Fensterläden oben",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n334300587_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e89a56f9-a8cd-4110-ad56-bd7658a7a803/items/2fdcc849-d4ab-48b9-93fa-536fc1fdf9ec",
+    "date": "2024-04-29",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n334300587_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e89a56f9-a8cd-4110-ad56-bd7658a7a803/items/6be9e9b4-f21d-4eac-9f37-875cdb25afe1",
+    "date": "2024-04-29",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n334300587_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e89a56f9-a8cd-4110-ad56-bd7658a7a803/items/cc5a8dfc-08c3-491f-bed2-8471e1d260d7",
+    "date": "2024-04-29",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n12754797447",
@@ -36897,7 +38754,25 @@
   "seating": false,
   "plants": false,
   "notes": "Eckhaus dunkelrot-braun, kleines Schild 'GOTTHARD' über Ecke, Sprossenfenster",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n346245377_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/1d94bbb4-40eb-45da-afb9-90724737a80f",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n346245377_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/f6a19c22-284c-437f-a28c-83d9121b4bbc",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n2953822534",
@@ -36958,7 +38833,17 @@
   "seating": false,
   "plants": false,
   "notes": "Neubau Badenerstrasse 173, dunkle Fensterbaender im EG, Velos davor, kleines gelbes Schild; Identitaet unsicher",
-  "annotated_from": "r3:panoramax"
+  "annotated_from": "r3:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n2953822534_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/2ef16198-e401-46dc-8c08-43295da57341/items/849cfdd5-449c-4b25-b674-f37c7f495442",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n3242600651",
@@ -37079,7 +38964,25 @@
   "seating": false,
   "plants": false,
   "notes": "Ecklokal, durchgehende grosse Glasfront mit schwarzem Rahmen, Schrift 'restaurant' auf dunkler Blende",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n14019839153_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/07a177f9-8238-43a7-96cc-a8419c7f7ae1",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n14019839153_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/d161e5a3-5538-4129-b9ee-fde0b6eb5584",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n11975740106",
@@ -37126,7 +39029,25 @@
   "seating": false,
   "plants": false,
   "notes": "dunkelgrüne Front, weisse Fensterrahmen, rotes vertikales Schild 'CAFFE'",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n11975740106_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/ce44be3c-b3e1-4cf7-9bf3-44b451aa7738",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n11975740106_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/42499fda-b2fe-4d8f-9a5e-9e8a1a06e3c0",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n1240990728",
@@ -37313,7 +39234,33 @@
   "seating": true,
   "plants": false,
   "notes": "gelbe Eckfassade, rotes Stern-Schild ueber Eingang, rote Ausleger-Schilder, Treppe zum Eingang, kleine Markise links",
-  "annotated_from": "r3:panoramax"
+  "annotated_from": "r3:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n1240990708_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/d004fd7e-d18d-498f-86e0-64791fc094de/items/6032f20d-68ed-48b1-9276-329b38bce19e",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1240990708_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/d004fd7e-d18d-498f-86e0-64791fc094de/items/b0115b12-0be8-4331-8080-b2bfb37b984c",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1240990708_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/0415ef80-3d46-4479-a266-146713a283f8/items/ec7fd4c3-a1a0-48a0-a537-be20b6e21ef4",
+    "date": "2024-09-23",
+    "creator": "Daylight ASAP",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n848938990",
@@ -37384,7 +39331,33 @@
   "seating": false,
   "plants": false,
   "notes": "Langstrasse 20: Altbau hellgrau, EG mit dunklem Natursteinsockel, drei Sprossenfenster mit Vordach, Balkon darueber, kein lesbares Schild",
-  "annotated_from": "r3:mapillary"
+  "annotated_from": "r3:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n848938990_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/4c52216c-f5af-448a-bc56-661eb4b916c8",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n848938990_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/4e2e484a-d928-42a6-aa44-841be08b6dce",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n848938990_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/962d5c6d-e8f4-4f8e-98e9-504cf64ba3c8",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n683404164",
@@ -37685,6 +39658,32 @@
     "dist_m": 12.4,
     "obliq": 27
    }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n10946818680_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1363398545686546",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10946818680_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1599692774464733",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10946818680_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=4351089095130029",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
   ]
  },
  {
@@ -37790,7 +39789,33 @@
   "seating": true,
   "plants": true,
   "notes": "roter Schriftzugband 'RED L..', weisser Sonnenschirm, Coca-Cola, Terrasse mit Pflanzen",
-  "annotated_from": "r2:mapillary"
+  "annotated_from": "r2:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n656711884_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=873483995002434",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656711884_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=975074645385947",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656711884_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=969303805917058",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n10830942472",
@@ -37840,7 +39865,33 @@
   "seating": false,
   "plants": false,
   "notes": "grüne Fensterrahmen und grüne Markise, Natursteinsockel",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n10830942472_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e83ec0de-2150-44dd-9bf0-11839e864156/items/b837eb0b-f189-4c18-be6a-45b0ac99f687",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10830942472_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e83ec0de-2150-44dd-9bf0-11839e864156/items/bfe09f5f-17d4-4615-a41c-ef1b964a87f9",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10830942472_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e83ec0de-2150-44dd-9bf0-11839e864156/items/46628af0-ecb2-4035-8ca0-08e8ceaa5efd",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n2395154664",
@@ -37887,7 +39938,33 @@
   "seating": true,
   "plants": false,
   "notes": "grauer Putz, dunkle Sprossenfenster, schwarze Tür, Holzbänke vor der Front",
-  "annotated_from": "r2:mapillary"
+  "annotated_from": "r2:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n2395154664_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1599692774464733",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n2395154664_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=2233143154171732",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n2395154664_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=736004742909784",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n299610695",
@@ -38032,6 +40109,32 @@
     "dist_m": 32.5,
     "obliq": 23
    }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n656628375_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/37cc8202-01bb-4130-9a23-3339f582ae04/items/a023b5b6-d6d6-42fb-9e86-9451b89743fa",
+    "date": "2025-05-23",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656628375_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/37cc8202-01bb-4130-9a23-3339f582ae04/items/c004aad5-49ca-4eb3-8f43-c284f2d3fc25",
+    "date": "2025-05-23",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656628375_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e89a56f9-a8cd-4110-ad56-bd7658a7a803/items/b722d751-dd85-431a-b8b4-61eaa79ad246",
+    "date": "2024-04-29",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
   ]
  },
  {
@@ -38044,7 +40147,7 @@
   "y": -575.6,
   "photos": [],
   "sheet": null,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n10889806814_0.jpg",
@@ -38089,6 +40192,45 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 17.0,
     "obliq": 27
+   }
+  ],
+  "facade_color": "#1e1e22",
+  "fascia": {
+   "bg": "#e0502a",
+   "text": "#ffd23a",
+   "style": "box"
+  },
+  "awning": null,
+  "shopwindow": "klein",
+  "door": "corner",
+  "seating": false,
+  "plants": false,
+  "notes": "Swiss Fried Chicken Zwinglistrasse: schwarz gefliester Sockel, orange Leuchtschild",
+  "annotated_from": "langB:mapillary/panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n10889806814_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e83ec0de-2150-44dd-9bf0-11839e864156/items/16813fd3-3555-4f13-b1ea-39269d9db0dc",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10889806814_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e83ec0de-2150-44dd-9bf0-11839e864156/items/adeb798c-1ab1-4884-a686-9d8aa3ee809c",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10889806814_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e83ec0de-2150-44dd-9bf0-11839e864156/items/262c136b-3bd9-4d26-a060-f033753315e1",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -38140,7 +40282,33 @@
   "seating": true,
   "plants": false,
   "notes": "beiger Putz, graue Markisen, erhöhter Eingang mit Treppe, Sitzplätze am Eingang",
-  "annotated_from": "r2:mapillary"
+  "annotated_from": "r2:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n3926102925_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1766749024691461",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n3926102925_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1693722805172603",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n3926102925_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1015832957463038",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n656629799",
@@ -38211,7 +40379,33 @@
   "seating": false,
   "plants": false,
   "notes": "Kurzgasse 4: grauer Putz, Fenster mit hellem Gewaende (Rundbogen-Stil), Dekoration/Plakate im Fenster, Ausleger-Schild (Schriftzug 'bille...'), nur Nahansicht",
-  "annotated_from": "r3:mapillary"
+  "annotated_from": "r3:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n656629799_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=983645427835828",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656629799_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=2196926717766569",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656629799_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=2520098958409395",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n1360794125",
@@ -38358,7 +40552,33 @@
   "seating": false,
   "plants": false,
   "notes": "rote Markise über weiss gerahmten Glastüren, weisser Lattenzaun",
-  "annotated_from": "r2:mapillary"
+  "annotated_from": "r2:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n5077193368_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=873483995002434",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n5077193368_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=969303805917058",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n5077193368_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=811980555083014",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n13479333201",
@@ -38524,7 +40744,33 @@
   "seating": true,
   "plants": false,
   "notes": "graue Fassade, ovales gelbes Schild 'VEGANITAS', Tische draussen, rote Markise oben",
-  "annotated_from": "r2:mapillary"
+  "annotated_from": "r2:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n3578338893_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1446087523989096",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n3578338893_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=811980555083014",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n3578338893_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1479115710082695",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n656508776",
@@ -38571,7 +40817,33 @@
   "seating": false,
   "plants": false,
   "notes": "blaugraue Fassade, Rundbogentür aus Holz, weisses Ausleger-Schild 'bite', Eck",
-  "annotated_from": "r2:mapillary"
+  "annotated_from": "r2:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n656508776_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=2520098958409395",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656508776_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=2196926717766569",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656508776_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1238861321457152",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n13571047601",
@@ -38675,6 +40947,32 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 26.7,
     "obliq": 15
+   }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n1241219989_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/308d890b-836a-449a-bcb0-834c282542b5/items/a13520fe-4d78-41b5-b0b8-0d9097c86a7c",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1241219989_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/308d890b-836a-449a-bcb0-834c282542b5/items/add00a27-2c55-4258-9b7d-bf2583fe7da0",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1241219989_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/da83f43a-2760-470f-8db7-3b0bf60866c4/items/ceaab201-7cde-420b-9c7a-2fcef6f6e806",
+    "date": "2024-11-27",
+    "creator": "Daylight ASAP",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -38841,7 +41139,33 @@
   "seating": false,
   "plants": false,
   "notes": "dunkelblaue Fassade mit Rundbogenfenstern, Eckhaus, gelbe Schrift 'Monroe'",
-  "annotated_from": "r2:mapillary"
+  "annotated_from": "r2:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n656719956_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=2129807360898119",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656719956_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=2196926717766569",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n656719956_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=983645427835828",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n914703134",
@@ -38935,7 +41259,7 @@
   "y": -665.5,
   "photos": [],
   "sheet": null,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n1241219845_0.jpg",
@@ -38980,6 +41304,46 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 25.4,
     "obliq": 15
+   }
+  ],
+  "facade_color": "#b39a6a",
+  "fascia": {
+   "bg": "#2a1020",
+   "text": "#d6209a",
+   "style": "neon"
+  },
+  "awning": null,
+  "shopwindow": "klein",
+  "door": "mitte",
+  "seating": false,
+  "plants": false,
+  "notes": "Negresco Dienerstrasse 27: ockerbraunes Haus mit dunkelbraunen Fensterlaeden, vertikale magentafarbene Leuchtschrift NEGRESCO",
+  "annotated_from": "langB:mapillary/panoramax",
+  "neon": true,
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n1241219845_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/da83f43a-2760-470f-8db7-3b0bf60866c4/items/99bacd03-de0f-4dda-8e80-400fa139ac4a",
+    "date": "2024-11-27",
+    "creator": "Daylight ASAP",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1241219845_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/da83f43a-2760-470f-8db7-3b0bf60866c4/items/64ca7159-5ff8-4fb0-9713-80ab94b79f4b",
+    "date": "2024-11-27",
+    "creator": "Daylight ASAP",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1241219845_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/308d890b-836a-449a-bcb0-834c282542b5/items/9ac2eb76-02d3-436f-a469-711347f327c6",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -39051,7 +41415,7 @@
   "y": -480.6,
   "photos": [],
   "sheet": null,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n1240044636_0.jpg",
@@ -39097,6 +41461,48 @@
     "dist_m": 33.1,
     "obliq": 10
    }
+  ],
+  "facade_color": "#7a7570",
+  "fascia": {
+   "bg": "#6a2a22",
+   "text": "#e8dcc0",
+   "style": "paint"
+  },
+  "awning": {
+   "color": "#223b6a",
+   "stripes": false
+  },
+  "shopwindow": "klein",
+  "door": "corner",
+  "seating": false,
+  "plants": false,
+  "notes": "Strauss Langstrasse 132: Eckhaus mit grauem Granit-Erdgeschoss, ockerorange Obergeschosse, braune Laeden, kleine Fenster, blaues Banner",
+  "annotated_from": "langB:mapillary/panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n1240044636_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/57e95ba7-d850-492c-9cb6-339e61e2e372",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1240044636_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/4c591478-3b0e-4bf3-987a-425ec85d5d7c",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1240044636_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f8bd64b9-084e-464a-aade-7e9fd56c35fb/items/cabc2bac-5112-4f9b-8b6b-794c72408b43",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
   ]
  },
  {
@@ -39109,7 +41515,7 @@
   "y": -537.9,
   "photos": [],
   "sheet": null,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n1240990722_0.jpg",
@@ -39154,6 +41560,45 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 39.6,
     "obliq": 7
+   }
+  ],
+  "facade_color": "#e6e0d4",
+  "fascia": {
+   "bg": "#f2b51d",
+   "text": "#222222",
+   "style": "box"
+  },
+  "awning": null,
+  "shopwindow": "gross",
+  "door": "unsicher",
+  "seating": false,
+  "plants": false,
+  "notes": "Officina dos Sabores: gelbe Leuchtkasten, grosse Schaufenster, Lieferdienst",
+  "annotated_from": "langB:mapillary/panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n1240990722_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/41d377d7-3b77-442c-b06d-2b03c663f0e4",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1240990722_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/4f32ac68-0b73-419c-ba61-97b42b3339ff",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1240990722_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/68a0f573-6a1e-4bcb-a93f-8cadceb7bd3a",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -39702,7 +42147,33 @@
   "seating": true,
   "plants": true,
   "notes": "Langstrasse 133: hellblaue Eckfassade, dunkles Vordach, Glasfront rundherum mit Pflanzen im Fenster, orange Neonzeichen, runde Schild 'BAR & BITES', weisse Stuehle am Trottoir",
-  "annotated_from": "r3:mapillary"
+  "annotated_from": "r3:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n1235083798_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/7862dc68-a9bb-4359-8498-d58e9cec67ba",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1235083798_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/b828b75a-6476-42a3-ba2b-16148ac3e489/items/145e0025-40f2-4abe-9aae-f49d4b11a1f7",
+    "date": "2024-06-10",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1235083798_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/b828b75a-6476-42a3-ba2b-16148ac3e489/items/60c16f02-ec11-4742-b092-82f7768d5a6c",
+    "date": "2024-06-10",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n13684983375",
@@ -39772,7 +42243,7 @@
   "y": -439.1,
   "photos": [],
   "sheet": null,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n6223031358_0.jpg",
@@ -39818,6 +42289,49 @@
     "dist_m": 17.4,
     "obliq": 2
    }
+  ],
+  "facade_color": "#5E7C9E",
+  "fascia": {
+   "bg": "#25222a",
+   "text": "#e9e1d0",
+   "style": "letters"
+  },
+  "awning": {
+   "color": "#6e2430",
+   "stripes": false
+  },
+  "shopwindow": "gross",
+  "door": "corner",
+  "seating": false,
+  "plants": false,
+  "notes": "Fat Tony Langstrasse 135/Neufrankengasse: blaues Eckhaus, dunkles Eckrestaurant mit weinroter Markise, Leuchtschrift",
+  "annotated_from": "langB:mapillary/panoramax",
+  "neon": true,
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n6223031358_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/89234b33-a233-4de9-b460-1b4ff9ff6b24",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n6223031358_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/5002319c-1aff-48d8-8af0-3d4d52af1838",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n6223031358_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/60c9242f-ddb8-458d-b127-9c94383f39ef",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   }
   ]
  },
  {
@@ -39830,7 +42344,7 @@
   "y": -559.9,
   "photos": [],
   "sheet": null,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n13052489329_0.jpg",
@@ -39875,6 +42389,45 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 13.5,
     "obliq": 57
+   }
+  ],
+  "facade_color": "#9a9a96",
+  "fascia": {
+   "bg": null,
+   "text": null,
+   "style": "plain"
+  },
+  "awning": null,
+  "shopwindow": "klein",
+  "door": "unsicher",
+  "seating": false,
+  "plants": false,
+  "notes": "Maru Rolandstrasse: graue Fassade, Steinportal",
+  "annotated_from": "langB:mapillary/panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n13052489329_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=244114134781059",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n13052489329_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1441428839928758",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n13052489329_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1209481116311221",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -39947,7 +42500,33 @@
   "seating": false,
   "plants": false,
   "notes": "Rolandstrasse 9: gelb-beiger Altbau, EG mit grossen Fenstern, hellgruene Fensterrahmen/Tueren, dunkelgraue Rahmen links; Identitaet unsicher",
-  "annotated_from": "r3:mapillary"
+  "annotated_from": "r3:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n4424003112_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=244114134781059",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n4424003112_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=135735552807840",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n4424003112_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=243089578298329",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "w107080965",
@@ -40384,7 +42963,17 @@
   "seating": false,
   "plants": false,
   "notes": "abgerundetes dunkles Vordach, Fruchtplakate im Schaufenster (Supermarkt)",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n310789178_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/441830fb-1f56-44ca-b208-e3f64037e27f",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n11216071003",
@@ -40434,7 +43023,25 @@
   "seating": true,
   "plants": false,
   "notes": "graue Markisen über dunkler Glasfront, Terrasse mit Tischen und Stühlen auf dem Trottoir",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n11216071003_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/a04e5ac6-9635-4193-ac0d-2442c7e161da",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n11216071003_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/58416d12-d88e-424f-847c-58bba33361b9",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n11216071002",
@@ -40484,7 +43091,25 @@
   "seating": false,
   "plants": false,
   "notes": "Hausnummer 69, Waren draussen, graue Markise, Schaufenster",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n11216071002_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/261b0cdc-e33e-4857-9e14-2233b2d37754",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n11216071002_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/0953df67-a66d-4287-b04d-13375873af3e",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n13021238459",
@@ -40846,7 +43471,33 @@
   "seating": false,
   "plants": true,
   "notes": "moderner Bau, grosse Glasfront, viele Pflanzen und Holz am Trottoir",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n10691351556_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e89a56f9-a8cd-4110-ad56-bd7658a7a803/items/a00a3ac3-b0a0-4016-868a-f3afca19ebb4",
+    "date": "2024-04-29",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10691351556_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e89a56f9-a8cd-4110-ad56-bd7658a7a803/items/97d870e0-bb34-416f-a0ea-a4f8baaa2904",
+    "date": "2024-04-29",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10691351556_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/37cc8202-01bb-4130-9a23-3339f582ae04/items/f8c2d647-60ee-421e-922f-2fdbdfa8427c",
+    "date": "2025-05-23",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n683404167",
@@ -41090,7 +43741,7 @@
   "y": -705.5,
   "photos": [],
   "sheet": null,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n10946818681_0.jpg",
@@ -41135,6 +43786,45 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 12.3,
     "obliq": 30
+   }
+  ],
+  "facade_color": "#8c8c88",
+  "fascia": {
+   "bg": null,
+   "text": null,
+   "style": "plain"
+  },
+  "awning": null,
+  "shopwindow": "gross",
+  "door": "unsicher",
+  "seating": false,
+  "plants": false,
+  "notes": "Norkind: Betonrasterfassade, Holzrahmenfenster",
+  "annotated_from": "langB:mapillary/panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n10946818681_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=736004742909784",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10946818681_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=2233143154171732",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10946818681_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=4351089095130029",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -41186,7 +43876,33 @@
   "seating": false,
   "plants": true,
   "notes": "rosa Putz, kleine Fenster mit roten Rahmen, Wimpelgirlande, Kletterpflanzen am Haus",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n10162233917_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e83ec0de-2150-44dd-9bf0-11839e864156/items/5fee8456-165e-4ae9-95c1-1424be135cd8",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10162233917_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e83ec0de-2150-44dd-9bf0-11839e864156/items/fc760c23-8afd-4958-a963-65cef4efc30c",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10162233917_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e83ec0de-2150-44dd-9bf0-11839e864156/items/c1c88a58-6385-4e26-a813-e1cd0fe09bc6",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n848938939",
@@ -41307,7 +44023,33 @@
   "seating": false,
   "plants": false,
   "notes": "blaue Fassade, Sockel in grauem Naturstein, Logo-Hand-Zeichen im Fenster, Eckhaus",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n1240990738_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e83ec0de-2150-44dd-9bf0-11839e864156/items/64167709-029c-4e2d-8898-19b8530cd9e0",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1240990738_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e83ec0de-2150-44dd-9bf0-11839e864156/items/d2fdc0d4-6348-4a83-8f1c-9e28b3938f94",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1240990738_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/e83ec0de-2150-44dd-9bf0-11839e864156/items/26617c58-8808-471c-96e9-f8098c7f37f1",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n10956921190",
@@ -41462,7 +44204,7 @@
   "y": -746.2,
   "photos": [],
   "sheet": null,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n2298795776_0.jpg",
@@ -41497,6 +44239,48 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 33.9,
     "obliq": 43
+   }
+  ],
+  "facade_color": "#a8a6a2",
+  "fascia": {
+   "bg": "#1e1e1e",
+   "text": "#e8e0d0",
+   "style": "box"
+  },
+  "awning": {
+   "color": "#575757",
+   "stripes": true
+  },
+  "shopwindow": "offen",
+  "door": "unsicher",
+  "seating": false,
+  "plants": false,
+  "notes": "Kiosk Champions Shop Hohlstrasse 30: graue Markise, Obst- und Gemuesekisten auf dem Trottoir",
+  "annotated_from": "langB:mapillary/panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n2298795776_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1479115710082695",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n2298795776_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1796026904696124",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n2298795776_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=811980555083014",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -41820,7 +44604,33 @@
   "seating": false,
   "plants": false,
   "notes": "Früchte-/Gemüseauslage in grünen Kisten vor der Front, graue gestreifte Markise",
-  "annotated_from": "r2:mapillary"
+  "annotated_from": "r2:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n9893261278_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1479115710082695",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n9893261278_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1305811464858596",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n9893261278_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1796026904696124",
+    "date": "2026-05-20",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n683387979",
@@ -42207,6 +45017,32 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 23.1,
     "obliq": 34
+   }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n10819134864_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=894044480170258",
+    "date": "2026-02-25",
+    "creator": "osmplus_org",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10819134864_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1706378493658451",
+    "date": "2026-02-25",
+    "creator": "osmplus_org",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n10819134864_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/2c9d387c-3f78-4c84-a4bb-3c52516aaefa/items/bfa2dba9-648b-405e-adda-9c1e0f4e0a51",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -42706,7 +45542,33 @@
   "seating": false,
   "plants": false,
   "notes": "Eckbau hell mit gruenem Leuchtschild 'Express Shop' am Eck, Eingangstuer, Schaufensterplakate, Aushang am Balkon; Strassenkreuzung mit Fussgaengerstreifen",
-  "annotated_from": "r3:panoramax"
+  "annotated_from": "r3:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n387613313_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/4d5ee3af-12d2-4ae9-92e5-47caeccebce3",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n387613313_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/f334322e-f0de-480c-b8a1-93ad67ab7a07",
+    "date": "2024-04-14",
+    "creator": "paulb_imagery",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n387613313_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f8bd64b9-084e-464a-aade-7e9fd56c35fb/items/dbc0583a-f15d-44c9-9b3a-72b9a97838cc",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n4306410933",
@@ -42753,6 +45615,24 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 38.4,
     "obliq": 26
+   }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n4306410933_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/64b40a1a-726b-4d69-b9ee-532fca4c6984/items/3c80865c-1f07-47a3-a130-436b98f6ebad",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n4306410933_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a2ea5ab8-6d80-42cd-ab3a-68171d7ce089/items/0e1038ab-015c-4c93-b489-ef33f25cbbeb",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -42828,7 +45708,33 @@
   "seating": false,
   "plants": false,
   "notes": "Dienerstrasse 36: beige Altbau, blaue Markise/Vordach ueber EG-Schaufenstern, Schild 'BAR' am Fenster; Identitaet unsicher (Fernaufnahme)",
-  "annotated_from": "r3:panoramax"
+  "annotated_from": "r3:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n4208949390_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/308d890b-836a-449a-bcb0-834c282542b5/items/07de2e42-9fc2-41b7-8bc3-04b2762ee5dc",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n4208949390_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/308d890b-836a-449a-bcb0-834c282542b5/items/ac3c0882-8599-433f-b31d-c3711648bba0",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n4208949390_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/308d890b-836a-449a-bcb0-834c282542b5/items/b43b7a3c-20ca-435b-a364-d91a38597d30",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n11125974127",
@@ -43004,7 +45910,33 @@
   "seating": false,
   "plants": false,
   "notes": "Langstrasse 134: blau-weisser Altbau neben ockerfarbenem Haus, EG mit orange-weissem Migrolino-Schild, Tuer mittig, Plakatwand und Telefonzelle rechts",
-  "annotated_from": "r3:mapillary"
+  "annotated_from": "r3:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n4518003937_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/1d0bf6fe-f7a0-42f9-b9f1-a58c0e52c97f",
+    "date": "2025-04-28",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n4518003937_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/8594e842-5d5b-4166-8d47-b8f55f60c0e7",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n4518003937_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f67c3b6c-f612-4153-907e-af58244484b1/items/a9cdf8c7-4e89-499f-9967-4fdb3bcbc825",
+    "date": "2025-01-18",
+    "creator": "Lezurex",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n9870919804",
@@ -43646,6 +46578,32 @@
     "dist_m": 35.8,
     "obliq": 55
    }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n11992812116_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=607788244569948",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n11992812116_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1340146589882978",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n11992812116_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=211188368323408",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
+   }
   ]
  },
  {
@@ -43802,7 +46760,33 @@
   "seating": false,
   "plants": false,
   "notes": "blaue Fassade, rotes Denner-Logo, grosse Glasfront, rot-weisse Markise am Nachbar-Café",
-  "annotated_from": "r2:panoramax"
+  "annotated_from": "r2:panoramax",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n387613338_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/67d5ba41-9733-42a3-a3e3-3d30927edd76/items/afd6ba2d-0cfa-4834-8b01-4752c063935e",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n387613338_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/67d5ba41-9733-42a3-a3e3-3d30927edd76/items/1265d561-aa69-43a9-a349-e7078566c0b8",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n387613338_2_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/67d5ba41-9733-42a3-a3e3-3d30927edd76/items/ec7451ff-be32-40e9-806c-9f2e4e5516ce",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n1241219769",
@@ -43849,7 +46833,33 @@
   "seating": false,
   "plants": false,
   "notes": "graue Fassade, helle Fensterrahmen in kräftigem Grün, Natursteinsockel",
-  "annotated_from": "r2:mapillary"
+  "annotated_from": "r2:mapillary",
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n1241219769_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=243069291558967",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1241219769_1_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=1441428839928758",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1241219769_2_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=184632734454213",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
+   }
+  ]
  },
  {
   "id": "n5557782724",
@@ -44075,6 +47085,24 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 23.8,
     "obliq": 61
+   }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n1235083458_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/67d5ba41-9733-42a3-a3e3-3d30927edd76/items/8254d537-70a8-4a39-ad70-4fab15e43819",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n1235083458_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/67d5ba41-9733-42a3-a3e3-3d30927edd76/items/358ba8e5-27d6-4811-b1da-7b894c3a115f",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },
@@ -47011,7 +50039,7 @@
   "y": -75.7,
   "photos": [],
   "sheet": null,
-  "photo_ok": false,
+  "photo_ok": true,
   "photos_r2": [
    {
     "file": "data/raw/photos/shops_r2/n1978573308_0.jpg",
@@ -47047,7 +50075,23 @@
     "dist_m": 24.1,
     "obliq": 50
    }
-  ]
+  ],
+  "facade_color": "#99A2A8",
+  "fascia": {
+   "bg": "#7a1f1f",
+   "text": "#f4eee4",
+   "style": "painted"
+  },
+  "awning": {
+   "color": "#8B2B24",
+   "stripes": false
+  },
+  "shopwindow": "klein",
+  "door": "mitte",
+  "seating": true,
+  "plants": true,
+  "notes": "Cinque, Langstrasse 215: graues Haus, rote Markise, Terrassentische, bordeauxrote Tuer",
+  "annotated_from": "langA:panoramax"
  },
  {
   "id": "n3163049861",
@@ -47122,19 +50166,23 @@
     "dist_m": 22.0
    }
   ],
-  "facade_color": "#26262A",
+  "facade_color": "#E8B95A",
   "fascia": {
-   "bg": "#1E1E1E",
-   "text": "#F0ECE2",
-   "style": "letters"
+   "bg": "#101010",
+   "text": "#ffffff",
+   "style": "neon"
   },
-  "awning": null,
+  "awning": {
+   "color": "#222222",
+   "stripes": false
+  },
   "shopwindow": "klein",
-  "door": "corner",
-  "seating": false,
+  "door": "mitte",
+  "seating": true,
   "plants": false,
-  "notes": "schwarz gestrichene Front, weisse Leuchtschrift 'BURGER MEISTER', Kreidetafel, gelbes Haus oben",
-  "annotated_from": "r2:panoramax"
+  "notes": "Burgermeister, Langstrasse 243: schwarzer EG, weisse Leuchtschrift, Tafel und Tische davor",
+  "annotated_from": "langA:panoramax",
+  "neon": true
  },
  {
   "id": "n4958366052",
@@ -49818,6 +52866,16 @@
     "dist_m": 29.9,
     "obliq": 9
    }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n11216070982_0_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/f8bd64b9-084e-464a-aade-7e9fd56c35fb/items/94f0e2dc-01b5-4a08-819c-5d37cdb10770",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
+   }
   ]
  },
  {
@@ -50290,6 +53348,24 @@
     "license": "CC-BY-SA-4.0",
     "dist_m": 38.2,
     "obliq": 5
+   }
+  ],
+  "photos_langB": [
+   {
+    "file": "data/raw/photos/langstrasse_b/n4370078390_0_s.jpg",
+    "source": "mapillary",
+    "page": "https://www.mapillary.com/app/?pKey=653905043417338",
+    "date": "2023-04-27",
+    "creator": "kamilnikel_fb",
+    "license": "CC-BY-SA-4.0"
+   },
+   {
+    "file": "data/raw/photos/langstrasse_b/n4370078390_1_s.jpg",
+    "source": "panoramax",
+    "page": "https://api.panoramax.xyz/api/collections/64b40a1a-726b-4d69-b9ee-532fca4c6984/items/d89774ef-3340-41ef-9b8f-bfad39177411",
+    "date": "2024-05-03",
+    "creator": "captaininler",
+    "license": "CC-BY-SA-4.0"
    }
   ]
  },

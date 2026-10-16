@@ -1,0 +1,100 @@
+osm source: sandboxzurich/data/raw/osm/kreise.json
+Langstrasse|Dienerstrasse [[792.4, -615.3]]
+Langstrasse|Militärstrasse [[842.4, -483.4]]
+Brauerstrasse|Hohlstrasse [[372.4, -489.7]]
+Bertastrasse|Zurlindenstrasse [[-136.4, -1067.5]]
+Limmatstrasse|Röntgenstrasse [[795.8, 414.3]]
+Birmensdorferstrasse|Zweierstrasse [[167.4, -1534.4]]
+Zurlindenstrasse|Zweierstrasse [[224.8, -1490.1], [227.5, -1493.9]]
+Hohlstrasse|Sihlfeldstrasse none
+Hardstrasse|Hardbrücke [[-158.4, -177.7]]
+Stauffacherstrasse|Badenerstrasse [[951.4, -1174.5]]
+Stauffacherstrasse|Kanzleistrasse none
+Langstrasse|Zollstrasse [[954.0, -231.1]]
+Hohlstrasse|Kanzleistrasse none
+Hohlstrasse|Langstrasse [[745.4, -737.2]]
+Goldbrunnenstrasse|Birmensdorferstrasse [[-227.8, -1545.0], [-240.3, -1546.9]]
+way Kanzlei Turnhalle [754.7, -944.8] yes
+way Aufbahrungshalle Sihlfeld [-703.8, -763.5] yes
+node Bahnhof Wiedikon [581.0, -1388.1] stop_position
+node Goldbrunnenplatz [-187.0, -1538.5] stop_position
+node Bahnhof Wiedikon [564.7, -1424.6] stop_position
+node Goldbrunnenplatz [-197.6, -1523.5] stop_position
+node Bahnhof Wiedikon [555.3, -1378.6] stop_position
+node Goldbrunnenplatz [-170.5, -1555.5] stop_position
+node Bahnhof Altstetten Nord [-2046.5, 895.0] stop_position
+node Bahnhof Wiedikon [540.1, -1360.2] stop_position
+node Bahnhof Altstetten [-2063.3, 663.8] platform
+way Friedhof Sihlfeld [-706.6, -963.3] 
+way Kanzleiwiese [707.9, -895.2] playground
+way Hardbrücke [200.8, 388.5] 
+node Poststelle 8040 Zürich 40 Sihlfeld [-518.3, -685.0] post_office
+node Seelöwenbrunnen [1988.2, -427.9] fountain
+node Zürich Hardbrücke Bahnhof / Geroldstrasse [145.5, 182.9] car_sharing
+node Zürich Sihlfeld / Hildastrasse [-49.1, -840.5] car_sharing
+node Löwenbrunnen [314.2, -1561.5] drinking_water
+node Restaurant Bahnhof Wiedikon [528.4, -1460.3] restaurant
+node Stauffacher Apotheke [867.4, -1222.9] pharmacy
+node Stauffacher USM Markt [366.7, 191.2] 
+node Zahnarzt Am Stauffacher [987.5, -1106.5] dentist
+node Kanzlei am Park [899.4, -1015.9] 
+node Goldbrunnenplatz [-183.8, -1556.3] toilets
+node Bahnhof Hardbrücke [30.4, 142.0] toilets
+node Zürich Goldbrunnenplatz [-217.2, -1612.9] car_sharing
+node Zürich Hardbrücke Bahnhof / Prime Tower [42.2, 154.9] car_sharing
+node Optik am Stauffacher [942.3, -1191.1] 
+node Bahnhof Altstetten/Vulkanplatz [-2079.9, 874.0] toilets
+node Bahnhof Hardbrücke [28.2, 142.7] toilets
+node Goldbrunnenplatz [-185.9, -1558.9] toilets
+node Blumen am Stauffacher [841.3, -1218.4] 
+node Stauffacher [989.5, -1132.3] toilets
+node Stauffacher [987.5, -1130.1] toilets
+node Bahnhof Wiedikon [546.7, -1379.2] bicycle_rental
+node Bahnhof Altstetten [-2134.1, 768.8] bicycle_rental
+node Stauffacherbrücke [1127.4, -1403.8] bicycle_rental
+node Bahnhof Hardbrücke [130.0, 251.4] bicycle_rental
+node Kindergarten Kanzlei ABZ [119.5, -705.9] kindergarten
+node Psychotherapie Goldbrunnen [-153.5, -1560.8] doctors
+node Hort Sihlfeld A-B-C + Bullingerhof 2 [-133.2, -365.1] childcare
+node Kanzleiareal [670.0, -963.8] toilets
+node Brupbacherplatz [41.4, -1095.0] toilets
+node Haus zur Stauffacherin [805.4, -1105.2] social_facility
+node Stauffachertor [1058.7, -1248.6] bicycle_rental
+node Stauffacher [1047.7, -1121.0] bicycle_rental
+node Goldbrunnenplatz [-114.1, -1544.7] bicycle_rental
+node Arztpraxis am Bahnhof Altstetten [-2090.4, 740.0] doctors
+node HNO Hardbrücke [-41.4, 322.8] doctors
+way Schule Sihlfeld [-160.9, -356.4] 
+way Bahnhof Hardbrücke [80.2, 171.2] 
+node Zürich Hardbrücke [57.5, 111.8] stop
+node Zürich Hardbrücke [53.2, 102.0] stop
+node Zürich Hardbrücke [61.0, 121.0] stop
+node Zürich Hardbrücke [55.7, 118.5] station
+node Zürich Hardbrücke [65.0, 130.1] stop
+node Bahnhof Altstetten Nord [-1987.1, 862.1] tram_stop
+node Bahnhof Altstetten Nord [-1989.5, 856.1] tram_stop
+node Stauffacher [1007.4, -1159.2] tram_stop
+node Stauffacher [969.7, -1166.1] tram_stop
+node Stauffacher [1057.1, -1153.3] tram_stop
+node Stauffacher [1017.5, -1153.5] tram_stop
+node Bahnhof Wiedikon [548.0, -1430.0] tram_stop
+node Stauffacher [965.9, -1242.0] tram_stop
+node Stauffacher [959.8, -1200.5] tram_stop
+node Goldbrunnenplatz [-206.1, -1540.1] tram_stop
+node Goldbrunnenplatz [-166.5, -1536.2] tram_stop
+node Bahnhof Wiedikon [589.1, -1416.9] tram_stop
+node Bahnhof Hardbrücke [5.4, 91.1] tram_stop
+node Bahnhof Hardbrücke [49.8, 130.6] tram_stop
+node Bahnhof Altstetten [-2178.8, 749.4] tram_stop
+node Bahnhof Altstetten [-2179.6, 746.5] tram_stop
+node Stauffacher [959.8, -1200.5] tram_stop
+way Bahnhof Altstetten Nord [-2006.3, 866.0] platform
+way Stauffacher [967.3, -1221.4] platform
+way Stauffacher [959.0, -1224.0] platform
+way Stauffacher [1038.8, -1157.1] platform
+way Stauffacher [1034.8, -1149.5] platform
+way Bahnhof Altstetten Nord [-2002.5, 858.4] platform
+way Stauffacher [997.0, -1164.4] platform
+way Stauffacher [990.1, -1157.9] platform
+way Bahnhof Altstetten [-2159.2, 736.8] platform
+way Bahnhof Altstetten [-2157.0, 743.2] platform

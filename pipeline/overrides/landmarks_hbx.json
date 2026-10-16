@@ -1,0 +1,54 @@
+{
+ "landmarks": [
+  {
+   "name": "Z\u00fcrich Hauptbahnhof Perron-Ausstattung",
+   "model": "/models/landmarks/hbx_perron.glb",
+   "x": 1760.0,
+   "y": -650.0,
+   "z": -2.9,
+   "heading": -0.3665191429188092,
+   "hide": [],
+   "load_r": 330
+  },
+  {
+   "name": "Z\u00fcrich Bahnhofplatz Escher-Denkmal und Velostand",
+   "model": "/models/landmarks/hbx_platz.glb",
+   "x": 1760.0,
+   "y": -650.0,
+   "z": -2.9,
+   "heading": -0.3665191429188092,
+   "hide": [],
+   "colliders": [
+    [
+     [
+      1774.15,
+      -741.23
+     ],
+     [
+      1778.07,
+      -742.73
+     ],
+     [
+      1779.57,
+      -738.81
+     ],
+     [
+      1775.65,
+      -737.31
+     ]
+    ]
+   ],
+   "load_r": 220
+  },
+  {
+   "name": "Z\u00fcrich Europaplatz Velostation (Oberfl\u00e4che)",
+   "model": "/models/landmarks/hbx_europa.glb",
+   "x": 1760.0,
+   "y": -650.0,
+   "z": -2.9,
+   "heading": -0.3665191429188092,
+   "hide": [],
+   "load_r": 260
+  }
+ ]
+}

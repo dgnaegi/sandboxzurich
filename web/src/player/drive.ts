@@ -144,7 +144,7 @@ export class DriveCar {
       const fx = Math.sin(this.h), fy = Math.cos(this.h), rx = fy, ry = -fx;
       for (const c of this.circles) {
         const cx = this.x + fx * c.o + rx * c.l, cy = this.y + fy * c.o + ry * c.l;
-        const [qx, qy] = this.tiles.colliders.resolve(cx, cy, r);
+        const [qx, qy] = this.tiles.resolveBody(cx, cy, r, this.z);
         const dx = qx - cx, dy = qy - cy;
         px += dx; py += dy;
         const w = Math.hypot(dx, dy);

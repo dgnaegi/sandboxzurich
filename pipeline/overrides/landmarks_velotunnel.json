@@ -1,0 +1,15 @@
+{
+ "landmarks": [
+  {
+   "name": "Velotunnel Stadttunnel",
+   "model": "/models/landmarks/velotunnel.glb",
+   "x": 1500.0,
+   "y": -680.0,
+   "z": 0.0,
+   "heading": 0.0,
+   "hide": [],
+   "walkable": true,
+   "load_r": 250
+  }
+ ]
+}

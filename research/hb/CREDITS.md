@@ -671,3 +671,6 @@ Titel: Zürich, Hauptbahnhof, Cent | https://commons.wikimedia.org/wiki/File:Z%C
 | 657 | ml_688377052900110.jpg | mapillary | mapillary | CC BY-SA 4.0 | u001 | https://www.mapillary.com/app/?pKey=688377052900110 |
 | 658 | px_54a4685a-d57.jpg | panoramax | panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=54a4685a-d573-4f24-9ead-3aec4d253842 |
 | 659 | px_652ebc00-ea4.jpg | panoramax | panoramax | CC-BY-SA-4.0 | paulb_imagery | https://api.panoramax.xyz/#focus=pic&pic=652ebc00-ea46-4cba-8678-9cd81f3d7d2b |
+
+## v3 (Untergeschosse)
+Auswahl von 72 Fotos aus der obigen Liste (Stichwörter Shopville, Löwenstrasse, Museumstrasse, Rolltreppe, Gleise 31-44, Querhalle, Haupthalle): Urheber, Lizenz und Seiten-URL je Bild in `research/hb/v3_photos.json`. Nur Referenz, nie als Textur.

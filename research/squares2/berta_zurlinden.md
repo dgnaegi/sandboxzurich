@@ -1,0 +1,2 @@
+# Bertastrasse / Zurlindenstrasse (Mitte -136 / -1067)
+Fotos 24 (`contact_berta_zurlinden.jpg`). Quartier-Kreuzung Zone 30 (Boden-«30», Foto 8), grosse Veloständer-Reihen an den Ecken (Fotos 3, 8, 17), Baumscheiben mit blühenden Zierkirschen/Platanen (Fotos 16, 18, 19), Granitpflaster in den Parkfeldern (Foto 16), Sperrpfosten rot-weiss/Absperrbaken (Foto 7), Eckhäuser 5 OG gelb/rosa mit Erkern, Natursteinsockel und Ladeneingängen (Fotos 12, 14, 22). Keine Platzfläche; Veloständer und Baumscheiben kommen aus den OSM/OGD-Daten (`fidelity` S9).

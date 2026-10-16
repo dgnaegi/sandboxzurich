@@ -1,0 +1,2 @@
+# Stauffacher-Tramknoten (Mitte 951 / -1190)
+Fotos 26. Gleisdreieck mit Rillenschienen, Perronkanten mit gelben Noppenplatten (Foto 24), Stahl-Glas-Vordach vor den Ladenzeilen Nord (Fotos 1, 6, 9; Cafés/Läden darunter), Kirche St. Jakob als Blickfang (Fotos 2, 3, 14), Litfasssäule (Foto 19), Ampelmasten mit Auslegern (Foto 5). Umsetzung: Vordach als Slab (id `stauffacher_knoten`), Kugelleuchten im Eintrag `stauffacher`.

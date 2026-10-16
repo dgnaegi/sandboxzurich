@@ -4,7 +4,8 @@ import * as THREE from 'three';
  *  Deck rows: p = [[x, y, z]] local metres (z = top of the carriageway), g = terrain below, b = underside z,
  *  w = driving width, kind = road | foot | tram | rail. Piers: [x, y, zBottom, zTop, widthAcross, heading, kind].
  *  Local -> Three: (x, z, -y). One draw call per tile (vertex-coloured, flat shaded). */
-export interface DeckRow { p: number[][]; g: number[]; b: number[]; w: number; kind: string; name: string }
+/** pa / pb: the polyline vertices just before / after a row that was cut at a tile border (keeps the offset normals continuous across tiles). */
+export interface DeckRow { p: number[][]; g: number[]; b: number[]; w: number; kind: string; name: string; pa?: number[]; pb?: number[]; sub?: boolean }   // sub: deck below the terrain (hb3 underground levels)
 export type PierRow = [number, number, number, number, number, number, string];
 export interface BridgeRows { decks: DeckRow[]; piers: PierRow[] }
 
@@ -13,6 +14,8 @@ const col = (hex: number) => new THREE.Color(hex);
 const TOP: Record<string, THREE.Color> = { road: col(0x3c3d40), tram: col(0x3c3d40), foot: col(0x8d8a84), rail: col(0x4b4640) };
 const CONC = col(0x9b988f), CONC_DARK = col(0x6f6d68), RAIL = col(0x5d6468), LINE = col(0xd8d4c4);
 const PARAPET = 0.38, CURB = 0.3;
+/** Railings (mesh and collider) exist only where the deck is at least this high above the terrain; ramps stay open. */
+export const RAIL_EL = 1.0;
 
 class Builder {
   pos: number[] = []; nor: number[] = []; clr: number[] = [];
@@ -35,10 +38,10 @@ class Builder {
 }
 
 /** Offset point of polyline vertex i by `o` metres to the left of travel direction, at height z. */
-function offsets(p: number[][]): { nx: number[]; ny: number[] } {
+function offsets(p: number[][], pa?: number[], pb?: number[]): { nx: number[]; ny: number[] } {
   const nx: number[] = [], ny: number[] = [];
   for (let i = 0; i < p.length; i++) {
-    const a = p[Math.max(0, i - 1)], b = p[Math.min(p.length - 1, i + 1)];
+    const a = i > 0 ? p[i - 1] : pa ?? p[0], b = i < p.length - 1 ? p[i + 1] : pb ?? p[p.length - 1];
     let dx = b[0] - a[0], dy = b[1] - a[1];
     const l = Math.hypot(dx, dy) || 1; dx /= l; dy /= l;
     nx.push(-dy); ny.push(dx);
@@ -49,7 +52,7 @@ function offsets(p: number[][]): { nx: number[]; ny: number[] } {
 function deck(B: Builder, d: DeckRow) {
   const p = d.p, n = p.length;
   if (n < 2) return;
-  const { nx, ny } = offsets(p);
+  const { nx, ny } = offsets(p, d.pa, d.pb);
   const hw = d.w / 2, ow = hw + CURB;
   const at = (i: number, o: number, z: number) => [p[i][0] + nx[i] * o, p[i][1] + ny[i] * o, z];
   const top = TOP[d.kind] ?? TOP.road;
@@ -67,7 +70,7 @@ function deck(B: Builder, d: DeckRow) {
     }
     B.quad(at(i, ow, bi), at(i, -ow, bi), at(j, -ow, bj), at(j, ow, bj), CONC_DARK); // underside
   }
-  if (!rail) railings(B, d, nx, ny, hw + CURB * 0.5);
+  if (!rail) railings(B, d, nx, ny, hw + CURB * 0.5);   // open at the ramps (see RAIL_EL)
   if (d.kind === 'road' && d.w >= 6) centreLine(B, d, nx, ny);
 }
 
@@ -78,6 +81,7 @@ function railings(B: Builder, d: DeckRow, nx: number[], ny: number[], o: number)
     let acc = 0, nextPost = 0;
     for (let i = 0; i < p.length - 1; i++) {
       const j = i + 1, len = Math.hypot(p[j][0] - p[i][0], p[j][1] - p[i][1]);
+      if (Math.min(p[i][2] - d.g[i], p[j][2] - d.g[j]) < RAIL_EL) { acc += len; while (nextPost <= acc) nextPost += 2.5; continue; }
       const at = (k: number, z: number) => [p[k][0] + nx[k] * o * s, p[k][1] + ny[k] * o * s, p[k][2] + z];
       for (const h of [0.75, 1.05]) B.quad(at(i, PARAPET + h - 0.04), at(j, PARAPET + h - 0.04), at(j, PARAPET + h + 0.03), at(i, PARAPET + h + 0.03), RAIL);
       // posts every ~2.5 m: two crossed thin quads
@@ -161,6 +165,8 @@ export class BridgeIndex {
   }
 
   private owners = new Map<string, BridgeRows>();
+  /** hb3: true if the deck returned by the last heightAt call lies below the terrain (underground level): the terrain must not win then. */
+  lastSub = false;
 
   /** Remove the decks of a tile that was unloaded (same key as in add). */
   remove(key: string): void {
@@ -174,20 +180,53 @@ export class BridgeIndex {
     this.byKey.delete(key); this.owners.delete(key);
   }
 
-  /** Deck height at (x, y) if it lies on a deck and |zPlayer - deck| < reach (default 1.5 m); else null (terrain applies). */
-  heightAt(x: number, y: number, zPlayer: number, reach = 1.5): number | null {
+  /** Deck height at (x, y) if it lies on a deck and the deck is within reach of zPlayer (up `up` m, down `down` m); else null (terrain applies).
+   *  Road/tram decks win over footways alongside them (their heights are only guaranteed to agree inside the deck itself). */
+  heightAt(x: number, y: number, zPlayer: number, down = 1.5, up = down): number | null {
     const l = this.grid.get(Math.floor(x / this.cell) + ',' + Math.floor(y / this.cell));
     if (!l) return null;
-    let best: number | null = null, bd = reach;
+    let best: number | null = null, bd = 1e9, bestRank = 9;
+    this.lastSub = false;
     for (const { d, i } of l) {
       const a = d.p[i], b = d.p[i + 1];
       const dx = b[0] - a[0], dy = b[1] - a[1], len2 = dx * dx + dy * dy || 1;
       const t = Math.max(0, Math.min(1, ((x - a[0]) * dx + (y - a[1]) * dy) / len2));
       const px = a[0] + dx * t - x, py = a[1] + dy * t - y;
       if (px * px + py * py > (d.w / 2 + 0.3) ** 2) continue;
-      const z = a[2] + (b[2] - a[2]) * t, dz = Math.abs(zPlayer - z);
-      if (dz < bd) { bd = dz; best = z; }
+      const z = a[2] + (b[2] - a[2]) * t, dz = z - zPlayer;
+      if (dz > up || dz < -down) continue;
+      const rank = d.kind === 'foot' ? 1 : 0;
+      if (rank < bestRank || (rank === bestRank && Math.abs(dz) < bd)) { bestRank = rank; bd = Math.abs(dz); best = z; this.lastSub = !!d.sub; }
     }
     return best;
+  }
+
+  /** Railing collider: an entity at (x, y, z) (body radius rad) standing on an elevated deck is kept between the parapets.
+   *  Open where the deck is lower than RAIL_EL above the terrain (ramps) and beyond the deck ends; between two decks side by side
+   *  (road + footway) nothing blocks. Returns the corrected position. */
+  railPush(x: number, y: number, z: number, rad: number): [number, number] {
+    const l = this.grid.get(Math.floor(x / this.cell) + ',' + Math.floor(y / this.cell));
+    if (!l) return [x, y];
+    let bx = 0, by = 0, bex = 1e9, bel = 0;
+    for (const { d, i } of l) {
+      if (d.kind === 'rail') continue;
+      const a = d.p[i], b = d.p[i + 1];
+      const dx = b[0] - a[0], dy = b[1] - a[1], len2 = dx * dx + dy * dy;
+      if (len2 < 1e-6) continue;
+      const t = ((x - a[0]) * dx + (y - a[1]) * dy) / len2;
+      if (t < 0 || t > 1) continue;
+      const zc = a[2] + (b[2] - a[2]) * t;
+      if (Math.abs(zc - z) > 1.2) continue;
+      const len = Math.sqrt(len2), nx = -dy / len, ny = dx / len;
+      const lat = (x - (a[0] + dx * t)) * nx + (y - (a[1] + dy * t)) * ny;
+      const lim = d.w / 2 + 0.05 - rad;
+      const ex = Math.abs(lat) - lim;   // > 0: pressed into the parapet
+      if (ex >= bex) continue;   // keep the deck we are most inside of
+      if (d.sub && ex > 0.3) continue;   // hb3: underground decks only keep the body that is on them (stair wells are open to the surface beside the deck)
+      const el = d.sub ? 99 : zc - (d.g[i] + (d.g[i + 1] - d.g[i]) * t);   // hb3: tunnel walls always
+      bex = ex; bel = el; bx = -Math.sign(lat) * nx; by = -Math.sign(lat) * ny;
+    }
+    if (bex > 0 && bel >= RAIL_EL) return [x + bx * bex, y + by * bex];
+    return [x, y];
   }
 }

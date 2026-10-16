@@ -1,0 +1,2 @@
+# Limmatstrasse / Röntgenstrasse (Mitte 796 / 414)
+Fotos 26 (`contact_limmat_roentgen.jpg`). Der Viadukt (Natursteinbögen, «Im Viadukt»-Markthalle, Fotos 15, 17-20), Stahlfachwerk-Brücke über die Limmatstrasse (Fotos 3, 11, 16), Silo-Zylinder (Fotos 8, 11), blaue Zone und gelbe Zebrastreifen (Fotos 5, 6, 16), Tram 4/13 (Fotos 16, 24), Baumplatz mit runden Betonbänken in den Viaduktbögen (Foto 20, Viaduktplatz: `ringbench`-artig), Velo-/Fussweg auf dem Viadukt (Fotos 17, 19, 23). Viadukt/Brücke sind Landmarks (`viadukt`), hier nicht dupliziert.

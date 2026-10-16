@@ -14,6 +14,9 @@ import { buildGraffiti, buildPosters, buildSigns, buildWildPosters, type Sign } 
 import { buildHouseNumbers, buildStreetSigns } from '../world/streetsigns';
 import { buildDecals } from '../world/decals';
 import { buildPlaces, type PlaceMeta } from '../world/places_detail';
+import { buildRooftops, type RoofChunk, type RoofRow } from '../world/rooftops';
+import { buildDetails, type DetailMeta } from '../world/details';
+import { buildYards, type YardMeta } from '../world/yards'; // YARDS
 import { buildDoors } from '../world/doors';
 import { buildConstruction, buildCranes, buildFence, buildScooters, buildSites } from '../world/construction';
 import { parkedCars } from '../world/parkedcars';
@@ -44,7 +47,8 @@ export class Tiles {
   onSchools: (rows: number[][]) => void = () => {};
   onSpots: (meta: never) => void = () => {};
   private loaded = new Map<string, THREE.Group | null>();
-  private props = new Map<string, { g: THREE.Group; near: THREE.Group; far: THREE.Group; bikes: THREE.Object3D[]; lods: THREE.Object3D[]; x: number; y: number }>();
+  private props = new Map<string, { g: THREE.Group; near: THREE.Group; far: THREE.Group; bikes: THREE.Object3D[]; lods: THREE.Object3D[]; roofs: RoofChunk[]; x: number; y: number }>();
+  roofRadius = 250; // rooftop furniture (dormers, PV, units): chunks beyond this are hidden
   bikes: Bikes | null = null;
   treeRadius = 170;
   bikeRadius = 150;
@@ -68,6 +72,8 @@ export class Tiles {
     // station platforms and stairs as walkable decks (pipeline/landmarks/st_station.py); optional file
     try { const r = await fetch('/data/station_decks.json'); if (r.ok) t.bridges.add(await r.json() as BridgeRows, 'stations'); } catch { /* no station decks */ }
     // Zuerich HB: raised platforms 3-18 (pipeline/landmarks/hb_perron.py); optional file
+    try { const r = await fetch('/data/hb3_decks.json'); if (r.ok) t.bridges.add(await r.json() as BridgeRows, 'hb3'); } catch { /* hb3: no underground decks */ }
+    try { const r = await fetch('/data/velotunnel_decks.json'); if (r.ok) t.bridges.add(await r.json() as BridgeRows, 'velotunnel'); } catch { /* no velotunnel decks */ }   // velotunnel (pipeline/landmarks/velotunnel.py)
     try { const r = await fetch('/data/hb_decks.json'); if (r.ok) t.bridges.add(await r.json() as BridgeRows, 'hb'); } catch { /* no HB decks */ }
     return t;
   }
@@ -87,12 +93,33 @@ export class Tiles {
   }
 
   /** Bridge deck within reach of height z, else the ground. */
-  groundAt(x: number, y: number, z: number): number { return this.bridges.heightAt(x, y, z) ?? this.ground(x, y); }
+  groundAt(x: number, y: number, z: number): number {
+    const g = this.ground(x, y), d = this.bridges.heightAt(x, y, z, 1.5, 1.0);
+    if (d === null) return g;
+    if (this.bridges.lastSub) return d;   // hb3: underground deck (Shopville, Loewenstrasse, Museumstrasse) below the terrain
+    const e = d - g;                        // deck above the terrain: fades in over the first 0.35 m so ramp ends join the road without a step
+    if (e >= 0.35) return d;
+    if (e <= 0) return g;
+    const k = e / 0.35;
+    return g + e * k * k * (3 - 2 * k);
+  }
+
+  /** Is the body at (x, y, z) on an elevated deck (> 2.5 m above the ground below)? Ground footprints (buildings) must not block it. */
+  onElevatedDeck(x: number, y: number, z: number): boolean {
+    const d = this.bridges.heightAt(x, y, z, 1.0, 1.0);
+    return d !== null && d - this.ground(x, y) > 2.5;
+  }
+
+  /** Body collision at height z: footprints (unless on an elevated deck) and the deck railings. */
+  resolveBody(x: number, y: number, rad: number, z: number): [number, number] {
+    if (!this.onElevatedDeck(x, y, z)) [x, y] = this.colliders.resolve(x, y, rad);
+    return this.bridges.railPush(x, y, z, rad);
+  }
 
   /** Walking/cycling collision: footprints, then trunks/poles/benches (circles). Parked cars are car-sized footprints from the pipeline already. */
-  resolveSolid(x: number, y: number, rad: number): [number, number] {
-    [x, y] = this.colliders.resolve(x, y, rad);
-    [x, y] = this.colliders.resolveCircles(x, y, rad);
+  resolveSolid(x: number, y: number, rad: number, z?: number): [number, number] {
+    const up = z !== undefined && this.onElevatedDeck(x, y, z);   // on a bridge: the buildings below do not count
+    if (!up) { [x, y] = this.colliders.resolve(x, y, rad); [x, y] = this.colliders.resolveCircles(x, y, rad); }
     return [x, y];
   }
 
@@ -150,6 +177,7 @@ export class Tiles {
       p.g.visible = d < radius;
       p.near.visible = d < this.treeRadius;   // full leaf-card trees close by
       p.far.visible = d >= this.treeRadius;   // cheap blobs further away (fog hides the rest)
+      for (const c of p.roofs) c.g.visible = Math.hypot(c.x - x, c.y - y) < this.roofRadius;
       const hi = d < this.bikeRadius;          // detailed bikes/cars only in the nearest tiles, stand-ins beyond
       for (const b of p.lods) { b.visible = hi; (b.userData.lo as THREE.Object3D).visible = !hi; }
     }
@@ -257,6 +285,8 @@ export class Tiles {
     for (const r of meta.benches ?? []) solids.push([r[0], r[1], 0.55]);
     this.colliders.addCircles(t.name, solids);
     put(props, 'places', buildPlaces((meta as unknown as { places?: PlaceMeta }).places, this.shadows));
+    put(props, 'details', buildDetails((meta as unknown as { details?: DetailMeta }).details, this.shadows)); // OSM street details (world/details.ts)
+    put(props, 'yards', buildYards((meta as unknown as { yards?: YardMeta }).yards, this.shadows)); // courtyards, front gardens, shrubs (world/yards.ts)
     put(props, 'playground', buildPlaygrounds((meta as unknown as { playground?: PlaygroundRow[] }).playground ?? []));
     put(g, 'landmarks', buildLandmarks((meta as unknown as { landmarks?: LandmarkRow[] }).landmarks ?? [])); // landmark signs stay visible from afar
     put(g, 'fence', buildFence((meta as unknown as { fence?: number[][][] }).fence ?? [])); // always visible: it closes the map
@@ -270,7 +300,9 @@ export class Tiles {
     const s = this.world.tile;
     const lods: THREE.Object3D[] = [];
     for (const grp of [props, near]) grp.traverse((o) => { if (o.userData.lo) lods.push(o); });
-    this.props.set(t.name, { g: props, near, far, bikes, lods, x: (t.ix + 0.5) * s, y: (t.iy + 0.5) * s });
+    const roofs = buildRooftops((meta as unknown as { roofs?: RoofRow[] }).roofs, this.shadows);
+    for (const c of roofs) g.add(c.g);
+    this.props.set(t.name, { g: props, near, far, bikes, lods, roofs, x: (t.ix + 0.5) * s, y: (t.iy + 0.5) * s });
     const hm = (meta as unknown as { hmap?: HeightData }).hmap;
     if (hm) this.hmaps.set(t.name, new Heights(hm));
     if (firstLoad) {

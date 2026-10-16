@@ -4,7 +4,7 @@ import { installGrading, setGradeResolution } from './grading';
 
 /** Renderer, scene, sky and lights (warm late afternoon). Quality tier caps the pixel ratio. */
 export function createRenderer(canvas: HTMLCanvasElement, mobile: boolean) {
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: !mobile, powerPreference: 'high-performance' });
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: !mobile, powerPreference: 'high-performance', stencil: true });   // stencil: hb3 stair-well mask
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, mobile ? 1.25 : 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   installGrading(renderer);   // custom tone mapper = ACES + 80s neon grade (see grading.ts)

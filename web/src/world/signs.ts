@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { buildStorefronts, type VenueSign } from './storefronts';
 import { lookOf } from './storefront_style';
 import { drawSignRow } from './storefront_sign';
+import { applyBrand } from './brands';
 
 /** Shop signs with real names (OSM), drawn into one canvas texture per tile. */
 export type Sign = VenueSign;
@@ -21,7 +22,7 @@ export function buildSigns(signs: Sign[]): THREE.Object3D | null {
   const mesh = buildSignMesh(signs);
   if (!mesh) return null;
   const grp = new THREE.Group();
-  grp.add(mesh, ...buildStorefronts(signs));
+  grp.add(mesh, ...buildStorefronts(signs.filter((s) => !(s as { nf?: number }).nf))); // nf = plain wall plate (no awning / blade / props)
   return grp;
 }
 
@@ -33,11 +34,11 @@ function buildSignMesh(signs: Sign[]): THREE.Mesh | null {
   const g = c.getContext('2d')!;
   const pos: number[] = [], uv: number[] = [], nrm: number[] = [], idx: number[] = [];
   signs.forEach((s, i) => {
-    const look = lookOf(s);
+    const look = applyBrand(lookOf(s), s);
     const y0 = i * ROW;
     drawSignRow(g, y0, TEXW, ROW, s, look);
     // sign width in metres follows the text length (about 0.3 m per glyph), capped by the facade
-    const wm = Math.max(1.6, Math.min(s.w, s.name.length * 0.3 + 0.6));
+    const wm = (s as { big?: number }).big ? s.w : Math.max(1.6, Math.min(s.w, s.name.length * 0.3 + 0.6));
     // quad 0.15 m in front of the wall; outward normal = (ty, -tx)
     const ox = s.ty, oy = -s.tx, hw = wm / 2, hh = wm * ROW / TEXW / 2 * 1.6 * look.hf;
     const cx = s.x + ox * 0.15, cy = s.y + oy * 0.15;

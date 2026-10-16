@@ -33,7 +33,7 @@ def main():
         for a, v in json.load(open(cf)).items():
             if v.get("imgs") or v.get("imgs_old"):
                 cand.setdefault(a, dict(v, imgs=v.get("imgs") or v["imgs_old"]))
-    for f in sorted(S.glob("notes_raw_*.tsv")) + sorted(D.glob("notes_raw_k*_*.tsv")):
+    for f in sorted(S.glob("notes_raw_*.tsv")) + sorted(D.glob("notes_raw_[a-zA-Z]*_*.tsv")):
         for ln in f.read_text().splitlines():
             if not ln.strip() or ln.startswith("#"):
                 continue

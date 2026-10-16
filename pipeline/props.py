@@ -14,6 +14,7 @@ PARK_HW = {"residential", "tertiary", "unclassified"}
 
 def parked_cars(S, tram_lines, tb):
     """Cars along both kerbs of residential/tertiary streets without tram. Returns list of [x, y, heading, colour]."""
+    import streets
     tram_tree = STRtree(tram_lines) if tram_lines else None
     others = STRtree([w["line"] for w in S["ways"]])
     out = []
@@ -23,7 +24,7 @@ def parked_cars(S, tram_lines, tb):
         if tram_tree is not None and len(tram_tree.query(w["line"].buffer(2), predicate="intersects")):
             continue
         for sgn in (1, -1):
-            off = w["line"].offset_curve(sgn * (w["w"] / 2 - 1.1))
+            off = streets.mline(w).offset_curve(sgn * (w["w"] / 2 - 1.1))
             if off.is_empty or off.geom_type != "LineString":
                 continue
             for s in np.arange(12, off.length - 12, 5.6):
@@ -279,7 +280,7 @@ def decals(S, tb, H, curb=0.12):
         if zone not in ("beg", "fuss"):
             for side, solid, broken in streets.bike_lane_pieces(w):
                 sgn = 1 if side == "left" else -1
-                off = ln.offset_curve(sgn * (w["w"] / 2 - 0.85))
+                off = streets.mline(w).offset_curve(sgn * (w["w"] / 2 - 0.85))
                 if off.is_empty or off.geom_type != "LineString":
                     continue
                 for a, b in w["lanes"][side]:
@@ -288,7 +289,7 @@ def decals(S, tb, H, curb=0.12):
                             add(off.interpolate(s * off.length / L), heading(off, s * off.length / L) + (np.pi if sgn > 0 else 0), 0)
             for side in streets.bus_sides(w):
                 sgn = 1 if side == "left" else -1
-                off = ln.offset_curve(sgn * (w["w"] / 2 - 1.7))
+                off = streets.mline(w).offset_curve(sgn * (w["w"] / 2 - 1.7))
                 if off.is_empty or off.geom_type != "LineString":
                     continue
                 for s in np.arange(14, L - 8, 70):
@@ -298,10 +299,10 @@ def decals(S, tb, H, curb=0.12):
         if w["hw"] != "service" and zone not in ("fuss",):
             k = h32(f"mh{wi}")
             for s in np.arange(12 + k % 20, L - 6, 38 + k % 17):
-                p = ln.offset_curve(((k >> 3) % 5 - 2) * 0.6).interpolate(s) if w["w"] > 6 else ln.interpolate(s)
+                p = streets.mline(w).offset_curve(((k >> 3) % 5 - 2) * 0.6).interpolate(s) if w["w"] > 6 else ln.interpolate(s)
                 add(p, heading(ln, s), 1)
             for sgn in (1, -1):
-                kerb = ln.offset_curve(sgn * (w["w"] / 2 - 0.35))
+                kerb = streets.mline(w).offset_curve(sgn * (w["w"] / 2 - 0.35))
                 if kerb.is_empty or kerb.geom_type != "LineString":
                     continue
                 for s in np.arange(8, kerb.length - 4, 22):

@@ -1,0 +1,2 @@
+# Langstrasse / Dienerstrasse (Mitte 792 / -615)
+Fotos 21. Begegnungs-/Zone-30-Strasse, Boden-«30» (Foto 2), Schachbrett-Markierung vor dem Eck (Foto 1), Stolpersteine in Pflaster (Fotos 13-16, nicht nachgebaut), rotes Eckhaus mit Beiz und Fahrrad-Wandbild (Foto 7, eigene Gestaltung nötig), Läden mit Leuchtreklame (Foto 8: Mir Gold, Kiosk). Reine Strassenkreuzung, keine Platzobjekte; Fassaden und Marken laufen über die Fassaden- und Decal-Pipelines.

@@ -1,0 +1,2 @@
+# Bahnhofplatz Wiedikon (Mitte 555 / -1385)
+Fotos 15. Bahnhof 1930er (Sandstein, Rundbogenfenster, Stationsuhr im Giebelfeld, Foto 7/8), Vorplatz Asphalt mit Tramgleisen (Foto 9, 12: blaue Tram), gelb-schwarze Poller an den Kreuzungsecken (Fotos 0, 6, 11), Veloständer in Reihen vor Gebäudezeilen (Foto 1), Brunnen mit liegender Figur in der Parkanlage nordwestlich (Foto 10). Umsetzung: Brunnen als `rfount`; Typ `bollardy` bereitgestellt.

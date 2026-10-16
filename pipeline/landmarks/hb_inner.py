@@ -10,6 +10,8 @@ from shapely.geometry import LineString
 CREAM, STONE, STONE_D, TRIM = hx("#d9cfb8"), W, hx("#d8c9a8"), hx("#dccfae")
 VAULT, STEEL, FLOORA, FLOORB = hx("#444a47"), hx("#5b4a3b"), hx("#3d3f42"), hx("#383a3d")
 SKY = hx("#ffffff"); FRIEZE = hx("#b4705e")
+import hb3_spec
+WELLS3 = [w for w in hb3_spec.WELLS if w[0] < 0 and w[3] < 0 and w[2] > -64]   # wells inside the Querhalle floor (hb3_spec.WELLS[0])
 COLL = []   # collider walls: (a, b, thickness) in the model frame
 
 
@@ -37,7 +39,11 @@ def build():
                 lit = light_all or (bands and (abs(yc - HM) < 2.6 or any(abs(xc - bd) < 2.6 for bd in (8.0, 47.0, 86.0))))
                 base = LIGHT if lit else (FLOORA if (i + j) % 2 else FLOORB)
                 t = 0.95 + 0.07 * rng.random()
-                slab(m, mf, xa, xb, ya, yb, z, tuple(int(v * t) for v in base[:3]) + (255,))
+                col_ = tuple(int(v * t) for v in base[:3]) + (255,)
+                hole = next((h_ for h_ in WELLS3 if xa < h_[1] and xb > h_[0] and ya < h_[3] and yb > h_[2]), None)   # hb3: stair well in the floor
+                if hole is None: slab(m, mf, xa, xb, ya, yb, z, col_); continue
+                for r_ in ((xa, hole[0], ya, yb), (hole[1], xb, ya, yb), (max(xa, hole[0]), min(xb, hole[1]), ya, hole[2]), (max(xa, hole[0]), min(xb, hole[1]), hole[3], yb)):
+                    if r_[1] - r_[0] > 0.01 and r_[3] - r_[2] > 0.01: slab(m, mf, r_[0], r_[1], r_[2], r_[3], z, col_)
     floor(d0 - 1, d1 + 1, c0, c1)
     floor(G.Q_D0, G.Q_D1 + 1, G.Q_C0, G.Q_C1, bands=False, light_all=True)
     floor(40.5, 55.5, -68.0, c0 + 0.1, bands=False, light_all=True)

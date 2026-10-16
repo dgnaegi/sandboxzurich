@@ -190,8 +190,48 @@ const T: Record<string, Fn> = {
   shelter: (a, b) => { const L = k(a, 6), D = k(b, 1.8), p: THREE.BufferGeometry[] = [B(L, 0.12, D, 0, 2.6, 0, 0x4a5056)]; for (const sx of [-1, 1]) p.push(B(0.08, 2.6, 0.08, sx * (L / 2 - 0.2), 0, -D / 2 + 0.2, 0x5a6066), B(0.08, 2.6, 0.08, sx * (L / 2 - 0.2), 0, D / 2 - 0.2, 0x5a6066)); p.push(B(L - 0.6, 0.05, 0.4, 0, 0.45, -D / 2 + 0.3, 0x8f6a42), B(L - 0.4, 1.6, 0.04, 0, 0.9, -D / 2 + 0.1, 0xa9c4cc)); return p; },
   // pergola a=length b=depth c=height
   pergola: (a, b, c) => { const L = k(a, 6), D = k(b, 3), H = k(c, 2.6), p: THREE.BufferGeometry[] = []; for (const sx of [-1, 1]) for (const sz of [-1, 1]) p.push(Y(0.08, 0.08, H, sx * L / 2, 0, sz * D / 2, 0x6b4a2a, 6)); for (let i = 0; i <= 8; i++) p.push(B(0.08, 0.1, D + 0.6, -L / 2 + (L * i) / 8, H, 0, 0x6b4a2a)); return p; },
+  // public grill / fire pit: stone ring with ash bed and a grate, a=radius
+  grill: (a, _b, _c, _d, col) => { const R = k(a, 0.45), p: THREE.BufferGeometry[] = [Y(R, R, 0.3, 0, 0, 0, col ?? 0x8d8a82, 10), Y(R - 0.08, R - 0.08, 0.02, 0, 0.3, 0, 0x2a2826, 10)]; for (let i = -1; i <= 1; i++) p.push(B(0.02, 0.02, R * 1.8, i * 0.15, 0.36, 0, 0x3a3d40)); return p; },
+  // outdoor fitness station: two posts with a steel bar and a bench plate
+  fitness: (_a, _b, _c, _d, col) => { const c = col ?? 0x2f6fb0; return [Y(0.05, 0.05, 2.0, -0.6, 0, 0, c, 6), Y(0.05, 0.05, 2.0, 0.6, 0, 0, c, 6), B(1.3, 0.05, 0.05, 0, 1.9, 0, 0xb8bcc0), B(1.3, 0.05, 0.05, 0, 1.3, 0, 0xb8bcc0), B(0.9, 0.06, 0.35, 0, 0.45, 0.6, c)]; },
+  // Y-shaped steel sculpture (Hardaupark): white tubes, a=height (9)
+  ysculpt: (a) => { const H = k(a, 9), c = 0xf0eee6; return [Y(0.28, 0.2, H * 0.45, 0, 0, 0, c, 10), rod([0, H * 0.45, 0], [-H * 0.28, H, 0], 0.2, c, 10), rod([0, H * 0.45, 0], [H * 0.28, H, 0], 0.2, c, 10)]; },
+  // stepped granite pyramid a=base width (4), b=height (3)
+  pyramid: (a, b, _c, _d, col) => { const W = k(a, 4), H = k(b, 3), c = col ?? 0x77746f, p: THREE.BufferGeometry[] = []; for (let i = 0; i < 5; i++) { const w = W * (1 - i / 5.5); p.push(B(w, H / 5, w, 0, i * H / 5, 0, c)); } return p; },
   // lamp bollard / low light
   glow: (a) => [Y(0.08, 0.08, k(a, 0.9), 0, 0, 0, 0x4a4d50, 6), B(0.2, 0.2, 0.2, 0, k(a, 0.9), 0, GLOW)],
+  // --- squares2 (additive) ---
+  // granite pyramid (Kanzleiareal «Kosmische Granit-Pyramide»): a=height 3.2, b=base width 4.4; d=1 white ornament patch on the +z face
+  granitepyr: (a, b, _c, d, col) => {
+    const H = k(a, 3.2), W = k(b, 4.4), c = col ?? 0x6f716f, g = new THREE.ConeGeometry(W / Math.SQRT2, H, 4, 1);
+    g.rotateY(Math.PI / 4);
+    const p: THREE.BufferGeometry[] = [paint(g.translate(0, H / 2, 0), c), B(W + 0.3, 0.1, W + 0.3, 0, 0, 0, 0x8d8a82)];
+    if (d) { // slope of the +z face; ornament = thin light quad lying on it
+      const sl = Math.atan2(H, W / 2), pg = new THREE.BoxGeometry(W * 0.32, 0.02, H * 0.3);
+      pg.rotateX(sl); pg.translate(0, H * 0.3 + 0.03, (W / 2) * 0.7 + 0.02);
+      p.push(paint(pg, 0xbdbbb2));
+    }
+    return p;
+  },
+  // Teppichklopfstange: galvanised frame a=length (4), b=height (2.4), two rails
+  klopf: (a, b) => { const L = k(a, 4), Hh = k(b, 2.4); return [Y(0.04, 0.04, Hh, -L / 2, 0, 0, 0x9aa0a4, 6), Y(0.04, 0.04, Hh, L / 2, 0, 0, 0x9aa0a4, 6), B(L, 0.05, 0.05, 0, Hh, 0, 0x9aa0a4), B(L, 0.04, 0.04, 0, Hh * 0.72, 0, 0x9aa0a4)]; },
+  // coloured park bench (Kanzleiareal): like bench but col mandatory
+  // taxi / info pole with roof sign: a=height 2.6
+  taxisign: (a) => [Y(0.04, 0.04, k(a, 2.6), 0, 0, 0, 0x3a3f44, 6), B(0.6, 0.25, 0.08, 0, k(a, 2.6), 0, 0xf2c230)],
+  // Veloständer-Anlage (Bügel-Reihe, doppelseitig) a=count, b=spacing
+  buegel: (a, b) => { const p: THREE.BufferGeometry[] = [], n = k(a, 8), sp = k(b, 0.7); for (let i = 0; i < n; i++) { const x = (i - (n - 1) / 2) * sp; p.push(B(0.03, 0.8, 0.03, x, 0, -0.12, 0xb8bcc0), B(0.03, 0.8, 0.03, x, 0, 0.12, 0xb8bcc0), B(0.03, 0.03, 0.27, x, 0.8, 0, 0xb8bcc0)); } return p; },
+  // newspaper / flyer box or small news kiosk: a=length b=depth c=height; col wall
+  zeitung: (_a, _b, _c, _d, col) => [B(0.5, 1.0, 0.4, 0, 0, 0, col ?? 0xc8202a), B(0.4, 0.3, 0.02, 0, 0.6, 0.21, 0xe8e6de)],
+  // Ticketautomat / Billettautomat: blue-grey cabinet with display
+  ticket: () => [B(0.8, 1.7, 0.5, 0, 0, 0, 0x3d4650), B(0.5, 0.35, 0.02, 0, 1.15, 0.26, 0x9fd0e8), B(0.9, 0.08, 0.6, 0, 1.7, 0, 0x2a2d30)],
+  // black/yellow striped bollard (Poller) a=height 0.9
+  bollardy: (a) => { const H = k(a, 0.9); return [Y(0.07, 0.07, H, 0, 0, 0, 0x26292c, 8), Y(0.072, 0.072, H * 0.22, 0, H * 0.45, 0, 0xf2c230, 8), Y(0.072, 0.072, H * 0.1, 0, H * 0.9, 0, 0xf2c230, 8)]; },
+  // Litfasssaeule: a=height 3.2, b=radius 0.6, cap on top; posters in light/grey bands
+  litfass: (a, b, _c, _d, col) => { const H = k(a, 3.2), R = k(b, 0.6); return [Y(R, R, H * 0.85, 0, 0.15, 0, col ?? 0xc9c2ae, 14), Y(R * 0.9, R * 0.9, 0.15, 0, 0, 0, 0x3a3d40, 14), Y(R * 1.1, R * 0.5, H * 0.1, 0, H * 0.88, 0, 0x2f5a3a, 14)]; },
+  // street name sign (blue plate on a post): a=height 2.6, plate 0.9 x 0.35
+  namesign: (a) => [Y(0.035, 0.035, k(a, 2.6), 0, 0, 0, 0x7a7e82, 6), B(0.9, 0.38, 0.03, 0, k(a, 2.6) - 0.45, 0, 0x2f6fb0), B(0.8, 0.06, 0.035, 0, k(a, 2.6) - 0.32, 0, 0xf0eee6)],
+  // station clock on a post: a=height 3.2
+  clockpost: (a) => [Y(0.06, 0.05, k(a, 3.2), 0, 0, 0, 0x3a3f44, 8), B(0.72, 0.72, 0.1, 0, k(a, 3.2) - 0.55, 0, 0x2a2d30), B(0.62, 0.62, 0.12, 0, k(a, 3.2) - 0.5, 0, 0xf2f0e8), B(0.04, 0.26, 0.13, 0, k(a, 3.2) - 0.19 - 0.12, 0, 0x2a2d30)],
 };
 
 // polylines (a pole every ~2.5 m)

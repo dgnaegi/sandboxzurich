@@ -16,10 +16,10 @@ type Ctx = ReturnType<typeof createRenderer>;
 type G = [number, number, number, number, number, number, number, number, number, number];
 interface Key { h: number; zen: number; hor: number; sun: number; sunI: number; hs: number; hg: number; hI: number; cLo: number; cHi: number; exp: number; night: number; stars: number; g: G }
 const GN: G = [1.0, 0.10, -0.01, 0.0, 0.03, 0.05, 0.02, -0.04, 0.5, 0.9];       // night: cool shadows, warm lamp highlights
-const GD: G = [1.12, 0.14, -0.01, 0.0, 0.02, 0.02, 0.01, -0.01, 0.15, 1.9];        // day: natural
-const GG: G = [1.12, 0.12, 0.0, 0.0, 0.0, 0.07, 0.03, -0.05, 0.28, 1.4];          // golden hour: warm highlights
+const GD: G = [1.14, 0.14, -0.02, 0.0, 0.05, 0.04, 0.02, -0.04, 0.15, 1.9];   // warm gold highlights, blue shadows        // day: natural
+const GG: G = [1.14, 0.12, -0.02, -0.005, 0.045, 0.07, 0.03, -0.05, 0.28, 1.4];          // golden hour: warm highlights
 const NIGHT = { zen: 0x070a1c, hor: 0x1e2842, sun: 0x6f86c8, sunI: 0, hs: 0x7480b0, hg: 0x34303c, hI: 1.85, cLo: 0x1c2442, cHi: 0x2c385c, exp: 1.75, night: 1, stars: 1, g: GN };
-const DAY = { zen: 0x4a84c6, hor: 0xc6d9e6, sun: 0xfff4e6, sunI: 3.4, hs: 0xbcd2ee, hg: 0x7a7668, hI: 1.45, cLo: 0xdfe5ec, cHi: 0xffffff, exp: 1.0, night: 0, stars: 0, g: GD };
+const DAY = { zen: 0x4a84c6, hor: 0xc6d9e6, sun: 0xffecd0, sunI: 3.5, hs: 0xa8c8f4, hg: 0x8c7c62, hI: 1.45, cLo: 0xdfe5ec, cHi: 0xffffff, exp: 1.0, night: 0, stars: 0, g: GD };
 const K: Key[] = [
   { h: 0, ...NIGHT },
   { h: 6.6, ...NIGHT },
@@ -27,10 +27,11 @@ const K: Key[] = [
   { h: 8.3, zen: 0x4a70b4, hor: 0xf0c4a0, sun: 0xffc08a, sunI: 2.2, hs: 0xb4c4e0, hg: 0x706458, hI: 1.25, cLo: 0xf0c8b0, cHi: 0xfff0e4, exp: 1.08, night: 0, stars: 0, g: GG },
   { h: 10.0, ...DAY },
   { h: 15.5, ...DAY },
-  { h: 17.2, zen: 0x4a7cc0, hor: 0xe8d0b8, sun: 0xffe0b8, sunI: 3.0, hs: 0xc4d0e4, hg: 0x7c6e58, hI: 1.4, cLo: 0xf0dccc, cHi: 0xfff4ea, exp: 1.04, night: 0, stars: 0, g: GG },
-  { h: 18.1, zen: 0x4064aa, hor: 0xf4b078, sun: 0xffa660, sunI: 2.4, hs: 0xccc6c4, hg: 0x7a6250, hI: 1.3, cLo: 0xf4b090, cHi: 0xffd8b8, exp: 1.1, night: 0.05, stars: 0, g: GG },
-  { h: 18.8, zen: 0x303e80, hor: 0xe87c50, sun: 0xff7030, sunI: 1.4, hs: 0xaeaab8, hg: 0x5e4c46, hI: 1.25, cLo: 0xe08870, cHi: 0xf4b090, exp: 1.16, night: 0.25, stars: 0, g: GG },
-  { h: 19.5, zen: 0x1a2458, hor: 0x8c5c78, sun: 0xc05a50, sunI: 0.35, hs: 0x6c78b0, hg: 0x2a2434, hI: 1.25, cLo: 0x70507a, cHi: 0xa06c88, exp: 1.3, night: 0.7, stars: 0.4, g: GG },
+  { h: 17.2, zen: 0x4a7cc0, hor: 0xe8d0b8, sun: 0xffe0b8, sunI: 3.0, hs: 0xb4c8ec, hg: 0x9a8260, hI: 1.45, cLo: 0xf0dccc, cHi: 0xfff4ea, exp: 1.04, night: 0, stars: 0, g: GG },
+  { h: 17.7, zen: 0x4670b8, hor: 0xf0c294, sun: 0xffcc90, sunI: 3.4, hs: 0xb0c0e0, hg: 0xb88c60, hI: 1.55, cLo: 0xf4c8a8, cHi: 0xffe8d0, exp: 1.07, night: 0, stars: 0, g: GG },   // golden hour
+  { h: 18.1, zen: 0x4064aa, hor: 0xf4b078, sun: 0xffa860, sunI: 3.1, hs: 0xb4bcd4, hg: 0xb8845a, hI: 1.55, cLo: 0xf4b090, cHi: 0xffd8b8, exp: 1.1, night: 0.05, stars: 0, g: GG },
+  { h: 18.8, zen: 0x303e80, hor: 0xe87c50, sun: 0xff7838, sunI: 2.0, hs: 0x9ca8d0, hg: 0x9c6e4c, hI: 1.45, cLo: 0xe08870, cHi: 0xf4b090, exp: 1.16, night: 0.25, stars: 0, g: GG },
+  { h: 19.5, zen: 0x1a2458, hor: 0x8c5c78, sun: 0xc05a50, sunI: 0.35, hs: 0x6c7ab8, hg: 0x4a3a40, hI: 1.3, cLo: 0x70507a, cHi: 0xa06c88, exp: 1.3, night: 0.7, stars: 0.4, g: GG },
   { h: 20.4, ...NIGHT },
   { h: 24, ...NIGHT },
 ];
@@ -154,7 +155,7 @@ export class Daytime {
     // image-based light: day = full sky, night = a little cool ambience; the hemisphere light only fills what IBL does not reach
     if (this.probe) {
       this.probe.update(minutes, forceProbe);
-      ctx_env(this.ctx.scene, 0.6 + 0.5 * (1 - this.night));
+      ctx_env(this.ctx.scene, 0.6 + 0.2 * (1 - this.night));
       hemiK.value = 0.4;
     }
     for (const l of this.lamps) l.intensity = 9 * sstep(0.35, 0.9, this.night);

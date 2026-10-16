@@ -1,0 +1,15 @@
+{
+ "landmarks": [
+  {
+   "name": "Z\u00fcrich Hauptbahnhof + Untergeschosse",
+   "model": "/models/landmarks/hb3_under.glb",
+   "x": 1760.0,
+   "y": -650.0,
+   "z": -2.9,
+   "heading": -0.3665191429188092,
+   "hide": [],
+   "walkable": true,
+   "load_r": 250
+  }
+ ]
+}

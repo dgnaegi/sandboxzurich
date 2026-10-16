@@ -84,27 +84,11 @@ const TPL: (THREE.BufferGeometry | ((a: number, b: number) => THREE.BufferGeomet
   /* 9 toilet */ merged([box(1.1, 2.3, 1.1, 0, 1.15, 0, C(0x2a6a9a)), box(1.15, 0.08, 1.15, 0, 2.32, 0, WHITE)]),
   /* 10 pallet */ merged([box(1.2, 0.15, 0.8, 0, 0.08, 0, C(0x8a6a44)), box(1.1, 0.9, 0.7, 0, 0.6, 0, C(0xa4503a))]),
 ];
-let atlasTex: THREE.Texture | null = null;
-const BANNERS = [['BAUSTELLE', ''], ['HIER ENTSTEHT: LUXUS-WOHNEN', 'ab CHF 6\'800.– pro Monat'], ['ZUTRITT VERBOTEN', 'Eltern haften nicht für ihre Kinder. Wir auch nicht.'],
-  ['WIR BAUEN FÜR SIE*', '*Renditeobjekt, Besichtigung nur mit Anwalt'], ['TOTALSANIERUNG', 'Wir danken für Ihr Verständnis. Kündigungen sind verschickt.']];
-function atlas() {
-  const c = document.createElement('canvas'); c.width = 512; c.height = 128 * BANNERS.length;
-  const g = c.getContext('2d')!;
-  BANNERS.forEach(([t, s], i) => {
-    const y = i * 128;
-    g.fillStyle = i === 0 ? '#f2f2ee' : ['#f2f2ee', '#1f3a52', '#e8c820', '#2a2a2a', '#f2f2ee'][i]; g.fillRect(0, y, 512, 128);
-    const dark = i === 1 || i === 3;
-    g.fillStyle = i === 0 ? '#d0202a' : dark ? '#f4f4ee' : '#111'; g.font = `${t.length > 16 ? 40 : 60}px Anton, sans-serif`; g.textAlign = 'center';
-    g.fillText(t, 256, y + (s ? 58 : 84), 490);
-    g.font = '24px sans-serif'; g.fillText(s, 256, y + 100, 490);
-  });
-  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
-}
 const glowMat = new THREE.MeshBasicMaterial({ color: 0xffa000 });
 
 export function buildSites(rows: number[][]): THREE.Object3D[] {
   if (!rows.length) return [];
-  const parts: THREE.BufferGeometry[] = [], banners: THREE.BufferGeometry[] = [], glow: THREE.BufferGeometry[] = [];
+  const parts: THREE.BufferGeometry[] = [], glow: THREE.BufferGeometry[] = []; // fence text banners removed (user 2026-10-16)
   const m = new THREE.Matrix4(), q = new THREE.Quaternion(), p = new THREE.Vector3(), one = new THREE.Vector3(1, 1, 1), Y = new THREE.Vector3(0, 1, 0);
   const cache: (THREE.BufferGeometry | null)[] = [];
   for (const [t, x, y, z, yaw, a, b] of rows) {
@@ -113,19 +97,9 @@ export function buildSites(rows: number[][]): THREE.Object3D[] {
     const g = (typeof tp === 'function' ? tp(t === 3 ? x : a, t === 3 ? y : b) : (cache[t] ??= tp)).clone().applyMatrix4(m);
     if (t === 6) { glow.push(new THREE.BoxGeometry(0.22, 0.22, 0.22).translate(0, 1.4, 0).applyMatrix4(m)); continue; }
     parts.push(g);
-    if (t === 4 && a >= 0) {
-      const v0 = 1 - (a + 1) / BANNERS.length, v1 = 1 - a / BANNERS.length;
-      for (const s of [1, -1]) {
-        const pl = new THREE.PlaneGeometry(2.8, 0.7);
-        const uv = pl.getAttribute('uv'); for (let i = 0; i < uv.count; i++) uv.setY(i, v0 + uv.getY(i) * (v1 - v0));
-        banners.push(pl.rotateY(s > 0 ? 0 : Math.PI).translate(0, 1.35, s * 0.03).applyMatrix4(m));
-      }
-    }
   }
-  atlasTex ??= atlas();
   const out: THREE.Object3D[] = [];
   const o = new THREE.Mesh(merged(parts), mat); out.push(o);
-  if (banners.length) out.push(new THREE.Mesh(merged(banners), new THREE.MeshLambertMaterial({ map: atlasTex })));
   if (glow.length) out.push(new THREE.Mesh(merged(glow), glowMat));
   return out;
 }

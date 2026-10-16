@@ -1,0 +1,2 @@
+# Schmiede Wiedikon (Mitte 225 / -1555)
+Fotos 12 (`contact_schmiede_wiedikon.jpg`). Haltestelle mit Tramperron-Insel (Foto 4: Kleiderstände, Sonnenstoren, Fahrleitung), Blockränder mit Mansarddächern, Erkern, Sandstein-Sockel (Fotos 6-9), Hecken und alte Bäume an Gartenmauern (Fotos 2, 3, 11), Gasthof Falken (Foto 6). Keine eigene Platzfläche im Orthofoto; Haltestellen-Objekte sind bereits in `stops_equip`. Nicht umgesetzt (kein Platzobjekt zu ergänzen).

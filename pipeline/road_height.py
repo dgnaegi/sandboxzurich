@@ -13,7 +13,9 @@ MED = 9  # running median window (samples) - kills spikes from DTM artefacts
 AVG = 21  # moving-average window (samples) after the median
 JOIN_R = 18.0  # junction height harmonisation radius (m)
 CROWN = 0.005  # cross fall (m per m): the carriageway mesh only has edge vertices, so a real 2 % crown would float the walk-height 13 cm above the asphalt
-BLEND = 2.5  # m beyond the carriageway edge over which the surface returns to the terrain
+BLEND = 2.5  # m beyond the carriageway edge over which the surface returns to the terrain (minimum)
+BLEND_K = 8.0  # road_smooth: blend band grows with the road/terrain offset (m of band per m of offset) so the sidewalk never becomes a steep ramp
+BLEND_MAX = 8.0
 MAXSLOPE = 0.15  # longitudinal slope limit of the smoothed profile
 MAXDEV = 1.0  # smoothed profile never leaves the real terrain by more than this (real underpasses / cuttings stay)
 JOIN_MAXDZ = 1.0  # shared vertices at very different heights are different levels (underpass vs bridge): not harmonised
@@ -93,10 +95,20 @@ def apply(H, ways, report=True):
     Y = np.concatenate([p["xy"][:, 1] for p in P])
     Z = np.concatenate([p["z"] for p in P])
     HW = np.concatenate([np.full(len(p["s"]), p["w"]["w"] / 2) for p in P])
+    RAW = np.concatenate([p["raw"] for p in P])
+    dev = np.abs(Z - RAW)  # road_smooth: offset to the terrain on the axis and 2.5 m beside the edge (hillside roads)
+    for p in P:
+        d = np.gradient(p["xy"], axis=0)
+        nr = np.stack([-d[:, 1], d[:, 0]], 1)
+        nr /= np.maximum(np.hypot(*nr.T), 1e-9)[:, None]
+        hwp = p["w"]["w"] / 2 + BLEND
+        p["dev"] = np.maximum.reduce([np.abs(p["z"] - H.at(*(p["xy"] + sg * nr * hwp).T)) for sg in (1, -1)])
+    dev = np.maximum(dev, np.concatenate([p["dev"] for p in P]))
+    BL = np.clip(BLEND_K * dev, BLEND, BLEND_MAX)  # per-sample blend width
     ny, nx = H.z.shape
     st = H.step
-    R = int(np.ceil((HW.max() + BLEND) / st)) + 1
-    best = np.full((ny, nx), np.inf)  # smallest distance to a carriageway edge (negative inside)
+    R = int(np.ceil((HW.max() + BL.max()) / st)) + 1
+    best = np.full((ny, nx), np.inf)  # smallest normalised distance e / blend to a carriageway edge (negative inside)
     sw = np.zeros(ny * nx)
     sz = np.zeros(ny * nx)
     cx = np.round((X - H.x0) / st).astype(int)
@@ -105,21 +117,21 @@ def apply(H, ways, report=True):
         for dx in range(-R, R + 1):
             gx, gy = cx + dx, cy + dy
             d = np.hypot(H.x0 + gx * st - X, H.y0 + gy * st - Y)
-            e = d - HW
-            ok = (gx >= 0) & (gx < nx) & (gy >= 0) & (gy < ny) & (e < BLEND)
+            e = (d - HW) / BL
+            ok = (gx >= 0) & (gx < nx) & (gy >= 0) & (gy < ny) & (e < 1.0)
             idx = np.where(ok)[0]
             if not len(idx):
                 continue
             gxi, gyi, ei = gx[idx], gy[idx], e[idx]
             flat = gyi * nx + gxi
-            wgt = (1 - d[idx] / (HW[idx] + BLEND)) ** 2
+            wgt = (1 - d[idx] / (HW[idx] + BL[idx])) ** 2
             np.add.at(sw, flat, wgt)
             np.add.at(sz, flat, wgt * (Z[idx] - CROWN * np.minimum(d[idx], HW[idx])))
             order = np.argsort(-ei)  # smallest e written last -> wins duplicates
             sel = ei[order] < best[gyi[order], gxi[order]]
             best[gyi[order][sel], gxi[order][sel]] = ei[order][sel]
     m = np.isfinite(best)
-    t = np.clip(best[m] / BLEND, 0, 1)
+    t = np.clip(best[m], 0, 1)
     cov = 1 - t * t * (3 - 2 * t)  # 1 in the carriageway, 0 at the end of the blend band
     tz = sz[m.ravel()] / sw[m.ravel()]
     old = H.z[m].copy()

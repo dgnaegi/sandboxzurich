@@ -205,9 +205,12 @@ def add_building(mesh, b, street_dist, neighbour=lambda x, y: False):
                 if roof_area > 35 and (h32(b["id"]) + k) % 3 != 0:
                     chimney(mesh, pts, k + h32(b["id"]))
             else:
-                mesh.add(pts, tri, n, ortho_tint(b.get("_roof_rgb"), "dach_kies") or (158, 155, 150), uv=pts[:, :2] / 3.0, layer=LAYER["dach_kies"])
+                if (b.get("_roofs") or {}).get("green") and b.get("_roof_rgb") is not None:  # green roof seen on SWISSIMAGE
+                    mesh.add(pts, tri, n, (96, 128, 70), uv=pts[:, :2] / 3.0, layer=LAYER["grass"])
+                else:
+                    mesh.add(pts, tri, n, ortho_tint(b.get("_roof_rgb"), "dach_kies") or (158, 155, 150), uv=pts[:, :2] / 3.0, layer=LAYER["dach_kies"])
                 area = 0.5 * np.linalg.norm(np.cross(pts[tri[:, 1]] - pts[tri[:, 0]], pts[tri[:, 2]] - pts[tri[:, 0]]), axis=1).sum()
-                if area > 60:
+                if area > 60 and not (b.get("_roofs") or {}).get("real_units"):  # rooftops.py found real units via nDSM
                     roof_units(mesh, pts, h32(b["id"]) + k)
         else:
             mesh.add(pts, tri, n, tint, uv=pts[:, :2] / 4.0, layer=layer)

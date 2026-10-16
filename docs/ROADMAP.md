@@ -6,7 +6,7 @@ Jedes Milestone endet mit etwas, das der User im Browser (auch auf dem Handy) au
 - [x] Unterordner `game/` mit Projektbeschreibung und Doku-Struktur
 - [x] Git-Repo `dgnaegi/sandboxzurich`, Lizenz WTFPL
 - [x] OSM-Bestandsaufnahme (`research/osm_stats.md`)
-- [ ] Hosting: User deployt selbst über CDN (Anleitung `docs/DEPLOY.md`, Entscheid 2026-10-15)
+- [x] Hosting: Cloudflare Workers, Auto-Deploy bei Push (`docs/DEPLOY.md`, 2026-10-16)
 
 ## M1 – Karte und Herumlaufen (nächster Auftrag)
 **Ziel:** Ein Gebiet in Kreis 4/5 originalgetreu, darin frei herumlaufen, flüssig auf dem Handy.
@@ -23,7 +23,7 @@ Jedes Milestone endet mit etwas, das der User im Browser (auch auf dem Handy) au
 - [x] Performance-Messung gegen die Budgets (2026-10-15: Handy ≤231 Calls, ≤1.1 Mio; PC ≤458 Calls, ≤2.9 Mio)
 - [x] Screenshots an Landmarks → `preview/`, QA gegen Referenzfotos (`preview/lm3_*`, `lm4_*`, `lm5_*`, `qa_night*`)
 - [x] Plätze/Parks v3: Bodenbelag, Möblierung, Brunnen/Kiosk/Fahnenmasten an 15 Plätzen (`places_detail`, `preview/plaza3_*.jpg`)
-- [ ] Deploy (Testlink) – durch User nach `docs/DEPLOY.md`
+- [x] Deploy (Testlink): https://sandboxzurich.sandboxzurich-web.workers.dev
 
 ## M2 – Lebendige Stadt
 - [x] Trams und Busse auf echten Linien (Testgebiet)

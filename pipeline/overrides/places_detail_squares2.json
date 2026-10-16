@@ -1,0 +1,382 @@
+{
+ "places": [
+  {
+   "id": "kanzlei",
+   "center": [
+    735,
+    -950
+   ],
+   "src": "research/squares2/kanzlei.md; Fotos #3 #10 (Mapillary abuhlma2: Kiesplatz, Klopfstange, bunte Baenke), #17 (Commons Captaininler: Kosmische Granit-Pyramide), OSM Way 27435500/56004913, Node 4579779848 (Pyramide)",
+   "ground": [
+    {
+     "poly": [
+      [
+       -72,
+       -24
+      ],
+      [
+       -40,
+       -24
+      ],
+      [
+       -36,
+       -30
+      ],
+      [
+       -8,
+       -36
+      ],
+      [
+       8,
+       -30
+      ],
+      [
+       12,
+       -14
+      ],
+      [
+       14,
+       22
+      ],
+      [
+       10,
+       50
+      ],
+      [
+       -8,
+       50
+      ],
+      [
+       -30,
+       40
+      ],
+      [
+       -50,
+       34
+      ],
+      [
+       -72,
+       34
+      ]
+     ],
+     "mat": "gravel",
+     "color": [
+      168,
+      160,
+      146
+     ],
+     "lift": 0.012,
+     "uv": 2.0,
+     "noroad": true,
+     "minus": [
+      {
+       "osm": 27435500,
+       "buf": 0.4
+      },
+      {
+       "osm": 56004913,
+       "buf": 0.4
+      },
+      {
+       "osm": 38001063,
+       "buf": 0.4
+      }
+     ]
+    }
+   ],
+   "objs": [
+    {
+     "t": "granitepyr",
+     "p": [
+      6.2,
+      26.0
+     ],
+     "h": 0,
+     "a": 3.2,
+     "b": 4.4,
+     "d": 1
+    },
+    {
+     "t": "klopf",
+     "p": [
+      -9,
+      38
+     ],
+     "h": 0,
+     "a": 4.0,
+     "b": 2.4
+    },
+    {
+     "t": "bench",
+     "p": [
+      -14,
+      44
+     ],
+     "h": 180,
+     "a": 1.8,
+     "col": "#c8302a"
+    },
+    {
+     "t": "bench",
+     "p": [
+      -10,
+      44
+     ],
+     "h": 180,
+     "a": 1.8,
+     "col": "#2f6fb0"
+    },
+    {
+     "t": "bench",
+     "p": [
+      -6,
+      44
+     ],
+     "h": 180,
+     "a": 1.8,
+     "col": "#f2c230"
+    },
+    {
+     "t": "bench",
+     "p": [
+      12,
+      36
+     ],
+     "h": 270,
+     "a": 1.8,
+     "col": "#2f6fb0"
+    },
+    {
+     "t": "bench",
+     "p": [
+      12,
+      32
+     ],
+     "h": 270,
+     "a": 1.8,
+     "col": "#c8302a"
+    },
+    {
+     "t": "buegel",
+     "p": [
+      -66,
+      20
+     ],
+     "h": 90,
+     "a": 8
+    },
+    {
+     "t": "buegel",
+     "p": [
+      3,
+      -30
+     ],
+     "h": 0,
+     "a": 10
+    }
+   ]
+  },
+  {
+   "id": "brupbacherplatz",
+   "center": [
+    41.4,
+    -1095
+   ],
+   "src": "research/squares2/brupbacherplatz.md; Fotos #10 #11 (Namensschild unter Kastanien), #12 #13 (Platz, Baumscheiben), #17 (Brunnenbecken mit Reliefband); OGD Brunnen/Baeume; SWISSIMAGE",
+   "convert": [
+    {
+     "layer": "fountains",
+     "within": {
+      "circle": [
+       -1.0,
+       -28.7,
+       4
+      ]
+     },
+     "t": "rfount",
+     "a": 1.25,
+     "b": 0.55,
+     "col": "granite"
+    }
+   ],
+   "ground": [
+    {
+     "poly": [
+      [
+       -27,
+       -31
+      ],
+      [
+       -27,
+       -6
+      ],
+      [
+       -19,
+       12
+      ],
+      [
+       -4,
+       14
+      ],
+      [
+       3,
+       -4
+      ],
+      [
+       3,
+       -24
+      ],
+      [
+       -1,
+       -33
+      ]
+     ],
+     "mat": "gravel",
+     "color": [
+      178,
+      170,
+      152
+     ],
+     "lift": 0.01,
+     "uv": 2.0,
+     "noroad": true
+    }
+   ],
+   "objs": [
+    {
+     "t": "namesign",
+     "p": [
+      3.5,
+      -26
+     ],
+     "h": 0,
+     "a": 2.6
+    }
+   ]
+  },
+  {
+   "id": "goldbrunnenplatz",
+   "center": [
+    -187,
+    -1545
+   ],
+   "src": "research/squares2/goldbrunnenplatz.md; Fotos #5 #16 #17 (Haltestellendach, Stationsuhr), OGD Haltestellen",
+   "objs": [
+    {
+     "t": "clockpost",
+     "p": [
+      -2.5,
+      11.5
+     ],
+     "h": 0,
+     "a": 3.2
+    }
+   ]
+  },
+  {
+   "id": "bhf_wiedikon_platz",
+   "center": [
+    555,
+    -1385
+   ],
+   "src": "research/squares2/bhf_wiedikon_platz.md; Foto #10 (Brunnen mit liegender Figur, Rundbecken im Park), #7 #8 (Stationsuhr); OGD Brunnen",
+   "convert": [
+    {
+     "layer": "fountains",
+     "within": {
+      "circle": [
+       -33,
+       -22,
+       4
+      ]
+     },
+     "t": "rfount",
+     "a": 1.4,
+     "b": 0.6,
+     "col": "granite"
+    }
+   ],
+   "objs": []
+  },
+  {
+   "id": "stauffacher_knoten",
+   "center": [
+    951,
+    -1190
+   ],
+   "src": "research/squares2/stauffacher_knoten.md; Fotos #1 #6 #9 (durchgehendes Stahl-Glas-Vordach vor den Ladenzeilen Stauffacherstrasse Nord), #24 (gelbe Noppenplatten Perronkante)",
+   "slabs": [
+    {
+     "poly": [
+      [
+       21,
+       20
+      ],
+      [
+       47,
+       30
+      ],
+      [
+       47,
+       27
+      ],
+      [
+       21,
+       17
+      ]
+     ],
+     "h": 3.4,
+     "t": 0.2,
+     "col": "#8a9095"
+    }
+   ],
+   "objs": []
+  },
+  {
+   "id": "bhf_altstetten_platz",
+   "center": [
+    -2100,
+    790
+   ],
+   "src": "research/squares2/bhf_altstetten_platz.md; Fotos #6 #7 (Taxistand, Veloabstellanlage in Reihen an der Zufahrt), #3 #4 (Arkade Bahnhofplatz)",
+   "objs": [
+    {
+     "t": "buegel",
+     "p": [
+      -36,
+      -17
+     ],
+     "h": 115,
+     "a": 14
+    },
+    {
+     "t": "buegel",
+     "p": [
+      -30,
+      -23
+     ],
+     "h": 115,
+     "a": 10
+    },
+    {
+     "t": "taxisign",
+     "p": [
+      -26,
+      -27
+     ],
+     "h": 0,
+     "a": 2.6
+    },
+    {
+     "t": "taxisign",
+     "p": [
+      -40,
+      -12
+     ],
+     "h": 0,
+     "a": 2.6
+    }
+   ]
+  }
+ ]
+}

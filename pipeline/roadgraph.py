@@ -99,6 +99,8 @@ def scc_edges(es):
 
 def main():
     nodes, els = osm()
+    S = streets.parse(nodes, els)
+    CAL = {w['id']: (w['w'], w.get('off', 0.0)) for w in S['ways']}  # carriageway width / centre offset measured against the AV (carriageway.py)
     x0, y0, x1, y1 = AREA
     x0, y0, x1, y1 = x0 - MARGIN, y0 - MARGIN, x1 + MARGIN, y1 + MARGIN
     ways = []
@@ -139,10 +141,12 @@ def main():
         cyc_way = hw == "cycleway"
         cur_wid = wid
         w = _num(t.get("width"), _num(t.get("lanes"), 0) * 3.2 or WIDTH.get(hw, 3)) if not cyc_way else 2.5
+        w, coff = CAL.get(wid, (w, 0.0)) if not cyc_way else (w, 0.0)  # coff: carriageway centre, + = left of the digitising direction
         oneway = t.get("oneway") in ("yes", "1", "true") or t.get("junction") == "roundabout"
         rev = t.get("oneway") == "-1"
         if rev:
             ns, oneway = ns[::-1], True
+            coff = -coff  # digitising direction flipped
         side = lambda s: (t.get(f"cycleway:{s}") or t.get("cycleway:both") or t.get("cycleway") or "")  # noqa: E731
         lane = side("right") in ("lane", "track", "shared_busway") or (not oneway and side("left") in ("lane", "track"))
         # split at junctions
@@ -171,17 +175,17 @@ def main():
                 v = int(t["maxspeed"])
             v = min(max(v, 20), 50)
             if oneway:
-                add(cars, a, b, fwd, v, w, 1)
+                add(cars, a, b, offset(fwd, -coff) if coff else fwd, v, w, 1)
             else:
-                add(cars, a, b, offset(fwd, w / 4), v, w, 0)
-                add(cars, b, a, offset(bwd, w / 4), v, w, 0)
+                add(cars, a, b, offset(fwd, w / 4 - coff), v, w, 0)
+                add(cars, b, a, offset(bwd, w / 4 + coff), v, w, 0)
             # bikes: right edge on roads with lane/track or calm streets; skip busy roads without lane
             if hw in ("primary", "secondary", "primary_link", "secondary_link") and not lane:
                 continue
             od = max(w / 2 - 0.8, 0.5) if oneway else max(w / 2 - 0.8, 0.5)
-            add(bikes, a, b, offset(fwd, od), 15, w, oneway)
+            add(bikes, a, b, offset(fwd, od - coff), 15, w, oneway)
             if not oneway:
-                add(bikes, b, a, offset(bwd, od), 15, w, 0)
+                add(bikes, b, a, offset(bwd, od + coff), 15, w, 0)
 
     # construction sites: no lane through trenches, barriers or fences (sites.blocked_zones); lanes that end in a
     # blocked edge become dead ends and are pruned too
@@ -211,7 +215,6 @@ def main():
     # no cars in pedestrian zones (OGD Fussgaengerzone), on squares/pedestrian areas (OSM) or along a tram track that
     # is not a road; then keep only the largest strongly connected part, so no lane leads into a dead end
     import streets_rules
-    S = streets.parse(nodes, els)
     banned = [g for g in (streets_rules.rules().zones.get("fuss"), S.get("plaza")) if g is not None and not g.is_empty]
     ban = shapely.union_all(banned).buffer(-0.5)
     shapely.prepare(ban)

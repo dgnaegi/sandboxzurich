@@ -1,0 +1,294 @@
+{
+ "landmarks": [
+  {
+   "name": "Rothaus Langstrasse 119",
+   "model": "/models/landmarks/langB_rothaus.glb",
+   "x": 814.1,
+   "y": -526.9,
+   "z": -2.72,
+   "heading": 0,
+   "hide": [
+    [
+     813.8,
+     -526.8
+    ]
+   ]
+  },
+  {
+   "name": "Bar Caffe Rossi Sihlhallenstrasse",
+   "model": "/models/landmarks/langB_rossi.glb",
+   "x": 793.5,
+   "y": -497.2,
+   "z": -2.84,
+   "heading": 0,
+   "hide": [
+    [
+     793.6,
+     -494.9
+    ]
+   ]
+  },
+  {
+   "name": "Lambada Bar Club Disco Langstrasse 97",
+   "model": "/models/landmarks/langB_lambada.glb",
+   "x": 775.4,
+   "y": -622.5,
+   "z": -2.07,
+   "heading": 0,
+   "hide": [
+    [
+     775.6,
+     -618.2
+    ],
+    [
+     774.2,
+     -630.2
+    ]
+   ]
+  },
+  {
+   "name": "Diamond Bagatelle Langstrasse 90",
+   "model": "/models/landmarks/langB_diamond.glb",
+   "x": 766.1,
+   "y": -646.5,
+   "z": -2.0,
+   "heading": 0,
+   "hide": [
+    [
+     770.9,
+     -640.6
+    ],
+    [
+     763.1,
+     -649.8
+    ]
+   ]
+  },
+  {
+   "name": "Fat Tony Langstrasse 135",
+   "model": "/models/landmarks/langB_fattony.glb",
+   "x": 844.1,
+   "y": -441.5,
+   "z": -2.92,
+   "heading": 0,
+   "hide": [
+    [
+     843.8,
+     -441.8
+    ]
+   ]
+  },
+  {
+   "name": "Klaus Bar Langstrasse 112",
+   "model": "/models/landmarks/langB_klaus.glb",
+   "x": 828.8,
+   "y": -570.1,
+   "z": -2.36,
+   "heading": 0,
+   "hide": [
+    [
+     829.1,
+     -570.6
+    ]
+   ]
+  },
+  {
+   "name": "Eventhaus Langstrasse Hungry Duck",
+   "model": "/models/landmarks/langB_hungryduck.glb",
+   "x": 780.3,
+   "y": -695.3,
+   "z": -2.79,
+   "heading": 0,
+   "hide": [
+    [
+     783.9,
+     -694.1
+    ]
+   ]
+  },
+  {
+   "name": "Blackout Dienerstrasse 45",
+   "model": "/models/landmarks/langB_blackout.glb",
+   "x": 765.3,
+   "y": -610.9,
+   "z": -2.01,
+   "heading": 0,
+   "hide": [
+    [
+     764.6,
+     -612.2
+    ]
+   ]
+  },
+  {
+   "name": "Pizzeria Milano Militaerstrasse 109",
+   "model": "/models/landmarks/langB_milano.glb",
+   "x": 891.2,
+   "y": -536.7,
+   "z": -2.65,
+   "heading": 0,
+   "hide": [
+    [
+     891.3,
+     -536.9
+    ]
+   ]
+  },
+  {
+   "name": "Sudaka Langstrasse",
+   "model": "/models/landmarks/langB_sudaka.glb",
+   "x": 885.1,
+   "y": -498.2,
+   "z": -2.66,
+   "heading": 0,
+   "hide": [
+    [
+     885.1,
+     -498.6
+    ],
+    [
+     892.2,
+     -495.3
+    ]
+   ]
+  },
+  {
+   "name": "Gotthard Langstrasse 63",
+   "model": "/models/landmarks/langB_gotthard.glb",
+   "x": 699.6,
+   "y": -790.9,
+   "z": -1.31,
+   "heading": 0,
+   "hide": [
+    [
+     701.3,
+     -791.3
+    ]
+   ]
+  },
+  {
+   "name": "Lounge Langstrasse 104",
+   "model": "/models/landmarks/langB_l104.glb",
+   "x": 815.4,
+   "y": -597.4,
+   "z": -2.15,
+   "heading": 0,
+   "hide": [
+    [
+     816.9,
+     -595.8
+    ]
+   ]
+  },
+  {
+   "name": "Dienerstrasse 40 Eckhaus rot",
+   "model": "/models/landmarks/langB_dien40.glb",
+   "x": 808.6,
+   "y": -611.9,
+   "z": -2.09,
+   "heading": 0,
+   "hide": [
+    [
+     808.8,
+     -612.3
+    ]
+   ]
+  },
+  {
+   "name": "Negresco Dienerstrasse 27",
+   "model": "/models/landmarks/langB_negresco.glb",
+   "x": 848.2,
+   "y": -669.1,
+   "z": -1.79,
+   "heading": 0,
+   "hide": [
+    [
+     848.2,
+     -669.1
+    ]
+   ]
+  },
+  {
+   "name": "Gambrinus Langstrasse 103",
+   "model": "/models/landmarks/langB_gambrinus.glb",
+   "x": 788.0,
+   "y": -591.4,
+   "z": -2.45,
+   "heading": 0,
+   "hide": [
+    [
+     790.5,
+     -589.8
+    ],
+    [
+     781.5,
+     -594.8
+    ],
+    [
+     777.5,
+     -592.6
+    ]
+   ]
+  },
+  {
+   "name": "Langstrasse 20 Granit-Eckhaus",
+   "model": "/models/landmarks/langB_l20.glb",
+   "x": 648.1,
+   "y": -981.2,
+   "z": -0.08,
+   "heading": 0,
+   "hide": [
+    [
+     647.6,
+     -981.5
+    ]
+   ]
+  },
+  {
+   "name": "Zwinglistrasse 37 blaues Eckhaus",
+   "model": "/models/landmarks/langB_zw37.glb",
+   "x": 856.0,
+   "y": -590.6,
+   "z": -2.33,
+   "heading": 0,
+   "hide": [
+    [
+     857.0,
+     -591.2
+    ],
+    [
+     851.4,
+     -589.1
+    ]
+   ]
+  },
+  {
+   "name": "Lugano Bar Langstrasse 108",
+   "model": "/models/landmarks/langB_lugano.glb",
+   "x": 819.4,
+   "y": -582.6,
+   "z": -2.22,
+   "heading": 0,
+   "hide": [
+    [
+     819.4,
+     -582.6
+    ]
+   ]
+  },
+  {
+   "name": "Strauss Bar Langstrasse 132",
+   "model": "/models/landmarks/langB_strauss.glb",
+   "x": 858.2,
+   "y": -478.3,
+   "z": -2.79,
+   "heading": 0,
+   "hide": [
+    [
+     857.7,
+     -479.1
+    ]
+   ]
+  }
+ ]
+}

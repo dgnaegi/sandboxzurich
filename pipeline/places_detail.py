@@ -158,7 +158,7 @@ def ground(gm, tb, H, roads=None):
     n = 0
     for pl in load():
         c = pl["center"]
-        if not box(c[0] - 150, c[1] - 150, c[0] + 150, c[1] + 150).intersects(tb):
+        if not box(c[0] - pl.get("reach", 150), c[1] - pl.get("reach", 150), c[0] + pl.get("reach", 150), c[1] + pl.get("reach", 150)).intersects(tb):
             continue
         og = pl.get("ortho_ground")
         if og:
@@ -172,6 +172,10 @@ def ground(gm, tb, H, roads=None):
                 n += 1
         for i, g in enumerate(pl.get("ground", [])):
             geom = _shape(g, c, roads).intersection(tb)
+            for mn in g.get("minus", []):  # squares2: cut out buildings / pockets ({"osm": way id, "buf": m} or any shape)
+                geom = geom.difference(_shape(mn, c, roads))
+            if g.get("noroad") and roads is not None and not roads.is_empty:  # squares2: keep carriageways free
+                geom = geom.difference(roads.buffer(0.3))
             if geom.is_empty:
                 continue
             layer, col = MAT[g["mat"]]
@@ -188,7 +192,7 @@ FOOT = {  # collision footprint (w along x, d along y) of solid object types
     "container": lambda o: (o.get("a") or 6, o.get("b") or 2.4), "cabinet": lambda o: (o.get("a") or 1.2, o.get("b") or 0.6),
     "sculpt": lambda o: (1.2, 1.2), "planter": lambda o: (o.get("a") or 3, o.get("b") or 1), "pingpong": lambda o: (2.8, 1.6),
     "pavilion": lambda o: (0.5, 0.5), "bin": lambda o: (0.45, 0.45), "pole": lambda o: (0.2, 0.2), "flag": lambda o: (0.2, 0.2),
-    "arch": lambda o: (0.3, 0.3), "lamp": lambda o: (0.3, 0.3), "dfount": lambda o: (0.6, 0.6),
+    "arch": lambda o: (0.3, 0.3), "grill": lambda o: (0.9, 0.9), "ysculpt": lambda o: (0.8, 0.8), "pyramid": lambda o: (o.get("a") or 4,) * 2, "lamp": lambda o: (0.3, 0.3), "dfount": lambda o: (0.6, 0.6),
 }
 
 

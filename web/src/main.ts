@@ -3,10 +3,12 @@ import { createRenderer } from './engine/renderer';
 import { createPost } from './engine/post';
 import { Quality } from './engine/quality';
 import { Daytime, startMinutes } from './engine/daytime';
+import { Skyline } from './engine/skyline';
+import { BlobShadows } from './world/blobshadow';
 import { Tiles } from './engine/tiles';
 import { initKeyboardMouse } from './input/keyboard';
 import { initTouch } from './input/touch';
-import { consumeUse } from './input/actions';
+import { consumeUse, actions as sbxActionsHook } from './input/actions';
 import { Player } from './player/player';
 import { Pedestrians } from './world/pedestrians';
 import { HumanLib } from './world/humans';
@@ -15,6 +17,7 @@ import { treeField } from './world/tree_field';
 import { CAR_GEO, carMaterial, carPick, loadCars } from './world/cars';
 import { Scenes } from './world/scenes';
 import { Lawns } from './world/lawns';
+import { setYardsMobile } from './world/yards';
 import { loadRailZone } from './world/railzone';
 import { Events } from './world/events';
 import { GameClock, bindClockPanel } from './ui/clock';
@@ -69,6 +72,7 @@ async function main() {
   const L = (p: Promise<unknown>) => loading.track(p);
   const map = new CityMap();
   await Promise.all([L(loadRailZone()), L(loadTrees('/models/trees', mobile ? 1 : 2)), L(loadCars()), L(loadBikes()), L(loadFurniture())]);
+  setYardsMobile(mobile); // YARDS
   treeField.init(renderer, mobile, !mobile);
   const [tiles, humans] = await Promise.all([
     loading.track(Tiles.load(scene, !mobile, Math.min(8, renderer.capabilities.getMaxAnisotropy()))),
@@ -81,11 +85,14 @@ async function main() {
   tiles.bikes = bikes;
   tiles.treeRadius = mobile ? 110 : 170;
   tiles.bikeRadius = mobile ? 110 : 150;
+  tiles.roofRadius = mobile ? 150 : 250;
   const crowd = new Pedestrians(humans, mobile ? 16 : 36, ground);
   tiles.onPaths = (p) => crowd.addPaths(p);
   tiles.onSchools = (r) => crowd.schools.push(...r);
   tiles.onSpots = (m) => crowd.addSpots(m);
   scene.add(crowd.group);
+  const skyline = new Skyline(scene, mobile);
+  skyline.load().catch(() => {});
   const lawns = new Lawns(humans, mobile ? 8 : 20);
   tiles.onLawn = (r) => lawns.add(r);
   const fountainEgg = { id: 'brunnen', title: 'Brunnenwasser', text: 'Über 1200 Brunnen, fast alle mit Trinkwasser. Prost, Zürich!' };
@@ -146,6 +153,7 @@ async function main() {
   scene.add(events.group);
   traffic.maxCars = mobile ? 20 : 45;
   traffic.maxBikes = mobile ? 8 : 20;
+  const blobs = new BlobShadows(scene, { crowd: crowd.group, cars: () => traffic.positions(), player: player.mesh, ground, sunDir: R.sunDir });
   scene.add(scenes.group);
   scenes.visRadius = crowd.visRadius = mobile ? 70 : 120;
   for (const r of pendingFountains) scenes.addEggPoints(fountainEgg, r);
@@ -363,6 +371,8 @@ async function main() {
     daytime.set(clk.min);
     daytime.follow(player.mesh.position);
     followSun(player.mesh.position);
+    skyline.update(camera.position);
+    blobs?.update(!renderer.shadowMap.enabled, daytime.sunUp, camera.position);
     tiles.cull(player.x, player.y, quality.detailRadius);
     if (stops && (frames & 15) === 0) for (const o of stops.children) o.visible = Math.hypot(o.position.x - player.x, -o.position.z - player.y) < quality.detailRadius; // shelters: 5 calls each
     if (acc - lastStream > 1) { lastStream = acc; void tiles.update(player.x, player.y); }
@@ -389,7 +399,7 @@ async function main() {
       lastStats = acc;
     }
   });
-  Object.assign(window, { sbxReady: true, sbxFindSpot: (x: number, y: number) => findSpot({ tiles, landmarks: landmarks3d }, x, y), sbxPlayer: player, sbxScene: scene, sbxState: state, sbxBikes: bikes, sbxCarUse: carUse, sbxParked: parkedCars, sbxTraffic: traffic, sbxEvents: events, sbxTransit: transit, sbxRail: rail, sbxRenderer: renderer, sbxCamera: camera, sbxTiles: tiles, sbxDaytime: daytime, sbxMap: map, sbxCrowd: crowd }); // hooks for Playwright tests
+  Object.assign(window, { sbxReady: true, sbxActions: sbxActionsHook, sbxFindSpot: (x: number, y: number) => findSpot({ tiles, landmarks: landmarks3d }, x, y), sbxPlayer: player, sbxScene: scene, sbxState: state, sbxBikes: bikes, sbxCarUse: carUse, sbxParked: parkedCars, sbxTraffic: traffic, sbxEvents: events, sbxTransit: transit, sbxRail: rail, sbxRenderer: renderer, sbxCamera: camera, sbxTiles: tiles, sbxDaytime: daytime, sbxMap: map, sbxCrowd: crowd }); // hooks for Playwright tests
 }
 
 if (!hasWebGL2()) loading.fail('Dein Browser unterstützt WebGL 2 nicht oder hat es abgeschaltet. Bitte aktualisiere den Browser (Chrome, Firefox, Safari ab iOS 15) oder aktiviere die Hardwarebeschleunigung.', false);

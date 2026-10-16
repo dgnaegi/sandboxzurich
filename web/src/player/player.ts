@@ -98,8 +98,11 @@ export class Player {
       this.speed = r.speed;
       if (Math.abs(this.speed) > 0.3) this.heading += r.turn;
       const nx = this.x + Math.sin(this.heading) * this.speed * dt, ny = this.y + Math.cos(this.heading) * this.speed * dt;
-      [this.x, this.y] = this.tiles.resolveSolid(nx, ny, 0.45);
-      if (Math.hypot(this.x - nx, this.y - ny) > 0.02) { // bumped into something: hard hit = fall off
+      [this.x, this.y] = this.tiles.resolveSolid(nx, ny, 0.45, this.z);
+      const hitSolid = Math.hypot(this.x - nx, this.y - ny) > 0.02;
+      const [rx, ry] = this.tiles.bridges.railPush(this.x, this.y, this.z, 0.45);   // deck railing: slides along it, no fall
+      if (rx !== this.x || ry !== this.y) { this.x = rx; this.y = ry; this.speed *= 0.97; }
+      if (hitSolid) { // bumped into something: hard hit = fall off
         if (this.speed > 5.5) { const sp = this.speed; this.fallT = 1.8; this.onBikeCrash?.(sp); this.speed = 0; }
         else this.speed *= 0.6;
       }
@@ -124,7 +127,8 @@ export class Player {
       const k = Math.min(1, dt * (tx || ty ? ACCEL : DECEL));
       this.vx += (tx - this.vx) * k; this.vy += (ty - this.vy) * k;
       if (Math.hypot(this.vx, this.vy) > 0.01) {
-        [this.x, this.y] = this.tiles.resolveSolid(this.x + this.vx * dt, this.y + this.vy * dt, RADIUS);
+        [this.x, this.y] = this.tiles.resolveSolid(this.x + this.vx * dt, this.y + this.vy * dt, RADIUS, this.z);
+        [this.x, this.y] = this.tiles.bridges.railPush(this.x, this.y, this.z, RADIUS);
         const mvx = dt > 0 ? (this.x - ox) / dt : this.vx, mvy = dt > 0 ? (this.y - oy) / dt : this.vy; // keep only what walls allowed
         this.vx = mvx; this.vy = mvy;
       }
@@ -166,7 +170,9 @@ export class Player {
       target.z + Math.cos(this.yaw) * cp * this.camDist);
     const [cx, cy] = col.resolve(camera.position.x, -camera.position.z, 0.55); // camera sphere vs footprints: never inside, >= 0.55 m from walls
     camera.position.x = cx; camera.position.z = -cy;
-    camera.position.y = Math.max(camera.position.y, this.tiles.ground(camera.position.x, -camera.position.z) + 0.4);
+    // hb3: below the terrain (underground deck) the camera stays between that floor and the ceiling instead of being lifted above the terrain
+    if (this.z < this.tiles.ground(this.x, this.y) - 1.0) camera.position.y = Math.min(Math.max(camera.position.y, this.z + 0.7), this.z + 2.9);
+    else camera.position.y = Math.max(camera.position.y, this.tiles.ground(camera.position.x, -camera.position.z) + 0.4);
     camera.lookAt(target);
   }
 }

@@ -1,0 +1,3873 @@
+{
+"ls007R": {
+"name": "Langstrasse s=7R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 951.5984840062818,
+"y": -257.82625467084404,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls007R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "084907df-2c90-46bf-b41b-d00731834aff",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/084907df-2c90-46bf-b41b-d00731834aff",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 10.1,
+"bearing": 52,
+"angle_diff": 16
+},
+{
+"file": "data/raw/photos/langstrasse/ls007R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "39da132a-267c-4ac6-b519-36d9488ee5e0",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/39da132a-267c-4ac6-b519-36d9488ee5e0",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 16.3,
+"bearing": 20,
+"angle_diff": 6
+}
+]
+},
+"ls007L": {
+"name": "Langstrasse s=7L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 934.4880029153546,
+"y": -249.56602242005184,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls007L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "a7480a5d-b757-4c86-a142-f515cbea91fe",
+"page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/a7480a5d-b757-4c86-a142-f515cbea91fe",
+"date": "2025-04-28",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 11.3,
+"bearing": 222,
+"angle_diff": 9
+},
+{
+"file": "data/raw/photos/langstrasse/ls007L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "ff6484ad-1d79-4502-a77d-6e1ee6b13ff5",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/ff6484ad-1d79-4502-a77d-6e1ee6b13ff5",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 13.6,
+"bearing": 192,
+"angle_diff": 14
+}
+]
+},
+"ls000R": {
+"name": "Langstrasse s=0R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 948.5552405454636,
+"y": -264.1301161253961,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls000R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "39da132a-267c-4ac6-b519-36d9488ee5e0",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/39da132a-267c-4ac6-b519-36d9488ee5e0",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 9.4,
+"bearing": 16,
+"angle_diff": 10
+},
+{
+"file": "data/raw/photos/langstrasse/ls000R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "b045587e-a28c-4dd5-8f0c-12d5d31168a5",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/b045587e-a28c-4dd5-8f0c-12d5d31168a5",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.5,
+"bearing": 39,
+"angle_diff": 9
+}
+]
+},
+"ls014L": {
+"name": "Langstrasse s=14L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 937.5312463761729,
+"y": -243.2621609654998,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls014L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "a62c79ca-7cf9-46dd-91d6-e22abf0d018c",
+"page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/a62c79ca-7cf9-46dd-91d6-e22abf0d018c",
+"date": "2025-04-28",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 11.2,
+"bearing": 220,
+"angle_diff": 8
+},
+{
+"file": "data/raw/photos/langstrasse/ls014L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "b5906a3d-a33c-4e2c-812f-ffed4de7cb15",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/b5906a3d-a33c-4e2c-812f-ffed4de7cb15",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 13.3,
+"bearing": 188,
+"angle_diff": 18
+}
+]
+},
+"ls000L": {
+"name": "Langstrasse s=0L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 931.4447594545364,
+"y": -255.8698838746039,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls000L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "e7509b3f-9003-4e20-9f27-53839a91ae0b",
+"page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/e7509b3f-9003-4e20-9f27-53839a91ae0b",
+"date": "2025-04-28",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 10.1,
+"bearing": 226,
+"angle_diff": 13
+},
+{
+"file": "data/raw/photos/langstrasse/ls000L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "22903330-47d3-475d-ae04-ac6977c4cc70",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/22903330-47d3-475d-ae04-ac6977c4cc70",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 8.1,
+"bearing": 181,
+"angle_diff": 7
+}
+]
+},
+"ls014R": {
+"name": "Langstrasse s=14R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 954.6417274671,
+"y": -251.52239321629202,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls014R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "084907df-2c90-46bf-b41b-d00731834aff",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/084907df-2c90-46bf-b41b-d00731834aff",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 16.7,
+"bearing": 42,
+"angle_diff": 6
+},
+{
+"file": "data/raw/photos/langstrasse/ls014R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "93222ace-ad6a-4dfe-b718-8a10d433f28e",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/93222ace-ad6a-4dfe-b718-8a10d433f28e",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 9.1,
+"bearing": 56,
+"angle_diff": 22
+}
+]
+},
+"ls021R": {
+"name": "Langstrasse s=21R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 957.6849709279182,
+"y": -245.21853176173997,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls021R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "5ba07447-7f99-4f28-a9d0-03ca2684ebab",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/5ba07447-7f99-4f28-a9d0-03ca2684ebab",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 4.8,
+"bearing": 270,
+"angle_diff": 0
+},
+{
+"file": "data/raw/photos/langstrasse/ls021R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "93222ace-ad6a-4dfe-b718-8a10d433f28e",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/93222ace-ad6a-4dfe-b718-8a10d433f28e",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.6,
+"bearing": 43,
+"angle_diff": 9
+}
+]
+},
+"ls028L": {
+"name": "Langstrasse s=28L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 943.6177332978098,
+"y": -230.6544380563948,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls028L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "3550f0f4-358f-45c4-b597-f371b129ad18",
+"page": "https://api.panoramax.xyz/api/collections/fdf6d713-9ebd-489c-a97f-85a76aea926e/items/3550f0f4-358f-45c4-b597-f371b129ad18",
+"date": "2024-06-12",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 9.4,
+"bearing": 119,
+"angle_diff": 4
+},
+{
+"file": "data/raw/photos/langstrasse/ls028L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "9720d96b-9c58-457a-952a-5b9e8f3d486a",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/9720d96b-9c58-457a-952a-5b9e8f3d486a",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 12.1,
+"bearing": 241,
+"angle_diff": 1
+}
+]
+},
+"ls035R": {
+"name": "Langstrasse s=35R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 963.5941664909088,
+"y": -233.45521139824507,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls035R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "b2c89503-4625-4975-869d-b0c71ef0e454",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/b2c89503-4625-4975-869d-b0c71ef0e454",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 10.0,
+"bearing": 173,
+"angle_diff": 7
+},
+{
+"file": "data/raw/photos/langstrasse/ls035R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "d044a72c-ca6b-4b33-b289-da1c4369db3a",
+"page": "https://api.panoramax.xyz/api/collections/b828b75a-6476-42a3-ba2b-16148ac3e489/items/d044a72c-ca6b-4b33-b289-da1c4369db3a",
+"date": "2024-06-10",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 9.9,
+"bearing": 279,
+"angle_diff": 5
+}
+]
+},
+"ls035L": {
+"name": "Langstrasse s=35L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 947.267601687125,
+"y": -223.73701806265814,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls035L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "9ee852e6-f44f-4457-898c-cd554940cfbe",
+"page": "https://api.panoramax.xyz/api/collections/b828b75a-6476-42a3-ba2b-16148ac3e489/items/9ee852e6-f44f-4457-898c-cd554940cfbe",
+"date": "2024-06-10",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 12.8,
+"bearing": 295,
+"angle_diff": 3
+},
+{
+"file": "data/raw/photos/langstrasse/ls035L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "1d21dc63-7f66-4830-8989-7e7be9f45881",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/1d21dc63-7f66-4830-8989-7e7be9f45881",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 11.1,
+"bearing": 254,
+"angle_diff": 11
+}
+]
+},
+"ls028R": {
+"name": "Langstrasse s=28R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 960.728214388736,
+"y": -238.9146703071888,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls028R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "93e99ea6-dc84-4bbe-bb1a-6722b9008116",
+"page": "https://api.panoramax.xyz/api/collections/3374c315-91aa-4acb-992c-c378c3435cd9/items/93e99ea6-dc84-4bbe-bb1a-6722b9008116",
+"date": "2024-06-07",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 8.7,
+"bearing": 103,
+"angle_diff": 3
+},
+{
+"file": "data/raw/photos/langstrasse/ls028R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "ea77c8a5-4b6a-4742-9ff3-236dba64ed80",
+"page": "https://api.panoramax.xyz/api/collections/3374c315-91aa-4acb-992c-c378c3435cd9/items/ea77c8a5-4b6a-4742-9ff3-236dba64ed80",
+"date": "2024-06-07",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 13.0,
+"bearing": 107,
+"angle_diff": 0
+}
+]
+},
+"ls042L": {
+"name": "Langstrasse s=42L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 950.8479887054982,
+"y": -217.72196787179112,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls042L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "b1c1ebb0-da70-47aa-a0f9-1a89814d1dd9",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/b1c1ebb0-da70-47aa-a0f9-1a89814d1dd9",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 11.2,
+"bearing": 269,
+"angle_diff": 26
+},
+{
+"file": "data/raw/photos/langstrasse/ls042L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "472692d0-51b4-4ce3-bb61-2e1f949907ec",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/472692d0-51b4-4ce3-bb61-2e1f949907ec",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 16.7,
+"bearing": 248,
+"angle_diff": 22
+}
+]
+},
+"ls021L": {
+"name": "Langstrasse s=21L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 940.5744898369911,
+"y": -236.95829951094774,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls021L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "da114660-aaa1-4f61-95dd-068784d5509b",
+"page": "https://api.panoramax.xyz/api/collections/a18d413e-6c82-43d8-905f-ede8faa015a7/items/da114660-aaa1-4f61-95dd-068784d5509b",
+"date": "2025-04-28",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 8.7,
+"bearing": 216,
+"angle_diff": 18
+},
+{
+"file": "data/raw/photos/langstrasse/ls021L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "b229c85e-8711-4379-89d1-0f7d63658aeb",
+"page": "https://api.panoramax.xyz/api/collections/b828b75a-6476-42a3-ba2b-16148ac3e489/items/b229c85e-8711-4379-89d1-0f7d63658aeb",
+"date": "2024-06-10",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 12.8,
+"bearing": 165,
+"angle_diff": 19
+}
+]
+},
+"ls042R": {
+"name": "Langstrasse s=42R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 967.1745535092832,
+"y": -227.44016120737624,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls042R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "8ee2d7c2-e42e-4d9e-9814-cfd426d06b9f",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/8ee2d7c2-e42e-4d9e-9814-cfd426d06b9f",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 7.1,
+"bearing": 97,
+"angle_diff": 7
+},
+{
+"file": "data/raw/photos/langstrasse/ls042R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "316d257f-c1a4-449f-8efa-3861e1cb02fe",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/316d257f-c1a4-449f-8efa-3861e1cb02fe",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.0,
+"bearing": 59,
+"angle_diff": 4
+}
+]
+},
+"ls049R": {
+"name": "Langstrasse s=49R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 970.7549405276565,
+"y": -221.42511101650908,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls049R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "31ae4e2b-db33-4b21-b418-27238494208a",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/31ae4e2b-db33-4b21-b418-27238494208a",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 8.6,
+"bearing": 97,
+"angle_diff": 7
+},
+{
+"file": "data/raw/photos/langstrasse/ls049R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "4fde8b43-515c-469e-a112-448d96da22d5",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/4fde8b43-515c-469e-a112-448d96da22d5",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 16.2,
+"bearing": 58,
+"angle_diff": 9
+}
+]
+},
+"ls049L": {
+"name": "Langstrasse s=49L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 954.4283757238724,
+"y": -211.70691768092237,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls049L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "472692d0-51b4-4ce3-bb61-2e1f949907ec",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/472692d0-51b4-4ce3-bb61-2e1f949907ec",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 11.8,
+"bearing": 268,
+"angle_diff": 2
+},
+{
+"file": "data/raw/photos/langstrasse/ls049L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "1724b589-bdaa-4ac5-9641-5737930a4b08",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/1724b589-bdaa-4ac5-9641-5737930a4b08",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 19.0,
+"bearing": 343,
+"angle_diff": 17
+}
+]
+},
+"ls056L": {
+"name": "Langstrasse s=56L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 958.0087627422462,
+"y": -205.69186749005442,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls056L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "25abcb5d-6973-4483-a6eb-8c7594d81535",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/25abcb5d-6973-4483-a6eb-8c7594d81535",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 8.7,
+"bearing": 94,
+"angle_diff": 2
+},
+{
+"file": "data/raw/photos/langstrasse/ls056L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "bd119445-8dc8-43d7-b71f-73e4652d5b56",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/bd119445-8dc8-43d7-b71f-73e4652d5b56",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 12.3,
+"bearing": 267,
+"angle_diff": 3
+}
+]
+},
+"ls063L": {
+"name": "Langstrasse s=63L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 961.5891497606195,
+"y": -199.67681729918726,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls063L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "ea8f9640-4e5f-4cdc-b3be-47928c9e7131",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/ea8f9640-4e5f-4cdc-b3be-47928c9e7131",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 13.4,
+"bearing": 66,
+"angle_diff": 24
+},
+{
+"file": "data/raw/photos/langstrasse/ls063L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "4ffbef54-6846-41f0-8e55-76e13f608111",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/4ffbef54-6846-41f0-8e55-76e13f608111",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 20.9,
+"bearing": 354,
+"angle_diff": 6
+}
+]
+},
+"ls056R": {
+"name": "Langstrasse s=56R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 974.3353275460303,
+"y": -215.41006082564112,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls056R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "f6e39b31-7c9f-44bd-a103-eed3afb7ac06",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/f6e39b31-7c9f-44bd-a103-eed3afb7ac06",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 11.1,
+"bearing": 358,
+"angle_diff": 5
+},
+{
+"file": "data/raw/photos/langstrasse/ls056R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "8cabc08f-22ad-4bcb-81df-1ed8a3158e43",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/8cabc08f-22ad-4bcb-81df-1ed8a3158e43",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 10.3,
+"bearing": 80,
+"angle_diff": 10
+}
+]
+},
+"ls063R": {
+"name": "Langstrasse s=63R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 977.9157145644045,
+"y": -209.39501063477238,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls063R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "6a916c77-cf94-49e0-b0b5-7927a9a4f75f",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/6a916c77-cf94-49e0-b0b5-7927a9a4f75f",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 14.3,
+"bearing": 167,
+"angle_diff": 13
+},
+{
+"file": "data/raw/photos/langstrasse/ls063R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "ea201067-60f4-4c5b-b33a-49c1ae4e77f0",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/ea201067-60f4-4c5b-b33a-49c1ae4e77f0",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 12.1,
+"bearing": 153,
+"angle_diff": 20
+}
+]
+},
+"ls077L": {
+"name": "Langstrasse s=77L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 968.7499237973676,
+"y": -187.64671691745045,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls077L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "1bc140b7-9af8-4980-9993-9d480aee5913",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/1bc140b7-9af8-4980-9993-9d480aee5913",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 17.3,
+"bearing": 356,
+"angle_diff": 4
+},
+{
+"file": "data/raw/photos/langstrasse/ls077L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "b09526b3-52d8-4b80-b9fb-1d16fc1bce92",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/b09526b3-52d8-4b80-b9fb-1d16fc1bce92",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 12.6,
+"bearing": 250,
+"angle_diff": 25
+}
+]
+},
+"ls077R": {
+"name": "Langstrasse s=77R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 985.0764886011515,
+"y": -197.36491025303738,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls077R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "97a30d3c-ae62-4312-9acf-03d618794f79",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/97a30d3c-ae62-4312-9acf-03d618794f79",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.4,
+"bearing": 59,
+"angle_diff": 14
+},
+{
+"file": "data/raw/photos/langstrasse/ls077R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "cb379742-6f85-4c24-a8b4-bbbc6741c44f",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/cb379742-6f85-4c24-a8b4-bbbc6741c44f",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.4,
+"bearing": 74,
+"angle_diff": 16
+}
+]
+},
+"ls070L": {
+"name": "Langstrasse s=70L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 965.1695367789938,
+"y": -193.6617671083184,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls070L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "1bc140b7-9af8-4980-9993-9d480aee5913",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/1bc140b7-9af8-4980-9993-9d480aee5913",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 12.4,
+"bearing": 336,
+"angle_diff": 24
+},
+{
+"file": "data/raw/photos/langstrasse/ls070L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "b09526b3-52d8-4b80-b9fb-1d16fc1bce92",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/b09526b3-52d8-4b80-b9fb-1d16fc1bce92",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 18.6,
+"bearing": 236,
+"angle_diff": 11
+}
+]
+},
+"ls070R": {
+"name": "Langstrasse s=70R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 981.4961015827777,
+"y": -203.37996044390533,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls070R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "cb379742-6f85-4c24-a8b4-bbbc6741c44f",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/cb379742-6f85-4c24-a8b4-bbbc6741c44f",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 11.3,
+"bearing": 99,
+"angle_diff": 9
+},
+{
+"file": "data/raw/photos/langstrasse/ls070R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "7983e3bc-70b7-47dd-9284-54d417930270",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/7983e3bc-70b7-47dd-9284-54d417930270",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.4,
+"bearing": 59,
+"angle_diff": 17
+}
+]
+},
+"ls084L": {
+"name": "Langstrasse s=84L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 972.1189311536328,
+"y": -181.82866953945648,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls084L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "a81b2fb2-b974-4efa-817e-e87c7973985a",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/a81b2fb2-b974-4efa-817e-e87c7973985a",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 11.5,
+"bearing": 339,
+"angle_diff": 21
+},
+{
+"file": "data/raw/photos/langstrasse/ls084L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "8a82bc5f-dc35-4c2a-b886-fb6fd55f8a41",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/8a82bc5f-dc35-4c2a-b886-fb6fd55f8a41",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 20.0,
+"bearing": 0,
+"angle_diff": 0
+}
+]
+},
+"ls084R": {
+"name": "Langstrasse s=84R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 988.7211051254366,
+"y": -191.0681402715906,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls084R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "57656c4d-c4db-4cbd-8f2c-73d02ff1d531",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/57656c4d-c4db-4cbd-8f2c-73d02ff1d531",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 10.0,
+"bearing": 72,
+"angle_diff": 26
+},
+{
+"file": "data/raw/photos/langstrasse/ls084R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "2ce11be7-27b8-4ca2-bfd4-864abaf367b9",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/2ce11be7-27b8-4ca2-bfd4-864abaf367b9",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 16.1,
+"bearing": 56,
+"angle_diff": 13
+}
+]
+},
+"ls091R": {
+"name": "Langstrasse s=91R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 992.1251206583281,
+"y": -184.9515498609261,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls091R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "c54f3a3c-de53-45f5-b90b-6d5cef9f1de4",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/c54f3a3c-de53-45f5-b90b-6d5cef9f1de4",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 13.7,
+"bearing": 85,
+"angle_diff": 5
+},
+{
+"file": "data/raw/photos/langstrasse/ls091R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "57656c4d-c4db-4cbd-8f2c-73d02ff1d531",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/57656c4d-c4db-4cbd-8f2c-73d02ff1d531",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.9,
+"bearing": 55,
+"angle_diff": 9
+}
+]
+},
+"ls091L": {
+"name": "Langstrasse s=91L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 975.5229466865244,
+"y": -175.71207912879197,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls091L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "8dba55a0-0f71-49e4-8f12-f6580fd505a7",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/8dba55a0-0f71-49e4-8f12-f6580fd505a7",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 14.1,
+"bearing": 250,
+"angle_diff": 7
+},
+{
+"file": "data/raw/photos/langstrasse/ls091L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "a81b2fb2-b974-4efa-817e-e87c7973985a",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/a81b2fb2-b974-4efa-817e-e87c7973985a",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 16.8,
+"bearing": 358,
+"angle_diff": 2
+}
+]
+},
+"ls098L": {
+"name": "Langstrasse s=98L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 978.9269622194158,
+"y": -169.5954887181276,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls098L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "9589acce-d2ad-46bf-a63b-9425f18aa6cf",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/9589acce-d2ad-46bf-a63b-9425f18aa6cf",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 17.9,
+"bearing": 231,
+"angle_diff": 9
+},
+{
+"file": "data/raw/photos/langstrasse/ls098L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "4e3e80fa-2639-43e4-8ece-84a620d20baa",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/4e3e80fa-2639-43e4-8ece-84a620d20baa",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 21.5,
+"bearing": 228,
+"angle_diff": 4
+}
+]
+},
+"ls105L": {
+"name": "Langstrasse s=105L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 982.3309777523074,
+"y": -163.47889830746308,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls105L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "aeb21433-7438-4d0b-8a49-f2f58a6fb3e9",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/aeb21433-7438-4d0b-8a49-f2f58a6fb3e9",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 13.6,
+"bearing": 351,
+"angle_diff": 9
+},
+{
+"file": "data/raw/photos/langstrasse/ls105L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "4e3e80fa-2639-43e4-8ece-84a620d20baa",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/4e3e80fa-2639-43e4-8ece-84a620d20baa",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.0,
+"bearing": 237,
+"angle_diff": 13
+}
+]
+},
+"ls098R": {
+"name": "Langstrasse s=98R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 995.5291361912198,
+"y": -178.8349594502615,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls098R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "159756a8-41b9-476c-9af8-a8558eaf2a52",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/159756a8-41b9-476c-9af8-a8558eaf2a52",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 17.5,
+"bearing": 51,
+"angle_diff": 8
+},
+{
+"file": "data/raw/photos/langstrasse/ls098R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "c654bfbc-91d2-4577-a918-176af600975c",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/c654bfbc-91d2-4577-a918-176af600975c",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 12.0,
+"bearing": 116,
+"angle_diff": 26
+}
+]
+},
+"ls112L": {
+"name": "Langstrasse s=112L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 985.7349932851989,
+"y": -157.36230789679857,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls112L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "2f8d35c8-d788-47af-919e-ad2415caa9e7",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/2f8d35c8-d788-47af-919e-ad2415caa9e7",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.6,
+"bearing": 238,
+"angle_diff": 13
+},
+{
+"file": "data/raw/photos/langstrasse/ls112L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "aeb21433-7438-4d0b-8a49-f2f58a6fb3e9",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/aeb21433-7438-4d0b-8a49-f2f58a6fb3e9",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 19.6,
+"bearing": 4,
+"angle_diff": 4
+}
+]
+},
+"ls105R": {
+"name": "Langstrasse s=105R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 998.9331517241113,
+"y": -172.71836903959698,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls105R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "c654bfbc-91d2-4577-a918-176af600975c",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/c654bfbc-91d2-4577-a918-176af600975c",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 14.4,
+"bearing": 86,
+"angle_diff": 4
+},
+{
+"file": "data/raw/photos/langstrasse/ls105R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "e52da285-9400-4ada-92c6-2c21d92c8514",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/e52da285-9400-4ada-92c6-2c21d92c8514",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 13.3,
+"bearing": 60,
+"angle_diff": 24
+}
+]
+},
+"ls112R": {
+"name": "Langstrasse s=112R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1002.3371672570029,
+"y": -166.60177862893246,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls112R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "28dddeec-1db3-4821-918a-ce526f2ad21f",
+"page": "https://api.panoramax.xyz/api/collections/63f9d9df-4e06-4b31-bde9-74f220adc7f9/items/28dddeec-1db3-4821-918a-ce526f2ad21f",
+"date": "2024-06-05",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 10.3,
+"bearing": 286,
+"angle_diff": 16
+},
+{
+"file": "data/raw/photos/langstrasse/ls112R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "1199895e-6032-47c8-a0d0-9ea82c4d4b84",
+"page": "https://api.panoramax.xyz/api/collections/63f9d9df-4e06-4b31-bde9-74f220adc7f9/items/1199895e-6032-47c8-a0d0-9ea82c4d4b84",
+"date": "2024-06-05",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.7,
+"bearing": 296,
+"angle_diff": 7
+}
+]
+},
+"ls119R": {
+"name": "Langstrasse s=119R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1005.7411827898944,
+"y": -160.48518821826795,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls119R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "3e2ac083-00f8-4995-91cd-2d916175ee17",
+"page": "https://api.panoramax.xyz/api/collections/0c1b57bb-1f31-4abf-b443-e6d29a53d722/items/3e2ac083-00f8-4995-91cd-2d916175ee17",
+"date": "2024-06-05",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 12.6,
+"bearing": 105,
+"angle_diff": 9
+},
+{
+"file": "data/raw/photos/langstrasse/ls119R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "20dbeb4a-cbfb-4f8d-a0d9-af808eab89bb",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/20dbeb4a-cbfb-4f8d-a0d9-af808eab89bb",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.5,
+"bearing": 76,
+"angle_diff": 13
+}
+]
+},
+"ls126L": {
+"name": "Langstrasse s=126L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 992.5430243509821,
+"y": -145.12912707546943,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls126L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "7eae53a7-4f29-499d-92bd-824aa42ebfab",
+"page": "https://api.panoramax.xyz/api/collections/63f9d9df-4e06-4b31-bde9-74f220adc7f9/items/7eae53a7-4f29-499d-92bd-824aa42ebfab",
+"date": "2024-06-05",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 13.6,
+"bearing": 331,
+"angle_diff": 12
+},
+{
+"file": "data/raw/photos/langstrasse/ls126L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "f02ab99b-6607-4db0-acea-801a2f6e4a1c",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/f02ab99b-6607-4db0-acea-801a2f6e4a1c",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 18.7,
+"bearing": 232,
+"angle_diff": 7
+}
+]
+},
+"ls119L": {
+"name": "Langstrasse s=119L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 989.1390088180905,
+"y": -151.24571748613405,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls119L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "f22018ea-a967-4b73-949d-6f80b2311b8e",
+"page": "https://api.panoramax.xyz/api/collections/0c1b57bb-1f31-4abf-b443-e6d29a53d722/items/f22018ea-a967-4b73-949d-6f80b2311b8e",
+"date": "2024-06-05",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 6.9,
+"bearing": 120,
+"angle_diff": 3
+},
+{
+"file": "data/raw/photos/langstrasse/ls119L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "2fcd3b9a-022d-4393-a57a-ad3254d3e9b9",
+"page": "https://api.panoramax.xyz/api/collections/63f9d9df-4e06-4b31-bde9-74f220adc7f9/items/2fcd3b9a-022d-4393-a57a-ad3254d3e9b9",
+"date": "2024-06-05",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 9.0,
+"bearing": 289,
+"angle_diff": 10
+}
+]
+},
+"ls133L": {
+"name": "Langstrasse s=133L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 995.9470398838741,
+"y": -139.0125366648041,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls133L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "f02ab99b-6607-4db0-acea-801a2f6e4a1c",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/f02ab99b-6607-4db0-acea-801a2f6e4a1c",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 12.5,
+"bearing": 244,
+"angle_diff": 19
+},
+{
+"file": "data/raw/photos/langstrasse/ls133L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "16e32319-5362-41d3-9fc6-30f09d9409ea",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/16e32319-5362-41d3-9fc6-30f09d9409ea",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 22.9,
+"bearing": 230,
+"angle_diff": 6
+}
+]
+},
+"ls126R": {
+"name": "Langstrasse s=126R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1009.1451983227859,
+"y": -154.36859780760355,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls126R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "20dbeb4a-cbfb-4f8d-a0d9-af808eab89bb",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/20dbeb4a-cbfb-4f8d-a0d9-af808eab89bb",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 21.0,
+"bearing": 62,
+"angle_diff": 1
+},
+{
+"file": "data/raw/photos/langstrasse/ls126R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "e6fbfea8-cbbd-4f4c-9d76-cde22b62075a",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/e6fbfea8-cbbd-4f4c-9d76-cde22b62075a",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 14.4,
+"bearing": 61,
+"angle_diff": 19
+}
+]
+},
+"ls133R": {
+"name": "Langstrasse s=133R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1012.549213855677,
+"y": -148.25200739693986,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls133R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "043a2eeb-8744-4a3a-b959-218d9ed54759",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/043a2eeb-8744-4a3a-b959-218d9ed54759",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 14.2,
+"bearing": 61,
+"angle_diff": 22
+},
+{
+"file": "data/raw/photos/langstrasse/ls133R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "e6fbfea8-cbbd-4f4c-9d76-cde22b62075a",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/e6fbfea8-cbbd-4f4c-9d76-cde22b62075a",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 20.7,
+"bearing": 51,
+"angle_diff": 9
+}
+]
+},
+"ls140L": {
+"name": "Langstrasse s=140L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 999.3510554167656,
+"y": -132.89594625413972,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls140L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "16e32319-5362-41d3-9fc6-30f09d9409ea",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/16e32319-5362-41d3-9fc6-30f09d9409ea",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 16.5,
+"bearing": 238,
+"angle_diff": 14
+},
+{
+"file": "data/raw/photos/langstrasse/ls140L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "78565249-a6ad-4ac8-b400-9e250bfda208",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/78565249-a6ad-4ac8-b400-9e250bfda208",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 20.0,
+"bearing": 234,
+"angle_diff": 10
+}
+]
+},
+"ls147L": {
+"name": "Langstrasse s=147L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1002.7550709496568,
+"y": -126.77935584347603,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls147L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "0c016f72-8594-42df-be9a-55a73a9aecfb",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/0c016f72-8594-42df-be9a-55a73a9aecfb",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 12.6,
+"bearing": 272,
+"angle_diff": 2
+},
+{
+"file": "data/raw/photos/langstrasse/ls147L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "78565249-a6ad-4ac8-b400-9e250bfda208",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/78565249-a6ad-4ac8-b400-9e250bfda208",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 13.9,
+"bearing": 246,
+"angle_diff": 22
+}
+]
+},
+"ls140R": {
+"name": "Langstrasse s=140R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1015.9532293885686,
+"y": -142.13541698627526,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls140R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "c6e40a9d-6027-4e06-bf57-23d2446dff35",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/c6e40a9d-6027-4e06-bf57-23d2446dff35",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 21.4,
+"bearing": 185,
+"angle_diff": 5
+},
+{
+"file": "data/raw/photos/langstrasse/ls140R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "ae07a48e-074b-473c-b4af-2f4b43e89631",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/ae07a48e-074b-473c-b4af-2f4b43e89631",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 13.6,
+"bearing": 63,
+"angle_diff": 26
+}
+]
+},
+"ls147R": {
+"name": "Langstrasse s=147R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1019.3572449214607,
+"y": -136.01882657560992,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls147R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "c6e40a9d-6027-4e06-bf57-23d2446dff35",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/c6e40a9d-6027-4e06-bf57-23d2446dff35",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.3,
+"bearing": 173,
+"angle_diff": 7
+},
+{
+"file": "data/raw/photos/langstrasse/ls147R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "9f674e26-c9b7-42be-965a-f9bbbaf2e7e6",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/9f674e26-c9b7-42be-965a-f9bbbaf2e7e6",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.7,
+"bearing": 66,
+"angle_diff": 21
+}
+]
+},
+"ls154L": {
+"name": "Langstrasse s=154L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1006.1590864825487,
+"y": -120.66276543281069,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls154L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "96384000-6acd-403f-8301-2e544197c881",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/96384000-6acd-403f-8301-2e544197c881",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 13.6,
+"bearing": 258,
+"angle_diff": 12
+},
+{
+"file": "data/raw/photos/langstrasse/ls154L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "64bf8a44-eec9-43f4-91b2-802cc0998cdd",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/64bf8a44-eec9-43f4-91b2-802cc0998cdd",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 13.6,
+"bearing": 339,
+"angle_diff": 21
+}
+]
+},
+"ls161L": {
+"name": "Langstrasse s=161L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1009.56310201544,
+"y": -114.54617502214694,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls161L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "96384000-6acd-403f-8301-2e544197c881",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/96384000-6acd-403f-8301-2e544197c881",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 10.4,
+"bearing": 289,
+"angle_diff": 19
+},
+{
+"file": "data/raw/photos/langstrasse/ls161L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "64bf8a44-eec9-43f4-91b2-802cc0998cdd",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/64bf8a44-eec9-43f4-91b2-802cc0998cdd",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 18.8,
+"bearing": 356,
+"angle_diff": 4
+}
+]
+},
+"ls154R": {
+"name": "Langstrasse s=154R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1022.7612604543517,
+"y": -129.90223616494623,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls154R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "5b197610-3956-4c4c-8f4e-73abbdf424de",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/5b197610-3956-4c4c-8f4e-73abbdf424de",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 11.5,
+"bearing": 89,
+"angle_diff": 1
+},
+{
+"file": "data/raw/photos/langstrasse/ls154R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "79a92ba9-155f-4581-b7c9-61c12fc03138",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/79a92ba9-155f-4581-b7c9-61c12fc03138",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 9.9,
+"bearing": 107,
+"angle_diff": 17
+}
+]
+},
+"ls161R": {
+"name": "Langstrasse s=161R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1026.1652759872438,
+"y": -123.78564575428095,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls161R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "79a92ba9-155f-4581-b7c9-61c12fc03138",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/79a92ba9-155f-4581-b7c9-61c12fc03138",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 13.3,
+"bearing": 76,
+"angle_diff": 14
+},
+{
+"file": "data/raw/photos/langstrasse/ls161R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "9d647d50-b69a-452e-b167-adc820ecf859",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/9d647d50-b69a-452e-b167-adc820ecf859",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 21.1,
+"bearing": 54,
+"angle_diff": 9
+}
+]
+},
+"ls168L": {
+"name": "Langstrasse s=168L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1012.9671175483315,
+"y": -108.42958461148243,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls168L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "412f15d0-57e5-430d-9483-154b1c24483f",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/412f15d0-57e5-430d-9483-154b1c24483f",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 21.8,
+"bearing": 360,
+"angle_diff": 0
+},
+{
+"file": "data/raw/photos/langstrasse/ls168L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "bc17f89a-e379-452e-a498-78789b3a87b8",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/bc17f89a-e379-452e-a498-78789b3a87b8",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 16.2,
+"bearing": 345,
+"angle_diff": 15
+}
+]
+},
+"ls168R": {
+"name": "Langstrasse s=168R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1029.5692915201353,
+"y": -117.66905534361644,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls168R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "9fec8be6-7726-4832-8460-ef61c517e9af",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/9fec8be6-7726-4832-8460-ef61c517e9af",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 17.0,
+"bearing": 57,
+"angle_diff": 13
+},
+{
+"file": "data/raw/photos/langstrasse/ls168R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "2505e68f-649f-4923-8cac-c9901f10931f",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/2505e68f-649f-4923-8cac-c9901f10931f",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 21.7,
+"bearing": 181,
+"angle_diff": 25
+}
+]
+},
+"ls175L": {
+"name": "Langstrasse s=175L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1016.371133081223,
+"y": -102.31299420081798,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls175L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "7a7f9ee8-bd54-4776-88c4-2a88837100a8",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/7a7f9ee8-bd54-4776-88c4-2a88837100a8",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 10.5,
+"bearing": 332,
+"angle_diff": 28
+},
+{
+"file": "data/raw/photos/langstrasse/ls175L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "53fbe86c-b866-4118-84d0-c4fedd065a24",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/53fbe86c-b866-4118-84d0-c4fedd065a24",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 21.7,
+"bearing": 358,
+"angle_diff": 2
+}
+]
+},
+"ls182L": {
+"name": "Langstrasse s=182L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1019.7751486141145,
+"y": -96.19640379015341,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls182L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "7a7f9ee8-bd54-4776-88c4-2a88837100a8",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/7a7f9ee8-bd54-4776-88c4-2a88837100a8",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.4,
+"bearing": 355,
+"angle_diff": 5
+},
+{
+"file": "data/raw/photos/langstrasse/ls182L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "f13f941b-fab8-45c3-8ca5-64e24f3f06cf",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/f13f941b-fab8-45c3-8ca5-64e24f3f06cf",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.4,
+"bearing": 246,
+"angle_diff": 21
+}
+]
+},
+"ls175R": {
+"name": "Langstrasse s=175R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1032.973307053027,
+"y": -111.55246493295188,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls175R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "185283fd-c0ad-48fc-b27f-79328f1b8a7a",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/185283fd-c0ad-48fc-b27f-79328f1b8a7a",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 11.9,
+"bearing": 106,
+"angle_diff": 16
+},
+{
+"file": "data/raw/photos/langstrasse/ls175R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "17a26c2d-196f-4fa4-a225-16183e999dcd",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/17a26c2d-196f-4fa4-a225-16183e999dcd",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 18.1,
+"bearing": 60,
+"angle_diff": 15
+}
+]
+},
+"ls189L": {
+"name": "Langstrasse s=189L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1023.1791641470062,
+"y": -90.0798133794889,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls189L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "b23d2f22-f850-46b6-bb74-799ac09df997",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/b23d2f22-f850-46b6-bb74-799ac09df997",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 18.4,
+"bearing": 360,
+"angle_diff": 0
+},
+{
+"file": "data/raw/photos/langstrasse/ls189L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "7a7f9ee8-bd54-4776-88c4-2a88837100a8",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/7a7f9ee8-bd54-4776-88c4-2a88837100a8",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 21.5,
+"bearing": 5,
+"angle_diff": 5
+}
+]
+},
+"ls182R": {
+"name": "Langstrasse s=182R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1036.3773225859184,
+"y": -105.43587452228742,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls182R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "185283fd-c0ad-48fc-b27f-79328f1b8a7a",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/185283fd-c0ad-48fc-b27f-79328f1b8a7a",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.2,
+"bearing": 79,
+"angle_diff": 11
+},
+{
+"file": "data/raw/photos/langstrasse/ls182R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "f70f7add-ea3f-4f71-b200-c3d2875269d1",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/f70f7add-ea3f-4f71-b200-c3d2875269d1",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 19.3,
+"bearing": 62,
+"angle_diff": 17
+}
+]
+},
+"ls189R": {
+"name": "Langstrasse s=189R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1039.78133811881,
+"y": -99.3192841116229,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls189R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "f288dc69-0a66-42df-990f-1f0890d66677",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/f288dc69-0a66-42df-990f-1f0890d66677",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 18.7,
+"bearing": 62,
+"angle_diff": 27
+},
+{
+"file": "data/raw/photos/langstrasse/ls189R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "ce5af0a6-ae46-4730-962b-dcd42566ae2c",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/ce5af0a6-ae46-4730-962b-dcd42566ae2c",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 21.6,
+"bearing": 181,
+"angle_diff": 29
+}
+]
+},
+"ls203L": {
+"name": "Langstrasse s=203L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1029.9871952127892,
+"y": -77.84663255815987,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls203L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "e03c39d5-344a-4dbf-825f-41ccfe334aee",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/e03c39d5-344a-4dbf-825f-41ccfe334aee",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 14.5,
+"bearing": 256,
+"angle_diff": 13
+},
+{
+"file": "data/raw/photos/langstrasse/ls203L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "4b0973f0-3e1b-498f-8ec7-c2520af78e47",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/4b0973f0-3e1b-498f-8ec7-c2520af78e47",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 18.6,
+"bearing": 259,
+"angle_diff": 11
+}
+]
+},
+"ls196L": {
+"name": "Langstrasse s=196L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1026.5831796798975,
+"y": -83.96322296882438,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls196L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "e03c39d5-344a-4dbf-825f-41ccfe334aee",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/e03c39d5-344a-4dbf-825f-41ccfe334aee",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 20.0,
+"bearing": 241,
+"angle_diff": 2
+},
+{
+"file": "data/raw/photos/langstrasse/ls196L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "ae3444a4-2b3b-4259-a5f3-25a5cc7a9396",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/ae3444a4-2b3b-4259-a5f3-25a5cc7a9396",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 14.9,
+"bearing": 244,
+"angle_diff": 19
+}
+]
+},
+"ls203R": {
+"name": "Langstrasse s=203R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1046.5893691845931,
+"y": -87.08610329029388,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls203R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "92f842f6-2ef2-4a83-b814-0eed2c4805f7",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/92f842f6-2ef2-4a83-b814-0eed2c4805f7",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 13.0,
+"bearing": 179,
+"angle_diff": 1
+},
+{
+"file": "data/raw/photos/langstrasse/ls203R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "3b6d2349-64a9-44dc-b35b-2b47d243e614",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/3b6d2349-64a9-44dc-b35b-2b47d243e614",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 16.6,
+"bearing": 279,
+"angle_diff": 9
+}
+]
+},
+"ls196R": {
+"name": "Langstrasse s=196R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1043.1853536517015,
+"y": -93.20269370095839,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls196R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "92f842f6-2ef2-4a83-b814-0eed2c4805f7",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/92f842f6-2ef2-4a83-b814-0eed2c4805f7",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 19.3,
+"bearing": 190,
+"angle_diff": 10
+},
+{
+"file": "data/raw/photos/langstrasse/ls196R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "3b6d2349-64a9-44dc-b35b-2b47d243e614",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/3b6d2349-64a9-44dc-b35b-2b47d243e614",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 20.3,
+"bearing": 260,
+"angle_diff": 10
+}
+]
+},
+"ls210L": {
+"name": "Langstrasse s=210L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1033.3912107456815,
+"y": -71.7300421474937,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls210L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "0e8ef994-e0bd-45b6-a1cf-21e6c2e89cd2",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/0e8ef994-e0bd-45b6-a1cf-21e6c2e89cd2",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 9.0,
+"bearing": 13,
+"angle_diff": 13
+},
+{
+"file": "data/raw/photos/langstrasse/ls210L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "ce268900-c760-479a-aa56-ac33382e3dea",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/ce268900-c760-479a-aa56-ac33382e3dea",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 12.9,
+"bearing": 281,
+"angle_diff": 11
+}
+]
+},
+"ls210R": {
+"name": "Langstrasse s=210R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1049.9933847174837,
+"y": -80.96951287963101,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls210R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "20c97634-bb10-4c87-a1f1-bf180d786232",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/20c97634-bb10-4c87-a1f1-bf180d786232",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 8.6,
+"bearing": 309,
+"angle_diff": 6
+},
+{
+"file": "data/raw/photos/langstrasse/ls210R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "b9b11326-1a8f-4af9-ac68-0b6c60364e5f",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/b9b11326-1a8f-4af9-ac68-0b6c60364e5f",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 13.8,
+"bearing": 308,
+"angle_diff": 12
+}
+]
+},
+"ls217R": {
+"name": "Langstrasse s=217R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1053.3958867039482,
+"y": -74.87117641340126,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls217R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "714c69d9-7955-4e87-90b5-2b684958b42a",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/714c69d9-7955-4e87-90b5-2b684958b42a",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 8.5,
+"bearing": 7,
+"angle_diff": 7
+},
+{
+"file": "data/raw/photos/langstrasse/ls217R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "1565227b-44e2-4742-8898-2f2ac8368283",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/1565227b-44e2-4742-8898-2f2ac8368283",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 7.3,
+"bearing": 97,
+"angle_diff": 7
+}
+]
+},
+"ls217L": {
+"name": "Langstrasse s=217L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1036.8099605433395,
+"y": -65.60257061776846,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls217L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "02186553-4fac-43c1-8e99-658df1e1defc",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/02186553-4fac-43c1-8e99-658df1e1defc",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 11.5,
+"bearing": 282,
+"angle_diff": 2
+},
+{
+"file": "data/raw/photos/langstrasse/ls217L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "983aa172-eca6-4fbb-b8bc-bb212cefee93",
+"page": "https://api.panoramax.xyz/api/collections/a09b31df-cdcb-47c2-bc50-c1ebd5fe6483/items/983aa172-eca6-4fbb-b8bc-bb212cefee93",
+"date": "2024-06-05",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 12.5,
+"bearing": 113,
+"angle_diff": 6
+}
+]
+},
+"ls224L": {
+"name": "Langstrasse s=224L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1040.224710046994,
+"y": -59.49196624280755,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls224L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "89980b0a-fb55-4dc3-bba1-59e6ac134aed",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/89980b0a-fb55-4dc3-bba1-59e6ac134aed",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 9.3,
+"bearing": 75,
+"angle_diff": 9
+},
+{
+"file": "data/raw/photos/langstrasse/ls224L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "247504a1-6cfe-4994-ac76-024edeca4f6f",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/247504a1-6cfe-4994-ac76-024edeca4f6f",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 12.9,
+"bearing": 334,
+"angle_diff": 26
+}
+]
+},
+"ls231L": {
+"name": "Langstrasse s=231L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1043.6394595506486,
+"y": -53.38136186784673,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls231L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "247504a1-6cfe-4994-ac76-024edeca4f6f",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/247504a1-6cfe-4994-ac76-024edeca4f6f",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 17.8,
+"bearing": 353,
+"angle_diff": 7
+},
+{
+"file": "data/raw/photos/langstrasse/ls231L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "4c6435c7-5e8a-4917-8882-f901a90704f6",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/4c6435c7-5e8a-4917-8882-f901a90704f6",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 24.0,
+"bearing": 355,
+"angle_diff": 5
+}
+]
+},
+"ls224R": {
+"name": "Langstrasse s=224R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1056.8106362076028,
+"y": -68.76057203844046,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls224R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "6316dd5c-5d19-402b-949f-324e26228904",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/6316dd5c-5d19-402b-949f-324e26228904",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 10.8,
+"bearing": 95,
+"angle_diff": 5
+},
+{
+"file": "data/raw/photos/langstrasse/ls224R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "bf919a72-444a-4b72-9481-40b42a052ba0",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/bf919a72-444a-4b72-9481-40b42a052ba0",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 13.0,
+"bearing": 81,
+"angle_diff": 9
+}
+]
+},
+"ls231R": {
+"name": "Langstrasse s=231R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1060.2253857112573,
+"y": -62.64996766347958,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls231R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "6316dd5c-5d19-402b-949f-324e26228904",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/6316dd5c-5d19-402b-949f-324e26228904",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.1,
+"bearing": 70,
+"angle_diff": 20
+},
+{
+"file": "data/raw/photos/langstrasse/ls231R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "5a982b38-3943-422a-a53a-920a2d6f0afc",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/5a982b38-3943-422a-a53a-920a2d6f0afc",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 21.6,
+"bearing": 59,
+"angle_diff": 14
+}
+]
+},
+"ls238L": {
+"name": "Langstrasse s=238L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1047.054209054304,
+"y": -47.2707574928842,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls238L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "247504a1-6cfe-4994-ac76-024edeca4f6f",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/247504a1-6cfe-4994-ac76-024edeca4f6f",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 23.8,
+"bearing": 3,
+"angle_diff": 3
+},
+{
+"file": "data/raw/photos/langstrasse/ls238L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "cc16dcba-ed35-4032-b721-d00e25a96fdf",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/cc16dcba-ed35-4032-b721-d00e25a96fdf",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.9,
+"bearing": 239,
+"angle_diff": 29
+}
+]
+},
+"ls238R": {
+"name": "Langstrasse s=238R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1063.640135214911,
+"y": -56.539363288520406,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls238R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "d12240e3-39ed-4450-8e87-8fde0316a709",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/d12240e3-39ed-4450-8e87-8fde0316a709",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 20.3,
+"bearing": 61,
+"angle_diff": 19
+},
+{
+"file": "data/raw/photos/langstrasse/ls238R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "05a9dbbd-5f14-423b-9c3f-f45b5fecde59",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/05a9dbbd-5f14-423b-9c3f-f45b5fecde59",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 21.2,
+"bearing": 177,
+"angle_diff": 29
+}
+]
+},
+"ls245L": {
+"name": "Langstrasse s=245L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1050.4689585579586,
+"y": -41.16015311792334,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls245L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "5bbc616e-460c-4809-b86e-f20a932fc352",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/5bbc616e-460c-4809-b86e-f20a932fc352",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.5,
+"bearing": 338,
+"angle_diff": 22
+},
+{
+"file": "data/raw/photos/langstrasse/ls245L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "41b8df27-5aa9-4c2b-bfe9-a03055332267",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/41b8df27-5aa9-4c2b-bfe9-a03055332267",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 16.2,
+"bearing": 237,
+"angle_diff": 30
+}
+]
+},
+"ls245R": {
+"name": "Langstrasse s=245R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1067.0548847185655,
+"y": -50.42875891355955,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls245R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "4855e17b-744d-442c-a5ee-c4d4e6577eb0",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/4855e17b-744d-442c-a5ee-c4d4e6577eb0",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 10.9,
+"bearing": 81,
+"angle_diff": 9
+},
+{
+"file": "data/raw/photos/langstrasse/ls245R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "54c80a35-ce91-48ce-80ee-5caa2328e090",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/54c80a35-ce91-48ce-80ee-5caa2328e090",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.1,
+"bearing": 58,
+"angle_diff": 14
+}
+]
+},
+"ls252L": {
+"name": "Langstrasse s=252L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1053.8837080616124,
+"y": -35.04954874296418,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls252L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "5bbc616e-460c-4809-b86e-f20a932fc352",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/5bbc616e-460c-4809-b86e-f20a932fc352",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 20.6,
+"bearing": 354,
+"angle_diff": 6
+},
+{
+"file": "data/raw/photos/langstrasse/ls252L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "541dacc9-8a23-4565-bb9f-d81c686627d1",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/541dacc9-8a23-4565-bb9f-d81c686627d1",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 16.5,
+"bearing": 236,
+"angle_diff": 26
+}
+]
+},
+"ls259L": {
+"name": "Langstrasse s=259L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1057.298457565267,
+"y": -28.93894436800332,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls259L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "9ce83c18-59b0-4aae-9ca7-b890df64a8fc",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/9ce83c18-59b0-4aae-9ca7-b890df64a8fc",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 14.0,
+"bearing": 252,
+"angle_diff": 18
+},
+{
+"file": "data/raw/photos/langstrasse/ls259L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "38a6229b-c17a-4252-ad57-e6198b7318bf",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/38a6229b-c17a-4252-ad57-e6198b7318bf",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 23.4,
+"bearing": 358,
+"angle_diff": 2
+}
+]
+},
+"ls259R": {
+"name": "Langstrasse s=259R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1073.8843837258758,
+"y": -38.20755016363617,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls259R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "e7b1ef1d-da5d-4f07-a439-c5a9262f19b6",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/e7b1ef1d-da5d-4f07-a439-c5a9262f19b6",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 12.4,
+"bearing": 68,
+"angle_diff": 23
+},
+{
+"file": "data/raw/photos/langstrasse/ls259R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "068a2fcf-3f2c-4634-aa33-ad2b3120c44e",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/068a2fcf-3f2c-4634-aa33-ad2b3120c44e",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.6,
+"bearing": 60,
+"angle_diff": 16
+}
+]
+},
+"ls252R": {
+"name": "Langstrasse s=252R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1070.4696342222212,
+"y": -44.31815453859703,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls252R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "729310f2-a0e7-40eb-b345-06b425315467",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/729310f2-a0e7-40eb-b345-06b425315467",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 13.1,
+"bearing": 69,
+"angle_diff": 24
+},
+{
+"file": "data/raw/photos/langstrasse/ls252R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "54c80a35-ce91-48ce-80ee-5caa2328e090",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/54c80a35-ce91-48ce-80ee-5caa2328e090",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 21.5,
+"bearing": 49,
+"angle_diff": 5
+}
+]
+},
+"ls273R": {
+"name": "Langstrasse s=273R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1080.713882733184,
+"y": -25.986341413716143,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls273R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "8772c976-0581-41ba-9291-730532c9d9e3",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/8772c976-0581-41ba-9291-730532c9d9e3",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 14.2,
+"bearing": 173,
+"angle_diff": 0
+},
+{
+"file": "data/raw/photos/langstrasse/ls273R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "9d740844-25a5-45bc-a8a4-8c60374b6ca9",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/9d740844-25a5-45bc-a8a4-8c60374b6ca9",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 17.8,
+"bearing": 53,
+"angle_diff": 8
+}
+]
+},
+"ls273L": {
+"name": "Langstrasse s=273L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1064.127956572577,
+"y": -16.717735618079946,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls273L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "9f259239-b924-42da-b702-bb179b9ed9b5",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/9f259239-b924-42da-b702-bb179b9ed9b5",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 14.6,
+"bearing": 343,
+"angle_diff": 17
+},
+{
+"file": "data/raw/photos/langstrasse/ls273L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "bf98a801-b342-47fd-8394-ae7122649571",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/bf98a801-b342-47fd-8394-ae7122649571",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 14.7,
+"bearing": 58,
+"angle_diff": 26
+}
+]
+},
+"ls266R": {
+"name": "Langstrasse s=266R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1077.2991332295303,
+"y": -32.09694578867532,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls266R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "9d740844-25a5-45bc-a8a4-8c60374b6ca9",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/9d740844-25a5-45bc-a8a4-8c60374b6ca9",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 11.7,
+"bearing": 67,
+"angle_diff": 22
+},
+{
+"file": "data/raw/photos/langstrasse/ls266R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "e6a31928-c141-42df-be77-a7c09180f848",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/e6a31928-c141-42df-be77-a7c09180f848",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 14.9,
+"bearing": 59,
+"angle_diff": 15
+}
+]
+},
+"ls266L": {
+"name": "Langstrasse s=266L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1060.7132070689215,
+"y": -22.82833999304247,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls266L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "bf98a801-b342-47fd-8394-ae7122649571",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/bf98a801-b342-47fd-8394-ae7122649571",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 9.1,
+"bearing": 79,
+"angle_diff": 5
+},
+{
+"file": "data/raw/photos/langstrasse/ls266L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "9ce83c18-59b0-4aae-9ca7-b890df64a8fc",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/9ce83c18-59b0-4aae-9ca7-b890df64a8fc",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 10.0,
+"bearing": 280,
+"angle_diff": 10
+}
+]
+},
+"ls280L": {
+"name": "Langstrasse s=280L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1067.5427060762315,
+"y": -10.607131243119088,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls280L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "9f259239-b924-42da-b702-bb179b9ed9b5",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/9f259239-b924-42da-b702-bb179b9ed9b5",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 20.0,
+"bearing": 358,
+"angle_diff": 2
+},
+{
+"file": "data/raw/photos/langstrasse/ls280L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "314ae53a-4be5-4a95-8b63-b9b3a4fc968f",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/314ae53a-4be5-4a95-8b63-b9b3a4fc968f",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 23.1,
+"bearing": 358,
+"angle_diff": 2
+}
+]
+},
+"ls280R": {
+"name": "Langstrasse s=280R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1084.1286322368385,
+"y": -19.875737038755286,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls280R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "85caf8f1-2515-4572-873c-f12a4620259f",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/85caf8f1-2515-4572-873c-f12a4620259f",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 11.5,
+"bearing": 84,
+"angle_diff": 6
+},
+{
+"file": "data/raw/photos/langstrasse/ls280R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "8772c976-0581-41ba-9291-730532c9d9e3",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/8772c976-0581-41ba-9291-730532c9d9e3",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 9.6,
+"bearing": 147,
+"angle_diff": 26
+}
+]
+},
+"ls287R": {
+"name": "Langstrasse s=287R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1087.5433817404942,
+"y": -13.76513266379274,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls287R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "1ea4f43c-d0c0-4526-9d6b-0303c93be271",
+"page": "https://api.panoramax.xyz/api/collections/ac9004b1-19ef-46fe-a017-00544802e2d2/items/1ea4f43c-d0c0-4526-9d6b-0303c93be271",
+"date": "2024-06-05",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 10.0,
+"bearing": 309,
+"angle_diff": 0
+},
+{
+"file": "data/raw/photos/langstrasse/ls287R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "2a803898-b99e-4cc8-bcd9-9f02c525ef81",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/2a803898-b99e-4cc8-bcd9-9f02c525ef81",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 11.0,
+"bearing": 101,
+"angle_diff": 11
+}
+]
+},
+"ls287L": {
+"name": "Langstrasse s=287L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1070.9574555798854,
+"y": -4.496526868159949,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls287L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "fd4f31a1-bc9d-4ed4-97a0-7cfbcd80bac5",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/fd4f31a1-bc9d-4ed4-97a0-7cfbcd80bac5",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 17.2,
+"bearing": 348,
+"angle_diff": 12
+},
+{
+"file": "data/raw/photos/langstrasse/ls287L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "0a072bca-84eb-42f8-a42d-17225e60d0e1",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/0a072bca-84eb-42f8-a42d-17225e60d0e1",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 12.0,
+"bearing": 332,
+"angle_diff": 28
+}
+]
+},
+"ls301L": {
+"name": "Langstrasse s=301L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1077.6693318946782,
+"y": 7.696612849624753,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls301L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "0a072bca-84eb-42f8-a42d-17225e60d0e1",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/0a072bca-84eb-42f8-a42d-17225e60d0e1",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 22.7,
+"bearing": 3,
+"angle_diff": 3
+},
+{
+"file": "data/raw/photos/langstrasse/ls301L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "06bdee00-ce14-493a-ab8d-c1d210d6dfec",
+"page": "https://api.panoramax.xyz/api/collections/ac9004b1-19ef-46fe-a017-00544802e2d2/items/06bdee00-ce14-493a-ab8d-c1d210d6dfec",
+"date": "2024-06-05",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 14.7,
+"bearing": 339,
+"angle_diff": 25
+}
+]
+},
+"ls294R": {
+"name": "Langstrasse s=294R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1090.9719586236079,
+"y": -7.56903885971114,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls294R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "2a803898-b99e-4cc8-bcd9-9f02c525ef81",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/2a803898-b99e-4cc8-bcd9-9f02c525ef81",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 14.9,
+"bearing": 74,
+"angle_diff": 16
+},
+{
+"file": "data/raw/photos/langstrasse/ls294R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "3cc96634-08d5-4ec2-9f67-c19af99a79c9",
+"page": "https://api.panoramax.xyz/api/collections/9c22fdc0-8187-4c77-a8e8-184f90e5af2d/items/3cc96634-08d5-4ec2-9f67-c19af99a79c9",
+"date": "2025-05-23",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 19.4,
+"bearing": 58,
+"angle_diff": 14
+}
+]
+},
+"ls294L": {
+"name": "Langstrasse s=294L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1074.307129534619,
+"y": 1.5569389747342388,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls294L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "06bdee00-ce14-493a-ab8d-c1d210d6dfec",
+"page": "https://api.panoramax.xyz/api/collections/ac9004b1-19ef-46fe-a017-00544802e2d2/items/06bdee00-ce14-493a-ab8d-c1d210d6dfec",
+"date": "2024-06-05",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 11.6,
+"bearing": 311,
+"angle_diff": 3
+},
+{
+"file": "data/raw/photos/langstrasse/ls294L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "e259daf5-f751-474b-aaf0-4382762e9d79",
+"page": "https://api.panoramax.xyz/api/collections/ac9004b1-19ef-46fe-a017-00544802e2d2/items/e259daf5-f751-474b-aaf0-4382762e9d79",
+"date": "2024-06-05",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 8.3,
+"bearing": 305,
+"angle_diff": 4
+}
+]
+},
+"ls301R": {
+"name": "Langstrasse s=301R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1094.334160983667,
+"y": -1.42936498482063,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls301R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "b2ee63e4-e609-47d5-9b0b-2e24829a50df",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/b2ee63e4-e609-47d5-9b0b-2e24829a50df",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.4,
+"bearing": 66,
+"angle_diff": 27
+},
+{
+"file": "data/raw/photos/langstrasse/ls301R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "e8887494-9946-42b1-816b-35d64bac702c",
+"page": "https://api.panoramax.xyz/api/collections/9a5a7ec2-3738-433d-bf35-ea4aa1cf5d7c/items/e8887494-9946-42b1-816b-35d64bac702c",
+"date": "2024-05-22",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 21.7,
+"bearing": 97,
+"angle_diff": 9
+}
+]
+},
+"ls308R": {
+"name": "Langstrasse s=308R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1097.696363343726,
+"y": 4.710308890069889,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls308R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "08fcc194-3654-4120-8fdf-fd93d67e32e8",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/08fcc194-3654-4120-8fdf-fd93d67e32e8",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.5,
+"bearing": 65,
+"angle_diff": 21
+},
+{
+"file": "data/raw/photos/langstrasse/ls308R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "b2ee63e4-e609-47d5-9b0b-2e24829a50df",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/b2ee63e4-e609-47d5-9b0b-2e24829a50df",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 21.4,
+"bearing": 55,
+"angle_diff": 16
+}
+]
+},
+"ls315L": {
+"name": "Langstrasse s=315L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1084.3937366147964,
+"y": 19.97596059940578,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls315L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "84e0bd02-0563-4477-9c02-9370373ed075",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/84e0bd02-0563-4477-9c02-9370373ed075",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 14.3,
+"bearing": 239,
+"angle_diff": 29
+},
+{
+"file": "data/raw/photos/langstrasse/ls315L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "93dd1778-f7b8-419d-a658-695d323281d1",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/93dd1778-f7b8-419d-a658-695d323281d1",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 17.9,
+"bearing": 233,
+"angle_diff": 21
+}
+]
+},
+"ls315R": {
+"name": "Langstrasse s=315R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1101.0585657037852,
+"y": 10.849982764960396,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls315R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "deb04e4e-7200-45e3-8956-62831af9898b",
+"page": "https://api.panoramax.xyz/api/collections/03e6b1a8-1f38-4e56-b8a1-fc6f761f29a6/items/deb04e4e-7200-45e3-8956-62831af9898b",
+"date": "2024-05-22",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.2,
+"bearing": 70,
+"angle_diff": 14
+},
+{
+"file": "data/raw/photos/langstrasse/ls315R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "08fcc194-3654-4120-8fdf-fd93d67e32e8",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/08fcc194-3654-4120-8fdf-fd93d67e32e8",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 21.6,
+"bearing": 54,
+"angle_diff": 10
+}
+]
+},
+"ls308L": {
+"name": "Langstrasse s=308L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1081.0315342547372,
+"y": 13.836286724515258,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls308L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "33eb3ffe-0016-4ce2-b729-9f45af04a8e6",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/33eb3ffe-0016-4ce2-b729-9f45af04a8e6",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 17.2,
+"bearing": 233,
+"angle_diff": 24
+},
+{
+"file": "data/raw/photos/langstrasse/ls308L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "84e0bd02-0563-4477-9c02-9370373ed075",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/84e0bd02-0563-4477-9c02-9370373ed075",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 20.6,
+"bearing": 229,
+"angle_diff": 19
+}
+]
+},
+"ls322L": {
+"name": "Langstrasse s=322L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1087.7559389748553,
+"y": 26.115634474296293,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls322L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "25bf5b72-e65d-41f8-9baf-e9d7bc1890e4",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/25bf5b72-e65d-41f8-9baf-e9d7bc1890e4",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 14.6,
+"bearing": 239,
+"angle_diff": 28
+},
+{
+"file": "data/raw/photos/langstrasse/ls322L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "648548c4-46be-4dc5-9232-10e83644022f",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/648548c4-46be-4dc5-9232-10e83644022f",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 23.9,
+"bearing": 223,
+"angle_diff": 28
+}
+]
+},
+"ls329L": {
+"name": "Langstrasse s=329L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1091.1181413349145,
+"y": 32.25530834918677,
+"photos": []
+},
+"ls336L": {
+"name": "Langstrasse s=336L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1094.4803436949744,
+"y": 38.39498222407898,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls336L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "23742565-3cbf-4b81-8e65-fc73e015eb10",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/23742565-3cbf-4b81-8e65-fc73e015eb10",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 20.3,
+"bearing": 213,
+"angle_diff": 27
+}
+]
+},
+"ls322R": {
+"name": "Langstrasse s=322R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1104.4207680638442,
+"y": 16.989656639850907,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls322R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "1fcae5b7-52f2-4f4f-854d-aaf1d7dbd5e1",
+"page": "https://api.panoramax.xyz/api/collections/03e6b1a8-1f38-4e56-b8a1-fc6f761f29a6/items/1fcae5b7-52f2-4f4f-854d-aaf1d7dbd5e1",
+"date": "2024-05-22",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 18.9,
+"bearing": 59,
+"angle_diff": 6
+},
+{
+"file": "data/raw/photos/langstrasse/ls322R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "5e03035d-b6e6-46bd-a217-419e641323c3",
+"page": "https://api.panoramax.xyz/api/collections/03e6b1a8-1f38-4e56-b8a1-fc6f761f29a6/items/5e03035d-b6e6-46bd-a217-419e641323c3",
+"date": "2024-05-22",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 14.7,
+"bearing": 65,
+"angle_diff": 22
+}
+]
+},
+"ls343L": {
+"name": "Langstrasse s=343L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1097.376859785439,
+"y": 44.178545562036945,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls343L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "23742565-3cbf-4b81-8e65-fc73e015eb10",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/23742565-3cbf-4b81-8e65-fc73e015eb10",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 13.8,
+"bearing": 216,
+"angle_diff": 30
+},
+{
+"file": "data/raw/photos/langstrasse/ls343L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "b4ca3542-1a48-4b93-b14c-ec6b7f4de301",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/b4ca3542-1a48-4b93-b14c-ec6b7f4de301",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 19.4,
+"bearing": 205,
+"angle_diff": 26
+}
+]
+},
+"ls336R": {
+"name": "Langstrasse s=336R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1111.1451727839615,
+"y": 29.269004389630275,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls336R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "bb430464-0ec8-4fab-95aa-9cce7e80c5f7",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/bb430464-0ec8-4fab-95aa-9cce7e80c5f7",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 14.1,
+"bearing": 70,
+"angle_diff": 29
+},
+{
+"file": "data/raw/photos/langstrasse/ls336R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "a85066de-0777-4a75-ade7-fa8f54c7cb0d",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/a85066de-0777-4a75-ade7-fa8f54c7cb0d",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 19.4,
+"bearing": 57,
+"angle_diff": 17
+}
+]
+},
+"ls329R": {
+"name": "Langstrasse s=329R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1107.7829704239034,
+"y": 23.129330514741447,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls329R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "8f5f8316-a690-4518-9cfa-c63cf9a5beda",
+"page": "https://api.panoramax.xyz/api/collections/03e6b1a8-1f38-4e56-b8a1-fc6f761f29a6/items/8f5f8316-a690-4518-9cfa-c63cf9a5beda",
+"date": "2024-05-22",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 14.0,
+"bearing": 65,
+"angle_diff": 26
+},
+{
+"file": "data/raw/photos/langstrasse/ls329R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "fe627da8-141e-4535-8901-6e49f9f42a91",
+"page": "https://api.panoramax.xyz/api/collections/03e6b1a8-1f38-4e56-b8a1-fc6f761f29a6/items/fe627da8-141e-4535-8901-6e49f9f42a91",
+"date": "2024-05-22",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 18.6,
+"bearing": 56,
+"angle_diff": 15
+}
+]
+},
+"ls343R": {
+"name": "Langstrasse s=343R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1114.5239995033287,
+"y": 35.994683423952694,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls343R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "637e11c4-e930-4e31-9366-4aeb99a76d1b",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/637e11c4-e930-4e31-9366-4aeb99a76d1b",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 11.1,
+"bearing": 79,
+"angle_diff": 30
+},
+{
+"file": "data/raw/photos/langstrasse/ls343R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "3bfdc845-5671-4b55-a2f2-2584bbc440f7",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/3bfdc845-5671-4b55-a2f2-2584bbc440f7",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 14.7,
+"bearing": 66,
+"angle_diff": 21
+}
+]
+},
+"ls350L": {
+"name": "Langstrasse s=350L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1100.3919668889428,
+"y": 50.49591282652095,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls350L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "c376aa72-9331-4b42-8005-87f9b4a6fbe5",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/c376aa72-9331-4b42-8005-87f9b4a6fbe5",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 9.6,
+"bearing": 212,
+"angle_diff": 29
+},
+{
+"file": "data/raw/photos/langstrasse/ls350L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "a3ac9d1b-e4c3-4f18-ac20-0255560a4a7a",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/a3ac9d1b-e4c3-4f18-ac20-0255560a4a7a",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.4,
+"bearing": 199,
+"angle_diff": 20
+}
+]
+},
+"ls357L": {
+"name": "Langstrasse s=357L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1103.4070739924482,
+"y": 56.813280091008465,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls357L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "fce11046-03d6-4eb4-b227-7d4714889dd8",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/fce11046-03d6-4eb4-b227-7d4714889dd8",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 13.0,
+"bearing": 189,
+"angle_diff": 9
+},
+{
+"file": "data/raw/photos/langstrasse/ls357L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "a3ac9d1b-e4c3-4f18-ac20-0255560a4a7a",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/a3ac9d1b-e4c3-4f18-ac20-0255560a4a7a",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 8.4,
+"bearing": 193,
+"angle_diff": 14
+}
+]
+},
+"ls357R": {
+"name": "Langstrasse s=357R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1120.554213710338,
+"y": 48.629417952924214,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls357R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "bcdbd7b3-2aed-4c20-b9b4-454a4ad79e12",
+"page": "https://api.panoramax.xyz/api/collections/03e6b1a8-1f38-4e56-b8a1-fc6f761f29a6/items/bcdbd7b3-2aed-4c20-b9b4-454a4ad79e12",
+"date": "2024-05-22",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 10.9,
+"bearing": 67,
+"angle_diff": 3
+},
+{
+"file": "data/raw/photos/langstrasse/ls357R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "7e382d8d-a4b7-412c-8c62-891e4079db55",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/7e382d8d-a4b7-412c-8c62-891e4079db55",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 12.1,
+"bearing": 52,
+"angle_diff": 14
+}
+]
+},
+"ls350R": {
+"name": "Langstrasse s=350R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1117.5391066068344,
+"y": 42.31205068844021,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls350R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "923e03d5-3b51-47b9-a416-017bd2132045",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/923e03d5-3b51-47b9-a416-017bd2132045",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 10.7,
+"bearing": 69,
+"angle_diff": 7
+},
+{
+"file": "data/raw/photos/langstrasse/ls350R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "7e382d8d-a4b7-412c-8c62-891e4079db55",
+"page": "https://api.panoramax.xyz/api/collections/1c8d5501-be44-4cf9-83f3-ac974bb52d9c/items/7e382d8d-a4b7-412c-8c62-891e4079db55",
+"date": "2025-01-18",
+"creator": "Lezurex",
+"license": "CC-BY-SA-4.0",
+"dist_m": 6.6,
+"bearing": 80,
+"angle_diff": 14
+}
+]
+},
+"ls364L": {
+"name": "Langstrasse s=364L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1106.4221810959527,
+"y": 63.130647355494226,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls364L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "4a163ae9-a6cb-4fb7-8a4f-89d3e896f0e3",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/4a163ae9-a6cb-4fb7-8a4f-89d3e896f0e3",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 11.3,
+"bearing": 175,
+"angle_diff": 5
+},
+{
+"file": "data/raw/photos/langstrasse/ls364L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "fce11046-03d6-4eb4-b227-7d4714889dd8",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/fce11046-03d6-4eb4-b227-7d4714889dd8",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 6.6,
+"bearing": 170,
+"angle_diff": 10
+}
+]
+},
+"ls364R": {
+"name": "Langstrasse s=364R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1123.5693208138425,
+"y": 54.946785217409975,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls364R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "596ba653-cc97-4e2d-939c-11545b82bf6e",
+"page": "https://api.panoramax.xyz/api/collections/03e6b1a8-1f38-4e56-b8a1-fc6f761f29a6/items/596ba653-cc97-4e2d-939c-11545b82bf6e",
+"date": "2024-05-22",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 19.9,
+"bearing": 49,
+"angle_diff": 0
+},
+{
+"file": "data/raw/photos/langstrasse/ls364R_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "bcdbd7b3-2aed-4c20-b9b4-454a4ad79e12",
+"page": "https://api.panoramax.xyz/api/collections/03e6b1a8-1f38-4e56-b8a1-fc6f761f29a6/items/bcdbd7b3-2aed-4c20-b9b4-454a4ad79e12",
+"date": "2024-05-22",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 16.8,
+"bearing": 51,
+"angle_diff": 13
+}
+]
+},
+"ls371R": {
+"name": "Langstrasse s=371R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1126.584427917347,
+"y": 61.26415248189575,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls371R_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "bcdbd7b3-2aed-4c20-b9b4-454a4ad79e12",
+"page": "https://api.panoramax.xyz/api/collections/03e6b1a8-1f38-4e56-b8a1-fc6f761f29a6/items/bcdbd7b3-2aed-4c20-b9b4-454a4ad79e12",
+"date": "2024-05-22",
+"creator": "captaininler",
+"license": "CC-BY-SA-4.0",
+"dist_m": 23.4,
+"bearing": 44,
+"angle_diff": 20
+}
+]
+},
+"ls371L": {
+"name": "Langstrasse s=371L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1109.4372881994573,
+"y": 69.44801461997996,
+"photos": [
+{
+"file": "data/raw/photos/langstrasse/ls371L_0.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "74757d03-c43f-487c-b7ac-a8b2e5e82d6f",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/74757d03-c43f-487c-b7ac-a8b2e5e82d6f",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 10.4,
+"bearing": 161,
+"angle_diff": 28
+},
+{
+"file": "data/raw/photos/langstrasse/ls371L_1.jpg",
+"source": "panoramax",
+"pano": false,
+"id": "d42d6873-b9cf-4620-8929-f978b1bcc250",
+"page": "https://api.panoramax.xyz/api/collections/9c07d586-66ee-4b67-b49c-35b7fec7977b/items/d42d6873-b9cf-4620-8929-f978b1bcc250",
+"date": "2024-04-14",
+"creator": "paulb_imagery",
+"license": "CC-BY-SA-4.0",
+"dist_m": 15.1,
+"bearing": 170,
+"angle_diff": 19
+}
+]
+},
+"ls378R": {
+"name": "Langstrasse s=378R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1129.5995350208516,
+"y": 67.58151974638147,
+"photos": []
+},
+"ls385L": {
+"name": "Langstrasse s=385L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1115.4675024064663,
+"y": 82.08274914895154,
+"photos": []
+},
+"ls378L": {
+"name": "Langstrasse s=378L",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1112.4523953029618,
+"y": 75.76538188446577,
+"photos": []
+},
+"ls385R": {
+"name": "Langstrasse s=385R",
+"address": "",
+"kind": "facade",
+"area": "Langstrasse",
+"x": 1132.6146421243561,
+"y": 73.89888701086724,
+"photos": []
+}
+}

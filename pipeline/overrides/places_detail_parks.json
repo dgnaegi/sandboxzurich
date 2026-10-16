@@ -1,0 +1,1099 @@
+{
+ "places": [
+  {
+   "id": "park_hardaupark",
+   "center": [
+    -526.2,
+    -519.0
+   ],
+   "reach": 135,
+   "src": "OSM way 34129797; SWISSIMAGE; research/parks/hardaupark.md",
+   "ground": [],
+   "objs": [
+    {
+     "t": "pavilion",
+     "p": [
+      -4.6,
+      -17.02
+     ],
+     "a": 5,
+     "b": 3.5,
+     "c": 2.6,
+     "col": "#6b6258"
+    },
+    {
+     "t": "tbench",
+     "p": [
+      -76.43,
+      20.87
+     ],
+     "h": 0,
+     "a": 2.0,
+     "sit": 1
+    },
+    {
+     "t": "tbench",
+     "p": [
+      -74.43,
+      23.86
+     ],
+     "h": 0,
+     "a": 2.0,
+     "sit": 1
+    },
+    {
+     "t": "tbench",
+     "p": [
+      -71.19,
+      28.79
+     ],
+     "h": 0,
+     "a": 2.0,
+     "sit": 1
+    },
+    {
+     "t": "tbench",
+     "p": [
+      -68.43,
+      33.23
+     ],
+     "h": 0,
+     "a": 2.0,
+     "sit": 1
+    },
+    {
+     "t": "tbench",
+     "p": [
+      -62.94,
+      41.42
+     ],
+     "h": 0,
+     "a": 2.0,
+     "sit": 1
+    },
+    {
+     "t": "tbench",
+     "p": [
+      -57.37,
+      50.0
+     ],
+     "h": 0,
+     "a": 2.0,
+     "sit": 1
+    },
+    {
+     "t": "dfount",
+     "p": [
+      37.15,
+      9.12
+     ],
+     "h": 0
+    },
+    {
+     "t": "grill",
+     "p": [
+      5.69,
+      -16.57
+     ],
+     "h": 0
+    },
+    {
+     "t": "grill",
+     "p": [
+      1.31,
+      -26.39
+     ],
+     "h": 0
+    },
+    {
+     "t": "ysculpt",
+     "p": [
+      -8.8,
+      14.0
+     ],
+     "a": 9
+    }
+   ],
+   "ortho_ground": {
+    "within": {
+     "osm": 34129797,
+     "buf": 1.0
+    },
+    "paved": "asphalt",
+    "lift": 0.03
+   }
+  },
+  {
+   "id": "park_bullingerwiese",
+   "center": [
+    -251.1,
+    -534.1
+   ],
+   "reach": 164,
+   "src": "OSM way 37065137; SWISSIMAGE; research/parks/bullingerwiese.md",
+   "ground": [],
+   "objs": [
+    {
+     "t": "tbench",
+     "p": [
+      49.76,
+      -54.41
+     ],
+     "h": 0,
+     "a": 2.0,
+     "sit": 1
+    },
+    {
+     "t": "tbench",
+     "p": [
+      54.62,
+      -58.91
+     ],
+     "h": 0,
+     "a": 2.0,
+     "sit": 1
+    },
+    {
+     "t": "pingpong",
+     "p": [
+      85.0,
+      17.57
+     ],
+     "h": 0
+    },
+    {
+     "t": "tbench",
+     "p": [
+      52.82,
+      -57.32
+     ],
+     "h": 0,
+     "a": 2.0,
+     "sit": 1
+    },
+    {
+     "t": "tbench",
+     "p": [
+      51.27,
+      -55.77
+     ],
+     "h": 0,
+     "a": 2.0,
+     "sit": 1
+    },
+    {
+     "t": "tbench",
+     "p": [
+      58.69,
+      -62.76
+     ],
+     "h": 0,
+     "a": 2.0,
+     "sit": 1
+    },
+    {
+     "t": "tbench",
+     "p": [
+      57.18,
+      -61.19
+     ],
+     "h": 0,
+     "a": 2.0,
+     "sit": 1
+    },
+    {
+     "t": "dfount",
+     "p": [
+      15.54,
+      -81.23
+     ],
+     "h": 0
+    },
+    {
+     "t": "dfount",
+     "p": [
+      -95.42,
+      -11.63
+     ],
+     "h": 0
+    },
+    {
+     "t": "dfount",
+     "p": [
+      -37.84,
+      79.71
+     ],
+     "h": 0
+    }
+   ],
+   "ortho_ground": {
+    "within": {
+     "osm": 37065137,
+     "buf": 1.0
+    },
+    "paved": "gravel",
+    "lift": 0.03,
+    "exg": 14
+   }
+  },
+  {
+   "id": "park_erismannhof",
+   "center": [
+    228.1,
+    -508.5
+   ],
+   "reach": 122,
+   "src": "OSM way 952626973; SWISSIMAGE; research/parks/erismannhof.md",
+   "ground": [],
+   "objs": [
+    {
+     "t": "pingpong",
+     "p": [
+      16.62,
+      2.58
+     ],
+     "h": 0
+    },
+    {
+     "t": "pingpong",
+     "p": [
+      -2.34,
+      21.73
+     ],
+     "h": 0
+    }
+   ],
+   "ortho_ground": {
+    "within": {
+     "osm": 952626973,
+     "buf": 1.0
+    },
+    "paved": "sidewalk",
+    "lift": 0.03
+   }
+  },
+  {
+   "id": "park_pfingstweidpark",
+   "center": [
+    -298.7,
+    419.3
+   ],
+   "reach": 156,
+   "src": "OSM way 22944392; SWISSIMAGE; research/parks/pfingstweidpark.md",
+   "ground": [],
+   "objs": [
+    {
+     "t": "pingpong",
+     "p": [
+      -10.78,
+      -73.96
+     ],
+     "h": 0
+    },
+    {
+     "t": "pingpong",
+     "p": [
+      -15.79,
+      -79.98
+     ],
+     "h": 0
+    },
+    {
+     "t": "tbench",
+     "p": [
+      -19.23,
+      33.03
+     ],
+     "h": 0,
+     "a": 2.0,
+     "sit": 1
+    },
+    {
+     "t": "tbench",
+     "p": [
+      6.08,
+      6.78
+     ],
+     "h": 0,
+     "a": 2.0,
+     "sit": 1
+    },
+    {
+     "t": "tbench",
+     "p": [
+      -44.57,
+      -58.01
+     ],
+     "h": 0,
+     "a": 2.0,
+     "sit": 1
+    },
+    {
+     "t": "tbench",
+     "p": [
+      -44.58,
+      -60.09
+     ],
+     "h": 0,
+     "a": 2.0,
+     "sit": 1
+    },
+    {
+     "t": "tbench",
+     "p": [
+      -20.95,
+      -53.95
+     ],
+     "h": 0,
+     "a": 2.0,
+     "sit": 1
+    },
+    {
+     "t": "kiosk",
+     "p": [
+      -3.83,
+      49.7
+     ],
+     "a": 3,
+     "b": 2.4,
+     "c": 2.4,
+     "col": "#cfcac0"
+    },
+    {
+     "t": "dfount",
+     "p": [
+      -32.42,
+      -73.25
+     ],
+     "h": 0
+    },
+    {
+     "t": "kiosk",
+     "p": [
+      -3.04,
+      51.44
+     ],
+     "a": 3,
+     "b": 2.4,
+     "c": 2.4,
+     "col": "#cfcac0"
+    },
+    {
+     "t": "grill",
+     "p": [
+      -45.87,
+      -63.76
+     ],
+     "h": 0
+    },
+    {
+     "t": "grill",
+     "p": [
+      -46.54,
+      -61.45
+     ],
+     "h": 0
+    },
+    {
+     "t": "grill",
+     "p": [
+      -27.8,
+      32.93
+     ],
+     "h": 0
+    },
+    {
+     "t": "grill",
+     "p": [
+      -27.69,
+      34.72
+     ],
+     "h": 0
+    },
+    {
+     "t": "grill",
+     "p": [
+      -46.07,
+      -62.97
+     ],
+     "h": 0
+    },
+    {
+     "t": "kiosk",
+     "p": [
+      -18.3,
+      55.7
+     ],
+     "a": 2.2,
+     "b": 2.2,
+     "c": 2.4,
+     "col": "#9aa19d"
+    }
+   ],
+   "ortho_ground": {
+    "within": {
+     "osm": 22944392,
+     "buf": 1.0
+    },
+    "paved": "concrete",
+    "lift": 0.03
+   }
+  },
+  {
+   "id": "park_josefareal",
+   "center": [
+    388.6,
+    289.5
+   ],
+   "reach": 129,
+   "src": "OSM way 1145622518; SWISSIMAGE; research/parks/josefareal.md",
+   "ground": [],
+   "objs": [
+    {
+     "t": "sculpt",
+     "p": [
+      25.4,
+      50.5
+     ],
+     "a": 1.8,
+     "d": 1,
+     "col": "#6b5a3a"
+    }
+   ],
+   "ortho_ground": {
+    "within": {
+     "osm": 1145622518,
+     "buf": 1.0
+    },
+    "paved": "gravel",
+    "lift": 0.03
+   }
+  },
+  {
+   "id": "park_schuetzeareal",
+   "center": [
+    518.8,
+    605.1
+   ],
+   "reach": 120,
+   "src": "OSM way 29349058; SWISSIMAGE; research/parks/schuetzeareal.md",
+   "ground": [],
+   "objs": [
+    {
+     "t": "kiosk",
+     "p": [
+      -7.29,
+      47.84
+     ],
+     "a": 3,
+     "b": 2.4,
+     "c": 2.4,
+     "col": "#cfcac0"
+    },
+    {
+     "t": "kiosk",
+     "p": [
+      -5.81,
+      46.3
+     ],
+     "a": 3,
+     "b": 2.4,
+     "c": 2.4,
+     "col": "#cfcac0"
+    },
+    {
+     "t": "dfount",
+     "p": [
+      21.75,
+      -59.24
+     ],
+     "h": 0
+    },
+    {
+     "t": "kiosk",
+     "p": [
+      -7.8,
+      45.9
+     ],
+     "a": 2.2,
+     "b": 2.2,
+     "c": 2.4,
+     "col": "#9aa19d"
+    }
+   ],
+   "ortho_ground": {
+    "within": {
+     "osm": 29349058,
+     "buf": 1.0
+    },
+    "paved": "asphalt",
+    "lift": 0.03
+   }
+  },
+  {
+   "id": "park_klingenpark",
+   "center": [
+    1399.8,
+    -152.1
+   ],
+   "reach": 113,
+   "src": "OSM way 24593473; SWISSIMAGE; research/parks/klingenpark.md",
+   "ground": [
+    {
+     "circle": [
+      19,
+      -3,
+      11.5
+     ],
+     "mat": "pave",
+     "color": [
+      170,
+      168,
+      160
+     ],
+     "lift": 0.03
+    }
+   ],
+   "objs": [
+    {
+     "t": "pingpong",
+     "p": [
+      -33.13,
+      28.43
+     ],
+     "h": 0
+    },
+    {
+     "t": "pingpong",
+     "p": [
+      -30.78,
+      26.09
+     ],
+     "h": 0
+    },
+    {
+     "t": "dfount",
+     "p": [
+      22.57,
+      -24.35
+     ],
+     "h": 0
+    },
+    {
+     "t": "sculpt",
+     "p": [
+      11.2,
+      -10.9
+     ],
+     "a": 1.8,
+     "d": 1,
+     "col": "#6b5a3a"
+    },
+    {
+     "t": "rfount",
+     "p": [
+      19,
+      -3
+     ],
+     "a": 6,
+     "b": 0.5,
+     "col": "#a8a59c"
+    }
+   ],
+   "ortho_ground": {
+    "within": {
+     "osm": 24593473,
+     "buf": 1.0
+    },
+    "paved": "pave",
+    "lift": 0.03
+   }
+  },
+  {
+   "id": "park_gestaltung",
+   "center": [
+    1491.7,
+    -134.1
+   ],
+   "reach": 108,
+   "src": "OSM way 495443771; SWISSIMAGE; research/parks/gestaltung.md",
+   "ground": [],
+   "objs": [
+    {
+     "t": "dfount",
+     "p": [
+      33.55,
+      -8.8
+     ],
+     "h": 0
+    }
+   ],
+   "ortho_ground": {
+    "within": {
+     "osm": 495443771,
+     "buf": 1.0
+    },
+    "paved": "pave",
+    "lift": 0.03
+   }
+  },
+  {
+   "id": "park_kollerwiese",
+   "center": [
+    185.2,
+    -1763.1
+   ],
+   "reach": 114,
+   "src": "OSM way 121536711; SWISSIMAGE; research/parks/kollerwiese.md",
+   "ground": [],
+   "objs": [
+    {
+     "t": "dfount",
+     "p": [
+      20.34,
+      46.18
+     ],
+     "h": 0
+    },
+    {
+     "t": "kiosk",
+     "p": [
+      26.26,
+      42.98
+     ],
+     "a": 3,
+     "b": 2.4,
+     "c": 2.4,
+     "col": "#cfcac0"
+    },
+    {
+     "t": "kiosk",
+     "p": [
+      25.43,
+      45.63
+     ],
+     "a": 3,
+     "b": 2.4,
+     "c": 2.4,
+     "col": "#cfcac0"
+    },
+    {
+     "t": "kiosk",
+     "p": [
+      25.8,
+      42.1
+     ],
+     "a": 2.2,
+     "b": 2.2,
+     "c": 2.4,
+     "col": "#9aa19d"
+    },
+    {
+     "t": "kiosk",
+     "p": [
+      25.8,
+      42.1
+     ],
+     "a": 2.2,
+     "b": 2.2,
+     "c": 2.4,
+     "col": "#9aa19d"
+    }
+   ],
+   "ortho_ground": {
+    "within": {
+     "osm": 121536711,
+     "buf": 1.0
+    },
+    "paved": "asphalt",
+    "lift": 0.03
+   }
+  },
+  {
+   "id": "park_herdernwiese",
+   "center": [
+    -686.8,
+    55.0
+   ],
+   "reach": 101,
+   "src": "OSM way 1373841608; SWISSIMAGE; research/parks/herdernwiese.md",
+   "ground": [],
+   "objs": [],
+   "ortho_ground": {
+    "within": {
+     "osm": 1373841608,
+     "buf": 1.0
+    },
+    "paved": "gravel",
+    "lift": 0.03
+   }
+  },
+  {
+   "id": "park_stauffacherpark",
+   "center": [
+    711.8,
+    -936.4
+   ],
+   "reach": 119,
+   "src": "OSM way 27435515; SWISSIMAGE; research/parks/stauffacherpark.md",
+   "ground": [],
+   "objs": [
+    {
+     "t": "pingpong",
+     "p": [
+      -12.21,
+      8.91
+     ],
+     "h": 0
+    },
+    {
+     "t": "pingpong",
+     "p": [
+      -8.17,
+      7.75
+     ],
+     "h": 0
+    },
+    {
+     "t": "dfount",
+     "p": [
+      -11.08,
+      -40.7
+     ],
+     "h": 0
+    },
+    {
+     "t": "kiosk",
+     "p": [
+      -41.77,
+      -27.45
+     ],
+     "a": 3,
+     "b": 2.4,
+     "c": 2.4,
+     "col": "#cfcac0"
+    },
+    {
+     "t": "pyramid",
+     "p": [
+      29.2,
+      12.4
+     ],
+     "a": 4,
+     "b": 3
+    },
+    {
+     "t": "kiosk",
+     "p": [
+      -50.8,
+      -9.6
+     ],
+     "a": 2.2,
+     "b": 2.2,
+     "c": 2.4,
+     "col": "#9aa19d"
+    }
+   ],
+   "ortho_ground": {
+    "within": {
+     "osm": 27435515,
+     "buf": 1.0
+    },
+    "paved": "gravel",
+    "lift": 0.03
+   }
+  },
+  {
+   "id": "park_mentonamoser",
+   "center": [
+    895.6,
+    -1049.8
+   ],
+   "reach": 98,
+   "src": "OSM way 4592592; SWISSIMAGE; research/parks/mentonamoser.md",
+   "ground": [],
+   "objs": [
+    {
+     "t": "tbench",
+     "p": [
+      15.06,
+      -19.88
+     ],
+     "h": 0,
+     "a": 2.0,
+     "sit": 1
+    },
+    {
+     "t": "kiosk",
+     "p": [
+      -30.55,
+      25.13
+     ],
+     "a": 3,
+     "b": 2.4,
+     "c": 2.4,
+     "col": "#cfcac0"
+    }
+   ],
+   "ortho_ground": {
+    "within": {
+     "osm": 4592592,
+     "buf": 1.0
+    },
+    "paved": "gravel",
+    "lift": 0.03
+   }
+  },
+  {
+   "id": "park_friedhof_sihlfeld",
+   "center": [
+    -747.1,
+    -970.5
+   ],
+   "reach": 504,
+   "src": "OSM way 10634343; SWISSIMAGE; research/parks/friedhof_sihlfeld.md",
+   "ground": [],
+   "objs": [
+    {
+     "t": "pavilion",
+     "p": [
+      -8.78,
+      -82.31
+     ],
+     "a": 5,
+     "b": 3.5,
+     "c": 2.6,
+     "col": "#6b6258"
+    },
+    {
+     "t": "kiosk",
+     "p": [
+      135.91,
+      -136.28
+     ],
+     "a": 3,
+     "b": 2.4,
+     "c": 2.4,
+     "col": "#cfcac0"
+    },
+    {
+     "t": "kiosk",
+     "p": [
+      287.58,
+      52.88
+     ],
+     "a": 3,
+     "b": 2.4,
+     "c": 2.4,
+     "col": "#cfcac0"
+    },
+    {
+     "t": "kiosk",
+     "p": [
+      201.27,
+      -284.29
+     ],
+     "a": 3,
+     "b": 2.4,
+     "c": 2.4,
+     "col": "#cfcac0"
+    },
+    {
+     "t": "kiosk",
+     "p": [
+      39.86,
+      200.47
+     ],
+     "a": 3,
+     "b": 2.4,
+     "c": 2.4,
+     "col": "#cfcac0"
+    },
+    {
+     "t": "kiosk",
+     "p": [
+      -165.99,
+      46.08
+     ],
+     "a": 3,
+     "b": 2.4,
+     "c": 2.4,
+     "col": "#cfcac0"
+    },
+    {
+     "t": "dfount",
+     "p": [
+      165.92,
+      -260.62
+     ],
+     "h": 0
+    },
+    {
+     "t": "dfount",
+     "p": [
+      22.66,
+      228.8
+     ],
+     "h": 0
+    },
+    {
+     "t": "dfount",
+     "p": [
+      293.83,
+      15.97
+     ],
+     "h": 0
+    },
+    {
+     "t": "dfount",
+     "p": [
+      279.2,
+      29.54
+     ],
+     "h": 0
+    },
+    {
+     "t": "dfount",
+     "p": [
+      -206.96,
+      163.67
+     ],
+     "h": 0
+    },
+    {
+     "t": "dfount",
+     "p": [
+      139.15,
+      156.95
+     ],
+     "h": 0
+    },
+    {
+     "t": "dfount",
+     "p": [
+      -99.37,
+      74.43
+     ],
+     "h": 0
+    },
+    {
+     "t": "dfount",
+     "p": [
+      -27.58,
+      161.97
+     ],
+     "h": 0
+    },
+    {
+     "t": "dfount",
+     "p": [
+      -152.77,
+      118.35
+     ],
+     "h": 0
+    },
+    {
+     "t": "dfount",
+     "p": [
+      -115.14,
+      164.14
+     ],
+     "h": 0
+    },
+    {
+     "t": "dfount",
+     "p": [
+      -62.22,
+      120.13
+     ],
+     "h": 0
+    },
+    {
+     "t": "dfount",
+     "p": [
+      353.44,
+      -97.01
+     ],
+     "h": 0
+    },
+    {
+     "t": "sculpt",
+     "p": [
+      64.1,
+      75.5
+     ],
+     "a": 1.8,
+     "d": 1,
+     "col": "#6b5a3a"
+    },
+    {
+     "t": "sculpt",
+     "p": [
+      -34.9,
+      -70.5
+     ],
+     "a": 1.8,
+     "d": 1,
+     "col": "#6b5a3a"
+    },
+    {
+     "t": "sculpt",
+     "p": [
+      -399.9,
+      65.5
+     ],
+     "a": 1.8,
+     "d": 1,
+     "col": "#6b5a3a"
+    },
+    {
+     "t": "sculpt",
+     "p": [
+      163.1,
+      -160.5
+     ],
+     "a": 1.8,
+     "d": 1,
+     "col": "#6b5a3a"
+    },
+    {
+     "t": "sculpt",
+     "p": [
+      -408.9,
+      136.5
+     ],
+     "a": 1.8,
+     "d": 1,
+     "col": "#6b5a3a"
+    }
+   ],
+   "ortho_ground": {
+    "within": {
+     "osm": 10634343,
+     "buf": 1.0
+    },
+    "paved": "gravel",
+    "lift": 0.03
+   }
+  },
+  {
+   "id": "park_hardturm_wiese",
+   "center": [
+    -1154.5,
+    578.5
+   ],
+   "reach": 307,
+   "src": "OSM way 37373152; SWISSIMAGE; research/parks/hardturm_wiese.md",
+   "ground": [],
+   "objs": [],
+   "ortho_ground": {
+    "within": {
+     "osm": 37373152,
+     "buf": 1.0
+    },
+    "paved": "asphalt",
+    "lift": 0.03
+   }
+  }
+ ]
+}

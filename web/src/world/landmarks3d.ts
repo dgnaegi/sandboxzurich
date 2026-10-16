@@ -117,6 +117,12 @@ export class Landmarks3D {
         if (s.emissiveMap) { l.emissiveMap = s.emissiveMap; l.emissive = new THREE.Color(0xffffff); l.emissiveIntensity = 0; this.lit.push(l); }
         for (const t of [l.map, l.emissiveMap]) if (t) t.anisotropy = 4;
         m.material = l;
+        // hb3: underground model parts are drawn first; hb3_mask writes stencil 1 (no colour/depth) so the terrain is cut open over the stair wells
+        if (s.name === 'hb3_pit' || s.name === 'hb3_lit') m.renderOrder = -0.5;   // after the sky (-1, depthTest off), before the tile geometry (0)
+        if (s.name === 'hb3_mask') {
+          m.renderOrder = -0.4; l.colorWrite = false; l.depthWrite = false; l.depthTest = false; l.side = THREE.DoubleSide;
+          l.stencilWrite = true; l.stencilRef = 1; l.stencilFunc = THREE.AlwaysStencilFunc; l.stencilZPass = THREE.ReplaceStencilOp;
+        }
       });
       this.scene.add(g);
       this.live.set(e.name, g);

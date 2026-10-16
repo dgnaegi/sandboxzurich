@@ -1,0 +1,356 @@
+{
+ "parks": [
+  {
+   "id": "baeckeranlage",
+   "name": "Bäckeranlage",
+   "osm": [
+    4743823
+   ],
+   "c": [
+    535,
+    -693
+   ],
+   "r": 100,
+   "q": "Bäckeranlage Zürich",
+   "photos_from": "v3",
+   "paved": "asphalt",
+   "obs": "Handgebaut: pipeline/overrides/places_detail_baeckeranlage.json (siehe research/v3/baeckeranlage.md).",
+   "ref": []
+  },
+  {
+   "id": "josefwiese",
+   "name": "Josefwiese",
+   "osm": [
+    28054989
+   ],
+   "c": [
+    514,
+    196
+   ],
+   "r": 100,
+   "q": "Josefwiese Zürich",
+   "photos_from": "v3",
+   "paved": "asphalt",
+   "obs": "Handgebaut: places_detail_josefwiese.json (siehe research/v3/josefwiese.md).",
+   "ref": []
+  },
+  {
+   "id": "kasernenwiese",
+   "name": "Kasernenwiese",
+   "osm": [
+    4533222,
+    28943682
+   ],
+   "c": [
+    1157,
+    -850
+   ],
+   "r": 110,
+   "q": "Kasernenwiese Zürich",
+   "photos_from": "v3:kasernenareal",
+   "paved": "asphalt",
+   "obs": "Handgebaut: places_detail_kaserne.json (siehe research/v3/kaserne.md).",
+   "ref": []
+  },
+  {
+   "id": "hardaupark",
+   "name": "Hardaupark",
+   "osm": [
+    34129797
+   ],
+   "c": [
+    -526,
+    -518
+   ],
+   "r": 80,
+   "q": "Hardaupark Zürich",
+   "paved": "asphalt",
+   "obs": "Wege/Belag: grosser Asphaltplatz (Hardauplatz) mit heller Betoneinfassung, Kieswege am Rand; Wiese mit jungen Bäumen im SW. Bäume: hohe Pappeln/Platanen am Rand, junge Stangenbäume. Brunnen: runder Betonbecher-Trinkbrunnen (Ø 0.9 m). Kunst: weisse Y-Skulptur (ca. 8 m) auf dem Platz. Spielplatz Hardau OSM 334488490 (Geräte aus OGD). Umgebung: Hochhäuser Hardau I/II (ocker/orange).",
+   "ref": [
+    13,
+    14,
+    15,
+    12
+   ]
+  },
+  {
+   "id": "bullingerwiese",
+   "name": "Bullingerhof / Bullingerwiese",
+   "osm": [
+    37065137
+   ],
+   "c": [
+    -251,
+    -534
+   ],
+   "r": 110,
+   "q": "Bullingerwiese Zürich",
+   "paved": "gravel",
+   "obs": "Wege/Belag: grau-beiger Kies (Chaussierung) fast flächig unter Platanen/Rosskastanien, Böschung mit Ahorn; Rasen nur randlich. Bäume: alte Platanen und Kastanien in Reihen (laubfrei im Frühjahr). Spielplatz Bullingerhof OSM 104060770. Zäune: Strassenseite niedrige Metallbügel. Beleuchtung: Pilzleuchte. Bänke: einfache Holzbänke. Umgebung: Siedlung Bullingerhof (ockergelb, Läden grün), Bullingerkirche.",
+   "ref": [
+    16,
+    22,
+    24
+   ],
+   "exg": 14
+  },
+  {
+   "id": "erismannhof",
+   "name": "Erismannhof",
+   "osm": [
+    952626973
+   ],
+   "c": [
+    228,
+    -508
+   ],
+   "r": 70,
+   "q": "Erismannhof Zürich",
+   "paved": "sidewalk",
+   "obs": "Genossenschafts-Innenhof Erismannhof: gelb-ockerne Blockrandbauten (Fensterläden grün-grau, Walmdächer) umschliessen Höfe mit Rasen, Kieswegen, Durchgängen (Torbögen mit Kugelaufsatz), Kinderspielplatz mit Sandkasten und Rundbrunnen (Kindergarten-Pavillon mit Vordach). Bäume: Linden, Ahorn, Pappel an der Strasse. Hecken niedrig entlang Zäunen.",
+   "ref": [
+    24,
+    26,
+    27,
+    28,
+    29
+   ]
+  },
+  {
+   "id": "pfingstweidpark",
+   "name": "Pfingstweidpark",
+   "osm": [
+    22944392
+   ],
+   "c": [
+    -298,
+    419
+   ],
+   "r": 100,
+   "q": "Pfingstweidpark Zürich",
+   "paved": "concrete",
+   "obs": "Wege/Belag: helle Betonwege, rote Stützmauern/Brüstungen (ca. 1 m), Hügelrasen; junge Bäume mit Pfählen (Gleditsia/Ginkgo/Linde), Ziergräser. Spielplatz mit Schaukelgestell, Sitzblöcke Beton, runde Pilzleuchten, rote Fussgängerbrücke (Pfingstweid). Hochhäuser (Pfingstweid) im Hintergrund.",
+   "ref": [
+    0,
+    3,
+    4,
+    24,
+    25
+   ]
+  },
+  {
+   "id": "josefareal",
+   "name": "Quartierpark Josef-Areal",
+   "osm": [
+    1145622518
+   ],
+   "c": [
+    388,
+    289
+   ],
+   "r": 70,
+   "q": "Josef-Areal Zürich Park",
+   "paved": "gravel",
+   "obs": "Josef-Areal: Gartenwirtschaft auf Kiesplatz (rote Tische/Schirme), Pappelreihe (Pyramidenpappeln) und Liegewiese dahinter, kleines Holzhaus mit Walmdach, Kamin KVA rot-weiss, Viadukt-Bögen. Kies Pfütze-anfällig; Pilzlampen.",
+   "ref": [
+    14,
+    19,
+    21
+   ]
+  },
+  {
+   "id": "schuetzeareal",
+   "name": "Schütze-Areal",
+   "osm": [
+    29349058
+   ],
+   "c": [
+    518,
+    605
+   ],
+   "r": 70,
+   "q": "Schütze Zürich Park Förrlibuckstrasse",
+   "paved": "asphalt",
+   "obs": "Schütze-Areal: Park vor Wohnbauten, Rasenflächen mit jungen Bäumen, Asphaltweg; Spielgeräte aus OGD.",
+   "ref": []
+  },
+  {
+   "id": "klingenpark",
+   "name": "Klingenpark",
+   "osm": [
+    24593473
+   ],
+   "c": [
+    1399,
+    -152
+   ],
+   "r": 70,
+   "q": "Klingenpark Zürich",
+   "paved": "pave",
+   "obs": "Klingenpark (Ausstellungsstrasse, Museum für Gestaltung): runder Brunnen (Ø ca. 12 m, Granitrand) mit Brunnenfiguren (Bronze, sitzend, auf Sockeln), polygonale Natursteinplatten (Bündner Gneis) rund um den Brunnen, Kieswege, Rasenbänder mit Hecken (1 m) vor dem Museum, alte Platanen/Linden, lange niedrige Holzbänke im Halbrund; Trinkbrunnen aus Stein (Kubus) am Weg.",
+   "ref": [
+    16,
+    19,
+    21,
+    26,
+    27,
+    29
+   ],
+   "ground": [
+    {
+     "circle": [
+      19,
+      -3,
+      11.5
+     ],
+     "mat": "pave",
+     "color": [
+      170,
+      168,
+      160
+     ],
+     "lift": 0.03
+    }
+   ],
+   "objs": [
+    {
+     "t": "rfount",
+     "p": [
+      19,
+      -3
+     ],
+     "a": 6,
+     "b": 0.5,
+     "col": "#a8a59c"
+    }
+   ]
+  },
+  {
+   "id": "gestaltung",
+   "name": "Park Museum für Gestaltung",
+   "osm": [
+    495443771
+   ],
+   "c": [
+    1491,
+    -134
+   ],
+   "r": 60,
+   "q": "Museum für Gestaltung Zürich Park Ausstellungsstrasse",
+   "paved": "pave",
+   "obs": "Park Museum für Gestaltung: siehe Klingenpark; Rasenstreifen, Betonmauern, grosse Platanen vor dem Museum.",
+   "ref": [
+    21,
+    26,
+    28
+   ]
+  },
+  {
+   "id": "kollerwiese",
+   "name": "Kollerwiese",
+   "osm": [
+    121536711
+   ],
+   "c": [
+    185,
+    -1763
+   ],
+   "r": 80,
+   "q": "Kollerwiese Zürich",
+   "paved": "asphalt",
+   "obs": "Kollerwiese: Rasen mit Baumgruppen, Asphaltwege, Spielplatz (OGD), Sitzbänke.",
+   "ref": []
+  },
+  {
+   "id": "herdernwiese",
+   "name": "Herdernwiese",
+   "osm": [
+    1373841608
+   ],
+   "c": [
+    -686,
+    54
+   ],
+   "r": 60,
+   "q": "Herdernwiese Zürich",
+   "paved": "gravel",
+   "obs": "Herdernwiese: kleine Wiese, Kieswege, Bäume (Linden/Ahorn), Bänke.",
+   "ref": []
+  },
+  {
+   "id": "stauffacherpark",
+   "name": "Park Stauffacherstrasse",
+   "osm": [
+    27435515
+   ],
+   "c": [
+    711,
+    -936
+   ],
+   "r": 70,
+   "q": "Zürich Aussersihl Park Stauffacherstrasse",
+   "paved": "gravel",
+   "obs": "Kieshof/Schulhof an der Kanzleistrasse (OSM-Park): grauer Kiesplatz (chaussiert), einzelne grosse Kastanien/Linden, Spielgerät-Reck, Bänke bunt gestrichen, Pyramide aus Granit (Kunst) am Rand. Volkshaus und Stauffacher in der Nähe.",
+   "ref": [
+    17,
+    5,
+    6
+   ]
+  },
+  {
+   "id": "mentonamoser",
+   "name": "Mentona-Moser-Anlage",
+   "osm": [
+    4592592
+   ],
+   "c": [
+    895,
+    -1049
+   ],
+   "r": 50,
+   "q": "Mentona-Moser-Anlage Zürich",
+   "paved": "gravel",
+   "obs": "Mentona-Moser-Anlage: kleine Quartieranlage, Kieswege, Rasen, Bänke, Spielgeräte aus OGD.",
+   "ref": []
+  },
+  {
+   "id": "friedhof_sihlfeld",
+   "name": "Friedhof Sihlfeld",
+   "osm": [
+    10634343
+   ],
+   "c": [
+    -747,
+    -970
+   ],
+   "r": 120,
+   "q": "Friedhof Sihlfeld Zürich",
+   "paved": "gravel",
+   "obs": "Friedhof Sihlfeld: Kieswege (hell, chaussiert), gepflegter Rasen, geschnittene Eiben/Buchshecken (1.5 m), hohe Koniferen und Platanen, grüne Parkbänke, Urnenbrunnen als flache Betonschale mit Kupferdach (Ø 2 m), Kriegsgräberreihen, Grabskulpturen (Bronze/Stein), Glockenmast, Brunnen mit Ringbecken. Krematorium: eigener Landmark.",
+   "ref": [
+    2,
+    3,
+    12,
+    14,
+    15,
+    17
+   ]
+  },
+  {
+   "id": "hardturm_wiese",
+   "name": "Wiese Hardturm",
+   "osm": [
+    37373152
+   ],
+   "c": [
+    -1154,
+    578
+   ],
+   "r": 70,
+   "q": "Hardturm Zürich Wiese Pfingstweid",
+   "paved": "asphalt",
+   "obs": "Hardturm-Areal: Brachwiese/Park (Stadion-Areal), keine Fotos gefunden; nur Orthofoto-Klassifikation.",
+   "ref": []
+  }
+ ]
+}

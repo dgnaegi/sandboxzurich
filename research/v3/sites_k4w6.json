@@ -1,0 +1,130 @@
+[
+ {
+  "id": "sh_kern",
+  "name": "Schulhaus Aussersihl Kern (Kernstrasse)",
+  "kind": "landmark",
+  "lat": 47.377298,
+  "lon": 8.524693,
+  "radius": 70
+ },
+ {
+  "id": "sh_hohl",
+  "name": "Schulhaus Hohl Aussersihl (Hohlstrasse)",
+  "kind": "landmark",
+  "lat": 47.378429,
+  "lon": 8.525034,
+  "radius": 70
+ },
+ {
+  "id": "sh_brauer",
+  "name": "Schulhaus Brauer Aussersihl",
+  "kind": "landmark",
+  "lat": 47.378974,
+  "lon": 8.525376,
+  "radius": 60
+ },
+ {
+  "id": "sh_feld",
+  "name": "Schulhaus Feld Aussersihl",
+  "kind": "landmark",
+  "lat": 47.378417,
+  "lon": 8.522438,
+  "radius": 70
+ },
+ {
+  "id": "sh_sihlfeld",
+  "name": "Schulhaus Sihlfeld",
+  "kind": "landmark",
+  "lat": 47.38092,
+  "lon": 8.514437,
+  "radius": 80
+ },
+ {
+  "id": "sh_limmat",
+  "name": "Schulhaus Limmat Limmatstrasse",
+  "kind": "landmark",
+  "lat": 47.383218,
+  "lon": 8.534177,
+  "radius": 70
+ },
+ {
+  "id": "gz_loogarten",
+  "name": "GZ Loogarten Badenerstrasse Altstetten",
+  "kind": "landmark",
+  "lat": 47.387506,
+  "lon": 8.487921,
+  "radius": 70
+ },
+ {
+  "id": "sh_kappeli",
+  "name": "Schulhaus Kappeli Altstetten",
+  "kind": "landmark",
+  "lat": 47.386866,
+  "lon": 8.493922,
+  "radius": 80
+ },
+ {
+  "id": "sh_pfingstweid",
+  "name": "Schulhaus Pfingstweid",
+  "kind": "landmark",
+  "lat": 47.388967,
+  "lon": 8.513911,
+  "radius": 70
+ },
+ {
+  "id": "sh_schuetze",
+  "name": "Schulhaus Schuetze und Quartierzentrum",
+  "kind": "landmark",
+  "lat": 47.388877,
+  "lon": 8.523499,
+  "radius": 80
+ },
+ {
+  "id": "wache_aussersihl",
+  "name": "Regionalwache Aussersihl (Stadtpolizei)",
+  "kind": "landmark",
+  "lat": 47.379078,
+  "lon": 8.528662,
+  "radius": 60
+ },
+ {
+  "id": "wache_wiedikon",
+  "name": "Regionalwache Wiedikon (Stadtpolizei)",
+  "kind": "landmark",
+  "lat": 47.370432,
+  "lon": 8.51931,
+  "radius": 60
+ },
+ {
+  "id": "pbz_aussersihl",
+  "name": "PBZ Bibliothek Aussersihl (Sihlfeldstrasse)",
+  "kind": "landmark",
+  "lat": 47.372623,
+  "lon": 8.524452,
+  "radius": 60
+ },
+ {
+  "id": "ortsmuseum_wiedikon",
+  "name": "Ortsmuseum Wiedikon",
+  "kind": "landmark",
+  "lat": 47.368236,
+  "lon": 8.519437,
+  "radius": 60
+ },
+ {
+  "id": "wache_industrie",
+  "name": "Regionalwache Industrie",
+  "kind": "landmark",
+  "lat": 47.387444,
+  "lon": 8.529536,
+  "radius": 60
+ },
+ {
+  "id": "sh_wengi",
+  "name": "Schulhaus Wengi / Viventa",
+  "kind": "landmark",
+  "lat": 47.375523,
+  "lon": 8.52316,
+  "radius": 60
+ }
+]

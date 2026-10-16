@@ -11,6 +11,12 @@ REACH = 0.8
 
 class DeckTrack:
     def __init__(self, bridges):
+        # prefer the chains of the last real build (same smoothed terrain as the tile decks); restrict to the kinds asked for
+        import bridges as _b
+        cached = _b.load_chains()
+        if cached:
+            kinds = {b["kind"] for b in bridges}
+            bridges = [c for c in cached if c["kind"] in kinds] if kinds else cached
         self.segs, self.meta = [], []
         for b in bridges:
             p = np.array(b["p"])

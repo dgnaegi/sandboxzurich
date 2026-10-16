@@ -1,0 +1,114 @@
+[
+ {
+  "id": "kanzlei",
+  "name": "Kanzleiareal",
+  "kind": "place",
+  "lat": 47.375467,
+  "lon": 8.526192,
+  "radius": 90
+ },
+ {
+  "id": "brupbacherplatz",
+  "name": "Brupbacherplatz",
+  "kind": "place",
+  "lat": 47.374249,
+  "lon": 8.516977,
+  "radius": 60
+ },
+ {
+  "id": "lang_diener",
+  "name": "Langstrasse Dienerstrasse",
+  "kind": "place",
+  "lat": 47.378473,
+  "lon": 8.527008,
+  "radius": 50
+ },
+ {
+  "id": "lang_militaer",
+  "name": "Langstrasse Militaerstrasse",
+  "kind": "place",
+  "lat": 47.379654,
+  "lon": 8.527694,
+  "radius": 50
+ },
+ {
+  "id": "brauer_hohl",
+  "name": "Brauerstrasse Hohlstrasse",
+  "kind": "place",
+  "lat": 47.379649,
+  "lon": 8.52147,
+  "radius": 50
+ },
+ {
+  "id": "berta_zurlinden",
+  "name": "Bertastrasse Zurlindenstrasse",
+  "kind": "place",
+  "lat": 47.374523,
+  "lon": 8.514639,
+  "radius": 50
+ },
+ {
+  "id": "goldbrunnenplatz",
+  "name": "Goldbrunnenplatz",
+  "kind": "place",
+  "lat": 47.37023,
+  "lon": 8.513877,
+  "radius": 60
+ },
+ {
+  "id": "schmiede_wiedikon",
+  "name": "Schmiede Wiedikon",
+  "kind": "place",
+  "lat": 47.37009,
+  "lon": 8.519329,
+  "radius": 60
+ },
+ {
+  "id": "bhf_wiedikon_platz",
+  "name": "Bahnhofplatz Wiedikon",
+  "kind": "place",
+  "lat": 47.371578,
+  "lon": 8.523729,
+  "radius": 60
+ },
+ {
+  "id": "bhf_hardbruecke_platz",
+  "name": "Bahnhofplatz Hardbruecke",
+  "kind": "place",
+  "lat": 47.385444,
+  "lon": 8.517455,
+  "radius": 70
+ },
+ {
+  "id": "bhf_altstetten_platz",
+  "name": "Bahnhofplatz Altstetten",
+  "kind": "place",
+  "lat": 47.391463,
+  "lon": 8.488966,
+  "radius": 70
+ },
+ {
+  "id": "limmat_roentgen",
+  "name": "Limmatstrasse Roentgenstrasse",
+  "kind": "place",
+  "lat": 47.387727,
+  "lon": 8.52725,
+  "radius": 50
+ },
+ {
+  "id": "stauffacher_knoten",
+  "name": "Stauffacher Tramknoten",
+  "kind": "place",
+  "lat": 47.373282,
+  "lon": 8.529007,
+  "radius": 60
+ },
+ {
+  "id": "hohl_lang",
+  "name": "Hohlstrasse Langstrasse",
+  "kind": "place",
+  "lat": 47.377382,
+  "lon": 8.526363,
+  "radius": 50
+ }
+]

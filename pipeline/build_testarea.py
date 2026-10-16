@@ -19,11 +19,12 @@ import numpy as np
 import shapely
 from shapely.geometry import LineString, Point, Polygon, box
 from shapely.strtree import STRtree
-
+import markings_override  # langA hook
 import glb
 import addresses
 import bridges
 import plazasigns
+import names_inst
 import playgrounds
 import sites
 import citydata
@@ -32,6 +33,7 @@ import ground_paint
 import places_detail
 import osm_buildings
 import ortho_roofs
+import rooftops  # roof furniture (pipeline/rooftops.py)
 import terrain_cuts
 import water  # rivers/canals (pipeline/water.py)
 import road_height
@@ -42,6 +44,8 @@ import terrain
 import traffic_signs as TS
 from gwr import gwr_for_building
 import cityprops
+import yards  # YARDS: courtyards/front gardens (pipeline/yards.py)
+import details_osm  # street details from OSM tags (pipeline/details_osm.py)
 import props
 import sources
 import streets
@@ -134,10 +138,12 @@ def _ground_base(gm, S, tb, H, white, yellow, rails, bed, bays_white=None, bays_
         walk = walk.difference(S["water_poly"])
     if S.get("av_rail") is not None:  # railway land: low ballast, the rail tiles (railways.py) sit on top
         rl = walk.intersection(S["av_rail"].intersection(tb))
-        drape(gm, rl, H, -0.45, (150, 142, 132), cell=TILE / 10, layer=LAYER["dach_kies"], uv_scale=1.5)
+        drape(gm, rl, H, -0.08, (150, 142, 132), cell=TILE / 10, layer=LAYER["dach_kies"], uv_scale=1.5)
         walk = walk.difference(rl)
     # sidewalks along streets; everything further away is courtyard / front garden
     side = walk.intersection(S["roads"].buffer(6.0).union(S["plaza"].buffer(3.0)))
+    if S.get("av_green") is not None:  # the AV never marks a Trottoir green: lawn strips, tree pits and green traffic islands stay lawn
+        side = side.difference(S["av_green"].intersection(tb))
     yard = walk.difference(side)
     drape(gm, side, H, 0.0, (255, 255, 255), cell=TILE / 10, layer=LAYER["sidewalk"], uv_scale=5.0)
     if S.get("av_green") is not None:  # official land cover decides courtyards: lawn vs paved (AV Kanton ZH)
@@ -263,6 +269,7 @@ def build():
             lon, lat = ft["geometry"]["coordinates"][:2]
             S["hydrants"].append(tuple(sources.geo.to_local(lon, lat)))
     white, yellow = streets.markings(S)
+    white, yellow = markings_override.apply(S, white, yellow)  # HOOK langA: measured Langstrasse markings (pipeline/markings_override.py)
     rails = shapely.union_all([ln.offset_curve(o).buffer(0.035) for ln in S["tram"] for o in (-0.5, 0.5)])
     # grooved rails: the dark flangeway groove on the inner side of each rail
     grooves = shapely.union_all([ln.offset_curve(o).buffer(0.022) for ln in S["tram"] for o in (-0.44, 0.44)])
@@ -272,6 +279,7 @@ def build():
     main = shapely.union_all([w["line"] for w in S["ways"] if w["hw"] in streets.MAIN])
     _lap("groundcover + tram geometry")
     C = citydata.load(BIG)
+    details_osm.prepare(nodes, els)
     # private trees (courtyards, gardens) are missing in the city tree register: add OSM natural=tree
     _ct = STRtree([Point(t[0], t[1]) for t in C.get("trees", [])]) if C.get("trees") else None
     _n = 0
@@ -292,9 +300,14 @@ def build():
     PG = playgrounds.rows(nodes, els, H)  # real playgrounds incl. courtyards
     PS = plazasigns.rows(H)  # squares + dedication plaques at their surveyed places
     SG = [r for r in SG if not any(q[4] == r[4] and math.hypot(q[0] - r[0], q[1] - r[1]) < 12 for q in PS)] + PS
+    AD = AD + names_inst.gwr_numbers(AREA, H, AD, S)  # every GWR entrance gets its house number
+    SG = SG + names_inst.junction_poles(AREA, H, SG, S)  # pole signs at junctions without a wall corner
+    names_inst.add_institutions(S, nodes, els)  # schools, churches, GZ, big shops (also mapped as areas)
     TSG, TSL = TS.sign_rows(AREA, H, nodes, els), TS.signal_rows(AREA, H, nodes, els)
     # real parking bays are part of the carriageway (OSM widths are often too narrow for them)
     S["roads"] = shapely.union_all([S["roads"], cityprops.parking_bays(C, S)])
+    if S["roads"].geom_type not in ("Polygon", "MultiPolygon"):  # a GeometryCollection has boundary None -> crash in _ground_base
+        S["roads"] = shapely.union_all([g for g in shapely.get_parts(S["roads"]) if g.geom_type in ("Polygon", "MultiPolygon")])
     poi_pts = shapely.points([(p["x"], p["y"]) for p in S["pois"]]) if S["pois"] else []
 
     def street_dist(x, y):
@@ -345,6 +358,9 @@ def build():
     fps = [(b["id"], footprint(b)) for b in sources.buildings(margin=60)]
     fps = [(i, f) for i, f in fps if f is not None and not f.is_empty]
     fp_tree = STRtree([f for _, f in fps])
+    # YARDS: shrub areas + private nDSM trees missing in the register (before tiles are built)
+    yards.prepare(els, nodes, [(r[0], r[1]) for r in PG])
+    yards.add_private_trees(C, [f for _, f in fps], AREA)
 
     def neighbour_fn(bid):
         def inside(x, y):
@@ -383,7 +399,7 @@ def build():
         backdrop = is_backdrop(ix, iy)
         tb = box(ix * TILE, iy * TILE, (ix + 1) * TILE, (iy + 1) * TILE)
         bm, gm = Mesh(), Mesh()
-        colliders, segs = [], []
+        colliders, segs, roof_rows = [], [], []
         for b in blds:
             if not tb.contains(Point(b["center"][:2])):
                 continue
@@ -394,6 +410,12 @@ def build():
                          if fp is not None and fp.distance(Point(p["x"], p["y"])) < 6]
             fpb = footprint(b)
             b["_roof_rgb"] = ortho_roofs.roof_rgb(fpb) if fpb is not None and fpb.geom_type == "Polygon" else None
+            try:  # ROOFTOPS hook: dormers, PV, units, terraces (rooftops.py)
+                _rr, _rf = rooftops.analyse(b)
+                roof_rows += _rr
+                b["_roofs"] = _rf
+            except Exception as _e:
+                print("rooftops failed", b.get("id"), _e, flush=True)
             segs += add_building(bm, b, street_dist, neighbour_fn(b["id"]))
             if fp is not None and not fp.is_empty:
                 for p in getattr(fp, "geoms", [fp]):
@@ -441,22 +463,28 @@ def build():
         sg = props.signs(S, [s for s in segs if not s.get("blank")], tb)
         PD = places_detail.tile_meta(tb, H, P)  # square/park furniture (overrides/places_detail.json)
         colliders += PD.pop("_colliders", [])
+        DT = details_osm.tile_meta(tb, H, S, C, P, inside_any, segs)  # columns, post boxes, hedges, leaves ... (details.ts)
+        colliders += DT.pop("_colliders")
+        YD = yards.tile_meta(tb, H, S, C, P, [fps[j][1] for j in fp_tree.query(tb.buffer(20))])  # YARDS
         SM = sites.tile_meta(tb, H)  # real construction sites (Stadt Zürich OGD), research/sites.md
         colliders += SM.pop("colliders")
         meta = {
             **SM,
+            **DT,
+            **YD,
             **water.meta(W, tb),  # water
             "places": PD,
             "playground": [r for r in PG if tb.contains(Point(r[0], r[1]))],
             "colliders": colliders,
             "hmap": hmap(tb),
             "fence": fz,
+            "roofs": rooftops.pack(roof_rows),
             **P,
             "wires": props.tram_wires(S["tram"], tb, H),
             "posters": (al := props.posters([s for s in segs if s.get("blank")], tb)),
             "lawn": props.lawn_spots(S["parks"], tb, H) + (tr := props.terraces(sg, S["roads"], OUTDOOR, H, inside_any))[1],
             "terraces": tr[0],
-            "decals": props.decals(S, tb, H, CURB),
+            "decals": markings_override.decals(props.decals(S, tb, H, CURB), tb, H, CURB),  # HOOK langA
             "construction": props.construction(blds, segs, tb, lambda x, y: main.distance(Point(x, y))) + sites.scaffold_rows(tb, segs),
             "scooters": [[x, y, round(float(H.at(x, y)), 2), h, c] for x, y, h, c in
                          props.scooters(props.walk_paths(S["roads"], S["plaza"], tb), tb)],
@@ -472,7 +500,7 @@ def build():
             "wild": (wild := props.wild_posters([s for s in segs if s.get("blank")], al, tb, main_dist=lambda x, y: main.distance(Point(x, y)))),
             "graffiti": props.graffiti([s for s in segs if s.get("blank")], al + wild, tb,
                                        lambda x, y: main.distance(Point(x, y))),
-            "signs": sg,
+            "signs": names_inst.fallback(sg, tb, H, S),  # + wall signs for venues without a shopfront segment
             "paths": props.walk_paths(S["roads"], S["plaza"], tb),
             "mask": {"x0": tb.bounds[0], "y0": tb.bounds[1], "n": mask_n, "res": 1.0, "depth": CURB, "bits": mask},
         }

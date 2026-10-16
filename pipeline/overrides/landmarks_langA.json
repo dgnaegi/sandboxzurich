@@ -1,0 +1,132 @@
+{
+ "landmarks": [
+  {
+   "name": "Langstrasse/Neugasse Eckhaus Chicago Bar",
+   "model": "/models/landmarks/langA_chicago.glb",
+   "x": 1014.2,
+   "y": -157.9,
+   "z": -5.28,
+   "heading": 0,
+   "hide": [
+    [
+     1014.9,
+     -158.4
+    ]
+   ]
+  },
+  {
+   "name": "Langstrasse/Neugasse Eckhaus gruen (Coop to go)",
+   "model": "/models/landmarks/langA_coop.glb",
+   "x": 991.8,
+   "y": -135.8,
+   "z": -5.14,
+   "heading": 0,
+   "hide": [
+    [
+     991.7,
+     -134.4
+    ],
+    [
+     995.1,
+     -144.3
+    ]
+   ]
+  },
+  {
+   "name": "Langstrasse 210 Hotel Gasthaus (korallrot)",
+   "model": "/models/landmarks/langA_hotel210.glb",
+   "x": 1028.2,
+   "y": -124.4,
+   "z": -5.42,
+   "heading": 0,
+   "hide": [
+    [
+     1028.1,
+     -124.4
+    ]
+   ]
+  },
+  {
+   "name": "Langstrasse 206 terrakottaroter Eckbau",
+   "model": "/models/landmarks/langA_kiosk206.glb",
+   "x": 1019.3,
+   "y": -143.2,
+   "z": -5.29,
+   "heading": 0,
+   "hide": [
+    [
+     1020.1,
+     -144.5
+    ]
+   ]
+  },
+  {
+   "name": "Langstrasse 215 graues Eckhaus (Cinque)",
+   "model": "/models/landmarks/langA_cinque.glb",
+   "x": 1023.3,
+   "y": -79.2,
+   "z": -5.5,
+   "heading": 0,
+   "hide": [
+    [
+     1024.7,
+     -78.9
+    ]
+   ]
+  },
+  {
+   "name": "Langstrasse/Josefstrasse Eckhaus ocker (MeiXin)",
+   "model": "/models/landmarks/langA_meixin.glb",
+   "x": 1038.1,
+   "y": -53.5,
+   "z": -5.49,
+   "heading": 0,
+   "hide": [
+    [
+     1038.2,
+     -55.3
+    ]
+   ]
+  },
+  {
+   "name": "Langstrasse gelbes Haus (Werners Head Shop)",
+   "model": "/models/landmarks/langA_werner.glb",
+   "x": 1078.5,
+   "y": -32.8,
+   "z": -5.48,
+   "heading": 0,
+   "hide": [
+    [
+     1073.4,
+     -39.6
+    ],
+    [
+     1078.2,
+     -27.4
+    ],
+    [
+     1079.1,
+     -26.2
+    ],
+    [
+     1083.8,
+     -21.5
+    ]
+   ]
+  },
+  {
+   "name": "Langstrasse 243 ockergelb (Burgermeister)",
+   "model": "/models/landmarks/langA_burger243.glb",
+   "x": 1093.3,
+   "y": 43.2,
+   "z": -5.67,
+   "heading": 0,
+   "hide": [
+    [
+     1093.0,
+     42.9
+    ]
+   ]
+  }
+ ]
+}

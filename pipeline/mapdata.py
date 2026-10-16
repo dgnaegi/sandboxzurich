@@ -193,7 +193,7 @@ def main():
             elif kind == "b" and g.area > 1800:
                 pois.append([nm, round(c.x), round(c.y), "bld"]); seen.add((nm, kind))
     for lm in json.load(open(ROOT / "web" / "public" / "data" / "landmarks.json"))["landmarks"]:
-        pois.append([lm["name"].split(" + ")[0].replace("-Kamin Josefstrasse", ""), round(lm["x"]), round(lm["y"]), "lm"])
+        pois.append([lm["name"].split(" + ")[0].replace("-Kamin Josefstrasse", "").replace("Westpark (Galaxus)", "Digitec Galaxus"), round(lm["x"]), round(lm["y"]), "lm"])
     # dedupe by name
     dd = {}
     for p in places:

@@ -1,0 +1,2 @@
+# Goldbrunnenplatz (Mitte -187 / -1545)
+Fotos 20. Tram-/Bushub Birmensdorferstrasse (Zone 30 am Platz, Zebrastreifen gelb), rote Velostreifen (Foto 8), stählerne Perrondächer mit Glas (Fotos 5, 16), Perronuhr auf Mast (Foto 16), Bancomat-Kabine (Foto 17), Eckhäuser 5 OG ocker mit roten Markisen (Foto 3), Walmdachvilla mit Hecke (Fotos 0, 1, 9). Umsetzung: Typ `clockpost` am Perron; Perrondächer und Velostreifen kommen aus den Haltestellen-/Velo-Pipelines.

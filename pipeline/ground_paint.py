@@ -37,7 +37,7 @@ def green_lanes(S, tb):
         if not any(w["name"] == n for n, _ in _green_sections()) or not w["line"].intersects(near):
             continue
         area = shapely.union_all([a for n, a in _green_sections() if n == w["name"]])
-        ln, L = w["line"], w["line"].length
+        ln, L = streets.mline(w), w["line"].length
         for side, solid, broken in streets.bike_lane_pieces(w):
             sgn = 1 if side == "left" else -1
             for a, b in solid + broken:
