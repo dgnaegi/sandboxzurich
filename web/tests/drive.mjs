@@ -85,7 +85,8 @@ async function run(touch) {
   if (touch) await page.tap('#btn-use'); else await page.keyboard.press('KeyE');
   await page.waitForFunction(() => !window.sbxPlayer.driving, null, { timeout: 8000 }).catch(() => {});
   ok(await page.evaluate(() => !window.sbxPlayer.driving), `${tag}: got out with E`);
-  const out = await page.evaluate(() => { const p = window.sbxPlayer; return { stars: window.sbxState.stars, nearCar: window.sbxParked.near(p.x, p.y, 6).length + window.sbxCarUse.wrecks.filter((w) => Math.hypot(w.x - p.x, w.y - p.y) < 6).length }; // parked or (damaged) wreck });
+  // the car left behind counts as parked or, if damaged, as a wreck
+  const out = await page.evaluate(() => { const p = window.sbxPlayer; return { stars: window.sbxState.stars, nearCar: window.sbxParked.near(p.x, p.y, 6).length + window.sbxCarUse.wrecks.filter((w) => Math.hypot(w.x - p.x, w.y - p.y) < 6).length }; });
   ok(out.stars === 0 && out.nearCar > 0, `${tag}: no stars, car left standing (${out.nearCar} near)`);
   await ctx.close();
 }
