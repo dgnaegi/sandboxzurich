@@ -1,4 +1,4 @@
-import { GfxMode, bindSettingsPage } from './settings';
+import { GfxMode, bindSettingsPage, settings } from './settings';
 
 /** Pause menu (Esc / P / ☰): continue, map, settings (graphics, sound, camera, joystick), credits, imprint. */
 export class Menu {
@@ -7,13 +7,14 @@ export class Menu {
   onMap: () => void = () => {};
   onQuality: (q: GfxMode) => void = () => {};
   onMute: (m: boolean) => void = () => {};
+  onMusic: (on: boolean, vol: number) => void = () => {};
 
   constructor() {
     const $ = (id: string) => document.getElementById(id)!;
     $('btn-menu').addEventListener('click', () => this.toggle(true));
     $('m-continue').addEventListener('click', () => this.toggle(false));
     $('m-map').addEventListener('click', () => { this.toggle(false); this.onMap(); });
-    bindSettingsPage(this.el.querySelector<HTMLElement>('[data-page="settings"]')!, { onGfx: (g) => this.onQuality(g), onMute: (m) => this.onMute(m) });
+    bindSettingsPage(this.el.querySelector<HTMLElement>('[data-page="settings"]')!, { onGfx: (g) => this.onQuality(g), onMute: (m) => this.onMute(m), onMusic: () => this.onMusic(settings.music, settings.musicVol) });
     $('m-settings').addEventListener('click', () => this.page('settings'));
     for (const id of ['m-credits', 'm-imprint']) $(id).addEventListener('click', () => this.page(id === 'm-credits' ? 'credits' : 'imprint'));
     for (const b of document.querySelectorAll('.m-back')) b.addEventListener('click', () => this.page('main'));
