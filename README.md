@@ -1,17 +1,18 @@
-# SANDBOX ZÜRICH – das Spiel
+# SANDBOX ZÜRICH
 
-Ein Open-World-Spiel im Browser, im Arcade-Stil, in einem möglichst originalgetreuen Zürich: Kreise 3, 4, 5 und 9 mit echten Strassen, Velovorzugsrouten, Trams und echten Läden und Cafés.
+Ein Open-World-Spiel im Browser in einem möglichst originalgetreuen Zürich (Kreise 4 und 5 sowie Teile von 3 und 9), spielbar auf Handy und PC. Work in progress.
 
-Man läuft (später auch Velo) frei durch die Stadt. Die Quests drehen sich um Stadtthemen: Wohnen, Freiraum, Verkehr, Schule. Wer satirische Ziele zerstört (z.B. Werbebildschirme), bekommt Sterne, und die Polizei rückt aus.
+**Spielen:** https://sandboxzurich.sandboxzurich-web.workers.dev
 
-- **Plattform:** Browser auf Handy und PC (Touch, Tastatur/Maus, Gamepad), ohne Installation
-- **Hosting:** statische Website über ein CDN (`docs/DEPLOY.md`)
-- **Stand:** Planung. Siehe `docs/ROADMAP.md` und `docs/HANDOFF.md`.
-
-Hervorgegangen aus einem Instagram-Reel zur Wohnungssuche in Zürich.
-
-## Quellen und Lizenzen
-Kartendaten © OpenStreetMap-Mitwirkende (ODbL), swisstopo (swissBUILDINGS3D, SWISSIMAGE), Stadt Zürich Open Data. Details in `docs/DATA_SOURCES.md`.
-
-## Lizenz
-Code und Dokumentation: [WTFPL](LICENSE). Kartendaten behalten ihre eigenen Lizenzen: OpenStreetMap ist ODbL (Namensnennung und Share-Alike für die Datenbank), swisstopo und Stadt Zürich sind OGD mit Quellenangabe. Siehe `docs/DATA_SOURCES.md`.
+## Credits
+- Kartendaten © OpenStreetMap-Mitwirkende (ODbL)
+- © swisstopo: swissBUILDINGS3D, swissALTI3D, swissSURFACE3D, SWISSIMAGE
+- Stadt Zürich Open Data (CC0): Baumkataster, Beleuchtung ewz, Parkplätze, Sitzbänke, Brunnen, Abfallgefässe, Zweiradparkierung, Hydranten, Baustellen, Strassennamen, Widmungstafeln, Gastwirtschaftsbetriebe, Velonetz
+- Kanton Zürich: Amtliche Vermessung (Bodenbedeckung)
+- BFS: Eidg. Gebäude- und Wohnungsregister (GWR)
+- Figuren: MakeHuman / MPFB (CC0)
+- Bewegungen: CMU Graphics Lab Motion Capture Database (mocap.cs.cmu.edu)
+- Referenzfotos (nur als Vorlage, nicht im Spiel): Mapillary, Panoramax, Wikimedia Commons (CC BY-SA, Liste in `research/`)
+- Schriften: Anton, Barlow, Archivo, Bebas Neue, DM Serif Display, Oswald, Space Mono, Permanent Marker (SIL OFL)
+- Bibliotheken: three.js, meshoptimizer/gltfpack (MIT), n8ao
+- Code: WTFPL
