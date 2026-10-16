@@ -1,6 +1,6 @@
 # Quests
 
-Stand: Ideensammlung. Die Ausarbeitung (Ablauf, Dialoge, Orte, Belohnungen) folgt später mit dem User. Botschaften kommen aus dem Wahlprogramm (`TODO-PROGRAMM`).
+Stand: Ideensammlung. Die Ausarbeitung (Ablauf, Dialoge, Orte, Belohnungen) folgt später mit dem User. Botschaften liefert der User (bis dahin Platzhalter `TODO-PROGRAMM`).
 
 ## Vom User festgelegt
 | # | Titel | Thema | Kern-Gameplay | Status |
@@ -20,12 +20,12 @@ Stand: Ideensammlung. Die Ausarbeitung (Ablauf, Dialoge, Orte, Belohnungen) folg
 ## Vorlage für eine ausgearbeitete Quest
 ```
 ### Qn – Titel
-- Auftraggeber:in (NPC / kandidierende Person):
+- Auftraggeber:in (NPC):
 - Startort (Adresse, lokale Koordinaten):
 - Ablauf (Schritte):
 - Spielmechaniken:
 - Pointe / Gag:
-- Botschaft (1 Satz, aus Programm):
+- Botschaft (1 Satz):
 - Belohnung:
 - Benötigte Map-Features:
 ```

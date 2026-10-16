@@ -141,9 +141,9 @@ Koordinaten: nur wo eine Quelle sie nennt (CH1903/LV95 oder WGS84). Sonst Adress
 ### A19. Brauerstrasse 1971: Gewalttat und Umbenennungsforderung
 - **Ort:** Lokal an der Brauerstrasse
 - **Fakt:** Am 20. März 1971 wurde ein italienischer Gastarbeiter in einem Lokal an der Brauerstrasse von einem Anhänger der «Bewegung gegen die Überfremdung» zu Tode geprügelt. Linke Gemeinderatsparteien haben später gefordert, die Strasse nach dem Opfer zu benennen («Alfredo-Zardini-Strasse»).
-- **Spiel-Idee:** Keine Spielidee. Nur als Gedenkhinweis oder Bildungsbezug, falls die Kampagne das ausdrücklich will.
+- **Spiel-Idee:** Keine Spielidee. Nur als Gedenkhinweis oder Bildungsbezug, falls ausdrücklich gewünscht.
 - **Quelle:** https://www.nau.ch/politik/regional/linke-fordern-umbenennung-von-zurcher-strasse-nach-gastarbeiter-67138236
-- **heikel:** ja, sehr. Tötung eines Menschen. Nicht als Gag, nicht als Kulisse. Entscheid bei der Kampagne.
+- **heikel:** ja, sehr. Tötung eines Menschen. Nicht als Gag, nicht als Kulisse. Entscheid beim User.
 
 ### A20. Langstrasse Milieu-Stadtführungen (Kontext)
 - **Ort:** Langstrasse, Stadtführungen

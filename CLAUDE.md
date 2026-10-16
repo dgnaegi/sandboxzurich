@@ -1,6 +1,6 @@
 # SANDBOX ZÜRICH – Browser-Game
 
-Open-World-Browsergame im Arcade-Stil in den Zürcher Kreisen 3, 4, 5 und 9, mit Quests zu linken Wahlthemen (Wohnen, Freiraum, Verkehr, Schule). **Wahlkampfspiel der Alternativen Linken (AL)**; Plakate im Spiel: «radikal sozial» / «Alternative Linke» (Hochformat). Gehostet auf Scalingo. Wird fast vollständig von AI gebaut; der Mensch testet, entscheidet und gibt Feedback.
+Open-World-Browsergame im Arcade-Stil in den Zürcher Kreisen 3, 4, 5 und 9, mit Quests zu Stadtthemen (Wohnen, Freiraum, Verkehr, Schule). Statische Website, ausgeliefert über ein CDN (`docs/DEPLOY.md`). Wird fast vollständig von AI gebaut; der Mensch testet, entscheidet und gibt Feedback.
 
 Dieses Projekt ist **getrennt vom Reel** in `../gta6/` (lokal, nicht im Repo, eigene `CLAUDE.md`). Daten und Skripte von dort dürfen gelesen und wiederverwendet werden, aber nichts in `../gta6/` wird verändert.
 
@@ -24,7 +24,7 @@ Dieses Projekt ist **getrennt vom Reel** in `../gta6/` (lokal, nicht im Repo, ei
 | `docs/ARCHITECTURE.md` | Tech-Stack, Ordnerstruktur, Datenfluss, Performance-Budgets |
 | `docs/MAP_SPEC.md` | Was die Karte enthalten muss (Checkliste pro Ebene) |
 | `docs/DATA_SOURCES.md` | Quellen, Lizenzen, was erlaubt ist und was nicht |
-| `docs/CONTENT_GUIDELINES.md` | Politische und rechtliche Leitplanken |
+| `docs/CONTENT_GUIDELINES.md` | Inhaltliche und rechtliche Leitplanken |
 | `docs/QUESTS.md` | Quest-Ideen (werden später ausgearbeitet) |
 | `docs/ROADMAP.md` | Milestones mit Checklisten |
 | `docs/DECISIONS.md` | Entscheidungslog (ADR-light) |

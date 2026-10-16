@@ -2,10 +2,10 @@
 
 Ein Open-World-Spiel im Browser, im Arcade-Stil, in einem möglichst originalgetreuen Zürich: Kreise 3, 4, 5 und 9 mit echten Strassen, Velovorzugsrouten, Trams und echten Läden und Cafés.
 
-Man läuft (später auch Velo) frei durch die Stadt. Die Quests drehen sich um Themen aus einem linken, alternativen Wahlprogramm: Wohnen, Freiraum, Verkehr, Schule. Kandidierende für Regierungsrat und Kantonsrat treten als Nebenfiguren auf, die Quests vergeben. Wer satirische Ziele zerstört (z.B. Werbebildschirme), bekommt Sterne, und die Polizei rückt aus.
+Man läuft (später auch Velo) frei durch die Stadt. Die Quests drehen sich um Stadtthemen: Wohnen, Freiraum, Verkehr, Schule. Wer satirische Ziele zerstört (z.B. Werbebildschirme), bekommt Sterne, und die Polizei rückt aus.
 
 - **Plattform:** Browser auf Handy und PC (Touch, Tastatur/Maus, Gamepad), ohne Installation
-- **Hosting:** Scalingo (statische App inklusive Kartenkacheln)
+- **Hosting:** statische Website über ein CDN (`docs/DEPLOY.md`)
 - **Stand:** Planung. Siehe `docs/ROADMAP.md` und `docs/HANDOFF.md`.
 
 Hervorgegangen aus einem Instagram-Reel zur Wohnungssuche in Zürich.

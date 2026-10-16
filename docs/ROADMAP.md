@@ -41,9 +41,9 @@ Jedes Milestone endet mit etwas, das der User im Browser (auch auf dem Handy) au
 
 ## M4 – Quests
 - [ ] Q1–Q3 ausarbeiten und umsetzen, danach weitere
-- [ ] Kandidierende als NPCs (nach Einwilligung)
+- [ ] Echte Personen als NPCs (nur nach schriftlicher Einwilligung)
 
 ## M5 – Launch
 - [ ] Tests auf echten Geräten, Ladezeit, Feinschliff
-- [ ] Inhaltliche Abnahme durch die Kampagne
-- [ ] Launch vor den Wahlen 2027 (Datum prüfen)
+- [ ] Inhaltliche Abnahme
+- [ ] Launch (Datum offen)

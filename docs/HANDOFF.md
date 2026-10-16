@@ -17,7 +17,7 @@ Spielgebiet: Kreise 4+5, Teile 9 und 3, Friedhof Sihlfeld (6.88 km², 219 Spiel-
 - **Ladenfronten v3**: 349 Lokale mit Foto-Notizen (`research/shops_v3/shops_v3.json`), Laufzeit-Stil (`world/storefront_style.ts`, `_sign`, `_terrace`), Front nur über Lokalbreite, Terrassen nur auf gemessenem Trottoir (`pd`).
 - **Landmarks** (GLB, `pipeline/landmarks/`, Manifeste `overrides/landmarks_*.json` → `merge.py`): Runde 3 + Wellen 2/3, zusammen ~60 Bauten in allen Kreisen (u. a. Volkshaus, Lochergut, St. Jakob, Prime Tower, Viadukt, Hardbrücke, KVA, Röntgenplatz-Randbau, Toni, Schiffbau, Letzigrund, Bhf Altstetten/Wiedikon, Krematorium + 7000 Grabsteine, Amtshaus Helvetiaplatz, Sihlpost, Kaserne, Zeughäuser, Freitag-Turm, Löwenbräu, Westpark/Galaxus, Mobimo, Puls 5, Technopark, Letzipark, Lindenplatz-Häuser). Vergleichsbilder `preview/lm3_*`, `lm4_*`, `lm5_*`. Vertex-Farben linear → `D.hexl()`.
 - **Plätze** (#35): `pipeline/places_detail.py` + `overrides/places_detail*.json`, Röntgenplatz und 14 weitere (Boden aus Orthofoto, Brunnen, Kioske, Bänke).
-- **Wildplakate v2**: eigene Gestaltung echter vergangener Kultur-Events (`research/posters/events.json`, `pipeline/gen_wildposters.py` + `wildposter_*.py`). Politische Events stehen auf der Freigabeliste in `research/posters/README.md` und werden NICHT verwendet, bis die Kampagne freigibt.
+- **Wildplakate v2**: eigene Gestaltung echter vergangener Kultur-Events (`research/posters/events.json`, `pipeline/gen_wildposters.py` + `wildposter_*.py`). Politische Events stehen auf der Freigabeliste in `research/posters/README.md` und werden NICHT verwendet, bis sie freigegeben sind.
 - **Fixes**: OSM-Multipolygon-Gebäude (Westpark/Galaxus, Technopark) wurden als «abgerissen» gelöscht; OSM-Parks nur Rasen wo AV grün (Kanzlei-Schulhof); Röntgenplatz-Koordinaten; Besichtigungsschlange nur um ihre Uhrzeit; Build-Vorlauf 450 → 140 s (STRtree für Adress-Notizen).
 
 ### Pipeline-Reihenfolge für einen Komplett-Build
@@ -35,7 +35,7 @@ Spielgebiet: Kreise 4+5, Teile 9 und 3, Friedhof Sihlfeld (6.88 km², 219 Spiel-
 2. Westpark-Fassade wirkt in der Modellansicht dunkel (im Spiel prüfen), Zeughäuser/Kaserne grob, Toni-Rampen, Hardbrücke-Perrons.
 3. Wildplakate: mehr Venues (Recherche Runde 2 läuft/gelaufen), Unterführungen/Stromkästen/Bauzäune als Plakatorte.
 4. Fassaden-Notizen: Fotoqualität limitiert (≈5 Häuser pro Bogen); besser mit Feedback von Leuten aus dem Quartier oder eigenen Fotos.
-5. Vor MVP (User): Tests auf echten Handys, Impressum, Kennzeichnung politische Werbung, Freigabe Plakate durch Kampagne, Deploy nach `docs/DEPLOY.md`.
+5. Vor MVP (User): Tests auf echten Handys, Impressum, Freigabe Plakat-Inhalte, Deploy nach `docs/DEPLOY.md`.
 6. Spawn auf Brücke per Teleport landet unten (groundAt braucht z).
 
 ## Nach dem Nachtlauf (2026-10-16 morgens)

@@ -35,7 +35,7 @@ Neu: Gessnerallee 27 (davon 4 aus Runde 1), Moods 17, Hive Club 15, Palais Masco
 - Mascotte, Neumarkt und Gessnerallee liegen im Kreis 1, Photobastei und Hive im Kreis 5. Schwerpunkt Kreis 4/5 daher nur teilweise: Kanzlei, Xenix, Plaza, Hive, Moods, Bogen F, Provitreff.
 
 ## approval_needed (Begründung)
-Alle Einträge unten sind `political` und/oder Soli-Anlässe mit Trägerschaft, die vor Verwendung durch die Kampagne geprüft werden müssen. Kein Event nennt Parteien oder Politiker:innen.
+Alle Einträge unten sind `political` und/oder Soli-Anlässe mit Trägerschaft, die vor Verwendung geprüft und freigegeben werden müssen. Kein Event nennt Parteien oder Politiker:innen.
 
 - `rf-3611` 2022-02-10 Golden Dawn - A Public Affair (film): Doku zum Golden-Dawn-Prozess, Filmabend mit Podium
 - `rf-3485` 2022-05-21 Wir haben noch nicht vergessen: SOLI FÜR AFGHANISTAN (political): Soli für Afghanistan: humanitärer Anlass, Trägerschaft in Quelle nicht benannt
@@ -52,5 +52,5 @@ Alle Einträge unten sind `political` und/oder Soli-Anlässe mit Trägerschaft, 
 - `rf-6465` 2025-06-28 Picante! Festival (political): CSD Zureich x Picante Afterparty, Spendensammlung für CSD-Kosten
 - `rf-6146` 2025-10-25 Jubiläum Solidarité sans Frontières SPAZ (political): Freiplatzaktion Zürich (40 J.), Solidarité sans Frontières (25 J.), SPAZ (20 J.): migrationspolitische Organisationen
 - `rf-6281` 2025-11-15 Kern und Schale: Konzert & Afterparty (political): Konzert «in Solidarity with Palestine», Kern und Schale: Veranstalter vor Verwendung prüfen
-Hinweis Palästina-Soli (`rf-6006`, `rf-6281`): Veranstalter sind in der Quelle nur als Clubbüro-Programm bzw. «Kern und Schale» benannt; Erlös an Gaza Sunbirds bzw. Ticketlink über Eventfrog. Empfehlung: nicht verwenden, ausser die Kampagne gibt ausdrücklich frei.
+Hinweis Palästina-Soli (`rf-6006`, `rf-6281`): Veranstalter sind in der Quelle nur als Clubbüro-Programm bzw. «Kern und Schale» benannt; Erlös an Gaza Sunbirds bzw. Ticketlink über Eventfrog. Empfehlung: nicht verwenden, ausser sie werden ausdrücklich freigegeben.
 - `pb-2025-11-06-45JahreJug` 2025-11-06 45 Jahre Jugendunruhen (exhibition): Ausstellung zu den Zürcher Jugendunruhen von okaj zürich; Inhalt vor Verwendung prüfen.

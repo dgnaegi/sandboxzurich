@@ -7,8 +7,7 @@ Stand 2026-10-15: ca. 900 Dateien, ca. 120 MB gesamt, keine Datei über 10 MB. B
 ## 1. Vorher: Inhalt freigeben
 Erst öffentlich machen, wenn erledigt:
 - Impressum mit verantwortlicher Person (Menü «Impressum»).
-- Kennzeichnung als politische Werbung (Spiel und Website).
-- Kampagne hat die AL-Plakate und die Event-Plakate gesehen (`research/posters/README.md`, Freigabeliste).
+- Plakat-Inhalte sind freigegeben (`research/posters/README.md`, Freigabeliste).
 - Bis dahin nur als **geheimer Testlink** (siehe Schritt 5).
 
 ## 2. Bauen (lokal, auf deinem Mac)

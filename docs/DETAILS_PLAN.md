@@ -17,9 +17,9 @@ Ziel: Wer durch das Spiel läuft, erkennt sein Quartier an Hunderten kleiner Det
 3. **Menschen (Ambient-NPCs):** Passant:innen, Leute mit Einkaufstaschen vor Detailhändlern, Gruppen vor Bars, Kinder mit Begleitung, Velofahrer:innen, Betrunkene, die nachts torkeln (comichaft), Strassenmusik, Pingpong- und Boccia-Spieler:innen.
 4. **Szenen (Vignetten):** kleine Skripte an echten Orten, z.B. Streit zwischen zwei Betrunkenen, den Freund:innen schlichten (ohne Schläge und Verletzte, siehe Leitplanken), Polizeipatrouille, Lieferverkehr, Velokurier.
 
-## 3. Offene Entscheide (Kampagne)
-- **Sexarbeit an der Langstrasse:** gehört zur Realität des Quartiers. Vorschlag: als respektvoll gezeichnete Figuren im Strassenbild, ohne Interaktion, ohne Sexualisierung und nie als Ziel oder Witz. Alternative: weglassen. → Entscheid der Kampagne.
-- **Schlägereien:** Die Leitplanken verbieten Gewalt gegen Menschen. Vorschlag: nur als lautes Gerangel/Streit zwischen NPCs, das sich auflöst; die Spielerin kann schlichten (positives Gameplay). → Entscheid der Kampagne.
+## 3. Offene Entscheide (User)
+- **Sexarbeit an der Langstrasse:** gehört zur Realität des Quartiers. Vorschlag: als respektvoll gezeichnete Figuren im Strassenbild, ohne Interaktion, ohne Sexualisierung und nie als Ziel oder Witz. Alternative: weglassen. → Entscheid des Users.
+- **Schlägereien:** Die Leitplanken verbieten Gewalt gegen Menschen. Vorschlag: nur als lautes Gerangel/Streit zwischen NPCs, das sich auflöst; die Spielerin kann schlichten (positives Gameplay). → Entscheid des Users.
 - **Betrunkene:** comichaft torkelnd, nicht als Spott über Suchtkranke. Keine Darstellung von Drogenkonsum.
 
 ## 4. Reihenfolge
@@ -27,11 +27,11 @@ Ziel: Wer durch das Spiel läuft, erkennt sein Quartier an Hunderten kleiner Det
 2. Daten R1–R3 einlesen: Detailhändler, Schulen/Kitas, Brunnen, Velos.
 3. Ambient-NPCs mit Rollen (Einkauf, Schule, Nachtleben) und Tageszeit.
 4. Märkte/Flohmärkte nach Kalender.
-5. Vignetten (nach Entscheid der Kampagne).
+5. Vignetten (nach Entscheid des Users).
 6. Verkehr: Trams, Autos, Velos (klauen und fahren).
 
 ## 5. Ergänzungen (User, 2026-10-14)
-- **Demos:** Critical Mass (Velo-Demo, letzter Freitag im Monat) als Massen-Velo-Event; eine weitere Demo (z.B. Wohnungsdemo) mit Transparenten (fiktive/Kampagnen-Texte). Polizei begleitet comichaft.
+- **Demos:** Critical Mass (Velo-Demo, letzter Freitag im Monat) als Massen-Velo-Event; eine weitere Demo (z.B. Wohnungsdemo) mit Transparenten (fiktive Texte). Polizei begleitet comichaft.
 - **Polizei:** Patrouillen zu Fuss und im Auto, Kastenwagen; Verhalten gemäss Leitplanken (fangen statt verletzen).
 - **Friedhof Sihlfeld mit altem Krematorium:** realistisch, mit Trauernden bei Gräbern (still, respektvoll), Leute liegen in der Wiese, Spaziergänger:innen; Krematorium als Landmark individuell modellieren.
 - **Bahnhof Wiedikon:** Landmark, möglichst originalgetreu (Bahnhofgebäude, Gleise im Einschnitt, Brücken), viele Bars rundherum (aus OSM + Ladenprüfung), abends belebt.
