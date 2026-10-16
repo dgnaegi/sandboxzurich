@@ -14,6 +14,7 @@ import { buildGraffiti, buildPosters, buildSigns, buildWildPosters, type Sign } 
 import { buildHouseNumbers, buildStreetSigns } from '../world/streetsigns';
 import { buildDecals } from '../world/decals';
 import { buildPlaces, type PlaceMeta } from '../world/places_detail';
+import { buildDetails, type DetailMeta } from '../world/details';
 import { buildDoors } from '../world/doors';
 import { buildConstruction, buildCranes, buildFence, buildScooters, buildSites } from '../world/construction';
 import { parkedCars } from '../world/parkedcars';
@@ -30,8 +31,8 @@ interface Mask { x0: number; y0: number; n: number; res: number; depth: number; 
 interface TileMeta extends PropMeta { colliders: number[][][]; signs: Sign[]; posters: number[][]; wild?: number[][]; paths: number[][][]; mask: Mask }
 
 const BASE = (import.meta.env.VITE_TILE_BASE_URL as string | undefined) ?? '/tiles';
-const LOAD_RADIUS_PC = 450, LOAD_RADIUS_PHONE = 330; // phones: fewer tiles in memory (iOS Safari tab limit)
-const UNLOAD_EXTRA = 200;
+const LOAD_RADIUS_PC = 450, LOAD_RADIUS_PHONE = 280; // phones: fewer tiles in memory (iOS Safari tab limit)
+const UNLOAD_EXTRA = 200, UNLOAD_EXTRA_PHONE = 110;
 
 /** Loads tiles around the player, registers colliders, exposes ground height incl. lowered carriageways. */
 export class Tiles {
@@ -168,7 +169,7 @@ export class Tiles {
     // free GPU memory of far tiles (important on phones); colliders and masks stay (small)
     for (const [name, g] of this.loaded) {
       const t = this.props.get(name);
-      if (!g || !t || Math.hypot(t.x - x, t.y - y) < (this.shadows ? LOAD_RADIUS_PC : LOAD_RADIUS_PHONE) + UNLOAD_EXTRA) continue;
+      if (!g || !t || Math.hypot(t.x - x, t.y - y) < (this.shadows ? LOAD_RADIUS_PC + UNLOAD_EXTRA : LOAD_RADIUS_PHONE + UNLOAD_EXTRA_PHONE)) continue;
       this.scene.remove(g);
       this.disposeTile(g);
       for (const b of t.bikes) this.bikes?.forget(b);
@@ -257,6 +258,7 @@ export class Tiles {
     for (const r of meta.benches ?? []) solids.push([r[0], r[1], 0.55]);
     this.colliders.addCircles(t.name, solids);
     put(props, 'places', buildPlaces((meta as unknown as { places?: PlaceMeta }).places, this.shadows));
+    put(props, 'details', buildDetails((meta as unknown as { details?: DetailMeta }).details, this.shadows)); // OSM street details (world/details.ts)
     put(props, 'playground', buildPlaygrounds((meta as unknown as { playground?: PlaygroundRow[] }).playground ?? []));
     put(g, 'landmarks', buildLandmarks((meta as unknown as { landmarks?: LandmarkRow[] }).landmarks ?? [])); // landmark signs stay visible from afar
     put(g, 'fence', buildFence((meta as unknown as { fence?: number[][][] }).fence ?? [])); // always visible: it closes the map

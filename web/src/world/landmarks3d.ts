@@ -18,6 +18,10 @@ export class Landmarks3D {
   private pending = new Map<string, Promise<void>>();
   private loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
 
+  /** Load / free distances (phones lower: models of far landmarks are disposed, not just hidden – iOS tab memory). */
+  loadR = LOAD_R;
+  unloadR = 1400;
+
   constructor(private scene: THREE.Scene) {}
 
   async load(): Promise<void> {
@@ -64,9 +68,9 @@ export class Landmarks3D {
   /** Call per frame (cheap) with the player's local position. */
   update(px: number, py: number): void {
     for (const e of this.entries) {
-      const d = Math.hypot(e.x - px, e.y - py), g = this.live.get(e.name), lr = e.load_r ?? LOAD_R, dr = e.load_r ? lr + 40 : DROP_R;
+      const d = Math.hypot(e.x - px, e.y - py), g = this.live.get(e.name), lr = e.load_r ?? this.loadR, dr = e.load_r ? lr + 40 : DROP_R;
       if (g === undefined && d < lr) { this.live.set(e.name, null); void this.spawn(e); }
-      else if (g && e.load_r && d > lr + 120) this.dispose(e, g);
+      else if (g && (e.load_r ? d > lr + 120 : d > this.unloadR)) this.dispose(e, g);
       else if (g) {
         g.visible = d < dr;
         const near = d < SHADOW_R;

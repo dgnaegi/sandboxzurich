@@ -70,7 +70,7 @@ async function main() {
   treeField.init(renderer, mobile, !mobile);
   const [tiles, humans] = await Promise.all([
     loading.track(Tiles.load(scene, !mobile, Math.min(8, renderer.capabilities.getMaxAnisotropy()))),
-    loading.track(HumanLib.load('/models/humans', 4, mobile ? 14 : 40)),
+    loading.track(HumanLib.load('/models/humans', 4, mobile ? 10 : 40)),
     L(map.load()),
     L(document.fonts.load('26px Anton')),
   ]);
@@ -103,6 +103,7 @@ async function main() {
 
   const transit = new Transit(scene, ground);
   const landmarks3d = new Landmarks3D(scene);
+  if (mobile) { landmarks3d.loadR = 420; landmarks3d.unloadR = 560; }
   const rail = new Railways(scene, tiles.mat, mobile ? 0.62 : 1); // phone: tracks within ~260 m
   const WHITE = new THREE.Color(0xf4f4f2);
   const traffic = new Traffic(scene, ground, CAR_GEO, carMaterial, (k) => (k % 23 === 0 && CAR_GEO.police && GAMEPLAY ? { type: 'police', color: WHITE } : k % 13 === 0 && CAR_GEO.taxi ? { type: 'taxi', color: k % 2 ? WHITE : new THREE.Color(0x1a1c20) } : carPick(k)));
