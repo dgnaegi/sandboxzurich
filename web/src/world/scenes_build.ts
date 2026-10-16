@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import type { Human, HumanLib } from './humans';
+import type { Human, HumanLib, Role } from './humans';
 import * as P from './scenes_props';
 import { lam } from './scenes_props';
 
@@ -41,8 +41,9 @@ class B {
   put<T extends THREE.Object3D>(o: T, lx: number, lz: number, ry = 0, y = 0): T {
     o.position.set(lx, this.dy(lx, lz) + y, lz); o.rotation.y = ry; this.obj.add(o); return o;
   }
-  human(lx: number, lz: number, ry: number, anim = 'idle', acc: string[] = [], t = 0): Human {
+  human(lx: number, lz: number, ry: number, anim = 'idle', acc: string[] = [], t = 0, role: Role = 'any'): Human {
     const ad = this.ctx.lib.adults, h = this.ctx.lib.instance(ad[(this.k++ * 5 + 3) % ad.length]);
+    this.ctx.lib.dress(h, role);
     this.put(h.root, lx, lz, ry);
     if (anim !== 'idle') h.play(anim, 0);
     h.mixer.setTime(t || (this.humans.length * 0.37));
@@ -167,7 +168,7 @@ const BUILDERS: Record<string, Fn> = {
     return b.done();
   },
   couriers: (b) => {
-    for (let i = 0; i < 3; i++) { b.put(P.bikeProp([0x2a6fb0, 0xd0402a, 0x2a2a2a][i], true), i * 1.5 - 1.5, -1.2, PI / 2 + i * 0.2); b.human(i * 1.5 - 1.5 + (i - 1) * 0.3, 0.2, i === 1 ? PI : 0, 'idle', ['backpack']); }
+    for (let i = 0; i < 3; i++) { b.put(P.bikeProp([0x2a6fb0, 0xd0402a, 0x2a2a2a][i], true), i * 1.5 - 1.5, -1.2, PI / 2 + i * 0.2); b.human(i * 1.5 - 1.5 + (i - 1) * 0.3, 0.2, i === 1 ? PI : 0, 'idle', ['backpack'], 0, 'courier'); }
     return b.done();
   },
   cargo: (b) => {
@@ -223,7 +224,7 @@ const BUILDERS: Record<string, Fn> = {
 function pathWalker(b: B, s: SceneDef, stilts: boolean): Built {
   const P_ = s.path!;
   const root = new THREE.Group(), h = b.lib.instance(b.lib.adults[Math.floor(Math.abs(P_[0][0]) + 3) % b.lib.adults.length]);
-  b.humans.push(h);
+  b.humans.push(h); b.lib.dress(h, s.kind === 'courier' ? 'courier' : 'any');
   let dog: { obj: THREE.Object3D; mixer: THREE.AnimationMixer } | null = null;
   if (stilts) {
     for (const name of ['foot_l', 'foot_r']) {

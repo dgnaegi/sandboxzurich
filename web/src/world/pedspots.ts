@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { inRail } from './railzone';
-import { FAMILY, type Human, type HumanLib } from './humans';
+import { FAMILY, type Human, type HumanLib, type Role } from './humans';
 
 /** A clip family name (humans.FAMILY) or a single clip name. */
 export const clipFor = (h: Human, a: string): string => (a in FAMILY ? h.pick(a as keyof typeof FAMILY, Math.random()) : h.has(a) ? a : 'idle');
@@ -21,9 +21,6 @@ const face = (fx: number, fy: number) => Math.atan2(-fx, fy);
 const BARS = new Set(['bar', 'pub', 'nightclub', 'biergarten', 'club', 'cocktail']);
 const CAFES = new Set(['cafe', 'kiosk', 'bakery', 'ice_cream', 'fast_food', 'confectionery']);
 const hash = (x: number, y: number) => Math.abs(Math.floor(x * 73.13 + y * 19.7 + x * y * 0.011)) % 1000;
-const hatMat = new THREE.MeshLambertMaterial({ color: 0xf0c020 });
-const vestMat = new THREE.MeshLambertMaterial({ color: 0xff7a10 });
-const stripeMat = new THREE.MeshLambertMaterial({ color: 0xe8e8d0 });
 
 export class PedSpots {
   private spots: Spot[] = [];
@@ -74,28 +71,14 @@ export class PedSpots {
     }
   }
 
-  private take(): Human {
+  private take(role: Role = 'any'): Human {
     const h = this.pool.pop() ?? this.lib.instance(this.lib.adults[(this.n++ * 7) % this.lib.adults.length]);
-    this.lib.dress(h);
+    this.lib.dress(h, role);
     return h;
   }
 
-  private gear(h: Human): THREE.Object3D[] {
-    const head = h.root.getObjectByName('head'), chest = h.root.getObjectByName('spine_03') ?? h.root.getObjectByName('spine_02');
-    const out: THREE.Object3D[] = [];
-    if (head) {
-      const hat = new THREE.Mesh(new THREE.SphereGeometry(0.125, 8, 5, 0, Math.PI * 2, 0, Math.PI / 2), hatMat);
-      hat.position.set(0, 0.1, 0.01); head.add(hat); out.push(hat);
-    }
-    if (chest) {
-      const vest = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.19, 0.34, 10, 1, true), vestMat);
-      vest.material = vestMat; (vest.material as THREE.Material).side = THREE.DoubleSide;
-      vest.position.set(0, 0.08, 0.02); chest.add(vest); out.push(vest);
-      const st = new THREE.Mesh(new THREE.CylinderGeometry(0.202, 0.192, 0.05, 10, 1, true), stripeMat);
-      st.material = stripeMat; stripeMat.side = THREE.DoubleSide; st.position.set(0, 0.04, 0.02); chest.add(st); out.push(st);
-    }
-    return out;
-  }
+  /** A construction worker spot (active or not) lies within `r` m of (x, y). */
+  workNear(x: number, y: number, r: number): boolean { return this.spots.some((s) => s.kind === 'work' && Math.abs(s.x - x) < r && Math.abs(s.y - y) < r); }
 
   private place(h: Human, x: number, y: number, z: number, ry: number, snap = false) {
     h.root.position.set(x, snap && this.ground ? this.ground(x, y) : z, -y);   // sign-based spots carry the sign height: snap to terrain
@@ -106,8 +89,8 @@ export class PedSpots {
   private populate(s: Spot) {
     /** Deterministic 0..1 per spot and person, so a spot looks the same every time it is rebuilt. */
     const rnd = (i: number) => ((s.k * 7 + i * 131 + 17) % 100) / 100;
-    const person = (off: number, ry: number, anim: string, i = 0) => {
-      const h = this.take();
+    const person = (off: number, ry: number, anim: string, i = 0, role: Role = 'any') => {
+      const h = this.take(role);
       h.play(clipFor(h, anim), 0);
       s.people.push(h);
       this.place(h, s.x + s.ax * off, s.y + s.ay * off, s.z, ry, s.kind === 'smoke' || s.kind === 'cafe');
@@ -129,7 +112,7 @@ export class PedSpots {
         this.place(h0, s.x + s.ax * off, s.y + s.ay * off, s.z - SIT_DROP, s.ry + (n === 2 ? (i ? 0.4 : -0.4) : (rnd(5) - 0.5) * 0.3));
       }
     } else if (s.kind === 'smoke') { person(-0.5, s.ry, 'talk', 0); person(0.5, s.ry + Math.PI, rnd(2) < 0.7 ? 'listen' : 'talk2', 1); }
-    else if (s.kind === 'work') s.gear.push(this.gear(person(0, s.ry + (s.k % 5) * 0.15, s.k % 4 === 0 ? 'call' : s.k % 3 === 0 ? 'wait' : 'idle')));
+    else if (s.kind === 'work') person(0, s.ry + (s.k % 5) * 0.15, s.k % 4 === 0 ? 'call' : s.k % 3 === 0 ? 'wait' : 'idle', 0, 'builder');   // hard hat + hi-vis from humankit
     else if (s.kind === 'cafe') person(0, s.ry, rnd(0) < 0.45 ? 'phone' : loiter(0, true));
     else person(0, s.ry, loiter(0));
   }

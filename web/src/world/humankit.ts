@@ -117,11 +117,11 @@ function hood(hex: number): THREE.BufferGeometry {
 }
 function hat(kind: string, hex: number): THREE.BufferGeometry[] {
   if (kind === 'beanie') { const g = dome(0.012, 8, 8, hex, 0.006); return [g]; }
-  const g = dome(kind === 'helmet' ? 0.016 : 0.01, 14, 8, hex);
+  const g = dome(kind === 'helmet' ? 0.016 : 0.016, 14, 8, hex);
   if (kind === 'helmet') { const r = new THREE.CylinderGeometry(0.128, 0.128, 0.008, 18); r.scale(1, 1, 1.12); r.translate(0, 0.056, -0.008); return [g, paint(r, hex, 0.92)]; }
   const brim: THREE.BufferGeometry[] = [], n = 6;
   const pts: number[] = [], idx: number[] = [];
-  for (let u = 0; u <= n; u++) for (let v = 0; v <= 2; v++) { const a = ((u / n) * 2 - 1) * 0.95, r = 0.118 + v * 0.045; pts.push(r * 0.78 * Math.sin(a), 0.07 - v * 0.012 - 0.012 * Math.abs(a), -0.008 - r * Math.cos(a)); }
+  for (let u = 0; u <= n; u++) for (let v = 0; v <= 2; v++) { const a = ((u / n) * 2 - 1) * 0.8, r = 0.112 + v * 0.032; pts.push(r * 0.72 * Math.sin(a), 0.062 - v * 0.012 - 0.01 * Math.abs(a), -0.008 - r * Math.cos(a)); }
   for (let u = 0; u < n; u++) for (let v = 0; v < 2; v++) { const a = u * 3 + v, b = a + 1, d = a + 3, e = d + 1; idx.push(a, d, b, b, d, e); }
   const bg = new THREE.BufferGeometry(); bg.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3)); bg.setIndex(idx); bg.computeVertexNormals(); brim.push(paint(bg, hex, 0.9));
   return [g, ...brim];

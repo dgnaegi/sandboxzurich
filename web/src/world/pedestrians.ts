@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import type { Human, HumanLib, Model } from './humans';
+import type { Human, HumanLib, Model, Role } from './humans';
 import { PedSpots } from './pedspots';
 import { clipPath } from './railzone';
 
@@ -20,6 +20,8 @@ const HOT: number[][] = [
   [-2095, 704, 150, 0.8, 0.4], [-2285, 340, 120, 0.6, 0.4], [-495, -641, 120, 0.6, 0.4], [581, -1388, 120, 0.7, 0.4], // Altstetten, Albisriederplatz, Wiedikon
   [-1336, 239, 110, 0.5, 0.2], [1315, -640, 160, 0.8, 0.6], [393, -1202, 90, 0.5, 0.5], [-1003, 13, 130, 0.3, 0.5], // Letzipark, HB-Rand, Kalkbreite, Letzigrund
 ];
+/** Office areas (local metres: x, y, radius): Zürich West / Hardbrücke, Europaallee / HB. */
+const OFFICE: number[][] = [[-60, 220, 450], [1150, -620, 230]];
 const AGE_W: [string, number][] = [['young', 0.56], ['mid', 0.33], ['old', 0.11]]; // adults only; children ride along
 
 /** Minimal view of the driven car (player/drive.ts DriveCar) for the dodge logic. */
@@ -39,6 +41,7 @@ export class Pedestrians {
   /** People standing/sitting at benches, fountains, bars and construction sites (set via addSpots). */
   readonly spots: PedSpots;
   private hour = 12;
+  private weekday = 0;
   private night = false;
   private hot = 0;
 
@@ -51,7 +54,7 @@ export class Pedestrians {
 
   /** Game clock: minutes since midnight and weekday (0 = Monday). Drives density, nightlife and spot activity. */
   clock(minutes: number, weekday: number) {
-    this.hour = (minutes / 60) % 24;
+    this.hour = (minutes / 60) % 24; this.weekday = weekday;
     this.night = (this.hour >= 22 || this.hour < 4) || (this.hour >= 19 && (weekday === 4 || weekday === 5));
     this.spots.hour = this.hour; this.spots.weekday = weekday;
   }
@@ -80,10 +83,10 @@ export class Pedestrians {
     return src[Math.floor(Math.random() * src.length)];
   }
 
-  private take(m: Model): Human {
+  private take(m: Model, role: Role = 'any'): Human {
     const h = this.pool.get(m)?.pop() ?? this.lib.instance(m);
     (h.root.userData as { model?: Model }).model = m;
-    this.lib.dress(h);
+    this.lib.dress(h, role);
     return h;
   }
 
@@ -104,21 +107,31 @@ export class Pedestrians {
     }
     let r = Math.random(), age = 'young';
     for (const [a, w] of AGE_W) { if (r < w) { age = a; break; } r -= w; }
-    const m = this.model(age), h = this.take(m);
+    const m = this.model(age);
     const path = cands[Math.floor(Math.random() * cands.length)];
-    const old = m.age === 'old';
+    const old = m.age === 'old', wk = this.weekday <= 4 && this.hour >= 7 && this.hour < 18;
+    const inOffice = OFFICE.some(([ox, oy, r]) => Math.hypot(path[0][0] - ox, path[0][1] - oy) < r);
+    // roles: construction crews near sites, office people in Zürich West / Europaallee on weekdays, couriers (fast, backpack) anywhere
+    const rr = Math.random();
+    const role: Role = old ? 'any' : wk && this.spots.workNear(path[0][0], path[0][1], 70) && rr < 0.4 ? 'builder'
+      : wk && inOffice && rr < 0.5 ? 'office' : wk && rr > 0.975 ? 'courier' : 'any';
+    const h = this.take(m, role);
     h.slow = old;
     const jog = !old && !this.night && Math.random() < (this.hour < 8 || (this.hour >= 17 && this.hour < 20) ? 0.07 : 0.025);
-    const speed = jog ? 3.3 + Math.random() * 0.7 : old ? 0.7 + Math.random() * 0.3 : 1.05 + Math.random() * 0.55;
+    const speed = jog ? 3.3 + Math.random() * 0.7 : role === 'courier' ? 2.0 + Math.random() * 0.7 : old ? 0.7 + Math.random() * 0.3 : 1.05 + Math.random() * 0.55;
     h.setSpeed(speed);
     h.mixer.setTime(Math.random() * 2);
     this.group.add(h.root);
     const p: Ped = { h, path, seg: Math.floor(Math.random() * (path.length - 1)), t: Math.random(), dir: Math.random() < 0.5 ? 1 : -1,
       speed, x: path[0][0], y: path[0][1], tick: Math.floor(Math.random() * 3), lateral: 0, extras: [] };
-    // accessories
     const add = (n: string) => { const o = this.lib.attach(h, n); if (o) p.extras.push(o); };
     const q = jog ? 1 : Math.random();
-    if (old) { if (m.props.includes('walker') || q < 0.2) add('walker'); else if (m.props.includes('cane') || q < 0.55) add('cane'); }
+    if (role === 'courier') add('backpack');
+    else if (role === 'builder' || role === 'office') { if (q < 0.25) add(role === 'office' ? 'shoulder_bag' : 'backpack'); }
+    else if (old) {
+      if (m.props.includes('walker') || q < 0.2) add('walker'); else if (m.props.includes('cane') || q < 0.45) add('cane');
+      else if (q < 0.65) p.extras.push(this.lib.trolley(h));   // Einkaufstrolley; removed with the other extras on release
+    }
     else if (q < 0.22) add('backpack'); else if (q < 0.37) add('shoulder_bag'); else if (q < 0.49) add('tote_bag');
     else if (q < 0.57) add(Math.random() < 0.5 ? 'shopping_bag' : 'shopping_bag_green'); else if (q < 0.61) add('stroller');
     if (Math.random() < 0.035) { // dog walker (Kreis 4: 1.75 dogs per 100 residents)
