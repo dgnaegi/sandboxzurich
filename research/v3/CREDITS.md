@@ -2192,3 +2192,46 @@ Referenzbilder nur zur Recherche, nicht als Textur.
 
 ## hz_egli / hz_hohl291 / hz_lighthouse (Egli-Siedlung, Hohlstrasse 283-305, Zuercher Lighthouse), 78 Fotos
 Mapillary (CC BY-SA 4.0; Autoren Yha1, fcignat, quickness805; Bild-IDs = Dateinamen ml_<id>.jpg in data/raw/photos/v3/hz_*/), Wikimedia Commons CC BY-SA 3.0 Tschubby (File:Kindergarten Egli.jpg, https://commons.wikimedia.org/wiki/File:Kindergarten_Egli.jpg), Panoramax CC-BY-SA-4.0 captaininler (px_9871588b-23d). Metadaten je Foto: research/v3/photos.json (Schluessel hz_*). Nur als Referenz gelesen, nie als Textur.
+
+## Flüsse (research/rivers.md)
+
+Referenzbilder nur zur Recherche (data/raw/photos/rivers/<ort>/), nicht für Spieltexturen. Lizenz und Autor pro Datei.
+
+### sihl_selnau
+- #0 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:Sihl_in_Z%C3%BCrich_-_Sihlpost_IMG_3887_ShiftN.jpg
+- #1 commons | CC BY-SA 3.0 | UCaetano | https://commons.wikimedia.org/wiki/File:Gessnerbr%C3%BCcke.jpg
+- #2 commons | CC BY 3.0 | Rene Nueesch | https://commons.wikimedia.org/wiki/File:Sihl_-_panoramio_(1).jpg
+- #3 commons | CC BY 3.0 | Rene Nueesch | https://commons.wikimedia.org/wiki/File:Sihl_-_panoramio.jpg
+
+### sihl_hb
+- #0 commons | CC BY-SA 4.0 | Jules Vogt | https://commons.wikimedia.org/wiki/File:ETH-BIB-Z%C3%BCrich,_Kreis_5,_Limmatstrasse,_Sihlquai,_Hotel_Tr%C3%BCmpy,_Carparkplatz_Com_FC24-8005-0005.jpg
+- #1 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:Unterstrass_-_James-Joyce-Kanzel_-_Sihlquai_2011-08-08_14-28-38.jpg
+- #2 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:Limmat_%26_Sihl_-_James-Joyce-Kanzel_2011-08-20_15-47-00.JPG
+- #3 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:James-Joyce-Kanzel_-_Unterstrass_-_Hotel_Z%C3%BCrich_-_Sihlquai_2011-08-20_15-46-30.jpg
+- #4 commons | CC BY-SA 3.0 | Daniel Kraft | https://commons.wikimedia.org/wiki/File:Platzspitz_panosphere_20210531.jpg
+- #5 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:Limmat_-_Limmatschwimmen_-_Platzspitzspark_-_Kloster-Fahr-Weg_2011-08-20_15-30-56.jpg
+- #6 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:Limmat_%26_Sihl_-_James-Joyce-Kanzel_2011-08-08_14-33-28_ShiftN2.jpg
+- #7 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_-_James_Joice_Plateau_-_Limmat_IMG_1201_ShiftN.jpg
+- #8 mapillary | CC BY-SA 4.0 | abuhlma2 | https://www.mapillary.com/app/?pKey=1301076274604478
+
+### limmat_letten
+- #0 commons | CC BY-SA 3.0 | Chris j wood | https://commons.wikimedia.org/wiki/File:Zurich_Letten_Rail_Bridge.jpg
+- #1 commons | CC BY-SA 4.0 | Jag9889 | https://commons.wikimedia.org/wiki/File:Letten-Viadukt_(1894)_%C3%BCber_die_Limmat,_Stadt_Z%C3%BCrich_20180908-jag9889.jpg
+- #2 commons | CC BY-SA 4.0 | Manuel Schmalstieg | https://commons.wikimedia.org/wiki/File:View_of_Limmat_from_Letten-Viadukt_01.jpg
+- #3 commons | CC BY-SA 4.0 | Manuel Schmalstieg | https://commons.wikimedia.org/wiki/File:Flussbad_Unterer_Letten.jpg
+- #4 commons | CC BY-SA 4.0 | Manuel Schmalstieg | https://commons.wikimedia.org/wiki/File:View_of_Limmat_from_Letten-Viadukt_02.jpg
+- #5 commons | CC BY-SA 4.0 | Jag9889 | https://commons.wikimedia.org/wiki/File:Wipkinger_Viadukt_%C3%BCber_die_Limmat,_Stadt_Z%C3%BCrich_20180908-jag9889.jpg
+- #6 commons | CC BY-SA 4.0 | Verum | https://commons.wikimedia.org/wiki/File:Sihlquai_-_Zigarettenfabrik_Sullana_02.jpg
+
+### limmat_hardbr
+- #0 commons | CC BY-SA 4.0 | Oli | https://commons.wikimedia.org/wiki/File:Limmat_Swissmill.jpg
+- #1 commons | CC BY-SA 2.0 | Thomas Woodtli from Zürich, Switzerland | https://commons.wikimedia.org/wiki/File:Limmat_in_Z%C3%BCrich_from_Wipkingerbr%C3%BCcke_2016.jpg
+- #2 commons | CC BY-SA 4.0 | Jag9889 | https://commons.wikimedia.org/wiki/File:Wipkingerbr%C3%BCcke_%C3%BCber_die_Limmat,_Wipkingen_-_Escher_Wyss,_Z%C3%BCrich_ZH_20180908-jag9889.jpg
+- #3 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:K%C3%A4ferberg_-_Limmat_-_Wipkingen_2011-08-08_14-10-56.jpg
+
+### schanzengraben
+- #0 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:Schanzengraben_-_M%C3%A4nnerbadi_-_Alter_Botanischer_Garten_Z%C3%BCrich_2010-10-04_18-05-24.JPG
+- #1 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:City_-_Usteristrasse-Migros_-_Schanzengraben_2012-10-22_14-42-40_ShiftN.jpg
+- #2 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:Z%C3%BCrich_-_Schanzengraben_IMG_0636.JPG
+- #3 commons | CC BY-SA 3.0 | Roland zh | https://commons.wikimedia.org/wiki/File:B%C3%B6rse_Z%C3%BCrich_-_Schanzengraben_-_Alter_Botanischer_Garten_Z%C3%BCrich_2010-10-04_18-02-16.JPG
+- #4 commons | CC BY 4.0 | Balise42 | https://commons.wikimedia.org/wiki/File:Schanzengraben,_seen_from_Am_Schanzengraben.jpg

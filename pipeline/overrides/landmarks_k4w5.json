@@ -1,0 +1,156 @@
+{
+ "landmarks": [
+  {
+   "name": "Zett-Haus Badenerstrasse",
+   "model": "/models/landmarks/zett_haus.glb",
+   "x": 1071.1,
+   "y": -1117.9,
+   "z": -0.39,
+   "heading": 0,
+   "hide": [
+    [
+     1068.9,
+     -1116.7
+    ]
+   ]
+  },
+  {
+   "name": "Apollo-Haus Stauffacherstrasse",
+   "model": "/models/landmarks/apollo.glb",
+   "x": 873.7,
+   "y": -1095.1,
+   "z": -0.52,
+   "heading": 0,
+   "hide": [
+    [
+     878.1,
+     -1097.0
+    ]
+   ]
+  },
+  {
+   "name": "Hotelbau Badenerstrasse 420",
+   "model": "/models/landmarks/crowne.glb",
+   "x": -767.1,
+   "y": -428.0,
+   "z": -2.99,
+   "heading": 0,
+   "hide": [
+    [
+     -767.8,
+     -427.8
+    ]
+   ]
+  },
+  {
+   "name": "Albisriederplatz Eckhaus",
+   "model": "/models/landmarks/albis_ost.glb",
+   "x": -525.6,
+   "y": -694.8,
+   "z": 0.51,
+   "heading": 0,
+   "hide": [
+    [
+     -524.4,
+     -696.2
+    ],
+    [
+     -546.8,
+     -689.3
+    ]
+   ]
+  },
+  {
+   "name": "Langstrasse Eckhaus Cremegelb",
+   "model": "/models/landmarks/langstr_eck.glb",
+   "x": 713.0,
+   "y": -657.6,
+   "z": -2.0,
+   "heading": 0,
+   "hide": [
+    [
+     716.1,
+     -656.7
+    ]
+   ]
+  },
+  {
+   "name": "Langstrasse Geschaeftsbau grau",
+   "model": "/models/landmarks/langstr_grau.glb",
+   "x": 696.5,
+   "y": -683.4,
+   "z": -1.78,
+   "heading": 0,
+   "hide": [
+    [
+     695.1,
+     -685.7
+    ]
+   ]
+  },
+  {
+   "name": "Hochhaus Pfingstweidstrasse",
+   "model": "/models/landmarks/pfingstweid.glb",
+   "x": -492.6,
+   "y": 725.5,
+   "z": -9.28,
+   "heading": 0,
+   "hide": [
+    [
+     -492.6,
+     725.5
+    ]
+   ]
+  },
+  {
+   "name": "Europaallee Buerobau Lagerstrasse",
+   "model": "/models/landmarks/europa_grau.glb",
+   "x": 1303.7,
+   "y": -566.0,
+   "z": -2.68,
+   "heading": 0,
+   "hide": [
+    [
+     1277.7,
+     -575.4
+    ],
+    [
+     1292.0,
+     -565.0
+    ]
+   ]
+  },
+  {
+   "name": "Europaallee Riegel Lagerstrasse",
+   "model": "/models/landmarks/europa_riegel.glb",
+   "x": 1399.9,
+   "y": -600.6,
+   "z": -2.49,
+   "heading": 0,
+   "hide": [
+    [
+     1395.3,
+     -603.0
+    ],
+    [
+     1406.6,
+     -594.5
+    ]
+   ]
+  },
+  {
+   "name": "Altstetten Bahnhofplatz Riegel",
+   "model": "/models/landmarks/altst_riegel.glb",
+   "x": -2128.5,
+   "y": 798.3,
+   "z": -11.86,
+   "heading": 0,
+   "hide": [
+    [
+     -2128.1,
+     798.1
+    ]
+   ]
+  }
+ ]
+}

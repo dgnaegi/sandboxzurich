@@ -67,3 +67,12 @@ Erledigt laut DECISIONS #38. Test: `web/tests/crash.mjs` (Kontaktbogen preview/c
 - Hardbrücke/Altstetten/Wiedikon: `stp_*.glb` (Perron-Möblierung, Schilder, Treppenläufe zur Brücke bzw. Strasse, Treppenöffnungen zur Passage, Lifttürme, Glas-Wartehäuschen, Velo-Bügel; Altstetten 3/4 + 6/7 komplett inkl. Sichtbetondach, weil in OSM fehlend). Daten `research/stations/` (`platforms.json` für `railways.py`, `<id>.md` Notizen, `spots_<id>.json` Wartende/Sitzplätze für pedspots, `photos_<id>.json`), Fotobögen `preview/ref_station_*.jpg`, Vergleich `preview/station_cmp_*.jpg`.
 - Neu bauen: `st_osm.py` → `st_data.py` → `st_station.py` (alles `.venv/bin/python pipeline/landmarks/…`), Vergleich `st_cmp.py`. Keine Kachel-Builds nötig, keine hide-Punkte.
 - Begehbar: `web/public/data/station_decks.json` (Perronflächen + Treppen), geladen in `engine/tiles.ts`. Offen: Bahn-Agent soll Perrons mit `in_osm=false` nicht doppelt bauen; Wiedikon-Perrondach (gewölbt, dunkle Stahlstützen) ist noch die flache OSM-Platte; Hardbrücke Perron 2/3 ohne amtliche Gleisnummern.
+
+## Langstrassen-Unterführung + Ole Ole Bar (2026-10-16, Agent Unterführung)
+- Begehbar/befahrbar: Geländeeinschnitt (`terrain_cuts.json`, Typ `profile`, `lock`), Modell `lu_unterfuehrung.glb` (Strassentunnel 11.6 m, zwei Seitendurchgänge ±9.5 m, Portale, Tröge mit Stützwänden, Graffiti, Leuchten), Wandkollision über `colliders` in `landmarks_lu.json`. Tunnelstrasse (OSM-Way 4592588) ist jetzt Strassenpolygon und Autokante (`streets.OPEN_TUNNELS`, Ausnahme in `roadgraph.py`). Strassen/Props im Tunnel: `cityprops._underpass()`.
+- Ole Ole Bar: `lu_oleole.glb` ersetzt `ID_96E308DB`. Notizen `research/v3/langstr_unterf.md`, `oleole.md`; Bilder `preview/lm9_*.jpg`.
+- Neu bauen: `cd pipeline/landmarks && ../../.venv/bin/python lu_geom.py` (Cut + Deck-JSON), `lu_tunnel.py`, `lu_oleole.py`, dann Kacheln `SBZ_TILES=4_-3,4_-2` und `pipeline/roadgraph.py`.
+- Offen: Trolleybus/Tram durch den Tunnel, Passanten-NPC in den Durchgängen, Feintuning Beleuchtung.
+
+## Welle 5 (k4w5, 10 Gebäude)
+Zett-Haus, Apollo-Haus, Hotelbau Badenerstr. 420, Albisriederplatz Eck, Langstrasse Eck + grau, Hochhaus Pfingstweid, Europaallee x2, Altstetten Bahnhofplatz-Riegel. Modelle `pipeline/landmarks/k4w5_*.py`, Overrides `landmarks_k4w5.json`, Vergleich `preview/lm10_all.jpg`. Kacheln mit neuen hide-Punkten müssen neu gebaut werden (Komplett-Build).
