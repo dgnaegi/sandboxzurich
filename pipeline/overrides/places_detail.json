@@ -183,6 +183,122 @@
      ]
     }
    }
+  },
+  {
+   "id": "egli_siedlung",
+   "center": [
+    -410,
+    -80
+   ],
+   "src": "research/v3/egli_siedlung.md; Commons 'Kindergarten Egli' (CC BY-SA 3.0, Tschubby), Panoramax/Mapillary; SWISSIMAGE (Innenhoefe, Spielplaetze)",
+   "ground": [
+    {
+     "circle": [
+      13,
+      36,
+      5.0
+     ],
+     "mat": "gravel",
+     "lift": 0.02,
+     "uv": 2.0
+    },
+    {
+     "circle": [
+      -28,
+      -16,
+      6.0
+     ],
+     "mat": "gravel",
+     "lift": 0.02,
+     "uv": 2.0
+    },
+    {
+     "circle": [
+      34,
+      20,
+      2.6
+     ],
+     "mat": "gravel",
+     "lift": 0.02,
+     "uv": 2.0
+    },
+    {
+     "circle": [
+      -6,
+      -37,
+      2.6
+     ],
+     "mat": "gravel",
+     "lift": 0.02,
+     "uv": 2.0
+    }
+   ],
+   "objs": [
+    {
+     "t": "sandbox",
+     "p": [
+      11,
+      38
+     ],
+     "h": 20,
+     "a": 3.0,
+     "b": 2.5
+    },
+    {
+     "t": "tbench",
+     "p": [
+      18,
+      31
+     ],
+     "h": 120
+    },
+    {
+     "t": "tbench",
+     "p": [
+      8,
+      44
+     ],
+     "h": 40
+    },
+    {
+     "t": "sandbox",
+     "p": [
+      -30,
+      -14
+     ],
+     "h": 0,
+     "a": 3.5,
+     "b": 3.0
+    },
+    {
+     "t": "tbench",
+     "p": [
+      -22,
+      -22
+     ],
+     "h": 60
+    },
+    {
+     "t": "tbench",
+     "p": [
+      -36,
+      -8
+     ],
+     "h": 100
+    }
+   ],
+   "ortho_ground": {
+    "within": {
+     "circle": [
+      0,
+      0,
+      70
+     ]
+    },
+    "gravel": false,
+    "paved": null,
+    "grass": true
+   }
   }
  ]
 }

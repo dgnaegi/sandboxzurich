@@ -1,0 +1,34 @@
+[
+ {
+  "id": "europaallee_lager",
+  "name": "Europaallee Lagerstrasse Bloecke",
+  "kind": "landmark",
+  "lat": 47.378798,
+  "lon": 8.534497,
+  "radius": 90
+ },
+ {
+  "id": "europaallee_ost",
+  "name": "Europaallee Gleisbogen / Lagerstrasse Sued",
+  "kind": "landmark",
+  "lat": 47.378076,
+  "lon": 8.535714,
+  "radius": 80
+ },
+ {
+  "id": "altstetten_platz",
+  "name": "Bahnhof Altstetten Platz Raender",
+  "kind": "landmark",
+  "lat": 47.391503,
+  "lon": 8.488503,
+  "radius": 90
+ },
+ {
+  "id": "goldbrunnen",
+  "name": "Goldbrunnenplatz Birmensdorferstrasse",
+  "kind": "landmark",
+  "lat": 47.367996,
+  "lon": 8.520002,
+  "radius": 80
+ }
+]
