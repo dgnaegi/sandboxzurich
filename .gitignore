@@ -46,3 +46,4 @@ research/posters/raw/
 
 # wrangler local state
 .wrangler/
+!web/public/models/trees/leaves.webp
