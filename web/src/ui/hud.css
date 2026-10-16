@@ -94,3 +94,4 @@ body.touch #touchbtns { display: flex; }
 #clockpanel .cp-row { display: flex; gap: 6px; margin-top: 8px; }
 #clockpanel input[type=range] { width: 100%; height: 36px; margin: 10px 0 0; accent-color: #e4007d; touch-action: pan-x; }
 #clockpanel .cp-ticks { display: flex; justify-content: space-between; font: 700 11px Barlow, sans-serif; opacity: .6; padding: 0 4px; }
+.m-page a { color: #ff4fa0; }
