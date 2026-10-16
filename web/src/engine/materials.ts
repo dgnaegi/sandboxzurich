@@ -14,8 +14,10 @@ export const hemiK = { value: 1 };
 
 export async function loadWorldMaterial(base: string, anisotropy: number, pbr = false): Promise<THREE.Material> {
   const meta = await (await fetch(`${base}/layers.json`)).json() as { size: number; cols: number; count: number; facades: number; shops_end: number; normals: number; normals3?: number; facades3?: [number, number]; layers?: string[]; shops2?: [number, number]; ground_n?: number[] };
-  const [rgb, mask, nimg] = await Promise.all([loadImage(`${base}/atlas.webp`), loadImage(`${base}/atlas_mask.png`), loadImage(`${base}/atlas_n${pbr ? '' : '_half'}.webp`).catch(() => loadImage(`${base}/atlas_n.webp`))]);
-  const L = meta.size, n = meta.count;
+    // phones (no pbr): half-resolution atlas + mask – the full one needs ~120 MB GPU + ~90 MB JS and crashed iOS Safari
+  const half = pbr ? '' : '_half', fb = <T>(p: Promise<T>, f: () => Promise<T>) => p.catch(f);
+  const [rgb, mask, nimg] = await Promise.all([fb(loadImage(`${base}/atlas${half}.webp`), () => loadImage(`${base}/atlas.webp`)), fb(loadImage(`${base}/atlas_mask${half}.png`), () => loadImage(`${base}/atlas_mask.png`)), loadImage(`${base}/atlas_n${pbr ? '' : '_half'}.webp`).catch(() => loadImage(`${base}/atlas_n.webp`))]);
+  const L = Math.round(rgb.width / meta.cols), n = meta.count;   // layer size from the loaded image (512 PC, 256 phone)
   const pix = (img: HTMLImageElement) => {
     const c = document.createElement('canvas');
     c.width = img.width; c.height = img.height;
@@ -59,6 +61,7 @@ export async function loadWorldMaterial(base: string, anisotropy: number, pbr = 
   };
   const tex = setup(new THREE.DataArrayTexture(data, L, L, n), true);
   const ntex = setup(new THREE.DataArrayTexture(nd, Ln, Ln, nn), false);
+  if (!pbr) for (const t of [tex, ntex]) t.onUpdate = () => { (t.image as { data: Uint8Array | null }).data = null; }; // phones: drop the JS copy once on the GPU
   const F = meta.facades.toFixed(1), S = meta.shops_end.toFixed(1), N = meta.normals.toFixed(1);
   const [A3, B3] = (meta.facades3 ?? [9999, 9999]).map((v) => v.toFixed(1));
 

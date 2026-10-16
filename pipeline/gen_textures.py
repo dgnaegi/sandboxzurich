@@ -193,6 +193,9 @@ def main():
     nat.save(OUT / "atlas_n.webp", quality=90, method=6)  # R,G = normal xy, B = roughness
     # phones: half resolution (download budget); the shader samples with normalised UVs, so only detail changes
     nat.resize((nat.width // 2, nat.height // 2), Image.LANCZOS).save(OUT / "atlas_n_half.webp", quality=88, method=6)
+    for src, dst, kw in (("atlas.webp", "atlas_half.webp", dict(quality=85, method=6)), ("atlas_mask.png", "atlas_mask_half.png", dict(optimize=True))):
+        im = Image.open(OUT / src)  # phones load these (GPU/JS memory: iOS Safari crashed with the full atlas)
+        im.resize((im.width // 2, im.height // 2), Image.LANCZOS).save(OUT / dst, **kw)
     json.dump({"size": L, "cols": COLS, "count": n, "layers": list(LAYERS), "facades": len(FACADES),
                "shops_end": len(FACADES) + len(SHOPS), "normals": n_norm, "normals3": len(FACADES3),
                "shops2": [list(LAYERS).index(SHOPS_EXTRA[0]), list(LAYERS).index(SHOPS_EXTRA[0]) + len(SHOPS_EXTRA)],

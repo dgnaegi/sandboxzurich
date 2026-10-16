@@ -2,20 +2,31 @@
  * Procedural sound (WebAudio, no files): city ambience (filtered noise, louder by day), birds by day,
  * tram bell, bike bell, comic police siren, mission jingles. Starts on the first user gesture (autoplay rules).
  */
+import { Ambience, type AmbIn } from './audio_amb';
+
 export class Audio {
   private ctx: AudioContext | null = null;
   private master!: GainNode;
   private amb!: GainNode;
   private sirenOsc: OscillatorNode | null = null;
   private sirenGain: GainNode | null = null;
-  private birdT = 0;
+  private amb2: Ambience | null = null;
   private eng: { o1: OscillatorNode; o2: OscillatorNode; g: GainNode; lp: BiquadFilterNode; tyre: GainNode } | null = null;
   muted = false;
 
   constructor() {
-    const start = () => { this.init(); window.removeEventListener('pointerdown', start); window.removeEventListener('keydown', start); };
-    window.addEventListener('pointerdown', start);
-    window.addEventListener('keydown', start);
+    // browsers (iOS: touchend/click only) unlock audio on a user gesture; keep trying until the context is running
+    const evs = ['pointerdown', 'pointerup', 'touchend', 'click', 'keydown'];
+    const start = () => {
+      this.init();
+      void this.ctx?.resume();
+      if (this.ctx?.state === 'running') evs.forEach((e) => window.removeEventListener(e, start));
+    };
+    evs.forEach((e) => window.addEventListener(e, start, { passive: true }));
+    document.addEventListener('visibilitychange', () => {
+      if (!this.ctx) return;
+      if (document.hidden) void this.ctx.suspend(); else void this.ctx.resume();
+    });
   }
 
   private init() {
@@ -30,6 +41,14 @@ export class Audio {
     const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 700;
     this.amb = ctx.createGain(); this.amb.gain.value = 0.25;
     src.connect(lp).connect(this.amb).connect(this.master); src.start();
+    // shared white noise for the place-dependent layers; map + layers are set up after the first gesture (not in the start budget)
+    const nb = ctx.createBuffer(1, ctx.sampleRate * 3, ctx.sampleRate), nd = nb.getChannelData(0);
+    for (let i = 0; i < nd.length; i++) nd[i] = Math.random() * 2 - 1;
+    setTimeout(() => {
+      if (location.search.includes('noamb')) return;
+      const a = new Ambience(ctx, this.master, nb);
+      a.load().then(() => { this.amb2 = a; }).catch(() => { /* no ambience map: keep the city hum only */ });
+    }, 400);
   }
 
   setMuted(m: boolean) { this.muted = m; if (this.ctx) this.master.gain.value = m ? 0 : 0.8; }
@@ -84,16 +103,11 @@ export class Audio {
     (ok ? [523, 659, 784, 1047] : [392, 330, 262]).forEach((f, i) => this.tone(f, t + i * 0.13, 0.35, 'square', 0.08));
   }
 
-  /** Per-frame: ambience by daytime/activity, birds, siren while wanted. */
-  update(dt: number, night: number, wanted: boolean, policeDist: number) {
+  /** Per-frame: place-dependent ambience (layers in audio_amb.ts), siren while wanted. */
+  update(dt: number, night: number, wanted: boolean, policeDist: number, amb?: AmbIn) {
     if (!this.ctx) return;
-    this.amb.gain.value = 0.12 + 0.18 * (1 - night);
-    this.birdT -= dt;
-    if (night < 0.3 && this.birdT <= 0) {
-      this.birdT = 1.5 + Math.random() * 4;
-      const t = this.ctx.currentTime, f = 2500 + Math.random() * 2000;
-      for (let i = 0; i < 2 + Math.floor(Math.random() * 3); i++) this.tone(f * (1 + Math.random() * 0.2), t + i * 0.09, 0.08, 'sine', 0.03, 1.4);
-    }
+    this.amb.gain.value = 0.05 + 0.07 * (1 - night); // far city hum; near roads the traffic layer adds to it
+    if (amb) this.amb2?.update(dt, amb);
     if (wanted && policeDist < 120) {
       if (!this.sirenOsc) {
         const ctx = this.ctx;

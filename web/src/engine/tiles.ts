@@ -26,8 +26,8 @@ interface Mask { x0: number; y0: number; n: number; res: number; depth: number; 
 interface TileMeta extends PropMeta { colliders: number[][][]; signs: Sign[]; posters: number[][]; wild?: number[][]; paths: number[][][]; mask: Mask }
 
 const BASE = (import.meta.env.VITE_TILE_BASE_URL as string | undefined) ?? '/tiles';
-const LOAD_RADIUS = 450;
-const UNLOAD_RADIUS = 650;
+const LOAD_RADIUS_PC = 450, LOAD_RADIUS_PHONE = 330; // phones: fewer tiles in memory (iOS Safari tab limit)
+const UNLOAD_EXTRA = 200;
 
 /** Loads tiles around the player, registers colliders, exposes ground height incl. lowered carriageways. */
 export class Tiles {
@@ -108,7 +108,7 @@ export class Tiles {
   async update(x: number, y: number): Promise<void> {
     const s = this.world.tile, jobs: Promise<void>[] = [];
     for (const t of this.world.tiles) {
-      if (Math.hypot((t.ix + 0.5) * s - x, (t.iy + 0.5) * s - y) < LOAD_RADIUS && !this.loaded.has(t.name)) {
+      if (Math.hypot((t.ix + 0.5) * s - x, (t.iy + 0.5) * s - y) < (this.shadows ? LOAD_RADIUS_PC : LOAD_RADIUS_PHONE) && !this.loaded.has(t.name)) {
         this.loaded.set(t.name, null);
         jobs.push(this.loadTile(t));
       }
@@ -116,7 +116,7 @@ export class Tiles {
     // free GPU memory of far tiles (important on phones); colliders and masks stay (small)
     for (const [name, g] of this.loaded) {
       const t = this.props.get(name);
-      if (!g || !t || Math.hypot(t.x - x, t.y - y) < UNLOAD_RADIUS) continue;
+      if (!g || !t || Math.hypot(t.x - x, t.y - y) < (this.shadows ? LOAD_RADIUS_PC : LOAD_RADIUS_PHONE) + UNLOAD_EXTRA) continue;
       this.scene.remove(g);
       g.traverse((o) => {
         const m = o as THREE.Mesh;
