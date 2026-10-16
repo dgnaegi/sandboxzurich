@@ -21,9 +21,11 @@ AURORA,Bahnhofstrasse 61,Gastwirtschaft,Mo-Sa 02.00,matched,Aurora,1.0
 AYA Bar,Hardstrasse 260,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,AYA,1.0
 Aargauerhof,Hohlstrasse 43,Gastwirtschaft,,matched,Aargauerhof,1.0
 Accademia del Gusto,Rotwandstrasse 48,Gastwirtschaft,,matched,Accademia del Gusto,1.0
+Action Burger,Bahnhofplatz 15,Gastwirtschaft,,added,,0.34
 Addis Abeba,Strassburgstrasse 17,Gastwirtschaft,,matched,Addis Ababa,0.9
 Aemtlerhalle,Gertrudstrasse 37,Gastwirtschaft,,added,,0.31
 Afghan Anar,Fierzgasse 22,Gastwirtschaft,,matched,Afghan Anar,1.0
+African Queen,Stampfenbachstrasse 70,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,African Queen,1.0
 Ah-Hua,Brauerstrasse 9,Nebenwirtschaft,,added,,0.44
 Ah-Hua 2,Ankerstrasse 110,Gastwirtschaft,,matched,Ah-Hua,1.0
 Akaraka,Bäckerstrasse 30,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Akaraka,1.0
@@ -42,6 +44,7 @@ Amboss Rampe,Zollstrasse 80,Gastwirtschaft,"Mo-Do 01.00, Fr/Sa frei, Eventraum M
 Ambrosi - Coffee Bar,Viaduktstrasse 37,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Ambrosi,1.0
 Amiamo,Sihlfeldstrasse 63,Gastwirtschaft,,matched,Amiamo Caffè,1.0
 "Amy's Gastro, Duangsin",Flurstrasse 4,Gastwirtschaft,,matched,Amy‘s,1.0
+An An by Co Chin Chin,Fraumünsterstrasse 25,Gastwirtschaft,Do/Fr/Sa 01.00,added,,0.34
 An Chay,Zypressenstrasse 94,Gastwirtschaft,,matched,An Chay,1.0
 Anemoia,Fabrikstrasse 23,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Anemoia,1.0
 Angkor,Giessereistrasse 18,Gastwirtschaft,,matched,Angkor,1.0
@@ -62,6 +65,7 @@ Atmos Lobby & Conferencing,Förrlibuckstrasse 190,Veranstaltungsraum,,added,,0.2
 Aubrey,Schiffbaustrasse 10,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Aubrey,1.0
 Avec Hardplatz,Hardplatz 1,Gastwirtschaft,,added,,0.4
 Ayverdis,Badenerstrasse 415,Gastwirtschaft,,matched,Ayverdi's,1.0
+Ayverdis,Bahnhofplatz 2,Gastwirtschaft,Mo-So bis 04.00,matched,Ayverdi's,1.0
 Azzurro,Hohlstrasse 451,Gastwirtschaft,,matched,Azzurro,1.0
 B9 Lounge Bar,Kernstrasse 60,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,B9,1.0
 BDiamond,Langstrasse 93,Gastwirtschaft,Mo-So 04.00,added,,0.43
@@ -90,6 +94,7 @@ Bar Lupo,Badenerstrasse 155,Gastwirtschaft,,matched,Bar Lupo,1.0
 Bar Sacchi,Bertastrasse 1,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Bar Sacchi,1.0
 Bar Schiffbau,Schiffbaustrasse 4,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Schiffbau,1.0
 Bar a Dox,Sihlstrasse 73,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",matched,BARADOX,1.0
+Bar am Wasser,Stadthausquai 1,Gastwirtschaft,Mo-So 02.00,matched,Bar am Wasser,1.0
 Barizzi,Brauerstrasse 34,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Barizzi,1.0
 Barranco,Sihlfeldstrasse 141,Gastwirtschaft,,matched,Barranco,1.0
 Barry's Switzerland,Talstrasse 83,Nebenwirtschaft,,added,,0.26
@@ -98,6 +103,7 @@ Basilica,Heinrichstrasse 237,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",matched,BA
 Bebos,Hardstrasse 310,Gastwirtschaft,Fr/Sa 02.00,matched,Bebos Beef & Chicken,1.0
 Beck und Kafi Kanzlei,Kanzleistrasse 12,Gastwirtschaft,,added,,0.32
 Beck und Kafi Markthalle,Limmatstrasse 231,Nebenwirtschaft,,added,,0.52
+Beck und Kafi Münsterhof,Münsterhof 7,Nebenwirtschaft,,added,,0.55
 Beck und Kafi Viadukt,Viaduktstrasse 20,Gastwirtschaft,,added,,0.14
 Beck und Kai Albisrieden,Püntstrasse 12,Nebenwirtschaft,,added,,0.25
 Beetnut,Lagerstrasse 16b,Gastwirtschaft,,matched,Beetnut,1.0
@@ -116,20 +122,29 @@ Big Burger,Langstrasse 211,Gastwirtschaft,,matched,Big Burger,1.0
 Billard Center Zypresse,Badenerstrasse 294,Nebenwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Billiard Center Zypresse,0.98
 Billiardino Züri-West,Heinrichstrasse 245,Gastwirtschaft,Fr/Sa frei,matched,Billiardino,1.0
 Bilo Bistro,Ankerstrasse 116,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",matched,Bilo Bistro,1.0
+Bindella,In Gassen 6,Gastwirtschaft,,matched,Bindella,1.0
 Biondi,Rolandstrasse 23,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",matched,Biondi,1.0
 Birds in the Kitchen,Müllerstrasse 74,Gastwirtschaft,,added,,0.38
 Bistro Albisrieden,Albisriederstrasse 358,Gastwirtschaft,,matched,Bistro Albisrieden,1.0
+Bistro Club 99,Beckenhofstrasse 70,Gastwirtschaft,,added,,0.52
 Bistro LOI,Limmatstrasse 270,Gastwirtschaft,,matched,Loi,1.0
 Bistro Riffraff,Neugasse 63,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Riffraff 3 + 4,0.67
 Bistro ufem Chilehügel,Pfarrhausstrasse 21,Gastwirtschaft,,matched,Bistro uf em Chilehügel,1.0
+Black Tap,Werdmühlestrasse 4,Gastwirtschaft,,matched,Black Tap,1.0
 Bloom,Bleicherweg 17,Nebenwirtschaft,,added,,0.44
 Blue Bar,Langstrasse 106,Gastwirtschaft,,matched,Bar Butter,0.6
+Blueberry-Mövenpick,Bahnhofplatz 15,Gastwirtschaft,frei/Bahnnebenbetrieb gem. Verkehrszeiten SBB,added,,0.38
 Bogen F,Viaduktstrasse 97,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Bogen F,1.0
 Boréal Coffee Shop,Talacker 41,Gastwirtschaft,,matched,Boréal Coffee,1.0
 Bottega Berta,Bertastrasse 36,Gastwirtschaft,,matched,Bottega Berta,1.0
 Boulangerie Café Thiwa,Triemlistrasse 210,Gastwirtschaft,,matched,Thiwa,1.0
+Branders Group / Agobay,Fraumünsterstrasse 9,Nebenwirtschaft,,matched,Branders,1.0
 Brasserie Café de Paris,Ankerstrasse 113,Gastwirtschaft,,matched,Brasserie Café de Paris,1.0
+Brasserie Dupont,Beatenplatz 4,Gastwirtschaft,Fr/Sa 02.00,matched,Dupont Brasserie & Bar,0.6
+Brasserie Federal,Bahnhofplatz 15,Gastwirtschaft,frei/Bahnnebenbetrieb gem. Verkehrszeiten SBB,added,,0.45
 Brasserie Freilager,Freilagerstrasse 53,Gastwirtschaft,,matched,La Trattoria Freilager,0.65
+Brasserie Lipp,Uraniastrasse 9,Gastwirtschaft,Mo-So 02.00,matched,Brasserie Lipp,1.0
+Brasserie Süd mit Bar Da Capo & The Counter,Bahnhofplatz 15,Gastwirtschaft,frei/Bahnnebenbetrieb gem. Verkehrszeiten SBB,matched,Süd,1.0
 Brera,Kanzleistrasse 126,Gastwirtschaft,,matched,Brera,1.0
 Bridge,Europaallee 20,Gastwirtschaft,,matched,ViCAFE @ bridge,1.0
 Bridge,Europaallee 20,Gastwirtschaft,Mo-So 02.00,matched,ViCAFE @ bridge,1.0
@@ -139,7 +154,9 @@ Brot Bistro Bar,Hohlstrasse 67,Gastwirtschaft,,matched,Restaurant B,1.0
 Buenavista,Lindenplatz 6,Gastwirtschaft,,matched,Buena Vista Cafebar,1.0
 Buonappetito,Rotwandstrasse 51,Nebenwirtschaft,,added,,0.34
 Burger King,Albisriederplatz 5,Gastwirtschaft,Fr./Sa. bis 02.00 Uhr,matched,Burger King,1.0
+Burger King,Bahnhofplatz 15,Gastwirtschaft,frei/Bahnnebenbetrieb gem. Verkehrszeiten SBB,added,,0.55
 Burger King / Blueberry,Lagerstrasse 1,Gastwirtschaft,,matched,Burger King,1.0
+Burger King Halle Sihlquai,Bahnhofplatz 15,Gastwirtschaft,,matched,Burger King,1.0
 Burgermeister Altstetten,Altstetterstrasse 146,Gastwirtschaft,,matched,Burgermeister,1.0
 Burgermeister Escher-Wyss,Hardstrasse 316,Gastwirtschaft,Fr/Sa frei,added,,0.59
 Burgermeister Kaserne,Kasernenstrasse 77b,Gastwirtschaft,Fr/Sa 04.00,matched,Burgermeister,1.0
@@ -171,7 +188,9 @@ Cafe Felix,Lintheschergasse 8,Gastwirtschaft,,matched,Café Felix,1.0
 Cafebar ZENO,Hohlstrasse 18,Gastwirtschaft,Mo-So frei,added,,0.31
 Cafeteria Bar-A-Graph,Badenerstrasse 90,Gastwirtschaft,,added,,0.0
 Cafeteria Museum für Gestaltung,Ausstellungsstrasse 60,Gastwirtschaft,,added,,0.45
+Cafeteria Stadthaus Zürich,Stadthausquai 17,Gastwirtschaft,,added,,0.49
 Caffetteria Am Limmatplatz Ristorante,Kornhausbrücke 2,Gastwirtschaft,,matched,Caffetteria am Limmatplatz,1.0
+Caffè & Bar Belpaese,Münsterhof 11,Gastwirtschaft,,matched,Caffè & Bar Belpaese,1.0
 Caffè Cioccolato,Lindenplatz 4,Gastwirtschaft,,matched,Caffe Cioccolato,0.93
 Café Bar Brick,Langstrasse 21,Gastwirtschaft,"So-Do 02.00, Fr/Sa 04.00",matched,Brick,1.0
 Café Bar Plüsch,Aemtlerstrasse 16,Gastwirtschaft,Fr/Sa frei,matched,Plüsch,1.0
@@ -187,13 +206,16 @@ Café Le Mur,Engelstrasse 59,Gastwirtschaft,,matched,Cafe le mur,1.0
 Café Letzistübli,Albisriederstrasse 171,Gastwirtschaft,,matched,Cafe Letzistübli,1.0
 Café Lingo,Selnaustrasse 30,Gastwirtschaft,,added,,0.25
 Café Miyuko,Bärengasse 20,Gastwirtschaft,,matched,Cafe Miyuko,1.0
+Café Oscar,Bahnhofplatz 15,Gastwirtschaft,,added,,0.36
 Café Stellwerk (Lernstube),Hohlstrasse 500,Gastwirtschaft,,added,,0.49
+Café Wühre,Storchengasse 8,Gastwirtschaft,,matched,Café Wühre,1.0
 Café Z am Park,Zurlindenstrasse 275,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",added,,0.0
 Café des Amis,Nordstrasse 88,Gastwirtschaft,,matched,Café des Amis,1.0
 Café du Bonheur,Zypressenstrasse 115,Gastwirtschaft,,matched,Café du Bonheur,1.0
 Café zum Walter,Birmensdorferstrasse 21,Gastwirtschaft,,matched,Café Zum Walter,1.0
 Café-Bar Centro Pizza,Badenerstrasse 276,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Centro Pizza,1.0
 Café-Bar Coucou,Röntgenstrasse 66,Gastwirtschaft,,matched,CouCou,1.0
+Café-Bar Palette,Schützengasse 7,Gastwirtschaft,,matched,Palette,1.0
 Campo,Molkenstrasse 9,Gastwirtschaft,,matched,Campo,1.0
 Cantina,Köchlistrasse 35,Gastwirtschaft,,matched,Chichería Cantina,1.0
 Cantinetta Antinori,Augustinergasse 25,Gastwirtschaft,,matched,Cantinetta Antinori,1.0
@@ -219,6 +241,7 @@ Chickeria,Langstrasse 83,Gastwirtschaft,Fr/Sa frei,matched,Chickeria,1.0
 Chifa Izakaya,Baumgasse 10,Gastwirtschaft,,matched,Chifa Izakaya,1.0
 Chimy's,Neugasse 76,Gastwirtschaft,,added,,0.22
 China Inn Take-Away,Klingenstrasse 21,Kleinwirtschaft,,added,,0.47
+Churrasco Steak & Nikkei Cuisine,Glockengasse 9,Gastwirtschaft,,matched,Churrasco Steakhouse & Bar,0.74
 Cima,Kanonengasse 19,Gastwirtschaft,,matched,Cima Curry,1.0
 Cinque,Langstrasse 215,Gastwirtschaft,,matched,Cinque,1.0
 Clouds,Maagplatz 5,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Clouds,1.0
@@ -227,6 +250,7 @@ Club Flamingo,Limmatstrasse 65,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,
 Club HW,Neufrankengasse 22,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Club HW,1.0
 Club Silbando,Förrlibuckstrasse 62,Nebenwirtschaft,"So-Do 04.00, Fr/Sa frei",added,,0.33
 Club Union Deportiva Espanol,Meinrad-Lienert-Strasse 10,Gastwirtschaft,,added,,0.38
+Club zum Rennweg,Fortunagasse 13,Gastwirtschaft,,added,,0.21
 Co Chin Chin,Gasometerstrasse 7,Gastwirtschaft,,matched,Co Chin Chin,1.0
 Coco Grill und Bar,Bleicherweg 1a,Gastwirtschaft,,matched,Coco Grill & Bar,1.0
 Coiffure Sol,Bäckerstrasse 60,Nebenwirtschaft,,added,,0.35
@@ -237,17 +261,22 @@ Commercial Cafe,Bahnhofstrasse 75,Nebenwirtschaft,,matched,Commercial - The Proj
 Commercial Café,Feldstrasse 61,Gastwirtschaft,,matched,Commercial. The Project,1.0
 Con Gusto,Hotzestrasse 65,Gastwirtschaft,,matched,Con Gusto,1.0
 Con Gusto,Birmensdorferstrasse 169,Gastwirtschaft,,matched,Con Gusto,1.0
+Confiserie Bachmann,Bahnhofstrasse 89,Gastwirtschaft,,matched,Bachmann,1.0
+Confiserie Sprüngli,Bahnhofstrasse 21,Gastwirtschaft,,matched,Sprüngli Café-Bar,1.0
+Confiserie Sprüngli,Bahnhofplatz 15,Gastwirtschaft,,added,,0.41
 Coop City St. Annahof,Bahnhofstrasse 57,Gastwirtschaft,,matched,Coop City,1.0
 "Coop Restaurant, Take it Letzipark",Baslerstrasse 50,Gastwirtschaft,,matched,Coop Restaurant,1.0
 Coop ZH Stauffacher to go,Badenerstrasse 15,Gastwirtschaft,,matched,Coop,1.0
 Coop Zürich Maagplatz,Maagplatz 9,Nebenwirtschaft,,added,,0.4
 Coop Zürich Puls 5,Giessereistrasse 18,Nebenwirtschaft,,added,,0.31
+Corallo,Weinbergstrasse 117,Gastwirtschaft,,matched,Pizzeria Corallo,1.0
 Costa Brava,Limmatstrasse 267,Gastwirtschaft,,matched,Costa Brava,1.0
 Crowne Plaza,Badenerstrasse 420,Gastwirtschaft,Mo-So 04.00,added,,0.29
 Cucina Bernoulli,Hardturmstrasse 261,Gastwirtschaft,,matched,Cucina Bernoulli,1.0
 Cucina Limmatplatz,Luisenstrasse 40,Gastwirtschaft,,matched,Cucina,1.0
 D' Aurora,Rotwandstrasse 42,Gastwirtschaft,,matched,D'Aurora,1.0
 D'Ouro,Hardplatz 9,Gastwirtschaft,,matched,D'Ouro,1.0
+D-Vino Weinbar,Schützengasse 12,Gastwirtschaft,"So-Do 02.00, Fr/Sa Frei",matched,D-Vino,1.0
 DELHI HOUSE BISTRO,Zypressenstrasse 50,Gastwirtschaft,,matched,Delhi House,1.0
 Da Angela,Hohlstrasse 449,Gastwirtschaft,,matched,Da Angela,1.0
 Da Pone,Hönggerstrasse 43,Gastwirtschaft,,added,,0.55
@@ -273,6 +302,7 @@ Don Weber,Heinrichstrasse 213,Gastwirtschaft,,matched,Don Weber,1.0
 Donde Luis,Militärstrasse 114,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",added,,0.35
 Dont Worry Eat Curry,Mattengasse 29,Gastwirtschaft,,matched,Don’t Worry Eat Curry,1.0
 Dr. Zhivago Bar,Bärengasse 29,Gastwirtschaft,FR/SA 02.00,matched,Dr. Zhivago,1.0
+Drei Stuben,Beckenhofstrasse 5,Gastwirtschaft,,matched,Drei Stuben,1.0
 Dunkin Donuts,Altstetterstrasse 145,Gastwirtschaft,,added,,0.44
 Dynamo,Wasserwerkstrasse 21,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",added,,0.0
 EDY'S,Lutherstrasse 2,Gastwirtschaft,Sa auf So 02.00,matched,Edy's,1.0
@@ -294,9 +324,11 @@ El Presidente,Langstrasse 80,Gastwirtschaft,"So-Do 04.00, Fr/Sa Frei",matched,El
 Eldorado,Limmatstrasse 109,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",matched,Eldorado,1.0
 Elisaburg,Elisabethenstrasse 3,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Elisaburg,1.0
 Elvetino AG,Limmatstrasse 23,Gastwirtschaft,,added,,0.25
+Ema House,Nordstrasse 1,Gastwirtschaft,,added,,0.0
 Emilia,Albisriederstrasse 330,Gastwirtschaft,,matched,Trattoria Emilia,1.0
 Emilio,Zweierstrasse 9,Gastwirtschaft,,matched,Emilio,1.0
 Enso Sushi,Altstetterstrasse 223,Gastwirtschaft,,matched,enso,1.0
+Espressino,Bahnhofplatz 15,Gastwirtschaft,,added,,0.4
 Estia Home of Taste,Hohlstrasse 365,Gastwirtschaft,,added,,0.33
 Ev. ref. Kirchgemeindehaus,Limmatstrasse 114,Gastwirtschaft,,added,,0.0
 Eventhaus Langstrasse,Brauerstrasse 37,Gastwirtschaft,Mo-So 06.00,added,,0.33
@@ -401,11 +433,16 @@ Haute,Talstrasse 65,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Haute,1.0
 Heilsarmee Zürich Zentral,Ankerstrasse 31,Gastwirtschaft,,added,,0.27
 Helsinki,Geroldstrasse 35,Gastwirtschaft,"Mo-Mi 02.00, Do-Sa frei",matched,Helsinki,1.0
 Hermanseck,Birmensdorferstrasse 58,Gastwirtschaft,,matched,Hermanseck,1.0
+Heugümper,Waaggasse 4,Gastwirtschaft,,matched,Heugümper,1.0
 Hikari,Weststrasse 70,Gastwirtschaft,,matched,Hikari,1.0
 Hiltl,Sihlstrasse 28,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Haus Hiltl,1.0
+Hiltl Dachterrasse,Bahnhofstrasse 88,Gastwirtschaft,,added,,0.29
 Hiltl Sihlpost + Club,Europaallee 1a,Gastwirtschaft,,matched,Hiltl Sihlpost,1.0
 Himalaya Burger,Förrlibuckstrasse 110,Gastwirtschaft,,matched,Himalaya Burger & Co.,1.0
 Himalaya Restaurant & Takeaway,Ackerstrasse 52,Gastwirtschaft,,matched,Himalaya,1.0
+Hitzberger HB Halle Löwenstrasse,Bahnhofplatz 15,Gastwirtschaft,,added,,0.31
+Hitzberger Passage Sihlquai,Bahnhofplatz 15,Gastwirtschaft,,added,,0.54
+Hitzberger Take-Away,Bahnhofplatz 15,Gastwirtschaft,,matched,Hitzberger HB Halle Löwenstrasse,1.0
 Hive,Geroldstrasse 5,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",added,,0.21
 Hoikoi,Sihlfeldstrasse 56,Gastwirtschaft,,matched,Hoikoi,1.0
 Holy Cow! / Pret A Manger,Löwenstrasse 51,Gastwirtschaft,,matched,Holy Cow!,1.0
@@ -417,9 +454,11 @@ Hotel Neufeld,Friesenbergstrasse 15,Gastwirtschaft,,added,,0.48
 Hotel Olympia,Badenerstrasse 324,Gastwirtschaft,,added,,0.1
 Hotel Restaurant Helvetia,Stauffacherquai 1,Gastwirtschaft,"So-Do 02.00, Fr/Sa 04.00",matched,Helvetia,1.0
 Hotel Rivington & Sons,Hardstrasse 201,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Hotel Rivington & Sons,1.0
+Hotel Ruby Mimi,Beatenplatz 4,Gastwirtschaft,,added,,0.3
 Hotel Spirgarten,Lindenplatz 5,Gastwirtschaft,Fr/Sa 04.00,matched,Neues Theater Spirgarten,0.7
 Hotel St. Gotthard,Schützengasse 15,Gastwirtschaft,,added,,0.33
 Hotel Stoller,Badenerstrasse 357,Gastwirtschaft,,added,,0.36
+Hotel Storchen,Weinplatz 2,Gastwirtschaft,,added,,0.55
 Hotel Züri,Heinrichstrasse 254,Gastwirtschaft,,added,,0.27
 Hotelbar,Feldstrasse 144,Gastwirtschaft,"So-Mi 02.00, Do-Sa 04.00",matched,Hotel Bar,1.0
 Houdini Kino Bar,Badenerstrasse 173,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Houdini,1.0
@@ -433,6 +472,7 @@ IQ-Bar,Hardstrasse 316,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,IQ Bar,1
 Iberia Tapas,Albisriederstrasse 16,Gastwirtschaft,,matched,Iberia,1.0
 Ibis Budget Zürich City West,Technoparkstrasse 2,Gastwirtschaft,,added,,0.0
 Ibis Zürich City West,Schiffbaustrasse 11,Gastwirtschaft,,added,,0.15
+Il Baretto,Bahnhofplatz 15,Gastwirtschaft,frei/Bahnnebenbetrieb gem. Verkehrszeiten SBB,matched,Il Baretto,1.0
 Il Basilico,Birmensdorferstrasse 364,Gastwirtschaft,,matched,Il Basilico,1.0
 Il Gallo,Hardstrasse 324,Gastwirtschaft,,added,,0.38
 Il Giglio,Weberstrasse 14,Gastwirtschaft,,matched,Il Giglio,1.0
@@ -447,6 +487,7 @@ Insider Restaurant & Bar,Löwenstrasse 64,Gastwirtschaft,,matched,Insider,1.0
 Ioannis,Else-Züblin-Strasse 60,Gastwirtschaft,,matched,Ioannis,1.0
 Ipanema Bar,Ankerstrasse 116,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Ipanema Bar,1.0
 JOE & THE JUICE,Sihlstrasse 37,Gastwirtschaft,,matched,Joe & The Juice,1.0
+JOHN BAKER BAHNHOFSTRASSE,Bahnhofstrasse 9,Gastwirtschaft,,matched,John Baker,1.0
 Jack's Food,Bernerstrasse Süd 167,Gastwirtschaft,,added,,0.5
 James Joyce,Pelikanstrasse 8,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",matched,James Joyce,1.0
 Jenseits im Viadukt,Viaduktstrasse 65,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Restaurant Viadukt,1.0
@@ -469,6 +510,7 @@ Kafi Guet,Gutstrasse 152,Gastwirtschaft,,matched,Kafi Guet,1.0
 Kafi Schnaps,Kornhausstrasse 57,Gastwirtschaft,,matched,Kafischnaps,1.0
 Kai Sushi Schiffbau,Hardstrasse 261,Gastwirtschaft,,matched,Kai Sushi,1.0
 Kaimug Altstetten,Altstetterstrasse 145,Kleinwirtschaft,,added,,0.49
+Kaimug Landesmuseum Hauptbahnhof,Bahnhofplatz 15,Gastwirtschaft,,added,,0.52
 Kanonengasse,Kanonengasse 9,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",added,,0.25
 Kanzlei Turnhalle,Kanzleistrasse 56,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",added,,0.0
 Karim's Wein-Bistrot,Zwinglistrasse 6,Gastwirtschaft,,added,,0.52
@@ -480,6 +522,7 @@ Kesslers Club Social,Baslerstrasse 149,Gastwirtschaft,,matched,Kesslers Club Soc
 Kevon Food & Drinks,Badenerstrasse 177,Gastwirtschaft,,added,,0.36
 Khujug,Schöneggstrasse 5,Gastwirtschaft,,matched,Khujug,1.0
 Kibar,Hohlstrasse 561,Gastwirtschaft,Fr/Sa frei,added,,0.25
+Kindli,Pfalzgasse 1,Gastwirtschaft,,matched,Kindli,1.0
 Kino Abaton,Heinrichstrasse 269,Gastwirtschaft,,matched,Abaton,1.0
 Kino Metropol,Badenerstrasse 16,Gastwirtschaft,Nur bei Nocturn-Vorstellungen: Fr/Sa 02.00,matched,Metropol,1.0
 Kino Riff Raff Bar,Neugasse 57,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Riffraff 3 + 4,0.73
@@ -487,6 +530,7 @@ Kino Xenix,Kanzleistrasse 52,Gastwirtschaft,"So-Do 02.00, Fr/Sa 04.00",matched,X
 Kiosk Café - Bar Röschibach,Landenbergstrasse 24,Nebenwirtschaft,,matched,Café Röschibach,1.0
 Kiosk Café Semal,Ankerstrasse 119,Nebenwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Kiosk Semal,1.0
 Kiosk Josefwiese,Josefstrasse 197,Kleinwirtschaft,,matched,Kiosk Josefwiese,1.0
+Kiosque,Strehlgasse 26,Gastwirtschaft,,matched,Kiosk Cafe Bar,0.67
 Kir Royal,Langstrasse 62,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",matched,Kir Royal,1.0
 Kirche Offener St. Jakob,Stauffacherstrasse 34,Gastwirtschaft,,added,,0.0
 Kirchenzentrum St. Josef,Röntgenstrasse 80,Gastwirtschaft,,added,,0.0
@@ -495,12 +539,14 @@ Klaus,Zwinglistrasse 43,Gastwirtschaft,"So-Mi 04.00, Do-Sa frei",matched,Klaus,1
 Kle,Zweierstrasse 114,Gastwirtschaft,,matched,Kle,1.0
 Kleiner Bäckerei Neumarkt,Altstetterstrasse 145,Nebenwirtschaft,,added,,0.34
 Kleiner Filiale Wipkingen,Dammstrasse 54,Nebenwirtschaft,,matched,KiWi Kinderartikel Wipkingen,0.65
+Klingler's,Münzplatz 3,Gastwirtschaft,,added,,0.24
 Klub 457,Hohlstrasse 457,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",added,,0.0
 Knödl,Brauerstrasse 78,Gastwirtschaft,,matched,Knödl,1.0
 Kobal Curry,Kanzleistrasse 78,Gastwirtschaft,,matched,Kobal,1.0
 Kokoro,Neufrankengasse 25,Gastwirtschaft,,matched,Kokoro,1.0
 Komplex,Hohlstrasse 457,Dancing / Disco,"So-Do 04.00, Fr/Sa frei",added,,0.29
 Konrad Kaffee- & Cocktailbar,Lintheschergasse 23,Gastwirtschaft,,matched,Konrad Kaffee- & Cocktailbar (ex 0815),1.0
+Konshi,Uraniastrasse 3,Gastwirtschaft,,matched,Konshi,1.0
 Kraftwerk,Selnaustrasse 25,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Kraftwerk,1.0
 Krone Unterstrass,Schaffhauserstrasse 1,Gastwirtschaft,,added,,0.36
 Kuhn Back & Gastro,Hardaustrasse 5,Gastwirtschaft,,matched,Kuhn Back & Gastro,1.0
@@ -511,6 +557,7 @@ LILY'S FACTORY,Sihlfeldstrasse 58,Gastwirtschaft,,matched,LILY'S Factory,1.0
 LILY'S ORIGINAL,Langstrasse 197,Gastwirtschaft,,matched,LILY'S,1.0
 La Baracca,Kanzleistrasse 103,Gastwirtschaft,,matched,La Baracca,1.0
 La Brea,Josefstrasse 59,Gastwirtschaft,Fr/Sa frei,matched,LA Brea SoCal Tacos,1.0
+La Casa,Riedtlistrasse 2,Gastwirtschaft,,added,,0.24
 La Catedral,Birmensdorferstrasse 83,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,La Catedral,1.0
 La Contrada,Heinrichstrasse 83,Gastwirtschaft,Fr/Sa frei,matched,La Contrada,1.0
 La Côte,Aemtlerstrasse 26,Gastwirtschaft,,matched,La Côte,1.0
@@ -525,11 +572,13 @@ La Taqueria,Badenerstrasse 138,Gastwirtschaft,Fr/Sa frei,matched,La Taqueria,1.0
 La Taqueria,Altstetterstrasse 140a,Gastwirtschaft,,matched,La Taqueria,1.0
 Labor 5,Schiffbaustrasse 3,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",matched,Labor5 Bar,1.0
 Ladencafé im Kulturpark,Schiffbaustrasse 9b,Nebenwirtschaft,,added,,0.26
+Lady Hamilton's,Beatengasse 11,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Lady Hamiltons,1.0
 Lalin,Zentralstrasse 111,Gastwirtschaft,,matched,Lalin,1.0
 Lambada,Dienerstrasse 43,Gastwirtschaft,Mo-So frei,matched,Lambada Bar Club,1.0
 Lang Thai,Hohlstrasse 49,Gastwirtschaft,,added,,0.37
 Lasalle (Erdgeschoss),Schiffbaustrasse 4,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",matched,LaSalle,1.0
 Late Bloomers,Dienerstrasse 20,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Late Bloomers,1.0
+Le Café,Bahnhofplatz 15,Gastwirtschaft,frei/Bahnnebenbetrieb gem. Verkehrszeiten SBB,matched,Il Baretto,1.0
 Le Café Gabbani,Bärengasse 16,Gastwirtschaft,,matched,Le Café,1.0
 Le Calvados,Idaplatz 4,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Le Calvados,1.0
 Le Cèdre Maurice,Nüschelerstrasse 31,Gastwirtschaft,,matched,Le Cèdre Maurice,1.0
@@ -543,6 +592,7 @@ Les délices d'Orient,Aemtlerstrasse 18,Gastwirtschaft,,matched,Les délices d'o
 Letzigrund,Badenerstrasse 526,Gastwirtschaft,"So-Do 04.00, Fr/Sa Frei",added,,0.25
 Lian Hua,Förrlibuckstrasse 30,Gastwirtschaft,,matched,Lian Hua,1.0
 Libanon il Achdar,Hafnerstrasse 13,Gastwirtschaft,,matched,Libanon il-Achdar,1.0
+Lindenhofkeller,Pfalzgasse 4,Gastwirtschaft,,matched,Lindenhofkeller,1.0
 Little Thai,Bertastrasse 3,Kleinwirtschaft,,matched,Little Thai,1.0
 Liyu Ethiopian Food,Birmensdorferstrasse 191,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Liyu,1.0
 Lo Spaccio,Bleicherweg 20,Gastwirtschaft,,matched,lo spaccio,1.0
@@ -554,25 +604,29 @@ Lola's,Manessestrasse 32,Gastwirtschaft,,matched,Lola's Restaurant,1.0
 Lolly Shop Kiosk,Langstrasse 88,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Lollypop,0.64
 Long Huang,Talstrasse 83,Gastwirtschaft,,matched,Long Huang,1.0
 Longstreet,Langstrasse 92,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Longstreet Bar Club,1.0
+Lotti,Werdmühleplatz 3,Gastwirtschaft,,matched,Lotti,1.0
 Lou's Comfort Food - Restaurant & Bar,Zweierstrasse 106,Gastwirtschaft,"So-Do 02.00, Fr/Sa 04.00",matched,Lou's Restaurant & Bar,1.0
 Love Story,Ankerstrasse 116,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Love Story,1.0
 Loving Lanka Restaurant,Freilagerstrasse 71,Gastwirtschaft,,matched,Loving Lanka,1.0
 Lucky Punch,Europaallee 5,Nebenwirtschaft,,added,,0.32
-Lucky Punch,Bahnhofstrasse 32,Nebenwirtschaft,,added,,0.24
+Lucky Punch,Bahnhofstrasse 32,Nebenwirtschaft,,added,,0.25
 Lugano Bar,Langstrasse 108,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Lugano Bar,1.0
 Luigia,Talstrasse 61,Gastwirtschaft,,matched,Luigia,1.0
+Lumière,Glockengasse 16,Gastwirtschaft,,matched,Lumière,1.0
 Lunch 5,Förrlibuckstrasse 62,Gastwirtschaft,,matched,Lunch 5,1.0
 Luxor Fitness,Glärnischstrasse 35,Nebenwirtschaft,,added,,0.32
 Lycka Coffee Bar,Josefstrasse 112,Gastwirtschaft,,added,,0.26
 Légère Bar & Restaurant,Badenerstrasse 281,Gastwirtschaft,"Mo-Di 02.00, Mi-Do 04.00, Fr/Sa frei",matched,Légère,1.0
 Löweneck,Löwenstrasse 34,Gastwirtschaft,,matched,Löweneck,1.0
 M Take Away,Birmensdorferstrasse 140,Take Away,,matched,Migros,1.0
+MANY'S,Beckenhofstrasse 7,Gastwirtschaft,,added,,0.29
 MARMAR,Giessereistrasse 18,Gastwirtschaft,,added,,0.33
 MAZI im Morgarten,Morgartenstrasse 26,Gastwirtschaft,,matched,MAZI im Morgarten,1.0
 MEZE,Freischützgasse 1,Gastwirtschaft,,added,,0.33
 "MIMOS, SKKZ",Kornhausstrasse 18,Gastwirtschaft,,added,,0.19
 MIYO,Hafnerstrasse 11,Kleinwirtschaft,,matched,miyo cafebar,1.0
 MO JASMINE,Badenerstrasse 663,Gastwirtschaft,,added,,0.35
+MONTMARTRE,Weggengasse 4,Gastwirtschaft,,matched,Mont Martre,1.0
 Machida Shoten Albisriederplatz,Zypressenstrasse 49,Gastwirtschaft,,matched,Machida Shoten,1.0
 Madonna,Talstrasse 70,Gastwirtschaft,,matched,MaDonna,1.0
 Mai-Wok Take Away,Birmensdorferstrasse 93,Gastwirtschaft,,matched,Mai-Wok,1.0
@@ -585,8 +639,11 @@ Markaz Döner & Falafel,Hardstrasse 238,Gastwirtschaft,,matched,Markaz Döner & 
 Marktbar,Limmatstrasse 118,Gastwirtschaft,,added,,0.31
 Markthalle,Aargauerstrasse 1,Gastwirtschaft,,matched,Restaurant Markthalle,1.0
 Marktküche,Feldstrasse 98,Gastwirtschaft,,matched,marktküche,1.0
+Marktlücke,Schipfe 24,Nebenwirtschaft,,matched,Marktlücke,1.0
+Marriott Hotel,Neumühlequai 42,Gastwirtschaft,Mo-So 02.00,added,,0.0
 Mars Bar,Neufrankengasse 15,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Mars Bar,1.0
 Maru,Rolandstrasse 9,Gastwirtschaft,,matched,Maru,1.0
+Maru,Bahnhofplatz 15,Gastwirtschaft,,added,,0.5
 Masala,Stauffacherstrasse 27,Gastwirtschaft,,matched,Masala,1.0
 Mata Hari,Langstrasse 237,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Matahari Bar,1.0
 Maverick's Secret Boldt,Feldstrasse 40,Gastwirtschaft,,matched,Maverick‘s Secret,1.0
@@ -595,6 +652,7 @@ Mc Donald's,Badenerstrasse 21,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,M
 Mc Donald's,Löwenstrasse 53,Gastwirtschaft,,matched,McDonald's,1.0
 Mc Donald's,Hohlstrasse 467,Gastwirtschaft,"Mo-Do 05.00, Fr/Sa 06.00, So 01.00",matched,McDonald's,1.0
 Mc Donald's,Neugasse 52,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,McDonald's,1.0
+Mc Donald's,Bahnhofplatz 5,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,McDonald's,1.0
 Meat-Me,Rebgasse 8,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Meat Me,1.0
 Med D'oro,Zentralstrasse 161,Gastwirtschaft,,matched,Med D’Oro,1.0
 Mehrspur,Förrlibuckstrasse 109,Dancing / Disco,"So-Do 04.00, Fr/Sa frei",matched,Mehrspur,1.0
@@ -619,6 +677,7 @@ Miki,Sihlfeldstrasse 63,Gastwirtschaft,,matched,Miki Ramen,1.0
 Miki Burgers,Marienstrasse 17,Gastwirtschaft,,matched,Miki Burgers,1.0
 Mikkeller Zürich,Zweierstrasse 124,Gastwirtschaft,,matched,Mikkeller,1.0
 Milano,Militärstrasse 109,Gastwirtschaft,"So-Do 04.00, Fr/Sa Frei",matched,Pizzeria Milano,1.0
+Milchbar,Kappelergasse 16,Gastwirtschaft,,matched,Milchbar,1.0
 Milieu,Brauerstrasse 30a,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Milieu,1.0
 Minimum,Flüelastrasse 29,Gastwirtschaft,,matched,Minimum,1.0
 Miss Miu,Europaallee 48,Gastwirtschaft,,matched,Miss Miu,1.0
@@ -638,6 +697,7 @@ Musti Grill,Saumackerstrasse 48,Gastwirtschaft,,matched,Musti Grill,1.0
 Mythos,Stauffacherstrasse 35,Gastwirtschaft,,matched,Mythos,1.0
 Mäx,Zahnradstrasse 22,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",added,,0.0
 Mövenpick Wein-Bar Nüschelerstrasse,Nüschelerstrasse 1,Gastwirtschaft,,matched,Mövenpick Wein-Bar,1.0
+Münsterhöfli,Münsterhof 6,Gastwirtschaft,,matched,Münsterhöfli,1.0
 NA 081,Konradstrasse 71,Gastwirtschaft,,matched,NA081,1.0
 NAPULE,Mattengasse 29,Gastwirtschaft,,matched,Napulé,0.83
 NUDE Gastro,Wasserwerkstrasse 127a,Gastwirtschaft,Do-Sa 02.00,matched,Nude,1.0
@@ -648,8 +708,10 @@ Nectar,Limmatstrasse 317,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",added,,0.25
 Neela,Kanonengasse 29,Gastwirtschaft,,matched,Neela,1.0
 Negishi Sushi Bar,Altstetterplatz 11,Kleinwirtschaft,,matched,Negishi Sushi Bar,1.0
 Negishi Sushi Bar,Pelikanplatz 15,Gastwirtschaft,,matched,Negishi Sushi Bar,1.0
+Negishi Sushi Bar,Bahnhofplatz 15,Gastwirtschaft,,added,,0.45
 Negresco Bar,Dienerstrasse 27,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Negresco,1.0
 Neri Cantina e Cucina,Nordstrasse 180,Gastwirtschaft,,matched,Neri,1.0
+Neue Taverne,Glockengasse 8,Gastwirtschaft,,matched,Neue Taverne,1.0
 New Point,Hardstrasse 240,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",added,,0.27
 Nocciolina,Bleicherweg 18,Gastwirtschaft,,matched,Nocciolina,1.0
 Noir,Neugasse 33,Nebenwirtschaft,,matched,Café Noir,1.0
@@ -659,6 +721,7 @@ Nooch Asian Kitchen,Heinrichstrasse 267o,Gastwirtschaft,,matched,Nooch Asian Kit
 Nord Take Away,Aargauerstrasse 200,Gastwirtschaft,,matched,Nord Take Away,1.0
 Nordbrücke,Dammstrasse 58,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Nordbrücke,1.0
 Norden Bar,Ankerstrasse 123,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Norden,1.0
+Nordsee / il Baretto,Bahnhofplatz 15,Gastwirtschaft,,matched,Il Baretto,1.0
 Novotel Zürich City West,Schiffbaustrasse 13,Gastwirtschaft,,matched,novotelcafe,1.0
 Null vier Zürich,Eglistrasse 2,Gastwirtschaft,,added,,0.0
 OH MY GREEK!,Zollstrasse 11,Gastwirtschaft,,matched,Oh My Greek!,1.0
@@ -668,8 +731,13 @@ ONA POKÉ,Bleicherweg 19,Gastwirtschaft,,matched,Ona Poké,1.0
 OOKI,Zentralstrasse 53,Gastwirtschaft,,matched,Ooki Izakaya Wiedikon,1.0
 OOKI PAVILLON,Badenerstrasse 457,Gastwirtschaft,,matched,Ooki Pavillon Letzigrund,1.0
 Oficina dos Sabores,Langstrasse 117,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Officina dos Sabores,0.97
+Ojo De Agua Weinkontor,Oetenbachgasse 13,Nebenwirtschaft,,matched,Ojo de Agua,1.0
+Old Crow,Schwanengasse 4,Gastwirtschaft,,matched,Old Crow,1.0
+Old Fashion Bar,Fraumünsterstrasse 15,Gastwirtschaft,Mo-So 04.00,matched,Old Fashion Bar,1.0
+Old Fashion Club,Fraumünsterstrasse 17,Gastwirtschaft,"Mo-Mi 02.00, Do-Sa 04.00",matched,Old Fashion Bar,1.0
 Olé Olé Bar,Langstrasse 138,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Olé Olé Bar,1.0
 Ooki Temporary,Zahnradstrasse 21,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Ooki Temporary,1.0
+Oskar Kowalski Bar Café,Schützengasse 4,Gastwirtschaft,Fr/Sa frei,added,,0.33
 Osteria Santo Bevitore,Rotwandstrasse 49,Gastwirtschaft,,matched,Osteria Santo Bevitore,1.0
 PEEENG,Langstrasse 67,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",matched,Peeeng,1.0
 PHO50,Stauffacherstrasse 101,Gastwirtschaft,,matched,Pho 50,1.0
@@ -714,6 +782,7 @@ Pizzeria Margheri,Limmatstrasse 273,Gastwirtschaft,,matched,Pizzeria Margheri,1.
 Pizzeria Molino,Altstetterstrasse 145,Gastwirtschaft,,added,,0.5
 Pizzeria Ristorante Molino,Gasometerstrasse 26,Gastwirtschaft,,matched,Molino,1.0
 Pizzeria Untermoos,Untermoosstrasse 1,Gastwirtschaft,,added,,0.16
+Pizzeria Veneziana,Stampfenbachstrasse 102,Gastwirtschaft,,matched,Pizzeria Veneziana,1.0
 Più Europaallee,Kasernenstrasse 95,Gastwirtschaft,Fr/Sa 02.00,matched,Più,1.0
 Pla's Thai Kitchen,Birmensdorferstrasse 143,Gastwirtschaft,,matched,Pla's Thai Kitchen,1.0
 Placid Hotel Zürich,Buckhauserstrasse 34,Gastwirtschaft,,added,,0.31
@@ -725,6 +794,7 @@ Ponyhof,Gertrudstrasse 44,Gastwirtschaft,,added,,0.19
 Popcorntreff,Zypressenstrasse 36,Kleinwirtschaft,,added,,0.0
 Popeyes Letzipark,Baslerstrasse 50,Gastwirtschaft,,matched,Popeyes,1.0
 Poseidon,Löwenstrasse 11,Gastwirtschaft,,added,,0.43
+Presse Club,Münsterhof 15,Gastwirtschaft,,matched,Presse Club,1.0
 Prive,Stauffacherstrasse 106,Cabaret / Nachtclub,"So-Do 04.00, Fr/Sa frei",matched,Privé,0.8
 Provitreff,Sihlquai 240,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,provitreff,1.0
 Punto de encuentro,Josefstrasse 102,Gastwirtschaft,,matched,Punto d’Incontro,0.8
@@ -736,6 +806,7 @@ Quartier5,Hardturmstrasse 126a,Gastwirtschaft,,matched,Quartier 5 Restaurant & B
 Quartierzentrum Schütze,Heinrichstrasse 238,Gastwirtschaft,,added,,0.43
 Queen Idia African Restaurant,Badenerstrasse 125,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Queen Idia African Restaurant,1.0
 RAYGRODSKI,Sihlfeldstrasse 49,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",matched,Raygrodski,1.0
+ROKA BAR,Waisenhausstrasse 5,Gastwirtschaft,,added,,0.35
 Racing Unleashed,Kasernenstrasse 97,Gastwirtschaft,,added,,0.29
 Rasputin Bar,Müllerstrasse 93,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Rasputin,1.0
 Rauti,Rautistrasse 75,Gastwirtschaft,,matched,Restaurant Rauti,1.0
@@ -744,6 +815,7 @@ Red Light Bar,Brauerstrasse 27,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,
 Red Lips,Hohlstrasse 47,Cabaret / Nachtclub,"So-Do 04.00, Fr/Sa frei",added,,0.44
 Ref. Kirchgemeindehaus Wiedikon,Bühlstrasse 9,Gastwirtschaft,,added,,0.16
 Reformierte Kirche Kirchenkreis drei,Burstwiesenstrasse 44,Gastwirtschaft,,added,,0.0
+Relais de l'Entrecote,Storchengasse 7,Gastwirtschaft,,matched,Le Relais de l'Entrecôte,0.89
 Renaissance Zürich Tower Hotel,Turbinenstrasse 20,Gastwirtschaft,Fr/Sa frei,added,,0.24
 Renos Relax,Brauerstrasse 16,Gastwirtschaft,Fr/Sa frei,added,,0.38
 Restaurant 45,Bahnhofstrasse 45,Gastwirtschaft,,matched,Bar 45,1.0
@@ -765,13 +837,16 @@ Restaurant Kantine,Neue Hard 10,Gastwirtschaft,Fr/Sa frei,matched,Kantine im 5i,
 Restaurant Krone,Badenerstrasse 705,Gastwirtschaft,,matched,Restaurant Krone,1.0
 Restaurant Limmathof,Limmatstrasse 217,Gastwirtschaft,,matched,Limmathof,1.0
 Restaurant Markthalle,Limmatstrasse 231,Gastwirtschaft,,matched,Beck und Kafi Markthalle,1.0
+Restaurant Metropol,Börsenstrasse 10,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Metropol,1.0
 Restaurant Osso,Zollstrasse 121,Gastwirtschaft,Do-Sa 02.00,matched,Osso,1.0
 Restaurant Pizza Derby,Sihlfeldstrasse 85,Gastwirtschaft,,matched,Derby,1.0
+Restaurant Schipfe 16,Schipfe 16,Gastwirtschaft,,matched,Restaurant Schipfe 16,1.0
 Restaurant Schmiedhof,Zweierstrasse 136,Gastwirtschaft,,matched,Schmiedhof,1.0
 Restaurant Sentosa,Badenerstrasse 310,Gastwirtschaft,,matched,Sentosa,1.0
 Restaurant TBZ Technolino,Ausstellungsstrasse 70,Gastwirtschaft,,added,,0.0
 Restaurant the Yard,Bäckerstrasse 62,Gastwirtschaft,,matched,The Yard,1.0
 Restaurant zum Schlachthof,Herdernstrasse 59,Gastwirtschaft,,added,,0.0
+Rice Up!,Bahnhofplatz 15,Gastwirtschaft,,added,,0.4
 Rice Up! Löwenstrasse,Löwenstrasse 51,Gastwirtschaft,,matched,Rice Up!,1.0
 Richie's Chicken,Aemtlerstrasse 13,Gastwirtschaft,,matched,Richie’s Chicken,1.0
 Riedhus,Birmensdorferstrasse 364,Gastwirtschaft,,added,,0.27
@@ -794,11 +869,13 @@ Roter Delfin,Langstrasse 31,Gastwirtschaft,,matched,Roter Delfin,1.0
 Roter Stein,Herrligstrasse 39,Gastwirtschaft,,matched,Roter Stein,1.0
 Roxy Bar,Zinistrasse 7,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Roxy,1.0
 Rémy,Kalkbreitestrasse 33,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Rémy,1.0
+Rösli-Bar,Röslistrasse 9,Gastwirtschaft,,added,,0.0
 Rössli Albisrieden,Albisriederstrasse 379,Gastwirtschaft,,added,,0.36
 S-Family,Weststrasse 180,Gastwirtschaft,,matched,S-Family,1.0
 SANZI BAR,Ankerstrasse 119,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",added,,0.44
 SARAJEVSKA CEVAPDZINICA,Freilagerstrasse 1,Gastwirtschaft,,matched,Sarajevska Ćevabdžinica,0.86
 SBB Reparaturcenter,Hohlstrasse 364,Gastwirtschaft,,matched,SBB Restaurant Reparaturcenter Altstetten,1.0
+SBB Restaurant Oase,Bahnhofplatz 15,Gastwirtschaft,,added,,0.46
 SBB Restaurant Westlink,Vulkanplatz 11,Gastwirtschaft,,matched,SBB Restaurant WestLink,1.0
 SCHMIDO,Zurlindenstrasse 49,Gastwirtschaft,,matched,SCHMIDO - Mezzerie Libanaise,1.0
 SEIN,Hohlstrasse 355,Gastwirtschaft,,matched,SEIN,1.0
@@ -807,26 +884,32 @@ SO,Langstrasse 20,Gastwirtschaft,,matched,SO Pizza,1.0
 STEREO,Brauerstrasse 36,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Stereo,1.0
 SV Schweiz AG Swisscom,Müllerstrasse 16,Gastwirtschaft,,added,,0.0
 Saigon,Sihlstrasse 97,Gastwirtschaft,,matched,Saigon,1.0
+Sala of Tokyo,Schützengasse 5,Gastwirtschaft,,matched,Sala of Tokyo,1.0
 Salotto,Hardturmstrasse 169,Gastwirtschaft,Fr/Sa frei,matched,Salotto,1.0
 Sam's Pizza Land,Schweizergasse 6,Gastwirtschaft,Fr/Sa frei,matched,SAM'S Pizza Land,1.0
 Samarkand,Langstrasse 193,Gastwirtschaft,,matched,Samarkand,1.0
 Samurai VII,Grimselstrasse 2,Gastwirtschaft,,matched,Samurai VII,1.0
 San Xin,Müllerstrasse 31,Gastwirtschaft,,added,,0.2
+Santa Lucia,Waaggasse 5,Gastwirtschaft,,matched,Santa Lucia,1.0
 Santa Lucia Altstetten,Badenerstrasse 686,Gastwirtschaft,,matched,Santa Lucia,1.0
 Santa Lucia Limmatplatz,Luisenstrasse 31,Gastwirtschaft,,matched,Santa Lucia,1.0
 Santini,Talstrasse 62,Gastwirtschaft,,matched,Santini,1.0
+Sapa Canteen,Walchestrasse 11,Gastwirtschaft,,matched,Sapa Canteen,1.0
 Sapporo Ramen,Josefstrasse 140,Gastwirtschaft,,matched,Sappo,1.0
 Saravanaa Bhavan,Limmatstrasse 50,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Saravanaa Bhavan,1.0
 Satrina-Vegetarian with a Sexy Twist!,Weststrasse 122,Gastwirtschaft,,added,,0.37
+Savoy Hotel Baur en Ville,Poststrasse 12,Gastwirtschaft,,added,,0.57
 Scent of Bamboo,Altstetterplatz 12,Gastwirtschaft,,matched,Scent of Bamboo,1.0
 Scharfmacher Brillen-Kunst,Zwinglistrasse 25,Nebenwirtschaft,,added,,0.29
 Scheidegg,Kehlhofstrasse 2,Gastwirtschaft,,matched,Bierstube Scheidegg,1.0
 Schickeria,Neufrankengasse 4,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Schickeria,1.0
 Schiwago,Bertastrasse 76,Gastwirtschaft,,added,,0.14
 Schloss Kiosk-Café,Schlossgasse 14,Nebenwirtschaft,,added,,0.58
+Schminkbar,Beatengasse 9,Nebenwirtschaft,,matched,Schminkbar,1.0
 Schneiderei,Langstrasse 117,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Schneiderei,1.0
 Schnupf,Neufrankengasse 29,Gastwirtschaft,,matched,Restaurant Schnupf / Rangierbahnhof,1.0
 Schweizerdegen,Dienerstrasse 40,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Schweizerdegen El Papi,1.0
+Schweizerhof,Bahnhofplatz 7,Gastwirtschaft,Mo-So 02.00,added,,0.33
 Schönau,Hohlstrasse 78,Gastwirtschaft,,matched,Schönau,1.0
 Schützengasse,Schützengasse 32,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Schützengasse,1.0
 Seam,Löwenstrasse 29,Gastwirtschaft,,matched,SEAM – Japanese Kappo Cuisine,1.0
@@ -857,12 +940,15 @@ Sogar Theater,Josefstrasse 106,Gastwirtschaft,,matched,Sogar Theater,1.0
 Soho Zurich,Hardstrasse 260,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Soho,1.0
 Solané,Nüschelerstrasse 9,Nebenwirtschaft,,added,,0.12
 Sonne,Hohlstrasse 32,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",added,,0.31
+Sora Sushi,Bahnhofplatz 15,Gastwirtschaft,,added,,0.57
 Sorell Hotel Seidenhof,Sihlstrasse 9,Gastwirtschaft,,added,,0.31
+Sorell Hotel St. Peter,In Gassen 10,Gastwirtschaft,,added,,0.42
 Spaccio,Langstrasse 61,Gastwirtschaft,,matched,Spaccio,1.0
 Spar Express,Hardturmstrasse 126,Nebenwirtschaft,,matched,Spar Express,1.0
 Spettacolo,Birmensdorferstrasse 80,Gastwirtschaft,,added,,0.19
 Spettacolo,Altstetterplatz 11,Gastwirtschaft,,matched,Caffè Spettacolo,1.0
 Sphères,Hardturmstrasse 66,Gastwirtschaft,,matched,Sphères,1.0
+Spitz,Museumstrasse 2,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Spitz,1.0
 Spoon Thai Takeaway,Hallwylstrasse 34,Gastwirtschaft,,matched,Spoon,1.0
 Sport,Kanzleistrasse 76,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",matched,Sport,1.0
 Sportanlage Utogrund,Dennlerstrasse 43a,Gastwirtschaft,,added,,0.0
@@ -877,6 +963,7 @@ Stadtbad Zürich,Stauffacherstrasse 60,Nebenwirtschaft,,added,,0.17
 Stamped Burgers & Fries,Brandschenkestrasse 5,Gastwirtschaft,,added,,0.32
 Starbucks Coffee,Rennweg 48,Gastwirtschaft,,matched,Starbucks,1.0
 Starbucks Coffee,Limmatstrasse 5,Gastwirtschaft,,matched,Starbucks,1.0
+Starbucks Coffee,Bahnhofplatz 6,Gastwirtschaft,,matched,Starbucks,1.0
 Starbucks Europaallee,Europaallee 7,Gastwirtschaft,,matched,Starbucks,1.0
 Stazione Paradiso,Wasserwerkstrasse 89a,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Stazione Paradiso,1.0
 Steiner Café Hardschloss,Ernastrasse 30,Gastwirtschaft,,added,,0.54
@@ -893,13 +980,16 @@ Stubä,Brauerstrasse 42,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Stubä,
 Studio Bar,Geroldstrasse 15,Gastwirtschaft,"DO 02.00, FR&SA 05.00 Uhr",matched,"STUDIO Restaurant, Bar & Club",1.0
 Styling Club Valentino,Löwenstrasse 45,Nebenwirtschaft,,added,,0.55
 Suan Long,Langstrasse 11,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",matched,Suan Long,1.0
+Suan Long,Bahnhofplatz 15,Gastwirtschaft,frei/Bahnnebenbetrieb gem. Verkehrszeiten SBB,added,,0.43
 Suan Long,Altstetterstrasse 124,Gastwirtschaft,,matched,Suan Long,1.0
 Subway,Langstrasse 191,Gastwirtschaft,Fr/Sa durchgehend,matched,Subway,1.0
 Subway,Sihlstrasse 99,Gastwirtschaft,Fr/Sa 02.00,matched,Subway,1.0
 Subway,Hohlstrasse 556,Gastwirtschaft,,matched,Subway,1.0
+Subway,Bahnhofplatz 15,Gastwirtschaft,,added,,0.46
 Sundays Coffee & Bakery,Kanzleistrasse 231,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Sundays,1.0
 Supermarket,Geroldstrasse 17,Dancing / Disco,"So-Do 04.00, Fr/Sa frei",matched,Supermarket,1.0
 Sushi Dining Ototo,Nordstrasse 199,Gastwirtschaft,,matched,Ototo - Sushi Dining,0.69
+Sushi Shin,Zinnengasse 9,Gastwirtschaft,,matched,Sushi Shin,1.0
 Sushi Shop,Uraniastrasse 40,Gastwirtschaft,,matched,Sushi Shop,1.0
 Sushiqueen,Sihlhallenstrasse 1,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",added,,0.43
 Sweet Basil,Bäckerstrasse 19,Gastwirtschaft,,matched,Sweet Basil,1.0
@@ -916,15 +1006,18 @@ Taj Mahal,Badenerstrasse 649,Gastwirtschaft,,matched,Taj Mahal,1.0
 Taj Palace,Hönggerstrasse 25,Gastwirtschaft,,matched,Taj Palace,1.0
 Take Away Flash,Kalkbreitestrasse 136,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",matched,Flash Bistro,1.0
 Take Away Piratino,Jakob-Fügli-Strasse 18,Gastwirtschaft,,matched,Piratino,1.0
+Take Easy,Stampfenbachstrasse 63,Nebenwirtschaft,,matched,Take Easy Thai Food,1.0
 Talacker,Talacker 41,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Talacker 41,1.0
 Tales Bar,Selnaustrasse 29,Gastwirtschaft,Mo-So 04.00,matched,Tales Bar,1.0
 Tamarind Garden,Birmensdorferstrasse 427,Gastwirtschaft,,matched,Tamarind Garden,1.0
 Tanukiya,Zwinglistrasse 12,Gastwirtschaft,,matched,Tanukiya,1.0
 Tanzwerk 101,Pfingstweidstrasse 103,Gastwirtschaft,,added,,0.0
+Tao's,Augustinergasse 3,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Tao's,1.0
 Tapas & Friends,Aemtlerstrasse 86,Kleinwirtschaft,,matched,Tapas & Friends,1.0
 Taste of Africa,Militärstrasse 117,Gastwirtschaft,,matched,Taste of Africa,1.0
 Taverne,Badenerstrasse 275,Gastwirtschaft,,matched,Taverne da Angelo,1.0
 Tchibo,Bleicherweg 23,Nebenwirtschaft,,matched,Tchibo,1.0
+Tchibo,Museumstrasse 1,Nebenwirtschaft,,added,,0.57
 Tchibo,Badenerstrasse 50,Nebenwirtschaft,,matched,Tchibo,1.0
 Tea Room Siesta,Badenerstrasse 458,Gastwirtschaft,,matched,Siesta,1.0
 Tenz Momo Badenerstrasse,Badenerstrasse 256,Gastwirtschaft,,matched,Tenz,1.0
@@ -954,7 +1047,9 @@ Theater HORA - Stiftung Züriwerk,Rotwandstrasse 4,Gastwirtschaft,,added,,0.26
 Thong Thai,Badenerstrasse 263,Nebenwirtschaft,,added,,0.33
 Tibetasia,Quellenstrasse 6,Gastwirtschaft,,matched,Tibetasia,1.0
 Tillsamman,Sihlfeldstrasse 10,Gastwirtschaft,,matched,Tillsamman,1.0
+Time,Bahnhofplatz 15,Gastwirtschaft,,added,,0.4
 Tipsy Tiger,Langstrasse 133,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Tipsy Tiger,1.0
+Tisch Bank Stuhl,Fraumünsterstrasse 2,Nebenwirtschaft,,added,,0.18
 Tokyo Express,Europaallee 20,Gastwirtschaft,,matched,Tokyo Express @ bridge,1.0
 Tokyo Tapas,Zwinglistrasse 3,Gastwirtschaft,,added,,0.4
 Topolino 11R,Pfingstweidstrasse 101,Gastwirtschaft,,added,,0.24
@@ -985,10 +1080,12 @@ VR City,Baslerstrasse 30,Gastwirtschaft,,added,,0.21
 Valentins Bar,Gasometerstrasse 36,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",matched,Valentin's,1.0
 Vasco's Bar,Bäckerstrasse 20,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",matched,Vasco's Bar,1.0
 Vegitat,Langstrasse 192,Nebenwirtschaft,,matched,Vegitat,1.0
+Veltlinerkeller,Schlüsselgasse 8,Gastwirtschaft,,matched,Veltliner Keller,1.0
 Vemezza,Stockerstrasse 55,Gastwirtschaft,,matched,Vemezza,1.0
 Venice Bar,Schiffbaustrasse 4,Gastwirtschaft,,added,,0.2
 Verein Zentralwäscherei,Neue Hard 12,Gastwirtschaft,Mo-So 05.00,matched,Kleinwäscherei,0.67
 Vergani Weinbar,Löwenstrasse 42,Gastwirtschaft,,matched,Vergani Vino e Grappa,0.62
+ViCAFE,Münsterhof 20,Gastwirtschaft,,matched,ViCafe,1.0
 ViCAFE Espresso Bars,Zollstrasse 117,Gastwirtschaft,,matched,ViCafe,1.0
 ViCAFE Halle Q,Hohlstrasse 418,Gastwirtschaft,,added,,0.0
 Via del Gusto 28,Lagerstrasse 28,Nebenwirtschaft,,matched,Via del gusto 28,1.0
@@ -1003,6 +1100,8 @@ Werdguet,Morgartenstrasse 30,Gastwirtschaft,,matched,Werdguet,1.0
 Werkhof,Brauerstrasse 97,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",matched,Werkhof,1.0
 Wesley's Kitchen,Josefstrasse 48,Gastwirtschaft,,matched,Wesley's Kitchen,1.0
 Westhive Kitchen,Hardturmstrasse 161,Gastwirtschaft,,matched,Westhive,1.0
+Widder,Rennweg 7,Gastwirtschaft,Mo-So 02.00,matched,Widder Bar & Cuisine,1.0
+Widder Garage,Augustinerhof 1,Gastwirtschaft,"So-Do 01.00, Fr/Sa 02.00",matched,Widder Garage,1.0
 Wild Bowls,Bleicherweg 50,Gastwirtschaft,,matched,Wild Bowls,1.0
 Wingman,Zentralstrasse 10,Gastwirtschaft,,added,,0.33
 Wirtschaft im Franz,Bremgartnerstrasse 18,Gastwirtschaft,,matched,Wirtschaft im Franz,1.0
@@ -1017,25 +1116,36 @@ YNOS,Europaallee 47,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Ynos,1.0
 YUMA,Badenerstrasse 120,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Yuma,1.0
 Yalda Europaallee,Gustav-Gull-Platz 2,Gastwirtschaft,,matched,Yalda,1.0
 Yamas,Lagerstrasse 48,Kleinwirtschaft,,matched,YAMAS,1.0
+Yardbird,Bahnhofplatz 15,Gastwirtschaft,frei/Bahnnebenbetrieb gem. Verkehrszeiten SBB,added,,0.4
 Yardbird,Weststrasse 146,Gastwirtschaft,,matched,Yardbird Southern Fried Chicken,1.0
 Yen,Militärstrasse 24,Gastwirtschaft,,added,,0.33
 Yen's Sushi & Asian Cuisine,Hallwylstrasse 43,Gastwirtschaft,,matched,Yen's,1.0
 Yi Long,Magnusstrasse 16,Gastwirtschaft,,matched,Yilong Asia,1.0
 Ying Cusine,Birmensdorferstrasse 222,Gastwirtschaft,,matched,Ying Cusine,1.0
 Yonex Badminton Halle,Flüelastrasse 27,Nebenwirtschaft,,matched,Yonex,1.0
+Yooji's Bahnhofstrasse,Bahnhofstrasse 102,Gastwirtschaft,,added,,0.31
+Yooji's Passage Sihlquai,Bahnhofplatz 15,Gastwirtschaft,,matched,Hitzberger Passage Sihlquai,0.67
 Yoshino,Hafnerstrasse 9,Gastwirtschaft,,added,,0.36
 Yu-An,Werdstrasse 66,Gastwirtschaft,,matched,Yu-An,1.0
+Yummy Tummy,Bahnhofplatz 15,Gastwirtschaft,,added,,0.29
 ZENWICH,Sihlfeldstrasse 57,Gastwirtschaft,,added,,0.31
+ZKB City,Bahnhofstrasse 9,Gastwirtschaft,,added,,0.27
 ZKB Hard / Steinfels,Neue Hard 9,Gastwirtschaft,,added,,0.29
 Za'atar,Brauerstrasse 74,Gastwirtschaft,,matched,Za'atar,1.0
 Zekis World,Langstrasse 231,Gastwirtschaft,,matched,Zekis World,1.0
 Zeughaushof,Kanonengasse 20,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Zeughaushof,1.0
+Zeughauskeller,Bahnhofstrasse 28a,Gastwirtschaft,,matched,Zeughauskeller,1.0
 Zio Panino,Badenerstrasse 287,Gastwirtschaft,,matched,Zio Panino,1.0
 Zufreeden Glutenfree Café & Bakery,Weinbergstrasse 157,Gastwirtschaft,,matched,Zufreeden,1.0
 Zum Goldenen Taschenbrot,Militärstrasse 91,Gastwirtschaft,"So-Do 02.00, Fr/Sa Frei",matched,Zum goldenen Taschenbrot,1.0
 Zum Guten Glück,Stationsstrasse 7,Gastwirtschaft,,matched,Zum Guten Glück,1.0
+Zum Kropf,In Gassen 16,Gastwirtschaft,,matched,Kropf,1.0
 Zum Vorbahnhof,Konradstrasse 1,Gastwirtschaft,,matched,Brasserie zum Vorbahnhof,1.0
+Zunfthaus zur Meisen,Münsterhof 20,Gastwirtschaft,,matched,Zunfthaus zur Meisen,1.0
+Zunfthaus zur Waag,Münsterhof 8,Gastwirtschaft,"So-Do 02.00, Fr/Sa frei",matched,Zunfthaus zur Waag,1.0
+Zurigo Centrale - San Gennaro,Bahnhofplatz 15,Gastwirtschaft,frei/Bahnnebenbetrieb gem. Verkehrszeiten SBB,added,,0.34
 Züri Bistro,Badenerstrasse 343,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Züri Bistro,1.0
+Züri Bistro,Bahnhofplatz 15,Gastwirtschaft,frei/Bahnnebenbetrieb gem. Verkehrszeiten SBB,added,,0.44
 Zürich Fried Chicken ZFC,Bäckerstrasse 43,Nebenwirtschaft,,matched,Zürich Fried Chicken,1.0
 aMA,Albisriederstrasse 253,Gastwirtschaft,,matched,aMA,1.0
 caramic malbar malstudio,Pfingstweidstrasse 106,Nebenwirtschaft,,added,,0.17
@@ -1057,6 +1167,8 @@ midori Restaurant,Mattengasse 13,Gastwirtschaft,,matched,midori Bar,1.0
 migrolino,Lagerstrasse 101,Nebenwirtschaft,,matched,Migrolino,1.0
 migrolino AG,Langstrasse 134,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Migrolino fresh,1.0
 miró,Brauerstrasse 58,Gastwirtschaft,,matched,Miró Manufactura de café,1.0
+miró Passage Sihlquai,Bahnhofplatz 15,Gastwirtschaft,,matched,Miró,1.0
+mit & ohne,Museumstrasse 1,Gastwirtschaft,,added,,0.46
 mit & ohne,Badenerstrasse 248,Gastwirtschaft,,matched,mit&ohne,1.0
 nüni,Hohlstrasse 430,Gastwirtschaft,,matched,Nüni,1.0
 ooo Rooftop Restaurant,Bahnhofstrasse 74,Gastwirtschaft,"So-Do 04.00, Fr/Sa frei",matched,Rooftop,1.0
@@ -1073,3 +1185,4 @@ tat Meze Bar,Talacker 34,Gastwirtschaft,,matched,tat,1.0
 the Gallery,Löwenstrasse 40,Nebenwirtschaft,,matched,the Gallery,1.0
 vom Fass,Europaallee 17,Nebenwirtschaft,,matched,vomFASS,1.0
 yume-ramen,Reitergasse 6,Gastwirtschaft,,matched,Yume-Ramen,1.0
+Émile,Bahnhofstrasse 3,Gastwirtschaft,,matched,Émile,1.0

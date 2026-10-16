@@ -107,7 +107,7 @@ def main():
             continue
         t = e.get("tags", {})
         hw = t.get("highway")
-        if not hw or t.get("tunnel") in ("yes", "building_passage") or t.get("area") == "yes":
+        if not hw or (t.get("tunnel") in ("yes", "building_passage") and e["id"] != 4592588) or t.get("area") == "yes":  # 4592588 = Langstrassen-Unterfuehrung (open, cut floor)
             continue
         if hw not in SPEED and hw != "cycleway":
             continue

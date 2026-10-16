@@ -219,7 +219,8 @@ def build():
     terrain_cuts.apply(H)  # rail cuttings under buildings (overrides/terrain_cuts.json)
     nodes, els = nodes0, els0
     S = streets.parse(nodes, els)
-    road_height.apply(H, S["ways"])  # smooth road surface (pipeline/road_height.py): carriageway, sidewalks, hmap, vehicles share it
+    if not os.environ.get("SBZ_NO_ROADH"):  # A/B switch for the ride test
+        road_height.apply(H, S["ways"])  # smooth road surface (pipeline/road_height.py): carriageway, sidewalks, hmap, vehicles share it
     terrain_cuts.apply(H, lock_only=True)  # sunken underpass floors ("lock": true) must survive the road smoothing (Langstrassen-Unterfuehrung)
     blds = osm_buildings.update(blds, nodes, els, H, footprint, Polygon(POLYGON))  # post-2019 changes
     if hide or hide_ids:  # OSM re-adds footprints of the hidden landmarks (no 2019 building left under them): hide them again
@@ -243,7 +244,7 @@ def build():
     S["av_paved"] = shapely.set_precision(shapely.union_all([S["av_paved"], parks.difference(S["parks"])]), 0.01)
     # ground streets that pass UNDER a deck keep their carriageway (the exclusion only removes the bridge's own chain)
     EXR = road_height.ground_exclusion(EX, BR, S["ways"])
-    S["ways"] = bridges.clip_ways(S["ways"], EXR)  # no ground road/markings under the bridge's own deck
+    S["ways"] = road_height.clip_ways(S["ways"], EX, EXR, BR)  # no ground road/markings under the bridge's own deck
     S["roads"] = S["roads"].difference(EXR)
     S["plaza"] = S["plaza"].difference(EX)
     # --- water (pipeline/water.py): lowers the bed into H, removes the water polygon from the ground layers

@@ -17,6 +17,9 @@ SIGN_AMENITY = {"restaurant", "cafe", "bar", "pub", "fast_food", "pharmacy", "ba
                 "kindergarten", "childcare", "library", "veterinary"}
 
 
+OPEN_TUNNELS = {4592588}  # Langstrassen-Unterfuehrung road tunnel (OSM way): driveable, the terrain is cut down to the road
+
+
 def _num(v, default):
     try:
         return float(str(v).split()[0].replace(",", "."))
@@ -39,6 +42,21 @@ def poi_checks():
             if "zu" in (r.get("status") or "").lower() or "closed" in (r.get("status") or "").lower():
                 out[r.get("osm_id", "")] = ("closed", "")
     return out
+
+
+def tidy_roads(g, r=4.0, max_fill=45.0):
+    """Clean the carriageway union: no zero-width spikes/slivers, junction corners rounded (radius r), tiny holes closed.
+
+    Closing (buffer(+r).buffer(-r)) would also fill wide gaps (islands, sidewalks between parallel streets), so only
+    small compact additions (corner fillets, < max_fill m2) are kept."""
+    g = shapely.set_precision(g.buffer(0), 0.01)
+    g = g.buffer(0.8, quad_segs=6).buffer(-0.8, quad_segs=6)  # hairline gaps / slits between carriageways (< 1.6 m)
+    closed = g.buffer(r, quad_segs=8).buffer(-r, quad_segs=8)
+    add = [p for p in shapely.get_parts(closed.difference(g)) if 0 < p.area < max_fill]
+    if add:
+        g = shapely.union_all([g, *add])
+    g = g.buffer(-0.3, quad_segs=4).buffer(0.3, quad_segs=4)  # opening: drops spikes thinner than 0.6 m
+    return shapely.set_precision(g.simplify(0.03), 0.01).buffer(0)
 
 
 def parse(nodes, els):
@@ -92,10 +110,12 @@ def parse(nodes, els):
         if not line.intersects(area):
             continue
         tunnel = t.get("tunnel") in ("yes", "building_passage") or str(t.get("layer", "0")).startswith("-")
+        if e["id"] in OPEN_TUNNELS:
+            tunnel = False  # sunken underpass (terrain_cuts.json + landmark lu_unterfuehrung): drawn as an ordinary road on the cut floor
         hw = t.get("highway")
         if hw in WIDTH and not tunnel and t.get("area") != "yes":
             w = _num(t.get("width"), _num(t.get("lanes"), 0) * 3.2 or WIDTH[hw])
-            ways.append({"line": line, "w": w, "hw": hw, "oneway": t.get("oneway") == "yes", "name": t.get("name", ""),
+            ways.append({"id": e["id"], "line": line, "w": w, "hw": hw, "oneway": t.get("oneway") == "yes", "name": t.get("name", ""),
                          "maxspeed": t.get("maxspeed", ""), "tags": t,
                          "cyc": {s: t.get(f"cycleway:{s}", t.get("cycleway:both", t.get("cycleway", "")))
                                  for s in ("left", "right")}, "nodes": e["nodes"]})
@@ -116,8 +136,8 @@ def parse(nodes, els):
         if (t.get("leisure") in ("park", "playground", "garden") or t.get("landuse") in ("grass", "village_green")) \
                 and pts[0] == pts[-1] and len(pts) >= 4:
             parks.append(Polygon(pts).buffer(0))
-    roads = shapely.union_all([w["line"].buffer(w["w"] / 2, cap_style="flat", join_style="round") for w in ways]
-                              + cycle)
+    roads = tidy_roads(shapely.union_all([w["line"].buffer(w["w"] / 2, cap_style="round", join_style="round", quad_segs=10)
+                                          for w in ways] + cycle))
     plaza = shapely.union_all(plazas).difference(roads)
     return {"ways": ways, "roads": roads, "plaza": plaza, "parks": shapely.union_all(parks).difference(roads).difference(plaza),
             "tram": tram, "trees": trees, "crossings": crossings, "pois": pois, "benches": benches, **extras}

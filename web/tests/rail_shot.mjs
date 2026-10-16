@@ -11,9 +11,10 @@ for (const v of views) {
   await p.goto(`http://localhost:5173/?at=${process.env.AT || a[3] + ',' + a[4]},0&t=${process.env.T || '12:00'}`);
   await p.waitForFunction(() => window.sbxReady, null, { timeout: 60000 });
   await p.waitForTimeout(7000);
-  const url = await p.evaluate(([a, tr]) => {
+  const url = await p.evaluate(([a, tr, hide]) => {
     const { sbxRenderer: r, sbxScene: s, sbxCamera: c0, sbxTiles: t, sbxPlayer: pl } = window;
-    pl.mesh.visible = false; t.cull(a[3], a[4], 400);
+    pl.mesh.visible = false; if (window.HIDE) { /* noop */ } t.cull(a[3], a[4], 400);
+    if (hide) window.sbxRail.group.visible = false;
     if (tr) { // TRAIN=routeIndex:stopIndex[:secondsAfterArrival] -> show that train standing at the stop
       const [ri, si, dt = 12] = tr.split(':').map(Number);
       const R = window.sbxRail.routes[ri]; let n = 0, seg = null;
@@ -24,7 +25,7 @@ for (const v of views) {
     const c = c0.clone(); c.fov = a[6] || 60; c.aspect = 800 / 500; c.near = 0.3; c.far = 1500;
     c.position.set(a[0], a[2], -a[1]); c.up.set(0, 1, 0); c.lookAt(a[3], a[5], -a[4]); c.updateProjectionMatrix();
     r.setSize(800, 500, false); r.render(s, c); return r.domElement.toDataURL('image/jpeg', 0.85);
-  }, [a, process.env.TRAIN || '']);
+  }, [a, process.env.TRAIN || '', !!process.env.HIDE]);
   writeFileSync(`${outPrefix}_${name}.jpg`, Buffer.from(url.split(',')[1], 'base64'));
 }
 await b.close();
