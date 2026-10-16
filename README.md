@@ -13,6 +13,7 @@ Ein Open-World-Spiel im Browser in einem möglichst originalgetreuen Zürich (Kr
 - Figuren: MakeHuman / MPFB (CC0)
 - Bewegungen: CMU Graphics Lab Motion Capture Database (mocap.cs.cmu.edu)
 - Referenzfotos (nur als Vorlage, nicht im Spiel): Mapillary, Panoramax, Wikimedia Commons (CC BY-SA, Liste in `research/`)
+- Musik (CC BY, via Wikimedia Commons, gekürzt): Jason Shaw / audionautix.com («Hip Hop 1 No Vocal», «Pool», CC BY 3.0), Nfaom loor («Boom bap instrumental», CC BY 4.0), Antti Luode («Hip Hop In B Minor», «Hop Hip Beat», CC BY 3.0); Details in `research/music.md`
 - Schriften: Anton, Barlow, Archivo, Bebas Neue, DM Serif Display, Oswald, Space Mono, Permanent Marker (SIL OFL)
 - Bibliotheken: three.js, meshoptimizer/gltfpack (MIT), n8ao
 - Code: WTFPL

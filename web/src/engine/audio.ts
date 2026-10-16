@@ -3,6 +3,7 @@
  * tram bell, bike bell, comic police siren, mission jingles. Starts on the first user gesture (autoplay rules).
  */
 import { Ambience, type AmbIn } from './audio_amb';
+import { Music } from './audio_music';
 
 export class Audio {
   private ctx: AudioContext | null = null;
@@ -13,6 +14,9 @@ export class Audio {
   private amb2: Ambience | null = null;
   private eng: { o1: OscillatorNode; o2: OscillatorNode; g: GainNode; lp: BiquadFilterNode; tyre: GainNode } | null = null;
   muted = false;
+  music: Music | null = null;
+  private musicOn = true;
+  private musicVol = 0.5;
 
   constructor() {
     // browsers (iOS: touchend/click only) unlock audio on a user gesture; keep trying until the context is running
@@ -44,6 +48,11 @@ export class Audio {
     // shared white noise for the place-dependent layers; map + layers are set up after the first gesture (not in the start budget)
     const nb = ctx.createBuffer(1, ctx.sampleRate * 3, ctx.sampleRate), nd = nb.getChannelData(0);
     for (let i = 0; i < nd.length; i++) nd[i] = Math.random() * 2 - 1;
+    this.music = new Music(ctx, this.master);
+    this.music.setVolume(this.musicVol);
+    this.music.setEnabled(this.musicOn);
+    // music streams only after the first gesture + a short delay (not part of the start budget; ?nomusic for tests)
+    if (!location.search.includes('nomusic')) setTimeout(() => this.music?.start(), 1500);
     setTimeout(() => {
       if (location.search.includes('noamb')) return;
       const a = new Ambience(ctx, this.master, nb);
@@ -52,6 +61,8 @@ export class Audio {
   }
 
   setMuted(m: boolean) { this.muted = m; if (this.ctx) this.master.gain.value = m ? 0 : 0.8; }
+
+  setMusic(on: boolean, vol: number) { this.musicOn = on; this.musicVol = vol; this.music?.setEnabled(on); this.music?.setVolume(vol); }
 
   private tone(freq: number, t0: number, dur: number, type: OscillatorType = 'sine', vol = 0.2, bend = 1) {
     const ctx = this.ctx!; const o = ctx.createOscillator(), g = ctx.createGain();
@@ -69,7 +80,7 @@ export class Audio {
   carDoor() { if (!this.ctx) return; const t = this.ctx.currentTime; this.tone(160, t, 0.12, 'square', 0.12, 0.5); this.tone(95, t + 0.05, 0.14, 'sine', 0.2, 0.6); }
   /** Crash thud + metal crunch, scaled by strength 0..1; `dead` adds a last cough of the engine. */
   carCrash(strength: number, dead = false) {
-    if (!this.ctx) return; const ctx = this.ctx, t = ctx.currentTime, s = Math.max(0.15, Math.min(1, strength));
+    if (!this.ctx) return; this.music?.duck(); const ctx = this.ctx, t = ctx.currentTime, s = Math.max(0.15, Math.min(1, strength));
     this.tone(120, t, 0.25 + 0.2 * s, 'sawtooth', 0.08 + 0.2 * s, 0.4); this.tone(60, t, 0.3 + 0.3 * s, 'sine', 0.15 + 0.35 * s, 0.5);
     const len = Math.floor(ctx.sampleRate * (0.15 + 0.35 * s)), buf = ctx.createBuffer(1, len, ctx.sampleRate), d = buf.getChannelData(0);
     for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / len) ** 2;
@@ -124,6 +135,7 @@ export class Audio {
     if (!this.ctx) return;
     this.amb.gain.value = 0.05 + 0.07 * (1 - night); // far city hum; near roads the traffic layer adds to it
     if (amb) this.amb2?.update(dt, amb);
+    this.music?.update(dt, night, wanted && policeDist < 120);
     if (wanted && policeDist < 120) {
       if (!this.sirenOsc) {
         const ctx = this.ctx;

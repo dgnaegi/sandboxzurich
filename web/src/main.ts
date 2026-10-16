@@ -205,6 +205,9 @@ async function main() {
   menu.onQuality = (q) => quality.force(q);
   quality.force(settings.gfx); // saved choice (Einstellungen)
   audio.setMuted(settings.muted);
+  audio.setMusic(settings.music, settings.musicVol);
+  menu.onMusic = (on, vol) => audio.setMusic(on, vol);
+  (window as unknown as { __music: () => unknown }).__music = () => audio.music?.state;
   renderer.info.autoReset = false;
   initKeyboardMouse(canvas);
   initTouch($('stick'), $('knob'));

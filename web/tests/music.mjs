@@ -1,0 +1,20 @@
+// Music: starts after a gesture, switch + volume work, no console errors. node tests/music.mjs [base]
+import { chromium } from 'playwright';
+const BASE = process.argv[2] ?? 'http://localhost:5173';
+const b = await chromium.launch({ args: ['--use-gl=angle', '--ignore-gpu-blocklist', '--autoplay-policy=no-user-gesture-required'] });
+const p = await (await b.newContext({ viewport: { width: 1000, height: 600 } })).newPage();
+const errs = []; p.on('console', (m) => { if (m.type() === 'error') errs.push(m.text()); }); p.on('pageerror', (e) => errs.push(String(e)));
+await p.goto(`${BASE}/?at=785,-635,0.37`);
+await p.waitForFunction(() => window.sbxReady, null, { timeout: 120000 });
+const st = () => p.evaluate(() => window.__music?.());
+console.log('before gesture', JSON.stringify(await st()));
+await p.mouse.click(500, 300); await p.keyboard.press('KeyW');
+await p.waitForTimeout(5000);
+console.log('after gesture', JSON.stringify(await st()));
+await p.evaluate(() => document.getElementById('btn-menu').click());
+await p.click('#m-settings'); await p.click('#s-music'); await p.waitForTimeout(2500);
+console.log('music off', JSON.stringify(await st()), await p.textContent('#s-music'));
+await p.click('#s-music'); await p.waitForTimeout(3000);
+console.log('music on', JSON.stringify(await st()));
+console.log('errors', JSON.stringify(errs));
+await b.close();
