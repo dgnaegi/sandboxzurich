@@ -14,7 +14,6 @@ import { buildGraffiti, buildPosters, buildSigns, buildWildPosters, type Sign } 
 import { buildHouseNumbers, buildStreetSigns } from '../world/streetsigns';
 import { buildDecals } from '../world/decals';
 import { buildPlaces, type PlaceMeta } from '../world/places_detail';
-import { buildDetails, type DetailMeta } from '../world/details';
 import { buildDoors } from '../world/doors';
 import { buildConstruction, buildCranes, buildFence, buildScooters, buildSites } from '../world/construction';
 import { parkedCars } from '../world/parkedcars';
@@ -258,7 +257,6 @@ export class Tiles {
     for (const r of meta.benches ?? []) solids.push([r[0], r[1], 0.55]);
     this.colliders.addCircles(t.name, solids);
     put(props, 'places', buildPlaces((meta as unknown as { places?: PlaceMeta }).places, this.shadows));
-    put(props, 'details', buildDetails((meta as unknown as { details?: DetailMeta }).details, this.shadows)); // OSM street details (world/details.ts)
     put(props, 'playground', buildPlaygrounds((meta as unknown as { playground?: PlaygroundRow[] }).playground ?? []));
     put(g, 'landmarks', buildLandmarks((meta as unknown as { landmarks?: LandmarkRow[] }).landmarks ?? [])); // landmark signs stay visible from afar
     put(g, 'fence', buildFence((meta as unknown as { fence?: number[][][] }).fence ?? [])); // always visible: it closes the map
