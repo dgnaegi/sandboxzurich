@@ -10,6 +10,8 @@ const ROW = 96, TEXW = 1024;
 
 /** All sign materials, so the night factor can light them up like illuminated shop signs. */
 const signMats = new Set<THREE.MeshLambertMaterial>();
+/** Drop a shop-sign material from the night-glow list (tile unload). */
+export const forgetSignMat = (m: THREE.Material) => { signMats.delete(m as THREE.MeshLambertMaterial); };
 export function setSignNight(night: number) {
   for (const m of signMats) m.emissiveIntensity = 0.25 + night * (m.userData.neon ? 1.6 : 0.9);
 }

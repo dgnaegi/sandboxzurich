@@ -23,6 +23,15 @@ class ParkedCars {
     (this.grid.get(k) ?? this.grid.set(k, []).get(k)!).push(s);
   }
 
+  /** Drop all slots whose tile mesh left the scene (called when tiles unload). */
+  purge() {
+    for (const [k, list] of this.grid) {
+      const keep = list.filter((s) => !s.taken && s.mesh.parent && attached(s.mesh));
+      if (keep.length === list.length) continue;
+      if (keep.length) this.grid.set(k, keep); else this.grid.delete(k);
+    }
+  }
+
   /** Live slots within `r` metres (prunes slots of unloaded tiles). */
   near(x: number, y: number, r: number): CarSlot[] {
     const out: CarSlot[] = [], c = Math.ceil(r / CELL);

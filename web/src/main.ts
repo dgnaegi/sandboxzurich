@@ -43,6 +43,7 @@ import { CarUse } from './player/vehicle_use';
 import { TrafficLights } from './world/trafficlights';
 import { addCar } from './world/night_lights';
 import { parkedCars } from './world/parkedcars';
+import { findSpot } from './player/spawn';
 import type { Obb } from './player/drive';
 
 // Spawn: Helvetiaplatz (local metres). ?at=x,y,yaw overrides it, ?t=HH:MM sets the time (screenshot tests).
@@ -134,6 +135,10 @@ async function main() {
     return 0.3 + 0.7 * Math.max(f, night);
   };
   await Promise.all([landmarks3d.load(), rail.load(), transit.load(), transit.loadModels(), traffic.load(), scenes.load(), events.load(), velo.load(), anecdotes.load()].map(L));
+  if (!params.has('exact')) { // never start in a building / landmark / on rail land, water or tram tracks (?exact keeps the raw ?at= for screenshot tests)
+    const [fx, fy] = await findSpot({ tiles, landmarks: landmarks3d }, player.x, player.y);
+    if (Math.hypot(fx - player.x, fy - player.y) > 0.01) player.teleport(fx, fy, player.yaw);
+  }
   scene.add(events.group);
   traffic.maxCars = mobile ? 20 : 45;
   traffic.maxBikes = mobile ? 8 : 20;
@@ -170,12 +175,7 @@ async function main() {
   missions.onReward = (chf) => { state.addMoney(chf); state.save(player.x, player.y); };
 
   const jump = (x: number, y: number, yaw = player.yaw) => {
-    void tiles.update(x, y).then(() => {
-      for (let r = 0, a = 0; r < 60; r += 0.5, a += 0.9) { // nearest spot outside buildings
-        const px = x + Math.cos(a) * r, py = y + Math.sin(a) * r;
-        if (!tiles.colliders.inside(px, py)) { player.teleport(px, py, yaw); break; }
-      }
-    });
+    void findSpot({ tiles, landmarks: landmarks3d }, x, y).then(([px, py]) => player.teleport(px, py, yaw));
   };
   map.onJump = (x, y) => { if (player.driving) carUse.exit(); player.dismount(); jump(x, y); };
   const audio = new Audio();
@@ -194,6 +194,12 @@ async function main() {
     ...transit.colliders().map((v) => obb(v, v.len, v.width)), ...rail.colliders().map((v) => obb(v, v.len, v.width)),
   ], () => daytime.night);
   carUse.onTheft = onCarTheft;
+  carUse.onHint = (text) => { // short hint line (no pop-up card)
+    let el = document.getElementById('drivehint');
+    if (!el) { el = document.createElement('div'); el.id = 'drivehint'; el.style.cssText = 'position:fixed;left:50%;top:18%;transform:translateX(-50%);padding:8px 14px;border-radius:10px;background:#000b;color:#fff;font:600 15px system-ui,sans-serif;z-index:30;pointer-events:none;transition:opacity .4s'; document.body.appendChild(el); }
+    el.textContent = text; el.style.opacity = '1';
+    window.setTimeout(() => { if (el) el.style.opacity = '0'; }, 4500);
+  };
   player.onBikeCrash = () => { // hard impact on the bike: rider falls, bike stays behind
     const left = player.dismount();
     if (left) bikes.drop(left.x, left.y, left.z, left.h, left.color);
@@ -383,7 +389,7 @@ async function main() {
       lastStats = acc;
     }
   });
-  Object.assign(window, { sbxReady: true, sbxPlayer: player, sbxScene: scene, sbxState: state, sbxBikes: bikes, sbxCarUse: carUse, sbxParked: parkedCars, sbxTraffic: traffic, sbxEvents: events, sbxTransit: transit, sbxRail: rail, sbxRenderer: renderer, sbxCamera: camera, sbxTiles: tiles, sbxDaytime: daytime, sbxMap: map, sbxCrowd: crowd }); // hooks for Playwright tests
+  Object.assign(window, { sbxReady: true, sbxFindSpot: (x: number, y: number) => findSpot({ tiles, landmarks: landmarks3d }, x, y), sbxPlayer: player, sbxScene: scene, sbxState: state, sbxBikes: bikes, sbxCarUse: carUse, sbxParked: parkedCars, sbxTraffic: traffic, sbxEvents: events, sbxTransit: transit, sbxRail: rail, sbxRenderer: renderer, sbxCamera: camera, sbxTiles: tiles, sbxDaytime: daytime, sbxMap: map, sbxCrowd: crowd }); // hooks for Playwright tests
 }
 
 if (!hasWebGL2()) loading.fail('Dein Browser unterstützt WebGL 2 nicht oder hat es abgeschaltet. Bitte aktualisiere den Browser (Chrome, Firefox, Safari ab iOS 15) oder aktiviere die Hardwarebeschleunigung.', false);

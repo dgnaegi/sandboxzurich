@@ -4,6 +4,43 @@ const CELL = 25;
 
 export class Colliders {
   private grid = new Map<string, Ring[]>();
+  private circles = new Map<string, number[][]>();        // cell -> [x, y, r] (trunks, poles, bins, benches)
+  private circleRows = new Map<string, { cell: string; row: number[] }[]>();   // tile -> what it registered (for unloading)
+
+  /** Register solid circles [x, y, r] of a tile (small obstacles; only checked near the player). */
+  addCircles(key: string, rows: number[][]) {
+    this.removeCircles(key);
+    const mine: { cell: string; row: number[] }[] = [];
+    for (const row of rows) {
+      const cell = `${Math.floor(row[0] / CELL)},${Math.floor(row[1] / CELL)}`;
+      (this.circles.get(cell) ?? this.circles.set(cell, []).get(cell)!).push(row);
+      mine.push({ cell, row });
+    }
+    this.circleRows.set(key, mine);
+  }
+
+  removeCircles(key: string) {
+    const mine = this.circleRows.get(key);
+    if (!mine) return;
+    const gone = new Set(mine.map((m) => m.row));
+    for (const cell of new Set(mine.map((m) => m.cell))) {
+      const l = this.circles.get(cell)!.filter((r) => !gone.has(r));
+      if (l.length) this.circles.set(cell, l); else this.circles.delete(cell);
+    }
+    this.circleRows.delete(key);
+  }
+
+  /** Push the circle (x, y, rad) out of nearby solid circles. */
+  resolveCircles(x: number, y: number, rad: number): [number, number] {
+    const cx = Math.floor(x / CELL), cy = Math.floor(y / CELL);
+    for (let i = cx - 1; i <= cx + 1; i++) for (let j = cy - 1; j <= cy + 1; j++) {
+      for (const c of this.circles.get(`${i},${j}`) ?? []) {
+        const dx = x - c[0], dy = y - c[1], d = Math.hypot(dx, dy), m = rad + c[2];
+        if (d < m) { const k = d > 1e-4 ? m / d : 0; if (k) { x = c[0] + dx * k; y = c[1] + dy * k; } else x += m; }
+      }
+    }
+    return [x, y];
+  }
 
   add(rings: Ring[]) {
     for (const r of rings) {
@@ -20,6 +57,16 @@ export class Colliders {
   /** True if local (x, y) lies inside any footprint. */
   inside(x: number, y: number): boolean {
     return !!this.grid.get(`${Math.floor(x / CELL)},${Math.floor(y / CELL)}`)?.some((r) => pointInRing(x, y, r));
+  }
+
+  /** Inside a footprint that is larger than a parked car (building, not a car-sized box)? */
+  insideBuilding(x: number, y: number): boolean {
+    return !!this.grid.get(`${Math.floor(x / CELL)},${Math.floor(y / CELL)}`)?.some((r) => {
+      if (!pointInRing(x, y, r)) return false;
+      let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+      for (const [px, py] of r) { x0 = Math.min(x0, px); y0 = Math.min(y0, py); x1 = Math.max(x1, px); y1 = Math.max(y1, py); }
+      return Math.max(x1 - x0, y1 - y0) > 7;
+    });
   }
 
   /** Fraction (0..1) of the segment a→b that is free before entering a footprint. */

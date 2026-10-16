@@ -21,6 +21,7 @@ export const REACH = 3.2;
 
 export class CarUse {
   /** Hook for the wanted system (not active in the map phase): called with 'parked' or 'traffic' on every theft. */
+  onHint: ((text: string) => void) | null = null;
   onTheft: ((kind: 'parked' | 'traffic') => void) | null = null;
   private busy = false;
   private leavers: { h: Human; t: number; dx: number; dy: number; x: number; y: number; b?: THREE.Sprite }[] = [];
@@ -79,6 +80,8 @@ export class CarUse {
       enterDrive(this.player, car);
       this.audio.carDoor();
       this.onTheft?.(t.kind);
+      // parked in a row: the next car is right in front -> tell about reverse gear
+      if (t.kind === 'parked' && parkedCars.near(x + Math.sin(h) * 3.6, y + Math.cos(h) * 3.6, 1.3).some((c) => c !== t.slot)) this.onHint?.(document.body.classList.contains('touch') ? 'Vorne blockiert: Stick nach unten = rückwärts' : 'Vorne blockiert: S / ↓ = rückwärts');
     } finally { this.busy = false; }
   }
 

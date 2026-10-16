@@ -3,7 +3,8 @@ import { settings } from '../ui/settings';
 
 /** Touch: floating joystick on the left half, camera swipe on the right half. */
 export function initTouch(stick: HTMLElement, knob: HTMLElement) {
-  const R = 50;
+  const DEAD = 0.12;
+  let R = 50;   // stick radius in px: ~9 % of the shorter screen side, at least 50
   let moveId: number | null = null, lookId: number | null = null;
   let ox = 0, oy = 0, lx = 0, ly = 0;
 
@@ -23,6 +24,7 @@ export function initTouch(stick: HTMLElement, knob: HTMLElement) {
       const stickSide = settings.stickRight ? t.clientX >= window.innerWidth / 2 : t.clientX < window.innerWidth / 2;
       if (stickSide && moveId === null) {
         moveId = t.identifier; ox = t.clientX; oy = t.clientY;
+        R = Math.max(50, Math.round(Math.min(window.innerWidth, window.innerHeight) * 0.09)); stick.style.setProperty('scale', String(R / 50));
         stick.style.left = `${ox}px`; stick.style.top = `${oy}px`; stick.style.display = 'block';
       } else if (lookId === null) {
         lookId = t.identifier; lx = t.clientX; ly = t.clientY;
@@ -37,8 +39,9 @@ export function initTouch(stick: HTMLElement, knob: HTMLElement) {
         let dx = t.clientX - ox, dy = t.clientY - oy;
         const d = Math.hypot(dx, dy);
         if (d > R) { dx *= R / d; dy *= R / d; }
-        knob.style.transform = `translate(${dx}px, ${dy}px)`;
-        actions.move.x = dx / R; actions.move.y = -dy / R;
+        knob.style.transform = `translate(${(dx * 50) / R}px, ${(dy * 50) / R}px)`; // parent is scaled by R/50
+        const m = Math.hypot(dx, dy) / R, k = m < DEAD ? 0 : (m - DEAD) / (1 - DEAD) / (m || 1); // dead zone, then rescale to 0..1
+        actions.move.x = dx / R * k; actions.move.y = -dy / R * k;
       } else if (t.identifier === lookId) {
         actions.look.yaw += (t.clientX - lx) * 0.008 * settings.sens;
         actions.look.pitch += (t.clientY - ly) * 0.006 * settings.sens;
@@ -51,7 +54,7 @@ export function initTouch(stick: HTMLElement, knob: HTMLElement) {
     for (const t of Array.from(e.changedTouches)) {
       if (t.identifier === moveId) {
         moveId = null; stick.style.display = 'none'; knob.style.transform = '';
-        actions.move.x = actions.move.y = 0; setRun(false);
+        actions.move.x = actions.move.y = 0; // run stays on until the shift button is tapped again
       } else if (t.identifier === lookId) lookId = null;
     }
   };

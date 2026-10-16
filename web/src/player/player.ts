@@ -98,7 +98,7 @@ export class Player {
       this.speed = r.speed;
       if (Math.abs(this.speed) > 0.3) this.heading += r.turn;
       const nx = this.x + Math.sin(this.heading) * this.speed * dt, ny = this.y + Math.cos(this.heading) * this.speed * dt;
-      [this.x, this.y] = this.tiles.colliders.resolve(nx, ny, 0.45);
+      [this.x, this.y] = this.tiles.resolveSolid(nx, ny, 0.45);
       if (Math.hypot(this.x - nx, this.y - ny) > 0.02) { // bumped into something: hard hit = fall off
         if (this.speed > 5.5) { const sp = this.speed; this.fallT = 1.8; this.onBikeCrash?.(sp); this.speed = 0; }
         else this.speed *= 0.6;
@@ -124,7 +124,7 @@ export class Player {
       const k = Math.min(1, dt * (tx || ty ? ACCEL : DECEL));
       this.vx += (tx - this.vx) * k; this.vy += (ty - this.vy) * k;
       if (Math.hypot(this.vx, this.vy) > 0.01) {
-        [this.x, this.y] = this.tiles.colliders.resolve(this.x + this.vx * dt, this.y + this.vy * dt, RADIUS);
+        [this.x, this.y] = this.tiles.resolveSolid(this.x + this.vx * dt, this.y + this.vy * dt, RADIUS);
         const mvx = dt > 0 ? (this.x - ox) / dt : this.vx, mvy = dt > 0 ? (this.y - oy) / dt : this.vy; // keep only what walls allowed
         this.vx = mvx; this.vy = mvy;
       }
@@ -155,12 +155,17 @@ export class Player {
 
     // camera: behind, pulled in front of walls
     const want = this.riding ? 6.5 : 5.5, cp0 = Math.cos(this.pitch) * want;
-    const free = this.tiles.colliders.freeFraction(this.x, this.y, this.x - Math.sin(this.yaw) * cp0, this.y - Math.cos(this.yaw) * cp0);
-    this.camDist += (Math.max(1.6, want * free - 0.3) - this.camDist) * Math.min(1, dt * (free < 1 ? 20 : 4));
+    // sweep a ~0.5 m wide corridor (centre + both sides) instead of a single ray, then keep a wall margin at the end point
+    const bx = this.x - Math.sin(this.yaw) * cp0, by = this.y - Math.cos(this.yaw) * cp0, sx = Math.cos(this.yaw) * 0.5, sy = -Math.sin(this.yaw) * 0.5;
+    const col = this.tiles.colliders;
+    const free = Math.min(col.freeFraction(this.x, this.y, bx, by), col.freeFraction(this.x + sx, this.y + sy, bx + sx, by + sy), col.freeFraction(this.x - sx, this.y - sy, bx - sx, by - sy));
+    this.camDist += (Math.max(1.0, want * free - 0.5) - this.camDist) * Math.min(1, dt * (free < 1 ? 20 : 4));
     const target = new THREE.Vector3(this.x, this.z + 1.55, -this.y);
     const cp = Math.cos(this.pitch);
     camera.position.set(target.x - Math.sin(this.yaw) * cp * this.camDist, target.y + Math.sin(this.pitch) * this.camDist,
       target.z + Math.cos(this.yaw) * cp * this.camDist);
+    const [cx, cy] = col.resolve(camera.position.x, -camera.position.z, 0.55); // camera sphere vs footprints: never inside, >= 0.55 m from walls
+    camera.position.x = cx; camera.position.z = -cy;
     camera.position.y = Math.max(camera.position.y, this.tiles.ground(camera.position.x, -camera.position.z) + 0.4);
     camera.lookAt(target);
   }

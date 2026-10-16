@@ -89,6 +89,13 @@ export class Tiles {
   /** Bridge deck within reach of height z, else the ground. */
   groundAt(x: number, y: number, z: number): number { return this.bridges.heightAt(x, y, z) ?? this.ground(x, y); }
 
+  /** Walking/cycling collision: footprints, then trunks/poles/benches (circles). Parked cars are car-sized footprints from the pipeline already. */
+  resolveSolid(x: number, y: number, rad: number): [number, number] {
+    [x, y] = this.colliders.resolve(x, y, rad);
+    [x, y] = this.colliders.resolveCircles(x, y, rad);
+    return [x, y];
+  }
+
   /** Is local (x, y) on a carriageway (lowered kerb mask)? */
   onRoad(x: number, y: number): boolean {
     const s = this.world.tile, e = this.masks.get(`t_${Math.floor(x / s)}_${Math.floor(y / s)}`);
@@ -109,13 +116,12 @@ export class Tiles {
     return hit;
   }
 
-  /** Solid bridge/deck geometry within `h` metres above feet height z at (x, y)? (up-ray against the tile's bridge meshes) */
+  /** Solid tile geometry (decks, bridges, roofs) within `h` metres above feet height z at (x, y)? (up-ray against the tile's bridge meshes) */
   ceilingAbove(x: number, y: number, z: number, h: number): boolean {
     const s = this.world.tile, g = this.loaded.get(`t_${Math.floor(x / s)}_${Math.floor(y / s)}`);
-    const roots = g?.children.filter((o) => o.name === 'bridges') ?? [];
-    if (!roots.length) return false;
+    if (!g) return false;
     const ms: THREE.Mesh[] = [];
-    for (const r of roots) r.traverse((o) => { if ((o as THREE.Mesh).isMesh) ms.push(o as THREE.Mesh); });
+    g.traverse((o) => { const m = o as THREE.Mesh; if (m.isMesh && !(o as THREE.InstancedMesh).isInstancedMesh && o.visible) ms.push(m); });
     const sides = ms.map((m) => (m.material as THREE.Material).side);
     ms.forEach((m) => { (m.material as THREE.Material).side = THREE.DoubleSide; });
     const rc = new THREE.Raycaster(new THREE.Vector3(x, z + 1.0, -y), new THREE.Vector3(0, 1, 0), 0, h);
@@ -172,6 +178,7 @@ export class Tiles {
       this.bridges.remove(name);
       treeField.remove(name);
       this.waters.delete(name);
+      this.colliders.removeCircles(name);
       purged = true;
     }
     if (purged) { parkedCars.purge(); purgeLights(); purgeSignals(); }
@@ -202,6 +209,9 @@ export class Tiles {
       fetch(`${BASE}/${t.name}.json`).then((r) => r.json() as Promise<TileMeta>),
     ]);
     const g = gltf.scene;
+    const firstLoad = !this.seen.has(t.name);
+    if (firstLoad) { this.seen.add(t.name); this.colliders.add(meta.colliders); } // before the props: parked cars inside footprints / outside the fence are dropped below
+    if (meta.cars?.length) meta.cars = meta.cars.filter((r) => this.inPlay(r[0], r[1]) && !this.colliders.insideBuilding(r[0], r[1]));
     const wmeta = (meta as unknown as { water?: WaterMeta }).water; // water: own shader, no shadows
     g.traverse((o) => {
       if (!(o instanceof THREE.Mesh)) return;
@@ -239,6 +249,13 @@ export class Tiles {
     const br = (meta as unknown as { bridges?: BridgeRows }).bridges;
     put(g, 'bridges', buildBridges(br));
     this.bridges.add(br, t.name);
+    const solids: number[][] = []; // small solid obstacles for the player: [x, y, radius]
+    for (const r of meta.trees ?? []) solids.push([r[0], r[1], Math.max(0.2, Math.min(0.5, (r[6] ?? 0.3) * 0.9))]);
+    for (const r of meta.lamps ?? []) solids.push([r[0], r[1], 0.15]);
+    for (const r of meta.masts ?? []) solids.push([r[0], r[1], 0.2]);
+    for (const r of meta.bins ?? []) solids.push([r[0], r[1], 0.3]);
+    for (const r of meta.benches ?? []) solids.push([r[0], r[1], 0.55]);
+    this.colliders.addCircles(t.name, solids);
     put(props, 'places', buildPlaces((meta as unknown as { places?: PlaceMeta }).places, this.shadows));
     put(props, 'playground', buildPlaygrounds((meta as unknown as { playground?: PlaygroundRow[] }).playground ?? []));
     put(g, 'landmarks', buildLandmarks((meta as unknown as { landmarks?: LandmarkRow[] }).landmarks ?? [])); // landmark signs stay visible from afar
@@ -256,9 +273,7 @@ export class Tiles {
     this.props.set(t.name, { g: props, near, far, bikes, lods, x: (t.ix + 0.5) * s, y: (t.iy + 0.5) * s });
     const hm = (meta as unknown as { hmap?: HeightData }).hmap;
     if (hm) this.hmaps.set(t.name, new Heights(hm));
-    if (!this.seen.has(t.name)) {
-      this.seen.add(t.name);
-      this.colliders.add(meta.colliders);
+    if (firstLoad) {
       this.masks.set(t.name, { m: meta.mask, bytes: Uint8Array.from(atob(meta.mask.bits), (c) => c.charCodeAt(0)) });
       this.onPaths(meta.paths);
       this.onLawn((meta as unknown as { lawn?: number[][] }).lawn ?? []);

@@ -58,6 +58,11 @@ export function registerLights(owner: THREE.Object3D, pts: number[]): void {
   if (pts.length) srcs.push({ owner, born: frame, pts: new Float32Array(pts) });
 }
 
+/** Forget light sources of tiles that were removed from the scene (called on tile unload). */
+export function purgeLights(): void {
+  for (let k = srcs.length - 1; k >= 0; k--) if (srcs[k].owner.parent && !attached(srcs[k].owner)) srcs.splice(k, 1);
+}
+
 const attached = (o: THREE.Object3D) => { let p: THREE.Object3D | null = o; while (p) { if ((p as THREE.Scene).isScene) return true; p = p.parent; } return false; };
 const best = new Float32Array(NL_POINTS * 8);
 

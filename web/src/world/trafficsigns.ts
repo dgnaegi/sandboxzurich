@@ -203,6 +203,15 @@ export function buildSignals(rows: SignalRow[]): THREE.Object3D[] {
   return [bm, lm];
 }
 
+/** Forget traffic-light meshes of tiles that left the scene (called on tile unload). */
+export function purgeSignals(): void {
+  for (const e of entries) {
+    let n: THREE.Object3D | null = e.mesh;
+    while (n?.parent) n = n.parent;
+    if (e.mesh.parent && !(n as THREE.Scene).isScene) entries.delete(e);
+  }
+}
+
 /** Call once per frame with elapsed seconds; recolours lamps only when a phase changes. */
 export function updateSignals(t: number): void {
   const s0 = phase(0, t), s1 = phase(1, t), key = s0 * 3 + s1;
