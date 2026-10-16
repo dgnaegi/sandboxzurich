@@ -191,11 +191,15 @@ def build():
         return fp.area < 1200 and len(_stt.query(fp.buffer(10))) > 0
     blds = [b for b in blds if not _shelter(b)]
     print(f"stops: {n0 - len(blds)} shelter canopies dropped")
+    def _hidden(b):
+        return any(Polygon(np.asarray(p)[:, :2]).buffer(0).contains(h)
+                   for h in hide if abs(h.x - b["center"][0]) < 200 and abs(h.y - b["center"][1]) < 200
+                   for k, p in b["polys"] if k == 0 and len(p) >= 3)
+    lm_hidden = []  # buildings replaced by landmark models: no mesh, but their footprint stays a collider
     if hide:
         n0 = len(blds)
-        blds = [b for b in blds if not any(Polygon(np.asarray(p)[:, :2]).buffer(0).contains(h)
-                                           for h in hide if abs(h.x - b["center"][0]) < 200 and abs(h.y - b["center"][1]) < 200
-                                           for k, p in b["polys"] if k == 0 and len(p) >= 3)]
+        lm_hidden += [b for b in blds if _hidden(b)]
+        blds = [b for b in blds if not _hidden(b)]
         print(f"landmarks: {n0 - len(blds)} buildings replaced by models")
     # swissALTI3D terrain; swissBUILDINGS3D ground surfaces sit 3.06 m lower on average (research/terrain.md)
     BIG = (AREA[0] - 260, AREA[1] - 260, AREA[2] + 260, AREA[3] + 260)  # play area + backdrop ring
@@ -205,9 +209,8 @@ def build():
     blds = osm_buildings.update(blds, nodes, els, H, footprint, Polygon(POLYGON))  # post-2019 changes
     if hide:  # OSM re-adds footprints of the hidden landmarks (no 2019 building left under them): hide them again
         n0 = len(blds)
-        blds = [b for b in blds if not any(Polygon(np.asarray(p)[:, :2]).buffer(0).contains(h)
-                                           for h in hide if abs(h.x - b["center"][0]) < 200 and abs(h.y - b["center"][1]) < 200
-                                           for k, p in b["polys"] if k == 0 and len(p) >= 3)]
+        lm_hidden += [b for b in blds if _hidden(b)]
+        blds = [b for b in blds if not _hidden(b)]
         print(f"landmarks: {n0 - len(blds)} OSM buildings replaced by models")
     LMS = [[s["x"], s["y"], round(float(H.at(s["x"], s["y"])), 2), s["heading"], s["name"], s.get("plaque", ""), int(s.get("flowers", False))]
            for s in json.load(open(os.path.join(os.path.dirname(__file__), "overrides", "landmark_signs.json")))["signs"]]
@@ -370,6 +373,12 @@ def build():
             segs += add_building(bm, b, street_dist, neighbour_fn(b["id"]))
             if fp is not None and not fp.is_empty:
                 for p in getattr(fp, "geoms", [fp]):
+                    if p.geom_type == "Polygon":
+                        colliders.append(np.round(np.asarray(p.exterior.coords)[:-1], 2).tolist())
+        for b in lm_hidden:  # landmark models have no colliders of their own: walls of the replaced buildings
+            if tb.contains(Point(b["center"][:2])):
+                fp = footprint(b)
+                for p in getattr(fp, "geoms", [fp]) if fp is not None and not fp.is_empty else []:
                     if p.geom_type == "Polygon":
                         colliders.append(np.round(np.asarray(p.exterior.coords)[:-1], 2).tolist())
         name = f"t_{ix}_{iy}"
