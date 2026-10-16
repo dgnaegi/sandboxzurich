@@ -67,9 +67,25 @@ export class Audio {
   bikeBell() { if (!this.ctx) return; const t = this.ctx.currentTime; this.tone(2637, t, 0.35, 'sine', 0.15); this.tone(2637, t + 0.12, 0.4, 'sine', 0.12); }
   /** Car door / thud on impact. */
   carDoor() { if (!this.ctx) return; const t = this.ctx.currentTime; this.tone(160, t, 0.12, 'square', 0.12, 0.5); this.tone(95, t + 0.05, 0.14, 'sine', 0.2, 0.6); }
-  carCrash(strength: number) {
-    if (!this.ctx) return; const t = this.ctx.currentTime;
-    this.tone(120, t, 0.25, 'sawtooth', 0.08 + 0.2 * strength, 0.4); this.tone(60, t, 0.3, 'sine', 0.15 + 0.3 * strength, 0.5);
+  /** Crash thud + metal crunch, scaled by strength 0..1; `dead` adds a last cough of the engine. */
+  carCrash(strength: number, dead = false) {
+    if (!this.ctx) return; const ctx = this.ctx, t = ctx.currentTime, s = Math.max(0.15, Math.min(1, strength));
+    this.tone(120, t, 0.25 + 0.2 * s, 'sawtooth', 0.08 + 0.2 * s, 0.4); this.tone(60, t, 0.3 + 0.3 * s, 'sine', 0.15 + 0.35 * s, 0.5);
+    const len = Math.floor(ctx.sampleRate * (0.15 + 0.35 * s)), buf = ctx.createBuffer(1, len, ctx.sampleRate), d = buf.getChannelData(0);
+    for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / len) ** 2;
+    const src = ctx.createBufferSource(), bp = ctx.createBiquadFilter(), g = ctx.createGain();
+    src.buffer = buf; bp.type = 'bandpass'; bp.frequency.value = 500 + 1500 * s; bp.Q.value = 0.6; g.gain.value = 0.15 + 0.5 * s;
+    src.connect(bp).connect(g).connect(this.master); src.start(t);
+    if (dead) this.tone(70, t + 0.25, 0.5, 'sawtooth', 0.1, 0.3);
+  }
+  /** Breaking glass: short high noise burst. */
+  glass() {
+    if (!this.ctx) return; const ctx = this.ctx, t = ctx.currentTime;
+    const len = Math.floor(ctx.sampleRate * 0.35), buf = ctx.createBuffer(1, len, ctx.sampleRate), d = buf.getChannelData(0);
+    for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / len) ** 3 * (Math.random() < 0.5 ? 1 : 0.3);
+    const src = ctx.createBufferSource(), hp = ctx.createBiquadFilter(), g = ctx.createGain();
+    src.buffer = buf; hp.type = 'highpass'; hp.frequency.value = 3000; g.gain.value = 0.25;
+    src.connect(hp).connect(g).connect(this.master); src.start(t);
   }
   /**
    * Engine + tyre noise while driving. rpm 0..1, load 0..1, slip = lateral/braking squeal amount. Called every frame

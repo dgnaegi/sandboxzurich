@@ -21,6 +21,9 @@ export class Player {
   heading = 0;
   speed = 0;
   riding: BikeSlot | null = null;
+  /** Seconds left of a fall after a hard bike crash (figure lies on the ground, no control); `onBikeCrash` leaves the bike behind. */
+  fallT = 0;
+  onBikeCrash: ((speed: number) => void) | null = null;
   /** Car the player is driving (see vehicle_player.ts); the player position follows the car. */
   driving: DriveCar | null = null;
   drive: DriveState = { stopPending: false, camDist: 9, shake: 0, fov: 60, hooks: null };
@@ -77,6 +80,17 @@ export class Player {
     const { x: mx, y: my } = actions.move;
     const ox = this.x, oy = this.y;
     if (this.driving) { driveStep(this, dt, camera, look); return; }
+    if (this.fallT > 0) { // lying after a fall: no control for a moment
+      this.fallT -= dt;
+      const k = Math.min(1, this.fallT / 1.8), lie = k > 0.12 ? Math.min(1, (1.8 - this.fallT) * 6) : Math.max(0, k / 0.12);
+      this.body.root.rotation.x = -1.45 * lie; this.body.root.position.set(0, 0.18 * lie, 0);
+      this.body.setSpeed(0); this.body.mixer.update(dt);
+      this.vx = this.vy = 0; this.speed = 0;
+      const wob = this.fallT > 1.5 ? (Math.random() - 0.5) * 0.12 * (this.fallT - 1.5) / 0.3 : 0;
+      this.mesh.position.set(this.x, this.z, -this.y); this.mesh.rotation.z = wob;
+      camera.lookAt(this.x, this.z + 1, -this.y);
+      return;
+    }
 
     if (this.riding) {
       const max = (actions.run ? BIKE_SPRINT : BIKE_MAX) * this.boost;
@@ -85,7 +99,10 @@ export class Player {
       if (Math.abs(this.speed) > 0.3) this.heading += r.turn;
       const nx = this.x + Math.sin(this.heading) * this.speed * dt, ny = this.y + Math.cos(this.heading) * this.speed * dt;
       [this.x, this.y] = this.tiles.colliders.resolve(nx, ny, 0.45);
-      if (Math.hypot(this.x - nx, this.y - ny) > 0.02) this.speed *= 0.6; // bumped into something
+      if (Math.hypot(this.x - nx, this.y - ny) > 0.02) { // bumped into something: hard hit = fall off
+        if (this.speed > 5.5) { const sp = this.speed; this.fallT = 1.8; this.onBikeCrash?.(sp); this.speed = 0; }
+        else this.speed *= 0.6;
+      }
       // camera swings behind the bike unless the player is looking around
       if (this.lastLook > 1.2) { let d = this.heading - this.yaw; d = Math.atan2(Math.sin(d), Math.cos(d)); this.yaw += d * Math.min(1, dt * 2.5); }
     } else {

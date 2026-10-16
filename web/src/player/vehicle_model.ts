@@ -14,6 +14,11 @@ export interface Rig {
   /** speed (m/s, signed), steer (rad), then lights. */
   setWheels(spin: number, steer: number): void;
   setLights(o: { brake: boolean; reverse: boolean; night: number; blink: -1 | 0 | 1; blinkOn: boolean }): void;
+  /** Crumple the body near a local point (x right, z back; front = -z) in direction (dx, dz), `amt` metres at the centre. */
+  dent(lx: number, lz: number, dx: number, dz: number, amt: number): void;
+  /** Damage 0..1: cracked glass from ~0.3, head lamps out when `lampsOut`. Hood smoke position is `hood`. */
+  setDamage(d: number, lampsOut: boolean): void;
+  hood: THREE.Vector3;
   dispose(): void;
 }
 
@@ -100,6 +105,7 @@ export async function buildRig(type: string, paint: THREE.Color): Promise<Rig> {
     }
     return sp;
   };
+  const bodyGeos: THREE.BufferGeometry[] = [];
   const wheels: { spin: THREE.Object3D; pivot: THREE.Object3D; front: boolean }[] = [];
   let length = 4.4, width = 1.8, wheelR = 0.31, wheelbase = 2.65;
   const headMat = new THREE.MeshBasicMaterial({ color: 0xcfc8b0, toneMapped: false });
@@ -116,6 +122,7 @@ export async function buildRig(type: string, paint: THREE.Color): Promise<Rig> {
     const body = Object.entries(parts).find(([k]) => !/^(head|tail|wheel_)/.test(k))?.[1];
     if (body) {
       const sp = addSurf(group, body.geometry, paint);
+      for (const k of Object.keys(sp) as Surf[]) if (sp[k]) bodyGeos.push(sp[k]!);
       const ref = (sp.paint ?? sp.matte)!;
       ref.computeBoundingBox();
       const bb = ref.boundingBox!;
@@ -150,13 +157,34 @@ export async function buildRig(type: string, paint: THREE.Color): Promise<Rig> {
   box(revMat, 0.2, 0.06, 0.05, 0, bz - 0.04, hl - 0.015);
 
   const col = new THREE.Color();
+  let lampsOut = false;
+  const hash = (a: number, b: number) => { const v = Math.sin(a * 127.1 + b * 311.7) * 43758.5453; return v - Math.floor(v); };
   return {
-    group, length, width, wheelR, wheelbase,
+    group, length, width, wheelR, wheelbase, hood: new THREE.Vector3(0, 0.95, -length * 0.28),
+    dent(lx, lz, dx, dz, amt) {
+      const R = 1.25, dl = Math.hypot(dx, dz) || 1;
+      for (const g of bodyGeos) {
+        const pos = g.getAttribute('position') as THREE.BufferAttribute;
+        for (let i = 0; i < pos.count; i++) {
+          const x = pos.getX(i), z = pos.getZ(i), d = Math.hypot(x - lx, z - lz);
+          if (d > R) continue;
+          const f = (1 - d / R) ** 2, j = 0.55 + 0.9 * hash(Math.round(x * 20), Math.round(z * 20));
+          pos.setXYZ(i, x + (dx / dl) * amt * f * j, pos.getY(i) - amt * 0.25 * f * j, z + (dz / dl) * amt * f * j);
+        }
+        pos.needsUpdate = true;
+      }
+    },
+    setDamage(d, out) {
+      lampsOut = out;
+      const cracked = d > 0.3;
+      glassMat.color.setScalar(cracked ? 1.9 : 1); glassMat.roughness = cracked ? 0.55 : 0.05; glassMat.metalness = cracked ? 0.05 : 0.35;
+      glassMat.needsUpdate = true;
+    },
     setWheels(spin, steer) {
       for (const w of wheels) { w.spin.rotation.x = spin; if (w.front) w.pivot.rotation.y = steer; }
     },
     setLights({ brake, reverse, night, blink: b, blinkOn }) {
-      headMat.color.setHex(night > 0.35 ? 0xfff6d8 : 0xa09c8a).multiplyScalar(night > 0.35 ? 2.2 : 1);
+      if (lampsOut) headMat.color.setHex(0x1a1a1a); else headMat.color.setHex(night > 0.35 ? 0xfff6d8 : 0xa09c8a).multiplyScalar(night > 0.35 ? 2.2 : 1);
       tailMat.color.set(brake ? col.setRGB(3.2, 0.1, 0.1) : night > 0.35 ? col.setRGB(1.0, 0.04, 0.05) : col.setRGB(0.35, 0.03, 0.04));
       revMat.color.set(reverse ? col.setRGB(2.5, 2.5, 2.4) : col.setRGB(0.25, 0.25, 0.25));
       blinkMat.color.set(b !== 0 && blinkOn ? col.setRGB(3, 1.6, 0) : col.setRGB(0.2, 0.12, 0));

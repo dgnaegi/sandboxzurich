@@ -15,6 +15,7 @@ import { treeField } from './world/tree_field';
 import { CAR_GEO, carMaterial, carPick, loadCars } from './world/cars';
 import { Scenes } from './world/scenes';
 import { Lawns } from './world/lawns';
+import { loadRailZone } from './world/railzone';
 import { Events } from './world/events';
 import { GameClock, bindClockPanel } from './ui/clock';
 import { Bikes, loadBikes } from './world/bikes';
@@ -64,7 +65,7 @@ async function main() {
 
   const L = (p: Promise<unknown>) => loading.track(p);
   const map = new CityMap();
-  await Promise.all([L(loadTrees('/models/trees', mobile ? 1 : 2)), L(loadCars()), L(loadBikes()), L(loadFurniture())]);
+  await Promise.all([L(loadRailZone()), L(loadTrees('/models/trees', mobile ? 1 : 2)), L(loadCars()), L(loadBikes()), L(loadFurniture())]);
   treeField.init(renderer, mobile, !mobile);
   const [tiles, humans] = await Promise.all([
     loading.track(Tiles.load(scene, !mobile, Math.min(8, renderer.capabilities.getMaxAnisotropy()))),
@@ -187,12 +188,17 @@ async function main() {
     if (GAMEPLAY && kind === 'traffic') { state.wanted(state.stars + 1); toast('AUTODIEBSTAHL', '★ Gesehen!', 'Jemand hat dich beim Auto-Klauen beobachtet.'); }
   };
   // cars: take parked or passing cars (E), drive with WASD/stick; obstacles for the driven car = traffic, trams, trains
-  const obb = (v: { x: number; y: number; heading: number }, len: number, wid: number): Obb => ({ x: v.x, y: v.y, fx: Math.cos(v.heading), fy: Math.sin(v.heading), hl: len / 2, hw: wid / 2 });
+  const obb = (v: { x: number; y: number; heading: number; id?: number }, len: number, wid: number): Obb => ({ x: v.x, y: v.y, fx: Math.cos(v.heading), fy: Math.sin(v.heading), hl: len / 2, hw: wid / 2, id: v.id });
   const carUse = new CarUse(player, tiles, traffic, humans, audio, renderer, scene, () => [
-    ...traffic.positions().map((v) => obb(v, v.kind === 'car' ? v.len : 1.8, v.kind === 'car' ? 1.8 : 0.6)),
+    ...traffic.positions().map((v) => { const o = obb(v, v.kind === 'car' ? v.len : 1.8, v.kind === 'car' ? 1.8 : 0.6); if (v.kind !== 'car') o.id = undefined; return o; }),
     ...transit.colliders().map((v) => obb(v, v.len, v.width)), ...rail.colliders().map((v) => obb(v, v.len, v.width)),
   ], () => daytime.night);
   carUse.onTheft = onCarTheft;
+  player.onBikeCrash = () => { // hard impact on the bike: rider falls, bike stays behind
+    const left = player.dismount();
+    if (left) bikes.drop(left.x, left.y, left.z, left.h, left.color);
+    audio.carCrash(0.35);
+  };
 
   const post = !mobile && !params.has('nopost') ? createPost(renderer, scene, camera) : null;
   const quality = new Quality(renderer, mobile, !!post, scene.fog as THREE.Fog | null);
@@ -358,7 +364,7 @@ async function main() {
     const blips = [...(QUESTS ? missions.blips() : []), ...(state.stars ? police.positions().map((p) => ({ ...p, color: frames % 20 < 10 ? '#3060ff' : '#ff3030' })) : [])];
     map.drawRadar(player.x, player.y, player.yaw, player.heading, blips);
     const tgt = player.driving || player.riding ? null : pickTarget();
-    const prompt = player.driving ? (Math.abs(player.speed) < 3 ? (mobile ? 'E = aussteigen' : 'E drücken: aussteigen') : '')
+    const prompt = player.driving ? (player.driving.dead ? (mobile ? 'Auto kaputt – E = aussteigen' : 'Auto kaputt – E zum Aussteigen') : Math.abs(player.speed) < 3 ? (mobile ? 'E = aussteigen' : 'E drücken: aussteigen') : '')
       : tgt?.kind === 'car' ? (mobile ? 'E = Auto nehmen' : 'E drücken: Auto nehmen')
       : tgt?.kind === 'bike' ? (mobile ? 'E = Velo nehmen' : 'E drücken: Velo nehmen') : player.riding && player.speed < 0.5 ? 'E = absteigen' : '';
     $('prompt').style.display = prompt ? 'block' : 'none';
