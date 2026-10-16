@@ -111,7 +111,7 @@ def main():
             continue
         if hw not in SPEED and hw != "cycleway":
             continue
-        if hw != "cycleway" and not car_allowed(t):
+        if hw != "cycleway" and (hw == "living_street" or not car_allowed(t)):  # living streets are drawn as squares
             continue
         ns = [n for n in e["nodes"] if n in nodes]
         if len(ns) < 2 or not any(x0 <= nodes[n][0] <= x1 and y0 <= nodes[n][1] <= y1 for n in ns):
@@ -220,6 +220,12 @@ def main():
         ln = LineString(np.array(e["p"]).reshape(-1, 2))
         return ln.length > 0 and ln.intersection(ban).length > 0.5 * ln.length
 
+    # streets.parse only draws roads up to 40 m beyond the area: cars never drive where there is no ground
+    from shapely.geometry import box
+    drawn = box(*AREA).buffer(39)
+    n0 = len(cars)
+    cars[:] = [e for e in cars if drawn.contains(LineString(np.array(e["p"]).reshape(-1, 2)))]
+    print(f"cars beyond the drawn area: {n0 - len(cars)} edges removed")
     n0 = len(cars)
     cars[:] = [e for e in cars if not in_ban(e)]
     print(f"cars in pedestrian zones / squares: {n0 - len(cars)} edges removed")

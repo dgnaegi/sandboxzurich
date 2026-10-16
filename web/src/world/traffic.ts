@@ -109,7 +109,7 @@ export class Traffic {
   private _maxBikes = 8;
   private nextId = 1;
   private spawnT = 0;
-  private out: { x: number; y: number; heading: number; kind: 'car' | 'bike'; len: number; v: number; id: number; brake: boolean; turn: number; type: string }[] = [];
+  private out: { x: number; y: number; heading: number; kind: 'car' | 'bike'; len: number; v: number; id: number; brake: boolean; turn: number; type: string; edge: number }[] = [];
   private readonly group = new THREE.Group();
   private tmpA = new THREE.Matrix4();
   private tmpB = new THREE.Matrix4();
@@ -407,7 +407,7 @@ export class Traffic {
     const M = this.tmpA, L = this.tmpB;
     for (const a of this.agents) {
       const y = Number.isNaN(a.dz) ? this.ground(a.x, a.y) - 0.12 : a.dz, th = a.h - Math.PI / 2, c = Math.cos(th), s = Math.sin(th);
-      this.out.push({ x: a.x, y: a.y, heading: a.h, kind: a.kind, len: a.len, v: a.v, id: a.id, brake: a.acc < -1.3 || (a.yielding && a.v < 0.6), turn: a.turn, type: a.type });
+      this.out.push({ x: a.x, y: a.y, heading: a.h, kind: a.kind, len: a.len, v: a.v, id: a.id, brake: a.acc < -1.3 || (a.yielding && a.v < 0.6), turn: a.turn, type: a.type, edge: a.e });
       if (a.kind === 'car') {
         const m = this.carMesh[a.type], i = cursor[a.type] ?? 0;
         if (!m || i >= CAP) continue;
