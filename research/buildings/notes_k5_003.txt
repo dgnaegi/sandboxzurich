@@ -1,0 +1,32 @@
+Röntgenstrasse 56 | c0605a m:P w:r s:u t:h | rosa-rot, hellblaue Läden
+Röntgenstrasse 59 | 8a2f30 m:P w:r s:g t:h | dunkelrot, grüne Läden
+Röntgenstrasse 75 | b8582c m:P w:r s:g t:h | orangerot
+Röntgenstrasse 77 | bd5a3c m:P w:r s:g t:h | orangerot
+Klingenstrasse 21 | cfd0d0 m:P w:r t:g | hellgrau
+Klingenstrasse 33 | dfd49c m:P w:r t:g | Eckhaus gelb, Restaurant EG
+Konradstrasse 9 | c0865a m:P w:r s:b t:g |
+Konradstrasse 17 | e0d8c0 m:P w:r e:B t:g |
+Konradstrasse 20 | c8b078 m:K w:a t:g | gelber Klinker mit roten Backsteinbögen, Gewerbe
+Konradstrasse 21 | c9a070 m:K w:a t:g | Klinker mit Bogenfenstern
+Konradstrasse 23 | c8a870 m:K w:a t:g | Klinker mit Bogenfenstern
+Konradstrasse 28 | dcd0b8 m:P w:r t:g |
+Konradstrasse 36 | cfd8d0 m:P w:r t:g | hellgrün-grau
+Konradstrasse 40 | e6d08c m:P w:r e:B t:g | Eck gelb mit Balkon
+Konradstrasse 48 | bccdb0 m:P w:r e:B t:g | hellgrün
+Konradstrasse 49 | c0bebb m:P w:r t:g | grau
+Konradstrasse 51 | bdb8b0 m:P w:r t:g | EG dunkelgrauer Stein, Läden
+Konradstrasse 52 | d8b898 m:P w:r e:B t:g |
+Konradstrasse 54 | e0c4a0 m:P w:r e:B t:g |
+Konradstrasse 55 | b0a89c m:P w:r t:g | EG grosse Schaufenster rot gerahmt
+Konradstrasse 61 | ece9e6 m:P w:r t:g | weiss, EG Sockel grau
+Konradstrasse 62 | c08850 m:K w:r e:B t:g | Backstein orange
+Konradstrasse 65 | c8b9c4 m:P w:r t:n | flieder-grau
+Konradstrasse 66 | c08850 m:K w:r e:B t:g | Backstein orange, rote Markise
+Konradstrasse 68 | bf9060 m:K w:r t:g | Eckhaus Klinker
+Konradstrasse 71 | e6e4e0 m:P w:r e:B t:g | EG orangerot
+Konradstrasse 72 | c27a38 m:K w:r e:B t:g | Eck, orange Backstein
+Konradstrasse 73 | e5dcc8 m:P w:r e:B t:g | EG orangerot
+Konradstrasse 75 | e0c070 m:P w:r e:B t:g | gelb
+Konradstrasse 77 | e0c070 m:P w:r e:B t:g | gelb
+Konradstrasse 79 | e0c070 m:P w:r e:B t:g | gelb
+Neugasse 14 | aeb0b2 m:B w:b r:f t:n | Granit-/Steinplattenfassade grau, 1996

@@ -1,0 +1,48 @@
+Badenerstrasse 298 | dccaa0 m:P w:r e:B t:g | EG Arkade
+Badenerstrasse 300 | c8b898 m:S w:r e:BR t:g |
+Badenerstrasse 332 | c8d4c8 m:P w:r | hellgrün-grau
+Badenerstrasse 342 | e0c040 m:P w:r e:B t:g | Eckhaus gelb, Metzgerei EG
+Badenerstrasse 354 | b0a898 m:S w:r e:R t:g | Sandstein, Portal
+Badenerstrasse 362 | d89080 m:P w:r e:B t:g | EG Einfahrt grau
+Badenerstrasse 368 | c89050 m:K w:r e:B t:g | oranger Backstein
+Badenerstrasse 370 | c8904e m:K w:r e:B t:g | oranger Backstein
+Badenerstrasse 382 | e0c068 m:P w:r s:u e:B t:h | gelb
+Badenerstrasse 444 | b0606a m:P w:r e:B t:5 | altrosa-braun
+Badenerstrasse 558 | c4a070 m:P w:r e:B t:5 |
+Badenerstrasse 562 | c8a880 m:P w:r e:B t:5 |
+Badenerstrasse 582 | c8a860 m:P w:r e:B t:5 | senfgelb
+Badenerstrasse 636 | b8c4d8 m:P w:r t:5 | hellblau, gelbe Storen
+Badenerstrasse 638 | b8c4d8 m:P w:r t:5 | hellblau, gelbe Storen
+Badenerstrasse 649 | e8e4d8 m:P w:r s:g t:h | grüne Läden, Restaurant EG
+Badenerstrasse 655 | c8c0a8 m:P w:r e:B t:g |
+Badenerstrasse 657 | c8c0a8 m:P w:r e:B t:g |
+Badenerstrasse 659 | b06048 m:K w:r e:B t:g | Backstein, Café EG
+Badenerstrasse 661 | cdbfa4 m:P w:b t:n | gerundete Ecke, Läden EG
+Badenerstrasse 705 | eeeae0 m:P w:r s:u r:s t:g | weiss mit blauen Läden
+Albisriederstrasse 15 | e4cdb8 m:P w:r e:B t:5 |
+Albisriederstrasse 16 | e8e2d6 m:P w:r e:B t:5 | Balkone hellblau
+Albisriederstrasse 34 | e8e4d0 m:P w:r s:b t:5 |
+Albisriederstrasse 38 | dcd0b8 m:P w:r s:b e:B r:s t:h | Holzbalkone braun
+Albisriederstrasse 40 | e0d4b8 m:P w:r s:b e:B r:s t:h | Holzbalkone braun
+Albisriederstrasse 50 | dcc9b0 m:P w:r s:b e:B r:s t:h |
+Albisriederstrasse 52 | e0d0b8 m:P w:r s:b e:B r:s t:h |
+Albisriederstrasse 54 | dedcd2 m:P w:r e:B r:s t:h |
+Albisriederstrasse 56 | e8e4c0 m:P w:r e:B r:s t:h |
+Albisriederstrasse 84 | e0a898 m:P w:r e:B t:5 | rosa
+Albisriederstrasse 86 | d8c898 m:P w:r t:h | ocker
+Albisriederstrasse 108 | e8a898 m:P w:r s:g t:h | rosa
+Albisriederstrasse 110 | dfe6da m:P w:r s:g r:s t:h | hellgrün-weiss, grüne Läden
+Albisriederstrasse 132 | dfe6da m:P w:r s:g r:s t:h | hellgrün-weiss, grüne Läden
+Albisriederstrasse 144 | dfe6da m:P w:r s:g r:s t:h | hellgrün-weiss, grüne Läden
+Albisriederstrasse 156 | dfe6da m:P w:r s:g r:s t:h | hellgrün-weiss, grüne Läden
+Herdernstrasse 60 | d8d8d4 m:B w:r t:n | 2021
+Herdernstrasse 82 | e4d8b0 m:P w:r e:EB t:h | Eck, gerundete Balkone
+Herdernstrasse 84 | e0cc98 m:P w:r e:EBR t:h |
+Herdernstrasse 86 | dcaa50 m:K w:r e:BR t:g | gelber Klinker, EG Sandstein
+Herdernstrasse 88 | d8a850 m:K w:r e:BR t:g | gelber Klinker, EG Sandstein
+Eglistrasse 29 | f0f0ec m:P w:r e:B t:n | weiss, runde Balkone 2023
+Lindenplatz 4 | e0cc90 m:P w:r e:E t:5 | Backsteinbänder rot
+Altstetterstrasse 150 | e0b878 m:P w:r e:B t:5 | Läden EG
+Altstetterstrasse 152 | e0b878 m:P w:r e:B t:5 | Läden EG
+Altstetterstrasse 164 | a8b0d4 m:P w:r t:g | hellblau
+Altstetterstrasse 178 | aab4c4 m:P w:r e:B t:n | 2022

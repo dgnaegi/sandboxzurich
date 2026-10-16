@@ -23,16 +23,7 @@ function panel(name: string, lines: string[]): THREE.Texture {
   return t;
 }
 
-/** Passenger information display (dark LED box: next departures as orange text). */
-function infoTex(lines: string[]): THREE.Texture {
-  const c = document.createElement('canvas'); c.width = 128; c.height = 64;
-  const g = c.getContext('2d')!;
-  g.fillStyle = '#07090c'; g.fillRect(0, 0, 128, 64);
-  g.fillStyle = '#ffb347'; g.font = 'bold 15px monospace'; g.textAlign = 'left';
-  lines.slice(0, 3).forEach((l, i) => { g.fillText(`${l.padEnd(3)} ${2 + i * 4 + (l.length * 3) % 5} min`, 8, 18 + i * 19); });
-  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
-  return t;
-}
+import { infoTex, loadEquip, StopDefault } from './stops_equip';
 
 const grey = new THREE.MeshLambertMaterial({ color: 0x8a9095 });
 const glass = new THREE.MeshLambertMaterial({ color: 0x9fb8c8, transparent: true, opacity: 0.35, depthWrite: false });
@@ -40,6 +31,7 @@ const roofMat = new THREE.MeshLambertMaterial({ color: 0x5f666b });
 
 export function buildStops(data: { lines: LineJson[] }, ground: (x: number, y: number) => number): THREE.Group {
   const group = new THREE.Group();
+  const defaults: StopDefault[] = [];
   const byName = new Map<string, { x: number; y: number; h: number; z: number; lines: Set<string> }[]>();
   for (const l of data.lines) for (const st of l.stops) {
     let s = st.s;
@@ -77,8 +69,12 @@ export function buildStops(data: { lines: LineJson[] }, ground: (x: number, y: n
     const info = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.25).translate(1.72, 1.7, -1.0),
       new THREE.MeshBasicMaterial({ map: infoTex([...st.lines].sort()) }));
     info.rotation.y = 0; info.position.x = 0; info.rotateY(-Math.PI / 2); info.position.set(-0.01, 0, 0);
-    o.add(info, pole, sign, new THREE.Mesh(frame, grey), roof, back);
+    const shelter = new THREE.Group();   // generic fallback set, replaced by real equipment (stops_equip.json) where the city data covers the stop
+    shelter.add(info, new THREE.Mesh(frame, grey), roof, back);
+    o.add(pole, sign, shelter);
     group.add(o);
+    defaults.push({ x: st.x, y: st.y, z, lines: [...st.lines].sort(), shelter, o });
   }
+  void loadEquip(group, defaults, ground);
   return group;
 }

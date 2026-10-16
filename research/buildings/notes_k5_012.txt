@@ -1,0 +1,43 @@
+Hohlstrasse 365 | d8d0c0 m:P w:r e:EB t:j | graue Putzgliederung, roter Backstein oben, Erker, Beiz EG
+Hohlstrasse 400 | d4c498 m:K w:r t:g | gelblicher Klinker
+Hohlstrasse 403 | eeeeea m:P w:r s:u r:w t:h | weiss mit hellblauen Läden, Markisen EG
+Hohlstrasse 420 | d8c8b4 m:K w:r t:w | heller Klinker, Schulbau
+Hohlstrasse 440 | 8a3e34 m:K w:r r:f t:w | roter Backstein Industriebau
+Hohlstrasse 442 | 8a3e34 m:K w:r r:f t:w | roter Backstein Industriebau
+Hohlstrasse 446 | 8a3e34 m:K w:r r:f t:w | roter Backstein Industriebau
+Hohlstrasse 459 | 8a3e34 m:K w:r r:f t:w | roter Backstein Industriebau
+Hohlstrasse 430 | 8a3e34 m:K w:b r:f t:w | roter Backstein Industriebau
+Hohlstrasse 432 | 8a3e34 m:K w:b r:f t:w | roter Backstein Industriebau
+Hohlstrasse 481a | dcd8c8 m:B w:r e:B t:n | hell, Sockel blaugrau 2018
+Hohlstrasse 485a | d8d4c4 m:B w:r e:B t:n | hell, Sockel blaugrau 2018
+Hohlstrasse 485b | d8d4c4 m:B w:r e:B t:n | hell, Sockel blaugrau 2018
+Hohlstrasse 480 | d0b888 m:K w:r r:f t:n | heller Klinker 2015
+Hohlstrasse 510 | d0b888 m:K w:r r:f t:n | heller Klinker 2015
+Hohlstrasse 507 | d8c8b4 m:B w:r e:B t:n | beige 2007
+Hohlstrasse 509 | e0cfc0 m:B w:r e:B t:n | rosabeige 2007
+Hohlstrasse 513 | e0d4c8 m:B w:r e:B t:n | rosabeige 2007
+Hohlstrasse 513b | e0d4c8 m:B w:r e:B t:n | rosabeige 2007
+Hohlstrasse 513c | e0d4c8 m:B w:r e:B t:n | rosabeige 2007
+Hohlstrasse 534 | c8c8c4 m:B w:r r:f t:7 | grau, blaue Storen
+Hohlstrasse 535 | c4c4c0 m:B w:b r:f t:n | Beton grau
+Badenerstrasse 288a | c8c4a8 m:P w:b r:f t:5 | Putz mit Fensterband, Kinderkrippe
+Badenerstrasse 294 | c8c4a8 m:P w:b r:f t:5 | Putz mit Fensterband
+Badenerstrasse 355 | d4b898 m:P w:r e:B t:g | EG Beiz
+Badenerstrasse 452 | d0d0c8 m:B w:r r:f t:6 | graue Plattenfassade, blaue Fenster
+Badenerstrasse 458 | d0d0c8 m:B w:r r:f t:6 | graue Plattenfassade, blaue Fenster
+Badenerstrasse 537 | b0b8c0 m:B w:b r:f t:n | Hotel, blaugraue Fassade
+Badenerstrasse 663 | a8bcd0 m:P w:b e:B t:5 | graublau, Läden EG
+Badenerstrasse 670 | d6a89a m:P w:r e:R t:g | hellgrau/rosa mit Backsteinbändern, Migros Bank
+Badenerstrasse 681 | d8603c m:P w:b r:f t:5 | orange-rot, obere Etage grün
+Badenerstrasse 711 | a09488 m:B w:r e:B t:n | braungrau, 2011
+Albisriederstrasse 17 | ececea m:P w:r e:EB r:w t:g | weisses Eckhaus, Laden EG
+Albisriederstrasse 142 | d6c8a0 m:P w:r s:r e:B r:s t:h | beige, rote Läden
+Albisriederstrasse 149 | d85a38 m:P w:r s:s r:s t:h | orangerot, graue Läden
+Albisriederstrasse 151 | d85a38 m:P w:r s:s r:s t:h | orangerot, graue Läden
+Herdernstrasse 4 | e0d8c4 m:B w:r r:f t:6 | hell, blaue Fenster
+Herdernstrasse 6 | e0b8c0 m:B w:r r:f t:n | rosa/weiss gestreift
+Herdernstrasse 8 | e8e4dc m:B w:r r:f t:6 | hell, blaue Fenster
+Altstetterstrasse 121 | b4aaa4 m:P w:r e:B r:f t:6 | graubraun, Läden EG
+Altstetterstrasse 126 | c0c4c4 m:P w:b r:f t:7 | grau, Fensterbänder
+Altstetterstrasse 127 | e0d4b8 m:P w:r e:R t:g | Migros, EG Läden
+Altstetterstrasse 147 | b8a09a m:P w:r e:B t:j | rosa-braun, Migros Bank

@@ -1,0 +1,37 @@
+Heinrichstrasse 32 | e8e6df m:P w:r s:u t:g |
+Heinrichstrasse 37 | c9b36e m:P w:r t:g |
+Heinrichstrasse 38 | eeece6 m:P w:r s:s t:g |
+Heinrichstrasse 40 | d0d6e0 m:P w:r s:r t:g | rote Läden
+Heinrichstrasse 41 | d9d9c4 m:P w:r s:g r:s t:g |
+Heinrichstrasse 50 | d8c660 m:P w:r s:u t:g | gelb mit blauen Läden
+Heinrichstrasse 53 | c0614a m:P w:r s:s t:g |
+Heinrichstrasse 54 | e3d6bb m:P w:r s:b t:g |
+Heinrichstrasse 65 | dedcd5 m:P w:r e:B t:g | Beiz im EG mit Markise
+Heinrichstrasse 68 | efe6b8 m:P w:r f:w t:g |
+Heinrichstrasse 71 | ddd9cc m:P w:r e:B t:g |
+Heinrichstrasse 75 | d6cdb8 m:P w:r e:G t:g | oben Backsteinfelder orange
+Heinrichstrasse 77 | d85a40 m:P w:r t:g | rot gestrichen, EG hell
+Heinrichstrasse 78 | dcc864 m:P w:r t:g |
+Heinrichstrasse 79 | cdb9a0 m:B w:r t:n | Neubau 2019
+Heinrichstrasse 83 | ece8e0 m:P w:r e:B t:g |
+Heinrichstrasse 85 | e6dccb m:P w:r t:g | EG Läden
+Heinrichstrasse 86 | e2c040 m:P w:r s:b t:g | kräftig gelb
+Heinrichstrasse 87 | dcc097 m:P w:r e:B t:g |
+Heinrichstrasse 97 | ece6d2 m:P w:r e:B t:g |
+Heinrichstrasse 99 | a8483a m:P w:r e:B t:g | rotbraun
+Heinrichstrasse 106 | d4cfc0 m:P w:r e:B t:g | EG lavendelgrau
+Heinrichstrasse 108 | d9d4c6 m:P w:r e:B t:g |
+Heinrichstrasse 109 | 6c7a6e m:P w:r t:g | dunkelgrün-grau, Gewerbe
+Heinrichstrasse 112 | cdd8d0 m:P w:r s:s e:B t:g | EG grau
+Heinrichstrasse 114 | ece9e2 m:P w:r t:n | 80er Jahre
+Heinrichstrasse 120 | b0604f m:P w:r e:B t:g |
+Heinrichstrasse 122 | d9a560 m:P w:r e:BR t:g | EG graue Rustika
+Heinrichstrasse 123 | a8483c m:K w:r s:g t:h | Backstein rot
+Heinrichstrasse 125 | ece8e2 m:P w:r e:B t:h |
+Heinrichstrasse 133 | c58a4a m:K w:r e:B t:h |
+Heinrichstrasse 135 | dccfb0 m:P w:r e:B t:h |
+Heinrichstrasse 137 | a8602e m:K w:r s:g t:h | Backstein braun-orange
+Heinrichstrasse 139 | b85840 m:P w:r s:g t:h |
+Heinrichstrasse 141 | b85a42 m:P w:r s:g t:h |
+Heinrichstrasse 147 | cfcfcb m:P w:r t:h | Sockel dunkelgrau
+Röntgenstrasse 16 | b4604c m:B w:b r:f t:5 | Bürobau 50er, rote Paneele, Fensterband

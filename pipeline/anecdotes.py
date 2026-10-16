@@ -29,6 +29,7 @@ def main():
             addr[f"{t['addr:street']} {t['addr:housenumber']}".lower()] = (c.x, c.y)
         if t.get("name"):
             names.setdefault(t["name"].lower(), []).append((c.x, c.y))
+    places = json.load(open(ROOT / "pipeline" / "overrides" / "anecdote_places.json"))["places"]
     out = []
     for block in re.split(r"\n### ", md)[1:]:
         title = block.split("\n", 1)[0].split(". ", 1)[-1].strip()
@@ -54,8 +55,17 @@ def main():
                     pos = min(cand, key=lambda p: np.hypot(p[0] - cx, p[1] - cy))
                     r = 20
                     break
+        ov = next((v for k, v in places.items() if title.startswith(k)), None)
+        if isinstance(ov, dict):
+            pos, r = addr.get(ov["addr"].lower()), ov.get("r", 12)
+            if not pos:
+                continue  # verified address not found in OSM: drop rather than guess
+        elif ov:
+            pos, r = (ov[0], ov[1]), ov[2]
         if not pos:
             continue
+        if any(np.hypot(pos[0] - o["x"], pos[1] - o["y"]) < 12 for o in out):
+            continue  # no shared default points: without an own, certain position the anecdote is dropped
         title = title.replace("«", "").replace("»", "")  # the HUD font has no guillemets
         out.append({"id": f"a{len(out)}", "title": title[:60], "text": q.group(1), "x": round(pos[0], 1), "y": round(pos[1], 1), "r": r})
     # official street-name explanations (Strassennamenverzeichnis + Widmungstafeln, Stadt Zürich OGD, CC0)

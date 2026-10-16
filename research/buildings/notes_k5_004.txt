@@ -1,0 +1,23 @@
+Neugasse 31 | a58a60 m:P w:r e:B t:g | EG Läden
+Neugasse 32 | c06a50 m:P w:r s:b e:EB t:h | orangerot
+Neugasse 57 | c9b79a m:S w:a | Sandstein mit Bogenfenstern, EG Cafés
+Neugasse 59 | c8b494 m:S w:a | Sandstein mit Bogenfenstern
+Neugasse 80 | c8a890 m:P w:r e:B t:h | rosa-braun
+Neugasse 84 | eadba0 m:P w:r e:B t:h | hellgelb
+Hardstrasse 61 | dcdcd8 m:P w:r s:s e:B t:g | EG Lädeli
+Hardstrasse 320 | d8b050 m:K w:r e:R t:g | gelber Klinker oben, EG Granit-Rustika
+Hardturmstrasse 66 | bfbcb2 m:P w:r t:w | Gewerbebau
+Hardturmstrasse 76 | 8d9ba8 m:G w:g r:f t:b | Glasfassade verspiegelt
+Pfingstweidstrasse 22 | 7a6a64 m:B w:r t:n | dunkelbraun-grau, 2019
+Birmensdorferstrasse 21 | e0d4bc m:P w:r e:B t:g | EG Stein, Cafés, Eisenbalkon
+Birmensdorferstrasse 51 | cbc6b8 m:P w:r e:B t:5 | Eck, Läden EG
+Birmensdorferstrasse 83 | c4bfb6 m:P w:r t:5 | Arkade EG
+Birmensdorferstrasse 114 | e8e6e0 m:P w:r e:B | farbige Balkone
+Birmensdorferstrasse 116 | e8e2d4 m:P w:r e:B |
+Birmensdorferstrasse 123 | c8b8a0 m:B w:b t:n | rote Fensterrahmen 80er
+Birmensdorferstrasse 125 | c8b8a0 m:B w:b t:n | rote Fensterrahmen 80er
+Birmensdorferstrasse 187 | dedbd2 m:P w:r e:B | gestapelte Balkone
+Birmensdorferstrasse 191 | d6d4cc m:P w:r e:B t:5 | Balkone grau
+Zurlindenstrasse 45 | a9aeb0 m:B w:b t:6 | Betonraster
+Zurlindenstrasse 50 | b04a3c m:P w:r s:s e:E t:h | rot, Erker
+Zurlindenstrasse 111 | c4c6c8 m:P w:r t:n | 

@@ -1,0 +1,29 @@
+Bremgartnerstrasse 32 | e6e4de m:P w:r e:B | weiss, EG Granit
+Bremgartnerstrasse 35 | e0d2a8 m:P w:r t:6 | Eck, Läden EG
+Bremgartnerstrasse 48 | b9b9b6 m:P w:r e:B | grau, runde Balkone, Eck
+Bremgartnerstrasse 50 | ddd2c0 m:P w:r e:B |
+Bremgartnerstrasse 51 | d0d0cc m:B w:r t:7 |
+Bremgartnerstrasse 52 | dcd0bc m:P w:r e:B |
+Bremgartnerstrasse 54 | dcd0bc m:P w:r e:B |
+Bremgartnerstrasse 62 | ddd5c4 m:P w:r e:B |
+Bremgartnerstrasse 69 | b9bcc8 m:P w:r e:BR t:g | graublau, EG Stein
+Bremgartnerstrasse 70 | d8c0a8 m:P w:r e:B |
+Bremgartnerstrasse 76 | d2b588 m:P w:r e:BR t:g | EG Stein
+Bremgartnerstrasse 78 | d9b078 m:K w:r e:BR t:g | gelber Klinker
+Bremgartnerstrasse 79 | d9a860 m:K w:r e:B t:g | gelber Klinker
+Bremgartnerstrasse 80 | d4a460 m:K w:r e:BR t:g | gelber Klinker
+Bremgartnerstrasse 81 | d4a65e m:K w:r e:BR t:g | gelber Klinker
+Bremgartnerstrasse 82 | a8b4c4 m:H w:r e:B t:5 | graublaue Verkleidung
+Bremgartnerstrasse 83 | d6a860 m:K w:r e:B t:g | gelber Klinker
+Goldbrunnenstrasse 158 | cfd4b8 m:P w:r s:g e:B t:h | hellgrün
+Goldbrunnenstrasse 160 | c8d4b8 m:P w:r s:u e:B t:h | hellgrün
+Schlossgasse 7 | dfa880 m:P w:r e:B | lachs, Läden EG
+Schlossgasse 9 | dfa880 m:P w:r e:B | lachs
+Schlossgasse 11 | dfa880 m:P w:r e:B | lachs, Läden EG
+Schlossgasse 14 | e8e6de m:P w:r e:B t:5 |
+Schlossgasse 22 | d8a890 m:P w:r e:B | gerundete Ecke mit Balkonen
+Schlossgasse 24 | e0b860 m:P w:r t:h | gelb, Läden EG
+Badenerstrasse 254 | c9b082 m:S w:r t:g | Sandstein-EG Läden
+Badenerstrasse 260 | c8b078 m:S w:r t:g | Sandstein
+Badenerstrasse 262 | c4a878 m:S w:r t:g | Sandstein
+Badenerstrasse 286 | e0a890 m:P w:r e:B | lachs

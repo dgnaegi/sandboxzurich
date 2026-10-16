@@ -1,0 +1,32 @@
+Zurlindenstrasse 118 | e8e6df m:P w:r e:B | weiss, Läden EG
+Zurlindenstrasse 120 | e6e4dc m:P w:r e:B | weiss
+Zurlindenstrasse 121 | c4907a m:P w:r | lachsbraun
+Zurlindenstrasse 123 | c58f78 m:P w:r | lachsbraun
+Zurlindenstrasse 294 | dcc088 m:P w:r e:B | ocker
+Zurlindenstrasse 295 | d8c070 m:P w:r s:g e:B t:g | gelb, grüne Läden
+Zurlindenstrasse 297 | d0b868 m:P w:r s:g e:B t:g | gelb mit Backstein orange
+Zurlindenstrasse 299 | d6bd7a m:P w:r e:B t:g |
+Zurlindenstrasse 301 | d4d2cc m:P w:r s:s e:B t:g | EG Beizli
+Zurlindenstrasse 303 | ddd4bc m:P w:r e:B |
+Weststrasse 46 | d8c8a8 m:P w:r t:g |
+Weststrasse 47 | a8afb4 m:P w:r s:u e:B t:h | graublau, blaue Läden
+Weststrasse 60 | c08a50 m:K w:r e:R t:g | Backstein orange, EG Granit
+Weststrasse 95 | b8c8e0 m:P w:r e:B t:g | hellblau
+Weststrasse 112 | b08078 m:P w:r s:b e:R t:g | altrosa
+Weststrasse 118 | d05a48 m:P w:r e:B t:g | rot
+Weststrasse 150 | b8483c m:P w:r t:g | rot
+Weststrasse 151 | b88a50 m:K w:r e:B | Backstein
+Aemtlerstrasse 108 | e0d0a8 m:P w:r e:B |
+Aemtlerstrasse 110 | e0d0a8 m:P w:r e:B |
+Aemtlerstrasse 112 | e5c9a8 m:P w:r e:B |
+Aemtlerstrasse 114 | e8c8b0 m:P w:r e:B |
+Aemtlerstrasse 174 | e0c060 m:P w:r s:b t:h | gelb, braune Läden
+Aemtlerstrasse 176 | e0c060 m:P w:r s:b t:h | gelb, braune Läden
+Aemtlerstrasse 184 | bcc6b4 m:P w:r e:E t:h | hellgrün
+Aemtlerstrasse 205 | dad6cc m:P w:r t:g |
+Bremgartnerstrasse 6 | c89a88 m:P w:r e:B t:g |
+Bremgartnerstrasse 8 | c4948a m:P w:r e:B t:g |
+Bremgartnerstrasse 16 | ebe9e4 m:P w:r e:B t:g |
+Bremgartnerstrasse 19 | d9ccb0 m:P w:a t:g | Bogenfenster EG
+Bremgartnerstrasse 28 | a45040 m:K w:r e:BR t:g | Backstein rot, EG Rustika
+Bremgartnerstrasse 30 | d8d4cc m:P w:r e:BR t:g |

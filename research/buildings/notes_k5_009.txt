@@ -1,0 +1,25 @@
+Neugasse 85 | e8d890 m:B w:b e:B t:n | gelb-creme mit grauen Balkonen
+Neugasse 91 | e8d890 m:B w:b e:B t:n | gelb-creme mit grauen Balkonen
+Neugasse 97 | e8d890 m:B w:b e:B t:n | gelb-creme mit grauen Balkonen
+Hardstrasse 59 | e8e6dc m:P w:r s:s e:B t:h | weiss
+Hardstrasse 67 | ecd8a8 m:P w:r e:B t:h | cremegelb
+Hardstrasse 71 | e4d490 m:P w:r s:g e:B t:h | gelb mit grünen Läden
+Hardstrasse 87 | a9a8a2 m:P w:r s:g t:h | grau, dunkelgrüne Läden
+Hardstrasse 93 | a9a8a2 m:P w:r s:g t:h | grau, dunkelgrüne Läden
+Hardstrasse 95 | a9a8a2 m:P w:r s:g t:h | grau, dunkelgrüne Läden
+Hardstrasse 97 | a9a8a2 m:P w:r s:g t:h | grau, dunkelgrüne Läden
+Hardstrasse 99 | a9a8a2 m:P w:r s:g e:D t:h | grau, dunkelgrüne Läden, Gauben
+Hardstrasse 221 | e8e8e4 m:B w:b r:f t:n | weiss, blaue Glasfelder
+Hardstrasse 235 | d8d8d4 m:B w:b r:f t:6 | graue Bänder
+Hardstrasse 238 | d8c07c m:P w:r s:s e:B t:g | ocker
+Hardstrasse 305 | c8b070 m:K w:r t:5 | gelber Backstein
+Hardstrasse 310 | b86a48 m:K w:r e:BD t:g | orange-roter Backstein mit gelben Bändern
+Hardstrasse 312 | d4a860 m:K w:r e:BD t:g | gelber Backstein
+Hardstrasse 322 | d4a860 m:K w:r e:BD t:g | gelber/orangeroter Backstein
+Hardstrasse 324 | d4a860 m:K w:r e:BD t:g | gelber Backstein, Ornamente
+Hardstrasse 319 | d8cca8 m:B w:b r:f t:5 | Büro 50er
+Hardturmstrasse 3 | 7aa8a8 m:G w:g r:f t:b | Glasturm
+Hardturmstrasse 12 | e0d0a0 m:P w:r s:g r:w t:g | gelb, grüne Läden
+Hardturmstrasse 68 | b4aa98 m:P w:r t:w | alter Gewerbebau
+Hardturmstrasse 161 | 6c7a62 m:B w:b r:f t:7 | dunkelgrüne Fassade
+Hardturmstrasse 171 | dcd8cc m:B w:b r:f t:5 | Industrie 50er

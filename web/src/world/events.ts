@@ -49,6 +49,7 @@ export class Events {
   private live = new Map<string, { obj: THREE.Group; people: Human[]; tick?: (dt: number, min: number) => void }>();
   private pool: Human[] = [];
   private k = 0;
+  private wait = new Map<string, number>();
   onStart: (title: string) => void = () => {};
 
   constructor(private lib: HumanLib, private ground: (x: number, y: number) => number, private mobile: boolean) {}
@@ -63,7 +64,20 @@ export class Events {
   update(dt: number, weekday: number, minute: number, px: number, py: number) {
     const now = new Set(this.active(weekday, minute).map((e) => e.id));
     for (const [id, l] of this.live) if (!now.has(id)) this.stop(id, l);
-    for (const e of this.list) if (now.has(e.id) && !this.live.has(e.id)) this.start(e);
+    for (const e of this.list) {
+      if (!now.has(e.id) || this.live.has(e.id)) continue;
+      if (e.type === 'market') {
+        // static stalls are merged at the ground height of the moment: build them only once the player is near (exact tile heights loaded)
+        const near = Math.hypot(e.x! - px, e.y! - py) < 170;
+        this.wait.set(e.id, near ? (this.wait.get(e.id) ?? 0) + dt : 0);
+        if ((this.wait.get(e.id) ?? 0) < 1.2) continue;
+      }
+      this.start(e);
+    }
+    for (const [id, l] of this.live) {
+      const e = this.list.find((q) => q.id === id)!;
+      if (e.type === 'market' && Math.hypot(e.x! - px, e.y! - py) > 420) { this.stop(id, l); this.wait.set(id, 0); }
+    }
     for (const l of this.live.values()) {
       l.tick?.(dt, minute);
       for (const h of l.people) {

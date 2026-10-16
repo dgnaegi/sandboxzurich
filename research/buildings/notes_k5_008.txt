@@ -1,0 +1,18 @@
+Limmatstrasse 103 | b8b0d0 m:P w:r s:u t:g | flieder, blaue Läden
+Limmatstrasse 111 | d9c37c m:P w:r s:g e:B t:h | gelb-ocker mit Sgraffito, grüne Läden
+Limmatstrasse 118 | dedcd6 m:B w:b r:f t:5 | Läden EG
+Limmatstrasse 119 | c8c8c4 m:P w:r e:BR t:g | grau, EG Rustika, Läden
+Limmatstrasse 175 | d8a048 m:P w:r s:b t:h | orange-ocker
+Limmatstrasse 180 | a8604a m:K w:r t:n | Backstein-Verkleidung 80er
+Limmatstrasse 182 | a86a50 m:K w:r t:n | braune Plattenverkleidung 80er
+Limmatstrasse 184 | a86a50 m:K w:r t:n | braune Plattenverkleidung 80er
+Limmatstrasse 186 | a86a50 m:K w:r t:n | braune Plattenverkleidung 80er
+Limmatstrasse 213 | 8a4a40 m:K w:r e:B t:g | roter Backstein
+Limmatstrasse 215 | 8e3e38 m:K w:r e:BR t:g | roter Backstein, Sandsteinfenster
+Limmatstrasse 217 | 8a3a34 m:K w:r e:BR t:g | roter Backstein, EG Sandstein Bogen
+Limmatstrasse 260 | 9a4a3c m:K w:a t:w | Backstein Industriebau
+Limmatstrasse 270 | a05040 m:K w:a t:w | Backstein Löwenbräu
+Limmatstrasse 273 | b0c0d8 m:P w:r e:E t:g | hellblau, Eck
+Ausstellungsstrasse 36 | 8a3040 m:B w:b t:n | burgunderrote Paneele
+Ausstellungsstrasse 81 | d9cba0 m:P w:r s:g t:g | sandgelb, grüne Läden
+Ausstellungsstrasse 88 | a05040 m:K w:r t:n | Backstein, Rolltore EG

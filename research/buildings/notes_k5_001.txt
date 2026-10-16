@@ -1,0 +1,37 @@
+Limmatstrasse 35 | b9bcc0 m:G w:b r:f t:b | Büro-Glasfassade, graue Bänder
+Limmatstrasse 40 | a99d85 m:P w:r t:g | Gewerbe-Altbau Sandton
+Limmatstrasse 85 | c4b497 m:P w:r t:g | Putz beige, rote Backstein-Bogen
+Limmatstrasse 123 | e4dfd2 m:P w:r e:B t:g | Läden im EG
+Limmatstrasse 199 | 9b8872 m:S w:a e:GR t:g | Eckhaus Sandstein, Beiz im EG
+Limmatstrasse 259 | aeb6c2 m:P w:r e:B t:g | graublau
+Josefstrasse 10 | dedacd m:P w:r e:RB t:g | EG Sandstein-Rustika
+Josefstrasse 26 | e0cfb6 m:P w:r t:g | EG dunkelgrau
+Josefstrasse 32 | 4a4c4a m:P w:r t:g | dunkelgrau gestrichen
+Josefstrasse 36 | b0a684 m:P w:r s:b t:g |
+Josefstrasse 40 | ebdcb0 m:P w:r f:w t:g |
+Josefstrasse 42 | c9a878 m:P w:r e:B t:g | EG Granitsockel
+Josefstrasse 45 | e6e3d6 m:P w:r e:B t:g |
+Josefstrasse 46 | dcdad3 m:P w:r e:B t:g | EG Beiz orange
+Josefstrasse 47 | e3ddcc m:P w:r s:s e:GBR t:g | graue Läden, Sandstein-EG
+Josefstrasse 50 | b9705c m:P w:r t:g | EG graugrün, Buchhandlung
+Josefstrasse 59 | 9a9a96 m:B w:b r:f t:7 |
+Josefstrasse 73 | cfd0a0 m:P w:r e:ER t:g | EG graue Rustika, Eck
+Josefstrasse 79 | d6d4c8 m:P w:r s:g t:g | grüne Läden
+Josefstrasse 84 | c9c9c4 m:B w:b r:f t:b | Bürohaus dunkle Brüstungen
+Josefstrasse 112 | d8bb62 m:P w:r e:RB t:g | Eckhaus gelb, EG grauer Stein
+Josefstrasse 144 | a8a9a8 m:P w:r e:E t:g | graues Eckhaus mit Erker
+Josefstrasse 146 | b5a58a m:P w:r t:g |
+Josefstrasse 156 | b0a088 m:P w:r s:g t:g | grüne Läden
+Josefstrasse 162 | b4604c m:P w:r s:u e:B t:h | rotbraun, blaue Läden
+Josefstrasse 164 | b0584c m:P w:r s:u e:B t:h | rotbraun, blaue Läden, Torbogen
+Josefstrasse 170 | b3604f m:P w:r s:g t:h | rotbraun
+Josefstrasse 172 | b8625a m:P w:r s:s t:h | rot
+Josefstrasse 174 | d8a89a m:P w:r e:R t:g | rosa, EG graue Rustika
+Josefstrasse 176 | b8985a m:P w:r e:R t:g | ocker, EG dunkler Stein
+Josefstrasse 178 | b5a58a m:P w:r e:RB t:g |
+Josefstrasse 182 | c8a05c m:P w:r e:R t:g | EG hellgrau Rustika
+Josefstrasse 184 | e5ddc6 m:P w:r e:B t:g |
+Josefstrasse 188 | e0a890 m:P w:r e:B t:h | lachs, EG blaugrau
+Josefstrasse 190 | e0a590 m:P w:r s:s e:B t:h | lachs, graue Läden
+Josefstrasse 196 | dfa38c m:P w:r s:r e:B t:h | lachs, rote Läden
+Josefstrasse 202 | c2c6c9 m:P w:k t:n | hellgrau, kleine Fenster

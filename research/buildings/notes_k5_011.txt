@@ -1,0 +1,31 @@
+Förrlibuckstrasse 229 | d8dcea m:P w:r e:B t:n | hellblau-weiss 2017, Balkone
+Förrlibuckstrasse 223 | e8e6e0 m:B w:r e:B t:n | weiss 2017
+Birmensdorferstrasse 55 | 4a4846 m:G w:b r:f t:7 | dunkle Bürofassade (Baloise)
+Birmensdorferstrasse 58 | dcdad4 m:P w:r s:g e:B t:g | weiss-grau, grüne Läden, Eck
+Birmensdorferstrasse 80 | b0aaa0 m:P w:r r:f t:5 | grauer Putzbau, Schule
+Birmensdorferstrasse 95 | b8b4aa m:P w:r e:B t:g | graue Putzfassade mit rosa Fenstereinfassungen
+Birmensdorferstrasse 97 | b4a89e m:P w:r e:B t:g | grau mit rosa Einfassungen
+Birmensdorferstrasse 99 | c8a898 m:K w:r e:BR t:g | Backstein hell, EG Granit
+Birmensdorferstrasse 109 | d0b8b0 m:P w:r s:b e:B t:5 | altrosa-beige
+Birmensdorferstrasse 140 | a8b4b8 m:P w:r e:B t:n | graublau, Storen
+Zurlindenstrasse 52 | e4b8b0 m:P w:r e:B t:h | rosa
+Zurlindenstrasse 55 | e0b4a8 m:P w:r e:B t:g | rosa
+Zurlindenstrasse 57 | e0b8a8 m:P w:r e:B t:g | rosa, Beiz EG
+Zurlindenstrasse 58 | e4bcb4 m:P w:r e:B t:h | rosa
+Zurlindenstrasse 60 | e4bcb4 m:P w:r e:B t:h | rosa
+Zurlindenstrasse 105 | d8cfb4 m:P w:r e:B t:n | beige, Bank im EG
+Zurlindenstrasse 136 | e4b898 m:P w:r s:r e:R t:g | lachs, rote Läden
+Zurlindenstrasse 291 | c0b8aa m:P w:r s:b e:B t:g | grau, Eisenbalkone, braune Läden
+Weststrasse 55 | e0dccc m:P w:r e:B t:h |
+Weststrasse 148 | b09080 m:P w:r e:R t:g | rosabraun, Beiz EG
+Aemtlerstrasse 6 | d8a040 m:P w:r e:EB t:g | orange-ocker, Erker
+Aemtlerstrasse 8 | d8a040 m:P w:r e:EB t:g | orange-ocker, gelb
+Aemtlerstrasse 160 | d8c8b0 m:P w:r e:EB t:g | beige
+Aemtlerstrasse 172 | e0c888 m:P w:r e:B t:h | gelb
+Aemtlerstrasse 154 | e8dcb8 m:P w:r e:BD t:h | creme, Gauben
+Aemtlerstrasse 186 | a8c8b0 m:P w:r e:B t:h | mintgrün
+Aemtlerstrasse 188 | a8c8b0 m:P w:r e:B t:h | mintgrün
+Aemtlerstrasse 203 | e8e4d8 m:P w:r s:g e:BM t:g | weisses Eckhaus, Mansarde
+Bremgartnerstrasse 55 | d8d8d4 m:P w:r e:B t:g |
+Schlossgasse 3 | d8d0b0 m:P w:r t:5 |
+Schlossgasse 10 | e4e2da m:P w:r e:B t:h |

@@ -34,6 +34,8 @@ import { VeloInfra } from './gameplay/velo';
 import { Anecdotes } from './gameplay/anecdotes';
 import { buildStops } from './world/stops';
 import { CityMap } from './ui/map';
+import { Locator } from './ui/locator';
+import { chatLine } from './ui/chatter';
 import { Menu } from './ui/menu';
 import { loading, hasWebGL2 } from './ui/loading';
 import { initHelp } from './ui/help';
@@ -128,6 +130,7 @@ async function main() {
   const events = new Events(humans, ground, mobile);
   const velo = new VeloInfra();
   const anecdotes = new Anecdotes();
+  const locator = new Locator();
   const npc = (await loading.track(fetch('/data/npc.json').then((r) => r.json()))) as { hourly: number[] };
   // passer-by density by hour (Statistik Stadt Zürich proxy) + Fri/Sat nightlife on the Langstrasse
   const density = (min: number, wd: number) => {
@@ -135,7 +138,7 @@ async function main() {
     const night = (wd === 4 || wd === 5) && (h >= 21 || h <= 3) ? 0.85 : 0;
     return 0.3 + 0.7 * Math.max(f, night);
   };
-  await Promise.all([landmarks3d.load(), rail.load(), transit.load(), transit.loadModels(), traffic.load(), scenes.load(), events.load(), velo.load(), anecdotes.load()].map(L));
+  await Promise.all([landmarks3d.load(), rail.load(), transit.load(), transit.loadModels(), traffic.load(), scenes.load(), events.load(), velo.load(), anecdotes.load(), locator.load()].map(L));
   if (!params.has('exact')) { // never start in a building / landmark / on rail land, water or tram tracks (?exact keeps the raw ?at= for screenshot tests)
     const [fx, fy] = await findSpot({ tiles, landmarks: landmarks3d }, player.x, player.y);
     if (Math.hypot(fx - player.x, fy - player.y) > 0.01) player.teleport(fx, fy, player.yaw);
@@ -262,8 +265,6 @@ async function main() {
   };
 
   // speech bubbles: passers-by greet now and then
-  const GREET_DAY = ['Grüezi!', 'Hallo zusammen!', 'Salü!', 'Ciao!', 'Schönen Tag!', 'Gehen wir noch etwas trinken?'];
-  const GREET_NIGHT = ['Guten Abend!', 'Gute Nacht!', 'Noch eins trinken gehen?'];
   let honkT = 0, laneTipShown = false;
   let bubbleT = 4, bubbleObj: THREE.Object3D | null = null, bubbleLeft = 0;
   const bubble = $('bubble');
@@ -274,8 +275,7 @@ async function main() {
       bubbleT = 6 + Math.random() * 8;
       const n = crowd.nearest(player.x, player.y);
       if (n && n.d < 5) {
-        const list = daytime.night > 0.5 ? GREET_NIGHT : GREET_DAY;
-        bubble.textContent = list[Math.floor(Math.random() * list.length)];
+        bubble.textContent = chatLine({ place: locator.square(player.x, player.y) ?? locator.street(player.x, player.y) ?? '', min: clk.min, day: clk.day, night: daytime.night > 0.5 });
         bubbleObj = n.obj; bubbleLeft = 2.5;
       }
     }
@@ -384,8 +384,9 @@ async function main() {
       const i = renderer.info.render, near = map.nearestPlace(player.x, player.y);
       const mem = (performance as unknown as { memory?: { usedJSHeapSize: number } }).memory?.usedJSHeapSize ?? 0;
       $('stats').textContent = `${Math.round(30 / (acc - lastStats))} fps · ${i.calls} calls · ${(i.triangles / 1000).toFixed(0)}k tris · q${quality.level} · ${(mem / 1e6) | 0} MB JS`;
-      $('place-name').textContent = near?.name ?? '';
-      $('place-kreis').textContent = map.kreisAt(player.x, player.y);
+      const nearPlace = near && Math.hypot(near.x - player.x, near.y - player.y) < 70 ? near.name : null;
+      $('place-name').textContent = locator.square(player.x, player.y) ?? locator.street(player.x, player.y, 14) ?? nearPlace ?? locator.street(player.x, player.y) ?? near?.name ?? '';
+      $('place-kreis').textContent = locator.kreis(player.x, player.y) ?? map.kreisAt(player.x, player.y);
       $('clock').textContent = clk.label();
       lastStats = acc;
     }

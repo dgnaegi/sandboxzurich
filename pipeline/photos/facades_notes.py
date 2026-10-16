@@ -29,7 +29,11 @@ STIL = dict(g="gruenderzeit", j="jugendstil", h="heimatstil", **{"5": "50er", "6
 def main():
     out = {}
     cand = json.load(open(S / "candidates.json"))
-    for f in sorted(S.glob("notes_raw_*.tsv")):
+    for cf in sorted(D.glob("sheets_k*/candidates_k*.json")):   # extra regional batches (k5 ...): own candidate files
+        for a, v in json.load(open(cf)).items():
+            if v.get("imgs") or v.get("imgs_old"):
+                cand.setdefault(a, dict(v, imgs=v.get("imgs") or v["imgs_old"]))
+    for f in sorted(S.glob("notes_raw_*.tsv")) + sorted(D.glob("notes_raw_k*_*.tsv")):
         for ln in f.read_text().splitlines():
             if not ln.strip() or ln.startswith("#"):
                 continue

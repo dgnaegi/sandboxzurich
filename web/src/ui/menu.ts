@@ -1,3 +1,4 @@
+import { openReport } from './report';
 import { GfxMode, bindSettingsPage, settings } from './settings';
 
 /** Pause menu (Esc / P / ☰): continue, map, settings (graphics, sound, camera, joystick), credits, imprint. */
@@ -15,6 +16,7 @@ export class Menu {
     $('m-continue').addEventListener('click', () => this.toggle(false));
     $('m-map').addEventListener('click', () => { this.toggle(false); this.onMap(); });
     bindSettingsPage(this.el.querySelector<HTMLElement>('[data-page="settings"]')!, { onGfx: (g) => this.onQuality(g), onMute: (m) => this.onMute(m), onMusic: () => this.onMusic(settings.music, settings.musicVol) });
+    $('m-report').addEventListener('click', () => openReport());
     $('m-settings').addEventListener('click', () => this.page('settings'));
     for (const id of ['m-credits', 'm-imprint']) $(id).addEventListener('click', () => this.page(id === 'm-credits' ? 'credits' : 'imprint'));
     for (const b of document.querySelectorAll('.m-back')) b.addEventListener('click', () => this.page('main'));
