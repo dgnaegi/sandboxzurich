@@ -263,8 +263,18 @@ def tile_meta(tb, H, P=None):
                 w, d = FOOT[o["t"]](o)
                 fp = affinity.rotate(box(x - w / 2, y - d / 2, x + w / 2, y + d / 2), o.get("h", 0), origin=(x, y))
                 coll.append([[round(a, 2), round(b, 2)] for a, b in list(fp.exterior.coords)[:-1]])
-            if o["t"] in ("tbench", "bench") and o.get("sit", 1):  # seated people (pedspots): rows [x, y, z, heading]
-                benches.append([round(x, 2), round(y, 2), round(float(H.at(x, y)), 2), round(math.pi / 2 - hd, 3)])
+            if o["t"] in ("tbench", "bench") and o.get("sit", 1):
+                # seated people (pedspots): rows [x, y, z, heading, 7]; the sitter faces local -z of the person, so the
+                # heading is that of the sitter: bench (backrest at local -z) -> seats facing +z, tbench -> one seat per
+                # side of the table (local z = +-(W/2 + 0.3)) facing it. Seat height includes the object's lift.
+                zs = round(float(H.at(x, y)) + lift, 2)
+                if o["t"] == "bench":
+                    benches.append([round(x, 2), round(y, 2), zs, round(math.pi / 2 - (hd + math.pi), 3), 7])
+                else:
+                    off = float(o.get("b", 0) or 0.75) / 2 + 0.3
+                    for sgn in (1, -1):
+                        benches.append([round(x + math.sin(hd) * off * sgn, 2), round(y - math.cos(hd) * off * sgn, 2), zs,
+                                        round(math.pi / 2 - (hd if sgn > 0 else hd + math.pi), 3), 7])
             objs.append([o["t"], round(x, 2), round(y, 2), round(float(H.at(x, y)) + lift, 2), round(math.radians(o.get("h", 0)), 3),
                          *[o.get(k, 0) for k in ("a", "b", "c", "d")], o.get("col", "")])
         for ln in pl.get("lines", []):

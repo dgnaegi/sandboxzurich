@@ -30,7 +30,7 @@ Spielgebiet: Kreise 4+5, Teile 9 und 3, Friedhof Sihlfeld (6.88 km², 219 Spiel-
 `gameplay.mjs`, `touch.mjs`, `drive.mjs`, `clock.mjs`, `perf.mjs` (Handy 4× gedrosselt), `perf_pc.mjs`, `shots.mjs` (feste Punkte inkl. Landmarks; Kontaktbogen per PIL zusammensetzen, der eingebaute bricht bei vielen Bildern ab), `look.mjs`, `topdown.mjs`, `gait.mjs`, `humans_v4.mjs`, `ground_shots.mjs`, `trees_shots.mjs`, `wildposters_shots.mjs`. Achtung: keine Warteschleifen mit `pgrep -f build_testarea` (matchen sich selbst), nie `git stash` (parallele Agents).
 
 ## Offen / Nächstes
-0. **Todo (User 2026-10-16):** NPC-Autos nur auf Strassen, die für Autos erlaubt sind (keine Fuss-/Velowege, Fussgängerzonen, Tramtrassees, Plätze; `pipeline/roadgraph.py` nach OSM-Zugangsregeln: highway=footway/path/pedestrian/cycleway, motor_vehicle/access=no, Fahrverbote aus OGD-Signalisation). Keine Fussgänger:innen auf Bahnlinien/Gleisfeld (Fussgänger-Netz und Spots gegen AV-Bahngebiet `av_rail` und OSM railway filtern). Ausserdem: Figuren sitzen teils neben der Bank in der Luft (Bank-Spots in lawns/pedspots auf Bankposition/-richtung klemmen).
+0. **Regeln NPC (erledigt 2026-10-16, Agent):** Autokanten nach OSM-Zugangsregeln (`car_allowed`: motorcar > motor_vehicle > vehicle > access; no/private/permit/delivery/destination/... raus), nicht in Fussgängerzonen (OGD) und auf Plätzen, nur grösste stark zusammenhängende Komponente (roads.json: 3779 statt 4718 Autokanten). Bahngebiet: `pipeline/railzone.py` → `data/railzone.json` (AV-Bahngebiet + OSM-Gleise 4 m, ohne Perrons/Brücken), `web/src/world/railzone.ts` filtert Fussgängerpfade (`clipPath`), Spots und Lawns. Bänke: Sitzhöhe -5 cm, Tisch-Bank (Typ 2/4) zwei Sitze links/rechts des Tischs, Platz-Bänke (`places_detail.py`, Typ 7) mit Lift und richtiger Blickrichtung (erfordert Kachel-Neubau, 3 Kacheln neu gebaut). Brückendecks: `pipeline/decktrack.py` gibt Kanten (roads.json `z`) und Linien (transit.json `z`) die Deckhöhe nach OSM-Way-Ids der Brücke; traffic.ts/transit.ts/stops.ts nutzen sie. Komplett-Build nötig: nur für Bank-Sitze (places_detail) in weiteren Kacheln, sonst nicht.
 1. Ergebnis des 2. Komplett-Builds im Spiel prüfen (QA-Bogen `preview/qa_night2_*.jpg`), siehe unten «Letzte Kontrolle».
 2. Westpark-Fassade wirkt in der Modellansicht dunkel (im Spiel prüfen), Zeughäuser/Kaserne grob, Toni-Rampen, Hardbrücke-Perrons.
 3. Wildplakate: mehr Venues (Recherche Runde 2 läuft/gelaufen), Unterführungen/Stromkästen/Bauzäune als Plakatorte.
@@ -49,4 +49,12 @@ Spielgebiet: Kreise 4+5, Teile 9 und 3, Friedhof Sihlfeld (6.88 km², 219 Spiel-
 - Tests: gameplay 5/5, touch 4/4, drive 18/18, clock 12/12.
 - Download bis spielbar (Prod, unkomprimiert) 26.8 MB, Budget 20 MB → mit Brotli am CDN ≈ 21–23 MB; nächste Hebel: Figuren-Texturen (4 MB), Karte lazy laden (1.9 MB), Fassaden-Atlas.
 - Zuletzt behoben: Haltestellenschild von hinten gespiegelt (zwei Flächen), Tram-Frontscheibe leuchtete nachts, Nachtlicht erst ab Nachtanteil 0.12 (PC-Dämmerung 51 → 56 fps).
-- Bekannt offen: Bezirksgebäude-Fenster mit Dreiecksartefakten (`k4w3_bezirk.py`), Hardau-Türme ca. 2 m tief (prüfen), offene Parks nachts dunkel, Tram 2000 fehlt, Kandelaber-Typen (keine Daten).
+- Erledigt 2026-10-16 (fixes_v1): Tram 2000 (3 Module + Doppeltraktion, Typ-Wahl `tramType` in transit.ts), Hardau-Türme mit Sockel auf höchstem Geländepunkt, Nacht-Hemisphäre/Mond leicht angehoben. Bezirksgebäude-Fenster: Geometrie geprüft (984 Polygone, Flächen stimmen), Artefakte im aktuellen Build nicht reproduzierbar.
+- Bekannt offen (Stand vor fixes_v1): Bezirksgebäude-Fenster mit Dreiecksartefakten (`k4w3_bezirk.py`), Hardau-Türme ca. 2 m tief (prüfen), offene Parks nachts dunkel, Tram 2000 fehlt, Kandelaber-Typen (keine Daten).
+
+## Audio-Ambience (2026-10-16)
+Ortsabhängige Geräuschschichten: `web/src/engine/audio_amb.ts` (Layer), `audio.ts` (Start/Unlock, iOS), Daten `web/public/audio/soundmap.json` (`pipeline/soundmap.py`). Details `research/audio.md`. `?noamb` schaltet die Schichten ab (Debug). Regen nicht umgesetzt.
+
+
+## Crash-Physik (2026-10-16)
+Erledigt laut DECISIONS #38. Test: `web/tests/crash.mjs` (Kontaktbogen preview/crash_v1.jpg). `tests/drive.mjs` prüft «Auto bleibt stehen» jetzt inkl. Wracks. Offen: Delle/Rauch visuell nachschärfen (Sheet ist klein), Landmark-Kollider nach Komplett-Build testen.

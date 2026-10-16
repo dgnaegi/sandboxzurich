@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { inRail } from './railzone';
 import { FAMILY, type Human, type HumanLib } from './humans';
 
 /** A clip family name (humans.FAMILY) or a single clip name. */
@@ -13,6 +14,8 @@ export const clipFor = (h: Human, a: string): string => (a in FAMILY ? h.pick(a 
 type Kind = 'sit' | 'fount' | 'smoke' | 'cafe' | 'work';
 /** ry = three rotation.y of the person (model faces local -z); (ax, ay) = unit axis in world for side-by-side offsets */
 interface Spot { x: number; y: number; z: number; ry: number; ax: number; ay: number; kind: Kind; k: number; people: Human[]; gear: THREE.Object3D[][] }
+/** the mocap pelvis sits ~5 cm above a 0.46 m bench seat */
+const SIT_DROP = 0.05;
 const face = (fx: number, fy: number) => Math.atan2(-fx, fy);
 
 const BARS = new Set(['bar', 'pub', 'nightclub', 'biergarten', 'club', 'cocktail']);
@@ -37,8 +40,17 @@ export class PedSpots {
   constructor(private lib: HumanLib, private parent: THREE.Group, private ground?: (x: number, y: number) => number) {}
 
   add(meta: { benches?: number[][]; fountains?: number[][]; signs?: { x: number; y: number; z: number; tx: number; ty: number; kind: string }[]; workers?: number[][] }) {
-    const mk = (x: number, y: number, z: number, ry: number, ax: number, ay: number, kind: Kind, k: number) => this.spots.push({ x, y, z, ry, ax, ay, kind, k, people: [], gear: [] });
-    for (const [x, y, z, h] of meta.benches ?? []) { const k = hash(x, y), ry = -h + Math.PI / 2; if (k % 100 < 60) mk(x, y, z, ry, Math.cos(ry), Math.sin(ry), 'sit', k); }
+    const mk = (x: number, y: number, z: number, ry: number, ax: number, ay: number, kind: Kind, k: number) => !inRail(x, y) && this.spots.push({ x, y, z, ry, ax, ay, kind, k, people: [], gear: [] });
+    // Bench rows [x, y, z, heading, type]: the sitter faces local -z of the bench (backrest at +z), pelvis on the seat.
+    // Type 2/4 = table-bench combo (seats at local z = +-0.65 on both sides of the table, facing it); 6 = place bench,
+    // 7 = place seat (heading already faces away from the backrest, see pipeline/places_detail.py)
+    for (const [x, y, z, h, t] of meta.benches ?? []) {
+      const k = hash(x, y), ry = -h + Math.PI / 2;
+      if (k % 100 >= 60) continue;
+      if (t === 2 || t === 4) {
+        for (const s of [1, -1]) mk(x + Math.sin(ry) * 0.65 * s, y - Math.cos(ry) * 0.65 * s, z, s > 0 ? ry : ry + Math.PI, Math.cos(ry), Math.sin(ry), 'sit', k + (s > 0 ? 0 : 37));
+      } else mk(x, y, z, ry, Math.cos(ry), Math.sin(ry), 'sit', k);
+    }
     for (const [x, y, z] of meta.fountains ?? []) {
       const k = hash(x, y), a = (k % 628) / 100;
       if (k % 100 < 55) mk(x + Math.cos(a) * 1.4, y + Math.sin(a) * 1.4, z, face(-Math.cos(a), -Math.sin(a)), 1, 0, 'fount', k);
@@ -114,7 +126,7 @@ export class PedSpots {
         h0.play(h0.pick(fam, rnd(i)), 0, Math.random() * 4);
         s.people.push(h0);
         // a pair on one bench turns towards each other (talking); alone: slightly random posture
-        this.place(h0, s.x + s.ax * off, s.y + s.ay * off, s.z, s.ry + (n === 2 ? (i ? 0.4 : -0.4) : (rnd(5) - 0.5) * 0.3));
+        this.place(h0, s.x + s.ax * off, s.y + s.ay * off, s.z - SIT_DROP, s.ry + (n === 2 ? (i ? 0.4 : -0.4) : (rnd(5) - 0.5) * 0.3));
       }
     } else if (s.kind === 'smoke') { person(-0.5, s.ry, 'talk', 0); person(0.5, s.ry + Math.PI, rnd(2) < 0.7 ? 'listen' : 'talk2', 1); }
     else if (s.kind === 'work') s.gear.push(this.gear(person(0, s.ry + (s.k % 5) * 0.15, s.k % 4 === 0 ? 'call' : s.k % 3 === 0 ? 'wait' : 'idle')));

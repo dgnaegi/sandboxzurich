@@ -5,10 +5,12 @@ import sys
 from collections import Counter
 
 import numpy as np
+import shapely
 
 sys.path.insert(0, str(__file__).rsplit("/", 1)[0])
 from config import AREA, ROOT  # noqa: E402
 from sources import osm  # noqa: E402
+import streets  # noqa: E402
 from streets import WIDTH, _num  # noqa: E402
 
 MARGIN = 150.0
@@ -16,6 +18,20 @@ SPEED = {"primary": 50, "secondary": 50, "tertiary": 50, "residential": 30, "unc
          "primary_link": 50, "secondary_link": 40, "tertiary_link": 40}
 WIDTH = {**WIDTH, "living_street": 5}
 OUT = ROOT / "web" / "public" / "data" / "roads.json"
+
+
+# access values that keep ordinary NPC cars off a way ("destination"/"delivery" = Zubringer/Anlieferung only)
+NO_CAR = {"no", "private", "permit", "customers", "delivery", "destination", "agricultural", "forestry", "emergency",
+          "agricultural;destination", "delivery;private", "unknown"}
+
+
+def car_allowed(t):
+    """OSM access rules for a car: the most specific tag wins (motorcar > motor_vehicle > vehicle > access)."""
+    for k in ("motorcar", "motor_vehicle", "vehicle", "access"):
+        v = t.get(k)
+        if v:
+            return v not in NO_CAR
+    return True
 
 
 def offset(pts, d):
@@ -40,6 +56,47 @@ def length(p):
     return float(np.linalg.norm(np.diff(np.array(p), axis=0), axis=1).sum())
 
 
+def scc_edges(es):
+    """Edges whose both ends lie in the largest strongly connected component (iterative Kosaraju)."""
+    adj, radj = {}, {}
+    for e in es:
+        adj.setdefault(e["a"], []).append(e["b"])
+        radj.setdefault(e["b"], []).append(e["a"])
+    seen, order = set(), []
+    for r in list(adj) + list(radj):
+        if r in seen:
+            continue
+        seen.add(r)
+        st = [(r, iter(adj.get(r, [])))]
+        while st:
+            n, it = st[-1]
+            for m in it:
+                if m not in seen:
+                    seen.add(m)
+                    st.append((m, iter(adj.get(m, []))))
+                    break
+            else:
+                order.append(n)
+                st.pop()
+    comp, best = {}, []
+    for r in reversed(order):
+        if r in comp:
+            continue
+        cur, st = [r], [r]
+        comp[r] = r
+        while st:
+            n = st.pop()
+            for m in radj.get(n, []):
+                if m not in comp:
+                    comp[m] = r
+                    cur.append(m)
+                    st.append(m)
+        if len(cur) > len(best):
+            best = cur
+    ok = set(best)
+    return [e for e in es if e["a"] in ok and e["b"] in ok]
+
+
 def main():
     nodes, els = osm()
     x0, y0, x1, y1 = AREA
@@ -54,14 +111,13 @@ def main():
             continue
         if hw not in SPEED and hw != "cycleway":
             continue
-        if t.get("access") in ("private", "no") or t.get("motor_vehicle") == "no" and hw != "cycleway":
-            if hw != "cycleway":
-                continue
+        if hw != "cycleway" and not car_allowed(t):
+            continue
         ns = [n for n in e["nodes"] if n in nodes]
         if len(ns) < 2 or not any(x0 <= nodes[n][0] <= x1 and y0 <= nodes[n][1] <= y1 for n in ns):
             continue
-        ways.append((hw, t, ns))
-    cnt = Counter(n for _, _, ns in ways for n in set(ns))
+        ways.append((hw, t, ns, e["id"]))
+    cnt = Counter(n for _, _, ns, _ in ways for n in set(ns))
     junction = lambda n: cnt[n] >= 2  # noqa: E731
 
     idx, nlist = {}, []
@@ -73,13 +129,15 @@ def main():
         return idx[n]
 
     cars, bikes = [], []
+    cur_wid = 0
 
     def add(lst, a, b, pts, v, w, ow):
         p = np.round(np.array(pts), 1).flatten().tolist()
-        lst.append({"a": a, "b": b, "p": p, "v": v, "w": round(w, 1), "ow": int(ow)})
+        lst.append({"a": a, "b": b, "p": p, "v": v, "w": round(w, 1), "ow": int(ow), "wid": cur_wid})
 
-    for hw, t, ns in ways:
+    for hw, t, ns, wid in ways:
         cyc_way = hw == "cycleway"
+        cur_wid = wid
         w = _num(t.get("width"), _num(t.get("lanes"), 0) * 3.2 or WIDTH.get(hw, 3)) if not cyc_way else 2.5
         oneway = t.get("oneway") in ("yes", "1", "true") or t.get("junction") == "roundabout"
         rev = t.get("oneway") == "-1"
@@ -150,6 +208,25 @@ def main():
             es[:] = [e for e in es if id(e) not in ids]
         print(f"construction sites: {name} {n0 - n1} edges blocked + {n1 - len(es)} dead ends pruned")
 
+    # no cars in pedestrian zones (OGD Fussgaengerzone), on squares/pedestrian areas (OSM) or along a tram track that
+    # is not a road; then keep only the largest strongly connected part, so no lane leads into a dead end
+    import streets_rules
+    S = streets.parse(nodes, els)
+    banned = [g for g in (streets_rules.rules().zones.get("fuss"), S.get("plaza")) if g is not None and not g.is_empty]
+    ban = shapely.union_all(banned).buffer(-0.5)
+    shapely.prepare(ban)
+
+    def in_ban(e):
+        ln = LineString(np.array(e["p"]).reshape(-1, 2))
+        return ln.length > 0 and ln.intersection(ban).length > 0.5 * ln.length
+
+    n0 = len(cars)
+    cars[:] = [e for e in cars if not in_ban(e)]
+    print(f"cars in pedestrian zones / squares: {n0 - len(cars)} edges removed")
+    keep = scc_edges(cars)
+    print(f"cars: {len(cars) - len(keep)} edges outside the largest strongly connected part removed")
+    cars[:] = keep
+
     # report
     def comps(es):
         par = {}
@@ -167,6 +244,19 @@ def main():
         big = sorted(c.values(), reverse=True)[:3]
         print(f"{name}: {len(es)} edges, {tot:.1f} km, comps {len(c)} (largest node-refs {big}), nodes w/o in/out {dead}")
     print(f"nodes {len(nlist)}")
+    # bridge decks: vertices on a deck carry the deck height "z" (null = terrain), so vehicles drive on top of bridges
+    import bridges
+    from decktrack import DeckTrack
+    dt = DeckTrack(bridges.bridge_ways(nodes, els, AREA))
+    for name, es in (("cars", cars), ("bikes", bikes)):
+        n = 0
+        for e in es:
+            z = dt.z(np.array(e["p"]).reshape(-1, 2).tolist(), [e["wid"]])
+            if any(v is not None for v in z):
+                e["z"] = z
+                n += 1
+            del e["wid"]
+        print(f"deck heights: {name} {n} edges on bridges")
     OUT.parent.mkdir(parents=True, exist_ok=True)
     json.dump({"nodes": [[round(x, 1), round(y, 1)] for x, y in nlist], "cars": cars, "bikes": bikes},
               open(OUT, "w"), separators=(",", ":"))

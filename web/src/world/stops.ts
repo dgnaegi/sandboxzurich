@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
 /** Tram/bus stops from public/data/transit.json: VBZ-style stop pole (name + lines) and a glass shelter. */
-interface LineJson { ref: string; mode: string; pts: number[][]; stops: { name: string; s: number }[] }
+interface LineJson { ref: string; mode: string; pts: number[][]; stops: { name: string; s: number }[]; z?: (number | null)[] }
 
 function panel(name: string, lines: string[]): THREE.Texture {
   const c = document.createElement('canvas'); c.width = 256; c.height = 256;
@@ -40,22 +40,24 @@ const roofMat = new THREE.MeshLambertMaterial({ color: 0x5f666b });
 
 export function buildStops(data: { lines: LineJson[] }, ground: (x: number, y: number) => number): THREE.Group {
   const group = new THREE.Group();
-  const byName = new Map<string, { x: number; y: number; h: number; lines: Set<string> }[]>();
+  const byName = new Map<string, { x: number; y: number; h: number; z: number; lines: Set<string> }[]>();
   for (const l of data.lines) for (const st of l.stops) {
     let s = st.s;
     for (let i = 0; i + 1 < l.pts.length; i++) {
       const [ax, ay] = l.pts[i], [bx, by] = l.pts[i + 1], L = Math.hypot(bx - ax, by - ay);
       if (s > L) { s -= L; continue; }
       const t = s / L, x = ax + (bx - ax) * t, y = ay + (by - ay) * t, h = Math.atan2(bx - ax, by - ay);
+      const z0 = l.z?.[i], z1 = l.z?.[i + 1];   // on a bridge deck (Hardbruecke ...): platform at deck height, NaN = terrain
+      const dz = z0 == null && z1 == null ? NaN : z0 == null ? z1! : z1 == null ? z0 : z0 + (z1 - z0) * t;
       const px = x + Math.cos(h) * 2.6, py = y - Math.sin(h) * 2.6; // right-hand platform edge
       const list = byName.get(st.name) ?? byName.set(st.name, []).get(st.name)!;
       const near = list.find((e) => Math.hypot(e.x - px, e.y - py) < 15);
-      if (near) near.lines.add(l.ref); else list.push({ x: px, y: py, h, lines: new Set([l.ref]) });
+      if (near) near.lines.add(l.ref); else list.push({ x: px, y: py, h, z: dz, lines: new Set([l.ref]) });
       break;
     }
   }
   for (const [name, list] of byName) for (const st of list) {
-    const z = ground(st.x, st.y), o = new THREE.Group();
+    const z = Number.isNaN(st.z) ? ground(st.x, st.y) : st.z, o = new THREE.Group();
     o.position.set(st.x, z, -st.y); o.rotation.y = -st.h;
     const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 2.9, 6).translate(0, 1.45, 0), grey);
     // two faces back to back: a DoubleSide plane shows the name mirrored from behind

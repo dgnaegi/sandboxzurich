@@ -78,6 +78,9 @@ def project(pts, cum, q):
 def main():
     nodes, els = sources.osm()
     ways = {e["id"]: e["nodes"] for e in els if e["type"] == "way"}
+    import bridges
+    from decktrack import DeckTrack
+    dt = DeckTrack(bridges.bridge_ways(nodes, els, AREA))
     ntags = {e["id"]: e.get("tags", {}) for e in els if e["type"] == "node" and e.get("tags")}
     cands = defaultdict(list)
     for r in els:
@@ -112,9 +115,11 @@ def main():
         stops.sort(key=lambda x: x["s"])
         if not stops:
             continue
+        zz = dt.z(pts, [m["ref"] for m in r["members"] if m["type"] == "way"])  # bridge deck height per point (null = terrain)
         cands[(t["route"], t["ref"])].append({
             "ref": t["ref"], "mode": MODES[t["route"]], "colour": t.get("colour", "#1f4e8c"),
-            "pts": [[round(x, 1), round(y, 1)] for x, y in pts], "stops": stops, "len": cum[-1]})
+            "pts": [[round(x, 1), round(y, 1)] for x, y in pts], "stops": stops, "len": cum[-1],
+            **({"z": zz} if any(v is not None for v in zz) else {})})
     lines = []
     for key, vs in sorted(cands.items()):
         groups = []  # direction groups by chord direction

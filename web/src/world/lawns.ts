@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import type { Human, HumanLib } from './humans';
 import { clipFor } from './pedspots';
+import { inRail } from './railzone';
 
 /**
  * People on the grass (spots from the pipeline: [x, y, z, heading, kind]; 0 lying, 1 picnic, 2 chatting).
@@ -20,7 +21,7 @@ export class Lawns {
   constructor(private lib: HumanLib, public max: number) {}
 
   add(rows: number[][]) {
-    for (const [x, y, z, h, kind] of rows) this.spots.push({ x, y, z, h, kind, obj: null, people: [] });
+    for (const [x, y, z, h, kind] of rows) if (!inRail(x, y)) this.spots.push({ x, y, z, h, kind, obj: null, people: [] });
   }
 
   private human(): Human {

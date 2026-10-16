@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import type { Human, HumanLib, Model } from './humans';
 import { PedSpots } from './pedspots';
+import { clipPath } from './railzone';
 
 /**
  * Ambient pedestrians on sidewalk paths around the player. Composition follows Kreis 4 statistics
@@ -65,7 +66,7 @@ export class Pedestrians {
     return best;
   }
 
-  addPaths(paths: number[][][]) { this.paths.push(...paths.filter((p) => p.length >= 2)); }
+  addPaths(paths: number[][][]) { for (const p of paths) if (p.length >= 2) this.paths.push(...clipPath(p)); }   // never across railway land
 
   nearest(x: number, y: number): { obj: THREE.Object3D; d: number } | null {
     let best: { obj: THREE.Object3D; d: number } | null = null;

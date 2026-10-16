@@ -9,18 +9,20 @@ import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js
 interface Agent {
   kind: 'car' | 'bike'; e: number; s: number; v: number; nxt: number; x: number; y: number; h: number; ex: number; ey: number;
   seg: number; vmul: number; len: number; type: string; color: THREE.Color; wait: number; free: boolean; phase: number;
-  id: number; alive: boolean; yielding: boolean; acc: number; turn: number;
+  id: number; alive: boolean; yielding: boolean; acc: number; turn: number; dz: number;
 }
 interface Edge {
   a: number; b: number; p: Float32Array; cum: Float32Array; len: number; v: number; w: number;
   d0x: number; d0y: number; d1x: number; d1y: number; list: Agent[];
+  /** bridge deck height per vertex, NaN = terrain (pipeline/decktrack.py); undefined = no deck on this edge */
+  z?: Float32Array;
 }
 interface Graph { edges: Edge[]; outs: number[][]; ins: number[][]; wcum: Float64Array; total: number }
 
 const B = 4.5, TAU = 0.7, MINGAP = 2, CAP = 64;
 const safe = (gap: number, vl: number) => -B * TAU + Math.sqrt((B * TAU) ** 2 + vl * vl + 2 * B * Math.max(0, gap - MINGAP));
 
-function buildGraph(raw: { a: number; b: number; p: number[]; v: number; w: number }[], nn: number): Graph {
+function buildGraph(raw: { a: number; b: number; p: number[]; v: number; w: number; z?: (number | null)[] }[], nn: number): Graph {
   const edges: Edge[] = [];
   for (const r of raw) {
     const n = r.p.length / 2;
@@ -31,7 +33,7 @@ function buildGraph(raw: { a: number; b: number; p: number[]; v: number; w: numb
     if (len < 1) continue;
     const dir = (i: number) => { const dx = p[2 * i + 2] - p[2 * i], dy = p[2 * i + 3] - p[2 * i + 1], l = Math.hypot(dx, dy) || 1; return [dx / l, dy / l]; };
     const [d0x, d0y] = dir(0), [d1x, d1y] = dir(n - 2);
-    edges.push({ a: r.a, b: r.b, p, cum, len, v: r.v, w: r.w, d0x, d0y, d1x, d1y, list: [] });
+    edges.push({ a: r.a, b: r.b, p, cum, len, v: r.v, w: r.w, d0x, d0y, d1x, d1y, list: [], z: r.z ? Float32Array.from(r.z, (v) => v ?? NaN) : undefined });
   }
   const outs: number[][] = Array.from({ length: nn }, () => []), ins: number[][] = Array.from({ length: nn }, () => []);
   const wcum = new Float64Array(edges.length);
@@ -199,8 +201,13 @@ export class Traffic {
     const l = cum[i + 1] - cum[i] || 1, t = Math.min(1, Math.max(0, (a.s - cum[i]) / l));
     const x0 = p[2 * i], y0 = p[2 * i + 1], x1 = p[2 * i + 2], y1 = p[2 * i + 3];
     this._hx = (x1 - x0) / l; this._hy = (y1 - y0) / l;
+    if (e.z) {
+      const z0 = e.z[i], z1 = e.z[i + 1], n0 = Number.isNaN(z0), n1 = Number.isNaN(z1);
+      this._z = n0 && n1 ? NaN : n0 ? z1 : n1 ? z0 : z0 + (z1 - z0) * t;
+    } else this._z = NaN;
     return [x0 + (x1 - x0) * t, y0 + (y1 - y0) * t];
   }
+  private _z = NaN;
   private _hx = 1; private _hy = 0;
 
   private turnOf(e: Edge, ne: Edge | null) {
@@ -308,6 +315,7 @@ export class Traffic {
     }
     const ce = g.edges[a.e];
     const [rx, ry] = this.place(a, ce);
+    a.dz = this._z;
     if (changed) { a.ex = a.x - rx; a.ey = a.y - ry; }
     const k = Math.exp(-dt * 3);
     a.ex *= k; a.ey *= k;
@@ -332,8 +340,9 @@ export class Traffic {
       const e = g.edges[lo];
       if (e.len < 12) continue;
       const a: Agent = { kind, e: lo, s: 5 + Math.random() * (e.len - 10), v: 0, nxt: -1, x: 0, y: 0, h: 0, ex: 0, ey: 0, seg: 0, vmul: 1,
-        len: 4.4, type: '', color: JACKETS[0], wait: 0, free: false, phase: Math.random() * 6.28, id: this.nextId++, alive: true, yielding: false, acc: 0, turn: 0 };
+        len: 4.4, type: '', color: JACKETS[0], wait: 0, free: false, phase: Math.random() * 6.28, id: this.nextId++, alive: true, yielding: false, acc: 0, turn: 0, dz: NaN };
       const [x, y] = this.place(a, e);
+      a.dz = this._z;
       const d = Math.hypot(x - px, y - py);
       if (d < 120 || d > 250) continue;
       let ok = true;
@@ -397,7 +406,7 @@ export class Traffic {
     this.out = [];
     const M = this.tmpA, L = this.tmpB;
     for (const a of this.agents) {
-      const y = this.ground(a.x, a.y) - 0.12, th = a.h - Math.PI / 2, c = Math.cos(th), s = Math.sin(th);
+      const y = Number.isNaN(a.dz) ? this.ground(a.x, a.y) - 0.12 : a.dz, th = a.h - Math.PI / 2, c = Math.cos(th), s = Math.sin(th);
       this.out.push({ x: a.x, y: a.y, heading: a.h, kind: a.kind, len: a.len, v: a.v, id: a.id, brake: a.acc < -1.3 || (a.yielding && a.v < 0.6), turn: a.turn, type: a.type });
       if (a.kind === 'car') {
         const m = this.carMesh[a.type], i = cursor[a.type] ?? 0;
