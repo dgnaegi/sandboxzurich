@@ -8,17 +8,19 @@ import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js
  * S-Bahn trains on the OSM tracks. Per tile: 1 mesh (world material) + 1 wire LineSegments + 1 sign mesh = 3 draw calls.
  * Train positions are a pure function of game time (like Transit).
  */
-interface TileData { wr?: number[][]; sg?: number[][]; glb?: number }
-interface RouteJson { name: string; dir: number; len: number; stops: { name: string; s: number }[]; pts: number[] }
+interface TileData { wr?: number[][]; w1?: number[][]; sg?: number[][]; pk?: number[][]; glb?: number }
+interface RouteJson { name: string; dir: number; len: number; stops: { name: string; s: number }[]; pts: number[]; v?: number; cars?: number; head?: number; ts?: number; te?: number }
 interface RailJson { tile: number; stations: string[]; tiles: Record<string, TileData>; routes: RouteJson[] }
 interface Seg { s0: number; s1: number; t0: number; T: number; es: boolean; ee: boolean }
-interface Route { j: RouteJson; x: Float32Array; y: Float32Array; z: Float32Array; cum: Float32Array; segs: Seg[]; trip: number; offset: number; headway: number }
+interface Route { j: RouteJson; tMove: number; cars: number; v: number; tint: number; x: Float32Array; y: Float32Array; z: Float32Array; cum: Float32Array; segs: Seg[]; trip: number; offset: number; headway: number }
 export interface RailCollider { x: number; y: number; heading: number; len: number; width: number }
 
-const LOAD_R = 420, UNLOAD_R = 560, TRAIN_RANGE = 700, DWELL = 30, SPEED = 22, CARS = 5, CAR_L = 26.4, RAIL_TOP = 0.2, WIRE = 5.5 + 0.29, SPAN = 60;
+const LOAD_R = 420, UNLOAD_R = 560, TRAIN_RANGE = 700, DWELL = 30, TERM = 150, CAR_L = 26.4, RAIL_TOP = 0.27, MAXI = 64, PARKMAX = 96, WIRE = 5.5 + 0.29, SPAN = 60;
+const TINT = [new THREE.Color(1, 1, 1), new THREE.Color(0.8, 0.82, 0.88)];
+const PTINT = [new THREE.Color(1, 1, 1), new THREE.Color(0.86, 0.86, 0.9), new THREE.Color(0.7, 0.72, 0.78), new THREE.Color(0.95, 0.9, 0.9)];
 const tpl = new THREE.Object3D(); tpl.rotation.order = 'YXZ';
 
-function wireGeo(runs: number[][]): THREE.BufferGeometry {
+function wireGeo(runs: number[][], single = false): THREE.BufferGeometry {
   const v: number[] = [];
   for (const r of runs) {
     const n = r.length / 3;
@@ -32,7 +34,7 @@ function wireGeo(runs: number[][]): THREE.BufferGeometry {
       const f = (s % SPAN) / SPAN, zig = 0.2 * (Math.floor(s / SPAN) % 2 ? -1 : 1) * (1 - 2 * f);
       const zc = z + WIRE;
       const c = [x - ty * zig, zc, -(y + tx * zig)], m = [x, zc + 1.4 - (1 - (2 * f - 1) ** 2), -y];
-      if (pc && pm) { v.push(...pc, ...c, ...pm, ...m); if (i % 3 === 1) v.push(...c, ...m); }
+      if (pc && pm) { if (single) v.push(...pc, ...c); else { v.push(...pc, ...c, ...pm, ...m); if (i % 3 === 1) v.push(...c, ...m); } }
       pc = c; pm = m; px = x; py = y;
     }
   }
@@ -47,7 +49,11 @@ export class Railways {
   private tiles = new Map<string, THREE.Group>();
   private pending = new Set<string>();
   private loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
-  private wireMat = new THREE.LineBasicMaterial({ color: 0x2a2d31 });
+  private wireMat = new THREE.LineBasicMaterial({ color: 0x4a4f56 });
+  private pHead: THREE.InstancedMesh | null = null;
+  private pMid: THREE.InstancedMesh | null = null;
+  private parkDirty = false;
+  private parked = new Map<string, number[][]>();
   private signMat: THREE.MeshBasicMaterial | null = null;
   private routes: Route[] = [];
   private head: THREE.InstancedMesh | null = null;
@@ -62,6 +68,11 @@ export class Railways {
   async load(): Promise<void> {
     this.data = await (await fetch('/data/rail.json')).json() as RailJson;
     this.routes = this.data.routes.map((r) => this.prep(r));
+    // terminus pairs: the departing train appears (standing) exactly when its arriving twin has stopped
+    for (const R of this.routes) if (R.j.ts) {
+      const arr = this.routes.find((o) => o.j.te && o.j.name === R.j.name);
+      if (arr) R.offset = (arr.offset + arr.tMove) % R.headway;
+    }
     this.signMat = new THREE.MeshBasicMaterial({ map: this.atlas(this.data.stations), side: THREE.DoubleSide });
     const man = await (await fetch(`${this.base}/manifest.json`)).json() as { modules: Record<string, { file: string }> };
     const mat = new THREE.MeshLambertMaterial({ vertexColors: true });
@@ -82,12 +93,11 @@ export class Railways {
         }
         parts.push(out);
       });
-      const im = new THREE.InstancedMesh(mergeGeometries(parts)!, mat, 32);
-      im.frustumCulled = false; im.count = 0; im.castShadow = true;
-      this.group.add(im);
-      return im;
+      const mk2 = (cap: number) => { const im = new THREE.InstancedMesh(mergeGeometries(parts)!, mat, cap); im.frustumCulled = false; im.count = 0; im.castShadow = true; im.setColorAt(0, new THREE.Color(1, 1, 1)); this.group.add(im); return im; };
+      return [mk2(MAXI), mk2(PARKMAX)] as const;
     };
-    [this.head, this.mid] = await Promise.all([mk('sbahn_head'), mk('sbahn_mid')]);
+    const [[h, ph], [m, pm]] = await Promise.all([mk('sbahn_head'), mk('sbahn_mid')]);
+    this.head = h; this.mid = m; this.pHead = ph; this.pMid = pm;
   }
 
   /** Canvas atlas: row 0 = station clock (no logo), rows 1.. = name boards (white on blue). */
@@ -143,6 +153,8 @@ export class Railways {
       g.add(gl.scene);
     }
     if (d.wr) g.add(new THREE.LineSegments(wireGeo(d.wr), this.wireMat));
+    if (d.w1) g.add(new THREE.LineSegments(wireGeo(d.w1, true), this.wireMat));
+    if (d.pk) { this.parked.set(key, d.pk); this.parkDirty = true; }
     if (d.sg) g.add(this.signMesh(d.sg));
     this.group.add(g);
     this.tiles.set(key, g);
@@ -161,6 +173,7 @@ export class Railways {
         this.group.remove(g);
         g.traverse((o) => { const m = o as THREE.Mesh; if (m.geometry) m.geometry.dispose(); });
         this.tiles.delete(key);
+        if (this.parked.delete(key)) this.parkDirty = true;
       }
     }
   }
@@ -171,22 +184,27 @@ export class Railways {
       x[i] = j.pts[i * 3] / 10; y[i] = j.pts[i * 3 + 1] / 10; z[i] = j.pts[i * 3 + 2] / 10;
       if (i) cum[i] = cum[i - 1] + Math.hypot(x[i] - x[i - 1], y[i] - y[i - 1]);
     }
-    const vlen = CARS * CAR_L, len = cum[n - 1];
-    const wp = [{ s: 0, stop: false }, ...j.stops.map((s) => ({ s: s.s + vlen / 2, stop: true })), { s: len + vlen, stop: false }];
+    const cars = j.cars ?? 5, vlen = cars * CAR_L, len = cum[n - 1], v = j.v ?? 22;
+    const wp: { s: number; stop: boolean }[] = [];
+    if (!j.ts) wp.push({ s: 0, stop: false });
+    for (const st of j.stops) wp.push({ s: st.s + vlen / 2, stop: true });
+    if (!j.te) wp.push({ s: len + vlen, stop: false });
     const segs: Seg[] = [];
-    let t = 0;
+    let t = j.ts ? TERM : 0, tMove = 0;
     for (let i = 0; i < wp.length - 1; i++) {
       const d = wp[i + 1].s - wp[i].s;
       if (d <= 0.5) continue;
       const es = wp[i].stop, ee = wp[i + 1].stop;
-      const T = d / (SPEED * (es && ee ? 0.75 : es || ee ? 0.85 : 1));
+      const T = d / (v * (es && ee ? 0.75 : es || ee ? 0.85 : 1));
       segs.push({ s0: wp[i].s, s1: wp[i + 1].s, t0: t, T, es, ee });
+      tMove = t + T;
       t += T + (ee ? DWELL : 0);
     }
+    if (j.te) t = tMove + TERM;
     let h = 0;
     for (const ch of j.name + j.dir) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
-    const headway = j.name.includes('Wiedikon') ? 270 : 240;
-    return { j, x, y, z, cum, segs, trip: t, offset: h % headway, headway };
+    const headway = j.head ?? 240;
+    return { j, tMove, cars, v, tint: /^(IC|IR)/.test(j.name) ? 1 : 0, x, y, z, cum, segs, trip: t, offset: h % headway, headway };
   }
 
   private arc(R: Route, tau: number): number {
@@ -224,24 +242,45 @@ export class Railways {
       for (let k = k0; k <= k1; k++) {
         const tip = this.arc(R, time - R.offset - k * R.headway);
         if (tip < 0) continue;
-        this.sample(R, tip - (CARS * CAR_L) / 2, a);
-        if (Math.hypot(a[0] - px, a[1] - py) > TRAIN_RANGE + CARS * CAR_L / 2) continue;
-        for (let i = 0; i < CARS; i++) {
+        this.sample(R, tip - (R.cars * CAR_L) / 2, a);
+        if (Math.hypot(a[0] - px, a[1] - py) > TRAIN_RANGE + R.cars * CAR_L / 2) continue;
+        for (let i = 0; i < R.cars; i++) {
           const sc = tip - CAR_L / 2 - i * CAR_L;
           this.sample(R, sc, a); this.sample(R, sc + 9, b); this.sample(R, sc - 9, c);
           const dx = b[0] - c[0], dy = b[1] - c[1], dz = b[2] - c[2], hd = Math.hypot(dx, dy) || 1;
-          const tail = i === CARS - 1;
+          const tail = i === R.cars - 1;
           tpl.position.set(a[0], a[2] + RAIL_TOP, -a[1]);
           tpl.rotation.set(Math.atan2(dz, hd), Math.atan2(-dx, dy) + (tail ? Math.PI : 0), 0);
           if (tail) tpl.rotation.x = -tpl.rotation.x;
           tpl.updateMatrix();
-          if (i === 0 || tail) { if (nh < 32) this.head.setMatrixAt(nh++, tpl.matrix); }
-          else if (nm < 32) this.mid.setMatrixAt(nm++, tpl.matrix);
+          if (i === 0 || tail) { if (nh < MAXI) { this.head.setColorAt(nh, TINT[R.tint]); this.head.setMatrixAt(nh++, tpl.matrix); } }
+          else if (nm < MAXI) { this.mid.setColorAt(nm, TINT[R.tint]); this.mid.setMatrixAt(nm++, tpl.matrix); }
           this.cols.push({ x: a[0], y: a[1], heading: Math.atan2(dx, dy), len: CAR_L, width: 2.9 });
         }
       }
     }
     this.head.count = nh; this.mid.count = nm;
     this.head.instanceMatrix.needsUpdate = true; this.mid.instanceMatrix.needsUpdate = true;
+    if (this.head.instanceColor) this.head.instanceColor.needsUpdate = true;
+    if (this.mid.instanceColor) this.mid.instanceColor.needsUpdate = true;
+    if (this.parkDirty) this.rebuildParked();
+  }
+
+  /** Parked rakes of the loaded tiles (static instances). */
+  private rebuildParked() {
+    this.parkDirty = false;
+    if (!this.pHead || !this.pMid) return;
+    let nh = 0, nm = 0;
+    for (const list of this.parked.values()) {
+      for (const [x, y, z, yaw, pitch, kind, tint] of list) {
+        tpl.position.set(x, z + RAIL_TOP, -y);
+        tpl.rotation.set(pitch, yaw, 0);
+        tpl.updateMatrix();
+        if (kind === 0) { if (nh < PARKMAX) { this.pHead.setColorAt(nh, PTINT[tint]); this.pHead.setMatrixAt(nh++, tpl.matrix); } }
+        else if (nm < PARKMAX) { this.pMid.setColorAt(nm, PTINT[tint]); this.pMid.setMatrixAt(nm++, tpl.matrix); }
+      }
+    }
+    this.pHead.count = nh; this.pMid.count = nm;
+    for (const m of [this.pHead, this.pMid]) { m.instanceMatrix.needsUpdate = true; if (m.instanceColor) m.instanceColor.needsUpdate = true; }
   }
 }
