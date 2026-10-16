@@ -30,12 +30,17 @@ Spielgebiet: Kreise 4+5, Teile 9 und 3, Friedhof Sihlfeld (6.88 km², 219 Spiel-
 `gameplay.mjs`, `touch.mjs`, `drive.mjs`, `clock.mjs`, `perf.mjs` (Handy 4× gedrosselt), `perf_pc.mjs`, `shots.mjs` (feste Punkte inkl. Landmarks; Kontaktbogen per PIL zusammensetzen, der eingebaute bricht bei vielen Bildern ab), `look.mjs`, `topdown.mjs`, `gait.mjs`, `humans_v4.mjs`, `ground_shots.mjs`, `trees_shots.mjs`, `wildposters_shots.mjs`. Achtung: keine Warteschleifen mit `pgrep -f build_testarea` (matchen sich selbst), nie `git stash` (parallele Agents).
 
 ## Offen / Nächstes
+0. **Todo (User 2026-10-16):** NPC-Autos nur auf Strassen, die für Autos erlaubt sind (keine Fuss-/Velowege, Fussgängerzonen, Tramtrassees, Plätze; `pipeline/roadgraph.py` nach OSM-Zugangsregeln: highway=footway/path/pedestrian/cycleway, motor_vehicle/access=no, Fahrverbote aus OGD-Signalisation). Keine Fussgänger:innen auf Bahnlinien/Gleisfeld (Fussgänger-Netz und Spots gegen AV-Bahngebiet `av_rail` und OSM railway filtern). Ausserdem: Figuren sitzen teils neben der Bank in der Luft (Bank-Spots in lawns/pedspots auf Bankposition/-richtung klemmen).
 1. Ergebnis des 2. Komplett-Builds im Spiel prüfen (QA-Bogen `preview/qa_night2_*.jpg`), siehe unten «Letzte Kontrolle».
 2. Westpark-Fassade wirkt in der Modellansicht dunkel (im Spiel prüfen), Zeughäuser/Kaserne grob, Toni-Rampen, Hardbrücke-Perrons.
 3. Wildplakate: mehr Venues (Recherche Runde 2 läuft/gelaufen), Unterführungen/Stromkästen/Bauzäune als Plakatorte.
 4. Fassaden-Notizen: Fotoqualität limitiert (≈5 Häuser pro Bogen); besser mit Feedback von Leuten aus dem Quartier oder eigenen Fotos.
 5. Vor MVP (User): Tests auf echten Handys, Impressum, Kennzeichnung politische Werbung, Freigabe Plakate durch Kampagne, Deploy nach `docs/DEPLOY.md`.
 6. Spawn auf Brücke per Teleport landet unten (groundAt braucht z).
+
+## Nach dem Nachtlauf (2026-10-16 morgens)
+- Download: Modelle per Meshopt gepackt (`pipeline/pack_models.py`, nach jedem Modell-Build ausführen; Bäume ausgenommen). Prod-Start 21.2 MB roh / 14.4 MB gzip – Budget 20 MB auch ohne GLB-Komprimierung am CDN (~19 MB) eingehalten.
+- Karte: grosse Karte wieder im alten dunklen Look (`CLASSIC` in `ui/map_render.ts`), rosa Sprungpunkte bleiben.
 
 ## Letzte Kontrolle (2026-10-16, 03 Uhr, nach 4. Komplett-Build)
 - Build `logs/build_full7.log`: 301 Kacheln, 0 Fehler, 55 min.
