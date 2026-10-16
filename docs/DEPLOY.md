@@ -1,88 +1,70 @@
-# Deploy über ein CDN (Anleitung)
+# Deploy (Cloudflare Pages)
 
-Das Spiel ist eine rein statische Website: HTML, JavaScript und Dateien (Kacheln, Modelle, Texturen). Es braucht keinen Server-Code, keine Datenbank und kein Login. Jedes CDN bzw. jeder statische Host funktioniert (z. B. Cloudflare Pages, Bunny.net, Netlify).
+Das Spiel ist eine rein statische Website (HTML, JavaScript, Kacheln, Modelle). Kein Server, keine Datenbank, kein Login. Cloudflare Pages liefert alles über sein CDN aus; Scalingo wird nicht gebraucht.
 
-Stand 2026-10-15: ca. 900 Dateien, ca. 120 MB gesamt, keine Datei über 10 MB. Beim ersten Besuch lädt ein Handy rund 15–40 MB (nur Kacheln in der Nähe), danach kommt fast alles aus dem Cache.
+Stand 2026-10-16: `web/dist/` = 141 MB, 961 Dateien, keine Datei über 5 MB (Cloudflare-Limits: 20'000 Dateien, 25 MB pro Datei). Download bis spielbar ca. 21 MB (14 MB komprimiert).
 
-## 1. Vorher: Inhalt freigeben
-Erst öffentlich machen, wenn erledigt:
-- Impressum mit verantwortlicher Person (Menü «Impressum»).
-- Plakat-Inhalte sind freigegeben (`research/posters/README.md`, Freigabeliste).
-- Bis dahin nur als **geheimer Testlink** (siehe Schritt 5).
+**Wichtig:** Die Kartenkacheln (`web/public/tiles/`) und Texturen (`web/public/tex/`) sind nicht im Git-Repo, sie werden lokal von der Pipeline erzeugt. Deshalb immer von diesem Mac aus bauen und hochladen, nicht über eine automatische GitHub-Verbindung.
 
-## 2. Bauen (lokal, auf deinem Mac)
-Die Kartendaten (Kacheln) sind schon gebaut und liegen in `web/public/tiles/`. Nur neu bauen, wenn sich die Karte geändert hat (dauert ca. 30–75 min):
-```
-.venv/bin/python pipeline/build_testarea.py > logs/build.log 2>&1
-```
-Dann die Website bauen:
-```
-cd web
-npm ci
-npm run build          # Typprüfung + Vite → Ordner web/dist/
-npx vite preview --host  # lokal testen: http://localhost:4173
-```
-`web/dist/` ist das Einzige, was hochgeladen wird. Darin liegen `index.html`, `assets/` (Code, Dateinamen mit Hash) und alles aus `public/` (tiles, models, tex, data, fonts, map).
+## Einmalig einrichten
+1. Konto anlegen: https://dash.cloudflare.com/sign-up (Gratis-Plan reicht).
+2. Im Terminal anmelden (öffnet den Browser zum Bestätigen):
+   ```
+   cd ~/sandboxzurich/web
+   npx wrangler login
+   ```
+3. Projekt anlegen (Name = Teil der Adresse, z. B. `sandboxzurich.pages.dev`):
+   ```
+   npx wrangler pages project create sandboxzurich --production-branch main
+   ```
 
-Kurztest vor dem Upload (Dev-Server muss laufen: `npx vite --port 5173`):
+## Jedes Mal: bauen und hochladen
 ```
-node tests/gameplay.mjs && node tests/touch.mjs
+cd ~/sandboxzurich/web
+npm run build
+npx wrangler pages deploy dist --project-name sandboxzurich --branch main
 ```
+- `npm run build` prüft die Typen und schreibt `web/dist/` (inkl. Kacheln, Modelle, `_headers`).
+- Der Upload dauert beim ersten Mal einige Minuten, danach werden nur geänderte Dateien hochgeladen.
+- Am Ende steht die Adresse, z. B. `https://sandboxzurich.pages.dev`.
 
-## 3. Hochladen
-**Cloudflare Pages** (einfachste Variante, gratis-Stufe reicht vermutlich):
-```
-npx wrangler pages deploy dist --project-name sandboxzurich
-```
-Limits prüfen: max. 20'000 Dateien und 25 MB pro Datei (wir: ~900 Dateien, < 10 MB).
+Nur zum Testen ohne die Hauptadresse zu ändern: `--branch test` statt `--branch main` → eigene Vorschau-Adresse (`https://test.sandboxzurich.pages.dev`).
 
-**Bunny.net / anderes CDN mit Storage:** Inhalt von `web/dist/` in die Storage-Zone kopieren (FTP, rclone oder deren CLI), Pull-Zone davor.
+Hat sich die Karte geändert, vorher die Pipeline laufen lassen (siehe `docs/HANDOFF.md`, «Pipeline-Reihenfolge»), nach neuen Modellen `.venv/bin/python pipeline/pack_models.py`.
 
-**Kacheln getrennt hosten** (optional, wenn die Website woanders liegt): Kacheln auf das CDN legen und beim Bauen die Adresse mitgeben:
+## Vorher lokal prüfen (empfohlen)
 ```
-VITE_TILE_BASE_URL=https://cdn.example.ch/tiles npm run build
-```
-Dann muss das CDN CORS erlauben (`Access-Control-Allow-Origin: *` für `/tiles/*`).
-
-## 4. Header (wichtig für Ladezeit)
-| Pfad | Cache-Control | Grund |
-|---|---|---|
-| `/index.html` | `no-cache` | neue Version sofort sichtbar |
-| `/assets/*` | `public, max-age=31536000, immutable` | Dateiname enthält Hash |
-| `/tiles/*`, `/models/*`, `/tex/*`, `/data/*`, `/map/*`, `/fonts/*` | `public, max-age=86400, stale-while-revalidate=604800` | Namen ohne Hash; nach einem Update höchstens 1 Tag alt |
-
-Typen (MIME), falls das CDN sie nicht kennt: `.glb` → `model/gltf-binary`, `.webp` → `image/webp`, `.json` → `application/json`, `.ttf` → `font/ttf`.
-Komprimierung (Brotli oder gzip) einschalten für `.js`, `.json`, `.html`, `.css`, `.glb`. Bei Cloudflare ist das Standard.
-
-Beispiel Cloudflare Pages: Datei `web/public/_headers` (wird mit hochgeladen):
-```
-/index.html
-  Cache-Control: no-cache
-/assets/*
-  Cache-Control: public, max-age=31536000, immutable
-/tiles/*
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
-/models/*
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
-/tex/*
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
-/data/*
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+cd ~/sandboxzurich/web
+npx vite preview --host        # http://localhost:4173 – genau das, was hochgeladen wird
+npx vite --port 5173           # zweites Terminal: Dev-Server für die Tests
+node tests/gameplay.mjs && node tests/touch.mjs && node tests/drive.mjs
 ```
 
-## 5. Geheimer Testlink (vor dem Launch)
-- Nicht verlinken und Suchmaschinen sperren: Header `X-Robots-Tag: noindex` für `/*` oder `robots.txt` mit `Disallow: /`.
-- Besser mit Passwort: z. B. Cloudflare Access (gratis bis 50 Personen, Login per E-Mail-Code).
-- Den Link nur an Testpersonen geben.
+## Cache und Suchmaschinen
+`web/public/_headers` wird automatisch mitgeliefert:
+- `index.html` wird nie gecacht → neuer Code ist sofort sichtbar.
+- `assets/` (Dateinamen mit Hash) ein Jahr gecacht; Kacheln/Modelle/Texturen einen Tag (danach im Hintergrund aktualisiert).
+- `X-Robots-Tag: noindex` hält die Seite während der Testphase aus Suchmaschinen. **Vor dem öffentlichen Launch diese Zeile (und `/*` darüber) entfernen.**
 
-## 6. Kontrolle nach dem Upload
-1. Auf dem Handy öffnen (iPhone und Android, WLAN und Mobilnetz): lädt es, läuft es flüssig, gehen Joystick, ⇧ und E?
-2. Am PC in den Entwicklerwerkzeugen (F12 → Netzwerk): keine roten 404-Fehler, `.glb` kommen komprimiert bzw. aus dem Cache beim zweiten Laden.
-3. Konsole: keine Fehler.
-4. Ein zweites Mal laden: es muss deutlich schneller gehen (Cache wirkt).
+Soll eine Kartenänderung sofort überall sichtbar sein: Cloudflare-Dashboard → Caching → «Purge Everything» (nur falls eine eigene Domain mit Cloudflare-Cache verbunden ist; `*.pages.dev` aktualisiert sich mit jedem Deploy).
 
-## 7. Update
-Neu bauen (Schritt 2) und `web/dist/` erneut hochladen. Wegen `no-cache` auf `index.html` sehen alle sofort den neuen Code; Kacheln/Modelle aktualisieren sich spätestens nach einem Tag. Soll eine Kartenänderung sofort sichtbar sein: im CDN den Cache leeren («Purge»).
+## Zugang beschränken (Testphase, optional)
+Dashboard → Workers & Pages → Projekt → Settings → «Access Policy» aktivieren. Unter Zero Trust die E-Mail-Adressen der Testpersonen eintragen; sie erhalten beim Öffnen einen Code per Mail (gratis bis 50 Personen).
 
-## Nicht nötig
-Keine Datenbank, keine Cookies, kein Tracking, keine API-Keys im Frontend. `.env` (Mapillary-Token) wird nur für die Pipeline gebraucht und nie hochgeladen.
+## Eigene Domain (optional, später)
+Dashboard → Projekt → Custom domains → Domain eintragen und den angezeigten DNS-Eintrag bei deinem Domain-Anbieter setzen (oder die Domain zu Cloudflare umziehen).
+
+## Kontrolle nach dem Upload
+1. Auf dem Handy öffnen (iPhone und Android, WLAN und Mobilnetz): lädt in wenigen Sekunden, läuft flüssig, Joystick/⇧/E funktionieren, Karte und Uhr gehen auf.
+2. Am PC: F12 → Netzwerk: keine roten Fehler (404); beim zweiten Laden kommen die meisten Dateien aus dem Cache.
+3. F12 → Konsole: keine Fehlermeldungen.
+
+## Vor dem öffentlichen Launch
+- Impressum im Spiel (Menü) und auf der Website.
+- Freigabe der Plakat-Inhalte (`research/posters/README.md`, Freigabeliste).
+- `noindex` in `web/public/_headers` entfernen, neu bauen und hochladen.
+
+## Probleme
+- `wrangler: not logged in` → `npx wrangler login` wiederholen.
+- Seite lädt, Welt bleibt leer → wurde `web/public/tiles/` gebaut? (`ls web/public/tiles | wc -l` sollte ~600 zeigen).
+- Alte Version sichtbar → Browser hart neu laden (Cmd+Shift+R); `index.html` ist nicht gecacht.
