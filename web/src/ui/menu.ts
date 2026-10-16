@@ -1,12 +1,11 @@
 import { openReport } from './report';
-import { GfxMode, bindSettingsPage, settings } from './settings';
+import { bindSettingsPage, settings } from './settings';
 
-/** Pause menu (Esc / P / ☰): continue, map, settings (graphics, sound, camera, joystick), credits, imprint. */
+/** Pause menu (Esc / P / ☰): continue, map, settings (sound, camera, joystick), credits, imprint. */
 export class Menu {
   open = false;
   private el = document.getElementById('menu')!;
   onMap: () => void = () => {};
-  onQuality: (q: GfxMode) => void = () => {};
   onMute: (m: boolean) => void = () => {};
   onMusic: (on: boolean, vol: number) => void = () => {};
 
@@ -15,7 +14,7 @@ export class Menu {
     $('btn-menu').addEventListener('click', () => this.toggle(true));
     $('m-continue').addEventListener('click', () => this.toggle(false));
     $('m-map').addEventListener('click', () => { this.toggle(false); this.onMap(); });
-    bindSettingsPage(this.el.querySelector<HTMLElement>('[data-page="settings"]')!, { onGfx: (g) => this.onQuality(g), onMute: (m) => this.onMute(m), onMusic: () => this.onMusic(settings.music, settings.musicVol) });
+    bindSettingsPage(this.el.querySelector<HTMLElement>('[data-page="settings"]')!, { onMute: (m) => this.onMute(m), onMusic: () => this.onMusic(settings.music, settings.musicVol) });
     $('m-report').addEventListener('click', () => openReport());
     $('m-settings').addEventListener('click', () => this.page('settings'));
     for (const id of ['m-credits', 'm-imprint']) $(id).addEventListener('click', () => this.page(id === 'm-credits' ? 'credits' : 'imprint'));

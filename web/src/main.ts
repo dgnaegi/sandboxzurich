@@ -212,8 +212,6 @@ async function main() {
 
   const post = !mobile && !params.has('nopost') ? createPost(renderer, scene, camera) : null;
   const quality = new Quality(renderer, mobile, !!post, scene.fog as THREE.Fog | null);
-  menu.onQuality = (q) => quality.force(q);
-  quality.force(settings.gfx); // saved choice (Einstellungen)
   audio.setMuted(settings.muted);
   audio.setMusic(settings.music, settings.musicVol);
   menu.onMusic = (on, vol) => audio.setMusic(on, vol);

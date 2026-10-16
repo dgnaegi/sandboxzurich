@@ -10,7 +10,7 @@ export interface MissionDef { id: string; title: string; start: [number, number]
 export const MISSIONS: MissionDef[] = [
   { id: 'kurier', title: 'Velokurier', start: [770, -893], intro: 'Ein Labor wartet auf Proben. Bring das Paket ins Kasernenareal – mit dem Velo schaffst du es!',
     points: [[1108, -832]], limit: 110, reward: 120, done: 'Pünktlich geliefert. Velowege sind schneller als jedes Auto.', needsBike: true },
-  { id: 'flyer', title: 'Flyer verteilen', start: [800, -560], intro: 'Verteile Flyer der Alternativen Linken entlang der Langstrasse. (TODO-PROGRAMM)',
+  { id: 'flyer', title: 'Flyer verteilen', start: [800, -560], intro: 'Verteile Flyer entlang der Langstrasse. (TODO-PROGRAMM)',
     points: [[828, -500], [855, -450], [770, -700], [745, -760]], limit: 180, reward: 60, done: 'Alle Flyer verteilt. Radikal sozial!' },
   { id: 'besichtigung', title: 'Wohnungsbesichtigung', start: [760, -700], intro: 'Besichtigung um 17:00 an der Langstrasse. Sei früh dort!',
     points: [[789, -641]], limit: 45, reward: 0, done: 'Du bist Nummer 147 in der Schlange. Die Wohnung ist schon weg.' },

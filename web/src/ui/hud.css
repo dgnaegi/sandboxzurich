@@ -112,11 +112,10 @@ body.touch #touchbtns { display: flex; }
 .s-seg { display: flex; gap: 6px; justify-content: center; }
 .m-page .s-seg button { width: auto; flex: 1; margin: 0; padding: 10px 6px; font-size: 17px; min-height: 44px; }
 .m-page button.on { background: #e4007d; border-color: #fff; color: #fff; }
-#s-gfx-hint { margin: 6px 0 0; font-size: 14px; opacity: .8; }
 #s-sens { width: 260px; max-width: 100%; height: 36px; accent-color: #e4007d; touch-action: pan-x; }
 .s-row:has(#s-sound) { display: flex; gap: 8px; justify-content: center; } .m-page .s-row button { width: 150px; margin: 0; font-size: 17px; min-height: 44px; }
 #menu { overflow-y: auto; }
-@media (max-height: 500px) { .m-page { padding: 8px 20px; } .m-page h1 { font-size: 34px; margin-bottom: 8px; } .m-page h2 { font-size: 24px; } .m-page button { margin: 6px auto; padding: 8px; font-size: 18px; } .s-row { margin: 8px 0; } .s-row label { font-size: 16px; margin-bottom: 2px; } #s-gfx-hint { font-size: 12px; margin: 2px 0 0; } }
+@media (max-height: 500px) { .m-page { padding: 8px 20px; } .m-page h1 { font-size: 34px; margin-bottom: 8px; } .m-page h2 { font-size: 24px; } .m-page button { margin: 6px auto; padding: 8px; font-size: 18px; } .s-row { margin: 8px 0; } .s-row label { font-size: 16px; margin-bottom: 2px; } }
 body.stick-right #touchbtns { right: auto; left: calc(18px + env(safe-area-inset-left)); }
 /* controls card */
 #helpcard { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; background: #0009; color: #fff; transition: opacity .4s; cursor: pointer; }

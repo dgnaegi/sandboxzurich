@@ -19,8 +19,7 @@ for (const [n, opt] of views) {
   await page.waitForTimeout(600);
   ok(await page.evaluate(() => !document.getElementById('helpcard')), `${n}: help dismissed`);
   await page.click('#btn-menu'); await page.click('#m-settings'); await page.waitForTimeout(200);
-  await page.click('[data-gfx=sparen]'); await page.waitForTimeout(200);
-  ok(await page.evaluate(() => localStorage.getItem('sbz-settings').includes('sparen') && window.sbxRenderer.getPixelRatio() === 0.75), `${n}: sparen applied+saved`);
+  ok(await page.evaluate(() => !document.querySelector('[data-gfx]')), `${n}: no graphics option (always auto)`);
   await page.screenshot({ path: `${OUT}/${n}_3settings.png` });
   await ctx.close();
 }
