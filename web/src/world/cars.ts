@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { HORIZON, ZENITH } from '../engine/sky';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
 /**
@@ -20,7 +21,7 @@ export const CAR_GEO: Record<string, THREE.BufferGeometry> = {};
 
 export async function loadCars(base = '/models/cars') {
   const list = (await (await fetch(`${base}/manifest.json`)).json()) as { type: string; file: string }[];
-  const loader = new GLTFLoader();
+  const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
   await Promise.all(list.map(async (e) => {
     const g = await loader.loadAsync(`${base}/${e.file}`);
     g.scene.traverse((o) => {

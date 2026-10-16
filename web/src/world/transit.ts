@@ -1,4 +1,5 @@
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
@@ -126,7 +127,7 @@ export class Transit {
 
   async loadModels(base = '/models/transit'): Promise<void> {
     const man = await (await fetch(`${base}/manifest.json`)).json() as { modules: Record<string, { file: string; length: number }>; vehicles: Record<string, VehicleSpec> };
-    const loader = new GLTFLoader();
+    const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
     for (const [n, m] of Object.entries(man.modules as Record<string, { doors_r?: number[]; doors_l?: number[] }>)) this.modDoors.set(n, { r: m.doors_r ?? [], l: m.doors_l ?? [] });
     const mat = new THREE.MeshLambertMaterial({ vertexColors: true });
     // night: dark window panels glow warm (lit interior)

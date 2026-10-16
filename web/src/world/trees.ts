@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
 /**
@@ -53,7 +54,7 @@ export async function loadTrees(base = '/models/trees', variants = 2) {
   await loaded;
   atlas.image = img; atlas.flipY = false; atlas.colorSpace = THREE.SRGBColorSpace;
   atlas.generateMipmaps = true; atlas.minFilter = THREE.LinearMipmapLinearFilter; atlas.anisotropy = 4; atlas.needsUpdate = true;
-  const loader = new GLTFLoader();
+  const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
   await Promise.all(manifest.filter((e) => e.lod || e.variant < variants).map(async (e) => {
     const g = await loader.loadAsync(`${base}/${e.file}`);
     const geo = prepare(g.scene);

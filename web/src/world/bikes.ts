@@ -3,6 +3,7 @@ import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js
 import { bike } from './vehicles';
 import { CAR_PAINT, carMaterial } from './cars';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 
 /** Parked bikes as one InstancedMesh per tile so single bikes can be taken (stolen) and dropped elsewhere. */
 export const BIKE_GEO = (() => {
@@ -70,7 +71,7 @@ const MIX: [string, number][] = [['city', 34], ['trekking', 18], ['ebike', 13], 
 export async function loadBikes(base = '/models/bikes') {
   const list = (await (await fetch(`${base}/manifest.json`)).json()) as { type: string; file: string; rig?: (typeof BIKE_RIG)[string] }[];
   for (const e of list) if (e.rig) BIKE_RIG[e.type] = e.rig;
-  const loader = new GLTFLoader();
+  const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
   let map: THREE.Texture | null = null;
   await Promise.all(list.map(async (e) => {
     const g = await loader.loadAsync(`${base}/${e.file}`);

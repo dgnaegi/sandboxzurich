@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 import { CAR_GEO } from '../world/cars';
 
 /**
@@ -42,7 +43,7 @@ export function initCarEnvironment(renderer: THREE.WebGLRenderer) {
 function loadModel(type: string): Promise<THREE.Object3D | null> {
   let p = cache.get(type);
   if (!p) {
-    p = new GLTFLoader().loadAsync(`/models/cars/${type}_drive.glb`).then((g) => g.scene, () => null);
+    p = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync(`/models/cars/${type}_drive.glb`).then((g) => g.scene, () => null);
     cache.set(type, p);
   }
   return p;

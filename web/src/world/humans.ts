@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 import * as SkeletonUtils from 'three/examples/jsm/utils/SkeletonUtils.js';
 import { dress } from './tint';
 
@@ -60,7 +61,7 @@ export class HumanLib {
 
   /** Shared animation libraries (about 0.4 MB each); a failed file only means fewer clips. */
   private async loadLibs(base: string) {
-    const loader = new GLTFLoader();
+    const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
     await Promise.all(Object.keys(LIB_REF).map(async (c) => {
       try { this.libs.set(c, (await loader.loadAsync(`${base}/anims_${c}.glb`)).animations); } catch { /* optional */ }
     }));
@@ -85,7 +86,7 @@ export class HumanLib {
 
   async loadAccessories(base = '/models/accessories') {
     const man = (await (await fetch(`${base}/manifest.json`)).json()) as { items: { name: string; file: string; bone: string | null; offset: number[]; rotation: number[]; tint?: string }[] };
-    const loader = new GLTFLoader();
+    const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
     await Promise.all(man.items.map(async (it) => {
       const g = await loader.loadAsync(`${base}/${it.file}`);
       if (it.tint) g.scene.traverse((o) => { const m = o as THREE.Mesh; if (m.isMesh) { m.material = (m.material as THREE.MeshStandardMaterial).clone(); (m.material as THREE.MeshStandardMaterial).color.set(it.tint!); } });
@@ -116,7 +117,7 @@ export class HumanLib {
   }
 
   private async fetch(base: string, list: Entry[]) {
-    const loader = new GLTFLoader();
+    const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
     await Promise.all(list.map(async (e) => {
       const g = await loader.loadAsync(`${base}/${e.file}`);
       g.scene.traverse((o) => { if ((o as THREE.Mesh).isMesh) { o.castShadow = true; o.frustumCulled = false; } });

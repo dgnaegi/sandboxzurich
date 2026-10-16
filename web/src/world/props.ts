@@ -4,6 +4,7 @@ import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js
 import { CAR_GEO, carMaterial, carPick } from './cars';
 import { parkedCars } from './parkedcars';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 import { glowMaterialPatch } from '../engine/daytime';
 import { nightUniform } from '../engine/materials';
 
@@ -56,7 +57,7 @@ const T: Record<string, THREE.BufferGeometry> = {
 /** Blender-built Zürich furniture (pipeline/furniture); replaces the box placeholders above when loaded. */
 export async function loadFurniture(base = '/models/furniture') {
   const list = (await (await fetch(`${base}/manifest.json`)).json()) as { name: string; file: string }[];
-  const loader = new GLTFLoader();
+  const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
   const F: Record<string, THREE.BufferGeometry> = {};
   await Promise.all(list.map(async (e) => {
     const g = await loader.loadAsync(`${base}/${e.file}`);
