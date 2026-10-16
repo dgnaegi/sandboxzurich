@@ -1,0 +1,18 @@
+/*
+  X-Robots-Tag: noindex
+/index.html
+  Cache-Control: no-cache
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+/tiles/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/models/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/tex/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/data/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/map/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/fonts/*
+  Cache-Control: public, max-age=31536000
