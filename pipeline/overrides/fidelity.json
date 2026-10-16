@@ -1,0 +1,13 @@
+{
+ "_doc": "Objekte, die auf Fotos (research/fidelity_cand.json, Panoramax) zu sehen sind und im Spiel fehlen. px = Pixel (u,v) im auf 800x600 skalierten Foto, v = Fusspunkt am Boden (Pinhole, vfov 80 Grad, Kamerahoehe 1.6 m). pipeline/fidelity.py rechnet in lokale Meter um und schreibt pipeline/overrides/places_detail_fidelity.json (wird von places_detail.py geladen). seg = Anfangs-/Endpunkt eines langen Objekts (Unterstand), off = Versatz nach rechts (m).",
+ "items": [
+  {"photo": 64, "t": "cbollard", "a": 0.65, "b": 0.18, "note": "Europaallee: Betonpoller in zwei Reihen",
+   "px": [[110,388],[200,364],[255,350],[290,342],[318,337],[337,333],[360,330],[378,327],[680,410],[628,385],[574,362],[547,350],[523,341],[505,335],[492,330]]},
+  {"photo": 49, "t": "cbollard", "a": 0.65, "b": 0.18, "note": "Zollstrasse/Park: Betonpoller",
+   "px": [[150,362],[225,342],[275,330],[310,322],[345,317],[675,425],[595,370],[550,345],[530,335]]},
+  {"photo": 0, "t": "shelter", "b": 1.8, "off": 0.9, "seg": [[650,485],[445,365]], "note": "Pfingstweidstrasse: Glas-Unterstand mit Werbevitrine"},
+  {"photo": 40, "t": "bin", "px": [[690,418]], "note": "Edelstahl-Abfalleimer an der Tram-Insel"},
+  {"photo": 57, "t": "bikerack", "a": 3, "px": [[300,350]], "note": "Zypressenstr./Ernastr.: Veloständer"},
+  {"photo": 86, "t": "bikerack", "a": 3, "px": [[200,375]], "note": "Kernstr./Bauhallengasse: Veloständer"}
+ ]
+}

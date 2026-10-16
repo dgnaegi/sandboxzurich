@@ -58,3 +58,6 @@ Ortsabhängige Geräuschschichten: `web/src/engine/audio_amb.ts` (Layer), `audio
 
 ## Crash-Physik (2026-10-16)
 Erledigt laut DECISIONS #38. Test: `web/tests/crash.mjs` (Kontaktbogen preview/crash_v1.jpg). `tests/drive.mjs` prüft «Auto bleibt stehen» jetzt inkl. Wracks. Offen: Delle/Rauch visuell nachschärfen (Sheet ist klein), Landmark-Kollider nach Komplett-Build testen.
+
+## Fidelity-Lauf (2026-10-16, Fotos nachbauen)
+75 Panoramax-Paare `preview/fidelity_k45_1..15.jpg`, Auswertung `research/fidelity.md` (systematische Abweichungen S1–S13 + Vorschläge). Tools: `web/tests/fidelity_shots.mjs` (Ego-Screenshot an Foto-Pose), `pipeline/photos/fidelity_{sheet,labels,grid,notes}.py`. +82 Fassadennotizen in `visual_notes_v3.json` (greifen erst nach Komplett-Build). Objekte: `overrides/fidelity.json` → `pipeline/fidelity.py` → `places_detail_fidelity.json`. 6 Kacheln neu gebaut (0_3,-1_3,0_-2,2_-5,3_-4,-2_5). Nächster Schritt: Komplett-Build, dann S1 (grüne Velostreifen) und S2 (Trottoir zu hell).
