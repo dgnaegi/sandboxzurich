@@ -1,3 +1,4 @@
+import './engine/assetver'; // must stay first: versions world-data URLs
 import * as THREE from 'three';
 import { createRenderer } from './engine/renderer';
 import { createPost } from './engine/post';
@@ -88,6 +89,7 @@ async function main() {
   tiles.roofRadius = mobile ? 150 : 250;
   const crowd = new Pedestrians(humans, mobile ? 16 : 36, ground);
   tiles.onPaths = (p) => crowd.addPaths(p);
+  crowd.solid = (x, y, r) => tiles.colliders.resolveCircles(x, y, r);   // move2
   tiles.onSchools = (r) => crowd.schools.push(...r);
   tiles.onSpots = (m) => crowd.addSpots(m);
   scene.add(crowd.group);
@@ -112,10 +114,11 @@ async function main() {
 
   const transit = new Transit(scene, ground);
   const landmarks3d = new Landmarks3D(scene);
-  if (mobile) { landmarks3d.loadR = 420; landmarks3d.unloadR = 560; }
+  if (mobile) { landmarks3d.loadR = 420; landmarks3d.unloadR = 560; landmarks3d.maxTex = 512; }
   const rail = new Railways(scene, tiles.mat, mobile ? 0.62 : 1); // phone: tracks within ~260 m
   const WHITE = new THREE.Color(0xf4f4f2);
   const traffic = new Traffic(scene, ground, CAR_GEO, carMaterial, (k) => (k % 23 === 0 && CAR_GEO.police && GAMEPLAY ? { type: 'police', color: WHITE } : k % 13 === 0 && CAR_GEO.taxi ? { type: 'taxi', color: k % 2 ? WHITE : new THREE.Color(0x1a1c20) } : carPick(k)));
+  traffic.solidAhead = (x, y, hx, hy, d, w) => tiles.colliders.circleAhead(x, y, hx, hy, d, w);   // move2: NPC cars/bikes stop for posts in their lane
   const trafficLights = new TrafficLights(scene);
   const scenes = new Scenes(humans, ground);
   // people waiting at tram/bus stops (groups of 3 next to the track, right-hand side)

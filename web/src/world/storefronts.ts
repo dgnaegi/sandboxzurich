@@ -153,8 +153,11 @@ function crates(b: Builder, p: Pt, u: number, rnd: number) {
 
 /** Neon / illuminated label atlas: one 512x64 row per label. */
 function labelAtlas(rows: { text: string; color: string; bg?: string; cross?: boolean }[]) {
-  const c = document.createElement('canvas'); c.width = 512; c.height = THREE.MathUtils.ceilPowerOfTwo(rows.length * 64 + 8);
+  // phones draw at half resolution (busy Langstrasse tiles reach 512x4096); uvs use the logical height H
+  const S = matchMedia('(pointer: coarse)').matches ? 0.5 : 1, H = THREE.MathUtils.ceilPowerOfTwo(rows.length * 64 + 8);
+  const c = document.createElement('canvas'); c.width = 512 * S; c.height = H * S;
   const g = c.getContext('2d')!;
+  g.scale(S, S);
   g.fillStyle = '#fff'; g.fillRect(0, 0, 8, 8);
   rows.forEach((r, i) => {
     const y = 8 + i * 64;
@@ -173,7 +176,7 @@ function labelAtlas(rows: { text: string; color: string; bg?: string; cross?: bo
     g.shadowBlur = 0;
   });
   const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
-  return { tex: t, h: c.height };
+  return { tex: t, h: H };
 }
 
 export function buildStorefronts(signs: VenueSign[] | undefined): THREE.Object3D[] {

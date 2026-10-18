@@ -20,6 +20,8 @@ export class Landmarks3D {
 
   /** Load / free distances (phones lower: models of far landmarks are disposed, not just hidden – iOS tab memory). */
   loadR = LOAD_R;
+  /** Phones: landmark textures larger than this are shrunk before upload (42 Langstrasse houses = 83 MB otherwise). */
+  maxTex = 4096;
   unloadR = 1400;
 
   constructor(private scene: THREE.Scene) {}
@@ -95,6 +97,17 @@ export class Landmarks3D {
     this.live.delete(e.name); this.casting.delete(e.name);
   }
 
+  private shrunk = new WeakSet<THREE.Texture>();
+  private shrink(t: THREE.Texture): void {
+    const im = t.image as { width: number; height: number; close?: () => void } | undefined;
+    if (!im?.width || this.shrunk.has(t) || Math.max(im.width, im.height) <= this.maxTex) return;
+    const k = this.maxTex / Math.max(im.width, im.height), c = document.createElement('canvas');
+    c.width = Math.max(1, Math.round(im.width * k)); c.height = Math.max(1, Math.round(im.height * k));
+    c.getContext('2d')!.drawImage(im as CanvasImageSource, 0, 0, c.width, c.height);
+    im.close?.(); // ImageBitmap: free the full-size copy
+    t.image = c; t.needsUpdate = true; this.shrunk.add(t);
+  }
+
   private spawn(e: Entry): Promise<void> {
     const p = this.spawnNow(e).finally(() => this.pending.delete(e.name));
     this.pending.set(e.name, p);
@@ -115,7 +128,7 @@ export class Landmarks3D {
         const s = m.material as THREE.MeshStandardMaterial;
         const l = new THREE.MeshLambertMaterial({ map: s.map, vertexColors: !!m.geometry.attributes.color, name: s.name });
         if (s.emissiveMap) { l.emissiveMap = s.emissiveMap; l.emissive = new THREE.Color(0xffffff); l.emissiveIntensity = 0; this.lit.push(l); }
-        for (const t of [l.map, l.emissiveMap]) if (t) t.anisotropy = 4;
+        for (const t of [l.map, l.emissiveMap]) if (t) { t.anisotropy = 4; this.shrink(t); }
         m.material = l;
         // hb3: underground model parts are drawn first; hb3_mask writes stencil 1 (no colour/depth) so the terrain is cut open over the stair wells
         if (s.name === 'hb3_pit' || s.name === 'hb3_lit') m.renderOrder = -0.5;   // after the sky (-1, depthTest off), before the tile geometry (0)

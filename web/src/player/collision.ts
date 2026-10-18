@@ -33,13 +33,31 @@ export class Colliders {
   /** Push the circle (x, y, rad) out of nearby solid circles. */
   resolveCircles(x: number, y: number, rad: number): [number, number] {
     const cx = Math.floor(x / CELL), cy = Math.floor(y / CELL);
-    for (let i = cx - 1; i <= cx + 1; i++) for (let j = cy - 1; j <= cy + 1; j++) {
-      for (const c of this.circles.get(`${i},${j}`) ?? []) {
-        const dx = x - c[0], dy = y - c[1], d = Math.hypot(dx, dy), m = rad + c[2];
-        if (d < m) { const k = d > 1e-4 ? m / d : 0; if (k) { x = c[0] + dx * k; y = c[1] + dy * k; } else x += m; }
+    for (let pass = 0; pass < 2; pass++) {   // move2: two passes so a pole next to a wall/another pole cannot trap
+      let moved = false;
+      for (let i = cx - 1; i <= cx + 1; i++) for (let j = cy - 1; j <= cy + 1; j++) {
+        for (const c of this.circles.get(`${i},${j}`) ?? []) {
+          const dx = x - c[0], dy = y - c[1], m = rad + c[2];
+          if (Math.abs(dx) >= m || Math.abs(dy) >= m) continue;
+          const d = Math.hypot(dx, dy);
+          if (d < m) { const k = d > 1e-4 ? m / d : 0; if (k) { x = c[0] + dx * k; y = c[1] + dy * k; } else x += m; moved = true; }
+        }
       }
+      if (!moved) break;
     }
     return [x, y];
+  }
+
+  /** move2: distance along (hx, hy) to the nearest solid circle whose edge reaches into a corridor of half width `hw` (bumper to centre), Infinity if none within `maxD`. */
+  circleAhead(x: number, y: number, hx: number, hy: number, maxD: number, hw: number): number {
+    let best = Infinity;
+    const x1 = x + hx * maxD, y1 = y + hy * maxD, c0x = Math.floor((Math.min(x, x1) - 1) / CELL), c1x = Math.floor((Math.max(x, x1) + 1) / CELL);
+    const c0y = Math.floor((Math.min(y, y1) - 1) / CELL), c1y = Math.floor((Math.max(y, y1) + 1) / CELL);
+    for (let i = c0x; i <= c1x; i++) for (let j = c0y; j <= c1y; j++) for (const c of this.circles.get(`${i},${j}`) ?? []) {
+      const dx = c[0] - x, dy = c[1] - y, f = dx * hx + dy * hy, l = -dx * hy + dy * hx;
+      if (f > 0 && f < best && f < maxD + c[2] && Math.abs(l) < hw + c[2]) best = f - c[2];
+    }
+    return best;
   }
 
   add(rings: Ring[]) {

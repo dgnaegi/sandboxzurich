@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
+import { ver } from '../engine/assetver';
 
 /**
  * Tree models (pipeline/trees): per class 2 detail variants (lod 0), 1 simplified model (lod 1) and a baked impostor (tree_impostor.ts).
@@ -50,7 +51,7 @@ export async function loadTrees(base = '/models/trees', variants = 2) {
   const manifest = (await (await fetch(`${base}/manifest.json`)).json()) as { cls: string; file: string; variant: number; lod: number; zb: number }[];
   const img = new Image();
   const loaded = new Promise<void>((res, rej) => { img.onload = () => res(); img.onerror = rej; });
-  img.src = `${base}/leaves.webp`;
+  img.src = ver(`${base}/leaves.webp`);
   await loaded;
   atlas.image = img; atlas.flipY = false; atlas.colorSpace = THREE.SRGBColorSpace;
   atlas.generateMipmaps = true; atlas.minFilter = THREE.LinearMipmapLinearFilter; atlas.anisotropy = 4; atlas.needsUpdate = true;

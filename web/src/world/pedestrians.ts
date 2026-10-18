@@ -34,6 +34,8 @@ export class Pedestrians {
   private paths: number[][][] = [];
   private frame = 0;
   visRadius = 120;
+  /** move2: pushes a pedestrian circle out of poles, signs, trunks (set by main from tiles.colliders.resolveCircles); they slide around instead of walking through. */
+  solid: ((x: number, y: number, r: number) => [number, number]) | null = null;
   private player: [number, number] = [0, 0];
   /** Kindergartens/schools (local metres) and whether it is school-run time now (set by main). */
   schools: number[][] = [];
@@ -215,6 +217,7 @@ export class Pedestrians {
       p.x = c[0] + (d[0] - c[0]) * p.t + (hy / hl) * p.lateral;
       p.y = c[1] + (d[1] - c[1]) * p.t - (hx / hl) * p.lateral;
       this.dodge(p, dt, car);
+      if (this.solid && !p.leader) [p.x, p.y] = this.solid(p.x, p.y, 0.3);   // move2
       // step aside around the player instead of walking through her
       const ax = p.x - this.player[0], ay = p.y - this.player[1], ad = Math.hypot(ax, ay);
       if (ad < 0.9 && ad > 1e-3) { p.x = this.player[0] + (ax / ad) * 0.9; p.y = this.player[1] + (ay / ad) * 0.9; }

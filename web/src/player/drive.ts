@@ -140,11 +140,15 @@ export class DriveCar {
     let hit = 0, hnx = 0, hny = 0, hpx = this.x, hpy = this.y, hobb: Obb | null = null;
     const boxes = [...(obstacles ?? []), ...nearParked(this.x, this.y, this.half.l + 4)].filter((b) => Math.hypot(b.x - this.x, b.y - this.y) < b.hl + this.half.l + 2.5);
     for (let iter = 0; iter < 2; iter++) {
-      let px = 0, py = 0, cx0 = 0, cy0 = 0, cw = 0, bestB: Obb | null = null, bestPush = 0;
+      let px = 0, py = 0, cx0 = 0, cy0 = 0, cw = 0, bestB: Obb | null = null, bestPush = 0, softX = 0, softY = 0;
       const fx = Math.sin(this.h), fy = Math.cos(this.h), rx = fy, ry = -fx;
       for (const c of this.circles) {
         const cx = this.x + fx * c.o + rx * c.l, cy = this.y + fy * c.o + ry * c.l;
-        const [qx, qy] = this.tiles.resolveBody(cx, cy, r, this.z);
+        let [qx, qy] = this.tiles.resolveBody(cx, cy, r, this.z);
+        if (!this.tiles.onElevatedDeck(qx, qy, this.z)) { // move2: signs, poles, trunks: soft contact (dents the car, does not stop it dead)
+          const [sx, sy] = this.tiles.colliders.resolveCircles(qx, qy, r);
+          softX += sx - qx; softY += sy - qy; qx = sx; qy = sy;
+        }
         const dx = qx - cx, dy = qy - cy;
         px += dx; py += dy;
         const w = Math.hypot(dx, dy);
@@ -169,6 +173,7 @@ export class DriveCar {
       }
       const m = Math.hypot(px, py);
       if (m < 1e-4) break;
+      const soft = Math.hypot(softX, softY) > 0.8 * m;   // move2: only thin posts pushed
       const lim = Math.min(m, 1.2), k = lim / m;
       this.x += px * k; this.y += py * k;
       const nx = px / m, ny = py / m;
@@ -176,9 +181,9 @@ export class DriveCar {
       const vn = (this.vx - bvx) * nx + (this.vy - bvy) * ny;
       if (vn < 0) {
         const cpx = cw ? cx0 / cw : this.x, cpy = cw ? cy0 / cw : this.y;
-        if (-vn > hit) { hit = -vn; hnx = nx; hny = ny; hpx = cpx; hpy = cpy; hobb = bestB; }
+        if (-vn * (soft ? 0.5 : 1) > hit) { hit = -vn * (soft ? 0.5 : 1); hnx = nx; hny = ny; hpx = cpx; hpy = cpy; hobb = bestB; }
         // normal part: small bounce (heavier things in the way absorb more); tangential part: friction scrapes speed off
-        const e = bestB && bestB.vx === undefined && bestB.id === undefined && bestB.ref === undefined ? 1.12 : 1.18;
+        const e = soft ? 0.5 : bestB && bestB.vx === undefined && bestB.id === undefined && bestB.ref === undefined ? 1.12 : 1.18;
         this.vx -= nx * vn * e; this.vy -= ny * vn * e;
         const tf = 1 - Math.min(0.35, 0.02 * -vn + 0.004);
         const tx = -ny, ty = nx, vt = this.vx * tx + this.vy * ty;

@@ -8,6 +8,16 @@ import { applyBrand } from './brands';
 export type Sign = VenueSign;
 
 const ROW = 96, TEXW = 1024;
+/** Phones draw the sign canvas at half resolution: busy tiles (Langstrasse) reach 1024x8192 = 44 MB GPU each otherwise. */
+const SCALE = matchMedia('(pointer: coarse)').matches ? 0.5 : 1;
+/** Phones: shrink a loaded texture image to half size before its GPU upload (wildposters 2048² = 22 MB otherwise). */
+function halveOnPhone(t: THREE.Texture) {
+  const im = t.image as HTMLImageElement;
+  if (SCALE === 1 || !im?.width) return;
+  const c = document.createElement('canvas'); c.width = im.width * SCALE; c.height = im.height * SCALE;
+  c.getContext('2d')!.drawImage(im, 0, 0, c.width, c.height);
+  t.image = c; t.needsUpdate = true;
+}
 
 /** All sign materials, so the night factor can light them up like illuminated shop signs. */
 const signMats = new Set<THREE.MeshLambertMaterial>();
@@ -29,9 +39,11 @@ export function buildSigns(signs: Sign[]): THREE.Object3D | null {
 function buildSignMesh(signs: Sign[]): THREE.Mesh | null {
   if (!signs.length) return null;
   const c = document.createElement('canvas');
-  c.width = TEXW;
-  c.height = THREE.MathUtils.ceilPowerOfTwo(signs.length * ROW);
+  const H = THREE.MathUtils.ceilPowerOfTwo(signs.length * ROW); // logical canvas height (uv space)
+  c.width = TEXW * SCALE;
+  c.height = H * SCALE;
   const g = c.getContext('2d')!;
+  g.scale(SCALE, SCALE);
   const pos: number[] = [], uv: number[] = [], nrm: number[] = [], idx: number[] = [];
   signs.forEach((s, i) => {
     const look = applyBrand(lookOf(s), s);
@@ -49,7 +61,7 @@ function buildSignMesh(signs: Sign[]): THREE.Mesh | null {
       pos.push(x, s.z + v, -y);
       nrm.push(ox, 0, -oy);
     }
-    const v0 = 1 - (y0 + ROW) / c.height, v1 = 1 - y0 / c.height;
+    const v0 = 1 - (y0 + ROW) / H, v1 = 1 - y0 / H;
     uv.push(0, v0, 1, v0, 1, v1, 0, v1);
     idx.push(b, b + 1, b + 2, b, b + 2, b + 3);
   });
@@ -61,6 +73,7 @@ function buildSignMesh(signs: Sign[]): THREE.Mesh | null {
   const tex = new THREE.CanvasTexture(c);
   tex.colorSpace = THREE.SRGBColorSpace;
   tex.anisotropy = 4;
+  if (SCALE < 1) tex.onUpdate = () => { c.width = c.height = 1; }; // phones: free the canvas pixels once on the GPU
   const mat = new THREE.MeshLambertMaterial({ map: tex, emissive: 0xffffff, emissiveMap: tex, emissiveIntensity: 0.25 });
   mat.userData.neon = signs.some((s) => ['bar', 'pub', 'nightclub'].includes(s.kind));
   signMats.add(mat);
@@ -111,7 +124,7 @@ let wildTex: THREE.Texture | null = null;
 
 export function buildWildPosters(rows: number[][]): THREE.Object3D[] {
   if (!rows.length) return [];
-  wildTex ??= Object.assign(new THREE.TextureLoader().load('/tex/wildposters.webp'), { colorSpace: THREE.SRGBColorSpace, anisotropy: 4 });
+  wildTex ??= Object.assign(new THREE.TextureLoader().load('/tex/wildposters.webp', halveOnPhone), { colorSpace: THREE.SRGBColorSpace, anisotropy: 4 });
   const pos: number[] = [], uv: number[] = [], nrm: number[] = [], idx: number[] = [];
   rows.forEach(([x, y, z, tx, ty, sheet, rot], n) => {
     const ox = ty, oy = -tx, b = pos.length / 3, hw = 0.75, hh = 0.75, off = 0.05 + n * 0.0008;
@@ -139,7 +152,7 @@ let graffitiTex: THREE.Texture | null = null;
 
 export function buildGraffiti(rows: number[][]): THREE.Object3D[] {
   if (!rows.length) return [];
-  graffitiTex ??= Object.assign(new THREE.TextureLoader().load('/tex/graffiti.png'), { colorSpace: THREE.SRGBColorSpace, anisotropy: 4 });
+  graffitiTex ??= Object.assign(new THREE.TextureLoader().load('/tex/graffiti.png', halveOnPhone), { colorSpace: THREE.SRGBColorSpace, anisotropy: 4 });
   const pos: number[] = [], uv: number[] = [], nrm: number[] = [], idx: number[] = [];
   rows.forEach(([x, y, z, tx, ty, k, sc], n) => {
     const ox = ty, oy = -tx, b = pos.length / 3, h = 0.8 * sc, off = 0.035 + n * 0.0005;

@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { NIGHT_LIGHT_GLSL, nlPos, nlCol, nlCar, nlDir, nlWet } from '../world/night_lights';
+import { ver } from './assetver';
 
 /** Shared night factor (0 = day .. 1 = night) for all patched materials (windows, shopfronts, lamps). */
 export const nightUniform = { value: 0 };
@@ -193,6 +194,6 @@ function loadImage(url: string): Promise<HTMLImageElement> {
     const i = new Image();
     i.onload = () => ok(i);
     i.onerror = fail;
-    i.src = url;
+    i.src = ver(url);
   });
 }

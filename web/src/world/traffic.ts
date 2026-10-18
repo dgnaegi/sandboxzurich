@@ -10,6 +10,8 @@ interface Agent {
   kind: 'car' | 'bike'; e: number; s: number; v: number; nxt: number; x: number; y: number; h: number; ex: number; ey: number;
   seg: number; vmul: number; len: number; type: string; color: THREE.Color; wait: number; free: boolean; phase: number;
   id: number; alive: boolean; yielding: boolean; acc: number; turn: number; dz: number;
+  /** move2: cached distance to a pole/sign/bollard in the lane, edge on which such obstacles are ignored (waited too long) */
+  sd?: number; sIgn?: number;
 }
 interface Edge {
   a: number; b: number; p: Float32Array; cum: Float32Array; len: number; v: number; w: number;
@@ -297,6 +299,18 @@ export class Traffic {
         vt = Math.min(vt, safe(f - c.r - a.len / 2, 0));
       }
     }
+    // move2: posts, signs and bollards sticking into the lane (static circle colliders): brake before them; after 3 s of waiting drive on (never a permanent jam)
+    if (this.solidAhead && a.sIgn !== a.e) {
+      if ((this.tick + a.id) % 5 === 0) {
+        const d = this.solidAhead(a.x, a.y, hx, hy, 14 + a.v * 1.2, (a.kind === 'car' ? 1.0 : 0.45));
+        a.sd = d === Infinity ? undefined : d - a.len / 2 - 0.3;
+      }
+      if (a.sd !== undefined) {
+        a.sd -= a.v * dt;
+        vt = Math.min(vt, safe(Math.max(0, a.sd), 0));
+        if (a.v < 0.2) { a.wait += dt; if (a.wait > 3) { a.sIgn = a.e; a.sd = undefined; } }
+      }
+    }
     if (a.yielding && a.v < 0.3) { a.wait += dt; if (a.wait > 5) a.free = true; } else if (a.v > 2) a.wait = 0;
     vt = Math.max(0, vt);
     // soft pull-away and braking: target acceleration eases in (jerk-limited) instead of switching on/off
@@ -366,8 +380,13 @@ export class Traffic {
     return false;
   }
 
+  /** move2: set by main (tiles.colliders.circleAhead). */
+  solidAhead: ((x: number, y: number, hx: number, hy: number, maxD: number, hw: number) => number) | null = null;
+  private tick = 0;
+
   update(dt: number, px: number, py: number, avoid: { x: number; y: number; r: number }[]) {
     if (!this.cars || !this.bikes) return;
+    this.tick++;
     dt = Math.min(dt, 0.05);
     for (const g of [this.cars, this.bikes]) for (const e of g.edges) e.list.length = 0;
     for (const a of this.agents) this.graph(a).edges[a.e].list.push(a);

@@ -9,7 +9,7 @@ import { driveStep, type DriveState } from './vehicle_player';
 import type { DriveCar } from './drive';
 
 // Mocap clips run at ~1.35 / 3.7 m/s (manifest clip_speed); Human.setSpeed scales playback by v / clip speed, so these stay slide-free.
-const WALK = 1.55, RUN = 4.5, RADIUS = 0.35, ACCEL = 9, DECEL = 14;
+const WALK = 1.55, RUN = 4.5, RADIUS = 0.35, ACCEL = 7, DECEL = 11;
 const TURN_WALK = 9, TURN_RUN = 6; // max turn rate (rad/s) of the body while walking / running
 const BIKE_MAX = 7.5, BIKE_SPRINT = 10.5; // top speeds; acceleration/steering/lean live in world/bikerig.ts
 
@@ -38,6 +38,7 @@ export class Player {
   /** Smoothed walking velocity (m/s, world x/y). */
   private vx = 0; private vy = 0;
   private lean = 0;
+  private slideSide = 1;
   private bones: RideBones;
 
   constructor(x: number, y: number, readonly tiles: Tiles, readonly body: Human) {
@@ -102,9 +103,17 @@ export class Player {
       const hitSolid = Math.hypot(this.x - nx, this.y - ny) > 0.02;
       const [rx, ry] = this.tiles.bridges.railPush(this.x, this.y, this.z, 0.45);   // deck railing: slides along it, no fall
       if (rx !== this.x || ry !== this.y) { this.x = rx; this.y = ry; this.speed *= 0.97; }
-      if (hitSolid) { // bumped into something: hard hit = fall off
-        if (this.speed > 5.5) { const sp = this.speed; this.fallT = 1.8; this.onBikeCrash?.(sp); this.speed = 0; }
-        else this.speed *= 0.6;
+      if (hitSolid) { // bumped into something: head-on hard hit = fall off; glancing (move2) = slide along it, steer away a little
+        const px = this.x - nx, py = this.y - ny, pl = Math.hypot(px, py) || 1;
+        const vn = Math.max(0, -(px / pl * Math.sin(this.heading) + py / pl * Math.cos(this.heading))) * Math.abs(this.speed);   // speed into the obstacle
+        if (vn > 4.5 && this.speed > 5.5) { const sp = this.speed; this.fallT = 1.8; this.onBikeCrash?.(sp); this.speed = 0; }
+        else {
+          const [qx, qy] = this.tiles.colliders.resolveCircles(nx, ny, 0.45), thin = Math.hypot(qx - nx, qy - ny) > 1e-3;   // pole/sign (not a wall)?
+          const frac = vn / Math.max(1, Math.abs(this.speed));
+          this.speed *= thin ? 1 - Math.min(0.12, frac * 0.15 + 0.004) : 1 - Math.min(0.5, frac * 0.5 + 0.004);
+          const side = Math.sin(this.heading) * py - Math.cos(this.heading) * px;   // which side the push came from
+          this.heading -= Math.sign(side || 1) * (thin ? 2.4 * Math.max(frac, 0.25) : Math.min(0.4, vn * 0.05) * Math.min(1, dt * 20)) * (thin ? dt : 1);   // steer round the post
+        }
       }
       // camera swings behind the bike unless the player is looking around
       if (this.lastLook > 1.2) { let d = this.heading - this.yaw; d = Math.atan2(Math.sin(d), Math.cos(d)); this.yaw += d * Math.min(1, dt * 2.5); }
@@ -114,7 +123,7 @@ export class Player {
       if (amount > 0.05) {
         const s = Math.sin(this.yaw), c = Math.cos(this.yaw);
         const dx = my * s + mx * c, dy = my * c - mx * s, l = Math.hypot(dx, dy);
-        const v = (actions.run ? RUN : WALK) * amount;
+        let v = (actions.run ? RUN : WALK) * amount;
         tx = (dx / l) * v; ty = (dy / l) * v;
         let d = Math.atan2(dx, dy) - this.heading;
         d = Math.atan2(Math.sin(d), Math.cos(d));
@@ -122,13 +131,30 @@ export class Player {
         const step = Math.max(-maxTurn, Math.min(maxTurn, d * Math.min(1, dt * 12)));
         this.heading += step;
         turnRate = dt > 0 ? step / dt : 0;
+        // move2: sharp turns cost speed (a runner cannot turn on a coin at full pace)
+        const cut = Math.max(0.35, Math.cos(Math.min(Math.abs(d), 1.4)));
+        tx *= cut; ty *= cut;
       }
       // ease into and out of steps instead of jumping to full speed
       const k = Math.min(1, dt * (tx || ty ? ACCEL : DECEL));
       this.vx += (tx - this.vx) * k; this.vy += (ty - this.vy) * k;
       if (Math.hypot(this.vx, this.vy) > 0.01) {
-        [this.x, this.y] = this.tiles.resolveSolid(this.x + this.vx * dt, this.y + this.vy * dt, RADIUS, this.z);
-        [this.x, this.y] = this.tiles.bridges.railPush(this.x, this.y, this.z, RADIUS);
+        const n = Math.max(1, Math.ceil(Math.hypot(this.vx, this.vy) * dt / 0.25));   // move2: substeps, no tunnelling/jerks on frame spikes
+        for (let i = 0; i < n; i++) {
+          const wx = this.x + (this.vx * dt) / n, wy = this.y + (this.vy * dt) / n;
+          [this.x, this.y] = this.tiles.resolveSolid(wx, wy, RADIUS, this.z);
+          // move2: walking straight into a pole/sign: glide round it (tangent to the contact, on the side we are already leaning to) instead of standing still
+          const [cx, cy] = this.tiles.colliders.resolveCircles(wx, wy, RADIUS), pd = Math.hypot(cx - wx, cy - wy);
+          if (pd > 1e-4) {
+            const nx = (cx - wx) / pd, ny = (cy - wy) / pd, sp = Math.hypot(this.vx, this.vy);
+            if (-(this.vx * nx + this.vy * ny) > 0.6 * sp) {
+              const tdot = -ny * this.vx + nx * this.vy, sg = tdot !== 0 ? Math.sign(tdot) : (this.slideSide ||= 1);
+              this.slideSide = sg;
+              [this.x, this.y] = this.tiles.resolveSolid(this.x - ny * sg * sp * 0.9 * dt / n, this.y + nx * sg * sp * 0.9 * dt / n, RADIUS, this.z);
+            }
+          }
+          [this.x, this.y] = this.tiles.bridges.railPush(this.x, this.y, this.z, RADIUS);
+        }
         const mvx = dt > 0 ? (this.x - ox) / dt : this.vx, mvy = dt > 0 ? (this.y - oy) / dt : this.vy; // keep only what walls allowed
         this.vx = mvx; this.vy = mvy;
       }

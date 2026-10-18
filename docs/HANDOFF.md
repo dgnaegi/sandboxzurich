@@ -2,6 +2,9 @@
 
 Wird am Ende jedes Arbeitsschritts überschrieben. Eine neue Session liest das zuerst.
 
+## NACHTPLAN (ab 2026-10-18)
+Realismus-Woche: 7 Nächte à 8 h, siehe `docs/NIGHT_PLAN.md` (Nacht 0: Cache-/Speicherfix + Objekt-Katalog Brunnen/Haltestellen/Möbel, dann je eine Zone). Start: «Lies docs/NIGHT_PLAN.md und führe die nächste offene Nacht aus.»
+
 ## NÄCHSTE RUNDE: QUALITÄT VOR NEUEM (User 2026-10-16 Abend)
 User nach Build 10: «very buggy … cars in water, HB looks really off». Nächste Runde **keine neuen Inhalte**, sondern Qualität und viele Realitäts-Checks mit mehreren Agents (max. 3 gleichzeitig, siehe Arbeitsweise).
 1. **Zuerst Cache ausschliessen:** Browser hält Kacheln/Modelle/data bis 1 Tag (+7 Tage stale) – alte Kacheln + neue `landmarks.json` mischen sich. Fix: Versions-Parameter (`?v=<commit>`) an alle Daten-/Kachel-/Modell-URLs; danach erst Bugs beurteilen (privates Fenster).
@@ -9,6 +12,13 @@ User nach Build 10: «very buggy … cars in water, HB looks really off». Näch
 3. **HB:** Gesamtbild prüfen (Halle, Perrondächer neue Farbe, Untergeschosse/Stencil-Schnitt #48, Escher-Platz/Rasen statt Pflaster). Notfalls Untergeschosse per Manifest abschalten.
 4. **Realitäts-Checks:** feste Kamerapunkte (Foto | Spiel) an 30+ Orten, je Agent ein Gebiet; jede Abweichung als Ticket in `research/qa_round/` mit Ursache und Fix; Fixes nur über Pipeline/Overrides; nach jedem Fix Testkacheln + Vergleichsbild.
 5. Erst wenn die Liste leer ist: neue Häuser/Details.
+
+### Handy stürzt weiter ab (User 2026-10-16 Abend) – Befund, noch NICHT behoben
+Messung `node web/tests/mem_phone.mjs` (Handy-Modus, geschätzter GPU-Texturspeicher inkl. Mipmaps):
+- Langstrasse **448 MB** Texturen, HB 306 MB, Hardbrücke 187 MB (Geometrie nur 22–39 MB, JS-Heap 160–200 MB). Langstrasse = Absturzkandidat auf iOS.
+- **Hauptursache:** `web/src/world/signs.ts` zeichnet alle Ladenschilder einer Kachel in EINE Canvas-Textur 1024 × ceilPow2(n·96). Seit den Hausnummern/Institutionen (`names_inst.py`) haben 4 Langstrassen-Kacheln je **1024×8192 = ~44 MB**. Getesteter Fix (zurückgenommen, User: «save it for handover»): auf Handys `SCALE = 0.5` (Canvas `TEXW*SCALE × H*SCALE`, `g.scale(SCALE, SCALE)`, UVs mit logischer Höhe `H`) → Langstrasse 448 → 314 MB. Besser zusätzlich: Hausnummern nicht in den Schilder-Atlas (eigene kleine Glyphen-Textur, geteilt), mehrere Spalten statt 1024 px pro Schild, Canvas nach dem Upload freigeben.
+- Weitere Posten: `wildposters.webp` 2048² (22 MB) → Handy-Halbversion; 4× 512×4096 Canvas (je 11 MB, Quelle noch prüfen: vermutlich `streetsigns.ts`/`trafficsigns.ts`-Atlas pro Kachel); Landmarks an der Langstrasse 83 MB (42 Häuser mit eigenen Texturen → gemeinsame Kit-Texturen/Atlas, Handy `loadR` kleiner).
+- Ziel-Budget Handy: < 200 MB Texturen an der dichtesten Stelle; danach auf echtem iPhone prüfen.
 
 ## Abend 2026-10-16 (Build 10) – kurz
 Ziel weiterhin: **mehr Details, echtere Karte**. Heute neu (Details in den Abschnitten unten und DECISIONS #45–#48):
