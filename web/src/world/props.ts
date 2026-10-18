@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import type { KnockRec } from './knockable';
 import { registerLights } from './night_lights';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { CAR_GEO, carMaterial, carPick } from './cars';
@@ -134,11 +135,14 @@ export function buildProps(meta: PropMeta, shadows: boolean): THREE.Object3D[] {
   }
   for (const r of fountains) { const k = Math.floor(Math.abs(r[0] * 7 + r[1] * 3)) % 4; place((k === 1 && T.fountain2) || (k === 2 && T.fountain3) || T.fountain, r[0], r[1], r[2], -r[3]); }
   // bin type (r[4] = type*2 + ashtray): 0 Zueri-Kuebel, 1 Abfallhai, 2 Robidog, 3 other
+  const knocks: { part: number; rec: KnockRec }[] = [];   // knock-over objects: part index in `parts` -> record (vertex ranges are filled after the merge)
+  const knockable = (r: number[], rad: number, kind: 1 | 2, type: KnockRec['type']) => knocks.push({ part: parts.length, rec: { x: r[0], y: r[1], z: r[2], r: rad, kind, type, ranges: [] } });
   for (const r of bins) {
     const t = r[4] === undefined ? 0 : r[4] >> 1, ash = (r[4] ?? 0) & 1;
+    knockable(r, 0.3, 1, 'bin');
     place((t === 1 && T.bin_hai) || (t === 2 && T.bin_robidog) || (ash && T.bin_ash) || T.bin, r[0], r[1], r[2], -r[3] + Math.PI);
   }
-  for (const r of meta.racks ?? []) place(T.rack, r[0], r[1], r[2], -r[3] + Math.PI / 2);
+  for (const r of meta.racks ?? []) { knockable(r, 0.35, 2, 'flat'); place(T.rack, r[0], r[1], r[2], -r[3] + Math.PI / 2); }
   for (const r of (meta as unknown as { mopeds?: number[][] }).mopeds ?? []) place(mopedGeo(r[4]), r[0], r[1], r[2], -r[3]);
   for (const r of (meta as unknown as { terraces?: number[][] }).terraces ?? []) {
     place(T.terrace, r[0], r[1], r[2], -r[3]);
@@ -146,7 +150,7 @@ export function buildProps(meta: PropMeta, shadows: boolean): THREE.Object3D[] {
   }
   const extra = meta as unknown as { hydrants?: number[][]; bollards?: number[][]; pingpong?: number[][] };
   for (const [key, tpl] of [['hydrants', 'hydrant'], ['bollards', 'bollard'], ['pingpong', 'pingpong']] as const)
-    if (T[tpl]) for (const r of extra[key] ?? []) place(T[tpl], r[0], r[1], r[2], r[3]);
+    if (T[tpl]) for (const r of extra[key] ?? []) { if (key === 'bollards') knockable(r, 0.15, 2, 'pole'); place(T[tpl], r[0], r[1], r[2], r[3]); }
   const lampPts: number[] = [];
   for (const r of lamps) lampPts.push(r[0], r[2] + 7.0, -r[1], 17, 1.7, 1.05, 0.5);
   for (const r of masts) lampPts.push(r[0] - Math.sin(r[3]) * 1.4, r[2] + 7.0, -(r[1] - Math.cos(r[3]) * 1.4), 17, 1.7, 1.05, 0.5);
@@ -162,6 +166,15 @@ export function buildProps(meta: PropMeta, shadows: boolean): THREE.Object3D[] {
   if (parts.length) {
     const mesh = new THREE.Mesh(merge(parts), furnitureMat);
     mesh.castShadow = shadows;
+    if (knocks.length) { // vertex / index offset of every part inside the merged geometry
+      const v: number[] = [], ix: number[] = []; let a = 0, b = 0;
+      for (const g of parts) { v.push(a); ix.push(b); a += g.getAttribute('position').count; b += g.index?.count ?? 0; }
+      mesh.userData.knock = knocks.map(({ part, rec }) => {
+        const g = parts[part];
+        rec.ranges.push({ v0: v[part], vn: g.getAttribute('position').count, i0: g.index ? ix[part] : undefined, in: g.index?.count, mesh });
+        return rec;
+      });
+    }
     out.push(mesh);
   }
 

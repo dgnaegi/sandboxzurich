@@ -24,6 +24,7 @@ import { purgeLights } from '../world/night_lights';
 import { forgetSignMat } from '../world/signs';
 import { buildAFrames, buildSacks, sackGroups } from '../world/streetlife';
 import { buildTrafficSigns, buildSignals, purgeSignals } from '../world/trafficsigns';
+import { attachKnocks, knockKey } from '../world/knockable';
 import { waterMaterial, disposeWater, type WaterMeta } from '../world/water'; // water
 
 interface TileRef { name: string; ix: number; iy: number }
@@ -206,7 +207,7 @@ export class Tiles {
       this.bridges.remove(name);
       treeField.remove(name);
       this.waters.delete(name);
-      this.colliders.removeCircles(name);
+      this.colliders.removeCircles(name); this.colliders.removeCircles(knockKey(name));
       purged = true;
     }
     if (purged) { parkedCars.purge(); purgeLights(); purgeSignals(); }
@@ -279,11 +280,12 @@ export class Tiles {
     this.bridges.add(br, t.name);
     const solids: number[][] = []; // small solid obstacles for the player: [x, y, radius]
     for (const r of meta.trees ?? []) solids.push([r[0], r[1], Math.max(0.2, Math.min(0.5, (r[6] ?? 0.3) * 0.9))]);
-    for (const r of meta.lamps ?? []) solids.push([r[0], r[1], 0.15]);
+    // lamps are cable lamps hanging 7.6 m above the carriageway (props.ts T.lamp): no ground collider (it was a phantom pole mid-road, ~99 % of them on the road mask)
     for (const r of meta.masts ?? []) solids.push([r[0], r[1], 0.2]);
-    for (const r of meta.bins ?? []) solids.push([r[0], r[1], 0.3]);
+    // bins are knockable (registered through attachKnocks, world/knockable.ts)
     for (const r of meta.benches ?? []) solids.push([r[0], r[1], 0.55]);
     this.colliders.addCircles(t.name, solids);
+    attachKnocks(t.name, props, this.colliders);
     put(props, 'places', buildPlaces((meta as unknown as { places?: PlaceMeta }).places, this.shadows));
     put(props, 'details', buildDetails((meta as unknown as { details?: DetailMeta }).details, this.shadows)); // OSM street details (world/details.ts)
     put(props, 'yards', buildYards((meta as unknown as { yards?: YardMeta }).yards, this.shadows)); // courtyards, front gardens, shrubs (world/yards.ts)

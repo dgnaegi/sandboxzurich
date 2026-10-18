@@ -32,6 +32,7 @@ async function run(touch) {
   if (touch) await page.tap('#btn-use'); else await page.keyboard.press('KeyE');
   await page.waitForFunction(() => !!window.sbxPlayer.driving, null, { timeout: 8000 }).catch(() => {});
   ok(await page.evaluate(() => !!window.sbxPlayer.driving), `${tag}: in the car`);
+  await page.waitForFunction(() => getComputedStyle(document.getElementById('carhp')).display !== 'none', null, { timeout: 3000 }).catch(() => {}); // shown by the next frame
   ok(await page.evaluate(() => getComputedStyle(document.getElementById('carhp')).display !== 'none'), `${tag}: HP bar visible while driving`);
 
   const gas = async (on) => {

@@ -6,25 +6,42 @@ from PIL import Image, ImageDraw, ImageFont
 from pathlib import Path
 
 FONTS = Path(__file__).resolve().parent.parent.parent / "web" / "public" / "fonts"
-YEL = (217, 198, 143); RED = (172, 70, 48); GREY = (170, 166, 156); DGREY = (120, 118, 112)
+YEL = (217, 198, 143); RED = (138, 58, 42); GREY = (170, 166, 156); DGREY = (120, 118, 112)
 
 
 def font(sz, name="Barlow-Bold"): return ImageFont.truetype(str(FONTS / (name + ".ttf")), sz)
 
 
-def brick_wall(color=YEL, size=256, rows=44, seed=3):
-    """Yellow clinker, 4 m x 4 m per repeat (rows ~ 9 cm)."""
-    rng = np.random.default_rng(seed); im = Image.new("RGB", (size, size), tuple(int(v * 0.82) for v in color)); d = ImageDraw.Draw(im)
-    bh = size / rows; bw = size / 24
+CREAM = (234, 219, 172)
+
+
+def brick_wall(color=CREAM, size=512, rows=48, cols=16, seed=3, red=True):
+    """Pale yellowish clinker with visible light-grey joints, 4 m x 4 m per repeat (48 courses of ~8 cm, 25 cm bricks). red=True adds
+    the brick-red bands: a horizontal band and a vertical pilaster strip per repeat (halls, photo 3 of research/schlachthof.md)."""
+    rng = np.random.default_rng(seed); joint = (206, 198, 176)
+    im = Image.new("RGB", (size, size), joint); d = ImageDraw.Draw(im)
+    bh = size / rows; bw = size / cols
+    redcol = (176, 78, 52)
     for r in range(rows):
         off = (r % 2) * bw / 2
-        for k in range(-1, 25):
-            f = 1 + rng.normal(0, 0.045); c = tuple(int(np.clip(v * f, 0, 255)) for v in color)
-            d.rectangle([k * bw + off + 0.6, r * bh + 0.6, (k + 1) * bw + off - 0.6, (r + 1) * bh - 0.6], fill=c)
-    # soot / water staining streaks
+        for k in range(-1, cols + 1):
+            f = 1 + rng.normal(0, 0.035); g = rng.normal(0, 3)
+            c = tuple(int(np.clip(v * f + g * (1 if i == 0 else 0.6), 0, 255)) for i, v in enumerate(color))
+            d.rectangle([k * bw + off + 1.5, r * bh + 1.5, (k + 1) * bw + off - 1.5, (r + 1) * bh - 1.5], fill=c)
+    if red:
+        for r in (rows - 3, rows - 2, rows - 1):      # horizontal red band (3 courses)
+            for k in range(-1, cols + 1):
+                off = (r % 2) * bw / 2; f = 1 + rng.normal(0, 0.05)
+                d.rectangle([k * bw + off + 1.5, r * bh + 1.5, (k + 1) * bw + off - 1.5, (r + 1) * bh - 1.5], fill=tuple(int(v * f) for v in redcol))
+        for r in range(rows):                          # vertical pilaster strip: 2 bricks wide at u = 0
+            off = (r % 2) * bw / 2
+            for k in (-1, 0, cols - 1, cols):
+                x0 = k * bw + off
+                if abs((x0 + bw / 2) % size) < bw * 0.8 or abs((x0 + bw / 2) % size - size) < bw * 0.8:
+                    f = 1 + rng.normal(0, 0.05); d.rectangle([x0 + 1.5, r * bh + 1.5, x0 + bw - 1.5, (r + 1) * bh - 1.5], fill=tuple(int(v * f) for v in redcol))
     a = np.asarray(im).astype(float)
-    for _ in range(14):
-        x = int(rng.integers(0, size)); w = int(rng.integers(6, 22)); a[:, x:x + w] *= 1 + rng.normal(0, 0.025)
+    for _ in range(18):                                # soot / water staining streaks
+        x = int(rng.integers(0, size)); w = int(rng.integers(8, 34)); a[:, x:x + w] *= 1 + rng.normal(0, 0.02)
     return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8)).convert("RGBA")
 
 
@@ -133,7 +150,7 @@ def portal(zg, variant=0, size=512):
     SX = size / PW; SY = size / (PZ1 - PZ0)
     X = lambda u: (u + PW / 2) * SX; Y = lambda z: (PZ1 - z) * SY
     rng = np.random.default_rng(5 + variant)
-    base = np.full((size, size, 3), YEL, float) + rng.normal(0, 4, (size, size, 1))
+    base = np.full((size, size, 3), (230, 214, 166), float) + rng.normal(0, 4, (size, size, 1))
     im = Image.fromarray(np.clip(base, 0, 255).astype(np.uint8)); d = ImageDraw.Draw(im, "RGBA")
     em = Image.new("RGB", (size, size), (0, 0, 0)); de = ImageDraw.Draw(em)
     for z in np.arange(PZ0, PZ1, 0.3): d.line([0, Y(z), size, Y(z)], fill=(110, 90, 50, 22), width=1)
@@ -159,7 +176,7 @@ def portal(zg, variant=0, size=512):
         u = k * 1.46; d.line([X(u), Y(zb), X(u), Y(math.sqrt(max(0, R_GL ** 2 - u * u)))], fill=FR, width=2)
     for z in np.arange(zb, R_GL, 2.1):
         w = math.sqrt(max(0, R_GL ** 2 - max(z, 0) ** 2)); d.line([X(-w), Y(z), X(w), Y(z)], fill=FR, width=2)
-    cz = 4.6; r = 1.4 * SX
+    cz = 6.3; r = 1.9 * SX
     d.ellipse([X(0) - r - 5, Y(cz) - r - 5, X(0) + r + 5, Y(cz) + r + 5], fill=(40, 40, 40, 255)); d.ellipse([X(0) - r, Y(cz) - r, X(0) + r, Y(cz) + r], fill=(244, 240, 226, 255))
     de.ellipse([X(0) - r, Y(cz) - r, X(0) + r, Y(cz) + r], fill=(150, 140, 96))
     d.line([X(0), Y(cz), X(0) + r * 0.2, Y(cz) - r * 0.7], fill=(30, 30, 30, 255), width=3); d.line([X(0), Y(cz), X(0) - r * 0.6, Y(cz) + r * 0.3], fill=(30, 30, 30, 255), width=3)

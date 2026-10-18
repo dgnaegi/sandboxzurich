@@ -10,6 +10,10 @@ Einkaufszentrum Letzipark, Kreis 9 Albisrieden/Altstetten-Grenze. Mitte ca. (-13
 ## Modell
 `pipeline/landmarks/k39w3_letzipark.py` (+ `schlachthof_lp_tex.py`): Wände/Dächer aus den 3D-Daten, graue Paneelfassade mit Fensterbändern, Arkade (Vordach, blaue Säulen mit weissen Kugelleuchten, Ladenfronten mit Namensschildern, verglaste Eingänge), schwarze Dachkuben, blauer Schriftkubus mit «LETZIPARK» + Palme auf dem Dach, «EINKAUFSZENTRUM» und «66 Geschäfte / Montag–Samstag / 9–20 Uhr».
 
+## Runde 2
+- Baslerstrasse-Fassade (70 m, Süd): dunkel (wie Foto 2024/2013), keine Fensterbänder, riesige blaue Lettern «L E T Z» + Palme als «I» (`schlachthof_lp_tex.huge`, 50 x 12.5 m). Dach-Schriftzug «LETZIPARK» auf dem blauen Kubus vergrössert (24 x 6 m).
+- Rot-weisse Absperrungen/Poller vor der Arkade: NICHT aus dem Landmark. Quelle ist `pipeline/sites.py` (OGD «Aktuelle Tiefbauprojekte», Baustelle t26022 «Baslerstrasse 47-50», 2026-11-02 bis 2027-04-30, ewz-Trafostation) und liegt damit in einer Datei ausserhalb dieses Auftrags. Beleg auf Fotos nicht vorhanden (Fotos stammen von vor Baubeginn). Abschalten nur über eine Ausschlussliste in sites.py (heute nicht vorhanden).
+
 ## Offen
 - Genaue Fassadenfarbe schwankt je nach Foto (2024 dunkel mit Lichterkette, 2025 blau/Gerüst).
 - Treppentürme aussen und Lichthöfe nur als Fläche.

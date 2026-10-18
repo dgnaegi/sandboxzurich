@@ -27,6 +27,7 @@ def build():
     mwb = m.mat("wall_b", panels("#2f77c6", nx=4, ny=3, gap="#1f5a9c", seed=4)); mf = m.mat("flat", None, rough=0.9)
     dc = LT.decals(); mdc = m.mat("decal", dc[0], dc[1], rough=0.6); mdc.alpha_mask = True
     sg = LT.signs(); msg = m.mat("sign", sg[0], sg[1], rough=0.7); msg.alpha_mask = True
+    hg = LT.huge(); mhg = m.mat("huge", hg[0], hg[1], rough=0.7); mhg.alpha_mask = True
     polys = [(k, loc(p)) for k, p in load(ID)]
     sx, sy = SIGN_CUBE[0] - ox, SIGN_CUBE[1] - oy
     nwin = nshop = 0; ground_walls = []
@@ -49,17 +50,22 @@ def build():
         mid = (a + b) / 2; g = gl(*mid); z0 = max(z0, g - 1.5) if z0 < g - 1.5 else z0
         H = z1 - g; cube = (z1 + oz) > 12.0
         is_sign = cube and math.hypot(mid[0] - sx, mid[1] - sy) < 22
-        mat = mwb if is_sign else (mwd if cube else mwl)
+        dark_front = (not cube) and (nh[1] < -0.8 or (nh[0] > 0.8 and nh[1] < -0.3)) and w > 25 and H > 11 and z1 + oz > 6          # Baslerstrasse facade: dark with giant LETZI lettering
+        mat = mwb if is_sign else (mwd if (cube or dark_front) else mwl)
         u0 = float(a @ tt) / 4.0
         oq(m, mat, [(a[0], a[1], z0), (b[0], b[1], z0), (b[0], b[1], z1), (a[0], a[1], z1)], (nh[0], nh[1], 0), [(u0, z0 / 4), (u0 + w / 4, z0 / 4), (u0 + w / 4, z1 / 4), (u0, z1 / 4)])
         if is_sign: sign_walls.append((a, b, nh, tt, w, z0, z1, mid))
+        if dark_front and nh[1] < -0.8:
+            Pl = lambda u, z, off=0.08: (a[0] + tt[0] * u + nh[0] * off, a[1] + tt[1] * u + nh[1] * off, z)
+            ub, zb_ = min(w - 54.0, max(2.0, w * 0.12)), g + 5.6
+            oq(m, mhg, [Pl(ub, zb_), Pl(ub + 50, zb_), Pl(ub + 50, zb_ + 12.5), Pl(ub, zb_ + 12.5)], (nh[0], nh[1], 0), [(0, 0), (1, 0), (1, 1), (0, 1)])
         if w < 3 or H < 4.5: continue
         P = lambda u, z, off=0.04: (a[0] + tt[0] * u + nh[0] * off, a[1] + tt[1] * u + nh[1] * off, z)
         def quad(rects, name, uc, zb_, wd, ht, off=0.04, mat_=mdc, W_=512, H_=768):
             oq(m, mat_, [P(uc - wd / 2, zb_, off), P(uc + wd / 2, zb_, off), P(uc + wd / 2, zb_ + ht, off), P(uc - wd / 2, zb_ + ht, off)], (nh[0], nh[1], 0), LT.uvr(rects, name, W_, H_))
         gw = z0 <= g + 1.5 and H >= 9 and w >= 8
         bands = []
-        if not cube:
+        if not cube and not dark_front:
             if H >= 9: bands.append(g + 6.9)
             if H >= 15: bands.append(g + 10.9)
             if H < 9: bands.append(g + 2.2 if not gw else g + 6.9)
@@ -100,7 +106,7 @@ def build():
         if w < 15: continue
         P = lambda u, z, off=0.06: (a[0] + tt[0] * u + nh[0] * off, a[1] + tt[1] * u + nh[1] * off, z)
         if abs(ang + 112) < 25 or abs(ang + 22) < 25:
-            oq(m, msg, [P(w / 2 - 8.5, z1 + 0.0, 0.25), P(w / 2 + 8.5, z1 + 0.0, 0.25), P(w / 2 + 8.5, z1 + 4.25, 0.25), P(w / 2 - 8.5, z1 + 4.25, 0.25)], (nh[0], nh[1], 0), LT.uvr(LT.SR, "letters", 1024, 1024))
+            oq(m, msg, [P(w / 2 - 12.0, z1 + 0.0, 0.25), P(w / 2 + 12.0, z1 + 0.0, 0.25), P(w / 2 + 12.0, z1 + 6.0, 0.25), P(w / 2 - 12.0, z1 + 6.0, 0.25)], (nh[0], nh[1], 0), LT.uvr(LT.SR, "letters", 1024, 1024))
             oq(m, msg, [P(w / 2 - 8.0, z1 - 7.0), P(w / 2 + 8.0, z1 - 7.0), P(w / 2 + 8.0, z1 - 5.0), P(w / 2 - 8.0, z1 - 5.0)], (nh[0], nh[1], 0), LT.uvr(LT.SR, "ekz", 1024, 1024))
             oq(m, msg, [P(w / 2 - 6.0, z1 - 12.0), P(w / 2 + 2.0, z1 - 12.0), P(w / 2 + 2.0, z1 - 8.0), P(w / 2 - 6.0, z1 - 8.0)], (nh[0], nh[1], 0), LT.uvr(LT.SR, "hours", 1024, 1024))
             for i, nm in enumerate(("plate0", "plate1", "plate2", "plate3")):

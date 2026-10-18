@@ -1,0 +1,26 @@
+[
+ {
+  "id": "fgg_mitte",
+  "name": "Frau Gerolds Garten",
+  "kind": "landmark",
+  "lat": 47.385429,
+  "lon": 8.519044,
+  "radius": 60
+ },
+ {
+  "id": "fgg_strasse",
+  "name": "Geroldstrasse / Viadukt",
+  "kind": "landmark",
+  "lat": 47.385157,
+  "lon": 8.519304,
+  "radius": 70
+ },
+ {
+  "id": "fgg_turm",
+  "name": "Freitag-Turm Umgebung",
+  "kind": "landmark",
+  "lat": 47.385668,
+  "lon": 8.519407,
+  "radius": 50
+ }
+]

@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import type { KnockRec } from './knockable';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
 /** Swiss traffic signs (SSV) and traffic lights. Rows: [x, y, z, heading, code|kind] in local metres (z = ground);
@@ -97,6 +98,7 @@ export function buildTrafficSigns(rows: SignRow[]): THREE.Object3D[] {
   const pos: number[] = [], uv: number[] = [], nrm: number[] = [], idx: number[] = [];
   const poles = new Map<string, { x: number; y: number; z: number; top: number }>();
   const level = new Map<string, number>();
+  const signAt = new Map<string, { v0: number; i0: number }[]>(); // knock: vertex / index start of every sign plate, per pole
   const back = cellUV(CODES.indexOf('back'), tex, COLS);
   for (const [x, y, z, h, code] of rows) {
     const ci = CODES.indexOf(code as never);
@@ -111,6 +113,7 @@ export function buildTrafficSigns(rows: SignRow[]): THREE.Object3D[] {
     const nx = Math.cos(h), nz = -Math.sin(h), rx = nz, rz = -nx, hw = SIGN_SIZE / 2;
     const bx = x + nx * 0.06, bz = -y + nz * 0.06;
     const [u0, v0, u1, v1] = cellUV(ci, tex, COLS);
+    (signAt.get(pk) ?? signAt.set(pk, []).get(pk)!).push({ v0: pos.length / 3, i0: idx.length });
     for (const [f, uvs] of [[1, [u0, v0, u1, v1]], [-1, back]] as const) {
       const off = f === 1 ? 0 : -0.012, b0 = pos.length / 3;
       for (const [su, sv] of [[-1, -1], [1, -1], [1, 1], [-1, 1]]) {
@@ -129,9 +132,16 @@ export function buildTrafficSigns(rows: SignRow[]): THREE.Object3D[] {
   geo.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
   geo.setIndex(idx);
   const mat = new THREE.MeshLambertMaterial({ map: tex, alphaTest: 0.5, emissive: 0xffffff, emissiveMap: tex, emissiveIntensity: 0.18 });
-  out.push(new THREE.Mesh(geo, mat));
+  const plates = new THREE.Mesh(geo, mat);
+  out.push(plates);
   const pg = mergeGeometries([...poles.values()].map((p) => boxAt(0.07, p.top - p.z, 0.07, p.x, (p.top + p.z) / 2, -p.y, 0, GREY)))!;
-  out.push(new THREE.Mesh(pg, new THREE.MeshLambertMaterial({ vertexColors: true })));
+  const poleMesh = new THREE.Mesh(pg, new THREE.MeshLambertMaterial({ vertexColors: true }));
+  out.push(poleMesh);
+  // knock-over: a car driving into the post topples post + plates (world/knockable.ts)
+  poleMesh.userData.knock = [...poles.entries()].map(([pk, p], j): KnockRec => ({
+    x: p.x, y: p.y, z: p.z, r: 0.12, kind: 2, type: 'pole',
+    ranges: [{ v0: 24 * j, vn: 24, i0: 36 * j, in: 36, mesh: poleMesh }, ...(signAt.get(pk) ?? []).map((a) => ({ v0: a.v0, vn: 8, i0: a.i0, in: 12, mesh: plates }))],
+  }));
   return out;
 }
 

@@ -136,7 +136,11 @@ export class DriveCar {
   }
 
   private collide(obstacles: Obb[] | null, nearParked: (x: number, y: number, r: number) => Obb[]) {
-    const r = this.radius;
+    const r = this.radius, kn0 = this.tiles.colliders.knocked;
+    if (!this.tiles.onElevatedDeck(this.x, this.y, this.z)) {
+      const ax = Math.sin(this.h) * (this.half.l - r), ay = Math.cos(this.h) * (this.half.l - r);
+      this.tiles.colliders.knockCapsule(this.x - ax, this.y - ay, this.x + ax, this.y + ay, this.half.w, this.vx, this.vy);
+    }
     let hit = 0, hnx = 0, hny = 0, hpx = this.x, hpy = this.y, hobb: Obb | null = null;
     const boxes = [...(obstacles ?? []), ...nearParked(this.x, this.y, this.half.l + 4)].filter((b) => Math.hypot(b.x - this.x, b.y - this.y) < b.hl + this.half.l + 2.5);
     for (let iter = 0; iter < 2; iter++) {
@@ -146,7 +150,7 @@ export class DriveCar {
         const cx = this.x + fx * c.o + rx * c.l, cy = this.y + fy * c.o + ry * c.l;
         let [qx, qy] = this.tiles.resolveBody(cx, cy, r, this.z);
         if (!this.tiles.onElevatedDeck(qx, qy, this.z)) { // move2: signs, poles, trunks: soft contact (dents the car, does not stop it dead)
-          const [sx, sy] = this.tiles.colliders.resolveCircles(qx, qy, r);
+          const [sx, sy] = this.tiles.colliders.resolveCircles(qx, qy, r, this.vx, this.vy);
           softX += sx - qx; softY += sy - qy; qx = sx; qy = sy;
         }
         const dx = qx - cx, dy = qy - cy;
@@ -193,6 +197,8 @@ export class DriveCar {
         this.yawKick = clamp(this.yawKick - cross * Math.min(-vn, 20) * 0.11, -2.6, 2.6);
       }
     }
+    const nk = this.tiles.colliders.knocked - kn0;
+    if (nk > 0) { const k = Math.pow(0.985, nk); this.vx *= k; this.vy *= k; this.speed *= k; } // knocked-over signs only take a little speed
     if (hit > 0.3) {
       this.speed = this.vx * Math.sin(this.h) + this.vy * Math.cos(this.h);
       if (hit > 2 && this.hitCool <= 0) {

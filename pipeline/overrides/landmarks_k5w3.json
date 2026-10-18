@@ -129,36 +129,6 @@
    ]
   },
   {
-   "name": "Frau Gerolds Garten",
-   "model": "/models/landmarks/frau_gerolds_garten.glb",
-   "x": 203.3,
-   "y": 167.4,
-   "z": -6.28,
-   "heading": 0,
-   "hide": [
-    [
-     196.3,
-     150.9
-    ],
-    [
-     192.1,
-     153.6
-    ],
-    [
-     192.3,
-     161.3
-    ],
-    [
-     242.1,
-     159.9
-    ],
-    [
-     170.1,
-     190.9
-    ]
-   ]
-  },
-  {
    "name": "Westpark (Galaxus)",
    "model": "/models/landmarks/westpark.glb",
    "x": -177.0,
@@ -173,6 +143,28 @@
     [
      -166.5,
      779.6
+    ]
+   ]
+  },
+  {
+   "name": "Frau Gerolds Garten",
+   "model": "/models/landmarks/frau_gerolds_garten.glb",
+   "x": 187.1,
+   "y": 136.1,
+   "z": -6.37,
+   "heading": 0,
+   "hide": [
+    [
+     196.3,
+     150.9
+    ],
+    [
+     192.1,
+     153.6
+    ],
+    [
+     192.3,
+     161.3
     ]
    ]
   }

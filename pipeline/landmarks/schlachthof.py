@@ -11,6 +11,7 @@ from k39w3_kit import prep, W4, hexl, Model, taper, ROOT
 from common import ground
 import detail as D
 import schlachthof_tex as T
+from schlachthof_rest import restaurant_extras
 from lm import Mat
 
 OVR = ROOT / "pipeline" / "overrides" / "landmarks_schlachthof.json"
@@ -48,13 +49,13 @@ def build():
     sp_l, rg_l = SPRING - oz, RIDGE - oz
     m = M8("schlachthof"); T0 = T.decals()
     mb = m.mat("brick", T.brick_wall(), rough=0.95)
-    mp = m.mat("plaster", T.plaster((226, 212, 164)), rough=0.95)
+    mp = m.mat("plaster", T.brick_wall(red=False, seed=5), rough=0.95)
     mf = m.mat("flat", None, rough=0.9)
     mz = m.mat("zinc", T.zinc(), rough=0.55)
     mt = m.mat("tiles", T.tiles(), rough=0.9)
     dec = T0[0].resize((512, 512)); mdc = m.mat("decal", dec, T0[1].resize((512, 512)), rough=0.8); mdc.alpha_mask = True
     # portals: two textures (NW with clock, SE plainer) -> one material each
-    ends = [(S0 - 0.0, -1, 0), (S1, +1, 1)]
+    ends = [(S0 - 0.0, -1, 1), (S1, +1, 0)]      # photos 7-10: the clock portal is the SE one (chimney far left behind it)
     pm = []
     for s, sg, var in ends:
         p = A + t * s + nl * OC; zg = gl(p[0], p[1]) - sp_l
@@ -151,12 +152,12 @@ def build():
     for i in range(nseg):
         za = gz - 1 + (ztop - gz + 1) * i / nseg; zb_ = gz - 1 + (ztop - gz + 1) * (i + 1) / nseg
         ra = 2.3 - 0.9 * i / nseg; rb = 2.3 - 0.9 * (i + 1) / nseg
-        m.cylinder(mf, cx, cy, ra, za, zb_, n=14, col=hexl("#a24a33"), r1=rb)
+        m.cylinder(mf, cx, cy, ra, za, zb_, n=14, col=hexl("#7a3426"), r1=rb)
         m.cylinder(mf, cx, cy, rb + 0.12, zb_ - 0.25, zb_ + 0.05, n=14, col=hexl("#cfc7b6"))
     m.cylinder(mf, cx, cy, 1.7, ztop - 0.1, ztop + 0.7, n=14, col=hexl("#8e8b84"), cap=mf, capcol=hexl("#3a3a3a"))
     # ---- restaurant ----------------------------------------------------
     for prefix, signed in HOUSES:
-        rp = load(prefix); rw = []
+        rp = load(prefix); rw = []; RW_info = []
         for k, p in rp:
             q = loc(p)
             if k == 2:
@@ -177,7 +178,8 @@ def build():
             nh = nh / ln; tt = np.array([-nh[1], nh[0]]); pr = xy @ tt; ia, ib = int(np.argmin(pr)), int(np.argmax(pr)); a, b = xy[ia], xy[ib]; w = float(pr[ib] - pr[ia])
             if w < 0.3: continue
             g = gl(*(a + b) / 2); z0 = min(z0, g - 0.8); u0 = float(a @ tt) / 4
-            oq(m, mp, [(a[0], a[1], z0), (b[0], b[1], z0), (b[0], b[1], z1), (a[0], a[1], z1)], (nh[0], nh[1], 0), [(u0, z0 / 4), (u0 + w / 4, z0 / 4), (u0 + w / 4, z1 / 4), (u0, z1 / 4)])
+            zz0 = float(q[:, 2].min()); qq = q.copy(); qq[qq[:, 2] <= zz0 + 0.01, 2] = z0     # true quad (gable ends/hips are not rectangles)
+            oq(m, mp, [tuple(v) for v in qq], (nh[0], nh[1], 0), [(float(v[:2] @ tt) / 4.0, v[2] / 4.0) for v in qq])
             if w < 3 or z1 - g < 5: continue
             ze = min(z1, eave); D.band(m, mf, tuple(a), tuple(b), ze - 0.35, ze + 0.1, 0.3, hexl("#cfc7b6")); D.band(m, mf, tuple(a), tuple(b), g, g + 0.7, 0.05, GREY)
             nf = max(1, int((ze - g) // 3.3)); nb = max(1, int((w - 0.8) // 3.0)); bw = (w - 0.8) / nb
@@ -189,10 +191,11 @@ def build():
                         if q is longest and kk == nb // 2: wd, ht, nm, zb_ = 2.0, 3.0, "door_arch", g + 0.2
                         else: wd, ht, nm, zb_ = 1.8, 2.7, "win_arch_ws", g + 0.5
                     else: wd, ht, nm, zb_ = 1.4, 2.6, "win_shut", g + f * 3.3 + 0.35
+                    if not signed: wd, ht, nm, zb_ = 1.5, 1.7, "win_mod", g + f * 3.3 + 0.9          # plain house: no shutters, no restaurant door
                     oq(m, mdc, [P(cu - wd / 2, zb_), P(cu + wd / 2, zb_), P(cu + wd / 2, zb_ + ht), P(cu - wd / 2, zb_ + ht)], (nh[0], nh[1], 0), T.uvr(nm))
-            if q is longest and signed:
-                cu = w / 2; zb_ = g + 3.45
-                oq(m, mdc, [P(cu - 4.2, zb_, 0.06), P(cu + 4.2, zb_, 0.06), P(cu + 4.2, zb_ + 0.95, 0.06), P(cu - 4.2, zb_ + 0.95, 0.06)], (nh[0], nh[1], 0), T.uvr("sign"))
+            if signed: RW_info.append((a, b, nh, tt, w, ze, q is longest, g))
+        if signed: restaurant_extras(m, mp, mt, mf, mdc, RW_info, rp, loc, oz)
+        RW_info = []
     # ---- finish --------------------------------------------------------
     hide = [list(h) for h in c.hide]
     for pre in (REST_ID, GATE_ID, CHIM_ID):

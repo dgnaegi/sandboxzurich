@@ -60,6 +60,9 @@ def load():
         for poly in _geom(f["geometry"]):
             if poly.is_empty or not play.intersects(poly):
                 continue
+            today = __import__("datetime").date.today().isoformat()   # only works running on the build date (not yet started / finished ones out)
+            if (pr.get("baubeginn") or "")[:10] > today or ((pr.get("bauende") or "9999")[:10] < today):
+                continue
             txt = (pr.get("projektbeschrieb") or "").strip()
             out.append({"kind": "road", "id": f"t{pr.get('baunr')}", "name": pr.get("titel") or "", "text": txt,
                         "area": pr.get("baubereich") or "", "from": pr.get("baubeginn") or "", "to": pr.get("bauende") or "",

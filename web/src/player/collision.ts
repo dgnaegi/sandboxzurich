@@ -6,6 +6,10 @@ export class Colliders {
   private grid = new Map<string, Ring[]>();
   private circles = new Map<string, number[][]>();        // cell -> [x, y, r] (trunks, poles, bins, benches)
   private circleRows = new Map<string, { cell: string; row: number[] }[]>();   // tile -> what it registered (for unloading)
+  /** knock: row[3] = 1 solid for everybody but a car knocks it over, 2 = only a car sees it (knocked over, never blocks walkers/bikes/NPC traffic) */
+  private knockFns = new Map<number[], (dx: number, dy: number, speed: number) => void>();
+  /** Counts objects knocked over by cars so far (the car reads the difference to lose a little speed). */
+  knocked = 0;
 
   /** Register solid circles [x, y, r] of a tile (small obstacles; only checked near the player). */
   addCircles(key: string, rows: number[][]) {
@@ -19,9 +23,16 @@ export class Colliders {
     this.circleRows.set(key, mine);
   }
 
+  /** Register a knockable circle [x, y, r, kind] (see knockFns); `fn(dirx, diry, speed)` runs once when a car drives into it. */
+  addKnockable(key: string, rows: { row: number[]; fn: (dx: number, dy: number, speed: number) => void }[]) {
+    this.addCircles(key, rows.map((r) => r.row));
+    for (const r of rows) this.knockFns.set(r.row, r.fn);
+  }
+
   removeCircles(key: string) {
     const mine = this.circleRows.get(key);
     if (!mine) return;
+    for (const m of mine) this.knockFns.delete(m.row);
     const gone = new Set(mine.map((m) => m.row));
     for (const cell of new Set(mine.map((m) => m.cell))) {
       const l = this.circles.get(cell)!.filter((r) => !gone.has(r));
@@ -30,8 +41,10 @@ export class Colliders {
     this.circleRows.delete(key);
   }
 
-  /** Push the circle (x, y, rad) out of nearby solid circles. */
-  resolveCircles(x: number, y: number, rad: number): [number, number] {
+  /** Push the circle (x, y, rad) out of nearby solid circles. With a velocity (cars) knockable ones fall over instead of blocking. */
+  resolveCircles(x: number, y: number, rad: number, kvx?: number, kvy?: number): [number, number] {
+    const car = kvx !== undefined;
+    let hits: number[][] | null = null;
     const cx = Math.floor(x / CELL), cy = Math.floor(y / CELL);
     for (let pass = 0; pass < 2; pass++) {   // move2: two passes so a pole next to a wall/another pole cannot trap
       let moved = false;
@@ -40,12 +53,40 @@ export class Colliders {
           const dx = x - c[0], dy = y - c[1], m = rad + c[2];
           if (Math.abs(dx) >= m || Math.abs(dy) >= m) continue;
           const d = Math.hypot(dx, dy);
+          if (c[3] && d < m) { if (car) (hits ??= []).push(c); if (car || c[3] === 2) continue; } // knock: cars topple it, kind 2 is invisible to everybody else
           if (d < m) { const k = d > 1e-4 ? m / d : 0; if (k) { x = c[0] + dx * k; y = c[1] + dy * k; } else x += m; moved = true; }
         }
       }
       if (!moved) break;
     }
+    if (hits) for (const c of new Set(hits)) this.knock(c, kvx!, kvy!);
     return [x, y];
+  }
+
+  /** Knock over every knockable circle touching the capsule a→b (radius rad): the whole body of a car, including the gap between its collision circles. */
+  knockCapsule(ax: number, ay: number, bx: number, by: number, rad: number, vx: number, vy: number) {
+    if (!this.knockFns.size) return;
+    const x0 = Math.min(ax, bx) - rad - 1, x1 = Math.max(ax, bx) + rad + 1, y0 = Math.min(ay, by) - rad - 1, y1 = Math.max(ay, by) + rad + 1;
+    const ex = bx - ax, ey = by - ay, l2 = ex * ex + ey * ey || 1;
+    let hits: number[][] | null = null;
+    for (let i = Math.floor(x0 / CELL); i <= Math.floor(x1 / CELL); i++) for (let j = Math.floor(y0 / CELL); j <= Math.floor(y1 / CELL); j++)
+      for (const c of this.circles.get(`${i},${j}`) ?? []) {
+        if (!c[3]) continue;
+        const t = Math.max(0, Math.min(1, ((c[0] - ax) * ex + (c[1] - ay) * ey) / l2));
+        if (Math.hypot(c[0] - ax - ex * t, c[1] - ay - ey * t) < rad + c[2]) (hits ??= []).push(c);
+      }
+    if (hits) for (const c of hits) this.knock(c, vx, vy);
+  }
+
+  private knock(c: number[], vx: number, vy: number) {
+    const fn = this.knockFns.get(c);
+    if (!fn) return;
+    this.knockFns.delete(c);
+    const cell = `${Math.floor(c[0] / CELL)},${Math.floor(c[1] / CELL)}`, l = this.circles.get(cell);
+    if (l) { const f = l.filter((r) => r !== c); if (f.length) this.circles.set(cell, f); else this.circles.delete(cell); }
+    this.knocked++;
+    const sp = Math.hypot(vx, vy);
+    fn(sp > 1e-3 ? vx / sp : 0, sp > 1e-3 ? vy / sp : 1, sp);
   }
 
   /** move2: distance along (hx, hy) to the nearest solid circle whose edge reaches into a corridor of half width `hw` (bumper to centre), Infinity if none within `maxD`. */
@@ -54,6 +95,7 @@ export class Colliders {
     const x1 = x + hx * maxD, y1 = y + hy * maxD, c0x = Math.floor((Math.min(x, x1) - 1) / CELL), c1x = Math.floor((Math.max(x, x1) + 1) / CELL);
     const c0y = Math.floor((Math.min(y, y1) - 1) / CELL), c1y = Math.floor((Math.max(y, y1) + 1) / CELL);
     for (let i = c0x; i <= c1x; i++) for (let j = c0y; j <= c1y; j++) for (const c of this.circles.get(`${i},${j}`) ?? []) {
+      if (c[3] === 2) continue;
       const dx = c[0] - x, dy = c[1] - y, f = dx * hx + dy * hy, l = -dx * hy + dy * hx;
       if (f > 0 && f < best && f < maxD + c[2] && Math.abs(l) < hw + c[2]) best = f - c[2];
     }
