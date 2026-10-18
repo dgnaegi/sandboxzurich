@@ -107,3 +107,6 @@ Hochbeete beim Eingang, Komposter aus Paletten, Sitzgelegenheiten, Schilder-Text
 | 82 | panoramax | CC-BY-SA-4.0 | unknown | https://api.panoramax.xyz/#focus=pic&pic=abdc547b-9f59-4285-bdd6-caeb26d386da |
 | 83 | panoramax | CC-BY-SA-4.0 | unknown | https://api.panoramax.xyz/#focus=pic&pic=6eac0240-b315-4de2-9202-71783c47386a |
 | 84 | panoramax | CC-BY-SA-4.0 | unknown | https://api.panoramax.xyz/#focus=pic&pic=fe1f336c-b772-4ec7-96a9-160d3c52a2f4 |
+
+## Eingang (2026-10-18)
+- Das Tor (zwei Holzpfosten, zwei Torflügel, Rosenbogen) lässt 3.6 m offen; die Zaun-Collider beginnen links und rechts davon. Walk-in-Test per Playwright (`pipeline/landmarks/schlachthof_walk.mjs`): Figur läuft von der Strasse durch das Tor in den Garten (Ziel erreicht).

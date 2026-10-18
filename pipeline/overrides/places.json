@@ -2,7 +2,7 @@
  "_doc": "Jump points on the city map. 'osm' = name looked up in OSM (preferred); 'cross' = intersection of two streets; 'll' = [lat, lon] fallback (approximate, check against OSM).",
  "places": [
   {
-   "name": "Helvetiaplatz",
+   "name": "Ni-Una-Menos-Platz",
    "sub": "Kreis 4 · Langstrasse",
    "osm": "Helvetiaplatz",
    "ll": [

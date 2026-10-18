@@ -1,0 +1,50 @@
+[
+ {
+  "id": "sh_mitte",
+  "name": "Schlachthofareal Mitte",
+  "kind": "place",
+  "lat": 47.385019,
+  "lon": 8.507977,
+  "radius": 90
+ },
+ {
+  "id": "sh_herdern",
+  "name": "Herdernstrasse Schlachthof",
+  "kind": "place",
+  "lat": 47.384637,
+  "lon": 8.507506,
+  "radius": 70
+ },
+ {
+  "id": "sh_nord",
+  "name": "Schlachthof Nord",
+  "kind": "place",
+  "lat": 47.38544,
+  "lon": 8.508184,
+  "radius": 70
+ },
+ {
+  "id": "lp_mitte",
+  "name": "Letzipark Mitte",
+  "kind": "place",
+  "lat": 47.386386,
+  "lon": 8.499223,
+  "radius": 90
+ },
+ {
+  "id": "lp_basler",
+  "name": "Letzipark Baslerstrasse",
+  "kind": "place",
+  "lat": 47.385972,
+  "lon": 8.499215,
+  "radius": 70
+ },
+ {
+  "id": "lp_hohl",
+  "name": "Letzipark Hohlstrasse",
+  "kind": "place",
+  "lat": 47.386778,
+  "lon": 8.499602,
+  "radius": 70
+ }
+]

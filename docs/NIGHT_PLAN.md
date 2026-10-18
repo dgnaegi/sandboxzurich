@@ -5,6 +5,7 @@ Start 2026-10-18. Ziel: mehr Details, mehr Realismus, alles so nah an der echten
 **Start jeder Nacht:** neue Session im Auto-Modus, Prompt: «Lies `docs/NIGHT_PLAN.md` und führe die nächste offene Nacht aus.» Dazu `docs/HANDOFF.md` lesen. Nach jeder Phase eine Zeile in HANDOFF («Nacht N, Phase X fertig»). Am Ende die Nacht unten abhaken und eine Zeile ins Protokoll.
 
 ## Wochenübersicht
+- [ ] **Sondernacht (So 18.10. 22:00 – Mo 19.10. 16:00, 18 h)** – User-Auftrag: Schlachthof, Letzipark, Frau Gerolds Garten nach Fotos; Bäume Hardbrücke; Markierungen/Bodenschwellen gegen SWISSIMAGE; Fahrverhalten + umfahrbare Schilder; Ni-Una-Menos-Platz; Übergabe-Punkte; Komplett-Build ~03:30 + Release 1; danach Objekt-Katalog (Nacht 0) im Tagesblock, Komplett-Build ~13:00 + Release 2. Cache-/Speicherfix wurde schon am 18.10. erledigt (Build 11).
 - [ ] **Nacht 0 (So 18.10.)** – Grundlagen + Objekt-Katalog (Brunnen, Haltestellen, Möbel)
 - [ ] **Nacht 1 (Mo 19.10.)** – Zone 4 Wiedikon
 - [ ] **Nacht 2 (Di 20.10.)** – Zone 1 HB und Langstrasse

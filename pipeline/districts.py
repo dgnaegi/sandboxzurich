@@ -6,6 +6,7 @@ import numpy as np
 from shapely.geometry import LineString, Point, Polygon, box
 
 import sources
+from names import square
 from config import AREA, ROOT
 
 RAW = ROOT / "data" / "raw" / "stadtzh_all" / "geo_statistische_quartiere__adm_statistische_quartiere_v.geojson"
@@ -57,9 +58,9 @@ def main():
             if pg.geom_type == 'MultiPolygon':
                 pg = max(pg.geoms, key=lambda q: q.area)
             if pg.intersects(play) and pg.area > 150:
-                squares.append({"n": nm, "ring": [[r1(a), r1(b)] for a, b in pg.simplify(1.5).exterior.coords]})
+                squares.append({"n": square(nm), "ring": [[r1(a), r1(b)] for a, b in pg.simplify(1.5).exterior.coords]})
         if e["type"] == "node" and t.get("place") == "square":
-            squares.append({"n": nm, "x": r1(pts[0][0]), "y": r1(pts[0][1]), "r": 30})
+            squares.append({"n": square(nm), "x": r1(pts[0][0]), "y": r1(pts[0][1]), "r": 30})
         if e["type"] == "node" and (t.get("railway") in ("tram_stop", "station", "halt") or t.get("public_transport") == "stop_position") and nm in HUBS:
             stops.setdefault(nm, []).append(pts[0])
     hubs = []

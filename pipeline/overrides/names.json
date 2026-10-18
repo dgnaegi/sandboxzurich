@@ -1,0 +1,6 @@
+{
+  "_doc": "In-game display names for squares/places (map labels, quarter locator, places list). Stops, stations and addresses keep their official names. Applied by pipeline/names.py.",
+  "squares": {
+    "Helvetiaplatz": {"name": "Ni-Una-Menos-Platz", "note": "User request 2026-10-18; no official renaming found by the city (2026-10-18). VBZ stop stays 'Helvetiaplatz'."}
+  }
+}

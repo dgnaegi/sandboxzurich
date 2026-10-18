@@ -265,7 +265,7 @@ for p_ in [(400, 705), (570, 690), (745, 170), (790, 95), (860, 215), (1000, 270
     tree(*p_, rng.uniform(3.5, 5.5), rng.uniform(3.6, 5), "crown" if rng.random() < .5 else "crown2")
 
 # ---------------- fences, gate, signs ----------------
-GATE = PX(600, 843); gu = (H_[0] - A_[0], H_[1] - A_[1]); gl = math.hypot(*gu); gu = (gu[0] / gl, gu[1] / gl)
+GATE = PX(600, 843); print('QGH_GATE', [round(float(v), 1) for v in GATE]); gu = (H_[0] - A_[0], H_[1] - A_[1]); gl = math.hypot(*gu); gu = (gu[0] / gl, gu[1] / gl)
 gpos = math.hypot(GATE[0] - A_[0], GATE[1] - A_[1])
 SN_ang = math.atan2(*reversed(gu))
 fence_run(A_, B_, "mesh")                                  # wire mesh towards the family gardens

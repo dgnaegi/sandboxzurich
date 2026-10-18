@@ -114,8 +114,15 @@ def build():
                     k += 1
                     m.cylinder(mf, x_, y_, 1.7, zr, zr + 0.07, n=6, col=D.hexl("#847f6c"), cap=mf, capcol=D.hexl("#847f6c"))
                     if k % 2 == 0: m.box(mf, x_, y_, 2.1, 1.3, zr + 0.07, zr + 0.55, rot=math.atan2(tl[1], tl[0]), col=D.hexl("#c6cbcc"))
-            ea, eb = max(zip(ring, ring[1:] + ring[:1]), key=lambda e: math.dist(*e)); L, t, n = D.frame_of(ea, eb)
-            u0, u1 = L * 0.3, L * 0.3 + 16.0; zz = gz + h + 0.2
+            # rooftop lettering above the Coop (User 2026-10-18: «auf Höhe Coop»): the podium edge nearest the Coop sign (SHOPS[0])
+            cx_, cy_ = SHOPS[0][2] - ox, SHOPS[0][3] - oy
+            def _fit(e):
+                L_, t_, n_ = D.frame_of(*e); u_ = (cx_ - e[0][0]) * t_[0] + (cy_ - e[0][1]) * t_[1]
+                return abs((cx_ - e[0][0]) * n_[0] + (cy_ - e[0][1]) * n_[1]) + (0 if 0 < u_ < L_ else 1e3) + (0 if L_ > 18 else 1e4)
+            ea, eb = min(zip(ring, ring[1:] + ring[:1]), key=_fit); L, t, n = D.frame_of(ea, eb)
+            uc = (cx_ - ea[0]) * t[0] + (cy_ - ea[1]) * t[1]
+            u0 = min(max(uc - 8.0, 0.5), L - 16.5); u1 = u0 + 16.0; zz = gz + h + 0.2
+            print(f"lochergut lettering: edge {L:.1f} m, coop at u={uc:.1f}, box {u0:.1f}..{u1:.1f} (was {L * 0.3:.1f})")
             # rooftop light-box lettering «LOCHERGUT» (photos 52, 75): white box on legs, glows magenta/pink at night, colour animated at runtime (material lochergut_neon)
             zb, zt_, dep = zz + 1.0, zz + 3.5, 0.9
             for uu in np.linspace(u0 + 0.6, u1 - 0.6, 9): m.box(mf, *[(D.P3(ea, t, n, uu, 0, -0.5)[q]) for q in (0, 1)], 0.25, 0.25, zz, zb, rot=math.atan2(t[1], t[0]), col=D.hexl("#3b3f42"))

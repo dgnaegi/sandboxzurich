@@ -149,3 +149,8 @@ Bildbeschreibung:
 Badenerstrasse, Frie |
 | Mapillary_Z_rich_1640896079862130__u3iVcplwqT9IFZXPjQEbyA_by_fcignat___2025-03-1 | Wikimedia Commons https://commons.wikimedia.org/wiki/File:Mapillary_Z%C3%BCrich_1640896079862130_(u3iVcplwqT9IFZXPjQEbyA_by_fcignat_%E2%80%93_2025-03-10_05H39M21S366).jpg | CC BY-SA 4.0 | fcignat  |
 | Zuerich-vbz-tram-2-be-673550.jpg | Wikimedia Commons https://commons.wikimedia.org/wiki/File:Zuerich-vbz-tram-2-be-673550.jpg | Attribution | Kurt Rasmussen |
+
+## Begehbare Eingänge (2026-10-18)
+- 11 Eingänge (je 2 Wandfelder, ca. 10 m) wie auf den Fotos: Rostwand unterbrochen, Pfeiler, roter Sturz, Treppenstufen (Positionen `web/public/models/landmarks/letzigrund.meta.json` → `gates`).
+- Landmark ist jetzt `walkable` mit eigenen `colliders` (Aussenwand-Felder ohne Tore, Rand der Tribünen, Seitenwände der Gänge). Die Tribünenblöcke an den Toren sind im Modell ausgespart und durch einen betonierten Gang zum Spielfeldrand ersetzt (Seitenwände links/rechts).
+- Offen: Tribünen selbst nicht betretbar (Gelände bleibt flach), Rasen/Spielfeld nur Gelände, keine Treppen im Innern.

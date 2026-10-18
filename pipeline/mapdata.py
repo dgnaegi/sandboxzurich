@@ -15,6 +15,7 @@ from shapely.prepared import prep
 import sources
 from build_map import kreise
 from config import ROOT
+from names import square
 
 OUT = ROOT / "web" / "public" / "data" / "map"
 Q = 2  # units per metre
@@ -171,7 +172,7 @@ def main():
             elif t.get("place") in ("suburb", "quarter", "neighbourhood") and nm:
                 places.append([nm, round(x), round(y), {"suburb": "s", "quarter": "u", "neighbourhood": "n"}[t["place"]]])
             elif t.get("place") == "square" and nm:
-                places.append([nm, round(x), round(y), "q"])
+                places.append([square(nm), round(x), round(y), "q"])
             elif nm and (t.get("amenity") in POI_AMENITY or t.get("tourism") == "museum"):
                 pois.append([nm, round(x), round(y), POI_AMENITY.get(t.get("amenity"), "culture")])
     stop_list = []
@@ -187,7 +188,7 @@ def main():
                 continue
             c = g.representative_point()
             if kind == "sq":
-                places.append([nm, round(c.x), round(c.y), "q"]); seen.add((nm, kind))
+                places.append([square(nm), round(c.x), round(c.y), "q"]); seen.add((nm, kind))
             elif kind in ("g", "w", "c", "s") and g.area > 2500:
                 places.append([nm, round(c.x), round(c.y), "k"]); seen.add((nm, kind))
             elif kind == "b" and g.area > 1800:
