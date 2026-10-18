@@ -38,6 +38,7 @@ import { Missions } from './gameplay/missions';
 import { VeloInfra } from './gameplay/velo';
 import { Anecdotes } from './gameplay/anecdotes';
 import { buildStops } from './world/stops';
+import { CatalogLayer, loadCatalog } from './world/catalog';
 import { CityMap } from './ui/map';
 import { Locator } from './ui/locator';
 import { chatLine } from './ui/chatter';
@@ -73,7 +74,7 @@ async function main() {
 
   const L = (p: Promise<unknown>) => loading.track(p);
   const map = new CityMap();
-  await Promise.all([L(loadRailZone()), L(loadTrees('/models/trees', mobile ? 1 : 2)), L(loadCars()), L(loadBikes()), L(loadFurniture())]);
+  await Promise.all([L(loadRailZone()), L(loadTrees('/models/trees', mobile ? 1 : 2)), L(loadCars()), L(loadBikes()), L(loadFurniture()), L(loadCatalog(mobile))]);
   setYardsMobile(mobile); // YARDS
   setDetailsLite(mobile); // look3
   treeField.init(renderer, mobile, !mobile);
@@ -88,6 +89,7 @@ async function main() {
   tiles.bikes = bikes;
   tiles.treeRadius = mobile ? 110 : 170;
   tiles.bikeRadius = mobile ? 110 : 150;
+  const catalogLayer = new CatalogLayer(scene, ground, tiles.colliders, mobile ? 160 : 220); // object catalog: fountains, shelters, benches (world/catalog.ts)
   tiles.roofRadius = mobile ? 150 : 250;
   const crowd = new Pedestrians(humans, mobile ? 16 : 36, ground);
   tiles.onPaths = (p) => crowd.addPaths(p);
@@ -379,6 +381,7 @@ async function main() {
     skyline.update(camera.position);
     blobs?.update(!renderer.shadowMap.enabled, daytime.sunUp, camera.position);
     tiles.cull(player.x, player.y, quality.detailRadius);
+    catalogLayer.update(player.x, player.y);
     if (stops && (frames & 15) === 0) for (const o of stops.children) o.visible = Math.hypot(o.position.x - player.x, -o.position.z - player.y) < quality.detailRadius; // shelters: 5 calls each
     if (acc - lastStream > 1) { lastStream = acc; void tiles.update(player.x, player.y); }
     if (acc - lastSave > 10) { lastSave = acc; state.save(player.x, player.y); }

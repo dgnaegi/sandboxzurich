@@ -13,10 +13,10 @@ def uvr(name, W=1024, H=640):
 
 
 def gravel(size=128, seed=2):
-    rng = np.random.default_rng(seed); a = np.full((size, size, 3), (150, 140, 122), float)
-    a += rng.normal(0, 14, (size, size, 1))
-    for _ in range(260):
-        x, y = rng.integers(0, size, 2); r = int(rng.integers(1, 3)); a[max(0, y - r):y + r, max(0, x - r):x + r] *= rng.uniform(0.7, 1.15)
+    rng = np.random.default_rng(seed); a = np.full((size, size, 3), (196, 188, 170), float)
+    a += rng.normal(0, 22, (size, size, 1))
+    for _ in range(520):
+        x, y = rng.integers(0, size, 2); r = int(rng.integers(1, 3)); a[max(0, y - r):y + r, max(0, x - r):x + r] *= rng.uniform(0.6, 1.2)
     return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8)).convert("RGBA")
 
 
@@ -55,3 +55,38 @@ def shopglass(size=256):
     for _ in range(26):
         x = int(rng.integers(18, size - 18)); y = int(rng.integers(24, 78)); d.ellipse([x - 7, y - 5, x + 7, y + 9], fill=(60, 140, 66, 255))
     return im, em
+
+
+CCOLS = ["#2a6f78", "#8a3a24", "#7a2a24", "#a87a28", "#2f5a80", "#5c6062", "#3f6a48", "#9a4a1e"]
+
+
+def containers():
+    """4x2 container long sides (cells 256x112) + 64 px strip (unused): strong corrugation, rust, plus hatch+awning / doors / glass / graffiti stripes."""
+    CW_, CH_ = 256, 112; H = 2 * CH_ + 64
+    im = Image.new("RGB", (1024, H), (20, 20, 20)); em = Image.new("RGB", (1024, H), (0, 0, 0)); d = ImageDraw.Draw(im); de = ImageDraw.Draw(em); rng = np.random.default_rng(11)
+    for k, col in enumerate(CCOLS):
+        x0, y0 = (k % 4) * CW_, (k // 4) * CH_; C = rgb(col)
+        d.rectangle([x0, y0, x0 + CW_, y0 + CH_], fill=C)
+        for xx in range(x0 + 4, x0 + CW_ - 4, 6):
+            d.line([xx, y0 + 8, xx, y0 + CH_ - 8], fill=mixc(C, (0, 0, 0), 0.38), width=2); d.line([xx + 3, y0 + 8, xx + 3, y0 + CH_ - 8], fill=mixc(C, (255, 255, 255), 0.16))
+        for _ in range(14):                                                            # rust streaks / patches
+            xx = int(rng.integers(x0 + 8, x0 + CW_ - 8)); yy = int(rng.integers(y0 + 8, y0 + 60)); d.rectangle([xx, yy, xx + int(rng.integers(3, 14)), yy + int(rng.integers(14, 50))], fill=mixc(C, (130, 66, 30), 0.5))
+        d.rectangle([x0, y0, x0 + CW_, y0 + 9], fill=mixc(C, (0, 0, 0), 0.5)); d.rectangle([x0, y0 + CH_ - 10, x0 + CW_, y0 + CH_], fill=mixc(C, (0, 0, 0), 0.5))
+        d.rectangle([x0, y0, x0 + 8, y0 + CH_], fill=mixc(C, (0, 0, 0), 0.45)); d.rectangle([x0 + CW_ - 9, y0, x0 + CW_, y0 + CH_], fill=mixc(C, (0, 0, 0), 0.45))
+        f = k % 4
+        if f == 0:      # serving hatch with striped awning + counter
+            d.rectangle([x0 + 60, y0 + 26, x0 + 190, y0 + 70], fill=(30, 34, 36)); de.rectangle([x0 + 64, y0 + 30, x0 + 186, y0 + 66], fill=(150, 112, 60))
+            for i in range(10): d.polygon([(x0 + 52 + i * 15, y0 + 14), (x0 + 67 + i * 15, y0 + 14), (x0 + 70 + i * 15, y0 + 30), (x0 + 49 + i * 15, y0 + 30)], fill=(214, 60, 48) if i % 2 else (238, 232, 218))
+            d.rectangle([x0 + 56, y0 + 72, x0 + 194, y0 + 80], fill=(120, 90, 60))
+        elif f == 1:    # double door with locking bars
+            d.rectangle([x0 + 70, y0 + 14, x0 + 186, y0 + CH_ - 12], fill=mixc(C, (0, 0, 0), 0.35))
+            for xx in (x0 + 90, x0 + 108, x0 + 148, x0 + 166): d.line([xx, y0 + 16, xx, y0 + CH_ - 14], fill=(160, 160, 156), width=3)
+            d.line([x0 + 128, y0 + 14, x0 + 128, y0 + CH_ - 12], fill=(20, 20, 20), width=3)
+        elif f == 2:    # two windows with frames + stripe
+            for ox_ in (40, 150):
+                d.rectangle([x0 + ox_, y0 + 24, x0 + ox_ + 66, y0 + 70], fill=(224, 220, 208)); d.rectangle([x0 + ox_ + 5, y0 + 29, x0 + ox_ + 61, y0 + 65], fill=(48, 62, 70)); de.rectangle([x0 + ox_ + 5, y0 + 29, x0 + ox_ + 61, y0 + 65], fill=(140, 110, 60))
+            d.rectangle([x0 + 10, y0 + 84, x0 + CW_ - 10, y0 + 94], fill=(236, 200, 60))
+        else:           # large glass sliding front
+            d.rectangle([x0 + 40, y0 + 20, x0 + 216, y0 + CH_ - 14], fill=(210, 210, 204)); d.rectangle([x0 + 46, y0 + 26, x0 + 210, y0 + CH_ - 20], fill=(54, 70, 78)); de.rectangle([x0 + 46, y0 + 26, x0 + 210, y0 + CH_ - 20], fill=(150, 118, 70))
+            d.line([x0 + 128, y0 + 26, x0 + 128, y0 + CH_ - 20], fill=(210, 210, 204), width=4)
+    return noisy(im, 3, 4).convert("RGBA"), em

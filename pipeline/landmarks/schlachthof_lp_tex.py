@@ -73,18 +73,18 @@ def signs():
 
 
 def huge():
-    """Giant facade lettering L E T Z + palm-I (photos: dark Baslerstrasse facade). 1024 x 256 RGBA cut-out, 50 m x 12.5 m on the wall."""
+    """Giant facade lettering L E T Z + palm-I (photos: dark Baslerstrasse facade). 1024 x 256 RGBA cut-out, 60 m x 15 m on the wall; palm is big and green."""
     W, H = 1024, 256
     im = Image.new("RGBA", (W, H), (0, 0, 0, 0)); em = Image.new("RGB", (W, H), (0, 0, 0)); d = ImageDraw.Draw(im); de = ImageDraw.Draw(em)
-    f = font(236, "Barlow-Bold"); BL = (52, 128, 232, 255); LI = (150, 200, 255, 255)
-    pitch = W / 5.0
+    f = font(210, "Barlow-Bold"); BL = (52, 128, 232, 255); LI = (170, 214, 255, 255)
+    pitch = 190.0
     for i, ch in enumerate("LETZ"):
-        cx = pitch * (i + 0.5)
-        d.text((cx, H - 14), ch, font=f, fill=BL, anchor="ms", stroke_width=5, stroke_fill=LI); de.text((cx, H - 14), ch, font=f, fill=(40, 90, 170), anchor="ms", stroke_width=3)
-    cx = pitch * 4.5                                                           # the I is a palm: blue trunk, green fronds
-    d.rectangle([cx - 15, 96, cx + 15, H - 14], fill=BL, outline=LI, width=4); de.rectangle([cx - 15, 96, cx + 15, H - 14], fill=(40, 90, 170))
-    for ang, ln in ((-80, 92), (-48, 104), (-16, 100), (16, 100), (48, 104), (80, 92), (-110, 58), (110, 58)):
-        a = math.radians(ang); ex, ey = cx + ln * math.sin(a), 96 - ln * math.cos(a) * 0.55 + ln * 0.18 * abs(math.sin(a))
-        d.line([cx, 96, ex, ey], fill=(44, 190, 76, 255), width=22); d.line([cx, 96, ex, ey], fill=(130, 230, 140, 255), width=6)
-        de.line([cx, 96, ex, ey], fill=(30, 110, 50), width=14)
+        cx = 40 + pitch * (i + 0.5)
+        d.text((cx, H - 8), ch, font=f, fill=BL, anchor="ms", stroke_width=5, stroke_fill=LI); de.text((cx, H - 8), ch, font=f, fill=(40, 90, 170), anchor="ms", stroke_width=3)
+    cx = 40 + pitch * 4 + 70; top = 112                                       # the I is a palm: blue trunk, big green fronds
+    d.rectangle([cx - 17, top, cx + 17, H - 8], fill=BL, outline=LI, width=4); de.rectangle([cx - 17, top, cx + 17, H - 8], fill=(40, 90, 170))
+    for ang, ln in ((-85, 150), (-55, 168), (-25, 160), (0, 120), (25, 160), (55, 168), (85, 150), (-115, 90), (115, 90)):
+        a = math.radians(ang); ex, ey = cx + ln * math.sin(a) * 0.95, top - ln * math.cos(a) * 0.7 + ln * 0.35 * abs(math.sin(a)) + 10
+        d.line([cx, top, ex, ey], fill=(34, 190, 70, 255), width=30); d.line([cx, top, ex, ey], fill=(140, 238, 140, 255), width=7)
+        de.line([cx, top, ex, ey], fill=(30, 110, 50), width=20)
     return im, em

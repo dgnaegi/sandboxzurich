@@ -23,7 +23,7 @@ STONE, GREY, RED = hexl("#b4aea0"), hexl("#8a8883"), hexl("#a8472f")
 
 
 class M8(Model):
-    max_mats = 8
+    max_mats = 10
 
 
 def load(prefix):
@@ -148,13 +148,18 @@ def build():
             oq(m, mf, top, (0, 0, 1), [(0, 0), (1, 0), (1, 1), (0, 1)], STONE)
     # ---- chimney -------------------------------------------------------
     cx, cy = -926.9 - ox, 21.9 - oy; gz = gl(cx, cy); ztop = 44.6 - oz
-    nseg = 7
+    mch = m.mat("chimney", T.brick_wall(color=(132, 52, 38), red=False, seed=9), rough=0.95)       # slender tapered brick stack (photo 3/9)
+    R0, R1 = 1.55, 0.9; nseg = 8
+    rad = lambda z: R0 + (R1 - R0) * (z - gz) / (ztop - 2.2 - gz)
     for i in range(nseg):
-        za = gz - 1 + (ztop - gz + 1) * i / nseg; zb_ = gz - 1 + (ztop - gz + 1) * (i + 1) / nseg
-        ra = 2.3 - 0.9 * i / nseg; rb = 2.3 - 0.9 * (i + 1) / nseg
-        m.cylinder(mf, cx, cy, ra, za, zb_, n=14, col=hexl("#7a3426"), r1=rb)
-        m.cylinder(mf, cx, cy, rb + 0.12, zb_ - 0.25, zb_ + 0.05, n=14, col=hexl("#cfc7b6"))
-    m.cylinder(mf, cx, cy, 1.7, ztop - 0.1, ztop + 0.7, n=14, col=hexl("#8e8b84"), cap=mf, capcol=hexl("#3a3a3a"))
+        za = gz - 1 + (ztop - 2.2 - gz + 1) * i / nseg; zb_ = gz - 1 + (ztop - 2.2 - gz + 1) * (i + 1) / nseg
+        m.cylinder(mch, cx, cy, rad(za), za, zb_, n=16, mod=(3.0, 3.0), col=W4, r1=rad(zb_))
+        if i % 3 == 2: m.cylinder(mf, cx, cy, rad(zb_) + 0.1, zb_ - 0.2, zb_ + 0.1, n=16, col=hexl("#c9c0ae"))     # light band
+    zh = ztop - 2.2; rh = R1
+    m.cylinder(mch, cx, cy, rh, zh, zh + 1.0, n=16, mod=(3.0, 3.0), col=W4)
+    m.cylinder(mf, cx, cy, rh + 0.1, zh + 1.0, zh + 1.3, n=16, col=hexl("#c9c0ae"), r1=rh + 0.45)             # head ring (flared cornice)
+    m.cylinder(mch, cx, cy, rh + 0.45, zh + 1.3, zh + 2.1, n=16, mod=(3.0, 3.0), col=W4, r1=rh + 0.3)
+    m.cylinder(mf, cx, cy, rh + 0.35, zh + 2.1, zh + 2.35, n=16, col=hexl("#a8a396"), cap=mf, capcol=hexl("#2e2e2e"))
     # ---- restaurant ----------------------------------------------------
     for prefix, signed in HOUSES:
         rp = load(prefix); rw = []; RW_info = []

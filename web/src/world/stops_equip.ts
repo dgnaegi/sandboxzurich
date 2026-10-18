@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { loadOgdExtras } from './ogd_extras';
+import { catalogReady, setCatalogStopZ } from './catalog';
 
 /** Real stop equipment from public/data/stops_equip.json (pipeline/stops_equip.py, VBZ infrastructure OGD, CC0).
  *  Shelters, benches, ticket machines, poster panels and departure displays at their real positions; one InstancedMesh per
@@ -69,13 +70,15 @@ export async function loadEquip(group: THREE.Group, defaults: StopDefault[], gro
     for (const d of defaults) { const e = Math.hypot(d.x - x, d.y - y); if (e < bd && !Number.isNaN(d.z)) { bd = e; best = d; } }
     return best ? best.z : ground(x, y);
   };
+  const cat = catalogReady();   // catalog models (world/catalog.ts) draw shelters, benches, ticket machines and displays
+  if (cat) setCatalogStopZ(zAt);
   const box = new THREE.BoxGeometry(1, 1, 1), plane = new THREE.PlaneGeometry(1, 1);
   const solid = new THREE.MeshLambertMaterial({ color: 0xffffff });
   const glassM = new THREE.MeshLambertMaterial({ color: 0x9fb8c8, transparent: true, opacity: 0.35, depthWrite: false });
   const posterM = new THREE.MeshLambertMaterial({ color: 0xffffff, side: THREE.DoubleSide });
   const opaque = new Acc(), glassA = new Acc(), posters = new Acc();
   const dfi = new Map<string, THREE.Matrix4[]>();
-  for (const [x, y, len, dep, az, s] of eq.sh) {
+  for (const [x, y, len, dep, az, s] of cat ? [] : eq.sh) {
     const z = zAt(x, y), fr = frame(x, y, z, az, s);
     opaque.push(part(fr, 0, 2.45, 0, len + 0.2, 0.08, dep + 0.3), ROOF);
     glassA.push(part(fr, 0, 1.25, -dep / 2, len, 1.9, 0.03));
@@ -84,6 +87,7 @@ export async function loadEquip(group: THREE.Group, defaults: StopDefault[], gro
   }
   for (const [x, y, az, s, kind] of eq.bn) {
     const z = zAt(x, y), fr = frame(x, y, z, az, s);
+    if (cat && kind === 0) continue;
     if (kind === 1) {   // lean rail
       opaque.push(part(fr, 0, 0.9, 0, 1.0, 0.05, 0.12), STEEL); for (const px of [-0.4, 0.4]) opaque.push(part(fr, px, 0.45, 0, 0.04, 0.9, 0.04), STEEL);
     } else if (kind === 2) {   // single seat
@@ -93,7 +97,7 @@ export async function loadEquip(group: THREE.Group, defaults: StopDefault[], gro
       for (const px of [-0.75, 0.75]) opaque.push(part(fr, px, 0.22, 0.05, 0.05, 0.44, 0.36), STEEL);
     }
   }
-  eq.tk.forEach(([x, y, az, s], i) => {
+  (cat ? [] : eq.tk).forEach(([x, y, az, s], i) => {
     const z = zAt(x, y), fr = frame(x, y, z, az, s);
     opaque.push(part(fr, 0, 0.8, 0, 0.55, 1.6, 0.4), TICK); opaque.push(part(fr, 0, 1.25, 0.205, 0.4, 0.45, 0.01), SCREEN);
     opaque.push(part(fr, 0, 0.82, 0.205, 0.18, 0.14, 0.012), DARK); void i;
@@ -110,8 +114,9 @@ export async function loadEquip(group: THREE.Group, defaults: StopDefault[], gro
   };
   for (const [x, y, az, ceil] of eq.df) {
     const z = zAt(x, y), fr = frame(x, y, z, az, 1), k = lineKey(x, y);
-    opaque.push(part(fr, 0, ceil ? 2.12 : 2.25, 0, 0.62, 0.32, 0.1), DARK);
+    if (!cat) opaque.push(part(fr, 0, ceil ? 2.12 : 2.25, 0, 0.62, 0.32, 0.1), DARK);
     if (!ceil) opaque.push(part(fr, 0, 1.1, 0, 0.06, 2.2, 0.06), STEEL);
+    if (cat) continue;
     const arr = dfi.get(k) ?? dfi.set(k, []).get(k)!;
     arr.push(part(fr, 0, ceil ? 2.12 : 2.25, 0.055, 0.56, 0.26, 1), part(fr, 0, ceil ? 2.12 : 2.25, -0.055, -0.56, 0.26, 1));
   }

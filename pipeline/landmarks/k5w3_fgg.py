@@ -38,9 +38,9 @@ def build():
     P0 = Polygon(PLOT); c = P0.centroid; ox, oy = round(c.x, 1), round(c.y, 1); oz = ground(ox, oy)
     gl = lambda x, y: ground(x + ox, y + oy) - oz; OXY[0], OXY[1] = ox, oy
     rng = np.random.default_rng(31)
-    F.COLS = ["#2a6f78", "#8a3a24", "#7a2a24", "#a87a28", "#2f5a80", "#585c5e", "#3f6a48", "#9a4a1e"]; F.LAB = {}
+    F.COLS = T.CCOLS; F.LAB = {}
     m = M8("frau_gerolds_garten")
-    ma = m.mat("cont", *F.atlas(), rough=0.6); mf = m.mat("flat", solid(W4)); mg = m.mat("gravel", T.gravel(), rough=1.0); mw = m.mat("wood", T.wood(), rough=0.9)
+    ma = m.mat("cont", *T.containers(), rough=0.6); mf = m.mat("flat", solid(W4)); mg = m.mat("gravel", T.gravel(), rough=1.0); mw = m.mat("wood", T.wood(), rough=0.9)
     sg = T.signs(); ms = m.mat("sign", sg[0], sg[1], rough=0.7); gs = T.shopglass(); mgl = m.mat("glass", gs[0], gs[1], rough=0.5)
     mco = m.mat("corr", tex_corrugated("#3b4044"), rough=0.7)
     ml = m.mat("light", solid((255, 236, 180, 255)), solid((255, 214, 130, 255)), rough=0.5)
@@ -149,11 +149,12 @@ def build():
         m.box(mw, x + 0.0 * cr - (W / 2 - 0.2) * sr, y + 0.0 * sr + (W / 2 - 0.2) * cr, L - 0.3, 0.5, g + 0.9, g + 1.0, rot=ang, col=hexl("#8a6a48"))
         for k in range(4): m.box(mf, x + (-1.0 + k * 0.7) * cr - (W / 2 - 0.2) * sr, y + (-1.0 + k * 0.7) * sr + (W / 2 - 0.2) * cr, 0.4, 0.3, g + 1.0, g + 1.3, rot=ang, col=hexl(["#c9482c", "#d9a526", "#4a7d56", "#d8d0b0"][k]))
     n_s = 0
-    for s in np.arange(10, 74, 7.3):
+    for s in np.arange(6, 76, 4.6):
         for side in (-1, 1):
-            x, y, ang = lane_pt(s + rng.uniform(-1.5, 1.5), side * rng.uniform(5.6, 7.0))
-            if rng.random() < 0.7 and claim(x, y, ang, 3.6, 2.8):
-                stall(x, y, ang + (math.pi if side > 0 else 0), ["#b8352a", "#2f8a86", "#2e7d4f", "#d99a2b", "#2f5f94"][n_s % 5]); n_s += 1
+            for off in (5.4, 6.8, 8.2, 9.8):
+                x, y, ang = lane_pt(s + rng.uniform(-1, 1), side * off)
+                if claim(x, y, ang, 3.4, 2.6):
+                    stall(x, y, ang + (math.pi if side > 0 else 0), ["#b8352a", "#2f8a86", "#2e7d4f", "#d99a2b", "#2f5f94"][n_s % 5]); n_s += 1; break
     # ---- table sets, planters, shrubs -------------------------------------------------------------------
     def table(x, y, ang, umb):
         cr, sr = math.cos(ang), math.sin(ang); g = gl(x, y)
@@ -174,15 +175,16 @@ def build():
         for k in range(int(L // 0.9)):
             u = -L / 2 + 0.5 + k * 0.9; shrub(x + u * cr, y + u * sr, 0.4, 1.0 + rng.random() * 0.8) if False else m.cylinder(mf, x + u * cr, y + u * sr, 0.38, g + 0.6, g + 1.2 + rng.random() * 0.5, n=7, col=hexl(GREENS[int(rng.integers(0, 4))]), r1=0.1)
     n_t = 0
-    for s in np.arange(5, 75, 4.3):
+    for s in np.arange(4, 76, 2.8):
         for side in (-1, 1):
-            x, y, ang = lane_pt(s + rng.uniform(-1, 1), side * rng.uniform(3.3, 4.8))
-            if claim(x, y, ang + math.pi / 2, 2.4, 2.6): table(x, y, ang, rng.random() < 0.55); n_t += 1
+            for off in (3.0, 4.2, 5.4, 7.6, 9.0):
+                x, y, ang = lane_pt(s + rng.uniform(-0.8, 0.8), side * (off + rng.uniform(-0.3, 0.3)))
+                if claim(x, y, ang + math.pi / 2, 2.0, 2.2): table(x, y, ang, rng.random() < 0.7); n_t += 1; break
     n_p = 0
-    for s in np.arange(3, 78, 3.6):
+    for s in np.arange(3, 78, 2.6):
         for side in (-1, 1):
             x, y, ang = lane_pt(s, side * rng.uniform(9.5, 12.5))
-            if rng.random() < 0.6 and claim(x, y, ang, 2.6, 1.3): planter(x, y, ang, 2.4); n_p += 1
+            if rng.random() < 0.9 and claim(x, y, ang, 2.4, 1.2): planter(x, y, ang, 2.4); n_p += 1
             x, y, ang = lane_pt(s + 1.2, side * rng.uniform(2.0, 2.6))
             if rng.random() < 0.28 and claim(x, y, ang, 1.2, 1.2): shrub(x, y, 0.55 + rng.random() * 0.25, 1.4 + rng.random() * 0.8); n_p += 1
     # ---- string lights + bunting across the lane ----------------------------------------------------------
@@ -218,14 +220,16 @@ def build():
                 pts = [(pa[0], pa[1], zz - 0.25), (pb[0], pb[1], zz - 0.25), (pb[0], pb[1], zz + 0.25), (pa[0], pa[1], zz + 0.25)]
                 D._oriented(m, ms, pts, (d_[0], d_[1], 0), [(0, 0.0), (1, 0.0), (1, 1), (0, 1)] if False else T.uvr(nm), W4)
     gx, gy, gang = lane_pt(1.5, 0.0); gg = gl(gx, gy); nx, ny = -math.sin(gang), math.cos(gang); tx, ty = math.cos(gang), math.sin(gang)
-    for sd in (-1, 1): m.box(mw, gx + nx * 4.2 * sd, gy + ny * 4.2 * sd, 0.4, 0.4, gg, gg + 4.6, col=hexl("#6a4a30"), rot=gang)
+    for sd in (-1, 1): m.box(mw, gx + nx * 4.2 * sd, gy + ny * 4.2 * sd, 0.4, 0.4, gg, gg + 6.6, col=hexl("#6a4a30"), rot=gang)
     bl = (gx - tx * 0.0 - nx * 4.4, gy - ty * 0.0 - ny * 4.4); br = (gx + nx * 4.4, gy + ny * 4.4)
-    m.box(mw, gx, gy, 0.35, 9.2, gg + 4.4, gg + 4.75, rot=gang, col=hexl("#6a4a30"))
+    m.box(mw, gx, gy, 0.35, 9.4, gg + 6.5, gg + 6.85, rot=gang, col=hexl("#6a4a30"))
     # the board faces south (against the lane direction)
     sx_, sy_ = -tx, -ty
     for sgn, off_ in ((-1, 0.0),):
         P = lambda u, z: (gx + nx * u + sx_ * 0.22, gy + ny * u + sy_ * 0.22, z)
-        D._oriented(m, ms, [P(3.9, gg + 3.2), P(-3.9, gg + 3.2), P(-3.9, gg + 4.4), P(3.9, gg + 4.4)], (sx_, sy_, 0), T.uvr("gate"), W4)
+        D._oriented(m, ms, [P(4.1, gg + 5.0), P(-4.1, gg + 5.0), P(-4.1, gg + 6.5), P(4.1, gg + 6.5)], (sx_, sy_, 0), T.uvr("gate"), W4)
+        P2 = lambda u, z: (gx + nx * u - sx_ * 0.22, gy + ny * u - sy_ * 0.22, z)
+        D._oriented(m, ms, [P2(-4.1, gg + 5.0), P2(4.1, gg + 5.0), P2(4.1, gg + 6.5), P2(-4.1, gg + 6.5)], (-sx_, -sy_, 0), T.uvr("gate"), W4)
     # chalk boards at the entrance
     for u in (-2.6, 2.6):
         P = lambda uu, z: (gx + nx * (u + uu) + sx_ * 0.6, gy + ny * (u + uu) + sy_ * 0.6, z)

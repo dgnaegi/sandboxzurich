@@ -1,0 +1,41 @@
+{
+ "brunnen_total": 334,
+ "brunnen_art": {
+  "öffentlich": 281,
+  "Notwasserbrunnen": 2,
+  "privat": 51
+ },
+ "brunnen_by_variant": {
+  "V8_notwasser": 2,
+  "V6_figur": 34,
+  "V1_saeule_trog": 45,
+  "V2_stein_trog": 135,
+  "V3_bronze_trog": 33,
+  "V4_beton": 19,
+  "V5_kunststein": 15,
+  "V7_wandbrunnen": 0,
+  "V9_holz": 3,
+  "V10_ohne_angabe": 48
+ },
+ "haltestellen_and_moebel": {
+  "H1_wh_2018": 243,
+  "H2_wh_aelter_oder_unbekannt": 115,
+  "H3_ticketautomat_typ20": 210,
+  "H4_dfi_wand": 54,
+  "H5_dfi_decke": 29,
+  "sitzgelegenheit_by_typ": {
+   "Bank in WH kurz": 155,
+   "137": 118,
+   "Bank in WH lang": 93,
+   "138": 63,
+   "Bank": 33,
+   "Bank Stehhilfe": 26,
+   "136": 11,
+   "139": 5
+  },
+  "plakatstelle": 402,
+  "kiosk": 47,
+  "leuchte_ewz": 12554,
+  "sammelstelle": 0
+ }
+}

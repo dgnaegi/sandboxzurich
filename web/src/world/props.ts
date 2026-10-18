@@ -9,6 +9,7 @@ import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.j
 import { glowMaterialPatch } from '../engine/daytime';
 import { nightUniform } from '../engine/materials';
 import { mopedGeo } from './mopeds';
+import { catalogFountainNear } from './catalog';
 
 
 /**
@@ -133,7 +134,7 @@ export function buildProps(meta: PropMeta, shadows: boolean): THREE.Object3D[] {
     const tpl = t === 1 ? T.bench_flat : t === 2 || t === 4 ? T.bench_table : t === 3 ? T.bench : t === 0 ? (h ? T.bench_cast : T.bench2) : undefined;
     place(tpl || (h && T.bench2) || T.bench, r[0], r[1], r[2], -r[3] + Math.PI / 2);
   }
-  for (const r of fountains) { const k = Math.floor(Math.abs(r[0] * 7 + r[1] * 3)) % 4; place((k === 1 && T.fountain2) || (k === 2 && T.fountain3) || T.fountain, r[0], r[1], r[2], -r[3]); }
+  for (const r of fountains) { if (catalogFountainNear(r[0], r[1])) continue; const k = Math.floor(Math.abs(r[0] * 7 + r[1] * 3)) % 4; place((k === 1 && T.fountain2) || (k === 2 && T.fountain3) || T.fountain, r[0], r[1], r[2], -r[3]); }
   // bin type (r[4] = type*2 + ashtray): 0 Zueri-Kuebel, 1 Abfallhai, 2 Robidog, 3 other
   const knocks: { part: number; rec: KnockRec }[] = [];   // knock-over objects: part index in `parts` -> record (vertex ranges are filled after the merge)
   const knockable = (r: number[], rad: number, kind: 1 | 2, type: KnockRec['type']) => knocks.push({ part: parts.length, rec: { x: r[0], y: r[1], z: r[2], r: rad, kind, type, ranges: [] } });

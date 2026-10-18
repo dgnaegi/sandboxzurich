@@ -110,6 +110,29 @@ def _underpass():
     return Polygon(json.load(open(f))["poly"]) if f.exists() else None
 
 
+_EDGE = {}
+
+
+def lane_fix(roads, x, y, max_shift=2.5, gap=0.4):
+    """Tree trunk on the carriageway (AV surface) = position error: move to the kerb edge + gap if the kerb is within
+    max_shift m, else None (drop). Returns (x, y) unchanged when not on the road."""
+    if id(roads) not in _EDGE:
+        _EDGE.clear(); shapely.prepare(roads); _EDGE[id(roads)] = roads.boundary
+    p = Point(x, y)
+    if not roads.contains(p):
+        return x, y
+    from shapely.ops import nearest_points
+    q = nearest_points(_EDGE[id(roads)], p)[0]
+    d = q.distance(p)
+    if d > max_shift:
+        return None
+    ux, uy = (q.x - x) / max(d, 1e-6), (q.y - y) / max(d, 1e-6)
+    nx, ny = q.x + ux * gap, q.y + uy * gap
+    if roads.contains(Point(nx, ny)):
+        return None
+    return round(nx, 2), round(ny, 2)
+
+
 def city_props(C, S, tb, H, curb):
     """Return meta dict parts and extra ground markings (white, blue) for tile box tb."""
     _osm_extras(C, S)
@@ -122,11 +145,18 @@ def city_props(C, S, tb, H, curb):
     lines = STRtree([w["line"] for w in S["ways"]])
     out = {"trees": [], "lamps": [], "masts": [], "cars": [], "benches": [], "fountains": [], "bins": [], "bikes": [], "mopeds": []}
     for x, y, genus, crown, cat in filter(inside, C.get("trees", [])):
+        x0_, y0_ = x, y
+        fx = lane_fix(roads, x, y)
+        if fx is None:
+            continue
+        x, y = fx
         _, ln, s_ = _road_dir(S, lines, x, y)
         near = ln.interpolate(s_)
         heading = np.arctan2(near.x - x, -(near.y - y))  # three.js Y rotation turning +z towards the carriageway
         guard = cat == "Strassenbaum" and ln.distance(Point(x, y)) < next((w["w"] for w in S["ways"] if w["line"] is ln), 8) / 2 + 3.2
-        out["trees"].append(trees_dims.tree_row(C, x, y, z(x, y), genus, crown, cat, heading, guard))
+        row = trees_dims.tree_row(C, x0_, y0_, z(x, y), genus, crown, cat, heading, guard)  # register lookup by the original position
+        row[0], row[1] = x, y
+        out["trees"].append(row)
     for x, y, orient in filter(inside, C.get("lights", [])):
         on_road = roads.contains(Point(x, y))
         heading, ln, _ = _road_dir(S, lines, x, y)

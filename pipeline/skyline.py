@@ -44,12 +44,13 @@ for az in range(360):
     for k in ('near', 'far'): out[k].append([round(best[k][1]), round(best[k][2]), round(best[k][3], 1)])
     m = max(best.values(), key=lambda t: t[0])
     out['all'].append([round(m[1]), round(m[2]), round(m[3], 1)])
-# fill gaps (no data): copy neighbour
+# fill gaps (no terrain data in that bearing): a flat placeholder at the band's near edge, ground level.  (Copying the
+# neighbour left a run of identical points and a seam whose chord crossed the whole play area = pale wall, ticket T04.)
 for k in ('near', 'far', 'all'):
-    arr = out[k]
-    for i, v in enumerate(arr):
+    d0 = bands['near' if k == 'all' else k][0]
+    for az, v in enumerate(out[k]):
         if v[0] == 0 and v[1] == 0:
-            arr[i] = arr[i - 1]
+            out[k][az] = [round(math.sin(math.radians(az)) * d0), round(math.cos(math.radians(az)) * d0), 0.0]
 
 # tower impostors: x, y(north), height above ground, width.  Landmark positions from landmarks.json.
 T = [('Prime Tower', 45.0, 222.6, 126, 38), ('Hardau II', -516.5, -321.0, 95, 70), ('Mobimo Tower', -181.5, 447.4, 81, 28),

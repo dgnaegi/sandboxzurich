@@ -57,8 +57,8 @@ def build():
         if is_sign: sign_walls.append((a, b, nh, tt, w, z0, z1, mid))
         if dark_front and nh[1] < -0.8:
             Pl = lambda u, z, off=0.08: (a[0] + tt[0] * u + nh[0] * off, a[1] + tt[1] * u + nh[1] * off, z)
-            ub, zb_ = min(w - 54.0, max(2.0, w * 0.12)), g + 5.6
-            oq(m, mhg, [Pl(ub, zb_), Pl(ub + 50, zb_), Pl(ub + 50, zb_ + 12.5), Pl(ub, zb_ + 12.5)], (nh[0], nh[1], 0), [(0, 0), (1, 0), (1, 1), (0, 1)])
+            ub, zb_ = min(w - 62.0, max(2.0, w * 0.1)), g + 2.9
+            oq(m, mhg, [Pl(ub, zb_), Pl(ub + 60, zb_), Pl(ub + 60, zb_ + 15), Pl(ub, zb_ + 15)], (nh[0], nh[1], 0), [(0, 0), (1, 0), (1, 1), (0, 1)])
         if w < 3 or H < 4.5: continue
         P = lambda u, z, off=0.04: (a[0] + tt[0] * u + nh[0] * off, a[1] + tt[1] * u + nh[1] * off, z)
         def quad(rects, name, uc, zb_, wd, ht, off=0.04, mat_=mdc, W_=512, H_=768):

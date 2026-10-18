@@ -13886,26 +13886,27 @@
 "quelle": "mapillary:1105932857465248"
 },
 "Weststrasse 177": {
-"hex": "#d8d6cf",
+"hex": "#b89068",
 "material": "putz",
 "rahmen": "weiss",
-"stil": "heimatstil",
+"stil": "gruenderzeit",
 "details": [
-"balkon"
+"balkon",
+"sockel_stein"
 ],
-"notiz": "hellgrauer Rauhputz, graugruene Balkone, Lamellenladen",
-"quelle": "mapillary:198160762536452"
+"notiz": "ockerbraun, Natursteinsockel, schwarze Eisenbalkone (rc38 links)",
+"quelle": "panoramax:rc38"
 },
 "Weststrasse 180": {
-"hex": "#d8d6cf",
+"hex": "#d4b074",
 "material": "putz",
 "rahmen": "weiss",
-"stil": "heimatstil",
+"stil": "gruenderzeit",
 "details": [
 "balkon"
 ],
-"notiz": "hellgrauer Rauhputz, graugruene Balkone, Lamellenladen",
-"quelle": "mapillary:181478948160119"
+"notiz": "ockergelb, Eisenbalkone (rc38 rechts)",
+"quelle": "panoramax:rc38"
 },
 "Weststrasse 181": {
 "hex": "#d8d6cf",

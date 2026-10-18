@@ -50,6 +50,7 @@ Schwere: 1 = kosmetisch, 2 = faellt auf, 3 = bricht den Realismus/Spielbarkeit.
 
 ## T04 Bahnland/Gleisfeld: grosse blasse, fast weisse Flaechen und senkrechte graue Wand (Haze-Farbe) statt Schotter, Boeschung und Haeuser
 - Kategorie: Gebaeude-Form; Schwere: 3; Haeufigkeit: 4 Orte; SYSTEMISCH
+- Status: BEHOBEN 2026-10-19 (Agent E): Ursache war nicht Bahnland, sondern der Horizont-Vorhang (web/public/data/skyline.json, Ring far): 157 Peilungen ohne Gelaendedaten standen als (0,0,0), die Schliess-Sehne ging durch das Spielgebiet = blasse Ebene/Wand. pipeline/skyline.py fuellt Luecken jetzt mit flachem Platzhalter am Bandrand; Datei neu erzeugt.
 - Orte (Ort, x/y, Kachel, Shot):
   - Pfingstweidstr./Toni W, (-501, 697), -3_3, #02
   - Hardturmstrasse, (-701, 1073), -4_5, #42
@@ -60,6 +61,7 @@ Schwere: 1 = kosmetisch, 2 = faellt auf, 3 = bricht den Realismus/Spielbarkeit.
 
 ## T05 Fassadenfarbe/-stil weicht ab (Notiz fehlt, falsch oder wird nicht angewendet)
 - Kategorie: Fassade-Farbe; Schwere: 2; Haeufigkeit: 7 Orte; lokal
+- Status: TEIL-BEHOBEN 2026-10-19 (Agent E): Weststrasse 177/180 in research/buildings/visual_notes_v3.json durch proposed_facades.json ersetzt (Foto 38, Konfidenz mittel). Uebrige Orte (Foerrlibuck, Letten, Gasometer, Eisgasse, Selnau, Ankerstr.) offen.
 - Orte (Ort, x/y, Kachel, Shot):
   - Weststrasse 177/180, (106, -1094), 0_-6, #38
   - Foerrlibuckstrasse (Notiz Hardturmstr. 76 = Glas, Spiel: Holzpaneele), (69, 891), 0_4, #15
@@ -113,6 +115,7 @@ Schwere: 1 = kosmetisch, 2 = faellt auf, 3 = bricht den Realismus/Spielbarkeit.
 
 ## T10 Ausserhalb Spielgebiet: blasse Ebene ohne Boden, Wiese ohne Strasse, Bus schwebt im Nichts
 - Kategorie: Verkehr; Schwere: 2; Haeufigkeit: 6 Orte; SYSTEMISCH
+- Status: OFFEN, Ursache gefunden (Agent E): pipeline/transit.py clippt die Linien auf bbox+MARGIN statt auf das Spielgebiet-Polygon (alle 64 Linien haben Punkte ausserhalb, Bus bei (-1716,-663) liegt 466 m ausserhalb); Fix: Linien am Polygon clippen / Fahrzeuge ausserhalb despawnen.
 - Orte (Ort, x/y, Kachel, Shot):
   - Albisrank, (-1651, -508), -9_-3, #66
   - Siemens/Albisriederstr. (Bus schwebt), (-1716, -663), -9_-4, #68
@@ -124,6 +127,7 @@ Schwere: 1 = kosmetisch, 2 = faellt auf, 3 = bricht den Realismus/Spielbarkeit.
 
 ## T11 Kamera steht in Gebaeude: Gebaeude liegt auf der Strasse (Hohlstrasse/Altstetten, Foto zeigt freie Kreuzung)
 - Kategorie: Gebaeude-Form; Schwere: 3; Haeufigkeit: 1 Orte; lokal
+- Status: OFFEN, Ursache gefunden (Agent E): kein Gebaeude. Kachel -11_3 hat bei (-2053,696) einen 14 m2-Collider aus pipeline/sites.py (Baustellen OGD, Sites bei (-2055,690)/(-2053,689)) auf der Kreuzung; SB3D/OSM-Gebaeude liegen nicht auf der Fahrbahn. Fix: Baustellen auf Fahrbahn/Kreuzung filtern.
 - Orte (Ort, x/y, Kachel, Shot):
   - Hohlstr. bei Bhf Altstetten Nord, (-2053, 699), -11_3, #26
 - Vermutete Ursache: Gebaeude-Footprint ueber Fahrbahn: osm_buildings.update() (Aenderungen nach 2019) oder falscher AV-Gebaeudeeintrag; Strasse aus roadgraph unter dem Haus.

@@ -1,0 +1,515 @@
+{
+ "atlas": "atlas.png",
+ "atlas_size": 512,
+ "units": "m, y up, origin = footprint centre on ground, front = +z",
+ "variants": {
+  "V1": {
+   "file": "brunnen_v1.glb",
+   "desc": "Saeulenbrunnen (Granittrog achteckig, Saeule)",
+   "tris": 296,
+   "radius": 1.34,
+   "size": [
+    1.9,
+    1.78,
+    1.9
+   ],
+   "bbox": [
+    [
+     -0.95,
+     0.0,
+     -0.95
+    ],
+    [
+     0.95,
+     1.78,
+     0.95
+    ]
+   ],
+   "bytes": 50068
+  },
+  "V2": {
+   "file": "brunnen_v2.glb",
+   "desc": "Trogbrunnen Stein",
+   "tris": 198,
+   "radius": 1.48,
+   "size": [
+    2.1,
+    1.29,
+    2.1
+   ],
+   "bbox": [
+    [
+     -1.05,
+     0.0,
+     -1.05
+    ],
+    [
+     1.05,
+     1.29,
+     1.05
+    ]
+   ],
+   "bytes": 43168
+  },
+  "V3": {
+   "file": "brunnen_v3.glb",
+   "desc": "Bronzeguss-Schale",
+   "tris": 412,
+   "radius": 0.87,
+   "size": [
+    1.24,
+    1.16,
+    1.21
+   ],
+   "bbox": [
+    [
+     -0.62,
+     0.0,
+     -0.6
+    ],
+    [
+     0.62,
+     1.16,
+     0.6
+    ]
+   ],
+   "bytes": 59444
+  },
+  "V4": {
+   "file": "brunnen_v4.glb",
+   "desc": "Betonbassin mit Fontaene",
+   "tris": 399,
+   "radius": 2.4,
+   "size": [
+    3.4,
+    1.2,
+    3.4
+   ],
+   "bbox": [
+    [
+     -1.7,
+     0.0,
+     -1.7
+    ],
+    [
+     1.7,
+     1.2,
+     1.7
+    ]
+   ],
+   "bytes": 59120
+  },
+  "V5": {
+   "file": "brunnen_v5.glb",
+   "desc": "Kunststein-Schale",
+   "tris": 154,
+   "radius": 1.04,
+   "size": [
+    1.4,
+    1.0,
+    1.45
+   ],
+   "bbox": [
+    [
+     -0.7,
+     0.0,
+     -0.77
+    ],
+    [
+     0.7,
+     1.0,
+     0.68
+    ]
+   ],
+   "bytes": 39948
+  },
+  "V6": {
+   "file": "brunnen_v6.glb",
+   "desc": "Figurenbrunnen",
+   "tris": 304,
+   "radius": 1.56,
+   "size": [
+    2.2,
+    2.97,
+    2.2
+   ],
+   "bbox": [
+    [
+     -1.1,
+     0.0,
+     -1.1
+    ],
+    [
+     1.1,
+     2.97,
+     1.1
+    ]
+   ],
+   "bytes": 52000
+  },
+  "V8": {
+   "file": "brunnen_v8.glb",
+   "desc": "Notwasserbrunnen",
+   "tris": 250,
+   "radius": 0.52,
+   "size": [
+    0.76,
+    1.3,
+    0.72
+   ],
+   "bbox": [
+    [
+     -0.38,
+     0.0,
+     -0.36
+    ],
+    [
+     0.38,
+     1.3,
+     0.36
+    ]
+   ],
+   "bytes": 47076
+  },
+  "V9": {
+   "file": "brunnen_v9.glb",
+   "desc": "Holztrog",
+   "tris": 196,
+   "radius": 0.88,
+   "size": [
+    1.04,
+    1.0,
+    1.23
+   ],
+   "bbox": [
+    [
+     -0.52,
+     0.0,
+     -0.71
+    ],
+    [
+     0.52,
+     1.0,
+     0.52
+    ]
+   ],
+   "bytes": 43516
+  },
+  "H1": {
+   "file": "wartehalle_h1.glb",
+   "desc": "VBZ-Glaswartehalle Standard 7 m",
+   "tris": 192,
+   "radius": 3.64,
+   "size": [
+    7.02,
+    2.64,
+    1.83
+   ],
+   "bbox": [
+    [
+     -3.51,
+     0.0,
+     -0.85
+    ],
+    [
+     3.51,
+     2.64,
+     0.98
+    ]
+   ],
+   "bytes": 41700
+  },
+  "H2": {
+   "file": "wartehalle_h2.glb",
+   "desc": "aeltere Wartehalle 6 m",
+   "tris": 112,
+   "radius": 3.27,
+   "size": [
+    6.2,
+    2.52,
+    2.0
+   ],
+   "bbox": [
+    [
+     -3.1,
+     0.0,
+     -0.95
+    ],
+    [
+     3.1,
+     2.52,
+     1.05
+    ]
+   ],
+   "bytes": 36100
+  },
+  "H3": {
+   "file": "ticketautomat_h3.glb",
+   "desc": "Ticketautomat Typ 20",
+   "tris": 32,
+   "radius": 0.32,
+   "size": [
+    0.5,
+    1.4,
+    0.4
+   ],
+   "bbox": [
+    [
+     -0.25,
+     0.0,
+     -0.2
+    ],
+    [
+     0.25,
+     1.4,
+     0.2
+    ]
+   ],
+   "bytes": 29772
+  },
+  "H4": {
+   "file": "anzeige_wand_h4.glb",
+   "desc": "Anzeige Wand",
+   "tris": 10,
+   "radius": 0.32,
+   "size": [
+    0.64,
+    0.44,
+    0.1
+   ],
+   "bbox": [
+    [
+     -0.32,
+     -0.22,
+     -0.05
+    ],
+    [
+     0.32,
+     0.22,
+     0.05
+    ]
+   ],
+   "bytes": 28268
+  },
+  "H5": {
+   "file": "anzeige_decke_h5.glb",
+   "desc": "Anzeige Decke (Ursprung oben)",
+   "tris": 40,
+   "radius": 0.32,
+   "size": [
+    0.64,
+    0.74,
+    0.1
+   ],
+   "bbox": [
+    [
+     -0.32,
+     -0.77,
+     -0.05
+    ],
+    [
+     0.32,
+     -0.03,
+     0.05
+    ]
+   ],
+   "bytes": 30392
+  },
+  "H6": {
+   "file": "bank_kurz_h6.glb",
+   "desc": "Bank kurz 1.8 m",
+   "tris": 70,
+   "radius": 0.94,
+   "size": [
+    1.8,
+    0.47,
+    0.52
+   ],
+   "bbox": [
+    [
+     -0.9,
+     0.0,
+     -0.26
+    ],
+    [
+     0.9,
+     0.47,
+     0.26
+    ]
+   ],
+   "bytes": 32468
+  },
+  "H7": {
+   "file": "bank_lang_h7.glb",
+   "desc": "Bank lang 3.6 m",
+   "tris": 70,
+   "radius": 1.82,
+   "size": [
+    3.6,
+    0.47,
+    0.52
+   ],
+   "bbox": [
+    [
+     -1.8,
+     0.0,
+     -0.26
+    ],
+    [
+     1.8,
+     0.47,
+     0.26
+    ]
+   ],
+   "bytes": 32468
+  },
+  "mast_tram": {
+   "file": "mast_tram.glb",
+   "desc": "Haltestellenmast Tram",
+   "tris": 76,
+   "radius": 0.56,
+   "size": [
+    0.71,
+    3.58,
+    0.36
+   ],
+   "bbox": [
+    [
+     -0.18,
+     0.0,
+     -0.18
+    ],
+    [
+     0.53,
+     3.58,
+     0.18
+    ]
+   ],
+   "bytes": 33420
+  },
+  "mast_bus": {
+   "file": "mast_bus.glb",
+   "desc": "Haltestellenmast Bus",
+   "tris": 76,
+   "radius": 0.56,
+   "size": [
+    0.71,
+    3.58,
+    0.36
+   ],
+   "bbox": [
+    [
+     -0.18,
+     0.0,
+     -0.18
+    ],
+    [
+     0.53,
+     3.58,
+     0.18
+    ]
+   ],
+   "bytes": 33420
+  },
+  "M1": {
+   "file": "leuchte_m1.glb",
+   "desc": "Mastleuchte",
+   "tris": 94,
+   "radius": 1.26,
+   "size": [
+    1.39,
+    6.5,
+    0.28
+   ],
+   "bbox": [
+    [
+     -0.14,
+     0.0,
+     -0.14
+    ],
+    [
+     1.25,
+     6.5,
+     0.14
+    ]
+   ],
+   "bytes": 34116
+  },
+  "M1b": {
+   "file": "seilleuchte_m1b.glb",
+   "desc": "Seilleuchte (Ursprung an Aufhaengung)",
+   "tris": 128,
+   "radius": 0.85,
+   "size": [
+    1.6,
+    0.61,
+    0.6
+   ],
+   "bbox": [
+    [
+     -0.8,
+     -0.62,
+     -0.3
+    ],
+    [
+     0.8,
+     -0.01,
+     0.3
+    ]
+   ],
+   "bytes": 37336
+  },
+  "M2": {
+   "file": "kiosk_m2.glb",
+   "desc": "Kiosk",
+   "tris": 54,
+   "radius": 2.5,
+   "size": [
+    2.85,
+    2.79,
+    3.38
+   ],
+   "bbox": [
+    [
+     -1.42,
+     0.0,
+     -1.32
+    ],
+    [
+     1.42,
+     2.79,
+     2.05
+    ]
+   ],
+   "bytes": 31332
+  },
+  "M3": {
+   "file": "plakatstelle_m3.glb",
+   "desc": "Plakatstelle VBZ",
+   "tris": 30,
+   "radius": 0.69,
+   "size": [
+    1.3,
+    2.3,
+    0.45
+   ],
+   "bbox": [
+    [
+     -0.65,
+     0.0,
+     -0.22
+    ],
+    [
+     0.65,
+     2.3,
+     0.22
+    ]
+   ],
+   "bytes": 29660
+  }
+ },
+ "fallback": {
+  "V7": "V2",
+  "V10": "V2"
+ }
+}
