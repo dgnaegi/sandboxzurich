@@ -1,0 +1,267 @@
+{
+ "_doc": "Zentralwaescherei wall paintings, redrawn procedurally (own drawings after photo reference, no photo pixels). Rect = [x,y,w,h] px in the 2048x1024 atlas. size_m = real wall size the rect is mapped to. Slogans/politics omitted on purpose.",
+ "atlas": [
+  2048,
+  1024
+ ],
+ "walls": {
+  "mural": {
+   "rect": [
+    0,
+    0,
+    2048,
+    400
+   ],
+   "size_m": [
+    18,
+    3.5
+   ],
+   "base": "#d9d6ce",
+   "seed": 1,
+   "palette": [
+    "#f08a24",
+    "#f5c518",
+    "#2c96be",
+    "#38c8e0",
+    "#3cab5a",
+    "#d84a8a",
+    "#e63c32",
+    "#fafaf0"
+   ],
+   "words": [
+    "FLOW",
+    "DREH",
+    "SOLO",
+    "NOVA",
+    "KOLOR"
+   ],
+   "ref": "Commons Hardbruecke mural (#37), Panoramax #108",
+   "note": "long mural on pale grey concrete wall: orange/yellow/blue wildstyle pieces with white outlines, small tags",
+   "mix": {
+    "fields": 9,
+    "pieces": 7,
+    "throw": 1,
+    "posters": 0,
+    "stickers": 14,
+    "tags": 16
+   }
+  },
+  "kiosk": {
+   "rect": [
+    0,
+    400,
+    1024,
+    340
+   ],
+   "size_m": [
+    10.2,
+    4.0
+   ],
+   "base": "#e8a2b0",
+   "seed": 2,
+   "palette": [
+    "#141414",
+    "#f4f2ea",
+    "#d84a8a",
+    "#2c96be",
+    "#f5c518"
+   ],
+   "words": [
+    "ZW",
+    "KULTUR"
+   ],
+   "ref": "Commons #34 #35 (Zentralwaescherei Strasse)",
+   "note": "pink corner kiosk, covered with black/white band posters, stickers, small colourful tags",
+   "mix": {
+    "fields": 0,
+    "pieces": 0,
+    "throw": 0,
+    "posters": 34,
+    "stickers": 16,
+    "tags": 11
+   }
+  },
+  "wall_r": {
+   "rect": [
+    1024,
+    400,
+    1024,
+    230
+   ],
+   "size_m": [
+    10.0,
+    2.5
+   ],
+   "base": "#cfcac0",
+   "seed": 3,
+   "palette": [
+    "#141414",
+    "#f4f2ea",
+    "#e63c32",
+    "#f5c518",
+    "#2c96be"
+   ],
+   "words": [
+    "ZW",
+    "ZRH"
+   ],
+   "ref": "Commons #34 (right of kiosk)",
+   "note": "street fence/wall right of the kiosk: posters, black/white photo posters, tags",
+   "mix": {
+    "fields": 0,
+    "pieces": 1,
+    "throw": 1,
+    "posters": 14,
+    "stickers": 10,
+    "tags": 16
+   }
+  },
+  "wall_l": {
+   "rect": [
+    1024,
+    630,
+    1024,
+    230
+   ],
+   "size_m": [
+    10.0,
+    2.5
+   ],
+   "base": "#c9d4cf",
+   "seed": 4,
+   "palette": [
+    "#2c96be",
+    "#f08a24",
+    "#3cab5a",
+    "#d84a8a",
+    "#fafaf0",
+    "#141414"
+   ],
+   "words": [
+    "PIX",
+    "ROLL",
+    "LOOP"
+   ],
+   "ref": "Commons #33 #35 (left of kiosk)",
+   "note": "left wall: stacked colour pieces in blue/orange/green, big light-blue block letters (no slogan text)",
+   "mix": {
+    "fields": 8,
+    "pieces": 5,
+    "throw": 2,
+    "posters": 0,
+    "stickers": 12,
+    "tags": 18
+   }
+  },
+  "passage": {
+   "rect": [
+    0,
+    740,
+    640,
+    280
+   ],
+   "size_m": [
+    3.0,
+    2.0
+   ],
+   "base": "#efece4",
+   "seed": 5,
+   "palette": [
+    "#c9ccd0",
+    "#e63c32",
+    "#2c96be",
+    "#141414",
+    "#fafaf0"
+   ],
+   "words": [
+    "BIG",
+    "ZWEI",
+    "KOLOR",
+    "ROT"
+   ],
+   "ref": "Commons #7 (entrance passage)",
+   "note": "white entrance wall with one huge olive/black piece, red accents, tags all over",
+   "mix": {
+    "fields": 3,
+    "pieces": 2,
+    "throw": 3,
+    "posters": 2,
+    "stickers": 10,
+    "tags": 22
+   }
+  },
+  "pink": {
+   "rect": [
+    640,
+    740,
+    384,
+    280
+   ],
+   "size_m": [
+    3.0,
+    2.0
+   ],
+   "base": "#7a2a68",
+   "seed": 6,
+   "palette": [
+    "#ff6ec4",
+    "#c15cff",
+    "#ffd0f0",
+    "#2c96be",
+    "#f5c518"
+   ],
+   "words": [
+    "ZW",
+    "NOVA",
+    "FLOW"
+   ],
+   "ref": "Mapillary #132 (pink-lit passage)",
+   "note": "magenta/violet passage with layered pieces and swirls",
+   "mix": {
+    "fields": 6,
+    "pieces": 3,
+    "throw": 1,
+    "posters": 0,
+    "stickers": 4,
+    "tags": 9
+   }
+  },
+  "klein": {
+   "rect": [
+    1024,
+    860,
+    1024,
+    130
+   ],
+   "size_m": [
+    10,
+    1.2
+   ],
+   "base": "#bdbdb8",
+   "seed": 7,
+   "palette": [
+    "#ff7ab8",
+    "#2cb5b0",
+    "#141414",
+    "#fafaf0",
+    "#f5c518"
+   ],
+   "words": [
+    "NYX",
+    "WAVE",
+    "POP"
+   ],
+   "ref": "Commons #128 (Kleinwaescherei wall)",
+   "note": "grey wall, big pink bubble piece, black/turquoise character",
+   "mix": {
+    "fields": 3,
+    "pieces": 2,
+    "throw": 1,
+    "posters": 0,
+    "stickers": 5,
+    "tags": 9
+   }
+  }
+ },
+ "photo_notes": "see research/zentralwaescherei_graffiti.md"
+}

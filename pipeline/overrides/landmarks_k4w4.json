@@ -1,28 +1,6 @@
 {
  "landmarks": [
   {
-   "name": "Zentralwaescherei (Kulturhaus Neue Hard)",
-   "model": "/models/landmarks/zentralwaescherei.glb",
-   "x": 294.1,
-   "y": 360.8,
-   "z": -7.54,
-   "heading": 0,
-   "hide": [
-    [
-     292.9,
-     358.2
-    ],
-    [
-     249.8,
-     321.4
-    ],
-    [
-     334.0,
-     276.7
-    ]
-   ]
-  },
-  {
    "name": "Langstrasse Eckhaus blau",
    "model": "/models/landmarks/langstrasse_blau.glb",
    "x": 808.5,
@@ -243,6 +221,28 @@
     [
      745.3,
      656.1
+    ]
+   ]
+  },
+  {
+   "name": "Zentralwaescherei (Kulturhaus Neue Hard)",
+   "model": "/models/landmarks/zentralwaescherei.glb",
+   "x": 294.1,
+   "y": 360.8,
+   "z": -7.54,
+   "heading": 0,
+   "hide": [
+    [
+     292.9,
+     358.2
+    ],
+    [
+     249.8,
+     321.4
+    ],
+    [
+     334.0,
+     276.7
     ]
    ]
   }

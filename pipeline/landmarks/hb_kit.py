@@ -21,6 +21,12 @@ W = (255, 255, 255, 255)
 hx = D.hexl
 
 
+def hxw(h, k=(1.1, 1.0, 0.86)):
+    """hx() with a warm pre-tint: interiors/platforms are lit by the (blue) sky probe only, so neutral greys read as blue-navy in the game."""
+    r, g, b, _ = D.hexc(h)
+    return D.hexl('#%02x%02x%02x' % tuple(min(255, int(v * f)) for v, f in zip((r, g, b), k)))
+
+
 def to_world(d, c):
     a = math.radians(ANG)
     return ORG[0] + d * math.cos(a) - c * math.sin(a), ORG[1] + d * math.sin(a) + c * math.cos(a)

@@ -92,7 +92,7 @@ def wall_run(m, mw, mg, mf, a, b, z0, nfloor, fh, bayw, hole_fn, depth, wall_col
                 bay(m, mw, mg, mf, a, t, n, u0, u1, z0 + f * fh, z0 + (f + 1) * fh, hole, depth, int(rng.integers(0, NV)), wall_col, reveal_col, wmod, sill)
 
 
-def ribbon_floors(m, mw, mg, mf, a, b, z0, nfloor, fh, sp, wh, depth, wall_col, reveal_col, rng, wmod=(6.0, 6.0), seg=3.0, slab_out=0.0, slab_col=None, pier=0.0):
+def ribbon_floors(m, mw, mg, mf, a, b, z0, nfloor, fh, sp, wh, depth, wall_col, reveal_col, rng, wmod=(6.0, 6.0), seg=3.0, slab_out=0.0, slab_col=None, pier=0.0, lite=False):
     """Floor-by-floor ribbon window: spandrel below, head above, recessed glass band (split into `seg` m panes)."""
     L, t, n = frame_of(a, b)
     nb = max(1, int(round(L / seg))); bw = L / nb
@@ -101,8 +101,9 @@ def ribbon_floors(m, mw, mg, mf, a, b, z0, nfloor, fh, sp, wh, depth, wall_col, 
         poly_wall(m, mw, Polygon(rect_pts(0, zf, L, zf + sp)), a, t, n, 0.0, wall_col, lambda u, z: (u / wmod[0], z / wmod[1]))
         poly_wall(m, mw, Polygon(rect_pts(0, zf + sp + wh, L, zf + fh)), a, t, n, 0.0, wall_col, lambda u, z: (u / wmod[0], z / wmod[1]))
         # sill plate (top of spandrel, recessed deck) and soffit
-        _oriented(m, mf, [P3(a, t, n, 0, zf + sp, 0), P3(a, t, n, L, zf + sp, 0), P3(a, t, n, L, zf + sp, -depth), P3(a, t, n, 0, zf + sp, -depth)], (0, 0, 1), [(0, 0), (1, 0), (1, 1), (0, 1)], reveal_col)
-        _oriented(m, mf, [P3(a, t, n, 0, zf + sp + wh, 0), P3(a, t, n, L, zf + sp + wh, 0), P3(a, t, n, L, zf + sp + wh, -depth), P3(a, t, n, 0, zf + sp + wh, -depth)], (0, 0, -1), [(0, 0), (1, 0), (1, 1), (0, 1)], reveal_col)
+        if not lite:
+            _oriented(m, mf, [P3(a, t, n, 0, zf + sp, 0), P3(a, t, n, L, zf + sp, 0), P3(a, t, n, L, zf + sp, -depth), P3(a, t, n, 0, zf + sp, -depth)], (0, 0, 1), [(0, 0), (1, 0), (1, 1), (0, 1)], reveal_col)
+            _oriented(m, mf, [P3(a, t, n, 0, zf + sp + wh, 0), P3(a, t, n, L, zf + sp + wh, 0), P3(a, t, n, L, zf + sp + wh, -depth), P3(a, t, n, 0, zf + sp + wh, -depth)], (0, 0, -1), [(0, 0), (1, 0), (1, 1), (0, 1)], reveal_col)
         for i in range(nb):
             u0, u1 = i * bw, (i + 1) * bw
             k = int(rng.integers(0, NV)); cu0, cu1 = k / NV, (k + 1) / NV
@@ -114,7 +115,8 @@ def ribbon_floors(m, mw, mg, mf, a, b, z0, nfloor, fh, sp, wh, depth, wall_col, 
         if slab_out > 0:
             sc = slab_col or reveal_col; zt, zb = zf + sp * 0.9, zf
             _oriented(m, mf, [P3(a, t, n, 0, zb, slab_out), P3(a, t, n, L, zb, slab_out), P3(a, t, n, L, zt, slab_out), P3(a, t, n, 0, zt, slab_out)], (n[0], n[1], 0), [(0, 0), (1, 0), (1, 1), (0, 1)], sc)
-            _oriented(m, mf, [P3(a, t, n, 0, zt, slab_out), P3(a, t, n, L, zt, slab_out), P3(a, t, n, L, zt, 0), P3(a, t, n, 0, zt, 0)], (0, 0, 1), [(0, 0), (1, 0), (1, 1), (0, 1)], shade(sc, 1.1))
+            if not lite:
+                _oriented(m, mf, [P3(a, t, n, 0, zt, slab_out), P3(a, t, n, L, zt, slab_out), P3(a, t, n, L, zt, 0), P3(a, t, n, 0, zt, 0)], (0, 0, 1), [(0, 0), (1, 0), (1, 1), (0, 1)], shade(sc, 1.1))
             _oriented(m, mf, [P3(a, t, n, 0, zb, slab_out), P3(a, t, n, L, zb, slab_out), P3(a, t, n, L, zb, 0), P3(a, t, n, 0, zb, 0)], (0, 0, -1), [(0, 0), (1, 0), (1, 1), (0, 1)], shade(sc, 0.7))
 
 

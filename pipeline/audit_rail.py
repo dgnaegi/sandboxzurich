@@ -50,8 +50,22 @@ def bad(x, y):
     return inzone(x, y) and not ondeck(x, y)
 
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import bridges  # noqa: E402  roads2
+import groundcover  # noqa: E402
+import road_exclude  # noqa: E402
+import sources  # noqa: E402
+from config import AREA  # noqa: E402
+_n, _e = sources.osm()
+BZ = road_exclude.bad_zone(_n, _e, groundcover.load((AREA[0] - 260, AREA[1] - 260, AREA[2] + 260, AREA[3] + 260)), bridges.bridge_ways(_n, _e, AREA))
+
+
+def bad_edge(x, y):  # roads2: lanes count only on open water / ground-level tracks (AV 'Bahngebiet' also covers roads under viaducts)
+    return shapely.contains_xy(BZ, x, y)
+
+
 res = {}
-def edges(name, rows, key="p", stride=3):
+def edges(name, rows, key="p", stride=3, bad=bad):
     n, hits = 0, []
     for i, e in enumerate(rows):
         p = e[key] if isinstance(e, dict) else e
@@ -73,8 +87,8 @@ def edges(name, rows, key="p", stride=3):
 
 
 roads = json.load(open(D / "roads.json"))
-edges("Auto-Kanten (roads.cars)", roads["cars"])
-edges("Velo-Kanten (roads.bikes)", roads["bikes"])
+edges("Auto-Kanten (roads.cars)", roads["cars"], bad=bad_edge)
+edges("Velo-Kanten (roads.bikes)", roads["bikes"], bad=bad_edge)
 tr = json.load(open(D / "transit.json"))["lines"]
 edges("Bus/Tram-Linien (transit.lines)", tr, "pts", 4)
 

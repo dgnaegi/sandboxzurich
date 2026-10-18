@@ -29,7 +29,6 @@ Jedes Milestone endet mit etwas, das der User im Browser (auch auf dem Handy) au
 - [x] Trams und Busse auf echten Linien (Testgebiet)
 - [x] Autos, Velos, Fussgänger:innen (Testgebiet)
 - [x] Tag/Nacht, Licht
-- [ ] Kreis 3 und 9 in voller Ausdehnung
 
 ## M3 – Gameplay-Grundlagen
 - [ ] Zerstörbare Objekte
@@ -38,6 +37,10 @@ Jedes Milestone endet mit etwas, das der User im Browser (auch auf dem Handy) au
 - [x] Autos v3 (Loft, Scheiben, Kontrollschild, csuv/taxi, Ausweichen) – DECISIONS #31
 - [x] Auto klauen und fahren (parkiert + Verkehr, Physik, Kollision, Lichter), Auto-/Velo-Realismus v2 (DECISIONS #30)
 - [x] HUD wie im Reel, Menüs, Credits, Impressum (Impressum-Verantwortliche TODO)
+- [ ] Spawn nur auf Strasse/Trottoir (nie in Limmat/Sihl, Gleisen, Häusern): bevorzugt an einem guten Ort im Umkreis von ~100 m um eine Landmark, aber nicht auf Landmarks beschränkt
+- [ ] Busse und Trams fahren: einsteigen wie beim Auto; Bus frei lenkbar, Tram nur Gas und Bremse, fährt automatisch auf seiner Linie (Gleis)
+- [ ] Musik/Radio: Radio in Fahrzeugen (Sender wechseln), Musik ausbauen (Basis: `audio_music.ts`, Idee 33 «Quartier-Radio» in `IDEAS_GAMEPLAY.md`), nur Musik mit freier Lizenz
+- [ ] Helvetiaplatz in Ni-Una-Menos-Platz umbenennen (Platzname, Karte, Sprungpunkte, Anekdoten; Haltestelle laut ZVV prüfen; offizielle Quelle in `DATA_SOURCES.md`)
 
 ## M4 – Quests
 - [ ] Q1–Q3 ausarbeiten und umsetzen, danach weitere

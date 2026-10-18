@@ -1,40 +1,6 @@
 {
  "landmarks": [
   {
-   "name": "Stadion Letzigrund",
-   "model": "/models/landmarks/k93_stadion.glb",
-   "x": -968.9,
-   "y": -165.9,
-   "z": -9.97,
-   "heading": 0,
-   "hide": [
-    [
-     -1046.4,
-     -131.0
-    ],
-    [
-     -914.2,
-     -202.1
-    ],
-    [
-     -890.4,
-     -97.7
-    ],
-    [
-     -1015.2,
-     -116.3
-    ],
-    [
-     -1052.6,
-     -225.9
-    ],
-    [
-     -1053.6,
-     -157.4
-    ]
-   ]
-  },
-  {
    "name": "Bahnhof Altstetten (Hochhaus, IBM-Stengel)",
    "model": "/models/landmarks/k93_altstetten.glb",
    "x": -2082.0,

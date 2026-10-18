@@ -101,7 +101,19 @@ def load_chains():
     return json.loads(CHAINS_CACHE.read_text()) if CHAINS_CACHE.exists() else None
 
 
-def bridge_ways(nodes, els, area, H=None):
+def _load_excl():  # bridges_excl
+    ids = set()
+    for fn in ("lochergut_excl.json", "bridges_excl.json"):
+        p = Path(__file__).resolve().parent / "overrides" / fn
+        if p.exists():
+            ids |= {int(i) for i in json.loads(p.read_text()).get("bridge_way_ids", [])}
+    return ids
+
+
+_BRIDGES_EXCL = _load_excl()  # bridges_excl
+
+
+def bridge_ways(nodes, els, area, H=None, H_raw=None):
     H_given = H is not None
     if H is None:
         from terrain import heights
@@ -123,6 +135,8 @@ def bridge_ways(nodes, els, area, H=None):
             continue
         if t.get("natural") == "water" and pts[0] == pts[-1] and len(pts) >= 4:
             water_polys.append(shapely.Polygon(pts).buffer(0))
+            continue
+        if e["id"] in _BRIDGES_EXCL:  # bridges_excl
             continue
         k = _kind(t)
         if k is None or t.get("area") == "yes" or t.get("highway") == "steps" or t.get("service") in ("driveway",) and False:
@@ -224,6 +238,9 @@ def bridge_ways(nodes, els, area, H=None):
         s = np.concatenate([[0], np.cumsum(np.hypot(*np.diff(P, axis=0).T))])
         L = s[-1]
         g = np.array([float(H.at(x, y)) for x, y in P])
+        if H_raw is not None:  # roads2: a trench (rail cutting) the smoothing partly filled is still the real ground below the deck: clearance counts from it
+            gr = np.array([float(H_raw.at(x, y)) for x, y in P])
+            g = np.where(g - gr > 1.0, gr, g)
         chain_nodes = set(nid)
         # obstacle requirements along the core
         req = np.full(len(P), -np.inf)
@@ -334,7 +351,7 @@ def bridge_ways(nodes, els, area, H=None):
                     "piers": piers, "excl": excl, "max_el": float(el.max()), "max_slope": _maxslope(s, z),
                     "len": float(s[-1])})
     _snap_foot(out)
-    if H_given:
+    if H_given and H_raw is not None:  # roads2: only the real build (it passes the unsmoothed grid) writes the chain cache; audits do not
         save_chains(out)
     # ground ways beneath must stay drawn: subtract them from the exclusion
     for b in out:

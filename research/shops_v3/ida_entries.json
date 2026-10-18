@@ -1,0 +1,71 @@
+[
+ {
+  "id": "n1434789864",
+  "name": "Bottega Berta",
+  "address": "Bertastrasse 36",
+  "kind": "amenity=restaurant",
+  "area": "Idaplatz",
+  "x": -211.0,
+  "y": -1113.0,
+  "photos": [],
+  "photo_ok": true,
+  "facade_color": "#d6cdbb",
+  "fascia": {
+   "bg": null,
+   "text": "#d8d4c8",
+   "style": "letters"
+  },
+  "awning": null,
+  "shopwindow": "Sprossen",
+  "door": "corner",
+  "seating": true,
+  "plants": false,
+  "neon": true,
+  "notes": "Eckhaus, rote Neonlinie ueber den Schaufenstern, Aussensitzplatz mit Metalltischen auf Kies; Mapillary #116/#120 (Ida-Fotos, Nr. 116 und 120 in research/v3/ida_index.json)",
+  "annotated_from": "ida:mapillary"
+ },
+ {
+  "id": "n8071658525",
+  "name": "pompon",
+  "address": "Idaplatz 10",
+  "kind": "shop=fabric",
+  "area": "Idaplatz",
+  "x": -100.4,
+  "y": -1086.8,
+  "photos": [],
+  "photo_ok": true,
+  "facade_color": "#e4cc86",
+  "fascia": null,
+  "awning": null,
+  "shopwindow": "gross",
+  "door": "unsicher",
+  "seating": false,
+  "plants": false,
+  "notes": "Platz-Eckhaus hellgelb, EG grosse Schaufenster mit pinkoranger Rahmung; Mapillary #13/#17 (Ida-Fotos)",
+  "annotated_from": "ida:mapillary"
+ },
+ {
+  "id": "n11850092277",
+  "name": "Kälin + Müller AG",
+  "address": "Bertastrasse 23",
+  "kind": "craft=electrician",
+  "area": "Idaplatz",
+  "x": -105.0,
+  "y": -1058.0,
+  "photos": [],
+  "photo_ok": true,
+  "facade_color": "#dcae96",
+  "fascia": {
+   "bg": "#ebebe8",
+   "text": "#2c4a7a",
+   "style": "box"
+  },
+  "awning": null,
+  "shopwindow": "gross",
+  "door": "unsicher",
+  "seating": false,
+  "plants": false,
+  "notes": "Eckhaus lachsrosa, EG helles Schriftband KALIN-MUELLER ueber grossen Fenstern; Mapillary #54 (Ida-Fotos)",
+  "annotated_from": "ida:mapillary"
+ }
+]

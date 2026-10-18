@@ -1,3 +1,4 @@
+import { foliagePatch } from './foliage';
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
@@ -89,7 +90,8 @@ export function buildYards(meta: YardMeta | undefined, shadows: boolean): THREE.
   }
   const hed = (meta.hedges ?? []).filter((_, i) => i % step === 0);
   if (hed.length) {
-    const im = mkInst(new THREE.BoxGeometry(1, 1, 1), white, hed.length);
+    const hm = new THREE.MeshLambertMaterial({ color: 0xffffff }); foliagePatch(hm, 'inst', mobileLod); // look3
+    const im = mkInst(new THREE.BoxGeometry(1, 1, 1, 10, 3, 2), hm, hed.length);
     hed.forEach(([x, y, z, hd, len, w, h, c], i) => {
       q.setFromAxisAngle(up, hd);
       im.setMatrixAt(i, m.compose(p.set(x, z + h / 2, -y), q, s.set(len, h, w)));
@@ -102,11 +104,12 @@ export function buildYards(meta: YardMeta | undefined, shadows: boolean): THREE.
   const wallGeo: G[] = [new THREE.BoxGeometry(1, 1, 1), (() => { // metal fence: rails + 9 bars on a unit length
     const a: G[] = [new THREE.BoxGeometry(1, .04, .04).translate(0, .95, 0), new THREE.BoxGeometry(1, .04, .04).translate(0, .2, 0)];
     for (let i = 0; i < 9; i++) a.push(new THREE.BoxGeometry(.012, 1, .03).translate(-.5 + i / 8, .5, 0));
-    return mergeGeometries(a.map((g) => g.toNonIndexed().deleteAttribute('uv') as G))!; })(), new THREE.BoxGeometry(1, 1, 1)];
-  const wallCol = [0xcfc8b8, 0x2f3a36, 0x5d7a40], wallH = [.45, 1, .9], wallW = [.22, 1, .6];
+    return mergeGeometries(a.map((g) => g.toNonIndexed().deleteAttribute('uv') as G))!; })(), new THREE.BoxGeometry(1, 1, 1, 10, 3, 2)]; // look3: hedge walls segmented
+  const wallCol = [0xcfc8b8, 0x2f3a36, 0x4a6a36], wallH = [.45, 1, .9], wallW = [.22, 1, .6];
   wl.forEach((rows, t) => {
     if (!rows.length) return;
-    const im = mkInst(wallGeo[t], new THREE.MeshLambertMaterial({ color: wallCol[t] }), rows.length);
+    const wm = new THREE.MeshLambertMaterial({ color: wallCol[t] }); if (t === 2) foliagePatch(wm, 'inst', mobileLod); // look3
+    const im = mkInst(wallGeo[t], wm, rows.length);
     rows.forEach(([, x, y, z, hd, len], i) => {
       q.setFromAxisAngle(up, hd);
       if (t === 1) im.setMatrixAt(i, m.compose(p.set(x, z, -y), q, s.set(len, 1, 1)));

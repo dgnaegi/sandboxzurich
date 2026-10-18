@@ -106,7 +106,7 @@ export class CityMap {
     if (!this.data.ready || ((this.frame++ & 1) && matchMedia('(pointer: coarse)').matches)) { if (!this.data.ready) { g.fillStyle = DARK.bg; g.fillRect(0, 0, S, S); } else return; }
     const r = S / 2, css = c.clientWidth, s = css / (css < 140 ? 250 : 330);
     g.save();
-    g.beginPath(); g.arc(r, r, r - 2, 0, Math.PI * 2); g.clip();
+    g.beginPath(); g.arc(r, r, Math.max(1, r - 2), 0, Math.PI * 2); g.clip();
     const v: View = { cx: px, cy: py, s, rot: -yaw, w: css, h: css };
     drawWorld(g, this.data, v, DARK, { ...this.opts, velo: false, boost: 1.7, dpr });
     if (this.overlay.length) {
@@ -133,7 +133,7 @@ export class CityMap {
     g.fillStyle = '#e4007d'; g.beginPath(); g.arc(nx, ny, 8.5 * dpr, 0, 7); g.fill();
     g.fillStyle = '#fff'; g.font = `700 ${12 * dpr}px Anton, sans-serif`; g.textAlign = 'center'; g.textBaseline = 'middle';
     g.fillText('N', nx, ny + 0.5 * dpr);
-    g.lineWidth = 4 * dpr; g.strokeStyle = '#111c'; g.beginPath(); g.arc(r, r, r - 2, 0, Math.PI * 2); g.stroke();
+    g.lineWidth = 4 * dpr; g.strokeStyle = '#111c'; g.beginPath(); g.arc(r, r, Math.max(1, r - 2), 0, Math.PI * 2); g.stroke();
   }
 
   private arrow(g: CanvasRenderingContext2D, x: number, y: number, ang: number, a: number, dpr: number) {

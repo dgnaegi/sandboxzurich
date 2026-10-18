@@ -9,6 +9,7 @@ Integration: web/src/world/railways.ts (loads rail.json + tiles near the player)
 import json
 import math
 import subprocess
+from pathlib import Path
 from collections import defaultdict
 from heapq import heappop, heappush
 
@@ -79,6 +80,14 @@ def platform_polys(plats, ways):
     return out, tracks, lines
 
 
+def _hb_excl():
+    f = Path(__file__).resolve().parent.parent / "research" / "hb" / "prop_excl.json"   # written by pipeline/landmarks/hb_propexcl.py
+    return shapely.union_all([Polygon(q) for q in json.load(open(f))["polys"]]) if f.exists() else None
+
+
+_HB_EX = _hb_excl()
+
+
 def add_platforms(polys, tracks, ways, roofs, accs, H, signs, stops):
     samp = np.concatenate([w["pts"] for w in ways if w["cls"] != "tunnel" and w["svc"] in (None, "crossover", "yard")])
     tree = STRtree([Point(p[0], p[1]) for p in samp])
@@ -133,6 +142,8 @@ def add_platforms(polys, tracks, ways, roofs, accs, H, signs, stops):
             rp = Polygon(roof).buffer(0)
             if rp.is_empty or not rp.intersects(poly):
                 continue
+            if _HB_EX is not None and _HB_EX.contains(rp.representative_point()):
+                continue   # Zuerich HB: the hall/platform vaults are the landmark model (hb_perron.py); the flat OSM roof slab hung a grey ceiling at platform + 3.6 m
             inter = rp.intersection(poly)
             if inter.area < 15:
                 continue

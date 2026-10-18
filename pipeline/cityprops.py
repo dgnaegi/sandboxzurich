@@ -114,7 +114,9 @@ def city_props(C, S, tb, H, curb):
     """Return meta dict parts and extra ground markings (white, blue) for tile box tb."""
     _osm_extras(C, S)
     under = _underpass()  # no street furniture/trees inside the sunken Langstrassen-Unterfuehrung (they stand on the rail deck above)
-    inside = lambda r: tb.contains(Point(r[0], r[1])) and not (under is not None and under.contains(Point(r[0], r[1])))
+    _hb = Path(__file__).resolve().parent.parent / "research" / "hb" / "prop_excl.json"   # HB halls/platforms: no props (hb_propexcl.py)
+    hb_ex = shapely.union_all([Polygon(p_) for p_ in json.load(open(_hb))["polys"]]) if _hb.exists() else None
+    inside = lambda r: tb.contains(Point(r[0], r[1])) and not (under is not None and under.contains(Point(r[0], r[1]))) and not (hb_ex is not None and hb_ex.contains(Point(r[0], r[1])))
     z = lambda x, y: round(float(H.at(x, y)), 2)
     roads = S["roads"]
     lines = STRtree([w["line"] for w in S["ways"]])

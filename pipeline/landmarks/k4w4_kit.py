@@ -23,7 +23,7 @@ def setup4():
 class Model4(_lm.Model):
     def mat(self, key, tex=None, emis=None, rough=0.9):
         if key not in self.mats:
-            assert len(self.mats) < 6, "max 6 materials"
+            assert len(self.mats) < 8, "max 7 materials"
             self.mats[key] = _lm.Mat(key, tex, emis, rough)
         return self.mats[key]
 

@@ -152,6 +152,11 @@ def _ground_base(gm, S, tb, H, white, yellow, rails, bed, bays_white=None, bays_
         p_av = yard.difference(g_av).intersection(S["av_paved"].intersection(tb))
         drape(gm, p_av, H, 0.005, (215, 210, 200), cell=TILE / 10, layer=LAYER["roof_flat"], uv_scale=2.0)
         yard = yard.difference(g_av).difference(p_av)
+    if S.get("av_bld") is not None:  # roads2: ground under AV buildings that are hidden by a landmark model (Bahnhofplatz/HB) is paved, never lawn
+        pb = yard.intersection(S["av_bld"].intersection(tb))
+        if not pb.is_empty:
+            drape(gm, pb, H, 0.005, (215, 210, 200), cell=TILE / 10, layer=LAYER["roof_flat"], uv_scale=2.0)
+            yard = yard.difference(pb)
     for p in getattr(yard, "geoms", [yard]):
         if p.is_empty:
             continue
@@ -225,6 +230,7 @@ def build():
     terrain_cuts.apply(H)  # rail cuttings under buildings (overrides/terrain_cuts.json)
     nodes, els = nodes0, els0
     S = streets.parse(nodes, els)
+    import copy as _copy; H_raw = _copy.deepcopy(H)  # roads2: terrain before road smoothing (bridge clearance over trenches)
     if not os.environ.get("SBZ_NO_ROADH"):  # A/B switch for the ride test
         road_height.apply(H, S["ways"])  # smooth road surface (pipeline/road_height.py): carriageway, sidewalks, hmap, vehicles share it
     terrain_cuts.apply(H, lock_only=True)  # sunken underpass floors ("lock": true) must survive the road smoothing (Langstrassen-Unterfuehrung)
@@ -236,7 +242,7 @@ def build():
         print(f"landmarks: {n0 - len(blds)} OSM buildings replaced by models")
     LMS = [[s["x"], s["y"], round(float(H.at(s["x"], s["y"])), 2), s["heading"], s["name"], s.get("plaque", ""), int(s.get("flowers", False))]
            for s in json.load(open(os.path.join(os.path.dirname(__file__), "overrides", "landmark_signs.json")))["signs"]]
-    BR = bridges.bridge_ways(nodes, els, AREA, H)  # elevated decks + piers (research/bridges.md)
+    BR = bridges.bridge_ways(nodes, els, AREA, H, H_raw)  # roads2; elevated decks + piers (research/bridges.md)
     EX = bridges.exclusion(BR)
     _lap("osm/terrain/bridges/streets")
     G = groundcover.load(BIG)  # Amtliche Vermessung land cover (research/groundcover.md)
@@ -244,6 +250,7 @@ def build():
     S["av_green"] = shapely.set_precision(G["green"].buffer(0), 0.01)
     S["av_paved"] = shapely.set_precision(G["gravel"].buffer(0), 0.01)
     S["av_rail"] = shapely.set_precision(G["rail"].buffer(0), 0.01)
+    S["av_bld"] = shapely.set_precision(G["building"].buffer(0), 0.01)  # roads2
     # OSM parks/playgrounds include paved schoolyards (Kanzlei): lawn only where AV says green, the rest is paved
     parks = S["parks"]
     S["parks"] = shapely.set_precision(parks.intersection(S["av_green"].buffer(0.5)), 0.01)
@@ -260,6 +267,8 @@ def build():
         for _k in ("roads", "plaza", "parks"):
             S[_k] = S[_k].difference(W.poly)
     # --- /water
+    import road_exclude  # roads2
+    OBJ_ZONE = road_exclude.object_zone(W, BR)  # roads2: no bikes/racks/scooters/bins/workers/parked cars in open water or on tracks
     S["tram"] = [g for ln in S["tram"] for g in shapely.get_parts(ln.difference(EX)) if g.geom_type == "LineString" and g.length > 0.5]
     gastro.add_missing(S, box(*AREA).buffer(30))  # official licensed restaurants/bars (OGD) complete the OSM list
     # visible (above-ground) hydrants from the city water utility (OGD WVZ)
@@ -353,6 +362,15 @@ def build():
         hit = addr_tree.query(fp.buffer(1.5), predicate="contains")
         if len(hit):
             b["osm"]["_visual"] = addr_pts[int(min(hit))][1]  # first match in address order, as before
+    # fallback: OSM building without addr tags (e.g. Aemtlerstrasse 82) -> note by the GWR entrance address inside the footprint
+    for b in blds:
+        if "_visual" in b["osm"]:
+            continue
+        g = b["osm"].get("_gwr") or {}
+        v = VIS.get((g.get("street"), g.get("nr")))
+        fp = footprint(b)
+        if v and fp is not None and fp.buffer(1.5).contains(Point(g["x"], g["y"])):
+            b["osm"]["_visual"] = v
 
     # footprints of all buildings, to detect party walls (Brandmauern)
     fps = [(b["id"], footprint(b)) for b in sources.buildings(margin=60)]
@@ -504,11 +522,12 @@ def build():
             "paths": props.walk_paths(S["roads"], S["plaza"], tb),
             "mask": {"x0": tb.bounds[0], "y0": tb.bounds[1], "n": mask_n, "res": 1.0, "depth": CURB, "bits": mask},
         }
+        _rx = road_exclude.filter_meta(meta, OBJ_ZONE)  # roads2
         raw = RAW_OUT / f"{name}.glb"
         glb.write(raw, {"ground": gm.arrays(), "buildings": bm.arrays(), "water": WM.arrays() if WM else None})
         pack(raw, OUT / f"{name}.glb")
         json.dump(meta, open(OUT / f"{name}.json", "w"), separators=(",", ":"))
-        print(f"{name}: glb {(OUT / f'{name}.glb').stat().st_size / 1e6:.2f} MB, "
+        print(f"{name}: glb {(OUT / f'{name}.glb').stat().st_size / 1e6:.2f} MB, rx {_rx}, "
               + ", ".join(f"{k} {len(v)}" for k, v in meta.items() if isinstance(v, list)), flush=True)
         return {"name": name, "ix": ix, "iy": iy}
 

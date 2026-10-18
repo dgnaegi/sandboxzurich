@@ -14,6 +14,9 @@ export class Landmarks3D {
   private entries: Entry[] = [];
   private live = new Map<string, THREE.Group | null>();   // null = loading
   private lit: THREE.MeshLambertMaterial[] = [];
+  private neon: THREE.MeshLambertMaterial[] = [];   // lochergut-neon
+  private neonPal = [0xff1530, 0xff20d0, 0x3a40ff, 0x10e0ff, 0xffb010].map((c) => new THREE.Color(c));   // lochergut-neon
+  private neonCol = new THREE.Color();   // lochergut-neon (reused, no per-frame allocation)
   private casting = new Map<string, boolean>();
   private pending = new Map<string, Promise<void>>();
   private loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
@@ -81,6 +84,11 @@ export class Landmarks3D {
     }
     const n = nightUniform.value;
     for (const m of this.lit) m.emissiveIntensity = n * 0.9;
+    if (this.neon.length) {   // lochergut-neon: letters glow, colour crossfades through 5 saturated colours (4 s each); dim by day
+      const t = performance.now() / 4000, k = Math.floor(t), f = t - k, w = f * f * (3 - 2 * f), P = this.neonPal;
+      this.neonCol.copy(P[k % P.length]).lerp(P[(k + 1) % P.length], w);
+      for (const m of this.neon) { m.emissive.copy(this.neonCol); m.emissiveIntensity = 0.25 + n * 0.85; }
+    }
   }
 
   /** Near-only models (interiors): free GPU memory once the player is far away; they reload on return. */
@@ -91,7 +99,7 @@ export class Landmarks3D {
       if (!m.isMesh) return;
       m.geometry.dispose();
       const mat = m.material as THREE.MeshLambertMaterial;
-      this.lit = this.lit.filter((l) => l !== mat);
+      this.lit = this.lit.filter((l) => l !== mat); this.neon = this.neon.filter((l) => l !== mat);   // lochergut-neon
       mat.map?.dispose(); mat.emissiveMap?.dispose(); mat.dispose();
     });
     this.live.delete(e.name); this.casting.delete(e.name);
@@ -127,7 +135,9 @@ export class Landmarks3D {
         m.castShadow = false; m.receiveShadow = true; // castShadow toggled by distance in update()
         const s = m.material as THREE.MeshStandardMaterial;
         const l = new THREE.MeshLambertMaterial({ map: s.map, vertexColors: !!m.geometry.attributes.color, name: s.name });
-        if (s.emissiveMap) { l.emissiveMap = s.emissiveMap; l.emissive = new THREE.Color(0xffffff); l.emissiveIntensity = 0; this.lit.push(l); }
+        if (s.name === 'lochergut_neon' && s.emissiveMap) { l.emissiveMap = s.emissiveMap; l.emissive = new THREE.Color(0xffffff); this.neon.push(l); }   // lochergut-neon
+        else if (s.emissiveMap) { l.emissiveMap = s.emissiveMap; l.emissive = new THREE.Color(0xffffff); l.emissiveIntensity = 0; this.lit.push(l); }
+        if (s.alphaTest > 0) { l.alphaTest = s.alphaTest; l.side = THREE.DoubleSide; }   // alpha-card plants
         for (const t of [l.map, l.emissiveMap]) if (t) { t.anisotropy = 4; this.shrink(t); }
         m.material = l;
         // hb3: underground model parts are drawn first; hb3_mask writes stencil 1 (no colour/depth) so the terrain is cut open over the stair wells

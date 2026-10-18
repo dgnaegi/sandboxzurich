@@ -8,7 +8,7 @@ for (const v of JSON.parse(js)) {
   const p = await ctx.newPage();
   p.on('pageerror', (e) => console.log('pageerror', e.message));
   const qs = new URLSearchParams({ m: v.m, p: v.p.join(','), l: v.l.join(','), fov: v.fov || 50, n: v.n || 0, g: v.g || '6d7068', gz: v.gz || 0 });
-  await p.goto('http://localhost:5173/lmview.html?' + qs);
+  await p.goto(`http://localhost:${process.env.PORT||5173}/lmview.html?` + qs);
   await p.waitForFunction(() => window.done, null, { timeout: 40000 });
   await p.screenshot({ path: `${prefix}_${i++}.jpg`, type: 'jpeg', quality: 82 }); await p.close();
 }

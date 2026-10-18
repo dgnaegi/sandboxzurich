@@ -18,6 +18,8 @@ BLEND_K = 8.0  # road_smooth: blend band grows with the road/terrain offset (m o
 BLEND_MAX = 8.0
 MAXSLOPE = 0.15  # longitudinal slope limit of the smoothed profile
 MAXDEV = 1.0  # smoothed profile never leaves the real terrain by more than this (real underpasses / cuttings stay)
+MAX_FILL = 1.2  # roads2: a cell is never raised by more than this (the blend used to fill rail cuttings/trenches under bridges by up to 7 m -> decks lifted 6 m above the street = "ramps")
+MAX_SHAVE = 2.0  # roads2: ... nor lowered by more than this (embankment/quay walls next to a street stay)
 JOIN_MAXDZ = 1.0  # shared vertices at very different heights are different levels (underpass vs bridge): not harmonised
 SKIP_BRIDGE = ("yes", "viaduct", "movable", "boardwalk", "cantilever", "aqueduct")
 
@@ -135,7 +137,9 @@ def apply(H, ways, report=True):
     cov = 1 - t * t * (3 - 2 * t)  # 1 in the carriageway, 0 at the end of the blend band
     tz = sz[m.ravel()] / sw[m.ravel()]
     old = H.z[m].copy()
-    H.z[m] = (old * (1 - cov) + tz * cov).astype(H.z.dtype)
+    new = old * (1 - cov) + tz * cov
+    new = old + np.clip(new - old, -MAX_SHAVE, MAX_FILL)  # roads2
+    H.z[m] = new.astype(H.z.dtype)
     if report:
         dz = np.abs(H.z[m] - old)
         print(f"road_height: {len(P)} ways, {int(m.sum())} cells, mean change {dz.mean():.2f} m, p99 {np.percentile(dz, 99):.2f} m")

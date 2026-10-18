@@ -79,19 +79,21 @@ def asphalt():
     g = g + stones - pits
     h = 0.5 * fine + 0.25 * grain + 0.6 * (stones > 0)
     warm = np.zeros((L, L), np.float32)
-    # patches (Flickstellen): smoother, darker or blacker, with a tar seam around
-    for cx, cy, w, hh, dv in [(150, 330, 190, 120, -13), (400, 90, 120, 150, +8), (60, 40, 80, 70, -9)]:
-        sd = np.maximum(np.abs(pd(_X, cx)) - w / 2, np.abs(pd(_Y, cy)) - hh / 2)
-        inside = (sd < 0).astype(np.float32)
-        seam = np.clip(1 - np.abs(sd) / 2.2, 0, 1)
-        g = np.where(inside > 0, g + dv - 2 * macro - 0.35 * (stones - pits), g)
-        g = g - 24 * seam
-        h = h - 0.7 * seam - 0.15 * inside
-    # tar joint (Teerfuge), almost vertical, wavy; and a hairline crack network
-    xl = 300 + 7 * np.sin(2 * np.pi * _Y / L * 2 + 1.1) + 3 * np.sin(2 * np.pi * _Y / L * 5)
-    joint = np.clip(1 - np.abs(pd(_X, xl)) / 2.4, 0, 1)
-    g -= 30 * joint
-    h -= 0.9 * joint
+    # look3: patches (Flickstellen) rare, small, organic outline (noise-warped ellipse), soft edge, low contrast; no rectangles
+    big = fbm(r, [140, 60], [0.8, 0.4])
+    for cx, cy, rx, ry, dv in [(150, 330, 70, 42, -5), (400, 90, 46, 56, +3)]:
+        d = np.sqrt((pd(_X, cx) / rx) ** 2 + (pd(_Y, cy) / ry) ** 2) + 0.28 * tnoise(r, 9)
+        soft = np.clip((1.0 - d) * 2.5, 0, 1)
+        edge = np.clip(1 - np.abs(d - 1.0) / 0.10, 0, 1) * 0.5
+        g = g + soft * (dv - 1.5 * macro) - 5 * edge
+        h = h - 0.15 * edge
+    # gentle large-scale tone variation (worn wheel tracks vs. centre), no hard shapes
+    g = g + 4.0 * big
+    # tar joint (Teerfuge): faint, wavy, wobbly width, broken up so it does not read as a straight stripe when tiled
+    xl = 300 + 9 * np.sin(2 * np.pi * _Y / L * 2 + 1.1) + 4 * np.sin(2 * np.pi * _Y / L * 5)
+    joint = np.clip(1 - np.abs(pd(_X, xl)) / 1.6, 0, 1) * np.clip(0.5 + 0.8 * tnoise(r, 14), 0, 1)
+    g -= 11 * joint
+    h -= 0.4 * joint
     cr = np.zeros((L, L), np.float32)
     for _ in range(5):
         draw_walk(r, r.uniform(0, L), r.uniform(0, L), r.uniform(0, 6.28), 70, 4.5, 1.15, cr, branch=0.05)

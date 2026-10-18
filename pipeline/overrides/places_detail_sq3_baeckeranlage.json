@@ -1,0 +1,40 @@
+{
+ "places": [
+  {
+   "id": "sq3_baeckeranlage",
+   "center": [
+    528,
+    -693.5
+   ],
+   "src": "research/squares3/baeckeranlage.md; OGD Brunnen-Layer (2 Positionen); Fotos #13 (Betonbecken) und #14 (Granit-Trog auf Stufen), Zuordnung Form je Position unsicher",
+   "convert": [
+    {
+     "layer": "fountains",
+     "within": {
+      "circle": [
+       39.1,
+       -71.6,
+       4
+      ]
+     },
+     "t": "bucket",
+     "a": 0.45
+    },
+    {
+     "layer": "fountains",
+     "within": {
+      "circle": [
+       -15.8,
+       64.4,
+       4
+      ]
+     },
+     "t": "basin",
+     "a": 1.8,
+     "b": 0.9,
+     "c": 0.7
+    }
+   ]
+  }
+ ]
+}

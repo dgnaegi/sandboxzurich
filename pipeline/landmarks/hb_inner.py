@@ -8,7 +8,7 @@ from shapely.ops import unary_union
 from shapely.geometry import LineString
 
 CREAM, STONE, STONE_D, TRIM = hx("#d9cfb8"), W, hx("#d8c9a8"), hx("#dccfae")
-VAULT, STEEL, FLOORA, FLOORB = hx("#444a47"), hx("#5b4a3b"), hx("#3d3f42"), hx("#383a3d")
+VAULT, STEEL, FLOORA, FLOORB = hx("#444a47"), hx("#5b4a3b"), hxw("#4a4a4a", (1.3, 1.0, 0.78)), hxw("#444444", (1.3, 1.0, 0.78))
 SKY = hx("#ffffff"); FRIEZE = hx("#b4705e")
 import hb3_spec
 WELLS3 = [w for w in hb3_spec.WELLS if w[0] < 0 and w[3] < 0 and w[2] > -64]   # wells inside the Querhalle floor (hb3_spec.WELLS[0])
@@ -29,7 +29,7 @@ def build():
     d0, d1, c0, c1 = G.HALL_D0, G.HALL_D1, G.HALL_C0, G.HALL_C1
 
     # ---------------------------------------------------------------- floors (3 m tiles, small tint variation)
-    LIGHT = hx("#8e908f")
+    LIGHT = hxw("#8e8e8e", (1.25, 1.0, 0.8))
     def floor(x0, x1, y0, y1, z=G.FLOOR, ts=2.5, bands=True, light_all=False):
         nx, ny = max(1, int(round((x1 - x0) / ts))), max(1, int(round((y1 - y0) / ts)))
         for i in range(nx):
@@ -217,7 +217,7 @@ def build():
     wallc((40.5, -68.0), (40.5, c0), 0.9); wallc((55.5, -68.0), (55.5, c0), 0.9)
     # ---------------------------------------------------------------- Querhalle (inside): vault along c, ribs, east wall, end walls, open west side with columns
     qd0, qd1, qc0, qc1 = G.Q_D0, G.Q_D1, G.Q_C0, G.Q_C1; qm = (qd0 + qd1) / 2
-    barrel(m, mf, 'c', qc0, qc1, qm, 12.5, G.Q_EAVE, G.Q_CROWN - G.Q_EAVE, hx('#f4f8fa'), n=10, outside=False)
+    barrel(m, mf, 'c', qc0, qc1, qm, 12.5, G.Q_EAVE, G.Q_CROWN - G.Q_EAVE, hxw('#d8d8d4'), n=10, outside=False)
     for cc in np.arange(qc0 + 2, qc1, 3.5):   # ribs (steel arches, black lattice) and lamps
         RR = (12.5 ** 2 + (G.Q_CROWN - G.Q_EAVE) ** 2) / (2 * (G.Q_CROWN - G.Q_EAVE)); zcq = G.Q_CROWN - RR
         for i in range(10):

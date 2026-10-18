@@ -33,7 +33,7 @@ class Model:
 
     def mat(self, key, tex=None, emis=None, rough=0.9):
         if key not in self.mats:
-            assert len(self.mats) < 3, "max 3 materials"
+            assert len(self.mats) < getattr(self, "max_mats", 3), "max 3 materials"
             self.mats[key] = Mat(key, tex, emis, rough)
         return self.mats[key]
 
@@ -176,8 +176,10 @@ class Model:
             accs.append(a); return len(accs) - 1
 
         def image(im):
-            b = io.BytesIO(); im.save(b, "PNG", optimize=True)
-            imgs.append({"bufferView": view(b.getvalue()), "mimeType": "image/png"})
+            b = io.BytesIO(); jq = getattr(im, "_jpeg_q", None)
+            if jq: im.convert("RGB").save(b, "JPEG", quality=jq, optimize=True)
+            else: im.save(b, "PNG", optimize=True)
+            imgs.append({"bufferView": view(b.getvalue()), "mimeType": "image/jpeg" if jq else "image/png"})
             texs.append({"source": len(imgs) - 1, "sampler": 0}); return len(texs) - 1
 
         for key, m in self.mats.items():
@@ -192,6 +194,7 @@ class Model:
             ia = acc(idx, 5125, "SCALAR", 34963)
             pbr = {"metallicFactor": 0.0, "roughnessFactor": m.rough}
             gm = {"name": m.name, "pbrMetallicRoughness": pbr, "doubleSided": False}
+            if getattr(m, "alpha_mask", False): gm["alphaMode"] = "MASK"; gm["alphaCutoff"] = 0.5; gm["doubleSided"] = True
             if m.tex is not None: pbr["baseColorTexture"] = {"index": image(m.tex)}
             if m.emis is not None:
                 gm["emissiveTexture"] = {"index": image(m.emis)}; gm["emissiveFactor"] = [1, 1, 1]

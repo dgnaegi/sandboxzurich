@@ -369,22 +369,12 @@ def markings(S):
                 yellow += [_sub(off, a, b, L).buffer(0.07, cap_style="flat") for a, b in _minus([(0, L)], w["gaps"])]
     # pedestrian crossings (yellow in Switzerland) at mapped crossing nodes, none inside zone 30 / Begegnungszone
     R = streets_rules.rules()
-    ways_by_node = {}
-    for w in S["ways"]:
-        for n in w["nodes"]:
-            ways_by_node.setdefault(n, []).append(w)
+    import crossings  # crossings2: tags + SWISSIMAGE stripe evidence + snapping (pipeline/crossings.py)
     placed = []
-    for (x, y), kind, nid in S["crossings"]:
-        if kind in ("no", "unmarked", ""):
+    for nid, c in crossings.decide(S, R).items():
+        if not c["draw"]:
             continue
-        w = next((w for w in ways_by_node.get(nid, []) if w["hw"] != "service" and w["w"] >= 4), None)
-        if w is None:
-            continue
-        zone = R.zone_point(x, y)
-        if zone in ("beg", "fuss") or (zone == "z30" and w["tempo"] != 30 and not R.near_school(x, y, 40) and kind != "traffic_signals"):
-            continue
-        ln = w["line"]
-        d = _tangent(ln, ln.project(Point(x, y)))
+        w, d, x, y = c["way"], c["d"], c["x"], c["y"]
         off = w.get("off", 0.0)  # centre the stripes on the carriageway (left normal = (-d1, d0))
         yellow += zebra(x - d[1] * off, y + d[0] * off, d, w["w"] / 2 - 0.3)
         placed.append((x, y))

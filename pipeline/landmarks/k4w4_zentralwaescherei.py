@@ -4,6 +4,8 @@ white tower with 'ZW' lettering and a yellow tank on top, rusty water tower in t
 Photos: research/v3/zentralwaescherei.md (Commons 'Zentralwaescherei, Zuerich', Panoramax #108, Mapillary #78 #90 #79 #123 #132)"""
 from k4w4_kit import *
 from k45_volkshaus import plaster
+import zw_graffiti as ZG
+import zw_plants as ZP
 
 MAIN, KIOSK, TOWER = "ID_6DCCD334", "ID_24EA961E", "ID_61417FF4"
 
@@ -19,8 +21,10 @@ def build():
                          curtain_cols=[(226, 222, 212), (190, 190, 190), (200, 170, 150)])
     mg = m.mat("glass", *ga, rough=0.3)
     mf = m.mat("flat", solid(W4))
-    mgr = m.mat("graf", tex_graffiti(31), rough=0.9)
+    _ga = ZG.atlas().convert("RGBA"); _ga._jpeg_q = 80
+    mgr = m.mat("graf", _ga, rough=0.9)   # own redraw after photo reference (pipeline/landmarks/zw_graffiti.py)
     mru = m.mat("rust", tex_rust(128, 5), rough=0.8)
+    mpl = m.mat("plants", ZP.tex_plants(), rough=1.0); mpl.alpha_mask = True
     # sign / lettering sheet: [0..0.375] shop sign, [0.375..0.69] HC BR lettering, [0.69..1] ZW lettering
     S_W, S_H = 1024, 640
     sg = Image.new("RGB", (S_W, S_H), (239, 237, 230)); d = ImageDraw.Draw(sg)
@@ -97,7 +101,7 @@ def build():
     # ---- kiosk with sign ----
     kb = bid(KIOSK); gk = ground(*kb["c"]) - oz
     Pk = orient(localize(outline(kb["fp"], 0.3), ox, oy), 1.0)
-    HK = 3.4
+    HK = 4.0
     m.extrude(mw, mf, Pk, gk - 1.0, gk + HK, mod=(4, 4), col=(236, 168, 184, 255), rcol=hexl("#8b8884"))
     cells = [0, 1, 2, 3, 4, 5, 0, 2, 4, 6, 1, 3, 5, 12]
     ci = 0
@@ -109,20 +113,35 @@ def build():
         nseg = max(1, int(round(L_ / 3.2)))
         for i in range(nseg):
             f0, f1 = i / nseg, (i + 1) / nseg
-            k = cells[ci % len(cells)]; ci += 1
-            u0, v0, u1, v1 = gcell(k)
+            if L_ < 3.2: u0, v0, u1, v1 = ZG.uv(("passage", "pink")[ci % 2]); ci += 1
+            else:
+                fr = (ci * 0.31) % 0.66; u0, v0, u1, v1 = ZG.uv("kiosk", fr, fr + 0.33); ci += 1
             p0 = (a[0] + (b[0] - a[0]) * f0 + n_[0] * 0.05, a[1] + (b[1] - a[1]) * f0 + n_[1] * 0.05); p1 = (a[0] + (b[0] - a[0]) * f1 + n_[0] * 0.05, a[1] + (b[1] - a[1]) * f1 + n_[1] * 0.05)
             m.quad(mgr, [(p0[0], p0[1], gk), (p1[0], p1[1], gk), (p1[0], p1[1], gk + HK), (p0[0], p0[1], gk + HK)], [(u0, v0), (u1, v0), (u1, v1), (u0, v1)], n=(n_[0], n_[1], 0))
     # sign on the roof, facing the street (south-west-ish): pick the edge with normal closest to (-0.2,-1)
     if edge_info:
         a, b, L_, t_, n_ = max(edge_info, key=lambda e: (e[4][0] * -0.2 + e[4][1] * -1.0) * min(e[2], 8))
-        mid = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2); sw_ = min(7.4, L_ - 0.4); sh_ = sw_ * 240 / 1024 * 1.0
+        mid = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2); sw_ = min(5.6, L_ - 1.8); sh_ = sw_ * 240 / 1024 * 1.0
         zb = gk + HK + 0.35
         cx_, cy_ = mid[0] + n_[0] * 0.2, mid[1] + n_[1] * 0.2
-        m.box(mf, cx_ - n_[0] * 0.15, cy_ - n_[1] * 0.15, sw_, 0.55, zb, zb + sh_ + 0.1, rot=math.atan2(t_[1], t_[0]), col=(236, 234, 228, 255))
-        textquad(m, msn, (cx_ + n_[0] * 0.17, cy_ + n_[1] * 0.17, zb + 0.05), t_, 1, sw_ - 0.15, sh_, UV_SIGN)
-        bt = (-t_[0], -t_[1])
-        textquad(m, msn, (cx_ - n_[0] * 0.5, cy_ - n_[1] * 0.5, zb + 0.05), bt, 1, sw_ - 0.15, sh_, UV_WHITE)
+        # L-shaped sign wrapping around the street-side kiosk corner: "Zentral" / "BAR | KULTUR" on the left face, "waescherei" / "CAFE | RESTAURANT" on the right face
+        best = None
+        for e1 in edge_info:
+            for e2 in edge_info:
+                if e1 is e2 or e1[2] < 2.4 or e2[2] < 2.4 or abs(e1[1][0] - e2[0][0]) + abs(e1[1][1] - e2[0][1]) > 0.35: continue
+                sc = max(0, e1[4][0] * -0.2 + e1[4][1] * -1.0) + max(0, e2[4][0] * -0.2 + e2[4][1] * -1.0)
+                if best is None or sc > best[0]: best = (sc, e1, e2)
+        if best:
+            _, E1, E2 = best; C = ((E1[1][0] + E2[0][0]) / 2, (E1[1][1] + E2[0][1]) / 2); fs = (x0_ + w1 + 11) / S_W
+            sh_ = 1.4; hs = 0.0
+            for (ea, eb, eL, et, en), side in ((E1, "L"), (E2, "R")):
+                LA = min(4.2 if side == "L" else 3.4, eL - 0.3); sgn = -1 if side == "L" else 1
+                ctr = (C[0] + et[0] * sgn * LA / 2 + en[0] * 0.15, C[1] + et[1] * sgn * LA / 2 + en[1] * 0.15)
+                m.box(mf, ctr[0] - en[0] * 0.15, ctr[1] - en[1] * 0.15, LA, 0.5, zb, zb + sh_ + 0.1, rot=math.atan2(et[1], et[0]), col=(236, 234, 228, 255))
+                uvs = (UV_SIGN[0], UV_SIGN[1], UV_SIGN[0] + fs, UV_SIGN[3]) if side == "L" else (UV_SIGN[0] + fs, UV_SIGN[1], UV_SIGN[2], UV_SIGN[3])
+                textquad(m, msn, (ctr[0] + en[0] * 0.27, ctr[1] + en[1] * 0.27, zb + 0.05), et, 1, LA - 0.05, sh_, uvs)
+            m.box(mf, C[0] + (E1[4][0] + E2[4][0]) * 0.1, C[1] + (E1[4][1] + E2[4][1]) * 0.1, 0.55, 0.55, zb, zb + sh_ + 0.1, col=(236, 234, 228, 255))
+            print("sign corner", [round(v, 1) for v in C])
         # pergola + plants on the kiosk roof
         for i in range(5):
             px_, py_ = mid[0] - n_[0] * 1.8 + t_[0] * (-3 + i * 1.5), mid[1] - n_[1] * 1.8 + t_[1] * (-3 + i * 1.5)
@@ -133,7 +152,7 @@ def build():
     # graffiti wall continuing along the kiosk's long edge on both sides
     if edge_info:
         a, b, L_, t_, n_ = max(edge_info, key=lambda e: e[2])
-        for sgn, ext in ((1, 13.0), (-1, 9.0)):
+        for sgn, ext in ((1, 10.0), (-1, 10.0)):
             end = b if sgn > 0 else a
             st = (end[0] + t_[0] * sgn * 0.0, end[1] + t_[1] * sgn * 0.0)
             e2 = (st[0] + t_[0] * sgn * ext, st[1] + t_[1] * sgn * ext)
@@ -142,7 +161,7 @@ def build():
             for i in range(seg):
                 f0, f1 = i / seg, (i + 1) / seg
                 q0 = (st[0] + (e2[0] - st[0]) * f0, st[1] + (e2[1] - st[1]) * f0); q1 = (st[0] + (e2[0] - st[0]) * f1, st[1] + (e2[1] - st[1]) * f1)
-                k = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15][(i * 3 + (0 if sgn > 0 else 5)) % 10]; u0, v0, u1, v1 = gcell(k)
+                u0, v0, u1, v1 = ZG.uv("wall_r" if sgn > 0 else "wall_l", f0, f1)
                 if sgn > 0: pa, pb = q0, q1
                 else: pa, pb = q1, q0
                 nn = (n_[0], n_[1])
@@ -150,6 +169,64 @@ def build():
                        [(u0, v0), (u1, v0), (u1, v1), (u0, v1)], n=(nn[0], nn[1], 0))
             # wall body (thin box) behind the quads
             m.box(mw, (st[0] + e2[0]) / 2, (st[1] + e2[1]) / 2, ext, 0.3, gz - 0.5, gz + 2.5, rot=math.atan2(t_[1], t_[0]), col=(190, 188, 182, 255), mr=mf, rcol=(150, 148, 142, 255))
+
+    # long mural on the main building's street-facing ground floor (decal, 18 x 3 m)
+    cand = []; cand_a = (1e9, 1e9); p0m = t_m = None
+    for a, b in edges_of(Pl, 1.0):
+        L_, t_, n_ = D.frame_of(a, b)
+        if L_ >= 18.5: cand.append(((n_[0] * -0.2 + n_[1] * -1.0), a, b, L_, t_, n_))
+    if cand:
+        _, a, b, L_, t_, n_ = max(cand, key=lambda e: e[0])
+        c0 = 0.5 * (L_ - 18.0) / L_; p0 = (a[0] + (b[0] - a[0]) * c0 + n_[0] * 0.07, a[1] + (b[1] - a[1]) * c0 + n_[1] * 0.07); p1 = (p0[0] + t_[0] * 18.0, p0[1] + t_[1] * 18.0)
+        # free-standing concrete wall (3.8 m) in front of the facade, mural over its full height and 18 m length
+        u0, v0, u1, v1 = ZG.uv("mural"); zb0 = -0.2; off = 0.7; HW = 3.7
+        q0 = (p0[0] + n_[0] * (off - 0.07), p0[1] + n_[1] * (off - 0.07)); q1 = (p1[0] + n_[0] * (off - 0.07), p1[1] + n_[1] * (off - 0.07))
+        m.box(mw, (q0[0] + q1[0]) / 2 - n_[0] * 0.15, (q0[1] + q1[1]) / 2 - n_[1] * 0.15, 18.4, 0.3, zb0 - 0.5, zb0 + HW + 0.1, rot=math.atan2(t_[1], t_[0]), col=(172, 170, 164, 255), mr=mf, rcol=(150, 148, 142, 255))
+        q0 = (q0[0] + n_[0] * 0.02, q0[1] + n_[1] * 0.02); q1 = (q1[0] + n_[0] * 0.02, q1[1] + n_[1] * 0.02)
+        m.quad(mgr, [(q0[0], q0[1], zb0), (q1[0], q1[1], zb0), (q1[0], q1[1], zb0 + HW), (q0[0], q0[1], zb0 + HW)], [(u0, v0), (u1, v0), (u1, v1), (u0, v1)], n=(n_[0], n_[1], 0))
+        cand_a = a; p0m, t_m = q0, t_
+        print("mural edge", [round(v, 1) for v in a], [round(v, 1) for v in b], "L", round(L_, 1))
+
+    # ---- more graffiti: plinth/side/back walls of the main building (decals), skipping the mural edge ----
+    kinds = ["wall_l", "klein", "wall_r", "wall_l", "klein", "wall_r"]; nk = 0
+    for a, b in edges_of(Pl, 1.0):
+        L_, t_, n_ = D.frame_of(a, b)
+        if L_ < 7.0 or (cand and abs(a[0] - cand_a[0]) < 0.01 and abs(a[1] - cand_a[1]) < 0.01): continue
+        wk = kinds[nk % len(kinds)]; nk += 1
+        wl = min(10.0, L_ - 1.0); hz = 1.2 if wk == "klein" else 2.5; k0 = 0.5 * (L_ - wl) / L_
+        p0 = (a[0] + (b[0] - a[0]) * k0 + n_[0] * 0.07, a[1] + (b[1] - a[1]) * k0 + n_[1] * 0.07); p1 = (p0[0] + t_[0] * wl, p0[1] + t_[1] * wl)
+        u0, v0, u1, v1 = ZG.uv(wk, 0.0, wl / 10.0)
+        m.quad(mgr, [(p0[0], p0[1], 0.4), (p1[0], p1[1], 0.4), (p1[0], p1[1], 0.4 + hz), (p0[0], p0[1], 0.4 + hz)], [(u0, v0), (u1, v0), (u1, v1), (u0, v1)], n=(n_[0], n_[1], 0))
+        if nk >= 8: break
+    print("extra graffiti decals", nk)
+
+    # ---- vegetation (alpha cards): ivy over the graffiti walls, grass/weeds at wall bases, planter shrubs on the kiosk roof and forecourt, trees behind the walls ----
+    if edge_info:
+        a, b, L_, t_, n_ = max(edge_info, key=lambda e: e[2])
+        rot = math.atan2(t_[1], t_[0])
+        for sgn, ext in ((1, 10.0), (-1, 10.0)):
+            end = b if sgn > 0 else a
+            for i in range(int(ext / 1.6)):
+                f = (i + rng.random()) * 1.6; px, py = end[0] + t_[0] * sgn * f + n_[0] * 0.28, end[1] + t_[1] * sgn * f + n_[1] * 0.28
+                if rng.random() < 0.55: ZP.card(m, mpl, px, py, gk + 2.5 - 1.5, 1.6, 1.5, rot, "ivy" if rng.random() < .6 else "ivy2", cross=False)   # climber hanging over the wall top
+                ZP.card(m, mpl, px + n_[0] * .1, py + n_[1] * .1, gk, 1.2, 0.5 + 0.4 * rng.random(), rot + rng.uniform(-.3, .3), "grass" if rng.random() < .6 else "weeds")
+            for k in range(3):   # trees behind the wall (photos 1/3): trunk + crown
+                f = (k + 0.5) * ext / 3; px, py = end[0] + t_[0] * sgn * f - n_[0] * 3.0, end[1] + t_[1] * sgn * f - n_[1] * 3.0
+                m.cylinder(mf, px, py, 0.18, gk, gk + 3.2, n=8, col=(88, 66, 48, 255)); ZP.card(m, mpl, px, py, gk + 2.4, 5.2, 4.6, rng.uniform(0, 3), "crown" if k % 2 else "crown2")
+        for i in range(int(L_ / 1.4)):   # kiosk base weeds + roof-terrace planters
+            f = (i + rng.random()) / int(L_ / 1.4); px, py = a[0] + (b[0] - a[0]) * f + n_[0] * 0.25, a[1] + (b[1] - a[1]) * f + n_[1] * 0.25
+            ZP.card(m, mpl, px, py, gk, 1.0, 0.45, rot + rng.uniform(-.3, .3), "weeds")
+        for i in range(7):
+            f = 0.1 + 0.13 * i; px, py = a[0] + (b[0] - a[0]) * f - n_[0] * 1.6, a[1] + (b[1] - a[1]) * f - n_[1] * 1.6
+            ZP.card(m, mpl, px, py, gk + HK + 0.35, 1.5, 1.4 + 0.8 * rng.random(), rng.uniform(0, 3), "shrub" if i % 2 else "bush2")
+            if i % 2 == 0:   # forecourt planter box + shrub
+                qx, qy = a[0] + (b[0] - a[0]) * f + n_[0] * 1.6, a[1] + (b[1] - a[1]) * f + n_[1] * 1.6
+                m.box(mf, qx, qy, 0.9, 0.6, gk, gk + 0.5, rot=rot, col=(92, 74, 60, 255)); ZP.card(m, mpl, qx, qy, gk + 0.45, 1.3, 1.3, rng.uniform(0, 3), "shrub")
+    # ivy on the main building's mural wall + plinth weeds
+    if cand:
+        for i in range(8):
+            f = (i + rng.random()) * 2.2; px, py = p0m[0] + t_m[0] * f, p0m[1] + t_m[1] * f
+            ZP.card(m, mpl, px, py, -0.2, 1.8, 0.5, math.atan2(t_m[1], t_m[0]), "weeds", cross=True)
 
     # ---- water tower in the yard ----
     wb = bid(TOWER); wc = wb["c"]; gz = ground(*wc) - oz

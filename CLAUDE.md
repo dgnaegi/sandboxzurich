@@ -29,6 +29,7 @@ Dieses Projekt ist **getrennt vom Reel** in `../gta6/` (lokal, nicht im Repo, ei
 | `docs/ROADMAP.md` | Milestones mit Checklisten |
 | `docs/DECISIONS.md` | Entscheidungslog (ADR-light) |
 | `docs/HANDOFF.md` | Übergabe zwischen Sessions |
+| `docs/NIGHT_PLAN.md` | Nachtplan Realismus-Woche (Zonen, Objekt-Katalog) |
 
 ## Regeln
 - **Sprache:** Mit dem User Deutsch. UI- und Spieltexte Hochdeutsch (Schweizer Schreibweise, ss statt ß); Entscheid User 2026-10-14. Code, Bezeichner und Commit-Messages Englisch.

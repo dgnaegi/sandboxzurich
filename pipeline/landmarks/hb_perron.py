@@ -21,8 +21,8 @@ def build():
     A = P.make_atlas('perron')
     ms = m.mat("sign", *A.images(), rough=0.8)   # 512 x 384 atlas (+ emissive for the lamps / boards at night)
     mf = m.mat("flat", Image.new("RGBA", (8, 8), (255, 255, 255, 255)))
-    ASPH, CONC, WHITE, TAC = hx("#8e9093"), hx("#a7a8a5"), hx("#ececea"), hx("#b4b3ad")
-    STEELC, GLASS_O, GLASS_I = hx("#2d3033"), hx("#9eb3bd"), hx("#7d8a92")
+    ASPH, CONC, WHITE, TAC = hxw("#8e8e8e"), hxw("#a7a7a5"), hx("#ececea"), hxw("#b4b3ad")
+    STEELC, GLASS_O, GLASS_I = hx("#2d3033"), hx("#74868f"), hxw("#8a8a88")
     colliders = []
     plat = dict(G.PLATFORMS)
     for ref, (cs, cn) in plat.items():

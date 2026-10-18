@@ -1,0 +1,1571 @@
+[
+{
+"place": "Stauffacher",
+"kind": "stop",
+"cx": 996.0,
+"cy": -1177.0,
+"photos": []
+},
+{
+"place": "Bahnhof Wiedikon",
+"kind": "stop",
+"cx": 564.0,
+"cy": -1393.0,
+"photos": []
+},
+{
+"place": "Zürich Wiedikon",
+"kind": "stop",
+"cx": 448.0,
+"cy": -1314.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/2_-7/pano_792be0e3_31d7_4589_82fb_4fed48c0f967.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "Lezurex",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=792be0e3-31d7-4589-82fb-4fed48c0f967",
+"lat": 47.3723005,
+"lon": 8.5230492,
+"heading": 255,
+"x": 502.5,
+"y": -1305.3,
+"kreis": "Kreis 4"
+}
+]
+},
+{
+"place": "Goldbrunnenplatz",
+"kind": "stop",
+"cx": -185.0,
+"cy": -1539.0,
+"photos": []
+},
+{
+"place": "Letzigrund",
+"kind": "stop",
+"cx": -971.0,
+"cy": -335.0,
+"photos": []
+},
+{
+"place": "Hardturm",
+"kind": "stop",
+"cx": -915.0,
+"cy": 1117.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-5_5/pano_172170fd_e2f5_4f25_9f10_2d4d792c6963.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=172170fd-e2f5-4f25-9f10-2d4d792c6963",
+"lat": 47.3939497,
+"lon": 8.5049239,
+"heading": 271,
+"x": -899.0,
+"y": 1082.7,
+"kreis": "Kreis 9"
+}
+]
+},
+{
+"place": "Toni-Areal",
+"kind": "stop",
+"cx": -460.0,
+"cy": 670.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-3_3/pano_74c8d0b7_6e07_44f8_be28_464a9bbcc112.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=74c8d0b7-6e07-44f8-be28-464a9bbcc112",
+"lat": 47.3904295,
+"lon": 8.5101309,
+"heading": 283,
+"x": -500.6,
+"y": 696.7,
+"kreis": "Industriequartier"
+},
+{
+"file": "data/raw/photos/tiles/-3_3/pano_630a50e0_bdc3_43d9_bb47_b139223f7baf.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=630a50e0-bdc3-43d9-bb47-b139223f7baf",
+"lat": 47.3901176,
+"lon": 8.5098955,
+"heading": 107,
+"x": -517.9,
+"y": 661.8,
+"kreis": "Industriequartier"
+}
+]
+},
+{
+"place": "Schiffbau",
+"kind": "stop",
+"cx": 236.0,
+"cy": 436.0,
+"photos": []
+},
+{
+"place": "Bahnhof Altstetten",
+"kind": "stop",
+"cx": -2117.0,
+"cy": 714.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-11_3/pano_cd39a6e4_dee1_4315_bb5c_29eca2cca711.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=cd39a6e4-dee1-4315-bb5c-29eca2cca711",
+"lat": 47.3907822,
+"lon": 8.488998,
+"heading": 100,
+"x": -2096.6,
+"y": 714.3,
+"kreis": "Kreis 9"
+}
+]
+},
+{
+"place": "Bahnhof Hardbrücke",
+"kind": "stop",
+"cx": 27.0,
+"cy": 111.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/0_0/pano_96e93033_f166_43aa_a8b1_fd3b8ebb2e03.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "stillhart",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=96e93033-f166-43aa-a8b1-fd3b8ebb2e03",
+"lat": 47.3852889,
+"lon": 8.5171083,
+"heading": 211,
+"x": 34.0,
+"y": 132.4,
+"kreis": "Kreis 4"
+},
+{
+"file": "data/raw/photos/tiles/0_0/pano_2116d330_d787_48b7_96a2_fccb580d1758.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=2116d330-d787-48b7-96a2-fccb580d1758",
+"lat": 47.3853871,
+"lon": 8.5175345,
+"heading": 48,
+"x": 66.1,
+"y": 143.8,
+"kreis": "Industriequartier"
+}
+]
+},
+{
+"place": "Güterbahnhof",
+"kind": "stop",
+"cx": 230.0,
+"cy": -401.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/1_-2/pano_8dd358db_d9fe_49d5_a709_8a84854a282d.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=8dd358db-d9fe-49d5-a709-8a84854a282d",
+"lat": 47.3805965,
+"lon": 8.519673,
+"heading": 228,
+"x": 234.9,
+"y": -386.6,
+"kreis": "Kreis 4"
+},
+{
+"file": "data/raw/photos/tiles/1_-2/pano_9b5e9671_eb40_451c_95ab_0b8770dd1edb.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=9b5e9671-eb40-451c-95ab-0b8770dd1edb",
+"lat": 47.3805598,
+"lon": 8.519795,
+"heading": 288,
+"x": 244.1,
+"y": -390.5,
+"kreis": "Kreis 4"
+}
+]
+},
+{
+"place": "Werd",
+"kind": "stop",
+"cx": 790.0,
+"cy": -1271.0,
+"photos": []
+},
+{
+"place": "Kanonengasse",
+"kind": "stop",
+"cx": 1023.0,
+"cy": -612.0,
+"photos": []
+},
+{
+"place": "Militär-/Langstrasse",
+"kind": "stop",
+"cx": 843.0,
+"cy": -483.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/4_-3/pano_d439bfc4_6445_4f67_a03c_beede59a80f8.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=d439bfc4-6445-4f67-a03c-beede59a80f8",
+"lat": 47.3793835,
+"lon": 8.528275,
+"heading": 131,
+"x": 886.3,
+"y": -512.4,
+"kreis": "Kreis 4"
+}
+]
+},
+{
+"place": "Löwenbräu",
+"kind": "stop",
+"cx": 705.0,
+"cy": 490.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/3_2/pano_ac0c8849_28b7_4e50_b27e_6b66665ac5bb.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=ac0c8849-28b7-4e50-b27e-6b66665ac5bb",
+"lat": 47.388376,
+"lon": 8.5263673,
+"heading": 44,
+"x": 728.4,
+"y": 485.3,
+"kreis": "Industriequartier"
+},
+{
+"file": "data/raw/photos/tiles/3_2/pano_19bf91f1_1a04_4410_bbca_d10c08294689.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=19bf91f1-1a04-4410-bbca-d10c08294689",
+"lat": 47.3881614,
+"lon": 8.5262932,
+"heading": 312,
+"x": 723.1,
+"y": 461.3,
+"kreis": "Industriequartier"
+}
+]
+},
+{
+"place": "Technopark",
+"kind": "stop",
+"cx": -111.0,
+"cy": 552.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-1_2/pano_31be5fb2_11f0_4d66_a4e3_a9670796bdd1.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=31be5fb2-11f0-4d66-a4e3-a9670796bdd1",
+"lat": 47.3890464,
+"lon": 8.5157327,
+"heading": 289,
+"x": -75.6,
+"y": 548.7,
+"kreis": "Industriequartier"
+},
+{
+"file": "data/raw/photos/tiles/-1_2/pano_3e52667b_8c9c_4132_96af_d78fcc4a87d5.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=3e52667b-8c9c-4132-96af-d78fcc4a87d5",
+"lat": 47.3886613,
+"lon": 8.5154531,
+"heading": 104,
+"x": -96.1,
+"y": 505.6,
+"kreis": "Industriequartier"
+}
+]
+},
+{
+"place": "Museum für Gestaltung",
+"kind": "stop",
+"cx": 1381.0,
+"cy": -191.0,
+"photos": []
+},
+{
+"place": "Friedhof Sihlfeld",
+"kind": "stop",
+"cx": -415.0,
+"cy": -916.0,
+"photos": []
+},
+{
+"place": "Altes Krematorium",
+"kind": "stop",
+"cx": -676.0,
+"cy": -724.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-4_-4/pano_e31f72c4_2c35_471b_8ccb_31be30f3b727.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=e31f72c4-2c35-471b-8ccb-31be30f3b727",
+"lat": 47.3777832,
+"lon": 8.507319,
+"heading": 258,
+"x": -693.7,
+"y": -712.1,
+"kreis": "Kreis 3"
+},
+{
+"file": "data/raw/photos/tiles/-4_-4/pano_6de93be5_f86c_41a4_bcb7_1e4b3770e8d3.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=6de93be5-f86c-41a4-bcb7-1e4b3770e8d3",
+"lat": 47.3779911,
+"lon": 8.5074043,
+"heading": 127,
+"x": -687.6,
+"y": -688.9,
+"kreis": "Kreis 3"
+}
+]
+},
+{
+"place": "Zypressenstrasse",
+"kind": "stop",
+"cx": -195.0,
+"cy": -824.0,
+"photos": []
+},
+{
+"place": "Gutstrasse",
+"kind": "stop",
+"cx": -736.0,
+"cy": -1385.0,
+"photos": []
+},
+{
+"place": "Bertastrasse",
+"kind": "stop",
+"cx": -218.0,
+"cy": -1143.0,
+"photos": []
+},
+{
+"place": "Zwinglihaus",
+"kind": "stop",
+"cx": -6.0,
+"cy": -1385.0,
+"photos": []
+},
+{
+"place": "Aargauerstrasse",
+"kind": "stop",
+"cx": -1085.0,
+"cy": 882.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-6_4/pano_e0abef50_633e_499f_8eb5_65bef7bff092.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=e0abef50-633e-499f-8eb5-65bef7bff092",
+"lat": 47.3922253,
+"lon": 8.5023169,
+"heading": 73,
+"x": -1093.2,
+"y": 888.3,
+"kreis": "Industriequartier"
+},
+{
+"file": "data/raw/photos/tiles/-6_4/pano_603cd41b_d835_47c2_ad74_3cc95cd334b2.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=603cd41b-d835-47c2-ad74-3cc95cd334b2",
+"lat": 47.3923033,
+"lon": 8.5022369,
+"heading": 246,
+"x": -1099.4,
+"y": 896.9,
+"kreis": "Kreis 9"
+}
+]
+},
+{
+"place": "Bernoulli-Häuser",
+"kind": "stop",
+"cx": -616.0,
+"cy": 1075.0,
+"photos": []
+},
+{
+"place": "Bezirksgebäude",
+"kind": "stop",
+"cx": 698.0,
+"cy": -1105.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/3_-6/pano_459dc30d_7856_487c_b5a9_1505b9d0a01b.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=459dc30d-7856-487c-b5a9-1505b9d0a01b",
+"lat": 47.3743825,
+"lon": 8.5252114,
+"heading": 48,
+"x": 662.6,
+"y": -1071.6,
+"kreis": "Kreis 4"
+},
+{
+"file": "data/raw/photos/tiles/3_-6/pano_7cece5f6_ecd2_4295_8510_29adb7c172f3.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=7cece5f6-ecd2-4295-8510-29adb7c172f3",
+"lat": 47.3743746,
+"lon": 8.5251025,
+"heading": 219,
+"x": 654.4,
+"y": -1072.6,
+"kreis": "Kreis 4"
+}
+]
+},
+{
+"place": "Kernstrasse",
+"kind": "stop",
+"cx": 602.0,
+"cy": -1044.0,
+"photos": []
+},
+{
+"place": "Wipkingerplatz",
+"kind": "stop",
+"cx": 510.0,
+"cy": 949.0,
+"photos": []
+},
+{
+"place": "Zürich Selnau",
+"kind": "stop",
+"cx": 1167.0,
+"cy": -1277.0,
+"photos": []
+},
+{
+"place": "Löwenplatz",
+"kind": "stop",
+"cx": 1575.0,
+"cy": -884.0,
+"photos": []
+},
+{
+"place": "Albisrank",
+"kind": "stop",
+"cx": -1650.0,
+"cy": -506.0,
+"photos": []
+},
+{
+"place": "Manesseplatz",
+"kind": "stop",
+"cx": 413.0,
+"cy": -2051.0,
+"photos": []
+},
+{
+"place": "Letzipark",
+"kind": "stop",
+"cx": -1276.0,
+"cy": 373.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-7_1/pano_8502f6b0_a8d0_4007_853a_e8c25bb89e1a.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=8502f6b0-a8d0-4007-853a-e8c25bb89e1a",
+"lat": 47.387553,
+"lon": 8.4999221,
+"heading": 106,
+"x": -1267.0,
+"y": 366.4,
+"kreis": "Kreis 9"
+}
+]
+},
+{
+"place": "Siemens",
+"kind": "stop",
+"cx": -1716.0,
+"cy": -662.0,
+"photos": []
+},
+{
+"place": "Hubertus",
+"kind": "stop",
+"cx": -1312.0,
+"cy": -786.0,
+"photos": []
+},
+{
+"place": "Kappeli",
+"kind": "stop",
+"cx": -1657.0,
+"cy": 30.0,
+"photos": []
+},
+{
+"place": "Freihofstrasse",
+"kind": "stop",
+"cx": -1279.0,
+"cy": -125.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-7_-1/pano_5750e0b4_7461_4317_bf50_25e62426474f.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=5750e0b4-7461-4317-bf50-25e62426474f",
+"lat": 47.3833578,
+"lon": 8.4993937,
+"heading": 131,
+"x": -1300.6,
+"y": -100.5,
+"kreis": "Kreis 9"
+},
+{
+"file": "data/raw/photos/tiles/-7_-1/pano_724896b5_c2fe_4ba2_84e7_45d9de80a66c.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=724896b5-c2fe-4ba2-84e7-45d9de80a66c",
+"lat": 47.383403,
+"lon": 8.4994259,
+"heading": 302,
+"x": -1298.2,
+"y": -95.4,
+"kreis": "Kreis 9"
+}
+]
+},
+{
+"place": "Herdernstrasse",
+"kind": "stop",
+"cx": -604.0,
+"cy": 88.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-3_0/pano_ca5b0e17_848e_4cc3_9180_6c33cbc89242.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=ca5b0e17-848e-4cc3-9180-6c33cbc89242",
+"lat": 47.3853349,
+"lon": 8.5086963,
+"heading": 14,
+"x": -601.2,
+"y": 128.8,
+"kreis": "Kreis 4"
+},
+{
+"file": "data/raw/photos/tiles/-4_0/pano_724137ba_70a4_4deb_ac5d_fedce7b38b31.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=724137ba-70a4-4deb-ac5d-fedce7b38b31",
+"lat": 47.3848263,
+"lon": 8.5080331,
+"heading": 225,
+"x": -650.5,
+"y": 71.6,
+"kreis": "Kreis 4"
+}
+]
+},
+{
+"place": "Förrlibuckstrasse",
+"kind": "stop",
+"cx": 34.0,
+"cy": 911.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/0_4/pano_9ecd306d_cb7c_487d_ba40_1bb59f998a42.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=9ecd306d-cb7c-487d-ba40-1bb59f998a42",
+"lat": 47.3921049,
+"lon": 8.5177108,
+"heading": 21,
+"x": 69.1,
+"y": 890.8,
+"kreis": "Industriequartier"
+}
+]
+},
+{
+"place": "Lettenstrasse",
+"kind": "stop",
+"cx": 1204.0,
+"cy": 741.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/5_3/pano_0f7c54bc_8746_45d7_a8bb_a4b85b71bc50.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=0f7c54bc-8746-45d7-a8bb-a4b85b71bc50",
+"lat": 47.3905888,
+"lon": 8.5320309,
+"heading": 140,
+"x": 1152.5,
+"y": 737.2,
+"kreis": null
+},
+{
+"file": "data/raw/photos/tiles/5_3/pano_3d7f4c00_9f3e_4fca_9116_8cc513d0da52.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=3d7f4c00-9f3e-4fca-9116-8cc513d0da52",
+"lat": 47.3906121,
+"lon": 8.5320027,
+"heading": 141,
+"x": 1150.4,
+"y": 739.8,
+"kreis": null
+}
+]
+},
+{
+"place": "Quellenstrasse",
+"kind": "stop",
+"cx": 911.0,
+"cy": 307.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/4_1/pano_8a5388f9_6bdf_4c70_91e0_bbb176e5e78f.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=8a5388f9-6bdf-4c70-91e0-bbb176e5e78f",
+"lat": 47.3869819,
+"lon": 8.5282985,
+"heading": 131,
+"x": 876.3,
+"y": 332.3,
+"kreis": "Industriequartier"
+}
+]
+},
+{
+"place": "Rosengartenstrasse",
+"kind": "stop",
+"cx": 651.0,
+"cy": 1145.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/3_5/pano_f20c4adc_5de9_495a_8536_4931257b1276.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "stillhart",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=f20c4adc-5de9-495a-8536-4931257b1276",
+"lat": 47.3943278,
+"lon": 8.5252444,
+"heading": 206,
+"x": 634.4,
+"y": 1145.8,
+"kreis": null
+},
+{
+"file": "data/raw/photos/tiles/3_5/pano_e58dff52_b623_445b_9c6a_bb0e422cb82d.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=e58dff52-b623-445b-9c6a-bb0e422cb82d",
+"lat": 47.3940802,
+"lon": 8.5261111,
+"heading": 80,
+"x": 700.2,
+"y": 1119.1,
+"kreis": null
+}
+]
+},
+{
+"place": "Zürich Landesmuseum",
+"kind": "stop",
+"cx": 1893.0,
+"cy": -534.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/9_-3/pano_db36c63c_38aa_49ae_9ecb_008d283821d4.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=db36c63c-38aa-49ae-9ecb-008d283821d4",
+"lat": 47.3792852,
+"lon": 8.5412403,
+"heading": 153,
+"x": 1865.5,
+"y": -509.7,
+"kreis": null
+},
+{
+"file": "data/raw/photos/tiles/9_-3/pano_73b10445_1715_43e6_a699_cfb7db22249e.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=73b10445-1715-43e6-a699-cfb7db22249e",
+"lat": 47.3793782,
+"lon": 8.5411771,
+"heading": 330,
+"x": 1860.5,
+"y": -499.4,
+"kreis": null
+}
+]
+},
+{
+"place": "Kronenstrasse",
+"kind": "stop",
+"cx": 1697.0,
+"cy": 488.0,
+"photos": []
+},
+{
+"place": "Sportweg",
+"kind": "stop",
+"cx": -826.0,
+"cy": 824.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-5_3/pano_b2f3d999_1798_495f_a80d_128be199c33c.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=b2f3d999-1798-495f-a80d-128be199c33c",
+"lat": 47.3913889,
+"lon": 8.5055771,
+"heading": 109,
+"x": -845.8,
+"y": 798.7,
+"kreis": "Industriequartier"
+}
+]
+},
+{
+"place": "Bahnhof Selnau",
+"kind": "stop",
+"cx": 1157.0,
+"cy": -1464.0,
+"photos": []
+},
+{
+"place": "Heuried",
+"kind": "stop",
+"cx": -753.0,
+"cy": -1641.0,
+"photos": []
+},
+{
+"place": "Zürich Binz",
+"kind": "stop",
+"cx": 141.0,
+"cy": -2363.0,
+"photos": []
+},
+{
+"place": "Bahnhof Wipkingen",
+"kind": "stop",
+"cx": 979.0,
+"cy": 1044.0,
+"photos": []
+},
+{
+"place": "Zürich Altstetten",
+"kind": "stop",
+"cx": -2083.0,
+"cy": 809.0,
+"photos": []
+},
+{
+"place": "Hertersteg",
+"kind": "stop",
+"cx": 502.0,
+"cy": -1815.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/2_-10/pano_16acfa6f_0f07_4725_9ec8_f97e142b7d97.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=16acfa6f-0f07-4725-9ec8-f97e142b7d97",
+"lat": 47.3672991,
+"lon": 8.5232057,
+"heading": 97,
+"x": 522.1,
+"y": -1861.2,
+"kreis": "Kreis 3"
+}
+]
+},
+{
+"place": "Hardstrasse #1",
+"kind": "street",
+"cx": -355.8,
+"cy": -477.4,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-2_-3/pano_e8e12537_ae56_4927_9064_bf4def9f918d.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "stillhart",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=e8e12537-ae56-4927-9064-bf4def9f918d",
+"lat": 47.3798528,
+"lon": 8.5118361,
+"heading": 212,
+"x": -355.8,
+"y": -477.4,
+"kreis": "Kreis 4"
+}
+]
+},
+{
+"place": "Hardstrasse #2",
+"kind": "street",
+"cx": 124.5,
+"cy": 268.6,
+"photos": [
+{
+"file": "data/raw/photos/tiles/0_1/pano_f1cab1bd_164e_4da1_be15_0b8f4c0a0a85.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "stillhart",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=f1cab1bd-164e-4da1-be15-0b8f4c0a0a85",
+"lat": 47.3865028,
+"lon": 8.5183306,
+"heading": 212,
+"x": 124.5,
+"y": 268.6,
+"kreis": "Industriequartier"
+}
+]
+},
+{
+"place": "Hohlstrasse #1",
+"kind": "street",
+"cx": -2852.1,
+"cy": 741.5,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-15_3/pano_4d571dc1_4140_43b0_aaf6_dc5fe76044e9.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "Lezurex",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=4d571dc1-4140-43b0-aaf6-dc5fe76044e9",
+"lat": 47.3911167,
+"lon": 8.4789963,
+"heading": 303,
+"x": -2852.1,
+"y": 741.5,
+"kreis": "Kreis 9"
+}
+]
+},
+{
+"place": "Hohlstrasse #2",
+"kind": "street",
+"cx": -2508.7,
+"cy": 851.3,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-13_4/pano_75a39871_c9ed_4b26_87b0_48575587b312.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "Lezurex",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=75a39871-c9ed-4b26-87b0-48575587b312",
+"lat": 47.3920633,
+"lon": 8.483564,
+"heading": 270,
+"x": -2508.7,
+"y": 851.3,
+"kreis": "Kreis 9"
+}
+]
+},
+{
+"place": "Hohlstrasse #3",
+"kind": "street",
+"cx": -2053.3,
+"cy": 698.7,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-11_3/pano_734c8a04_605e_44bf_aec9_ec5271625695.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=734c8a04-605e-44bf-aec9-ec5271625695",
+"lat": 47.3906368,
+"lon": 8.4895678,
+"heading": 178,
+"x": -2053.3,
+"y": 698.7,
+"kreis": "Kreis 9"
+}
+]
+},
+{
+"place": "Badenerstrasse #1",
+"kind": "street",
+"cx": -2818.7,
+"cy": 701.7,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-15_3/pano_ee49102b_8653_468a_ad95_6617ad136398.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=ee49102b-8653-468a-ad95-6617ad136398",
+"lat": 47.3907549,
+"lon": 8.4794326,
+"heading": 12,
+"x": -2818.7,
+"y": 701.7,
+"kreis": "Kreis 9"
+}
+]
+},
+{
+"place": "Badenerstrasse #2",
+"kind": "street",
+"cx": -2510.5,
+"cy": 489.5,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-13_2/pano_df47fefa_530f_4133_8ce2_d68e0545af3c.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=df47fefa-530f-4133-8ce2-d68e0545af3c",
+"lat": 47.3888103,
+"lon": 8.483477,
+"heading": 312,
+"x": -2510.5,
+"y": 489.5,
+"kreis": "Kreis 9"
+}
+]
+},
+{
+"place": "Badenerstrasse #3",
+"kind": "street",
+"cx": -2097.9,
+"cy": 307.4,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-11_1/pano_f690e0d1_e333_4d7d_b26b_63210b34f9e8.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=f690e0d1-e333-4d7d-b26b-63210b34f9e8",
+"lat": 47.3871224,
+"lon": 8.4889087,
+"heading": 96,
+"x": -2097.9,
+"y": 307.4,
+"kreis": "Kreis 9"
+}
+]
+},
+{
+"place": "Seebahnstrasse #1",
+"kind": "street",
+"cx": 294.7,
+"cy": -500.6,
+"photos": [
+{
+"file": "data/raw/photos/tiles/1_-3/pano_461d6c41_a870_4ca5_90d7_b750128a329c.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "stillhart",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=461d6c41-a870-4ca5-90d7-b750128a329c",
+"lat": 47.3795639,
+"lon": 8.5204444,
+"heading": 29,
+"x": 294.7,
+"y": -500.6,
+"kreis": "Kreis 4"
+}
+]
+},
+{
+"place": "Feldstrasse #1",
+"kind": "street",
+"cx": 342.8,
+"cy": -911.5,
+"photos": [
+{
+"file": "data/raw/photos/tiles/1_-5/pano_f3d30b07_aa31_41f9_8138_db5f80dad8ed.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=f3d30b07-aa31-41f9-8138-db5f80dad8ed",
+"lat": 47.3758619,
+"lon": 8.5210068,
+"heading": 201,
+"x": 342.8,
+"y": -911.5,
+"kreis": "Kreis 4"
+}
+]
+},
+{
+"place": "Bullingerstrasse #1",
+"kind": "street",
+"cx": -725.9,
+"cy": -145.9,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-4_-1/pano_aec94304_43ff_4609_86d2_361e8504a8b8.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "Lezurex",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=aec94304-43ff-4609-86d2-361e8504a8b8",
+"lat": 47.382879,
+"lon": 8.5069954,
+"heading": 292,
+"x": -725.9,
+"y": -145.9,
+"kreis": "Kreis 4"
+}
+]
+},
+{
+"place": "Bullingerstrasse #2",
+"kind": "street",
+"cx": -94.4,
+"cy": -488.6,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-1_-3/pano_e73a7c4a_37dc_468a_8d0f_7669739ea2c1.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=e73a7c4a-37dc-468a-8d0f-7669739ea2c1",
+"lat": 47.3797195,
+"lon": 8.5152948,
+"heading": 115,
+"x": -94.4,
+"y": -488.6,
+"kreis": "Kreis 4"
+}
+]
+},
+{
+"place": "Pfingstweidstrasse #1",
+"kind": "street",
+"cx": -931.7,
+"cy": 837.3,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-5_4/pano_d0d156e6_9bd5_4329_a023_a00ce7d3ede7.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=d0d156e6-9bd5-4329-a023-a00ce7d3ede7",
+"lat": 47.3917465,
+"lon": 8.5044472,
+"heading": 108,
+"x": -931.7,
+"y": 837.3,
+"kreis": "Industriequartier"
+}
+]
+},
+{
+"place": "Pfingstweidstrasse #2",
+"kind": "street",
+"cx": -277.7,
+"cy": 577.9,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-2_2/pano_0c33dcb1_993b_4f7a_b869_6fa7e106cb7a.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=0c33dcb1-993b-4f7a-b869-6fa7e106cb7a",
+"lat": 47.3893335,
+"lon": 8.5130617,
+"heading": 100,
+"x": -277.7,
+"y": 577.9,
+"kreis": "Industriequartier"
+}
+]
+},
+{
+"place": "Zurlindenstrasse #1",
+"kind": "street",
+"cx": -307.9,
+"cy": -909.3,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-2_-5/pano_abe97fef_e8d7_43ed_b5d5_ba5787473d46.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=abe97fef-e8d7-43ed-b5d5-ba5787473d46",
+"lat": 47.3759621,
+"lon": 8.5123922,
+"heading": 299,
+"x": -307.9,
+"y": -909.3,
+"kreis": "Kreis 3"
+}
+]
+},
+{
+"place": "Zurlindenstrasse #2",
+"kind": "street",
+"cx": 100.4,
+"cy": -1300.6,
+"photos": [
+{
+"file": "data/raw/photos/tiles/0_-7/pano_b2a2cbca_a064_4325_9bb2_8ffe306e9c10.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=b2a2cbca-a064-4325-9bb2-8ffe306e9c10",
+"lat": 47.3723928,
+"lon": 8.517726,
+"heading": 314,
+"x": 100.4,
+"y": -1300.6,
+"kreis": "Kreis 3"
+}
+]
+},
+{
+"place": "Weststrasse #1",
+"kind": "street",
+"cx": 105.6,
+"cy": -1094.3,
+"photos": [
+{
+"file": "data/raw/photos/tiles/0_-6/pano_07ae4226_753c_4583_96c1_dc06c98e9831.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=07ae4226-753c-4583-96c1-dc06c98e9831",
+"lat": 47.3742479,
+"lon": 8.5178326,
+"heading": 308,
+"x": 105.6,
+"y": -1094.3,
+"kreis": "Kreis 3"
+}
+]
+},
+{
+"place": "Weststrasse #2",
+"kind": "street",
+"cx": 466.5,
+"cy": -1526.2,
+"photos": [
+{
+"file": "data/raw/photos/tiles/2_-8/pano_fa62db21_a48b_4ded_8d60_ada7b68eb695.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=fa62db21-a48b-4ded-8d60-ada7b68eb695",
+"lat": 47.3703189,
+"lon": 8.5225316,
+"heading": 128,
+"x": 466.5,
+"y": -1526.2,
+"kreis": "Kreis 3"
+}
+]
+},
+{
+"place": "Birmensdorferstrasse #1",
+"kind": "street",
+"cx": 99.9,
+"cy": -1499.3,
+"photos": [
+{
+"file": "data/raw/photos/tiles/0_-8/pano_e47175e2_9ff3_4dc7_a2b6_2e71977c3892.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "OneOSMUser",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=e47175e2-9ff3-4dc7-a2b6-2e71977c3892",
+"lat": 47.370606,
+"lon": 8.517683,
+"heading": 287,
+"x": 99.9,
+"y": -1499.3,
+"kreis": "Kreis 3"
+}
+]
+},
+{
+"place": "Hardturmstrasse #1",
+"kind": "street",
+"cx": -1096.4,
+"cy": 1073.3,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-6_5/pano_77628322_be6f_44d8_8ff5_1c55a86b25b1.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=77628322-be6f-44d8-8ff5-1c55a86b25b1",
+"lat": 47.3938889,
+"lon": 8.5023077,
+"heading": 266,
+"x": -1096.4,
+"y": 1073.3,
+"kreis": "Kreis 9"
+}
+]
+},
+{
+"place": "Hardturmstrasse #2",
+"kind": "street",
+"cx": -701.3,
+"cy": 1072.9,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-4_5/pano_359b1019_cb07_46b6_b6c1_0e6dcf5dc1fc.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=359b1019-cb07-46b6-b6c1-0e6dcf5dc1fc",
+"lat": 47.3938379,
+"lon": 8.5075408,
+"heading": 271,
+"x": -701.3,
+"y": 1072.9,
+"kreis": "Industriequartier"
+}
+]
+},
+{
+"place": "Hardturmstrasse #3",
+"kind": "street",
+"cx": -324.5,
+"cy": 1047.3,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-2_5/pano_314d37db_7f35_4343_8f14_d0916c90c95a.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=314d37db-7f35-4343-8f14-d0916c90c95a",
+"lat": 47.3935607,
+"lon": 8.5125265,
+"heading": 285,
+"x": -324.5,
+"y": 1047.3,
+"kreis": "Industriequartier"
+}
+]
+},
+{
+"place": "Kanzleistrasse #1",
+"kind": "street",
+"cx": 110.4,
+"cy": -682.8,
+"photos": [
+{
+"file": "data/raw/photos/tiles/0_-4/pano_e514b042_7272_4a0f_8863_7ef7f95d5df0.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=e514b042-7272-4a0f-8863-7ef7f95d5df0",
+"lat": 47.3779478,
+"lon": 8.5179704,
+"heading": 305,
+"x": 110.4,
+"y": -682.8,
+"kreis": "Kreis 4"
+}
+]
+},
+{
+"place": "Kanzleistrasse #2",
+"kind": "street",
+"cx": 500.8,
+"cy": -893.8,
+"photos": [
+{
+"file": "data/raw/photos/tiles/2_-5/pano_f4892b79_4856_4941_9344_48355a8a2449.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=f4892b79-4856-4941-9344-48355a8a2449",
+"lat": 47.3760017,
+"lon": 8.5231008,
+"heading": 291,
+"x": 500.8,
+"y": -893.8,
+"kreis": "Kreis 4"
+}
+]
+},
+{
+"place": "Stauffacherstrasse #1",
+"kind": "street",
+"cx": 82.9,
+"cy": -530.4,
+"photos": [
+{
+"file": "data/raw/photos/tiles/0_-3/pano_24c6795e_2a3d_4056_8172_1d73656412a4.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=24c6795e-2a3d-4056-8172-1d73656412a4",
+"lat": 47.379322,
+"lon": 8.5176351,
+"heading": 287,
+"x": 82.9,
+"y": -530.4,
+"kreis": "Kreis 4"
+}
+]
+},
+{
+"place": "Stauffacherstrasse #2",
+"kind": "street",
+"cx": 478.8,
+"cy": -730.2,
+"photos": [
+{
+"file": "data/raw/photos/tiles/2_-4/pano_762e3945_ab41_4f13_b4e1_fc6b837a9029.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "Lezurex",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=762e3945-ab41-4f13-b4e1-fc6b837a9029",
+"lat": 47.3774762,
+"lon": 8.5228406,
+"heading": 291,
+"x": 478.8,
+"y": -730.2,
+"kreis": "Kreis 4"
+}
+]
+},
+{
+"place": "Stauffacherstrasse #3",
+"kind": "street",
+"cx": 901.2,
+"cy": -1098.2,
+"photos": [
+{
+"file": "data/raw/photos/tiles/4_-6/pano_f3ce6641_e8e4_45c5_91f8_0ed2cd24b42c.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=f3ce6641-e8e4-45c5-91f8-0ed2cd24b42c",
+"lat": 47.3741136,
+"lon": 8.5283645,
+"heading": 144,
+"x": 901.2,
+"y": -1098.2,
+"kreis": "Kreis 4"
+}
+]
+},
+{
+"place": "Sihlfeldstrasse #1",
+"kind": "street",
+"cx": -88.8,
+"cy": -298.3,
+"photos": [
+{
+"file": "data/raw/photos/tiles/-1_-2/pano_5100f7cb_401a_4c37_b15d_8fb52d6d60c3.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=5100f7cb-401a-4c37-b15d-8fb52d6d60c3",
+"lat": 47.3814308,
+"lon": 8.5154032,
+"heading": 157,
+"x": -88.8,
+"y": -298.3,
+"kreis": "Kreis 4"
+}
+]
+},
+{
+"place": "Eisgasse #1",
+"kind": "street",
+"cx": 1154.9,
+"cy": -656.4,
+"photos": [
+{
+"file": "data/raw/photos/tiles/5_-4/pano_7dbeac36_1ddc_4700_b277_f26ef7a8f9fa.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "Lezurex",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=7dbeac36-1ddc-4700-b277-f26ef7a8f9fa",
+"lat": 47.3780556,
+"lon": 8.5318056,
+"heading": 20,
+"x": 1154.9,
+"y": -656.4,
+"kreis": "Kreis 4"
+}
+]
+},
+{
+"place": "Josefstrasse #1",
+"kind": "street",
+"cx": 502.1,
+"cy": 293.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/2_1/pano_94f2690f_3808_4ae3_9ca6_824b78913f91.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=94f2690f-3808-4ae3-9ca6-824b78913f91",
+"lat": 47.3866752,
+"lon": 8.5233361,
+"heading": 67,
+"x": 502.1,
+"y": 293.0,
+"kreis": "Industriequartier"
+}
+]
+},
+{
+"place": "Josefstrasse #2",
+"kind": "street",
+"cx": 860.0,
+"cy": 55.5,
+"photos": [
+{
+"file": "data/raw/photos/tiles/4_0/pano_38f98968_c30a_4ea1_9126_8297ded0667b.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=38f98968-c30a-4ea1-9126-8297ded0667b",
+"lat": 47.3844944,
+"lon": 8.5280313,
+"heading": 124,
+"x": 860.0,
+"y": 55.5,
+"kreis": "Industriequartier"
+}
+]
+},
+{
+"place": "Josefstrasse #3",
+"kind": "street",
+"cx": 1283.0,
+"cy": -316.5,
+"photos": [
+{
+"file": "data/raw/photos/tiles/6_-2/pano_f65f2c55_19b8_4546_a651_145494bfdd7d.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=f65f2c55-19b8-4546-a651-145494bfdd7d",
+"lat": 47.3810963,
+"lon": 8.5335635,
+"heading": 117,
+"x": 1283.0,
+"y": -316.5,
+"kreis": "Industriequartier"
+}
+]
+},
+{
+"place": "Gasometerstrasse #1",
+"kind": "street",
+"cx": 1102.8,
+"cy": 223.2,
+"photos": [
+{
+"file": "data/raw/photos/tiles/5_1/pano_af997d22_d019_4a29_a4ae_3ac72024e5cb.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "Lezurex",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=af997d22-d019-4a29-a4ae-3ac72024e5cb",
+"lat": 47.3859722,
+"lon": 8.5312778,
+"heading": 45,
+"x": 1102.8,
+"y": 223.2,
+"kreis": "Industriequartier"
+}
+]
+},
+{
+"place": "Heinrichstrasse #1",
+"kind": "street",
+"cx": 500.6,
+"cy": 500.6,
+"photos": [
+{
+"file": "data/raw/photos/tiles/2_2/pano_91782b86_74c7_414e_a61a_124928e2bae0.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=91782b86-74c7-414e-a61a-124928e2bae0",
+"lat": 47.3885423,
+"lon": 8.5233541,
+"heading": 295,
+"x": 500.6,
+"y": 500.6,
+"kreis": "Industriequartier"
+}
+]
+},
+{
+"place": "Heinrichstrasse #2",
+"kind": "street",
+"cx": 850.9,
+"cy": 253.0,
+"photos": [
+{
+"file": "data/raw/photos/tiles/4_1/pano_3ee4a1bf_c58b_4c4d_a176_aa73944fc7d8.jpg",
+"source": "panoramax",
+"license": "CC-BY-SA-4.0",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=3ee4a1bf-c58b-4c4d-a176-aa73944fc7d8",
+"lat": 47.3862715,
+"lon": 8.5279477,
+"heading": 308,
+"x": 850.9,
+"y": 253.0,
+"kreis": "Industriequartier"
+}
+]
+}
+]

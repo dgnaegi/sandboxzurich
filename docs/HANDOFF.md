@@ -2,23 +2,26 @@
 
 Wird am Ende jedes Arbeitsschritts überschrieben. Eine neue Session liest das zuerst.
 
+## Stand 2026-10-18 Abend (Build 11) – zuerst lesen
+Ziel weiterhin **Qualität und echtere Karte**. Arbeitsweise: max. ~4 Agents, Testkachel-Builds nur mit globalem Lock (`until mkdir logs/.tilebuild.lock …; rmdir …`), nie `pkill`, Komplett-Build allein (Mac 16 GB, 2× abgestürzt).
+
+**Heute erledigt** (Details in den Abschnitten unten / research-Dateien / DECISIONS #49–#50):
+- Handy: Schilder-/Label-Canvas halbe Auflösung, Landmark-Texturen ≤ 512 px, Plakat/Graffiti halbiert → Langstrasse 448 → ~190 MB Texturen (`web/tests/mem_phone.mjs`). Cache: `?v=<build>` an allen Weltdaten-URLs (`web/src/engine/assetver.ts`, `web/vite.config.ts`). Noch NICHT auf echtem iPhone bestätigt.
+- Bewegung (`research/movement_round2.md`, `web/tests/move_quality.mjs`): Gleiten an Pfosten, weiche Kollisionen, NPC-Verkehr bremst vor Hindernissen.
+- Strassen (`research/roads_round2.md`): künstliche Rampen weg (Badener-/Seebahnstr.; Ursache `road_height` füllte Bahngraben, Brücken zu hoch), Objekte in Wasser/Bahnland entfernt, Verkehr an AV-Fahrbahn geschnappt, Bahnhofplatz gepflastert. Schwebende Stege: `pipeline/audit_float.py`, `overrides/bridges_excl.json`. Fussgängerstreifen 173 → 234 (`pipeline/crossings.py`, `research/crossings.md`).
+- Orte: Lochergut v4 (Passerelle weg, Ladenzeile, Leuchtschrift mit Farbwechsel `// lochergut-neon`), Calvados Bar, Idaplatz-Quartier (Spielgebiet +800×800 m; Fassaden; Kirche; Velos), Zentralwäscherei (nachgemalte Graffiti `zw_graffiti.py`, Schild um die Ecke, Pflanzen), HB-Review (#49), Letzigrund neu (#50), Quartiergarten Hard (`qgh.py`), 4 Plätze (`places_detail_sq3_*`), Hecken-Shader (`web/src/world/foliage.ts`), Asphalt ohne Rechteck-Flicken.
+- Systemisch: Gebäude ohne OSM-Adresse holen Fassaden-Notiz über GWR-Eingang (+~416 Häuser); yards-Absturz (GeometryCollection) behoben.
+
+**Nächste Schritte (Priorität):**
+1. Auf echtem iPhone testen (Langstrasse, HB, Idaplatz), Speicher/FPS; Hecken-Shader auf Handy messen (perf 51 fps unter Last gemessen).
+2. Realitäts-Tickets `research/qa_round/tickets.md` abarbeiten (T04 blasse Flächen Toni/Schiffbau, T05 Fassaden-Notizen Weststr., T08 Velostreifen Stauffacherstr., T10 schwebender Bus (-1716,-663), T11 Kamera in Gebäude (-2053,699), T18 Landesmuseum fehlt); vorbereitete Overrides `research/qa_round/proposed_*.json`.
+3. Letzigrund: Aussenwand 4.6 m verdeckt die Sitze – mit Fotos prüfen und ggf. absenken; Flutlicht nachts schwach. Lochergut: Hof Rasen statt Pflaster, Hochhausfassade zu glatt. Calvados: Schrift gerade statt geschwungen, Extra-Tür. Zentralwäscherei: Eingangskorridor, Kiosk-Grundriss, Lage der Graffiti-Wand. Idaplatz: ein mintgrünes Haus aus Foto #0 nicht zugeordnet (`SBZ_STYLE_LOG`), Kirchendach einseitig. HB: schwebende Kisten Ostgiebel, flache Ostfenster.
+4. **Letzipark** (Einkaufszentrum Baslerstrasse, User-Wunsch 2026-10-18): Lage im Spielgebiet prüfen, Fotos, Modell + Ladenfronten. Letzigrund: Portale dunkel/rost statt weiss-rosa, Flutlichtmasten, Strassenansicht mit Abstand.
+5. Plätze ohne neue Objekte (Helvetia-, Röntgen-, Bullinger-, Lindenplatz …): Spielgeräte, Bank-Typen, Baumarten. Ernst-Nobs-Platz/Kalkbreite-Hof ohne Belege.
+6. Vor öffentlichem Launch: Plakat-Freigabe, `noindex` entfernen.
+
 ## NACHTPLAN (ab 2026-10-18)
 Realismus-Woche: 7 Nächte à 8 h, siehe `docs/NIGHT_PLAN.md` (Nacht 0: Cache-/Speicherfix + Objekt-Katalog Brunnen/Haltestellen/Möbel, dann je eine Zone). Start: «Lies docs/NIGHT_PLAN.md und führe die nächste offene Nacht aus.»
-
-## NÄCHSTE RUNDE: QUALITÄT VOR NEUEM (User 2026-10-16 Abend)
-User nach Build 10: «very buggy … cars in water, HB looks really off». Nächste Runde **keine neuen Inhalte**, sondern Qualität und viele Realitäts-Checks mit mehreren Agents (max. 3 gleichzeitig, siehe Arbeitsweise).
-1. **Zuerst Cache ausschliessen:** Browser hält Kacheln/Modelle/data bis 1 Tag (+7 Tage stale) – alte Kacheln + neue `landmarks.json` mischen sich. Fix: Versions-Parameter (`?v=<commit>`) an alle Daten-/Kachel-/Modell-URLs; danach erst Bugs beurteilen (privates Fenster).
-2. **Autos im Wasser:** Verkehrsgraph/Parkautos/Brücken gegen `water.py`-Polygone prüfen (Skript analog `pipeline/audit_rail.py`), Ursache vermutlich neue AV-Fahrbahn (#45) oder Brücken-Ausschluss.
-3. **HB:** Gesamtbild prüfen (Halle, Perrondächer neue Farbe, Untergeschosse/Stencil-Schnitt #48, Escher-Platz/Rasen statt Pflaster). Notfalls Untergeschosse per Manifest abschalten.
-4. **Realitäts-Checks:** feste Kamerapunkte (Foto | Spiel) an 30+ Orten, je Agent ein Gebiet; jede Abweichung als Ticket in `research/qa_round/` mit Ursache und Fix; Fixes nur über Pipeline/Overrides; nach jedem Fix Testkacheln + Vergleichsbild.
-5. Erst wenn die Liste leer ist: neue Häuser/Details.
-
-### Handy stürzt weiter ab (User 2026-10-16 Abend) – Befund, noch NICHT behoben
-Messung `node web/tests/mem_phone.mjs` (Handy-Modus, geschätzter GPU-Texturspeicher inkl. Mipmaps):
-- Langstrasse **448 MB** Texturen, HB 306 MB, Hardbrücke 187 MB (Geometrie nur 22–39 MB, JS-Heap 160–200 MB). Langstrasse = Absturzkandidat auf iOS.
-- **Hauptursache:** `web/src/world/signs.ts` zeichnet alle Ladenschilder einer Kachel in EINE Canvas-Textur 1024 × ceilPow2(n·96). Seit den Hausnummern/Institutionen (`names_inst.py`) haben 4 Langstrassen-Kacheln je **1024×8192 = ~44 MB**. Getesteter Fix (zurückgenommen, User: «save it for handover»): auf Handys `SCALE = 0.5` (Canvas `TEXW*SCALE × H*SCALE`, `g.scale(SCALE, SCALE)`, UVs mit logischer Höhe `H`) → Langstrasse 448 → 314 MB. Besser zusätzlich: Hausnummern nicht in den Schilder-Atlas (eigene kleine Glyphen-Textur, geteilt), mehrere Spalten statt 1024 px pro Schild, Canvas nach dem Upload freigeben.
-- Weitere Posten: `wildposters.webp` 2048² (22 MB) → Handy-Halbversion; 4× 512×4096 Canvas (je 11 MB, Quelle noch prüfen: vermutlich `streetsigns.ts`/`trafficsigns.ts`-Atlas pro Kachel); Landmarks an der Langstrasse 83 MB (42 Häuser mit eigenen Texturen → gemeinsame Kit-Texturen/Atlas, Handy `loadR` kleiner).
-- Ziel-Budget Handy: < 200 MB Texturen an der dichtesten Stelle; danach auf echtem iPhone prüfen.
 
 ## Abend 2026-10-16 (Build 10) – kurz
 Ziel weiterhin: **mehr Details, echtere Karte**. Heute neu (Details in den Abschnitten unten und DECISIONS #45–#48):
@@ -55,7 +58,7 @@ Shopville + Bahnhöfe Museumstrasse/Löwenstrasse als begehbare Landmark-GLB `hb
 ### Tests (web/tests)
 gameplay, touch, drive, crash, clock, music, traffic_legal, qa_leak, qa_spawn, perf (Handy 4×), perf_pc, shots (Kontaktbogen per PIL), look, topdown, fidelity_shots. Regeln für Agents: keine Warteschleifen mit `pgrep -f build_testarea` (matchen sich selbst), nie `git stash`, nie `pkill -f build_testarea` (bricht fremde Builds ab).
 
-## Nächste Schritte (Priorität)
+## Nächste Schritte vom 2026-10-16 (teils erledigt, siehe oben)
 1. **Gleise/Brücken bereinigen** (`research/audit_rail.md`, Skript `pipeline/audit_rail.py`): 45 Auto- und 65 Velo-Kanten über Bahnfläche ohne Deck (u. a. Kante 1096 bei (-4, 922), 684 m; 1090 bei (-1629, 869)), 186 Velos/122 Ständer/84 Roller/17 Arbeiter in Bahnfläche, 21 Haltestellendächer; Spawn unter Brücken kann aufs Gleis führen. Vorschläge in `pipeline/overrides/rail_excl.json` (noch nicht angewendet).
 2. **Strassen glätten fertig machen:** Audit nach Build 10 neu laufen lassen (`road_smooth_audit.py`), Problemstellen Seebahn-, Bullinger-, Norastrasse; Bridges-Ride-Test (`web/tests/bridges_ride.mjs`) gegen Build 10.
 3. **Langstrasse:** Sichtkontrolle der 42 Häuser tags/nachts, Farben geschätzt bei Kir Royal, Peeeng, Rasputin, Midway, Monroe (`research/langstrasse_C.md`); Weissmarkierungen Süd prüfen.
@@ -64,6 +67,10 @@ gameplay, touch, drive, crash, clock, music, traffic_legal, qa_leak, qa_spawn, p
 6. **Fehler-Sweep:** Nachher-Lauf gegen Build 10 (`web/tests/sweep.mjs`, vorher 10 685 Cluster).
 7. Auf echten Geräten testen (iPhone Safari): HB-Untergeschosse nutzen Stencil-Maske – Handy-Speicher/FPS messen.
 8. Vor öffentlichem Launch: Plakat-Freigabe, `noindex` in `web/public/_headers` entfernen. Quests erst nach Entscheid des Users.
+9. **TODO Spawn (User 2026-10-18):** nur auf Strasse/Trottoir landen, nie in Flüssen, auf Gleisen o. Ä.; bevorzugt an einem guten Ort im Umkreis ~100 m um eine Landmark, Karte aber nicht darauf einschränken (`player/spawn.ts`).
+10. **TODO Bus/Tram fahren (User 2026-10-18):** einsteigen wie beim Auto; Bus lenkbar, Tram nur Gas/Bremse und fährt automatisch auf seiner Linie.
+11. **TODO Musik/Radio (User 2026-10-18):** Radio in Fahrzeugen mit Senderwechsel, Musik ausbauen (`audio_music.ts`, Idee 33 in `IDEAS_GAMEPLAY.md`); nur frei lizenzierte Musik (`research/music.md`).
+12. **TODO Ni-Una-Menos-Platz (User 2026-10-18):** Helvetiaplatz im Spiel umbenennen (Platzname, Karte, Sprungpunkte, Texte). Prüfen, ob Haltestelle/Adressen weiter «Helvetiaplatz» heissen; offizielle Quelle der Stadt Zürich festhalten.
 
 ## Letzte Kontrolle
 Build 10 (`logs/build_full10.log`): alle Kacheln, 0 Fehler, 49 min. Weltdaten veröffentlicht (`logs/publish10.log`).
@@ -95,3 +102,13 @@ Build 10 (`logs/build_full10.log`): alle Kacheln, 0 Fehler, 49 min. Weltdaten ve
 
 ## HBX (HB-Umfeld, 2026-10-16)
 Erledigt: `hbx_perron`/`hbx_platz` (siehe `research/hb/hbx.md`, Vergleich `preview/hbx_cmp.jpg`). Offen: wartende Personen auf Perrons (neue Spot-Art in `pedspots.ts`), Europaallee-Passerelle/Velostation, Sihlquai-Carterminal, Kachel-Neubau für den Escher-Collider.
+
+## Lochergut v4 (Agent, 2026-10-18)
+Coop/Sockel/Platz: `pipeline/landmarks/lochergut_v2.py` (ersetzt k45_lochergut als Generator, reg=False), `pipeline/overrides/places_detail_lochergut.json`, Passerelle-Ausschluss `lochergut_excl.json`, Neon-Hook in landmarks3d.ts. Details und Fotolizenzen: `research/lochergut.md`; Vergleich `preview/lochergut_cmp.jpg`, Nacht `preview/lochergut_neon.jpg`. Offen: Farbfolge der Leuchtschrift unbelegt; GLB 25k Tris.
+
+## Plätze-Details sq3 (Agent-Lauf 2026-10-18)
+- Notizen und Fotobogen: `research/squares3/<platz>.md`, `preview/ref_sq3_<platz>.jpg` (Fotos aus research/v3, parks, squares2 wiederverwendet, je ≥12-37).
+- Neu gebaut (Overrides `pipeline/overrides/places_detail_sq3_*.json`, Kacheln 5_0, 2_-4, 2_1, -3_-4): Limmatplatz (Tellerbrunnen + Bronze-Trinkbrunnen auf OGD-Positionen), Albisriederplatz (8 Hochbeete Tram-Insel), Josefwiese (Säulenbrunnen, 3 Tischtennis + Kicker aus OSM), Bäckeranlage (Betonbecken + Granit-Trog auf OGD-Brunnen; Formzuordnung geraten).
+- Übrige Plätze (Helvetia, Röntgen, Bullinger, Linden, Brupbacher, Escher-Wyss) waren schon dicht ausgestattet; keine weiteren belegten Objekte gefunden. Ernst-Nobs-Platz: nicht in OSM gefunden. Kalkbreite-Hof: keine Hof-Fotos.
+
+- Quartiergarten Hard (Bullingerstrasse 90, Kreis 4): Aussenansicht als Landmark `pipeline/landmarks/qgh.py` (+`qgh_plants.py`, Override `landmarks_qgh.json`, `yards_excl_qgh.json`/`tree_excl_qgh.json`, Filter `_apply_excl` in `yards.py`), Notizen/Lizenzen `research/quartiergarten_hard.md`, Fotos `preview/ref_qgh.jpg`, Vergleich `preview/qgh_cmp.jpg`. Kacheln t_-4_-1/t_-3_-1 müssen neu gebaut sein, damit Familiengarten-Hütten/Hecken im Garten verschwinden und das Chalet (ID_8D055786) versteckt wird.

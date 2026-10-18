@@ -1,0 +1,6 @@
+{
+ "_doc": "Vorschlag (NICHT angewendet): zusaetzliche Abschnitte fuer pipeline/overrides/velo_green.json, Format identisch. Evidenz: Panoramax-Foto im Kontaktbogen preview/rc_*.jpg (Foto 32: gruener Velostreifen rechts, im Spiel keiner). Foto 46 (Stauffacherstrasse 83,-530) ist schon in velo_green.json, im Spiel aber nicht sichtbar -> Ticket T11 (Kachel neu bauen/pruefen).",
+ "sections": [
+  {"name": "Bullingerstrasse", "photos": ["rc32"], "pts": [[-726, -146]], "r": 120}
+ ]
+}

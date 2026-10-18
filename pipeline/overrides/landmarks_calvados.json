@@ -1,0 +1,22 @@
+{
+ "landmarks": [
+  {
+   "name": "Le Calvados Idaplatz 4",
+   "model": "/models/landmarks/calvados.glb",
+   "x": -162.7,
+   "y": -1113.4,
+   "z": 3.04,
+   "heading": 0,
+   "hide": [
+    [
+     -161.8,
+     -1115.3
+    ],
+    [
+     -163.7,
+     -1106.4
+    ]
+   ]
+  }
+ ]
+}

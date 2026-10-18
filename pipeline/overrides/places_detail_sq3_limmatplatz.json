@@ -1,0 +1,40 @@
+{
+ "places": [
+  {
+   "id": "sq3_limmatplatz",
+   "center": [
+    1130,
+    60
+   ],
+   "src": "research/squares3/limmatplatz.md; OGD Brunnen-Layer (6.1,23.5) und Notwasserbrunnen; Fotos #27 #28 (Commons: Bronze-Trinkbrunnen, Tellerbrunnen unter dem Pavillondach)",
+   "convert": [
+    {
+     "layer": "fountains",
+     "within": {
+      "circle": [
+       6.1,
+       23.5,
+       3
+      ]
+     },
+     "t": "tellerbrunnen",
+     "a": 1.0,
+     "b": 0.85
+    },
+    {
+     "layer": "fountains",
+     "within": {
+      "circle": [
+       -16.9,
+       -37.2,
+       3
+      ]
+     },
+     "t": "dfount",
+     "a": 1.0,
+     "col": "#8a6a3a"
+    }
+   ]
+  }
+ ]
+}

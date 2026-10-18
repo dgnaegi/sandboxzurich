@@ -6,96 +6,33 @@
     -125,
     -1117
    ],
-   "src": "research/v3/idaplatz.md; photos #26 #29 (Commons/Mapillary); SWISSIMAGE; OGD Sitzbankkataster/Brunnen",
+   "src": "research/v3/idaplatz.md; research/idaplatz.md; photos Mapillary/Commons (data/raw/photos/ida, research/v3/photos_ida.json); SWISSIMAGE; OGD Sitzbankkataster/Brunnen/Baumkataster; OSM",
    "ground": [
     {
-     "pxpoly": [
+     "poly": [
       [
-       385,
-       160
+       -12.4,
+       37.4
       ],
       [
-       470,
-       165
+       17.3,
+       13.4
       ],
       [
-       520,
-       220
+       -5.3,
+       -5.6
       ],
       [
-       540,
-       300
-      ],
-      [
-       480,
-       345
-      ],
-      [
-       470,
-       440
-      ],
-      [
-       490,
-       540
-      ],
-      [
-       440,
-       545
-      ],
-      [
-       420,
-       470
-      ],
-      [
-       420,
-       370
-      ],
-      [
-       360,
-       330
-      ],
-      [
-       345,
-       250
+       -36.5,
+       23.2
       ]
      ],
-     "win": 110,
-     "mat": "concrete",
-     "lift": 0.012,
+     "mat": "mergel",
+     "lift": 0.02,
      "uv": 2.0
     }
    ],
-   "scatter": [
-    {
-     "within": {
-      "pxpoly": [
-       [
-        395,
-        460
-       ],
-       [
-        450,
-        455
-       ],
-       [
-        455,
-        520
-       ],
-       [
-        400,
-        525
-       ]
-      ],
-      "win": 110
-     },
-     "t": "gtable",
-     "col": "#c8302a",
-     "spacing": 2.4,
-     "jitter": 0.1,
-     "hj": 180,
-     "seed": 5
-    }
-   ],
+   "scatter": [],
    "objs": [
     {
      "t": "dfount",
@@ -120,29 +57,204 @@
     {
      "t": "bikerack",
      "p": [
-      -24,
-      30
+      -33,
+      18
      ],
-     "a": 8,
-     "h": 80
+     "a": 6,
+     "h": -43,
+     "bikes": 0.7
+    },
+    {
+     "t": "bikerack",
+     "p": [
+      -27,
+      12
+     ],
+     "a": 7,
+     "h": -43,
+     "bikes": 0.7
     },
     {
      "t": "bikerack",
      "p": [
       -20,
-      36
+      6
      ],
      "a": 7,
-     "h": 80
+     "h": -43,
+     "bikes": 0.7
     },
     {
      "t": "bikerack",
      "p": [
-      -25,
-      20
+      -13,
+      -1
+     ],
+     "a": 5,
+     "h": -43,
+     "bikes": 0.7
+    },
+    {
+     "t": "bikerack",
+     "p": [
+      -36,
+      28
      ],
      "a": 6,
-     "h": 80
+     "h": -45,
+     "bikes": 0.7
+    },
+    {
+     "t": "bikerack",
+     "p": [
+      -12,
+      44
+     ],
+     "a": 6,
+     "h": -40,
+     "bikes": 0.7
+    },
+    {
+     "t": "bikerack",
+     "p": [
+      28,
+      18
+     ],
+     "a": 5,
+     "h": -48,
+     "bikes": 0.7
+    },
+    {
+     "t": "bikerack",
+     "p": [
+      2,
+      -9
+     ],
+     "a": 4,
+     "h": -40,
+     "bikes": 0.7
+    },
+    {
+     "t": "gtable",
+     "p": [
+      12,
+      22
+     ],
+     "col": "#c8302a"
+    },
+    {
+     "t": "gtable",
+     "p": [
+      15,
+      25
+     ],
+     "col": "#c8302a"
+    },
+    {
+     "t": "gtable",
+     "p": [
+      9,
+      26
+     ],
+     "col": "#c8302a"
+    },
+    {
+     "t": "gtable",
+     "p": [
+      -30,
+      33
+     ],
+     "col": "#2b6d8f"
+    },
+    {
+     "t": "gtable",
+     "p": [
+      -27,
+      36
+     ],
+     "col": "#2b6d8f"
+    },
+    {
+     "t": "gtable",
+     "p": [
+      10,
+      47
+     ],
+     "col": "#c8302a"
+    },
+    {
+     "t": "gtable",
+     "p": [
+      7,
+      50
+     ],
+     "col": "#c8302a"
+    },
+    {
+     "t": "bin",
+     "p": [
+      -12,
+      22
+     ]
+    },
+    {
+     "t": "bin",
+     "p": [
+      10,
+      26
+     ]
+    },
+    {
+     "t": "bin",
+     "p": [
+      -30,
+      10
+     ]
+    },
+    {
+     "t": "gtable",
+     "p": [
+      23,
+      79
+     ],
+     "col": "#c8302a",
+     "tag": "babette"
+    },
+    {
+     "t": "gtable",
+     "p": [
+      25.5,
+      76
+     ],
+     "col": "#c8302a",
+     "tag": "babette"
+    },
+    {
+     "t": "gtable",
+     "p": [
+      21,
+      82
+     ],
+     "col": "#c8302a",
+     "tag": "babette"
+    },
+    {
+     "t": "gtable",
+     "p": [
+      27,
+      72.5
+     ],
+     "col": "#4aa0d8",
+     "tag": "babette"
+    },
+    {
+     "t": "gtable",
+     "p": [
+      29.5,
+      69.5
+     ],
+     "col": "#4aa0d8",
+     "tag": "babette"
     }
    ],
    "ortho_ground": {

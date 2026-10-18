@@ -1,4 +1,37 @@
-{"_doc": "Dokumentation (NICHT angewendet): Objekte/Kanten auf Bahnfläche ohne Deck, laut pipeline/audit_rail.py. Vor Anwenden pro Eintrag prüfen (Viadukt ohne Deck? Perron fehlt in OSM?).",
- "road_edges_cars_review": [{"idx": 1096, "near": [-4, 922], "len_m": 684, "note": "840 m lange gerade Kante entlang Bahnkorridor, 180 m von nächstem Deck: vermutlich Viadukt/Tunnel ohne Deck-Eintrag"},
-                            {"idx": 1090, "near": [-1629, 869], "len_m": 468, "note": "analog, 161 m von nächstem Deck"}],
- "tile_objects_review": {"t_0_0": "Velos/Racks bei (23..26, 75..80) HB-Perron-Nähe: Perron in railzone.json fehlt?", "t_5_-3": "Velos/Racks (1156,-478)", "t_-2_1": "Scooter (-367..-287, 252..338)"}}
+{
+ "_doc": "Dokumentation (NICHT angewendet): Objekte/Kanten auf Bahnfläche ohne Deck, laut pipeline/audit_rail.py. Vor Anwenden pro Eintrag prüfen (Viadukt ohne Deck? Perron fehlt in OSM?).",
+ "road_edges_cars_review": [
+  {
+   "idx": 1096,
+   "near": [
+    -4,
+    922
+   ],
+   "len_m": 684,
+   "note": "840 m lange gerade Kante entlang Bahnkorridor, 180 m von nächstem Deck: vermutlich Viadukt/Tunnel ohne Deck-Eintrag"
+  },
+  {
+   "idx": 1090,
+   "near": [
+    -1629,
+    869
+   ],
+   "len_m": 468,
+   "note": "analog, 161 m von nächstem Deck"
+  }
+ ],
+ "tile_objects_review": {
+  "t_0_0": "Velos/Racks bei (23..26, 75..80) HB-Perron-Nähe: Perron in railzone.json fehlt?",
+  "t_5_-3": "Velos/Racks (1156,-478)",
+  "t_-2_1": "Scooter (-367..-287, 252..338)"
+ },
+ "allow": [
+  [
+   880,
+   -380,
+   945,
+   -262
+  ]
+ ],
+ "_doc2": "roads2 (2026-10-18): 'allow' boxes [x0,y0,x1,y1] are released from pipeline/road_exclude.py (open water + ground tracks without deck: no car/bike lane, no bikes/racks/scooters/bins/workers). The review notes below were false positives: edges 1096/1090 are the real Hardturmstrasse/Aargauerstrasse under the AV 'Bahngebiet' of the viaduct."
+}

@@ -18,6 +18,7 @@ from shapely.geometry import LineString, Point, Polygon, box
 
 from config import ROOT
 from mesh import drape
+from styles import h32
 from styles import LAYER
 
 OVR = ROOT / "pipeline" / "overrides" / "places_detail.json"
@@ -279,6 +280,18 @@ def tile_meta(tb, H, P=None):
                     for sgn in (1, -1):
                         benches.append([round(x + math.sin(hd) * off * sgn, 2), round(y - math.cos(hd) * off * sgn, 2), zs,
                                         round(math.pi / 2 - (hd if sgn > 0 else hd + math.pi), 3), 7])
+            if o["t"] == "bikerack" and o.get("bikes") and P is not None:
+                # opt-in "bikes": fill fraction -> parked bikes (tile bikes rows, same system as the OGD stands) in the hoops of this rack:
+                # hoop slots every 0.75 m along the local x axis (places_detail.ts), bike axis perpendicular to the row (cityprops: heading = row + pi/2)
+                ax, ay = math.cos(hd), math.sin(hd)
+                hrow = math.pi / 2 - hd   # row direction as heading (sin h, cos h), like cityprops
+                for i in range(int(o.get("a", 5)) or 5):
+                    hh = h32(f"pdb{x:.1f}{y:.1f}{i}")
+                    if hh % 100 >= o["bikes"] * 100:
+                        continue
+                    px, py = x + ax * (i * 0.75 + 0.35), y + ay * (i * 0.75 + 0.35)
+                    P.setdefault("bikes", []).append([round(px, 2), round(py, 2), round(float(H.at(px, py)), 2),
+                                                      round(hrow + math.pi / 2 + (math.pi if (hh >> 8) % 2 else 0), 3), (hh >> 4) % 14])
             objs.append([o["t"], round(x, 2), round(y, 2), round(float(H.at(x, y)) + lift, 2), round(math.radians(o.get("h", 0)), 3),
                          *[o.get(k, 0) for k in ("a", "b", "c", "d")], o.get("col", "")])
         for ln in pl.get("lines", []):

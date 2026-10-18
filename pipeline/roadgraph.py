@@ -212,6 +212,20 @@ def main():
             es[:] = [e for e in es if id(e) not in ids]
         print(f"construction sites: {name} {n0 - n1} edges blocked + {n1 - len(es)} dead ends pruned")
 
+    # roads2: no lane through open water or over ground-level tracks without a deck (pipeline/road_exclude.py)
+    import bridges
+    import groundcover
+    import road_exclude
+    BR0 = bridges.bridge_ways(nodes, els, AREA)
+    BADZ = road_exclude.bad_zone(nodes, els, groundcover.load((AREA[0] - 260, AREA[1] - 260, AREA[2] + 260, AREA[3] + 260)), BR0)
+    for name, es in (("cars", cars), ("bikes", bikes)):
+        n0 = len(es)
+        es[:] = [e for e in es if not road_exclude.edge_in(BADZ, e["p"])]
+        print(f"roads2: {name} {n0 - len(es)} edges in open water / on tracks removed")
+
+    mv, ad = road_exclude.snap_to_roads(cars, S["roads"])  # roads2: lanes stay on the AV carriageway
+    print(f"roads2: car lanes snapped to the carriageway: {mv} vertices moved, {ad} added")
+
     # no cars in pedestrian zones (OGD Fussgaengerzone), on squares/pedestrian areas (OSM) or along a tram track that
     # is not a road; then keep only the largest strongly connected part, so no lane leads into a dead end
     import streets_rules
@@ -254,9 +268,8 @@ def main():
         print(f"{name}: {len(es)} edges, {tot:.1f} km, comps {len(c)} (largest node-refs {big}), nodes w/o in/out {dead}")
     print(f"nodes {len(nlist)}")
     # bridge decks: vertices on a deck carry the deck height "z" (null = terrain), so vehicles drive on top of bridges
-    import bridges
     from decktrack import DeckTrack
-    dt = DeckTrack(bridges.bridge_ways(nodes, els, AREA))
+    dt = DeckTrack(BR0)
     for name, es in (("cars", cars), ("bikes", bikes)):
         n = 0
         for e in es:

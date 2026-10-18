@@ -135,6 +135,15 @@ def prepare(els=None, nodes=None, pg_rows=()):
 
 
 # ----------------------------------------------------------------------------------------------- private trees
+def _tree_zones():
+    import glob, json, os
+    from shapely.geometry import Polygon
+    out = []
+    for f in glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), "overrides", "tree_excl_*.json")):
+        out += [Polygon(r) for r in json.load(open(f)).get("rings", [])]
+    return out
+
+
 def add_private_trees(C, fps, area, step=400):
     """Append nDSM canopy maxima that the tree register / OSM lack to C['trees'] as (x, y, '', crown, 'ndsm')."""
     ex = np.array([(t[0], t[1], t[3] or 6) for t in C.get("trees", [])], float).reshape(-1, 3)
@@ -169,6 +178,10 @@ def add_private_trees(C, fps, area, step=400):
         d, j = tr.query(pts[:, :2]) if len(pts) else (np.zeros(0), np.zeros(0, int))
         ok = d > np.maximum(2.5, 0.45 * ex[j, 2]) if len(pts) else np.zeros(0, bool)
         pts = pts[ok]
+    zones = _tree_zones()
+    if zones:   # landmark sites whose old canopy/roof reading must not become trees (e.g. Stadion Letzigrund roof ring)
+        C["trees"] = [t for t in C["trees"] if not any(z.contains(Point(t[0], t[1])) for z in zones)]
+        pts = np.array([q for q in pts if not any(z.contains(Point(q[0], q[1])) for z in zones)], float).reshape(-1, 3)
     for x, y, cd in pts:
         C["trees"].append((float(x), float(y), "", float(cd), "ndsm"))
         kept += 1
@@ -259,6 +272,8 @@ def _front_walls(tb, H, S, side, yard, bld, z, out):
     """Mäuerchen / Zaun / low hedge where a front garden meets the pavement (not where OSM already has a barrier)."""
     walls = []
     near = bld.buffer(14)
+    if side.boundary is None:  # GeometryCollection after the differences: keep only the polygonal parts
+        side = unary_union([g for g in getattr(side, "geoms", []) if g.geom_type in ("Polygon", "MultiPolygon")]) or Polygon()
     edge = side.boundary.intersection(yard.buffer(.4)).intersection(near).intersection(tb)
     if _D["hedgeosm"] is not None:
         edge = edge.difference(_D["hedgeosm"])
@@ -369,6 +384,29 @@ def _allotments(tb, z, out):
                         out.setdefault("hedges", []).append([round(bx, 2), round(by, 2), z(bx, by), 1.571, 6.0, 1.2, .45, 7 if k % 2 else 0])
 
 
+_EXCL = None
+
+
+def _apply_excl(out):
+    """overrides/yards_excl_*.json {"rings": [[[x,y],...]]}: drop generic yard bushes/hedges/props whose anchor lies inside a ring (hand-built landmark areas, e.g. Quartiergarten Hard)."""
+    global _EXCL
+    if _EXCL is None:
+        import glob, json, os
+        from shapely.geometry import Polygon
+        _EXCL = []
+        for f in glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), "overrides", "yards_excl_*.json")):
+            _EXCL += [Polygon(r) for r in json.load(open(f)).get("rings", [])]
+        for g in _EXCL: shapely.prepare(g)
+    if not _EXCL:
+        return
+    for key in ("bushes", "hedges", "props"):
+        rows = out.get(key)
+        if not rows:
+            continue
+        i = 1 if key == "props" else 0
+        out[key] = [r for r in rows if not any(g.contains(Point(r[i], r[i + 1])) for g in _EXCL)]
+
+
 def tile_meta(tb, H, S, C, P, bld_polys):
     if _D["shrub"] is None and _D["hedgeosm"] is None and not _D.get("ready"):
         pass
@@ -387,4 +425,5 @@ def tile_meta(tb, H, S, C, P, bld_polys):
         import traceback
         traceback.print_exc()
         print("yards: tile failed", e, flush=True)
+    _apply_excl(out)
     return {"yards": out}

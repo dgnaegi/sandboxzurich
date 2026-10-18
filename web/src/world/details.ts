@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { foliagePatch } from './foliage';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
 /**
@@ -18,6 +19,7 @@ function paint(g: THREE.BufferGeometry, c: number): THREE.BufferGeometry {
   const n = g.getAttribute('position').count, cc = new THREE.Color(c), a = new Float32Array(n * 3);
   for (let i = 0; i < n; i++) a.set([cc.r, cc.g, cc.b], i * 3);
   g.setAttribute('color', new THREE.BufferAttribute(a, 3));
+  g.setAttribute('fol', new THREE.BufferAttribute(new Float32Array(n), 1)); // look3: 1 = hedge foliage vertex (see foliage.ts)
   return g;
 }
 type G = THREE.BufferGeometry;
@@ -93,7 +95,14 @@ const T: Record<string, (a: number, b: number, c: number, x: number, y: number) 
   },
 };
 
-const HEDGE = [0x3f5f2e, 0x4a6a2c, 0x56702e, 0x6b6a2a, 0x8a6a2a];
+const HEDGE = [0x3a5a2c, 0x45622e, 0x2f4a26, 0x5a6230, 0x7a5a2a]; // look3: Liguster / Thuja / Buche
+// segmented hedge box; fol = 1 above the ground so the vertex shader may roughen the top and sides
+function hedgeBox(len: number, h: number, w: number, c: number): G {
+  const g = new THREE.BoxGeometry(len, h, w, Math.max(1, Math.ceil(len / 0.6)), 3, 2).translate(0, h / 2, 0);
+  const pg = paint(g.toNonIndexed(), c), pos = pg.getAttribute('position'), f = pg.getAttribute('fol') as THREE.BufferAttribute;
+  for (let i = 0; i < pos.count; i++) f.setX(i, pos.getY(i) > 0.01 ? 1 : 0);
+  return pg;
+}
 function line(l: DetailLine, out: G[]) {
   const m = new THREE.Matrix4(), q = new THREE.Quaternion(), p = new THREE.Vector3(), s1 = new THREE.Vector3(1, 1, 1), up = new THREE.Vector3(0, 1, 0);
   const put = (gs: G[], x: number, y: number, z: number, yaw: number) => {
@@ -106,7 +115,7 @@ function line(l: DetailLine, out: G[]) {
     const yaw = Math.atan2(b[1] - a[1], b[0] - a[0]), mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2, mz = Math.min(a[2], b[2]), h = l.h;
     const r = rnd(mx, my);
     if (l.t === 'hedge') {
-      put([B(len + 0.1, h * (0.85 + 0.3 * r), l.w, 0, 0, 0, HEDGE[Math.floor(r * 4.99) % (r > 0.9 ? 5 : 3)])], mx, my, mz, yaw);
+      put([hedgeBox(len + 0.1, h * (0.85 + 0.3 * r), l.w, HEDGE[Math.floor(r * 4.99) % (r > 0.9 ? 5 : 3)])], mx, my, mz, yaw);
     } else if (l.t === 'wood') {
       put([B(len, h, 0.04, 0, 0, 0, 0x8f6a42), B(0.1, h + 0.1, 0.1, -len / 2, 0, 0, 0x6f5232)], mx, my, mz, yaw);
     } else if (l.t === 'mesh') {
@@ -137,11 +146,13 @@ function leaves(rows: number[][]): G {
     }
   });
   const g = new THREE.BufferGeometry();
-  g.setAttribute('position', new THREE.BufferAttribute(pos, 3)); g.setAttribute('normal', new THREE.BufferAttribute(nor, 3)); g.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  g.setAttribute('position', new THREE.BufferAttribute(pos, 3)); g.setAttribute('normal', new THREE.BufferAttribute(nor, 3)); g.setAttribute('color', new THREE.BufferAttribute(col, 3)); g.setAttribute('fol', new THREE.BufferAttribute(new Float32Array(n * 6), 1));
   return g;
 }
 
 let mat: THREE.MeshLambertMaterial | undefined;
+let detailsLite = false; export function setDetailsLite(v: boolean) { detailsLite = v; } // look3
+const mkMat = () => { const m = new THREE.MeshLambertMaterial({ vertexColors: true }); foliagePatch(m, 'attr', detailsLite); return m; };
 export function buildDetails(meta: DetailMeta | undefined, shadows: boolean): THREE.Object3D[] {
   if (!meta || (!meta.objs?.length && !meta.lines?.length && !meta.leaves?.length)) return [];
   const parts: G[] = [];
@@ -155,12 +166,12 @@ export function buildDetails(meta: DetailMeta | undefined, shadows: boolean): TH
   for (const l of meta.lines ?? []) line(l, parts);
   const out: THREE.Object3D[] = [];
   if (parts.length) {
-    const mesh = new THREE.Mesh(mergeGeometries(parts)!, (mat ??= new THREE.MeshLambertMaterial({ vertexColors: true })));
+    const mesh = new THREE.Mesh(mergeGeometries(parts)!, (mat ??= mkMat()));
     parts.forEach((g) => g.dispose());
     mesh.castShadow = shadows; mesh.receiveShadow = shadows; out.push(mesh);
   }
   if (meta.leaves?.length) { // flat litter on the ground: no shadows
-    const lm = new THREE.Mesh(leaves(meta.leaves), (mat ??= new THREE.MeshLambertMaterial({ vertexColors: true })));
+    const lm = new THREE.Mesh(leaves(meta.leaves), (mat ??= mkMat()));
     lm.receiveShadow = shadows; out.push(lm);
   }
   return out;

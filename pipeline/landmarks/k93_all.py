@@ -6,7 +6,7 @@ from shapely.geometry import Polygon, Point
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE); sys.path.insert(0, os.path.dirname(HERE))
 import k93_find as F, terrain
 ROOT = F.ROOT; D = ROOT + "/web/public/models/landmarks/"
-for s in ("k93_stadion.py", "k93_altstetten.py", "k93_kirchen.py", "k93_wiedikon.py", "k93_sihlfeld.py", "k93_graves.py"):
+for s in ("k93_altstetten.py", "k93_kirchen.py", "k93_wiedikon.py", "k93_sihlfeld.py", "k93_graves.py"):
     subprocess.run([sys.executable, os.path.join(HERE, s)], check=True)
 
 def hide_pts(ids, near):
@@ -26,7 +26,6 @@ def gz(x, y):
 
 NEAR = {"C1FCBE2D": (-970, -165), "6F9D632D": (-2082, 738), "3A9B8AC4": (-2106, 788), "96D18134": (-2388, 254), "82C92B3A": (-2425, 245), "756BF729": (457, -1185), "BE5BEAB6": (544, -1403), "52331290": (-703, -761), "212CBA16": (-718, -776), "CFDCE1DD": (-729.5, -766.5), "086A0A17": (-740, -788), "8CEA5295": (-679.2, -757.7)}
 SITES = [
-    ("Stadion Letzigrund", "k93_stadion.glb", (-968.9, -165.9), ["C1FCBE2D"]),
     ("Bahnhof Altstetten (Hochhaus, IBM-Stengel)", "k93_altstetten.glb", (-2082.0, 738.0), ["6F9D632D", "3A9B8AC4"]),
     ("Alte Kirche und Kirche Altstetten", "k93_kirche_altstetten.glb", (-2405.0, 250.0), ["96D18134", "82C92B3A"]),
     ("Dreifaltigkeitskirche Wiedikon", "k93_dreifaltigkeit.glb", (457.0, -1185.0), ["756BF729"]),

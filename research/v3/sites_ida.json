@@ -1,0 +1,82 @@
+[
+ {
+  "id": "ida_platz",
+  "name": "Idaplatz (Platzmitte)",
+  "kind": "place",
+  "lat": 47.37409,
+  "lon": 8.514776,
+  "radius": 70
+ },
+ {
+  "id": "ida_nord",
+  "name": "Idaplatz Nord / Zurlindenstrasse",
+  "kind": "place",
+  "lat": 47.374448,
+  "lon": 8.515021,
+  "radius": 60
+ },
+ {
+  "id": "ida_sued",
+  "name": "Idastrasse Sued",
+  "kind": "place",
+  "lat": 47.37364,
+  "lon": 8.514767,
+  "radius": 60
+ },
+ {
+  "id": "ida_berta",
+  "name": "Bertastrasse",
+  "kind": "place",
+  "lat": 47.37439,
+  "lon": 8.514411,
+  "radius": 60
+ },
+ {
+  "id": "ida_gertrud",
+  "name": "Gertrudstrasse",
+  "kind": "place",
+  "lat": 47.373571,
+  "lon": 8.515427,
+  "radius": 70
+ },
+ {
+  "id": "ida_aemtler",
+  "name": "Aemtlerstrasse / Wiesendangerstrasse",
+  "kind": "place",
+  "lat": 47.373559,
+  "lon": 8.513838,
+  "radius": 70
+ },
+ {
+  "id": "ida_zentral",
+  "name": "Zentralstrasse",
+  "kind": "place",
+  "lat": 47.374718,
+  "lon": 8.515888,
+  "radius": 70
+ },
+ {
+  "id": "ida_zurlinden_w",
+  "name": "Zurlindenstrasse West",
+  "kind": "place",
+  "lat": 47.374238,
+  "lon": 8.513388,
+  "radius": 70
+ },
+ {
+  "id": "ida_zurlinden_o",
+  "name": "Zurlindenstrasse Ost",
+  "kind": "place",
+  "lat": 47.374209,
+  "lon": 8.516433,
+  "radius": 70
+ },
+ {
+  "id": "ida_thomas",
+  "name": "Thomasweg / Martastrasse",
+  "kind": "place",
+  "lat": 47.37509,
+  "lon": 8.51367,
+  "radius": 70
+ }
+]

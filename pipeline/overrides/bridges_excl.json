@@ -1,0 +1,11 @@
+{"_note": "OSM bridge=yes ways dropped from the bridge-deck builder (pipeline/bridges.py, hook '# bridges_excl'). Found by pipeline/audit_float.py: footways mapped beside a road bridge (sidewalk already part of the road deck) whose deck sits 3-5 m below / 3-6 m above the road deck, i.e. a second floating or sunken slab. The road bridge itself stays.",
+ "bridge_way_ids": [47122092, 89873383, 188867156, 227596644, 227596654, 526016552, 601078968, 622318257],
+ "reasons": {
+  "47122092": "Hardbruecke: footway deck 3.8 m below the road deck (dup sidewalk, no obstacle)",
+  "89873383": "Selnaubruecke: footway 5.2 m below the road deck, one end unconnected",
+  "188867156": "(-1896,714): footway 5.2 m below road bridge 683225869, one end unconnected",
+  "227596644": "Sihlhoelzlibruecke: footway 4.5 m below road deck",
+  "227596654": "Sihlhoelzlibruecke: footway 3.1 m below road deck",
+  "526016552": "Sihlstrasse bridge: footway 2.8 m above road deck",
+  "601078968": "Wuerzgrabenstrasse bridge: footway 4.3 m below road deck",
+  "622318257": "Baendlistrasse bridge: footway 3.5 m below road deck"}}

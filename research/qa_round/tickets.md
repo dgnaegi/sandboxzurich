@@ -1,0 +1,199 @@
+# QA-Runde Realitaetscheck (2026-10-18): Tickets
+
+Methode: 72 Panoramax-Fotos (CC-BY-SA, lokal gecacht `research/fidelity_photos_local.json` bzw. neu `rc_extra.json`) an ca. 60 Orten ausserhalb der von anderen Agents bearbeiteten Plaetze; Spiel-Screenshot an gleicher Position/Richtung (`web/tests/rc_shots.mjs`, 1.7 m, vfov 80, 13:00). Kontaktboegen `preview/rc_1..13.jpg` (je 6 Paare Foto|Spiel; Nummer = Shot-ID in `research/qa_round/rc_shots*.json`). Kachel = floor(x/200)_floor(y/200).
+Grenzen: Foto-GPS +-5 m, Blick +-10 Grad; Nacht-/360-Fotos (04, 18, 22, 23, 30, 40, 57, 60) nur beschraenkt vergleichbar; Landmarks laden verzoegert (Wiederholung mit 10 s Wartezeit in `game2/`).
+
+Schwere: 1 = kosmetisch, 2 = faellt auf, 3 = bricht den Realismus/Spielbarkeit.
+
+## T01 Fussgaengerstreifen fehlen (OSM: crossing=traffic_signals + crossing:markings=zebra, gelb)
+- Kategorie: Strasse/Markierung; Schwere: 3; Haeufigkeit: 10 Orte; SYSTEMISCH
+- Orte (Ort, x/y, Kachel, Shot):
+  - Freihofstrasse, (-1301, -100), -7_-1, #13
+  - Sportweg/Hardturm, (-846, 799), -5_3, #20
+  - Hertersteg, (522, -1861), 2_-10, #21
+  - Gueterbahnhof/Hardstr., (235, -387), 1_-2, #05
+  - Goldbrunnenplatz, (-183, -1546), -1_-8, #58
+  - Werdplatz, (798, -1288), 3_-7, #61
+  - Quellenstrasse, (876, 332), 4_1, #17
+  - Hubertus, (-1312, -782), -7_-4, #71
+  - Letzigrund, (-976, -355), -5_-2, #59
+  - Albisrank-West, (-1651, -508), -9_-3, #66
+- Vermutete Ursache: pipeline/streets.py markings(): Diagnose (parse+Regeln, Skript nachgestellt): von 962 OSM-Querungsknoten im Spielgebiet werden nur 173 gezeichnet; 696 uebersprungen weil `crossing` leer/unmarked (viele echte Zebrastreifen ohne Markierungs-Tag), 74 weil kein Strassen-Way mit w>=4 den Knoten teilt (u.a. Freihofstrasse und Gueterbahnhof, beides signalisierte Zebras), 19 wegen Zone 30/Begegnungszone. Fussgaengerstreifen ausser Langstrasse also nur ein Fuenftel der Querungen
+- Fix-Vorschlag: (1) Die 74 Zebra-Knoten ohne Way: naechsten Car-Way per Abstand <8 m statt Knoten-Identitaet suchen. (2) Die 696 Knoten ohne crossing-Tag: an Kreuzungen von Fussweg-Querung und Car-Way (footway=crossing) bzw. an Lichtsignalen als Zebra zeichnen, ausserhalb Zone 30; Gegenprobe per SWISSIMAGE (markings_ortho.py, gelbe Streifen).
+
+## T02 Hecken/Gruenstreifen als glatte, hellgruene Quader (kein Laub, kein Schatten, zu saettigt)
+- Kategorie: Vegetation; Schwere: 2; Haeufigkeit: 8 Orte; SYSTEMISCH
+- Orte (Ort, x/y, Kachel, Shot):
+  - Wiedikon Hardstr.-Seite, (502, -1305), 2_-7, #00
+  - Feldstrasse, (343, -912), 1_-5, #31
+  - Bullingerstrasse, (-726, -146), -4_-1, #32
+  - Pfingstweidstrasse W, (-932, 837), -5_4, #34
+  - Heinrichstrasse, (501, 501), 2_2, #55
+  - Goldbrunnenplatz (grosse gruene Ellipse), (-183, -1546), -1_-8, #58
+  - Kappeli, (-1648, 25), -9_0, #69
+  - Letzipark, (-1276, 371), -7_1, #70
+- Vermutete Ursache: web/src/world/details.ts HEDGE-Farben (0x3f5f2e..0x8a6a2a) + places_detail.ts/yards.ts: Box mit Flat-Colour, Hoehe/Breite aus OSM; keine Textur.
+- Fix-Vorschlag: Hecken: dunklere, entsaettigte Palette, Laubtextur/Noise-Normal, Hoehe-Varianz, Abrundung (Kapsel) oder Instanz mit Laubatlas wie trees.ts; Rasenboeschung (flacher Keil, Foto 34) per Rasen-Textur statt Vollfarbe.
+
+## T03 Fahrbahn-Asphalt: grobe Rechteck-Flicken, Querstreifen, Streckung in der Ferne; Foto: glatter, einheitlicher Belag
+- Kategorie: Strasse/Markierung; Schwere: 2; Haeufigkeit: 7 Orte; SYSTEMISCH
+- Orte (Ort, x/y, Kachel, Shot):
+  - Hohlstrasse, (-2509, 851), -13_4, #25
+  - Hardturmstrasse, (-1096, 1073), -6_5, #41
+  - Kappeli (gestreckte Textur), (-1648, 25), -9_0, #69
+  - Hubertus, (-1312, -782), -7_-4, #71
+  - Sportweg, (-846, 799), -5_3, #20
+  - Weststrasse, (466, -1526), 2_-8, #39
+  - Zurlindenstrasse, (100, -1301), 0_-7, #37
+- Vermutete Ursache: pipeline/ground_tex.py asphalt() (Flickstellen-Rechtecke, Teernaht) + Anisotropie im Headless-Test (Qualitaetsstufe, engine/materials.ts Z.59).
+- Fix-Vorschlag: Flicken seltener, weicher und kleiner (Konturen mit Rauschen statt Rechteck), Kontrast der Flicken halbieren; Test mit anisotropy=8 gegenpruefen, bevor die Textur angefasst wird.
+
+## T04 Bahnland/Gleisfeld: grosse blasse, fast weisse Flaechen und senkrechte graue Wand (Haze-Farbe) statt Schotter, Boeschung und Haeuser
+- Kategorie: Gebaeude-Form; Schwere: 3; Haeufigkeit: 4 Orte; SYSTEMISCH
+- Orte (Ort, x/y, Kachel, Shot):
+  - Pfingstweidstr./Toni W, (-501, 697), -3_3, #02
+  - Hardturmstrasse, (-701, 1073), -4_5, #42
+  - Hardturmstrasse, (-324, 1047), -2_5, #43
+  - Schiffbau/Hardbruecke, (232, 436), 1_2, #60
+- Vermutete Ursache: pipeline/railways.py / railzone.py (Bahnland-Boden, OSM-Dachplatte) oder Lueckenfuellung hinter den Haeuserzeilen; die Flaeche hat Nebelfarbe -> Material ohne Textur/ausserhalb Kachelradius.
+- Fix-Vorschlag: Pro Aufnahme pruefen, ob die Flaeche ein Mesh der Kachel ist (sbxScene Raycast); Bahnland-Boden mit Schotter-Textur statt Flatcolor, Fassadenzeile Hardturmstr. Sued (Foto 42/43: 4-geschossige Haeuser) pruefen: fehlen in OSM/AV-Footprints oder wurden als Bahnzone entfernt.
+
+## T05 Fassadenfarbe/-stil weicht ab (Notiz fehlt, falsch oder wird nicht angewendet)
+- Kategorie: Fassade-Farbe; Schwere: 2; Haeufigkeit: 7 Orte; lokal
+- Orte (Ort, x/y, Kachel, Shot):
+  - Weststrasse 177/180, (106, -1094), 0_-6, #38
+  - Foerrlibuckstrasse (Notiz Hardturmstr. 76 = Glas, Spiel: Holzpaneele), (69, 891), 0_4, #15
+  - Lettenstrasse, (1152, 737), 5_3, #16
+  - Gasometerstrasse (gesaettigt gruen), (1103, 223), 5_1, #54
+  - Eisgasse (mintgruene Fensterbaender), (1155, -656), 5_-4, #50
+  - Selnau, (1204, -1301), 6_-7, #65
+  - Bezirksgebaeude/Ankerstr., (663, -1072), 3_-6, #11
+- Vermutete Ursache: research/buildings/visual_notes_v3.json: Notizen 175/177/180/181 Weststrasse haben identischen Text (Copy-Paste, widerspricht Foto 38); Foerrlibuck: Notiz vorhanden, aber Spiel zeigt anderes Fassadenmuster -> Adresse->Gebaeude-Zuordnung (pipeline/build_testarea.py ~Z.346 / styles.py Z.150).
+- Fix-Vorschlag: proposed_facades.json (Weststrasse 177/180); fuer Foerrlibuck Zuordnung debuggen (GWR-Punkt in falschem Polygon?); Gasometerstr./Eisgasse: Style-Default fuer Neubau B70 entsaettigen.
+
+## T06 Haltestellen-Unterstaende, Ueberbauungen und Mobiliar fehlen oder sind vereinfacht
+- Kategorie: Moeblierung; Schwere: 2; Haeufigkeit: 5 Orte; SYSTEMISCH
+- Orte (Ort, x/y, Kachel, Shot):
+  - Goldbrunnenplatz (Glas-Unterstand + Lift), (-183, -1546), -1_-8, #58
+  - Technopark (Auskragung, Poller), (-76, 549), -1_2, #08
+  - Bahnhof Altstetten (Unterstand, parkierte Autos), (-2097, 714), -11_3, #03
+  - Aargauerstrasse (Werbevitrine am Unterstand), (-1093, 888), -6_4, #10
+  - Pfingstweidstr. (Glas-Unterstand), (-932, 837), -5_4, #34
+- Vermutete Ursache: pipeline/overrides/fidelity.json / places_detail_*.json (Unterstand-Typ vorhanden, aber nur an einzelnen Orten gesetzt); Haltestellen-Kit nur aus VBZ-Haltekanten.
+- Fix-Vorschlag: Haltestellen-Unterstand systematisch aus VBZ-Haltestellen (stops_equip.json) + OSM shelter=yes setzen; Technopark als Landmark-Ticket.
+
+## T07 Bodenpfeile (Richtungspfeile, Einspurpfeile) und Velopiktogramme fehlen
+- Kategorie: Strasse/Markierung; Schwere: 1; Haeufigkeit: 5 Orte; SYSTEMISCH
+- Orte (Ort, x/y, Kachel, Shot):
+  - Letzigrund, (-976, -355), -5_-2, #59
+  - Wipkingerplatz, (521, 972), 2_4, #67
+  - Eisgasse, (1155, -656), 5_-4, #50
+  - Foerrlibuckstr. (Velo-Piktogramm), (69, 891), 0_4, #15
+  - Sportweg (Velo-Piktogramm), (-846, 799), -5_3, #20
+- Vermutete Ursache: pipeline/streets.py markings(): nur Linien/Zebra/Haltelinie/«30»; keine Pfeile. markings_ortho.py misst nur Langstrasse.
+- Fix-Vorschlag: SWISSIMAGE-Messung (markings_ortho.py) auf weitere Achsen ausdehnen oder Pfeile an Lichtsignal-Zufahrten setzen (signal_arms).
+
+## T08 Gruener Velostreifen fehlt trotz Eintrag/Foto
+- Kategorie: Strasse/Markierung; Schwere: 2; Haeufigkeit: 2 Orte; lokal
+- Orte (Ort, x/y, Kachel, Shot):
+  - Bullingerstrasse, (-726, -146), -4_-1, #32
+  - Stauffacherstrasse (Eintrag vorhanden!), (83, -530), 0_-3, #46
+- Vermutete Ursache: pipeline/overrides/velo_green.json: Bullingerstrasse nicht erfasst; Stauffacherstrasse (83,-530) erfasst, im Spiel nicht sichtbar -> Kachel evtl. vor fid2-Build gebaut oder Streifenseite falsch.
+- Fix-Vorschlag: proposed_velo_green.json (Bullingerstrasse); Kachel 0_-3 pruefen/neu bauen (nur Test, nach Freigabe).
+
+## T09 Parkierte Autos/Roller fehlen an Kerbparkierung; blaue Zone nicht ueberall
+- Kategorie: Moeblierung; Schwere: 1; Haeufigkeit: 4 Orte; SYSTEMISCH
+- Orte (Ort, x/y, Kachel, Shot):
+  - Bahnhof Altstetten, (-2097, 714), -11_3, #03
+  - Feldstrasse (Motorroller), (343, -912), 1_-5, #31
+  - Lettenstrasse (blaue Linie), (1152, 737), 5_3, #16
+  - Friedhof Sihlfeld, (-419, -910), -3_-5, #63
+- Vermutete Ursache: pipeline/cityprops.py (Parkautos nur auf OGD-Parkfeldern; Roller-Reihen nicht erzeugt).
+- Fix-Vorschlag: Roller/Motorrad-Parkfelder (OGD strassenparkierung Kategorie Motorrad) als Zweiradreihen erzeugen.
+
+## T10 Ausserhalb Spielgebiet: blasse Ebene ohne Boden, Wiese ohne Strasse, Bus schwebt im Nichts
+- Kategorie: Verkehr; Schwere: 2; Haeufigkeit: 6 Orte; SYSTEMISCH
+- Orte (Ort, x/y, Kachel, Shot):
+  - Albisrank, (-1651, -508), -9_-3, #66
+  - Siemens/Albisriederstr. (Bus schwebt), (-1716, -663), -9_-4, #68
+  - Hohlstrasse W, (-2852, 742), -15_3, #24
+  - Badenerstrasse W, (-2819, 702), -15_3, #27
+  - Hardturmstrasse W, (-1096, 1073), -6_5, #41
+- Vermutete Ursache: Spielgebiet-Polygon (map.json polygon, x_min ~ -2590); Kacheln ausserhalb haben Backdrop ohne Strassen, NPC-/Tram-/Busspuren laufen weiter (transit.json-Linien reichen weiter nach Westen).
+- Fix-Vorschlag: Fahrzeuge/Tram ausserhalb des Polygons nicht spawnen und beim Verlassen despawnen; Spieler:in an der Polygongrenze stoppen (weicher Rand), Backdrop-Bodenfarbe statt Nebelweiss.
+
+## T11 Kamera steht in Gebaeude: Gebaeude liegt auf der Strasse (Hohlstrasse/Altstetten, Foto zeigt freie Kreuzung)
+- Kategorie: Gebaeude-Form; Schwere: 3; Haeufigkeit: 1 Orte; lokal
+- Orte (Ort, x/y, Kachel, Shot):
+  - Hohlstr. bei Bhf Altstetten Nord, (-2053, 699), -11_3, #26
+- Vermutete Ursache: Gebaeude-Footprint ueber Fahrbahn: osm_buildings.update() (Aenderungen nach 2019) oder falscher AV-Gebaeudeeintrag; Strasse aus roadgraph unter dem Haus.
+- Fix-Vorschlag: Audit-Skript: Gebaeude-Polygone (Kachel -11_3) mit Fahrbahn-Polygon schneiden (>30 m2) -> Liste; Override: buildings.json hide fuer betroffene IDs.
+
+## T12 Schwebende Teile
+- Kategorie: Schweben/Versinken; Schwere: 2; Haeufigkeit: 2 Orte; lokal
+- Orte (Ort, x/y, Kachel, Shot):
+  - Wipkingerplatz: weisse Quader in ~20 m Hoehe, (521, 972), 2_4, #67
+  - Sportweg: schwarzer T-Pfosten ohne Boden, (-846, 799), -5_3, #20
+- Vermutete Ursache: unbekannt: Kran/Landmark-Teil (Wipkingen) bzw. Signal-Ausleger ohne Mast (traffic_signs.py Ampel-Arme an Knoten ohne Mast-Boden).
+- Fix-Vorschlag: Wipkingerplatz: sbxScene-Raycast Mesh-Namen ausgeben; Sportweg: signal_arms()-Mast pruefen (Foto 20 hat Lichtsignal am Zebra).
+
+## T13 Viadukte: Unterseite flach dunkelbraun, Boegen/Fussweg und Beton-Seitenwand fehlen
+- Kategorie: Gebaeude-Form; Schwere: 2; Haeufigkeit: 2 Orte; lokal
+- Orte (Ort, x/y, Kachel, Shot):
+  - Im Viadukt Josefstrasse, (502, 293), 2_1, #51
+  - Wipkingerviadukt (Betonwand rechts fehlt), (521, 972), 2_4, #67
+- Vermutete Ursache: Landmark viadukt_arches.glb (465,249) deckt nur die Boegen im Westen; OSM-Bruecke ohne Textur.
+- Fix-Vorschlag: Viadukt-Bogenreihe laengs der ganzen Josefstrasse (Hardbruecke bis Limmat) modellieren; Wipkingerviadukt als Landmark.
+
+## T14 Landmarks erscheinen erst >3.5 s nach Teleport (St. Jakob, Foto 57/48): beim Blick zeigt der Platz zuerst die Platzhalterfassade
+- Kategorie: Gebaeude-Form; Schwere: 1; Haeufigkeit: 2 Orte; lokal
+- Orte (Ort, x/y, Kachel, Shot):
+  - Stauffacher / Kirche St. Jakob, (901, -1098), 4_-6, #48
+- Vermutete Ursache: web/src/world/landmarks3d.ts laedt Landmarks lazy nach den Kacheln.
+- Fix-Vorschlag: Landmarks mit Prioritaet vor Sichtweite laden (preload bei Teleport/Spawn).
+
+## T15 Kopfsteinpflaster statt Asphalt (Josefstrasse, Foto: Asphalt mit Pflanzbeeten)
+- Kategorie: Strasse/Markierung; Schwere: 1; Haeufigkeit: 1 Orte; lokal
+- Orte (Ort, x/y, Kachel, Shot):
+  - Josefstrasse bei Josefwiese-Ost, (860, 56), 4_0, #52
+- Vermutete Ursache: pipeline/groundcover.py _cobble(): vas_basis-Achsen mit Namens-/Messbereich-Ueberlappung zu grob.
+- Fix-Vorschlag: Fuer Achsen mit OSM surface=asphalt (Josefstrasse) Kopfstein-Maske ausschliessen.
+
+## T16 Hydrant mitten auf der Fahrbahn (zwischen Parkfeldern)
+- Kategorie: Moeblierung; Schwere: 1; Haeufigkeit: 1 Orte; lokal
+- Orte (Ort, x/y, Kachel, Shot):
+  - Hardstrasse bei Bhf Hardbruecke, (124, 269), 0_1, #23
+- Vermutete Ursache: pipeline/streets.py extras["hydrants"]: Punkt nicht auf Trottoir geklemmt (OSM-Hydrant am Fahrbahnrand).
+- Fix-Vorschlag: Hydranten auf naechsten Trottoirpunkt >=0.3 m hinter dem Randstein verschieben.
+
+## T17 Tramgleise in der Naehe (Foerrlibuckstrasse, Linien 8/17) im Spiel kaum sichtbar
+- Kategorie: Strasse/Markierung; Schwere: 1; Haeufigkeit: 1 Orte; lokal
+- Orte (Ort, x/y, Kachel, Shot):
+  - Foerrlibuckstrasse, (69, 891), 0_4, #15
+- Vermutete Ursache: transit.json fuehrt die Linien in 4-7 m Abstand; Gleise im Spiel nur als schwache Linie (Foto: eingelassene Schienen mit Pflasterband).
+- Fix-Vorschlag: Gleis-Kontrast/Pflasterband im Tram-Gleiskoerper (ground_paint.py) erhoehen.
+
+## T18 Landmark fehlt: Landesmuseum/Platzspitz-Eingang (Foto: Schloss-Bau, Eisentor)
+- Kategorie: Gebaeude-Form; Schwere: 2; Haeufigkeit: 1 Orte; lokal
+- Orte (Ort, x/y, Kachel, Shot):
+  - Landesmuseum, (1866, -510), 9_-3, #19
+- Vermutete Ursache: landmarks.json hat kein Landesmuseum; nur generischer Block/Glasfassade.
+- Fix-Vorschlag: Landmark aus Fotos (research/photos) bauen; Prioritaet mittel.
+
+## Top-15 (Schwere x Haeufigkeit, systemische Ursachen x1.5)
+
+1. T01 Fussgaengerstreifen fehlen (OSM: crossing=traffic_signals + crossing:markings=zebra, gelb) (S3 x 10, systemisch)
+2. T02 Hecken/Gruenstreifen als glatte, hellgruene Quader (kein Laub, kein Schatten, zu saettigt) (S2 x 8, systemisch)
+3. T03 Fahrbahn-Asphalt: grobe Rechteck-Flicken, Querstreifen, Streckung in der Ferne; Foto: glat (S2 x 7, systemisch)
+4. T04 Bahnland/Gleisfeld: grosse blasse, fast weisse Flaechen und senkrechte graue Wand (Haze-Fa (S3 x 4, systemisch)
+5. T10 Ausserhalb Spielgebiet: blasse Ebene ohne Boden, Wiese ohne Strasse, Bus schwebt im Nichts (S2 x 6, systemisch)
+6. T06 Haltestellen-Unterstaende, Ueberbauungen und Mobiliar fehlen oder sind vereinfacht (S2 x 5, systemisch)
+7. T05 Fassadenfarbe/-stil weicht ab (Notiz fehlt, falsch oder wird nicht angewendet) (S2 x 7)
+8. T07 Bodenpfeile (Richtungspfeile, Einspurpfeile) und Velopiktogramme fehlen (S1 x 5, systemisch)
+9. T09 Parkierte Autos/Roller fehlen an Kerbparkierung; blaue Zone nicht ueberall (S1 x 4, systemisch)
+10. T08 Gruener Velostreifen fehlt trotz Eintrag/Foto (S2 x 2)
+11. T12 Schwebende Teile (S2 x 2)
+12. T13 Viadukte: Unterseite flach dunkelbraun, Boegen/Fussweg und Beton-Seitenwand fehlen (S2 x 2)
+13. T11 Kamera steht in Gebaeude: Gebaeude liegt auf der Strasse (Hohlstrasse/Altstetten, Foto zei (S3 x 1)
+14. T14 Landmarks erscheinen erst >3.5 s nach Teleport (St. Jakob, Foto 57/48): beim Blick zeigt d (S1 x 2)
+15. T18 Landmark fehlt: Landesmuseum/Platzspitz-Eingang (Foto: Schloss-Bau, Eisentor) (S2 x 1)

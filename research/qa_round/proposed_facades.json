@@ -1,0 +1,5 @@
+{
+ "_doc": "Vorschlag (NICHT angewendet): Korrekturen fuer research/buildings/visual_notes_v3.json (gleiches Schema). Anlass: Foto 38 (Panoramax, Weststrasse bei 106,-1094, Blick 308 Grad, CC-BY-SA) zeigt links ein braun-ockerfarbenes Haus mit grauem Natursteinsockel und schwarzen Eisenbalkonen, rechts (Vordergrund) ein ockergelbes Haus; die vorhandenen Notizen fuer 177/180 (identischer Text wie 175/181, hellgrauer Rauhputz) passen nicht. Hex aus dem Foto geschaetzt, Hausnummern aus GWR-Abstand/Blickrichtung (Konfidenz mittel) - vor dem Anwenden mit einem Mapillary-Foto pruefen.",
+ "Weststrasse 177": {"hex": "#b89068", "material": "putz", "rahmen": "weiss", "stil": "gruenderzeit", "details": ["balkon", "sockel_stein"], "notiz": "ockerbraun, Natursteinsockel, schwarze Eisenbalkone (rc38 links)", "quelle": "panoramax:rc38", "konfidenz": "mittel"},
+ "Weststrasse 180": {"hex": "#d4b074", "material": "putz", "rahmen": "weiss", "stil": "gruenderzeit", "details": ["balkon"], "notiz": "ockergelb, Eisenbalkone (rc38 rechts)", "quelle": "panoramax:rc38", "konfidenz": "mittel"}
+}

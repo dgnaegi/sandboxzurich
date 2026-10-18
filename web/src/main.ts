@@ -19,6 +19,7 @@ import { CAR_GEO, carMaterial, carPick, loadCars } from './world/cars';
 import { Scenes } from './world/scenes';
 import { Lawns } from './world/lawns';
 import { setYardsMobile } from './world/yards';
+import { setDetailsLite } from './world/details'; // look3
 import { loadRailZone } from './world/railzone';
 import { Events } from './world/events';
 import { GameClock, bindClockPanel } from './ui/clock';
@@ -74,6 +75,7 @@ async function main() {
   const map = new CityMap();
   await Promise.all([L(loadRailZone()), L(loadTrees('/models/trees', mobile ? 1 : 2)), L(loadCars()), L(loadBikes()), L(loadFurniture())]);
   setYardsMobile(mobile); // YARDS
+  setDetailsLite(mobile); // look3
   treeField.init(renderer, mobile, !mobile);
   const [tiles, humans] = await Promise.all([
     loading.track(Tiles.load(scene, !mobile, Math.min(8, renderer.capabilities.getMaxAnisotropy()))),
