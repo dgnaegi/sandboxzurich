@@ -12,6 +12,8 @@ Ziel weiterhin **Qualität und echtere Karte**. Arbeitsweise: max. ~4 Agents, Te
 - Orte: Lochergut v4 (Passerelle weg, Ladenzeile, Leuchtschrift mit Farbwechsel `// lochergut-neon`), Calvados Bar, Idaplatz-Quartier (Spielgebiet +800×800 m; Fassaden; Kirche; Velos), Zentralwäscherei (nachgemalte Graffiti `zw_graffiti.py`, Schild um die Ecke, Pflanzen), HB-Review (#49), Letzigrund neu (#50), Quartiergarten Hard (`qgh.py`), 4 Plätze (`places_detail_sq3_*`), Hecken-Shader (`web/src/world/foliage.ts`), Asphalt ohne Rechteck-Flicken.
 - Systemisch: Gebäude ohne OSM-Adresse holen Fassaden-Notiz über GWR-Eingang (+~416 Häuser); yards-Absturz (GeometryCollection) behoben.
 
+**Build 11 live (2026-10-18, 21:47):** `logs/build_full11.log` 0 Fehler, 229 Spiel- + 78 Randkacheln, 7.29 km²; Weltdaten veröffentlicht. QA: tsc, gameplay, touch, crash, qa_spawn 26/26, qa_leak +25 MB PASS, traffic_legal Busse 0 %, Parkautos 0.17 %; perf Handy 4×: 57 fps, 260 Calls, 608k Tris, Laden 4.6 s; mem_phone Texturen Langstrasse 190 / HB 179 / Hardbrücke 129 MB. drive.mjs «touch: braked to -4.8 m/s» wackelt (Auto fährt nach Stillstand rückwärts, Test-Timing). Sichtkontrolle `preview/qa11_sheet.jpg`.
+
 **Nächste Schritte (Priorität):**
 1. Auf echtem iPhone testen (Langstrasse, HB, Idaplatz), Speicher/FPS; Hecken-Shader auf Handy messen (perf 51 fps unter Last gemessen).
 2. Realitäts-Tickets `research/qa_round/tickets.md` abarbeiten (T04 blasse Flächen Toni/Schiffbau, T05 Fassaden-Notizen Weststr., T08 Velostreifen Stauffacherstr., T10 schwebender Bus (-1716,-663), T11 Kamera in Gebäude (-2053,699), T18 Landesmuseum fehlt); vorbereitete Overrides `research/qa_round/proposed_*.json`.
