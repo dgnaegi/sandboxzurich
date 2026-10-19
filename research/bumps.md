@@ -26,7 +26,15 @@ Versuch `road_height.snap_roads` (DTM-Spitzen im AV-Polygon einebnen): kein Gewi
 
 Gesamtgebiet vorher (alte Kacheln, 168 km): 288 Funde, davon Service 210, Rampenknicke 37, Strassenbuckel 67 (15 > 15 cm).
 
-## Offen (Tickets T22/T23 in research/qa_round/tickets.md)
-- Unterführungsportale mit 22-40 % Neigung (DTM-Graben): Badenerstrasse (178, -998), Bullingerstrasse (-527, -269), Hohlstrasse (-61, -190), Förrlibuckstrasse (-405, 837).
-- Restliche Buckel 10-20 cm: Förrlibuckstrasse (-405, 837), Kornhausbrücke (1191, 135), Seebahnstrasse (219, -613) / (231, -595), Hohlstrasse (-74, -177).
-- Beim Komplett-Build wirkt der Fix auf allen Kacheln (Wert ist global).
+## T22 / T23 Nachtrag (Agent Z2B, 2026-10-19)
+Messung wie oben auf den Testkacheln mit Funden (9 Kacheln: Hohl-/Bullinger-/Förrlibuck-/Seebahn-/Badenerstrasse, Kornhausbrücke; 16 km Achsen), vorher = Build 14, nachher = Testkacheln mit den Fixes (`audit_bumps.py --tiles … --out`):
+| | vorher | nachher |
+|---|---|---|
+| Strassenbuckel > 8 cm | 9 | 7 |
+| davon > 15 cm | 3 | 1 (Kornhausbrücke 20 cm) |
+| Rampenknicke auf Strassen (Portale) | 3 (27/25/19 cm) | 0 |
+Höhenraster nach `road_height` (Achsen, Stufe > 22 % auf 3 m, Spielgebiet): 16 Stellen -> 10 (Bullinger, Kanzleistrasse, Sihlbrücke, Duttweilerbrücke verschwinden; Rest sind Brücken-/Brückenrampen).
+- **T22 Ursache:** die 35 m lange Bullingerstrasse zwischen (-549,-257) und (-492,-290) ist in OSM nicht als Tunnel getaggt, geht aber unter dem Bahndamm durch (Strasse -3.0 m, DTM +4.2 m, Klippen 3-6 m). `road_height` hielt das Profil innerhalb ±1 m am Gelände, `MAX_FILL`/`MAX_SHAVE` kappten die Zellen -> Rampe über den Damm mit 64-100 % Neigung. Fix: `pipeline/underpass_infer.py` (Plateau <= 90 m, >= 1.2 m über beiden Portalen, Klippen >= 1.5 m / 3 m, zusammengefügte Strassenzüge) + `road_height.carve_underpasses` (Gelände auf die Gerade zwischen den Portalhöhen, Korridor Fahrbahn + 1 m, 2 m Wand, nur absenken, vor der Profilglättung). Erkannt im ganzen Gebiet: Bullingerstrasse 40 m, Wasserwerkstrasse (1604,81) 20 m, (1702,-25) 9 m, Ackersteinstrasse (-1114,1740) 10 m. Schienen sind unabhängig (`rail_z`, nicht `H`).
+  Nicht behoben: Badenerstrasse (178,-998) war ein T23-Fall (0.24 m Delle -> 0.03, siehe unten); echte Mulden unter Brücken (Seebahnstrasse (219,-613), Stauffacherstrasse, Kanzleistrasse (198,-734), Sihlbrücke): die Strasse läuft dort ohne OSM-Brückentag über einen Graben; ein Damm würde die Gleise darunter verschütten, es braucht ein Brückendeck (bridges.py). Neigung dort 0.57 -> 0.32.
+- **T23 Ursache (anders als im Ticket vermutet, nicht die DTM-Spitzen):** der Asphalt wird pro 6-m-Zelle nur mit den Eckpunkten des Fahrbahnpolygons trianguliert (`mesh.drape`, earcut ohne Innenpunkte). Die Höhe an der Polygonkante kam aus `road_height.apply`, wo `MAX_FILL = 1.2 m` Zellen neben einer Mulde / einem Einschnitt nicht bis Strassenniveau füllen liess (Hohlstrasse: Kante 20-42 cm tiefer als Strassenmitte). Folge: schräge Dreiecke und 10-20-cm-Dellen an der Achse. Fix: `MAX_FILL_IN = 3.0` m für Zellen innerhalb der Fahrbahn (`cov > 0.9`), ausserhalb bleibt 1.2 m (Brückenschutz aus roads2). Zusätzlich ist der Korridor jetzt so breit wie das gezeichnete Fahrbahnpolygon (`_local_halfwidth`, Raster-EDT, höchstens +5 m über der OSM-Breite). Kante-minus-Achse an der Hohlstrasse: -0.42…-0.04 m -> -0.01…0.00 m. Der Fix gilt für den ganzen Build.
+- Rest: Kornhausbrücke (1191,135) 20 cm (Brückenrampe, DTM-Absatz), Förrlibuckstrasse (-405,837) 14-15 cm und (-475,849) 11 cm (Einmündung Servicestrasse, Strassen auf anderem Niveau überlappen), Seebahnstrasse (231,-595) 14 cm.

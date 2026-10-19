@@ -161,7 +161,8 @@ def main():
             else:
                 i += 1
     ev.sort(key=lambda e: -e["cm"])
-    (R / "data/build/bumps.json").write_text(json.dumps(dict(km=tot / 1000, events=ev)))
+    out = Path(sys.argv[sys.argv.index("--out") + 1]) if "--out" in sys.argv else R / "data/build/bumps.json"   # --out: keep the full-area result when auditing a few tiles
+    out.write_text(json.dumps(dict(km=tot / 1000, events=ev)))
     cnt = Counter(e["cause"] for e in ev if not e["svc"] and e["kind"] == "bump")
     print(f"{tot / 1000:.1f} km axes; events > {THR * 100:.0f} cm: {len(ev)} (service ways {sum(e['svc'] for e in ev)}, ramp knees {sum(e['kind'] != 'bump' for e in ev)}); "
           f"street bumps {sum(cnt.values())} {dict(cnt)}; > 15 cm: {sum(e['cm'] > 15 for e in ev if not e['svc'] and e['kind'] == 'bump')}")

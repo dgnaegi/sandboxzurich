@@ -1,0 +1,21 @@
+{
+ "_doc": "Zone 2 Kreis 5 (Auftrag Z2B). Squares that places_detail*.json did not cover and whose OSM plaza polygon is drawn as default cobble: ground classified from SWISSIMAGE 0.5 m (lawn / gravel / paved). No objects without photo evidence (Escher-Wyss-Platz: the only photos in data/raw/photos/z2 show the Hardbruecke deck from a car, no platform detail). Escher-Wyss buckets, Josefwiese, Limmatplatz, Hardplatz fountains: places_detail_<id>.json converts the WVZ fountains; the duplicate catalog troughs are excluded in catalog_assign.json (_z2).",
+ "places": [
+  {
+   "id": "z2_puls5_vorplatz",
+   "center": [64, 736],
+   "src": "SWISSIMAGE 0.5 m (ortho_ground); OSM Technoparkstrasse surface=asphalt/concrete, footway concrete; audit_ground.py --zone 2",
+   "ortho_ground": {"within": {"circle": [0, 0, 44]}, "paved": "concrete"},
+   "ground": [],
+   "objs": []
+  },
+  {
+   "id": "z2_quellenstrasse_platz",
+   "center": [853, 58],
+   "src": "SWISSIMAGE 0.5 m (ortho_ground); OSM Quellenstrasse/Josefstrasse/Motorenstrasse surface=asphalt; audit_ground.py --zone 2",
+   "ortho_ground": {"within": {"circle": [0, 0, 40]}, "paved": "asphalt"},
+   "ground": [],
+   "objs": []
+  }
+ ]
+}

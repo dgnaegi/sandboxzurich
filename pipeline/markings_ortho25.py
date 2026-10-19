@@ -18,6 +18,9 @@ OX, OY, TILE, PX = 2681400, 1248700, 250.0, 1000
 URL = ("https://wms.geo.admin.ch/?SERVICE=WMS&REQUEST=GetMap&VERSION=1.3.0&LAYERS=ch.swisstopo.swissimage&STYLES=&CRS=EPSG:2056"
        "&BBOX={a},{b},{c},{d}&WIDTH=1000&HEIGHT=1000&FORMAT=image/jpeg")
 CACHE = ROOT / "data/build/zebras_ortho25.json"
+STRIPE_MIN = -0.1   # T19 knobs (research/markings_audit.md): stripe periodicity score (r4 - r2); -0.2 = +40 % detections at ~10 points lower precision
+RESCUE_AREA = 8.0   # smallest blob (m2) that gets the second opinion
+AREA_MIN, EXTD_MIN, FILL_MAX, MYB_MAX = 9.0, 3.2, 0.93, 52.0   # paint area (m2), stripe length (m), mask fill, mean yellowness (taxis / vans are saturated)
 
 
 def boxes():
@@ -55,49 +58,118 @@ def yellow(a):
     loc = np.kron(loc, np.ones((2, 2)))[: yb.shape[0], : yb.shape[1]]
     sun = (yb > 24) & (R > 100) & (np.abs(R - G) < 24) & (G >= R - 24) & (ybs - loc > 8)
     shade = (lum < 100) & (lum > 25) & (ybs > np.maximum(8, 0.12 * lum)) & (ybs - loc > 5) & (np.abs(R - G) < 0.25 * lum + 6)
-    return sun | shade
+    return sun | shade, ybs, lum
 
 
-def _blobs(mask, ix, iy, roads):
-    # stripes: 0.5 m (2 px) wide; kerb/edge lines (0.12-0.3 m) vanish in the opening; closing merges the stripes (gaps 0.5 m)
+def _rescue(rej, roads, ix, iy, ctr, area, fill):
+    """candidates whose stripe geometry could not be measured (ragged / merged mask) but that are yellow blobs of zebra size on the carriageway:
+    crossings._scan25 gives them a second opinion with the 0.5 m mosaic stripe test (ortho_score >= STRONG, the evidence that already decides
+    unmarked OSM nodes)."""
+    if rej is None or area < RESCUE_AREA or not 0.35 <= fill <= 0.97:
+        return
+    x, y = ix * TILE + ctr[0], iy * TILE + PX * 0.25 + ctr[1]
+    if roads is not None and not roads.contains(Point(x, y)):
+        return
+    rej.append(dict(x=float(x), y=float(y), area=float(area), fill=float(fill)))
+
+
+def _blobs(mask, ybs, lum, ix, iy, roads, dbg=None, close_it=2, rej=None):
+    """zebra candidates in one 250 m box. T19: the stripe direction comes from the gradient structure tensor of the stripe mask (a
+    blob's covariance axes are unstable for 3 x 4 m blobs and were up to 90 degrees off: 339 real zebras failed the direction test),
+    stripe pattern quality = tensor coherence + periodicity along the stripe-stack axis (needs to be strong when the geometry is odd)."""
     m = ndi.binary_opening(mask, structure=np.ones((2, 2)))
-    cl = ndi.binary_closing(m, structure=np.ones((3, 3)), iterations=2)
+    cl = ndi.binary_closing(m, structure=np.ones((3, 3)), iterations=close_it)
     lab, n = ndi.label(cl)
+    g = ndi.gaussian_filter(ybs.astype(np.float32), 0.7)   # continuous yellowness: the mask itself has merged stripes (fill 0.8)
+    gy_, gx_ = np.gradient(g)
     out = []
     for i, sl in enumerate(ndi.find_objects(lab), 1):
         sub = lab[sl] == i
         area = sub.sum() * 0.0625
-        if area < 6 or area > 90:
-            continue
-        rr, cc = np.nonzero(sub)
-        pts = np.c_[cc + sl[1].start + .5, -(rr + sl[0].start + .5)] * 0.25
-        ctr = pts.mean(0)
-        ev, V = np.linalg.eigh(np.cov((pts - ctr).T))
-        long, short = 4 * np.sqrt(ev[1]) , 4 * np.sqrt(ev[0])   # rectangle extents ~ 2*sqrt(3)*sigma; 4*sigma is a safe estimate
-        if short < 2.2 or long > 16 or long / max(short, 1e-6) > 5.5:
+        if area < 5 or area > 110:
+            if dbg is not None and area >= 2:
+                dbg.append((ix * TILE + (sl[1].start + sl[1].stop) * 0.125, iy * TILE + PX * 0.25 - (sl[0].start + sl[0].stop) * 0.125, "area %.0f" % area))
             continue
         mm = m[sl] & sub
         fill = mm.sum() / max(sub.sum(), 1)      # stripes cover ~50 % of the merged blob
         if not 0.30 <= fill <= 0.99:
+            if dbg is not None:
+                dbg.append((ix * TILE + (sl[1].start + sl[1].stop) * 0.125, iy * TILE + PX * 0.25 - (sl[0].start + sl[0].stop) * 0.125, "fill %.2f" % fill))
             continue
-        along = V[:, 0]   # short axis of the blob = travel direction (stripes run along it)
-        # stripe rhythm: mask pixels projected on the long axis repeat every 1.0 m (0.5 m paint, 0.5 m gap) = 4 px at 0.25 m
-        ys_, xs_ = np.nonzero(mm)
+        # stripe orientation: search the angle whose across-axis profile (weighted by the continuous yellowness) is most periodic at 1.0 m
+        # (0.5 m paint, 0.5 m gap = 4 px). Neither the blob covariance nor a gradient tensor survives merged / ragged stripe masks.
+        sdd = ndi.binary_dilation(sub, iterations=1)
+        ys_, xs_ = np.nonzero(sdd)
         pp = np.c_[xs_ + sl[1].start + .5, -(ys_ + sl[0].start + .5)] * 0.25
-        t = (pp - ctr) @ V[:, 1]
-        hist, _ = np.histogram(t, bins=np.arange(np.floor(t.min() * 4) / 4, np.ceil(t.max() * 4) / 4 + 0.25, 0.25))
-        h0 = hist - hist.mean()
-        den = float((h0 ** 2).sum()) + 1e-9
-        r = lambda k: float((h0[:-k] * h0[k:]).sum() / den) if len(h0) > k + 2 else 0.0
-        r4, r2 = r(4), r(2)
-        x, y = ix * TILE + ctr[0], iy * TILE + (PX * 0.25) + ctr[1]
-        if roads is not None and not roads.contains(Point(x, y)):
+        ctr = pp.mean(0)
+        wv = ybs[sl][sdd].astype(np.float64)
+        wv = np.clip(wv - np.percentile(wv, 20), 0, None) + 1e-3
+        best = (-9.0, 0.0, 0.0, 0.0)
+        for th in np.arange(0.0, np.pi, np.pi / 24):
+            nv = np.array([np.cos(th), np.sin(th)])
+            t = (pp - ctr) @ nv
+            lo = np.floor(t.min() * 4) / 4
+            bins = np.arange(lo, np.ceil(t.max() * 4) / 4 + 0.25, 0.25)
+            if len(bins) < 8:
+                continue
+            cnt, _ = np.histogram(t, bins=bins)
+            hist = np.histogram(t, bins=bins, weights=wv)[0] / np.maximum(cnt, 1)
+            h0 = hist - hist.mean()
+            den = float((h0 ** 2).sum()) + 1e-9
+            q = lambda k: float((h0[:-k] * h0[k:]).sum() / den) if len(h0) > k + 2 else 0.0
+            sc = q(4) - q(2)
+            if sc > best[0]:
+                best = (sc, th, q(4), q(2))
+        stripe, th, r4, r2 = best
+        nvec = np.array([np.cos(th), np.sin(th)])
+        along = np.array([-nvec[1], nvec[0]])
+        rr, cc = np.nonzero(mm)
+        pm = np.c_[cc + sl[1].start + .5, -(rr + sl[0].start + .5)] * 0.25
+        if len(pm) < 8:
             continue
-        out.append(dict(x=float(x), y=float(y), d=[float(along[0]), float(along[1])], half=float(max(long, 3.0) / 2), area=float(area), fill=float(fill), r4=r4, r2=r2))
+        pn, pd = (pm - ctr) @ nvec, (pm - ctr) @ along
+        lo_n, hi_n = np.percentile(pn, [2, 98])
+        lo_d, hi_d = np.percentile(pd, [2, 98])
+        ext_n, ext_d = float(hi_n - lo_n), float(hi_d - lo_d)
+        if ext_d < 1.8 or ext_d > 6.5 or ext_n < 2.0 or ext_n > 18:
+            _rescue(rej, roads, ix, iy, ctr, area, fill)
+            if dbg is not None:
+                dbg.append((ix * TILE + ctr[0], iy * TILE + PX * 0.25 + ctr[1], "ext d %.1f n %.1f" % (ext_d, ext_n)))
+            continue
+        if stripe < STRIPE_MIN:
+            _rescue(rej, roads, ix, iy, ctr, area, fill)
+            if dbg is not None:
+                dbg.append((ix * TILE + ctr[0], iy * TILE + PX * 0.25 + ctr[1], "stripe %.2f" % stripe))
+            continue
+        if area < AREA_MIN or ext_d < EXTD_MIN or fill > FILL_MAX:
+            _rescue(rej, roads, ix, iy, ctr, area, fill)
+            if dbg is not None:
+                dbg.append((ix * TILE + ctr[0], iy * TILE + PX * 0.25 + ctr[1], "small/solid a %.0f d %.1f f %.2f" % (area, ext_d, fill)))
+            continue
+        ctr = ctr + (lo_n + hi_n) / 2 * nvec + (lo_d + hi_d) / 2 * along     # centre of the paint extent
+        coh = stripe
+        ml = float(lum[sl][mm].mean()) if mm.any() else 0.0
+        myb = float(ybs[sl][mm].mean()) if mm.any() else 0.0
+        if myb >= MYB_MAX:
+            continue
+        if ml < 70 and stripe < 0.5:   # tree crowns / dark vegetation pass the shade colour test; real shaded stripes keep their rhythm
+            continue
+        pts = pm
+        x, y = ix * TILE + ctr[0], iy * TILE + (PX * 0.25) + ctr[1]
+        inroad = 1.0
+        if roads is not None:   # T19: the whole blob has to lie on the carriageway (roofs, tree crowns, garden paths next to a road fail here)
+            if not roads.contains(Point(x, y)):
+                continue
+            q = pts[:: max(1, len(pts) // 60)] - ctr + ctr
+            inroad = float(shapely.contains_xy(roads, ix * TILE + q[:, 0], iy * TILE + PX * 0.25 + q[:, 1]).mean())
+            if inroad < 0.7:
+                continue
+        out.append(dict(x=float(x), y=float(y), d=[float(along[0]), float(along[1])], half=float(max(ext_n, 3.0) / 2), area=float(area), fill=float(fill),
+                        r4=r4, r2=r2, coh=coh, ext_d=ext_d, inroad=inroad, lum=ml, myb=myb))
     return out
 
 
-def detect(roads=None):
+def detect(roads=None, rescue=None):
     if CACHE.exists() and roads is None:
         return json.load(open(CACHE))
     res = []
@@ -109,7 +181,13 @@ def detect(roads=None):
         if not f.exists():
             continue
         a = np.asarray(Image.open(f).convert("RGB")).astype(np.float32)
-        res += _blobs(yellow(a), ix, iy, roads)
+        mk, yb_, lum_ = yellow(a)
+        r2 = _blobs(mk, yb_, lum_, ix, iy, roads, rej=rescue)
+        # T19: zebras at junctions are merged with stop lines / neighbouring zebras by the closing (extent filter rejects the blob):
+        # a lighter closing separates them again; blobs that the strong closing already found are not added twice
+        r1 = _blobs(mk, yb_, lum_, ix, iy, roads, close_it=1)
+        keep = [z for z in r1 if not any(abs(z["x"] - q["x"]) < 5.0 and abs(z["y"] - q["y"]) < 5.0 for q in r2)]
+        res += r2 + keep
     return res
 
 

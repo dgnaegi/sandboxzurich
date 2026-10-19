@@ -74,3 +74,6 @@ Weisse Linien (12 cm) sind bei 0.5 m/px kaum messbar: «missing_white/extra_whit
 - Asphalt-Fuss unter gemessenen Streifen (Fahrbahnpolygon war dort zu schmal).
 - Audit-Metriken «missing_yellow» sind bei 0.1 m unscharf (warmer Asphalt); massgeblich ist die Sichtkontrolle `preview/markings_zebras.jpg`, `preview/markings_zebra25_check.jpg`.
 - Offen: T19-T21 in research/qa_round/tickets.md.
+
+## T19 Zebra-Recall (Agent Z2B, 2026-10-19)
+Details und Zahlen: `research/zones/zone2_street.md`. Kurz: Richtung aus der Streifenperiodizität statt Blob-Kovarianz, Abgleich mit allen Achsen im Umkreis, zweites (leichteres) Closing, Mindestflächen/Sättigungsfilter, zweite Meinung per 0.5-m-Streifentest für zerfranste Blobs. Scan-Streifen im Build 211 -> 403 (Testkacheln-Lauf, ganzes Gebiet), Recall gegen 41 durch Ortho bestätigte OSM-Streifen 68 % -> 93 %, Precision der Messung geschätzt ca. 80-90 % (Sichtprobe). Regler: `markings_ortho25.STRIPE_MIN` (-0.1), `AREA_MIN/EXTD_MIN/FILL_MAX/MYB_MAX`, `crossings.SCAN_REACH/SCAN_COS`.

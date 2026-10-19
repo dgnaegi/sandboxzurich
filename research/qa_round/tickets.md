@@ -207,6 +207,7 @@ Schwere: 1 = kosmetisch, 2 = faellt auf, 3 = bricht den Realismus/Spielbarkeit.
 - Orte: Seebahnstrasse/Badenerstrasse (150, -985) (6+ Streifen im Foto, keine im Spiel), Limmatplatz (1105, 95) (3 von ~6), Kalkbreite (270, -1175), Langstrasse/Roentgenstrasse (941, -220)
 - Ursache: Zebra-Scan `markings_ortho25.py` (SWISSIMAGE 0.25 m, `crossings.scan`) findet ~210 Streifen (Praezision ~90 % laut Stichprobe `preview/markings_zebra25_check.jpg`); verpasst werden verschattete Streifen, Streifen ausserhalb Fahrbahnpolygon+1 m, Richtungsfilter (>37 Grad zur OSM-Achse).
 - Fix-Vorschlag: Ortho 0.1 m nur entlang Hauptstrassen holen, Schattenmaske (lokaler Kontrast) fuer Streifen, Filter lockern.
+- Status: TEIL-BEHOBEN 2026-10-19 (Agent Z2B): Scan 211 -> 403 Streifen im Build (Testkacheln, ganzes Gebiet), Recall gegen ortho-bestaetigte OSM-Streifen 68 -> 93 %, Precision geschaetzt 80-90 %. Ursache: Richtungsfilter nutzte die Blob-Hauptachse (bis 90 Grad falsch), Abstand nur zur naechsten Achse. Offen: Tiefschatten, Knoten mit verschmolzenen Streifen/Haltelinien (Matched-Filter waere der naechste Schritt). research/zones/zone2_street.md.
 
 ## T20 Markierungen weiss (Mittel-, Halte-, Parklinien) nicht pruefbar bei 0.5 m/px
 - Kategorie: Markierung; Schwere: 2; Haeufigkeit: Gebiet; systemisch
@@ -223,11 +224,13 @@ Schwere: 1 = kosmetisch, 2 = faellt auf, 3 = bricht den Realismus/Spielbarkeit.
 - Kategorie: Bodenschwelle/Rampe; Schwere: 2; Haeufigkeit: 4 Orte
 - Orte: Badenerstrasse (178, -998), Bullingerstrasse (-527, -269), Hohlstrasse (-61, -190), Foerrlibuckstrasse (-405, 837)
 - Fix-Vorschlag: terrain_cuts-Rampen auf <= 12 % ueber 30 m verlaengern (`overrides/terrain_cuts.json`), ausserhalb road_height.
+- Status: TEIL-BEHOBEN 2026-10-19 (Agent Z2B): Bullingerstrasse war eine ungetaggte Unterfuehrung unter dem Bahndamm (DTM +4.2 m statt Strasse -3.0 m): `pipeline/underpass_infer.py` + `road_height.carve_underpasses` (4 Faelle im Gebiet), Rampenknicke auf Strassen 3 (27/25/19 cm) -> 0, Hoehenraster-Stufen > 22 % 16 -> 10. Badenerstrasse (178,-998) gehoert zu T23 (Delle 0.24 -> 0.03 m). Hohlstrasse/Foerrlibuckstrasse sind T23. Offen: echte Mulden unter Bruecken ohne OSM-Brueckentag (Seebahnstr. (219,-613), Kanzleistr., Sihlbruecke): braucht Brueckendeck. research/bumps.md.
 
 ## T23 Restliche Fahrbahn-Buckel 10-20 cm (research/bumps.md)
 - Kategorie: Bodenschwelle; Schwere: 1; Haeufigkeit: ~15 in 43 Kacheln
 - Orte: Kornhausbruecke (1191, 135), Seebahnstrasse (219, -613) und (231, -595), Hohlstrasse (-74, -177), Foerrlibuckstrasse (-475, 849)
 - Fix-Vorschlag: DTM-Spitzen neben dem Korridor glaetten (Versuch snap_roads brachte nichts), ggf. Fahrbahn-Zellen 4 m.
+- Status: TEIL-BEHOBEN 2026-10-19 (Agent Z2B): Ursache war nicht das DTM, sondern `MAX_FILL` 1.2 m in road_height (Fahrbahnrand neben Mulde 20-42 cm zu tief, Asphaltecken auf der Polygonkante). Neu `MAX_FILL_IN` 3.0 m innerhalb der Fahrbahn + Korridor = Polygonbreite. Testkacheln: Strassenbuckel > 8 cm 9 -> 7, > 15 cm 3 -> 1 (Hohlstrasse 17 cm und Badenerstrasse weg). Rest: Kornhausbruecke 20 cm, Foerrlibuckstrasse 14-15 cm, Seebahnstr. (231,-595) 14 cm. research/bumps.md.
 
 ## knock Test flaky (Agent F, 2026-10-19)
 - Status: ERLEDIGT: Pfosten (679.4,-708.6): an (683.5,-708.2) existiert kein Collider/Parkauto (Sonde), Crash stammte von dynamischem Fremdobjekt (NPC-Auto). knock.mjs wertet Crashs > 4 m vom Ziel nicht mehr als Fehler des Ziels (window.__extCrash). 4 Laeufe gruen.

@@ -25,6 +25,7 @@ CACHE = ROOT / "data/build/crossings_ortho.json"
 TILE, PX = 500.0, 1000
 SNAP = 6.0
 SCAN = 0.76   # crossings3: score for a zebra found by scanning the carriageways (no OSM node), stricter than STRONG: ~100k positions are tested
+SCAN_REACH, SCAN_COS = 8.0, 0.65   # T19 (was 0.35 w + 1.2 m, cos 0.8 against the nearest axis only)
 SCAN_STEP, SCAN_SEP, SCAN_SEP_OWN, SCAN_MOVE = 2.0, 9.0, 4.5, 14.0   # scan_blob experiment (ortho blobs / flank test, research/markings_audit.md): the yellow mask also fires on sunlit warm asphalt -> reverted
 STRONG = 0.7  # ortho-only decision: 0.5-0.7 on 442 OSM-unmarked nodes was vegetation/brick in 6 of 8 checked cases, 0.7+ real stripes
 _tiles = {}
@@ -158,19 +159,62 @@ def _scan25(S, cand, ls):
         return None
     tree = STRtree([w["line"] for w in cand])
     res = []
-    for z in M25.detect(S.get("roads")):
+    rescue = []
+    blobs = M25.detect(S.get("roads"), rescue)
+    for z in blobs:
+        # T19: the blob direction is measured from the stripe pattern (markings_ortho25), so it is matched against EVERY way near the blob (a zebra at a
+        # junction mouth belongs to the side street, not to the nearest axis of the main street) and the blob only has to cover a third of the road
         P = Point(z["x"], z["y"])
-        w = cand[int(tree.nearest(P))]
-        ln = w["line"]
-        if ln.distance(P) > 0.35 * w["w"] + 1.2 or 2 * z["half"] < 0.5 * min(w["w"], 12.0) or w["tags"].get("bridge") not in (None, "no") or w["tags"].get("tunnel") not in (None, "no"):
-            continue
-        s_ = ln.project(P)
-        a, b = ln.interpolate(max(s_ - 1, 0)), ln.interpolate(min(s_ + 1, ln.length))
-        t = np.array([b.x - a.x, b.y - a.y]); t = t / (np.hypot(*t) + 1e-9)
         d = np.array(z["d"])
-        if abs(float(t @ d)) < 0.8:   # stripes run along the travel direction (+-37 deg)
+        best = None
+        for i in tree.query(P.buffer(25.0)):
+            w = cand[int(i)]
+            ln = w["line"]
+            if w["tags"].get("bridge") not in (None, "no") or w["tags"].get("tunnel") not in (None, "no"):
+                continue
+            dist = ln.distance(P)
+            if dist > 0.5 * w["w"] + SCAN_REACH:
+                continue
+            s_ = ln.project(P)
+            a, b = ln.interpolate(max(s_ - 2, 0)), ln.interpolate(min(s_ + 2, ln.length))
+            t = np.array([b.x - a.x, b.y - a.y]); t = t / (np.hypot(*t) + 1e-9)
+            c = float(t @ d)
+            if abs(c) < SCAN_COS:   # stripes run along the travel direction
+                continue
+            sc = abs(c) - dist / 50.0
+            if best is None or sc > best[0]:
+                best = (sc, w, c, t)
+        if best is None:
             continue
-        res.append((0.9, z["x"], z["y"], d if float(t @ d) > 0 else -d, {"w": 2 * z["half"] + 0.6, "off": 0.0, "tags": w["tags"], "hw": w["hw"]}))
+        _, w, c, t = best
+        wid = 2 * z["half"] + 0.6
+        if wid < 0.35 * min(w["w"], 12.0):
+            continue
+        res.append((0.9, z["x"], z["y"], d if c > 0 else -d, {"w": max(wid, 0.7 * min(w["w"], 12.0)), "off": 0.0, "tags": w["tags"], "hw": w["hw"]}))
+    # T19 second opinion: yellow blobs of zebra size whose stripe geometry was not measurable (merged with stop lines / neighbours, ragged mask).
+    # The 0.5 m mosaic stripe test along the street direction decides, with the same bar (STRONG) as for unmarked OSM nodes.
+    n_resc = 0
+    for z in rescue:
+        P = Point(z["x"], z["y"])
+        best = None
+        for i in tree.query(P.buffer(25.0)):
+            w = cand[int(i)]
+            ln = w["line"]
+            if w["tags"].get("bridge") not in (None, "no") or w["tags"].get("tunnel") not in (None, "no") or ln.distance(P) > 0.5 * w["w"] + SCAN_REACH:
+                continue
+            s_ = ln.project(P)
+            a, b = ln.interpolate(max(s_ - 2, 0)), ln.interpolate(min(s_ + 2, ln.length))
+            t = np.array([b.x - a.x, b.y - a.y]); t = t / (np.hypot(*t) + 1e-9)
+            sc, (du, dv) = ortho_score(z["x"], z["y"], t, w["w"] / 2, want_shift=True)
+            if best is None or sc > best[0]:
+                best = (sc, t, du, dv, w)
+        if best is None or best[0] < STRONG:
+            continue
+        sc, t, du, dv, w = best
+        x, y = z["x"] + du * t[0] - dv * t[1], z["y"] + du * t[1] + dv * t[0]
+        res.append((0.9, x, y, t, {"w": 0.8 * min(w["w"], 12.0), "off": 0.0, "tags": w["tags"], "hw": w["hw"]}))
+        n_resc += 1
+    print(f"crossings: scan25 {len(res) - n_resc} stripe-measured + {n_resc} rescued by the 0.5 m stripe test", flush=True)
     return res
 
 

@@ -16,9 +16,11 @@ CROWN = 0.005  # cross fall (m per m): the carriageway mesh only has edge vertic
 BLEND = 2.5  # m beyond the carriageway edge over which the surface returns to the terrain (minimum)
 BLEND_K = 8.0  # road_smooth: blend band grows with the road/terrain offset (m of band per m of offset) so the sidewalk never becomes a steep ramp
 BLEND_MAX = 8.0
+HW_EXTRA = 5.0  # T23: the corridor is as wide as the drawn carriageway polygon (max this much wider than the OSM width); see _local_halfwidth
 MAXSLOPE = 0.15  # longitudinal slope limit of the smoothed profile
 MAXDEV = 1.0  # smoothed profile never leaves the real terrain by more than this (real underpasses / cuttings stay)
 MAX_FILL = 1.2  # roads2: a cell is never raised by more than this (the blend used to fill rail cuttings/trenches under bridges by up to 7 m -> decks lifted 6 m above the street = "ramps")
+MAX_FILL_IN = 3.0  # T23: cells INSIDE the carriageway may be filled more (a street edge next to a hollow / cutting stayed 20-40 cm below the road: the asphalt mesh has vertices on the polygon edge -> 10-20 cm dents)
 MAX_SHAVE = 2.0  # roads2: ... nor lowered by more than this (embankment/quay walls next to a street stay)
 JOIN_MAXDZ = 1.0  # shared vertices at very different heights are different levels (underpass vs bridge): not harmonised
 SKIP_BRIDGE = ("yes", "viaduct", "movable", "boardwalk", "cantilever", "aqueduct")
@@ -87,9 +89,60 @@ def profiles(H, ways):
     return out
 
 
-def apply(H, ways, report=True):
+def carve_underpasses(H, ways, report=True, blend=2.0):
+    """underpass_infer.spans(): the DTM plateau of an untagged underpass is cut down to the line between the portal levels (flat floor,
+    corridor = carriageway + 1 m, `blend` m of wall) BEFORE the profile smoothing, so the smoothed street follows the floor. Only ever lowers."""
+    import underpass_infer
+    sp = underpass_infer.spans(H, ways)
+    ny, nx = H.z.shape
+    for c in sp:
+        ln = c["line"]
+        hw = 4.0
+        for w in ways:   # corridor width: widest street that runs along this span
+            if w["hw"] != "service" and w["line"].distance(ln.interpolate(ln.length / 2)) < 3.0:
+                hw = max(hw, w["w"] / 2)
+        hw += 1.0
+        x0, y0, x1, y1 = ln.buffer(hw + blend + 1).bounds
+        gx0, gx1 = max(int((x0 - H.x0) / H.step), 0), min(int((x1 - H.x0) / H.step) + 2, nx)
+        gy0, gy1 = max(int((y0 - H.y0) / H.step), 0), min(int((y1 - H.y0) / H.step) + 2, ny)
+        X, Y = np.meshgrid(H.x0 + np.arange(gx0, gx1) * H.step, H.y0 + np.arange(gy0, gy1) * H.step)
+        pts = shapely.points(X.ravel(), Y.ravel())
+        d = shapely.distance(ln, pts)
+        sp_ = shapely.line_locate_point(ln, pts)
+        z = c["z0"] + (c["z1"] - c["z0"]) * np.clip(sp_ / max(ln.length, 1e-6), 0, 1)
+        t = np.clip((d - hw) / blend, 0, 1)
+        tz = z * (1 - t) + H.z[gy0:gy1, gx0:gx1].ravel() * t
+        cur = H.z[gy0:gy1, gx0:gx1].ravel()
+        H.z[gy0:gy1, gx0:gx1] = np.where(d <= hw + blend, np.minimum(cur, tz), cur).reshape(X.shape).astype(H.z.dtype)
+    if report and sp:
+        print(f"road_height: {len(sp)} underpass spans carved ({sum(c['len'] for c in sp):.0f} m)")
+
+
+def _local_halfwidth(H, xy, roads):
+    """Half-width of the drawn carriageway polygon at the axis points xy (distance to the polygon edge, raster EDT on the height grid).
+    The asphalt mesh has vertices on the polygon edge; where the corridor (OSM width) was narrower, those edge vertices took the height of a
+    neighbouring hollow / embankment and tilted the road surface (10-30 cm bumps, Hohlstrasse, Foerrlibuckstrasse, research/bumps.md)."""
+    from scipy import ndimage as ndi
+    ny, nx = H.z.shape
+    x0, x1 = xy[:, 0].min() - 30, xy[:, 0].max() + 30
+    y0, y1 = xy[:, 1].min() - 30, xy[:, 1].max() + 30
+    gx0, gx1 = max(int((x0 - H.x0) / H.step), 0), min(int((x1 - H.x0) / H.step) + 1, nx)
+    gy0, gy1 = max(int((y0 - H.y0) / H.step), 0), min(int((y1 - H.y0) / H.step) + 1, ny)
+    X, Y = np.meshgrid(H.x0 + np.arange(gx0, gx1) * H.step, H.y0 + np.arange(gy0, gy1) * H.step)
+    shapely.prepare(roads)
+    inside = np.zeros(X.shape, bool)
+    for r0 in range(0, X.shape[0], 256):
+        inside[r0:r0 + 256] = shapely.contains_xy(roads, X[r0:r0 + 256], Y[r0:r0 + 256])
+    edt = ndi.distance_transform_edt(inside) * H.step
+    ci = np.clip(np.round((xy[:, 0] - H.x0) / H.step).astype(int) - gx0, 0, X.shape[1] - 1)
+    ri = np.clip(np.round((xy[:, 1] - H.y0) / H.step).astype(int) - gy0, 0, X.shape[0] - 1)
+    return edt[ri, ci]
+
+
+def apply(H, ways, report=True, roads=None):
     """Blend all street profiles into H (in place). Overlapping streets (dual carriageways, side roads, junctions)
     are averaged with distance weights instead of "nearest wins", so no patchwork steps appear between profiles."""
+    carve_underpasses(H, ways, report)   # T22: streets that run under an embankment keep their floor instead of climbing over it
     P = profiles(H, ways)
     if not P:
         return
@@ -97,13 +150,19 @@ def apply(H, ways, report=True):
     Y = np.concatenate([p["xy"][:, 1] for p in P])
     Z = np.concatenate([p["z"] for p in P])
     HW = np.concatenate([np.full(len(p["s"]), p["w"]["w"] / 2) for p in P])
+    if roads is not None and not roads.is_empty:   # T23: corridor = drawn carriageway polygon (not narrower than the mesh edge vertices)
+        loc = _local_halfwidth(H, np.concatenate([p["xy"] for p in P]), roads)
+        HW = np.maximum(HW, np.minimum(loc, HW + HW_EXTRA))
     RAW = np.concatenate([p["raw"] for p in P])
     dev = np.abs(Z - RAW)  # road_smooth: offset to the terrain on the axis and 2.5 m beside the edge (hillside roads)
+    off = 0
     for p in P:
+        p["hwv"] = HW[off: off + len(p["s"])]
+        off += len(p["s"])
         d = np.gradient(p["xy"], axis=0)
         nr = np.stack([-d[:, 1], d[:, 0]], 1)
         nr /= np.maximum(np.hypot(*nr.T), 1e-9)[:, None]
-        hwp = p["w"]["w"] / 2 + BLEND
+        hwp = (p["hwv"] + BLEND)[:, None]
         p["dev"] = np.maximum.reduce([np.abs(p["z"] - H.at(*(p["xy"] + sg * nr * hwp).T)) for sg in (1, -1)])
     dev = np.maximum(dev, np.concatenate([p["dev"] for p in P]))
     BL = np.clip(BLEND_K * dev, BLEND, BLEND_MAX)  # per-sample blend width
@@ -138,7 +197,7 @@ def apply(H, ways, report=True):
     tz = sz[m.ravel()] / sw[m.ravel()]
     old = H.z[m].copy()
     new = old * (1 - cov) + tz * cov
-    new = old + np.clip(new - old, -MAX_SHAVE, MAX_FILL)  # roads2
+    new = old + np.clip(new - old, -MAX_SHAVE, np.where(cov > 0.9, MAX_FILL_IN, MAX_FILL))  # roads2 (+ T23: inside the carriageway the fill cap is MAX_FILL_IN)
     H.z[m] = new.astype(H.z.dtype)
     if report:
         dz = np.abs(H.z[m] - old)
