@@ -35,6 +35,7 @@ import osm_buildings
 import ortho_roofs
 import rooftops  # roof furniture (pipeline/rooftops.py)
 import terrain_cuts
+import tram_track
 import water  # rivers/canals (pipeline/water.py)
 import road_height
 import groundcover
@@ -55,6 +56,7 @@ from mesh import Heights, Mesh, drape
 from styles import LAYER, h32
 
 CURB = 0.12  # carriageway is lowered by this much
+ROAD_CELL = float(os.environ.get("SBZ_ROAD_CELL", "6"))  # drape cell of the asphalt: the mesh only has vertices on cell borders (road_cell, research/bumps.md)
 GUT = 0.22  # Rinnstein width (fidelity S4: narrower)
 RAW_OUT = OUT.parent.parent.parent / "data" / "build" / "tiles_raw"
 
@@ -168,17 +170,13 @@ def _ground_base(gm, S, tb, H, white, yellow, rails, bed, bays_white=None, bays_
             drape(gm, bays.intersection(roads), H, -CURB + 0.008, col, cell=10, layer=LAYER["white"])
     drape(gm, plaza, H, 0.0, (255, 255, 255), layer=LAYER["cobble"], uv_scale=2.5)
     drape(gm, parks, H, 0.01, (255, 255, 255), layer=LAYER["grass"], uv_scale=5.0)
-    drape(gm, roads, H, -CURB, (255, 255, 255), layer=LAYER["asphalt"], uv_scale=5.0)
+    drape(gm, roads, H, -CURB, (255, 255, 255), cell=ROAD_CELL, layer=LAYER["asphalt"], uv_scale=5.0)  # road_cell: bump fix, see research/bumps.md
     curbs(gm, streets.curb_faces(roads, tb), H)
     top = S["roads"].boundary.buffer(0.16).difference(S["roads"]).difference(S["plaza"]).intersection(tb)
     drape(gm, top, H, 0.006, (205, 203, 196), cell=10, layer=LAYER["white"])
-    drape(gm, bed.difference(S["roads"]).intersection(tb), H, 0.015, (190, 185, 175), layer=LAYER["roof_flat"], uv_scale=2)
     drape(gm, white.intersection(roads), H, -CURB + 0.008, (238, 238, 232), cell=10, layer=LAYER["white"])
     drape(gm, yellow.intersection(roads), H, -CURB + 0.008, (246, 200, 30), cell=10, layer=LAYER["white"])
-    drape(gm, grooves.intersection(S["roads"]).intersection(tb), H, -CURB + 0.011, (28, 28, 30), cell=10, layer=LAYER["white"])
-    on_road = rails.intersection(S["roads"])
-    drape(gm, on_road.intersection(tb), H, -CURB + 0.012, (175, 175, 178), cell=10, layer=LAYER["white"])  # polished rail head
-    drape(gm, rails.difference(S["roads"]).intersection(tb), H, 0.07, (120, 118, 116), cell=10, layer=LAYER["white"])
+    tram_track.paint(gm, S, tb, H, rails, grooves, bed)  # rails flush in the asphalt, own trassee ballast without kerb
 
 
 def build():
@@ -279,10 +277,9 @@ def build():
             S["hydrants"].append(tuple(sources.geo.to_local(lon, lat)))
     white, yellow = streets.markings(S)
     white, yellow = markings_override.apply(S, white, yellow)  # HOOK langA: measured Langstrasse markings (pipeline/markings_override.py)
-    rails = shapely.union_all([ln.offset_curve(o).buffer(0.035) for ln in S["tram"] for o in (-0.5, 0.5)])
-    # grooved rails: the dark flangeway groove on the inner side of each rail
-    grooves = shapely.union_all([ln.offset_curve(o).buffer(0.022) for ln in S["tram"] for o in (-0.44, 0.44)])
-    bed = shapely.union_all([ln.buffer(1.4, cap_style="flat") for ln in S["tram"]])
+    rails, grooves, bed = tram_track.geometry(S["tram"])  # rails, flangeways, bed (pipeline/tram_track.py)
+    S["roads"] = tram_track.merge_into_roads(S["roads"], S["plaza"], S["tram"])  # street-running track is carriageway: no kerb walls beside the rails
+    S["plaza"] = S["plaza"].difference(S["roads"])
     way_tree = STRtree([w["line"] for w in S["ways"] if w["hw"] != "service"])
     way_w = [w["w"] for w in S["ways"] if w["hw"] != "service"]
     main = shapely.union_all([w["line"] for w in S["ways"] if w["hw"] in streets.MAIN])
@@ -379,6 +376,7 @@ def build():
     # YARDS: shrub areas + private nDSM trees missing in the register (before tiles are built)
     yards.prepare(els, nodes, [(r[0], r[1]) for r in PG])
     yards.add_private_trees(C, [f for _, f in fps], AREA)
+    yards.drop_deck_trees(C, BR, H)  # no trees on / through bridge decks (pipeline/audit_trees_deck.py)
 
     def neighbour_fn(bid):
         def inside(x, y):
