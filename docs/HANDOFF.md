@@ -2,6 +2,18 @@
 
 Wird am Ende jedes Arbeitsschritts überschrieben. Eine neue Session liest das zuerst.
 
+## Stand 2026-10-19 früh (Build 12, Release 1 der Sondernacht) – zuerst lesen
+Sondernacht 18.10. 22:00 – 19.10. 16:00 (`docs/NIGHT_PLAN.md`). Build 12: `logs/build_full12.log`, 0 Fehler, 48 min; Weltdaten `logs/publish12.log`.
+**Neu (Commits 10cee4d … 6491887):**
+- Landmarks nach Fotos: **Schlachthof** (`pipeline/landmarks/schlachthof*.py`, Portale NW/SE verschieden, Uhr SE, Kamin, Restaurant), **Letzipark** neu aus swissBUILDINGS3D + «LETZ(Palme)»-Fassade, **Frau Gerolds Garten** (Container, Stände, Tor), **Letzigrund** 11 begehbare Tore, Quartiergarten Hard Tor geprüft. Abnahme: Schlachthof 4, Letzipark 4, FGG 3 (`preview/*_cmp3.jpg`, `fgg_cmp2.jpg`).
+- **Objekt-Katalog** (Nacht 0 vorgezogen): 21 Modelle (`pipeline/catalog/`, `web/public/models/catalog/`), Zuordnung `web/public/data/catalog.json` (185 Brunnen nach Material/Art, 714 Haltestellen-Objekte nach VBZ-Daten), Laufzeit `web/src/world/catalog.ts`, A/B mit `?nocatalog`. Doku `research/catalog/`.
+- **Fahren:** Phantom-Collider der 4076 Seilleuchten entfernt (Crashes/km 5.5 → 2.2), Schilder/Poller/Velobügel/Abfalleimer kippen beim Anfahren (`web/src/world/knockable.ts`, `research/driving_round3.md`).
+- **Strasse:** Tramschienen bündig im Asphalt, keine Randstein-Mäuerchen (`pipeline/tram_track.py`, `research/tram_tracks.md`, 22 km → 0 m erhöht); Fahrbahn-Drape 16 → 6 m (Buckel > 8 cm 50 → 17 in Testkacheln, `research/bumps.md`); Bäume unter/auf Decks gefiltert (`yards.drop_deck_trees`); Strassenbäume auf der Fahrbahn an die Kante geschoben (`cityprops.lane_fix`); Fussgängerstreifen aus SWISSIMAGE 0.25 m (234 → 962 im Build, `pipeline/markings_ortho25.py`, Cache `data/raw/ortho_025`); Baustellen nur, wenn am Build-Tag aktiv (`sites.py`).
+- **Namen:** Helvetiaplatz heisst im Spiel «Ni-Una-Menos-Platz» (Karte, Quartieranzeige, Orte; `pipeline/overrides/names.json`, `pipeline/names.py`); Haltestelle/Adressen/Amtshaus bleiben «Helvetiaplatz» (keine offizielle Umbenennung gefunden). Lochergut-Leuchtschrift über dem Coop.
+- Skyline-Vorhang-Lücken (T04) behoben, Fassaden Weststrasse 177/180 (T05).
+**QA Build 12:** tsc, gameplay, touch, drive, traffic_legal (0.02 %, Parkautos 0.17 %), move_quality, qa_spawn 26/26 (Port 5173 angeben!), qa_leak +25 MB PASS; perf Handy 57 fps, 273 Calls, 596k Tris, Laden 4.4 s. **Rot:** knock.mjs – 1 von 5 Pfosten (679,-708) crasht an hartem Objekt bei (683.5,-708.2), Ursache offen; crash.mjs touch «no corner inside a building» wackelt (bekannt). Sicht `preview/qa12_sheet.jpg`.
+**Offen (Tickets `research/qa_round/tickets.md`):** T10 Busse ausserhalb Spielgebiet (transit.py clippt auf bbox statt Polygon), T11 Kamera in Baustellen-Collider (-2053,696), T19–T23 (Zebra-Recall ~50 %, Weisslinien, Fahrbahn an breiten Knoten zu schmal, steile Unterführungsportale, Restbuckel), FGG: OSM-Hecke beim Eingang Geroldstrasse, Container ohne Details; Katalog: Fahnen/Kiosk ohne Fotobeleg, DFI-Abfahrtstext weg, Brunnen V3/V7/V8/V9 ohne Fotos; Tram-Rest 2 km Randstein neben Gleis (vermutlich echt, ungeprüft).
+
 ## Stand 2026-10-18 Abend (Build 11) – zuerst lesen
 Ziel weiterhin **Qualität und echtere Karte**. Arbeitsweise: max. ~4 Agents, Testkachel-Builds nur mit globalem Lock (`until mkdir logs/.tilebuild.lock …; rmdir …`), nie `pkill`, Komplett-Build allein (Mac 16 GB, 2× abgestürzt).
 
