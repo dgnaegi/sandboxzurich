@@ -8,7 +8,7 @@ Start 2026-10-18. Ziel: mehr Details, mehr Realismus, alles so nah an der echten
 - [x] **Sondernacht (So 18.10. 22:00 – Mo 19.10. 16:00, 18 h)** – User-Auftrag: Schlachthof, Letzipark, Frau Gerolds Garten nach Fotos; Bäume Hardbrücke; Markierungen/Bodenschwellen gegen SWISSIMAGE; Fahrverhalten + umfahrbare Schilder; Ni-Una-Menos-Platz; Übergabe-Punkte; Komplett-Build ~03:30 + Release 1; danach Objekt-Katalog (Nacht 0) im Tagesblock, Komplett-Build ~13:00 + Release 2. Cache-/Speicherfix wurde schon am 18.10. erledigt (Build 11).
 - [x] **Nacht 0 (So 18.10.)** – Grundlagen + Objekt-Katalog (Brunnen, Haltestellen, Möbel)
 - [x] **Nacht 1 (Mo 19.10.)** (in der Sondernacht vorgezogen, Teilziel: Notizen 248/495, Läden schwach) – Zone 4 Wiedikon
-- [ ] **Nacht 2 (Di 20.10.)** – Zone 2 Kreis 5 Industrie
+- [x] **Nacht 2 (Di 20.10.)** – Zone 2 Kreis 5 Industrie (am 19.10. tagsüber vorgezogen, ~70 %: Häuser/Plätze ja; Escher-Wyss/Hardbrücke-Häuser, Läden, Haltestellen offen)
 - [ ] **Nacht 3 (Mi 21.10.)** – Zone 1 HB und Langstrasse
 - [ ] **Nacht 4 (Do 22.10.)** – Zone 5 Kreis 9 West
 - [ ] **Nacht 5 (Fr 23.10.)** – Zone 3 Kreis 4 Mitte
@@ -178,4 +178,5 @@ Eine 8-h-Nacht überspannt zwei 5-h-Fenster. Die Nacht muss auch sauber enden, w
 
 ## Protokoll
 <!-- Eine Zeile pro Nacht: Datum – Nacht N – Ergebnis – Note vorher→nachher – offene Tickets – Textur-MB Handy -->
+- 2026-10-19 Tag – Zone 2 (~70 %), Fassaden v4, Spawn, HB-Dächer, Schlachthof R4, Linien, Zebras 403, Unterführungen; Builds 14+15, Releases 3+4 – Zone 2 nicht neu benotet – T21, Brücken-Mulden – perf Handy 58 fps
 - 2026-10-19 – Sondernacht + Nacht 0 + Nacht 1 (Zone 4) – Schlachthof/Letzipark/FGG/Letzigrund, Katalog (21 Modelle), Fahren, Tram, Zebras, Bodenfehler; Builds 12+13 – Baseline Ø 2.5 (Zone 4 nachher nicht neu benotet) – Tickets T19–T23, knock-Test – perf Handy 58 fps
