@@ -28,3 +28,7 @@ Städtischer Schlachthof, 1909, Kreis 4 Hard, direkt nordöstlich des Letzigrund
 - Tore: echte Öffnungen im Portal mit 0.8 m Laibung (Stein), Haupttor mit zwei Stahlflügeln und offener Mitte mit Blick in eine einfache Innenhalle (Boden, Wände, Säulen, Tonnen-Untersicht, helles Ende); Seitentore geschlossen (Holz am NW, Stahl am SE) (`schlachthof_gates.py`).
 - Restaurant: Dachhöhe über der Traufe x1.5 (Wände und Dachflächen konsistent), Gauben und Kamine passend; PV und Gründächer weiterhin nur Flächenfarbe.
 - Kamin: schlank, verjüngt (3.1 auf 1.8 m), Backsteintextur, Kopfkranz.
+
+
+## Bestätigung User 2026-10-19
+- Nordblöcke: Backstein (User vor Ort). Die bisher geschätzte Backstein-Sprache ist damit belegt.

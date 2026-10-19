@@ -6,6 +6,7 @@ Sources: OSM (ODbL) names, BFS GWR entrances (OGD), swissBUILDINGS3D footprints.
 - gwr_numbers(area, H, rows, S)     -> extra house-number rows for every GWR entrance without an OSM number
 - junction_poles(area, H, rows, S)  -> pole street signs at junctions the facade pass left without a sign
 """
+import shopfronts_v3
 import math
 from collections import defaultdict
 
@@ -127,17 +128,17 @@ def fallback(sg, tb, H, S):
         return any(a == n and math.hypot(x - ax, y - ay) < 45 for ax, ay, a in names)
 
     for p in S.get("pois", []):
-        if str(p["osm"]) in covered or not tb.contains(Point(p["x"], p["y"])) or dup(p["x"], p["y"], p["name"]):
+        if str(p["osm"]) in covered or shopfronts_v3.is_closed(p) or not tb.contains(Point(p["x"], p["y"])) or dup(p["x"], p["y"], p["name"]):
             continue
-        s = _wall_sign(d, (p["x"], p["y"]), p["name"], p["kind"], p["osm"], H, placed, 2.6, 4.5)
+        s = _wall_sign(d, (p["x"], p["y"]), shopfronts_v3.display_name(p), p["kind"], p["osm"], H, placed, 2.6, 4.5)
         if s:
             out.append(s)
             names.append((s["x"], s["y"], p["name"].lower()))
     for p in S.get("inst", []):
-        if str(p["osm"]) in covered or not tb.contains(Point(p["x"], p["y"])) or dup(p["x"], p["y"], p["name"]):
+        if str(p["osm"]) in covered or shopfronts_v3.is_closed(p) or not tb.contains(Point(p["x"], p["y"])) or dup(p["x"], p["y"], p["name"]):
             continue
         big = p["kind"] in INST_Z
-        s = _wall_sign(d, (p["x"], p["y"]), p["name"], p["kind"], p["osm"], H, placed, INST_Z.get(p["kind"], 2.8), 7.0 if big else 4.5, r=3.0)
+        s = _wall_sign(d, (p["x"], p["y"]), shopfronts_v3.display_name(p), p["kind"], p["osm"], H, placed, INST_Z.get(p["kind"], 2.8), 7.0 if big else 4.5, r=3.0)
         if s:
             out.append(s)
             names.append((s["x"], s["y"], p["name"].lower()))

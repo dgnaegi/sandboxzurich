@@ -154,15 +154,15 @@
 },
 {
 "id": "a19",
-"title": "Tram 8 und Bus 32 am Helvetiaplatz",
-"text": "Nächster Halt: Helvetiaplatz. Wer kann, steigt hier für den Flohmarkt aus.",
+"title": "Tram 8 und Bus 32 am Ni-Una-Menos-Platz",
+"text": "Nächster Halt: Ni-Una-Menos-Platz. Wer kann, steigt hier für den Flohmarkt aus.",
 "x": 743,
 "y": -888,
 "r": 12
 },
 {
 "id": "a20",
-"title": "Helvetiaplatz-Wochenmarkt (Dienstag und Freitag)",
+"title": "Ni-Una-Menos-Platz-Wochenmarkt (Dienstag und Freitag)",
 "text": "Dienstag und Freitag: Der Platz riecht nach Zwiebeln.",
 "x": 783,
 "y": -883,
@@ -202,7 +202,7 @@
 },
 {
 "id": "a25",
-"title": "Piazza-Cella-Dissonanz: Helvetiaplatz gegen Langstrasse",
+"title": "Piazza-Cella-Dissonanz: Ni-Una-Menos-Platz gegen Langstrasse",
 "text": "Stauffacher: Hier trennen sich Tram, Demo und Feierabend.",
 "x": 1007,
 "y": -1159,
@@ -3589,7 +3589,7 @@
 {
 "id": "s363",
 "kind": "street",
-"title": "Helvetiaplatz",
+"title": "Ni-Una-Menos-Platz",
 "text": "Die Helvetia ist eine nationalallegorische Figur, welche die Schweiz und ihre Eigenschaften verkörpern soll. Die Figur taucht erstmals im 17. Jahrhundert auf und leitet sich vom Namen des im schweizerischen Mittelland lebenden …",
 "x": 812.6,
 "y": -902.0,
