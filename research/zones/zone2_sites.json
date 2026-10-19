@@ -1,0 +1,90 @@
+[
+ {
+  "id": "z2_escher_wyss",
+  "name": "Escher-Wyss-Platz (Haltestelle + Bruecke)",
+  "kind": "place",
+  "lat": 47.390306,
+  "lon": 8.522693,
+  "radius": 70
+ },
+ {
+  "id": "z2_hardbruecke_bhf",
+  "name": "Bahnhof Hardbruecke Perron",
+  "kind": "place",
+  "lat": 47.385097,
+  "lon": 8.517024,
+  "radius": 60
+ },
+ {
+  "id": "z2_turbinenplatz",
+  "name": "Turbinenplatz",
+  "kind": "place",
+  "lat": 47.389804,
+  "lon": 8.516709,
+  "radius": 70
+ },
+ {
+  "id": "z2_josefwiese",
+  "name": "Josefwiese",
+  "kind": "place",
+  "lat": 47.385721,
+  "lon": 8.523368,
+  "radius": 70
+ },
+ {
+  "id": "z2_viadukt",
+  "name": "Viadukt (Markthalle)",
+  "kind": "place",
+  "lat": 47.387603,
+  "lon": 8.526029,
+  "radius": 70
+ },
+ {
+  "id": "z2_limmatplatz",
+  "name": "Limmatplatz (Migros, Tramschlaufe)",
+  "kind": "place",
+  "lat": 47.384627,
+  "lon": 8.531623,
+  "radius": 70
+ },
+ {
+  "id": "z2_roentgenplatz",
+  "name": "Roentgenplatz",
+  "kind": "place",
+  "lat": 47.385141,
+  "lon": 8.526707,
+  "radius": 70
+ },
+ {
+  "id": "z2_konradstrasse",
+  "name": "Limmatstrasse/Konradstrasse",
+  "kind": "place",
+  "lat": 47.381883,
+  "lon": 8.53362,
+  "radius": 60
+ },
+ {
+  "id": "z2_fabrikstrasse",
+  "name": "Fabrikstrasse",
+  "kind": "place",
+  "lat": 47.384788,
+  "lon": 8.526051,
+  "radius": 60
+ },
+ {
+  "id": "z2_limmatufer",
+  "name": "Limmatufer",
+  "kind": "place",
+  "lat": 47.386195,
+  "lon": 8.533232,
+  "radius": 70
+ },
+ {
+  "id": "z2_sihlquai",
+  "name": "Sihlquai",
+  "kind": "place",
+  "lat": 47.383081,
+  "lon": 8.537141,
+  "radius": 60
+ }
+]

@@ -1,0 +1,152 @@
+{
+ "landmarks": [
+  {
+   "name": "Bertastrasse 1 Eckhaus mit Erkern",
+   "model": "/models/landmarks/z4_berta1.glb",
+   "x": 3.1,
+   "y": -971.4,
+   "z": 1.56,
+   "heading": 0,
+   "hide": [
+    [
+     2.2,
+     -970.7
+    ],
+    [
+     9.4,
+     -964.2
+    ]
+   ]
+  },
+  {
+   "name": "Zurlindenstrasse 21 stuckverziert",
+   "model": "/models/landmarks/z4_zurl21.glb",
+   "x": 435.3,
+   "y": -1766.2,
+   "z": 3.13,
+   "heading": 0,
+   "hide": [
+    [
+     432.1,
+     -1774.6
+    ],
+    [
+     435.4,
+     -1766.3
+    ]
+   ]
+  },
+  {
+   "name": "Zurlindenstrasse 29 Backsteinhaus",
+   "model": "/models/landmarks/z4_zurl29.glb",
+   "x": 420.7,
+   "y": -1744.3,
+   "z": 2.96,
+   "heading": 0,
+   "hide": [
+    [
+     421.1,
+     -1744.1
+    ]
+   ]
+  },
+  {
+   "name": "Zentralstrasse 78 ockerfarbenes Eckhaus",
+   "model": "/models/landmarks/z4_zent78.glb",
+   "x": 101.7,
+   "y": -1186.2,
+   "z": 2.58,
+   "heading": 0,
+   "hide": [
+    [
+     99.2,
+     -1185.8
+    ],
+    [
+     106.4,
+     -1181.2
+    ]
+   ]
+  },
+  {
+   "name": "Idastrasse 15 lachsfarbenes Eckhaus",
+   "model": "/models/landmarks/z4_ida15.glb",
+   "x": -70.5,
+   "y": -1274.7,
+   "z": 4.07,
+   "heading": 0,
+   "hide": [
+    [
+     -68.9,
+     -1274.4
+    ],
+    [
+     -76.5,
+     -1271.7
+    ],
+    [
+     -74.9,
+     -1269.3
+    ],
+    [
+     -70.1,
+     -1270.8
+    ],
+    [
+     -65.9,
+     -1278.8
+    ]
+   ]
+  },
+  {
+   "name": "Birmensdorferstrasse 299",
+   "model": "/models/landmarks/z4_birm299.glb",
+   "x": -485.3,
+   "y": -1608.1,
+   "z": 12.41,
+   "heading": 0,
+   "hide": [
+    [
+     -485.3,
+     -1608.0
+    ]
+   ]
+  },
+  {
+   "name": "Birmensdorferstrasse 301 blaue Laeden",
+   "model": "/models/landmarks/z4_birm301.glb",
+   "x": -500.7,
+   "y": -1610.1,
+   "z": 12.55,
+   "heading": 0,
+   "hide": [
+    [
+     -500.7,
+     -1610.1
+    ]
+   ]
+  },
+  {
+   "name": "Birmensdorferstrasse 303 orange Putz",
+   "model": "/models/landmarks/z4_birm303.glb",
+   "x": -516.4,
+   "y": -1613.4,
+   "z": 11.66,
+   "heading": 0,
+   "hide": [
+    [
+     -518.9,
+     -1619.6
+    ],
+    [
+     -516.6,
+     -1613.1
+    ],
+    [
+     -512.0,
+     -1618.3
+    ]
+   ]
+  }
+ ]
+}

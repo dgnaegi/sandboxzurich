@@ -1,0 +1,170 @@
+{
+ "ref_z2_gaps_1": [
+  {
+   "site": "z2_escher_wyss",
+   "file": "data/raw/photos/z2/z2_escher_wyss/ml_1529547778379929.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=1529547778379929"
+  },
+  {
+   "site": "z2_hardbruecke_bhf",
+   "file": "data/raw/photos/z2/z2_hardbruecke_bhf/ml_437419126105877.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=437419126105877"
+  },
+  {
+   "site": "z2_escher_wyss",
+   "file": "data/raw/photos/z2/z2_escher_wyss/ml_473477957090678.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=473477957090678"
+  },
+  {
+   "site": "z2_hardbruecke_bhf",
+   "file": "data/raw/photos/z2/z2_hardbruecke_bhf/ml_167504375275071.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=167504375275071"
+  },
+  {
+   "site": "z2_escher_wyss",
+   "file": "data/raw/photos/z2/z2_escher_wyss/ml_4232307500375999.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=4232307500375999"
+  },
+  {
+   "site": "z2_hardbruecke_bhf",
+   "file": "data/raw/photos/z2/z2_hardbruecke_bhf/ml_230066256795485.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=230066256795485"
+  },
+  {
+   "site": "z2_escher_wyss",
+   "file": "data/raw/photos/z2/z2_escher_wyss/ml_3085279975102238.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=3085279975102238"
+  },
+  {
+   "site": "z2_hardbruecke_bhf",
+   "file": "data/raw/photos/z2/z2_hardbruecke_bhf/ml_4117882081767432.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=4117882081767432"
+  }
+ ],
+ "ref_z2_gaps_2": [
+  {
+   "site": "z2_turbinenplatz",
+   "file": "data/raw/photos/z2/z2_turbinenplatz/ml_528360644825198.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=528360644825198"
+  },
+  {
+   "site": "z2_josefwiese",
+   "file": "data/raw/photos/z2/z2_josefwiese/ml_508702463479534.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=508702463479534"
+  },
+  {
+   "site": "z2_viadukt",
+   "file": "data/raw/photos/z2/z2_viadukt/ml_506260607222226.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=506260607222226"
+  },
+  {
+   "site": "z2_turbinenplatz",
+   "file": "data/raw/photos/z2/z2_turbinenplatz/ml_724684322313032.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=724684322313032"
+  },
+  {
+   "site": "z2_josefwiese",
+   "file": "data/raw/photos/z2/z2_josefwiese/ml_1055319798323957.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=1055319798323957"
+  },
+  {
+   "site": "z2_viadukt",
+   "file": "data/raw/photos/z2/z2_viadukt/ml_971667983232839.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=971667983232839"
+  },
+  {
+   "site": "z2_turbinenplatz",
+   "file": "data/raw/photos/z2/z2_turbinenplatz/ml_587497079310381.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=587497079310381"
+  },
+  {
+   "site": "z2_josefwiese",
+   "file": "data/raw/photos/z2/z2_josefwiese/ml_292006669086462.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=292006669086462"
+  }
+ ],
+ "ref_z2_gaps_3": [
+  {
+   "site": "z2_limmatplatz",
+   "file": "data/raw/photos/z2/z2_limmatplatz/ml_3246064075697770.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=3246064075697770"
+  },
+  {
+   "site": "z2_roentgenplatz",
+   "file": "data/raw/photos/z2/z2_roentgenplatz/ml_2919630624980999.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=2919630624980999"
+  },
+  {
+   "site": "z2_fabrikstrasse",
+   "file": "data/raw/photos/z2/z2_fabrikstrasse/ml_213852176919062.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=213852176919062"
+  },
+  {
+   "site": "z2_limmatplatz",
+   "file": "data/raw/photos/z2/z2_limmatplatz/ml_939680194427378.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=939680194427378"
+  },
+  {
+   "site": "z2_roentgenplatz",
+   "file": "data/raw/photos/z2/z2_roentgenplatz/ml_138130531565860.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=138130531565860"
+  },
+  {
+   "site": "z2_fabrikstrasse",
+   "file": "data/raw/photos/z2/z2_fabrikstrasse/cm_Neugasse_im_Kreis_5_panoramio_jpg.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Neugasse_im_Kreis_5_-_panoramio.jpg"
+  },
+  {
+   "site": "z2_limmatplatz",
+   "file": "data/raw/photos/z2/z2_limmatplatz/ml_4014066838903432.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=4014066838903432"
+  },
+  {
+   "site": "z2_roentgenplatz",
+   "file": "data/raw/photos/z2/z2_roentgenplatz/ml_462899748325743.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=462899748325743"
+  }
+ ],
+ "ref_z2_gaps_4": [
+  {
+   "site": "z2_konradstrasse",
+   "file": "data/raw/photos/z2/z2_konradstrasse/ml_276107210823888.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=276107210823888"
+  },
+  {
+   "site": "z2_limmatufer",
+   "file": "data/raw/photos/z2/z2_limmatufer/ml_1615125485909446.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=1615125485909446"
+  },
+  {
+   "site": "z2_sihlquai",
+   "file": "data/raw/photos/z2/z2_sihlquai/ml_761147372637310.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=761147372637310"
+  },
+  {
+   "site": "z2_konradstrasse",
+   "file": "data/raw/photos/z2/z2_konradstrasse/ml_1173465356417107.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=1173465356417107"
+  },
+  {
+   "site": "z2_limmatufer",
+   "file": "data/raw/photos/z2/z2_limmatufer/ml_779046050393197.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=779046050393197"
+  },
+  {
+   "site": "z2_sihlquai",
+   "file": "data/raw/photos/z2/z2_sihlquai/ml_183636196840348.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=183636196840348"
+  },
+  {
+   "site": "z2_konradstrasse",
+   "file": "data/raw/photos/z2/z2_konradstrasse/ml_299536188333057.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=299536188333057"
+  },
+  {
+   "site": "z2_limmatufer",
+   "file": "data/raw/photos/z2/z2_limmatufer/ml_1172615374175292.jpg",
+   "url": "https://www.mapillary.com/app/?pKey=1172615374175292"
+  }
+ ]
+}

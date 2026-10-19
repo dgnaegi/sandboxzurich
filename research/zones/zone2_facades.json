@@ -1,0 +1,2743 @@
+{
+ "_meta": "Zone 2 Kreis 5 Industrie, Auszug aus research/buildings/visual_notes_v3.json (gleiches Format). Lage aus OSM-Adressen (part_buildings_r.json) im Zonen-Polygon. Felder unverändert übernommen.",
+ "entries": {
+  "Ausstellungsstrasse 81": {
+   "hex": "#d9cba0",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "stil": "gruenderzeit",
+   "notiz": "sandgelb, grüne Läden",
+   "quelle": "mapillary:246604255109889",
+   "xy": [
+    1329.7,
+    -60.2
+   ]
+  },
+  "Ausstellungsstrasse 88": {
+   "hex": "#a05040",
+   "material": "klinker",
+   "fenster": "hoch",
+   "stil": "neubau",
+   "notiz": "Backstein, Rolltore EG",
+   "quelle": "mapillary:3661522924105882",
+   "xy": [
+    1337.6,
+    -2.8
+   ]
+  },
+  "Gasometerstrasse 36": {
+   "hex": "#dcd0b0",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "notiz": "cremebeige",
+   "quelle": "panoramax:dd91a476-0ea0-425a-b267-f92a8ba031d0",
+   "xy": [
+    993.3,
+    70.2
+   ]
+  },
+  "Gasometerstrasse 5": {
+   "hex": "#aec0d4",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "helles Blau, Balkone",
+   "quelle": "panoramax:4f6d4c6a-db1f-449c-893d-55924df280bc",
+   "xy": [
+    883.5,
+    -32.6
+   ]
+  },
+  "Gasometerstrasse 7": {
+   "hex": "#e0dcb8",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "blassgelb, Balkone",
+   "quelle": "panoramax:f28d8815-3d4d-4333-9cd6-d001f3b7b18d",
+   "xy": [
+    889.4,
+    -20.5
+   ]
+  },
+  "Hardplatz 5": {
+   "hex": "#c97452",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "rot",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "geschosse": 5,
+   "details": [
+    "balkon",
+    "rustika"
+   ],
+   "notiz": "ziegelrot-orange Putz, dunkelrote Läden, Balkone, grauer Sockel",
+   "quelle": "panoramax:1f88ef10-0473-4b56-add3-f2a8c9cbf022",
+   "xy": [
+    -118.0,
+    -234.0
+   ]
+  },
+  "Hardplatz 6": {
+   "hex": "#c87250",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "rot",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "geschosse": 5,
+   "details": [
+    "balkon",
+    "rustika"
+   ],
+   "notiz": "ziegelrot-orange Putz, rotbraune Läden, grauer Naturstein-Sockel, Eingangsportal",
+   "quelle": "panoramax:60c4f86a-7b29-43c6-8036-76e778e6a055",
+   "xy": [
+    -135.5,
+    -221.4
+   ]
+  },
+  "Hardplatz 7": {
+   "hex": "#c97452",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "rot",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "geschosse": 5,
+   "details": [
+    "balkon",
+    "rustika"
+   ],
+   "notiz": "ziegelrot-orange Putz, dunkelrote Läden, Balkone, Natursteinportal",
+   "quelle": "panoramax:a41aab78-b42a-4be2-bf1a-e8cf2b960389",
+   "xy": [
+    -150.5,
+    -213.6
+   ]
+  },
+  "Hardplatz 9": {
+   "hex": "#d8d9d6",
+   "material": "putz",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrauer Eckbau, abgerundete Balkone",
+   "quelle": "panoramax:d7e1ae5f-d2e5-4934-a91c-d92515a252dd",
+   "xy": [
+    -191.7,
+    -189.7
+   ]
+  },
+  "Hardstrasse 234": {
+   "hex": "#d9d6a8",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "rustika"
+   ],
+   "notiz": "blassgelb, dunkelgrüne Läden, Eckhaus",
+   "quelle": "panoramax:1e7b0305-6237-45b5-8b18-3e6c258211fe",
+   "xy": [
+    216.3,
+    359.7
+   ]
+  },
+  "Hardstrasse 235": {
+   "hex": "#d8d8d4",
+   "material": "beton",
+   "fenster": "band",
+   "dach": "flach",
+   "stil": "60er",
+   "notiz": "graue Bänder",
+   "quelle": "mapillary:913493233844329",
+   "xy": [
+    170.4,
+    397.5
+   ]
+  },
+  "Hardstrasse 238": {
+   "hex": "#d8c07c",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "grau",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "ocker",
+   "quelle": "mapillary:970304087851855",
+   "xy": [
+    226.8,
+    376.1
+   ]
+  },
+  "Hardstrasse 305": {
+   "hex": "#c8b070",
+   "material": "klinker",
+   "fenster": "hoch",
+   "stil": "50er",
+   "notiz": "gelber Backstein",
+   "quelle": "mapillary:975302936511291",
+   "xy": [
+    333.0,
+    638.5
+   ]
+  },
+  "Hardstrasse 310": {
+   "hex": "#b86a48",
+   "material": "klinker",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon",
+    "gauben"
+   ],
+   "notiz": "orange-roter Backstein mit gelben Bändern",
+   "quelle": "mapillary:776587411243502",
+   "xy": [
+    394.4,
+    630.7
+   ]
+  },
+  "Hardstrasse 318": {
+   "hex": "#d8975f",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 6,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "ockerorange, Eisenbalkone",
+   "quelle": "panoramax:3e556a96-d50b-49f9-8d9d-4ec8b81dcff8",
+   "xy": [
+    426.6,
+    674.5
+   ]
+  },
+  "Hardstrasse 319": {
+   "hex": "#d8cca8",
+   "material": "beton",
+   "fenster": "band",
+   "dach": "flach",
+   "stil": "50er",
+   "notiz": "Büro 50er",
+   "quelle": "mapillary:383411244460182",
+   "xy": [
+    350.3,
+    720.0
+   ]
+  },
+  "Hardstrasse 93": {
+   "hex": "#a9a8a2",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "stil": "heimatstil",
+   "notiz": "grau, dunkelgrüne Läden",
+   "quelle": "mapillary:633461895727235",
+   "xy": [
+    -222.7,
+    -240.6
+   ]
+  },
+  "Hardstrasse 95": {
+   "hex": "#a9a8a2",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "stil": "heimatstil",
+   "notiz": "grau, dunkelgrüne Läden",
+   "quelle": "mapillary:1153478532968990",
+   "xy": [
+    -211.9,
+    -226.9
+   ]
+  },
+  "Hardstrasse 97": {
+   "hex": "#a9a8a2",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "stil": "heimatstil",
+   "notiz": "grau, dunkelgrüne Läden",
+   "quelle": "mapillary:1610735213136342",
+   "xy": [
+    -203.5,
+    -208.6
+   ]
+  },
+  "Hardstrasse 99": {
+   "hex": "#a9a8a2",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "stil": "heimatstil",
+   "details": [
+    "gauben"
+   ],
+   "notiz": "grau, dunkelgrüne Läden, Gauben",
+   "quelle": "mapillary:1007858734575560",
+   "xy": [
+    -196.3,
+    -199.5
+   ]
+  },
+  "Hardturmstrasse 12": {
+   "hex": "#e0d0a0",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "dach": "walm",
+   "stil": "gruenderzeit",
+   "notiz": "gelb, grüne Läden",
+   "quelle": "mapillary:308133190927584",
+   "xy": [
+    337.0,
+    800.4
+   ]
+  },
+  "Hardturmstrasse 3": {
+   "hex": "#7aa8a8",
+   "material": "glas",
+   "fenster": "glas",
+   "dach": "flach",
+   "stil": "buero",
+   "notiz": "Glasturm",
+   "quelle": "mapillary:2195121507498113",
+   "xy": [
+    302.7,
+    755.1
+   ]
+  },
+  "Hardturmstrasse 66": {
+   "hex": "#bfbcb2",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gewerbe",
+   "notiz": "Gewerbebau",
+   "quelle": "mapillary:309579087217524",
+   "xy": [
+    150.9,
+    887.5
+   ]
+  },
+  "Hardturmstrasse 68": {
+   "hex": "#b4aa98",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gewerbe",
+   "notiz": "alter Gewerbebau",
+   "quelle": "mapillary:484505056101161",
+   "xy": [
+    126.5,
+    889.3
+   ]
+  },
+  "Hardturmstrasse 76": {
+   "hex": "#8d9ba8",
+   "material": "glas",
+   "fenster": "glas",
+   "dach": "flach",
+   "stil": "buero",
+   "notiz": "Glasfassade verspiegelt",
+   "xy": [
+    73.0,
+    913.9
+   ]
+  },
+  "Heinrichstrasse 106": {
+   "hex": "#d4cfc0",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "EG lavendelgrau",
+   "xy": [
+    939.8,
+    173.9
+   ]
+  },
+  "Heinrichstrasse 108": {
+   "hex": "#d9d4c6",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "xy": [
+    930.2,
+    182.3
+   ]
+  },
+  "Heinrichstrasse 109": {
+   "hex": "#6c7a6e",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "notiz": "dunkelgrün-grau, Gewerbe",
+   "quelle": "panoramax:f824ae5a-cdbc-412b-9321-aab1f47f658a",
+   "xy": [
+    903.2,
+    173.3
+   ]
+  },
+  "Heinrichstrasse 112": {
+   "hex": "#cdd8d0",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "grau",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "EG grau",
+   "quelle": "panoramax:56f5f02e-15e5-4b93-9498-089094a655ad",
+   "xy": [
+    913.1,
+    200.9
+   ]
+  },
+  "Heinrichstrasse 114": {
+   "hex": "#ece9e2",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "neubau",
+   "notiz": "80er Jahre",
+   "xy": [
+    896.4,
+    226.0
+   ]
+  },
+  "Heinrichstrasse 120": {
+   "hex": "#b0604f",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "quelle": "panoramax:f5cf8877-5852-42ba-acd5-f62149bf61b2",
+   "xy": [
+    873.2,
+    242.6
+   ]
+  },
+  "Heinrichstrasse 122": {
+   "hex": "#d9a560",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon",
+    "rustika"
+   ],
+   "notiz": "EG graue Rustika",
+   "quelle": "panoramax:8caee718-3797-42b9-9ad3-5e7aa118f5ad",
+   "xy": [
+    863.8,
+    253.5
+   ]
+  },
+  "Heinrichstrasse 123": {
+   "hex": "#a8483c",
+   "material": "klinker",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "stil": "heimatstil",
+   "notiz": "Backstein rot",
+   "xy": [
+    853.5,
+    230.1
+   ]
+  },
+  "Heinrichstrasse 147": {
+   "hex": "#cfcfcb",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "heimatstil",
+   "notiz": "Sockel dunkelgrau",
+   "xy": [
+    716.2,
+    327.0
+   ]
+  },
+  "Heinrichstrasse 32": {
+   "hex": "#e8e6df",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "blau",
+   "stil": "gruenderzeit",
+   "quelle": "panoramax:cfc264aa-ffc0-4b1a-9b9f-fecdaaa9f53e",
+   "xy": [
+    1185.0,
+    -100.1
+   ]
+  },
+  "Heinrichstrasse 37": {
+   "hex": "#c9b36e",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "xy": [
+    1152.0,
+    -96.3
+   ]
+  },
+  "Heinrichstrasse 38": {
+   "hex": "#eeece6",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "grau",
+   "stil": "gruenderzeit",
+   "xy": [
+    1168.5,
+    -80.6
+   ]
+  },
+  "Heinrichstrasse 40": {
+   "hex": "#d0d6e0",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "rot",
+   "stil": "gruenderzeit",
+   "notiz": "rote Läden",
+   "xy": [
+    1158.6,
+    -71.2
+   ]
+  },
+  "Heinrichstrasse 41": {
+   "hex": "#d9d9c4",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "dach": "sattel",
+   "stil": "gruenderzeit",
+   "quelle": "panoramax:e5624955-3c6a-47b8-a225-97644ca9896a",
+   "xy": [
+    1142.5,
+    -84.6
+   ]
+  },
+  "Heinrichstrasse 50": {
+   "hex": "#d8c660",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "blau",
+   "stil": "gruenderzeit",
+   "notiz": "gelb mit blauen Läden",
+   "xy": [
+    1123.6,
+    -34.0
+   ]
+  },
+  "Heinrichstrasse 53": {
+   "hex": "#c0614a",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "grau",
+   "stil": "gruenderzeit",
+   "xy": [
+    1101.7,
+    -42.6
+   ]
+  },
+  "Heinrichstrasse 54": {
+   "hex": "#e3d6bb",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "braun",
+   "stil": "gruenderzeit",
+   "xy": [
+    1110.9,
+    -19.6
+   ]
+  },
+  "Heinrichstrasse 65": {
+   "hex": "#d6c8a8",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "mansard",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "beige Eckhaus",
+   "quelle": "panoramax:ad8b1615-b091-49f6-b653-b8c828a393c5",
+   "xy": [
+    1055.5,
+    3.7
+   ]
+  },
+  "Heinrichstrasse 68": {
+   "hex": "#efe6b8",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "xy": [
+    1069.4,
+    24.2
+   ]
+  },
+  "Heinrichstrasse 71": {
+   "hex": "#ddd9cc",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "xy": [
+    1047.7,
+    11.9
+   ]
+  },
+  "Heinrichstrasse 75": {
+   "hex": "#d6cdb8",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "gesims"
+   ],
+   "notiz": "oben Backsteinfelder orange",
+   "xy": [
+    1014.7,
+    48.1
+   ]
+  },
+  "Heinrichstrasse 77": {
+   "hex": "#d85a40",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "notiz": "rot gestrichen, EG hell",
+   "xy": [
+    1008.7,
+    55.9
+   ]
+  },
+  "Heinrichstrasse 78": {
+   "hex": "#dcc864",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "xy": [
+    1023.8,
+    83.0
+   ]
+  },
+  "Heinrichstrasse 79": {
+   "hex": "#cdb9a0",
+   "material": "beton",
+   "fenster": "hoch",
+   "stil": "neubau",
+   "notiz": "Neubau 2019",
+   "xy": [
+    1001.5,
+    62.0
+   ]
+  },
+  "Heinrichstrasse 83": {
+   "hex": "#ece8e0",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "quelle": "panoramax:b77c2b0d-e7a4-4dd3-964f-1bb5bbc8fca4",
+   "xy": [
+    970.1,
+    95.0
+   ]
+  },
+  "Heinrichstrasse 85": {
+   "hex": "#e6dccb",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "notiz": "EG Läden",
+   "xy": [
+    964.7,
+    105.1
+   ]
+  },
+  "Heinrichstrasse 86": {
+   "hex": "#e2c040",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "braun",
+   "stil": "gruenderzeit",
+   "notiz": "kräftig gelb",
+   "xy": [
+    978.9,
+    134.7
+   ]
+  },
+  "Heinrichstrasse 87": {
+   "hex": "#dcc097",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "xy": [
+    954.8,
+    115.5
+   ]
+  },
+  "Heinrichstrasse 97": {
+   "hex": "#ece6d2",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "xy": [
+    921.2,
+    156.6
+   ]
+  },
+  "Heinrichstrasse 99": {
+   "hex": "#a8483a",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "rotbraun",
+   "xy": [
+    912.8,
+    163.1
+   ]
+  },
+  "Hirzelstrasse 2": {
+   "hex": "#d98058",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "rot",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "geschosse": 4,
+   "notiz": "terrakotta-orange Putz, rotbraune Läden, lange Zeile",
+   "quelle": "panoramax:49d2c6da-a538-4a30-8c02-3075bb394d0b",
+   "xy": [
+    -124.6,
+    -269.1
+   ]
+  },
+  "Hohlstrasse 204": {
+   "hex": "#bcc3cc",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 4,
+   "notiz": "helles Graublau, schlicht",
+   "quelle": "mapillary:3002991333214789",
+   "xy": [
+    31.9,
+    -253.8
+   ]
+  },
+  "Hohlstrasse 207": {
+   "hex": "#b4bac2",
+   "material": "putz",
+   "fenster": "hoch",
+   "dach": "flach",
+   "stil": "neubau",
+   "notiz": "Neubau 2017, graublau, hohe Fensterachsen, EG Gewerbe mit Passage",
+   "quelle": "mapillary:1590629534810379",
+   "xy": [
+    10.2,
+    -292.4
+   ]
+  },
+  "Hohlstrasse 211": {
+   "hex": "#b0b5c0",
+   "material": "putz",
+   "fenster": "hoch",
+   "dach": "flach",
+   "stil": "neubau",
+   "notiz": "Neubau 2017, graublau, hohe Fensterachsen, EG Gewerbe",
+   "xy": [
+    0.4,
+    -280.1
+   ]
+  },
+  "Hohlstrasse 215": {
+   "hex": "#d3d6d9",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "notiz": "hellgrau-weisser Putz, dunkelgruene Läden, Rundbogenfenster im Obergeschoss, Tramhaltestelle davor",
+   "xy": [
+    -29.8,
+    -258.8
+   ]
+  },
+  "Hohlstrasse 216": {
+   "hex": "#a9b6ae",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "details": [
+    "erker",
+    "verdachung"
+   ],
+   "notiz": "graugruen verputzt, weisse Fenstereinfassungen mit Verdachung, Eckerker/Balkon, EG Laden grau",
+   "quelle": "mapillary:1270754634529703",
+   "xy": [
+    -0.7,
+    -229.8
+   ]
+  },
+  "Hohlstrasse 217": {
+   "hex": "#d3d6d9",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "notiz": "hellgrau-weisser Putz, dunkelgruene Läden, Rundbogenfenster im Obergeschoss",
+   "quelle": "mapillary:704378771280709",
+   "xy": [
+    -41.5,
+    -250.3
+   ]
+  },
+  "Hohlstrasse 219": {
+   "hex": "#d6895f",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "terrakottaorange, Eisenbalkone, Rundbogenfenster oben",
+   "quelle": "mapillary:994656994866151",
+   "xy": [
+    -55.8,
+    -242.7
+   ]
+  },
+  "Hohlstrasse 221": {
+   "hex": "#e6e4df",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "weiss, rotbraune Balkonbrüstungen",
+   "quelle": "mapillary:371211165378261",
+   "xy": [
+    -65.4,
+    -233.3
+   ]
+  },
+  "Hohlstrasse 271": {
+   "hex": "#cf8062",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "braun",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "terrakotta, braune Läden, Balkone, Markisen",
+   "quelle": "mapillary:900968860453773",
+   "xy": [
+    -237.9,
+    -129.8
+   ]
+  },
+  "Josefstrasse 102": {
+   "hex": "#e5c79b",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "flach",
+   "stil": "gruenderzeit",
+   "geschosse": 4,
+   "details": [
+    "balkon",
+    "erker"
+   ],
+   "notiz": "ocker Eckhaus, dunkelgrauer EG-Streifen, Wanduhr (MeiXin)",
+   "quelle": "mapillary:2624858057862523",
+   "xy": [
+    1036.1,
+    -52.9
+   ]
+  },
+  "Josefstrasse 112": {
+   "hex": "#d8bb62",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "rustika",
+    "balkon"
+   ],
+   "notiz": "Eckhaus gelb, EG grauer Stein",
+   "xy": [
+    1003.9,
+    -26.4
+   ]
+  },
+  "Josefstrasse 144": {
+   "hex": "#a8a9a8",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "erker"
+   ],
+   "notiz": "graues Eckhaus mit Erker",
+   "xy": [
+    858.6,
+    72.9
+   ]
+  },
+  "Josefstrasse 146": {
+   "hex": "#b5a58a",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "quelle": "panoramax:ad27dd52-578c-431e-9e5e-69603eae62fa",
+   "xy": [
+    833.3,
+    90.5
+   ]
+  },
+  "Josefstrasse 156": {
+   "hex": "#b0a088",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "stil": "gruenderzeit",
+   "notiz": "grüne Läden",
+   "xy": [
+    825.4,
+    96.5
+   ]
+  },
+  "Josefstrasse 160": {
+   "hex": "#be8a5f",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "ockerbraun verputzt, Balkon",
+   "quelle": "panoramax:7491b761-d3e9-463b-9da3-7857b6f5b03e",
+   "xy": [
+    809.8,
+    104.3
+   ]
+  },
+  "Josefstrasse 162": {
+   "hex": "#b4604c",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "blau",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "rotbraun, blaue Läden",
+   "xy": [
+    802.3,
+    111.7
+   ]
+  },
+  "Josefstrasse 164": {
+   "hex": "#b0584c",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "blau",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "rotbraun, blaue Läden, Torbogen",
+   "xy": [
+    790.2,
+    118.2
+   ]
+  },
+  "Josefstrasse 170": {
+   "hex": "#b3604f",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "stil": "heimatstil",
+   "notiz": "rotbraun",
+   "xy": [
+    731.1,
+    164.8
+   ]
+  },
+  "Josefstrasse 174": {
+   "hex": "#d8a89a",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "rustika"
+   ],
+   "notiz": "rosa, EG graue Rustika",
+   "xy": [
+    700.5,
+    179.3
+   ]
+  },
+  "Josefstrasse 176": {
+   "hex": "#b8985a",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "rustika"
+   ],
+   "notiz": "ocker, EG dunkler Stein",
+   "xy": [
+    688.8,
+    185.1
+   ]
+  },
+  "Josefstrasse 178": {
+   "hex": "#b5a58a",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "rustika",
+    "balkon"
+   ],
+   "xy": [
+    676.8,
+    193.2
+   ]
+  },
+  "Josefstrasse 182": {
+   "hex": "#c8a05c",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "rustika"
+   ],
+   "notiz": "EG hellgrau Rustika",
+   "quelle": "panoramax:07b3c56c-9fea-4050-901c-f9a92a3bb105",
+   "xy": [
+    665.9,
+    200.8
+   ]
+  },
+  "Josefstrasse 184": {
+   "hex": "#e5ddc6",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "xy": [
+    655.4,
+    209.5
+   ]
+  },
+  "Josefstrasse 32": {
+   "hex": "#4a4c4a",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "notiz": "dunkelgrau gestrichen",
+   "xy": [
+    1285.7,
+    -296.9
+   ]
+  },
+  "Josefstrasse 36": {
+   "hex": "#b0a684",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "braun",
+   "stil": "gruenderzeit",
+   "xy": [
+    1277.0,
+    -285.0
+   ]
+  },
+  "Josefstrasse 40": {
+   "hex": "#ebdcb0",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "xy": [
+    1261.8,
+    -275.8
+   ]
+  },
+  "Josefstrasse 42": {
+   "hex": "#c9a878",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "EG Granitsockel",
+   "xy": [
+    1240.2,
+    -254.8
+   ]
+  },
+  "Josefstrasse 45": {
+   "hex": "#e6e3d6",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "xy": [
+    1220.9,
+    -272.3
+   ]
+  },
+  "Josefstrasse 46": {
+   "hex": "#dcdad3",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "EG Beiz orange",
+   "xy": [
+    1228.0,
+    -243.9
+   ]
+  },
+  "Josefstrasse 47": {
+   "hex": "#e3ddcc",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "grau",
+   "stil": "gruenderzeit",
+   "details": [
+    "gesims",
+    "balkon",
+    "rustika"
+   ],
+   "notiz": "graue Läden, Sandstein-EG",
+   "xy": [
+    1210.6,
+    -265.4
+   ]
+  },
+  "Josefstrasse 48": {
+   "hex": "#dac9a2",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "beige, Eisenbalkone",
+   "quelle": "panoramax:366567f8-f0e7-40c4-98b4-a4a4f85600a9",
+   "xy": [
+    1217.9,
+    -234.7
+   ]
+  },
+  "Josefstrasse 50": {
+   "hex": "#b9705c",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "notiz": "EG graugrün, Buchhandlung",
+   "xy": [
+    1210.9,
+    -226.7
+   ]
+  },
+  "Josefstrasse 59": {
+   "hex": "#9a9a96",
+   "material": "beton",
+   "fenster": "band",
+   "dach": "flach",
+   "stil": "70er",
+   "xy": [
+    1137.6,
+    -203.1
+   ]
+  },
+  "Josefstrasse 73": {
+   "hex": "#cfd0a0",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "erker",
+    "rustika"
+   ],
+   "notiz": "EG graue Rustika, Eck",
+   "xy": [
+    1116.7,
+    -169.3
+   ]
+  },
+  "Josefstrasse 77": {
+   "hex": "#d3d4d2",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "notiz": "hellgrau, grüne Läden",
+   "quelle": "panoramax:bcd764ec-82df-4878-a9dc-d5cd3258d7e2",
+   "xy": [
+    1100.2,
+    -153.9
+   ]
+  },
+  "Josefstrasse 79": {
+   "hex": "#d6d4c8",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "stil": "gruenderzeit",
+   "notiz": "grüne Läden",
+   "xy": [
+    1096.8,
+    -148.1
+   ]
+  },
+  "Josefstrasse 81": {
+   "hex": "#d4a8a0",
+   "material": "putz",
+   "fenster": "verdachung",
+   "laeden": "braun",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "altrosa, grüngraue Läden, Fensterverdachungen, Balkon",
+   "quelle": "panoramax:6a24c6ff-d9d6-4028-9587-74ef6b592858",
+   "xy": [
+    1086.5,
+    -140.0
+   ]
+  },
+  "Josefstrasse 84": {
+   "hex": "#c9c9c4",
+   "material": "beton",
+   "fenster": "band",
+   "dach": "flach",
+   "stil": "buero",
+   "notiz": "Bürohaus dunkle Brüstungen",
+   "xy": [
+    1104.2,
+    -108.3
+   ]
+  },
+  "Josefstrasse 91": {
+   "hex": "#b8d0c4",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "mansard",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "mintgruen, EG blau",
+   "quelle": "mapillary:2177667259261055",
+   "xy": [
+    1057.0,
+    -109.1
+   ]
+  },
+  "Josefstrasse 93": {
+   "hex": "#c8dccf",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "mansard",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "mintgruen hell",
+   "quelle": "mapillary:1003572065948889",
+   "xy": [
+    1046.4,
+    -95.2
+   ]
+  },
+  "Klingenstrasse 21": {
+   "hex": "#cfd0d0",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "notiz": "hellgrau",
+   "quelle": "panoramax:3869cc16-9f64-40b3-90e0-2acbdc42d2a8",
+   "xy": [
+    1250.7,
+    -246.6
+   ]
+  },
+  "Klingenstrasse 33": {
+   "hex": "#dfd49c",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "notiz": "Eckhaus gelb, Restaurant EG",
+   "quelle": "panoramax:e44cc538-39c1-43c7-930e-418797a19d44",
+   "xy": [
+    1288.9,
+    -204.8
+   ]
+  },
+  "Konradstrasse 48": {
+   "hex": "#bccdb0",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrün",
+   "xy": [
+    1395.2,
+    -299.1
+   ]
+  },
+  "Konradstrasse 52": {
+   "hex": "#d8b898",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "xy": [
+    1378.2,
+    -280.7
+   ]
+  },
+  "Konradstrasse 54": {
+   "hex": "#e0c4a0",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "xy": [
+    1370.8,
+    -277.5
+   ]
+  },
+  "Konradstrasse 55": {
+   "hex": "#b0a89c",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "notiz": "EG grosse Schaufenster rot gerahmt",
+   "xy": [
+    1347.7,
+    -297.6
+   ]
+  },
+  "Konradstrasse 61": {
+   "hex": "#ece9e6",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "notiz": "weiss, EG Sockel grau",
+   "xy": [
+    1328.0,
+    -276.7
+   ]
+  },
+  "Konradstrasse 62": {
+   "hex": "#c08850",
+   "material": "klinker",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "Backstein orange",
+   "xy": [
+    1329.2,
+    -241.3
+   ]
+  },
+  "Konradstrasse 65": {
+   "hex": "#c8b9c4",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "neubau",
+   "notiz": "flieder-grau",
+   "xy": [
+    1305.1,
+    -262.5
+   ]
+  },
+  "Konradstrasse 66": {
+   "hex": "#c08850",
+   "material": "klinker",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "Backstein orange, rote Markise",
+   "quelle": "panoramax:feabf593-dee3-46f2-8e1e-f2c7d5a5a121",
+   "xy": [
+    1314.0,
+    -237.6
+   ]
+  },
+  "Konradstrasse 68": {
+   "hex": "#bf9060",
+   "material": "klinker",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "notiz": "Eckhaus Klinker",
+   "xy": [
+    1306.4,
+    -229.2
+   ]
+  },
+  "Konradstrasse 69": {
+   "hex": "#dfa896",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "braun",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 4,
+   "notiz": "rosa, Eckhaus, braune Läden",
+   "quelle": "panoramax:33e5c06c-467c-49d8-bc42-6e32d99f12a4",
+   "xy": [
+    1288.6,
+    -244.2
+   ]
+  },
+  "Konradstrasse 71": {
+   "hex": "#e6e4e0",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "EG orangerot",
+   "quelle": "panoramax:8f4104ab-b245-4b45-8dd4-8377fc042981",
+   "xy": [
+    1267.3,
+    -225.3
+   ]
+  },
+  "Konradstrasse 72": {
+   "hex": "#c27a38",
+   "material": "klinker",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "Eck, orange Backstein",
+   "xy": [
+    1278.3,
+    -201.1
+   ]
+  },
+  "Konradstrasse 73": {
+   "hex": "#e5dcc8",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "EG orangerot",
+   "quelle": "panoramax:568386df-9158-421f-b6ea-6a0eeca8d693",
+   "xy": [
+    1257.6,
+    -220.5
+   ]
+  },
+  "Konradstrasse 75": {
+   "hex": "#e0c070",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "gelb",
+   "xy": [
+    1248.6,
+    -208.7
+   ]
+  },
+  "Konradstrasse 77": {
+   "hex": "#e0c070",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "gelb",
+   "xy": [
+    1239.4,
+    -199.0
+   ]
+  },
+  "Konradstrasse 79": {
+   "hex": "#e0c070",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "gelb",
+   "xy": [
+    1232.6,
+    -192.7
+   ]
+  },
+  "Langstrasse 175": {
+   "hex": "#b4bac0",
+   "material": "putz",
+   "fenster": "band",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "60er",
+   "notiz": "graue Lamellen-/Plattenfassade, Fensterbänder",
+   "quelle": "mapillary:1268904208568660",
+   "xy": [
+    911.1,
+    -251.2
+   ]
+  },
+  "Langstrasse 187": {
+   "hex": "#d3d6d8",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "flach",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "Eckhaus hellgrau, blaues Band ueber dem EG, grosse Glasfront",
+   "quelle": "mapillary:1524753599177266",
+   "xy": [
+    949.8,
+    -211.3
+   ]
+  },
+  "Langstrasse 191": {
+   "hex": "#d9d4c8",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "flach",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "EG Imbiss, gruenes Leuchtschild",
+   "quelle": "panoramax:ea8f9640-4e5f-4cdc-b3be-47928c9e7131",
+   "xy": [
+    957.6,
+    -197.1
+   ]
+  },
+  "Langstrasse 192": {
+   "hex": "#e2e0da",
+   "material": "putz",
+   "fenster": "band",
+   "rahmen": "dunkel",
+   "dach": "flach",
+   "stil": "neubau",
+   "geschosse": 5,
+   "details": [
+    "attika"
+   ],
+   "notiz": "moderner Weissbau mit dunklem Granitsockel, Bankomat, Fensterbaender",
+   "quelle": "mapillary:394972736588214",
+   "xy": [
+    977.8,
+    -221.9
+   ]
+  },
+  "Langstrasse 193": {
+   "hex": "#bfb6a6",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "flach",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "EG dunkel verglast mit bunten Wimpeln, Restaurants",
+   "quelle": "panoramax:1bc140b7-9af8-4980-9993-9d480aee5913",
+   "xy": [
+    964.0,
+    -186.7
+   ]
+  },
+  "Langstrasse 195": {
+   "hex": "#d8c9ad",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "mansard",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "beige, Balkone",
+   "quelle": "panoramax:a81b2fb2-b974-4efa-817e-e87c7973985a",
+   "xy": [
+    971.3,
+    -173.7
+   ]
+  },
+  "Langstrasse 197": {
+   "hex": "#b9c4c8",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "rahmen": "weiss",
+   "dach": "mansard",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon",
+    "erker"
+   ],
+   "notiz": "Eckhaus hellgrau-blau, EG blassgruen mit Wimpeln und Stuehlen (Lily's/Take me away)",
+   "xy": [
+    974.8,
+    -158.2
+   ]
+  },
+  "Langstrasse 200": {
+   "hex": "#cfd0c4",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "flach",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "grau-gruenlich",
+   "quelle": "mapillary:1116457409553078",
+   "xy": [
+    1000.7,
+    -178.5
+   ]
+  },
+  "Langstrasse 201": {
+   "hex": "#8e9399",
+   "material": "beton",
+   "fenster": "glas",
+   "rahmen": "dunkel",
+   "dach": "flach",
+   "stil": "60er",
+   "geschosse": 2,
+   "notiz": "niedriger Bau, grauer Vordach-Auskragung, Glasfront (McCafe/McDonald's)",
+   "xy": [
+    1002.3,
+    -124.3
+   ]
+  },
+  "Langstrasse 205": {
+   "hex": "#8e9399",
+   "material": "beton",
+   "fenster": "glas",
+   "rahmen": "dunkel",
+   "dach": "flach",
+   "stil": "60er",
+   "geschosse": 2,
+   "notiz": "wie 201, grauer Vorbau",
+   "xy": [
+    981.8,
+    -105.6
+   ]
+  },
+  "Langstrasse 206": {
+   "hex": "#d56a46",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "flach",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "terrakottarot, EG Kiosk/Telecom mit blauem Schild, Imbisse",
+   "quelle": "mapillary:397668942889172",
+   "xy": [
+    1020.5,
+    -144.5
+   ]
+  },
+  "Langstrasse 209": {
+   "hex": "#dcc9ae",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "mansard",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "notiz": "beige, EG Laeden",
+   "xy": [
+    985.5,
+    -88.5
+   ]
+  },
+  "Langstrasse 210": {
+   "hex": "#e0795a",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "flach",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "korallrot, Hotel Gasthaus, Fresh Shop, Bankomat",
+   "quelle": "mapillary:1756768261485636",
+   "xy": [
+    1029.5,
+    -123.9
+   ]
+  },
+  "Langstrasse 211": {
+   "hex": "#e3b8a0",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "mansard",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "rosabeige, EG Riviera Pizzeria/Imbiss",
+   "quelle": "mapillary:639052739259926",
+   "xy": [
+    1012.8,
+    -100.1
+   ]
+  },
+  "Langstrasse 212": {
+   "hex": "#d4c1a3",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "blau",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "sandbeige, blaue Läden, Eisenbalkone",
+   "quelle": "mapillary:1566533984080722",
+   "xy": [
+    1034.8,
+    -111.0
+   ]
+  },
+  "Langstrasse 213": {
+   "hex": "#e3b8a0",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "mansard",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "rosabeige, EG Imbiss/Restaurant",
+   "quelle": "mapillary:4230434060612406",
+   "xy": [
+    1018.5,
+    -92.8
+   ]
+  },
+  "Langstrasse 215": {
+   "hex": "#99a2a8",
+   "material": "sandstein",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "rahmen": "weiss",
+   "dach": "mansard",
+   "stil": "gruenderzeit",
+   "geschosse": 4,
+   "details": [
+    "balkon",
+    "erker"
+   ],
+   "notiz": "graues Eckhaus mit Steinsockel, rote Markise, Terrasse, Restaurant Cinque",
+   "quelle": "panoramax:ce268900-c760-479a-aa56-ac33382e3dea",
+   "xy": [
+    1021.8,
+    -81.2
+   ]
+  },
+  "Langstrasse 225": {
+   "hex": "#e3c9a4",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "flach",
+   "stil": "gruenderzeit",
+   "geschosse": 4,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "ocker, Gruenes Schuhmode-Schild im EG",
+   "xy": [
+    1044.0,
+    -44.8
+   ]
+  },
+  "Langstrasse 227": {
+   "hex": "#e2c9a3",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "flach",
+   "stil": "gruenderzeit",
+   "geschosse": 4,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "ocker",
+   "quelle": "panoramax:5bbc616e-460c-4809-b86e-f20a932fc352",
+   "xy": [
+    1050.6,
+    -34.3
+   ]
+  },
+  "Langstrasse 229": {
+   "hex": "#e6e2d8",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "flach",
+   "stil": "gruenderzeit",
+   "geschosse": 4,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "weissgrau, Balkone",
+   "xy": [
+    1057.2,
+    -17.3
+   ]
+  },
+  "Langstrasse 230": {
+   "hex": "#e8c25a",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "rahmen": "weiss",
+   "dach": "sattel",
+   "stil": "heimatstil",
+   "geschosse": 3,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "gelbes Haus mit gruenen Fensterlaeden, gestreifte Markise (Head Shop)",
+   "quelle": "mapillary:1489319858626543",
+   "xy": [
+    1074.4,
+    -41.3
+   ]
+  },
+  "Langstrasse 231": {
+   "hex": "#e0d8c8",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "flach",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrau, EG Uhren/Schmuck mit dunkler Markise",
+   "quelle": "panoramax:fd4f31a1-bc9d-4ed4-97a0-7cfbcd80bac5",
+   "xy": [
+    1061.5,
+    -8.1
+   ]
+  },
+  "Langstrasse 234": {
+   "hex": "#e8c25a",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "rahmen": "weiss",
+   "dach": "sattel",
+   "stil": "heimatstil",
+   "geschosse": 3,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "gelb, Laeden",
+   "xy": [
+    1082.0,
+    -23.6
+   ]
+  },
+  "Langstrasse 237": {
+   "hex": "#eadfd0",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "flach",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "weissgrau, Balkone, Bar im EG",
+   "quelle": "panoramax:68e59ab7-9843-4619-a83c-6516b6c67c48",
+   "xy": [
+    1077.5,
+    17.8
+   ]
+  },
+  "Langstrasse 238": {
+   "hex": "#d9a08c",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "rahmen": "weiss",
+   "dach": "mansard",
+   "stil": "gruenderzeit",
+   "geschosse": 4,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "lachsrosa, Handyshop mit schwarz-weissem Schild",
+   "quelle": "mapillary:7775778305790119",
+   "xy": [
+    1095.5,
+    -2.1
+   ]
+  },
+  "Langstrasse 239": {
+   "hex": "#e8b04a",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "mansard",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "ockergelb",
+   "quelle": "mapillary:1351749316816249",
+   "xy": [
+    1083.9,
+    26.0
+   ]
+  },
+  "Langstrasse 241": {
+   "hex": "#e8b95a",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "mansard",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "ockergelb, EG dunkel",
+   "quelle": "mapillary:965708196453961",
+   "xy": [
+    1089.0,
+    34.8
+   ]
+  },
+  "Langstrasse 242": {
+   "hex": "#c6a28a",
+   "material": "putz",
+   "fenster": "glas",
+   "rahmen": "dunkel",
+   "dach": "flach",
+   "stil": "gewerbe",
+   "geschosse": 2,
+   "notiz": "niedriger Laden, Graffiti, Money Exchange blaues Schild",
+   "quelle": "mapillary:1638633276670481",
+   "xy": [
+    1103.8,
+    16.0
+   ]
+  },
+  "Langstrasse 243": {
+   "hex": "#e8b95a",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "mansard",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon",
+    "erker"
+   ],
+   "notiz": "ockergelb, EG schwarz (Burgermeister), Balkone",
+   "quelle": "mapillary:1652923629192192",
+   "xy": [
+    1093.9,
+    42.1
+   ]
+  },
+  "Limmatplatz 2": {
+   "hex": "#e0b04a",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "mansard",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "ockergelb am Platz, grauer Sockel",
+   "xy": [
+    1128.8,
+    26.5
+   ]
+  },
+  "Limmatstrasse 103": {
+   "hex": "#b8b0d0",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "blau",
+   "stil": "gruenderzeit",
+   "notiz": "flieder, blaue Läden",
+   "quelle": "mapillary:813236777491478",
+   "xy": [
+    1229.4,
+    -56.3
+   ]
+  },
+  "Limmatstrasse 111": {
+   "hex": "#d9c37c",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "gelb-ocker mit Sgraffito, grüne Läden",
+   "quelle": "mapillary:383948384396478",
+   "xy": [
+    1197.0,
+    -25.6
+   ]
+  },
+  "Limmatstrasse 119": {
+   "hex": "#c8c8c4",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon",
+    "rustika"
+   ],
+   "notiz": "grau, EG Rustika, Läden",
+   "quelle": "mapillary:1436863390242869",
+   "xy": [
+    1177.8,
+    -4.7
+   ]
+  },
+  "Limmatstrasse 123": {
+   "hex": "#e4dfd2",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "Läden im EG",
+   "quelle": "mapillary:788146873235561",
+   "xy": [
+    1161.7,
+    15.5
+   ]
+  },
+  "Limmatstrasse 175": {
+   "hex": "#d8a048",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "braun",
+   "stil": "heimatstil",
+   "notiz": "orange-ocker",
+   "quelle": "mapillary:1499826147717490",
+   "xy": [
+    1006.9,
+    177.0
+   ]
+  },
+  "Limmatstrasse 180": {
+   "hex": "#a8604a",
+   "material": "klinker",
+   "fenster": "hoch",
+   "stil": "neubau",
+   "notiz": "Backstein-Verkleidung 80er",
+   "quelle": "mapillary:1047628599668078",
+   "xy": [
+    989.9,
+    264.2
+   ]
+  },
+  "Limmatstrasse 182": {
+   "hex": "#a86a50",
+   "material": "klinker",
+   "fenster": "hoch",
+   "stil": "neubau",
+   "notiz": "braune Plattenverkleidung 80er",
+   "quelle": "mapillary:1845792879201341",
+   "xy": [
+    972.4,
+    293.2
+   ]
+  },
+  "Limmatstrasse 184": {
+   "hex": "#a86a50",
+   "material": "klinker",
+   "fenster": "hoch",
+   "stil": "neubau",
+   "notiz": "braune Plattenverkleidung 80er",
+   "quelle": "mapillary:6944372195668332",
+   "xy": [
+    942.1,
+    311.1
+   ]
+  },
+  "Limmatstrasse 186": {
+   "hex": "#a86a50",
+   "material": "klinker",
+   "fenster": "hoch",
+   "stil": "neubau",
+   "notiz": "braune Plattenverkleidung 80er",
+   "quelle": "mapillary:2398889943645615",
+   "xy": [
+    1018.2,
+    340.1
+   ]
+  },
+  "Limmatstrasse 199": {
+   "hex": "#9b8872",
+   "material": "sandstein",
+   "fenster": "bogen",
+   "stil": "gruenderzeit",
+   "details": [
+    "gesims",
+    "rustika"
+   ],
+   "notiz": "Eckhaus Sandstein, Beiz im EG",
+   "quelle": "mapillary:238311257740239",
+   "xy": [
+    884.9,
+    307.6
+   ]
+  },
+  "Limmatstrasse 213": {
+   "hex": "#8a4a40",
+   "material": "klinker",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "roter Backstein",
+   "quelle": "mapillary:325445115719376",
+   "xy": [
+    819.4,
+    367.5
+   ]
+  },
+  "Limmatstrasse 215": {
+   "hex": "#8e3e38",
+   "material": "klinker",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon",
+    "rustika"
+   ],
+   "notiz": "roter Backstein, Sandsteinfenster",
+   "quelle": "mapillary:376586037132007",
+   "xy": [
+    810.9,
+    379.6
+   ]
+  },
+  "Limmatstrasse 217": {
+   "hex": "#8a3a34",
+   "material": "klinker",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon",
+    "rustika"
+   ],
+   "notiz": "roter Backstein, EG Sandstein Bogen",
+   "quelle": "mapillary:488393645760387",
+   "xy": [
+    801.1,
+    383.6
+   ]
+  },
+  "Limmatstrasse 259": {
+   "hex": "#aeb6c2",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "graublau",
+   "quelle": "mapillary:826844404902314",
+   "xy": [
+    699.3,
+    472.1
+   ]
+  },
+  "Limmatstrasse 260": {
+   "hex": "#9a4a3c",
+   "material": "klinker",
+   "fenster": "bogen",
+   "stil": "gewerbe",
+   "notiz": "Backstein Industriebau",
+   "quelle": "mapillary:800617858698476",
+   "xy": [
+    685.4,
+    568.6
+   ]
+  },
+  "Limmatstrasse 273": {
+   "hex": "#b0c0d8",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "erker"
+   ],
+   "notiz": "hellblau, Eck",
+   "quelle": "mapillary:944031047934161",
+   "xy": [
+    652.2,
+    510.8
+   ]
+  },
+  "Limmatstrasse 35": {
+   "hex": "#b9bcc0",
+   "material": "glas",
+   "fenster": "band",
+   "dach": "flach",
+   "stil": "buero",
+   "notiz": "Büro-Glasfassade, graue Bänder",
+   "quelle": "mapillary:159854650426745",
+   "xy": [
+    1456.7,
+    -297.5
+   ]
+  },
+  "Limmatstrasse 85": {
+   "hex": "#c4b497",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "notiz": "Putz beige, rote Backstein-Bogen",
+   "quelle": "mapillary:6992198854123972",
+   "xy": [
+    1313.4,
+    -140.9
+   ]
+  },
+  "Neugasse 11": {
+   "hex": "#c9a8ac",
+   "material": "putz",
+   "fenster": "bogen",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "geschosse": 3,
+   "notiz": "mauve-rosa rauer Putz, Bogenfenster",
+   "quelle": "panoramax:40f8c868-42c1-4d6d-a452-fea0b68e05c3",
+   "xy": [
+    1091.8,
+    -269.4
+   ]
+  },
+  "Neugasse 14": {
+   "hex": "#aeb0b2",
+   "material": "beton",
+   "fenster": "band",
+   "dach": "flach",
+   "stil": "neubau",
+   "notiz": "Granit-/Steinplattenfassade grau, 1996",
+   "xy": [
+    1149.0,
+    -270.1
+   ]
+  },
+  "Neugasse 31": {
+   "hex": "#a58a60",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "EG Läden",
+   "xy": [
+    1062.0,
+    -233.8
+   ]
+  },
+  "Neugasse 32": {
+   "hex": "#c06a50",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "braun",
+   "stil": "heimatstil",
+   "details": [
+    "erker",
+    "balkon"
+   ],
+   "notiz": "orangerot",
+   "quelle": "panoramax:91e76733-a358-4765-bd07-ea4436056513",
+   "xy": [
+    1065.3,
+    -198.3
+   ]
+  },
+  "Neugasse 33": {
+   "hex": "#e8dcc0",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "cremebeige, Pflanzenbalkone",
+   "quelle": "panoramax:e1f8f43c-3111-46b3-b35a-af1b03ed016a",
+   "xy": [
+    1049.8,
+    -225.9
+   ]
+  },
+  "Neugasse 35": {
+   "hex": "#d4a39a",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "lachsrosa, Eisenbalkone",
+   "quelle": "panoramax:ea698d98-b218-4d5d-b757-e84bd69f218e",
+   "xy": [
+    1038.3,
+    -218.1
+   ]
+  },
+  "Neugasse 41": {
+   "hex": "#e2c8a0",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "flach",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "beige",
+   "quelle": "panoramax:e85a16be-a2c4-4735-bb2a-33c70faa6848",
+   "xy": [
+    1011.7,
+    -186.1
+   ]
+  },
+  "Neugasse 42": {
+   "hex": "#e2b886",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "dach": "mansard",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon",
+    "erker"
+   ],
+   "notiz": "Eckhaus ockerbeige, Chicago Bar im EG mit dunkelrot/Marquise",
+   "quelle": "panoramax:74cc77d2-d998-497e-a164-9faf1318cec6",
+   "xy": [
+    1014.0,
+    -155.5
+   ]
+  },
+  "Neugasse 56": {
+   "hex": "#e5d06f",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "gelb, Eckhaus mit Balkonen",
+   "quelle": "panoramax:7d55dc28-cbb5-4ca5-ba69-c43585347909",
+   "xy": [
+    978.5,
+    -128.8
+   ]
+  },
+  "Neugasse 57": {
+   "hex": "#c9b79a",
+   "material": "sandstein",
+   "fenster": "bogen",
+   "notiz": "Sandstein mit Bogenfenstern, EG Cafés",
+   "xy": [
+    959.0,
+    -152.1
+   ]
+  },
+  "Neugasse 58": {
+   "hex": "#e8d878",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "gelb, Balkone",
+   "quelle": "panoramax:66b23f77-f5d4-451a-9995-98677fc549da",
+   "xy": [
+    960.1,
+    -116.5
+   ]
+  },
+  "Neugasse 59": {
+   "hex": "#c8b494",
+   "material": "sandstein",
+   "fenster": "bogen",
+   "notiz": "Sandstein mit Bogenfenstern",
+   "xy": [
+    947.9,
+    -145.3
+   ]
+  },
+  "Neugasse 76": {
+   "hex": "#e6dab6",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 4,
+   "notiz": "cremebeige, EG blau gestrichen",
+   "quelle": "panoramax:83df0c08-c682-4e14-bf3a-bfd64247f1f6",
+   "xy": [
+    892.6,
+    -76.1
+   ]
+  },
+  "Neugasse 85": {
+   "hex": "#e8d890",
+   "material": "beton",
+   "fenster": "band",
+   "stil": "neubau",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "gelb-creme mit grauen Balkonen",
+   "quelle": "mapillary:702503628991906",
+   "xy": [
+    761.1,
+    -122.9
+   ]
+  },
+  "Neugasse 91": {
+   "hex": "#e8d890",
+   "material": "beton",
+   "fenster": "band",
+   "stil": "neubau",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "gelb-creme mit grauen Balkonen",
+   "quelle": "mapillary:558518957298326",
+   "xy": [
+    712.2,
+    -97.9
+   ]
+  },
+  "Neugasse 97": {
+   "hex": "#e8d890",
+   "material": "beton",
+   "fenster": "band",
+   "stil": "neubau",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "gelb-creme mit grauen Balkonen",
+   "quelle": "mapillary:584590171336358",
+   "xy": [
+    663.6,
+    -71.2
+   ]
+  },
+  "Pfingstweidstrasse 6": {
+   "hex": "#b84a3a",
+   "material": "klinker",
+   "fenster": "hoch",
+   "notiz": "rote Fassade",
+   "quelle": "mapillary:1087489245857232",
+   "xy": [
+    138.7,
+    419.9
+   ]
+  },
+  "Röntgenstrasse 16": {
+   "hex": "#b4604c",
+   "material": "beton",
+   "fenster": "band",
+   "dach": "flach",
+   "stil": "50er",
+   "notiz": "Bürobau 50er, rote Paneele, Fensterband",
+   "xy": [
+    889.4,
+    -135.3
+   ]
+  },
+  "Röntgenstrasse 56": {
+   "hex": "#c0605a",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "blau",
+   "stil": "heimatstil",
+   "notiz": "rosa-rot, hellblaue Läden",
+   "xy": [
+    782.8,
+    130.7
+   ]
+  },
+  "Röntgenstrasse 59": {
+   "hex": "#8a2f30",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "stil": "heimatstil",
+   "notiz": "dunkelrot, grüne Läden",
+   "quelle": "panoramax:6a818c48-6a34-4d22-a52b-bb8254332f38",
+   "xy": [
+    742.9,
+    169.0
+   ]
+  },
+  "Sihlfeldstrasse 173": {
+   "hex": "#c47850",
+   "material": "putz",
+   "laeden": "rot",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "notiz": "orange-ziegelfarbener Putz, dunkelrote Läden, Gebüsch im Vorgarten",
+   "xy": [
+    -111.8,
+    -261.3
+   ]
+  },
+  "Sihlfeldstrasse 175": {
+   "hex": "#d97a58",
+   "material": "putz",
+   "laeden": "rot",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "orange-terrakotta, dunkelrote Läden, Balkon, Natursteinportal",
+   "quelle": "panoramax:7c582a0c-b101-4e9e-9343-61750b3590ba",
+   "xy": [
+    -114.4,
+    -243.1
+   ]
+  },
+  "Sihlfeldstrasse 192": {
+   "hex": "#c6d3be",
+   "material": "putz",
+   "laeden": "gruen",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "salbeigruener Putz im unteren Teil, heller Putz oben, dunkelgruene Läden, Balkon",
+   "xy": [
+    -71.9,
+    -286.7
+   ]
+  },
+  "Sihlfeldstrasse 198": {
+   "hex": "#cde0c2",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "geschosse": 4,
+   "notiz": "hellgruener Putz, dunkelgruene Läden, grosse Zeilenfront",
+   "quelle": "panoramax:fb8257e6-59f1-4294-95b0-43b13870502e",
+   "xy": [
+    -72.3,
+    -270.1
+   ]
+  },
+  "Sihlfeldstrasse 200": {
+   "hex": "#c6d3be",
+   "material": "putz",
+   "laeden": "gruen",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "salbeigruener Putz im unteren Teil, heller Putz oben, dunkelgruene Läden, Balkon",
+   "xy": [
+    -78.5,
+    -249.8
+   ]
+  },
+  "Sihlfeldstrasse 202": {
+   "hex": "#c9908c",
+   "material": "putz",
+   "laeden": "grau",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "altrosa Putz, grauer Sockel, weisse Rahmen, graue Rollläden, Balkon",
+   "quelle": "panoramax:2adbbfe9-207d-40fc-b94c-da68ebf266a5",
+   "xy": [
+    -78.5,
+    -232.7
+   ]
+  }
+ }
+}
