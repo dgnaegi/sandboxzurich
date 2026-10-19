@@ -2,6 +2,16 @@
 
 Wird am Ende jedes Arbeitsschritts überschrieben. Eine neue Session liest das zuerst.
 
+## Stand 2026-10-19 morgens (Build 13, Release 2) – zuerst lesen
+Build 13: `logs/build_full13.log` 0 Fehler, 49 min; Weltdaten `logs/publish13.log`. QA `logs/qa13.log`: tsc, gameplay, touch, crash, drive, traffic_legal (0.01 %, Parkautos 0.17 %), move_quality, qa_spawn 26/26, qa_leak +25 MB, perf Handy 58 fps / 270 Calls / 583k Tris / 4.3 s. Rot: knock.mjs – Ziel-Pfosten (884.4,-834.6) kippt, Auto stoppt 3 m dahinter an hartem Objekt (884.7,-831.3) – Testziel-Auswahl robuster machen (Ziele ohne harte Nachbarn ≤ 5 m). Sicht `preview/qa13_sheet.jpg`.
+**Seit Release 1 neu:**
+- Bestandsaufnahme (`research/zones/baseline.md`): Ø **2.5/5** über 15 Orte; Häuser: Höhe/Farbe plausibel, **Fassaden generisch** (kein Ort ≥ 4). Zonen-Reihenfolge neu: 4 → 2 → 1 → 5 → 3 (`docs/NIGHT_PLAN.md`). Zonen `pipeline/overrides/zones.json` (`pipeline/zones.py`, grob als Rechtecke), Shots `web/tests/zone_shots.mjs <N> before|after`.
+- **Zone 4 Wiedikon (= Nacht 1 vorgezogen):** 248 neue Fassadennotizen (`pipeline/photos/facades_z4_*.py`, Merge `pipeline/zones/merge_notes.py` – nach `facades_notes.py` immer neu laufen lassen!), 8 Häuser als Landmarks (`pipeline/landmarks/z4_houses.py`), Plätze-Boden nach Ortho (`places_detail_z4.json`), hellere Trottoirkanten (CURB_TOP_W), Ladens-Overrides `storefronts_z*.json` (Name, Notizen, `"closed": true` → kein Schild; Hook `shopfronts_v3.py`), Namensprüfung 79 Läden (`research/zones/zone4_namecheck.md`; 3 Umbenennungen ohne belastbare Quelle NICHT übernommen). Global: AV-befestigte Flächen nicht mehr als Rasen (~25 600 m² allein in Z4).
+- Tickets: T10 Linien am Spielgebiet geclippt (53 statt 64), T11 Kamera ignoriert Footprints < 20 m², Katalog: V3/V7/V8 nach Fotos, VBZ-Fahnen, DFI-Abfahrtstext zurück.
+- Zone 2 Inventar vorbereitet (`research/zones/zone2*`, 265 Fotos `data/raw/photos/z2`). **Zone-2-Rechteck reicht über die Limmat (Nord-, Röthelstrasse) → vor Nacht 2 in `zones.py` enger ziehen.**
+**Wichtigster Hebel für alle Zonen:** Der Fassadengenerator nutzt aus den Notizen nur Farbe/Stil – Fensterachsen, Sockel, Gesimse, Erker, Dachgauben, EG-Ladenzone werden nicht umgesetzt. Darum wirken auch korrekt gefärbte Häuser generisch (`preview/z4_houses_cmp.jpg`).
+**Offen Zone 4:** 223 Häuser ohne Notiz (155 ohne brauchbares Foto), Ladenschilder/Markisen fast alle Default (Fotos zeigen kaum lesbare Fronten), Velostreifen/Parkfelder/«30», Haltestelle Goldbrunnenplatz (Glasdach, Uhr), Mansarden/Läden Birmensdorferstr. 299–303, CREDITS für Mapillary/Panoramax-IDs der Notizen.
+
 ## Stand 2026-10-19 früh (Build 12, Release 1 der Sondernacht) – zuerst lesen
 Sondernacht 18.10. 22:00 – 19.10. 16:00 (`docs/NIGHT_PLAN.md`). Build 12: `logs/build_full12.log`, 0 Fehler, 48 min; Weltdaten `logs/publish12.log`.
 **Neu (Commits 10cee4d … 6491887):**
