@@ -135,6 +135,9 @@ def _ground_tile(gm, S, tb, H, white, yellow, rails, bed, bays_white=None, bays_
 
 
 def _ground_base(gm, S, tb, H, white, yellow, rails, bed, bays_white=None, bays_blue=None, grooves=None):
+    _hole = terrain_cuts.holes()  # built underpass footprint: no draped ground inside (terrain_cuts.json "hole")
+    if _hole is not None and tb.intersects(_hole):
+        tb = tb.difference(_hole)
     roads = S["roads"].intersection(tb)
     plaza, parks = S["plaza"].intersection(tb), S["parks"].intersection(tb)
     walk = tb.difference(S["roads"]).difference(S["plaza"]).difference(S["parks"])

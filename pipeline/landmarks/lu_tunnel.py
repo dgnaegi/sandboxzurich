@@ -30,7 +30,7 @@ def light(s):
     d = min(max(s, 0), L - max(s, 0)) if 0 <= s <= L else 0
     if s < 0 or s > L:
         return 1.0
-    return 0.50 + 0.50 * math.exp(-d / 9.0)
+    return 0.78 + 0.22 * math.exp(-d / 9.0)
 
 
 def quadc(m, mat, p, uv, cols, toward):
@@ -86,6 +86,19 @@ class Build:
             quadc(self.m, mat, pts, [(u, v)] * 4, [col(br)] * 4, out)
 
 
+def cbox(b, s0, s1, o0, o1, z0, z1, tint=(214, 214, 208), br=0.95, abs_z=False):
+    """Concrete box (tiling concrete texture), faces tinted; z relative to the floor at s0 (or absolute game z with abs_z)."""
+    f = (lambda s, o, z: ZW(s, o, z)) if abs_z else P
+    ctr = np.array(f((s0 + s1) / 2, (o0 + o1) / 2, (z0 + z1) / 2))
+    faces = [[(s0, o0, z0), (s1, o0, z0), (s1, o1, z0), (s0, o1, z0)], [(s0, o0, z1), (s1, o0, z1), (s1, o1, z1), (s0, o1, z1)],
+             [(s0, o0, z0), (s1, o0, z0), (s1, o0, z1), (s0, o0, z1)], [(s0, o1, z0), (s1, o1, z0), (s1, o1, z1), (s0, o1, z1)],
+             [(s0, o0, z0), (s0, o1, z0), (s0, o1, z1), (s0, o0, z1)], [(s1, o0, z0), (s1, o1, z0), (s1, o1, z1), (s1, o0, z1)]]
+    for fc in faces:
+        pts = [f(*q) for q in fc]; mid = np.mean(pts, 0)
+        e1 = np.linalg.norm(np.array(pts[1]) - np.array(pts[0])); e2 = np.linalg.norm(np.array(pts[3]) - np.array(pts[0]))
+        quadc(b.m, b.mc, pts, [(0, 0), (e1 / 3, 0), (e1 / 3, e2 / 3), (0, e2 / 3)], [col(br, tint)] * 4, mid + (mid - ctr))
+
+
 def build():
     b = Build(); m = b.m; mc, ma, mm = b.mc, b.ma, b.mm
     rng = b.rng
@@ -101,18 +114,18 @@ def build():
         # road floor
         kind = "arrow" if cell in (3, 9, 13) else "road"
         b.at(ma, [(s0, -5.8, 0.03), (s1, -5.8, 0.03), (s1, 5.8, 0.03), (s0, 5.8, 0.03)], T.uv_floor(kind, cell % 2, 0, 1, vv0, vv1), P(sm, 0, 3),
-             br=(l0, l1, l1, l0))
+             br=(l0, l1, l1, l0), tint=(255, 214, 168))
         for sg in sides:   # chamfer (kerb stone / concrete)
-            b.conc([(s0, sg * 5.8, 0.0), (s1, sg * 5.8, 0.0), (s1, sg * G.KERB_W, G.KERB_H), (s0, sg * G.KERB_W, G.KERB_H)], P(sm, 0, 3), br=(l0 * .9, l1 * .9, l1 * .9, l0 * .9), tint=(200, 200, 196))
+            b.conc([(s0, sg * 5.8, 0.0), (s1, sg * 5.8, 0.0), (s1, sg * G.KERB_W, G.KERB_H), (s0, sg * G.KERB_W, G.KERB_H)], P(sm, 0, 3), br=(l0 * 1.0, l1 * 1.0, l1 * 1.0, l0 * 1.0), tint=(225, 225, 220))
             b.conc([(s0, sg * G.KERB_W, G.KERB_H), (s1, sg * G.KERB_W, G.KERB_H), (s1, sg * G.KERB_W, G.CLEAR), (s0, sg * G.KERB_W, G.CLEAR)], P(sm, 0, 3),
-                   br=(l0, l1, l1, l0), tint=(215, 215, 210))
+                   br=(l0 * 1.12, l1 * 1.12, l1 * 1.12, l0 * 1.12), tint=(238, 230, 208))
         b.conc([(s0, -G.KERB_W, G.CLEAR), (s1, -G.KERB_W, G.CLEAR), (s1, G.KERB_W, G.CLEAR), (s0, G.KERB_W, G.CLEAR)], P(sm, 0, 0.5),
-               br=(l0 * .8, l1 * .8, l1 * .8, l0 * .8), tint=(205, 205, 200))
+               br=(l0 * .85, l1 * .85, l1 * .85, l0 * .85), tint=(190, 186, 176))
         # passage floors, outer slanted wall (painted), inner wall (painted), ceiling
         for sg in sides:
             row = (k // 4) % 2
             b.at(ma, [(s0, sg * G.PED_IN, 0.03), (s1, sg * G.PED_IN, 0.03), (s1, sg * G.PED_FOOT, 0.03), (s0, sg * G.PED_FOOT, 0.03)],
-                 T.uv_floor("ped", row, 0, 1, vv0, vv1), P(sm, sg * 9.5, 3), br=(l0, l1, l1, l0))
+                 T.uv_floor("ped", row, 0, 1, vv0, vv1), P(sm, sg * 9.5, 3), br=(l0, l1, l1, l0), tint=(255, 214, 168))
             wi = 2 if (k // 8) % 4 == 1 else (0 if (k // 2) % 2 == 0 else 1)      # painted cream variants, niche every 4th 12 m
             hz = (k % 2)
             b.at(ma, [(s0, sg * G.PED_IN, 0), (s1, sg * G.PED_IN, 0), (s1, sg * G.PED_IN, G.PED_H), (s0, sg * G.PED_IN, G.PED_H)],
@@ -157,7 +170,7 @@ def build():
         s = 0.6 + i * 6.0
         for sg in sides:
             b.box_s(s, s + 0.35, sg * (G.KERB_W - 0.14), sg * G.KERB_W, 1.9, 4.2, mm, 1, 0.8)       # dark vertical duct covers on the road walls
-        b.box_s(s + 2.9, s + 3.4, -G.KERB_W, G.KERB_W, G.CLEAR - 0.45, G.CLEAR, mm, 3, 0.55)             # transverse ceiling ribs
+        b.box_s(s + 2.9, s + 3.4, -G.KERB_W, G.KERB_W, G.CLEAR - 0.28, G.CLEAR, mm, 3, 0.45)             # transverse ceiling ribs
     # ---------------------------------------------------------------- slab top (ballast colour) + portal fascias
     pts_top = []
     for sa, sb in zip(np.linspace(0, L, 9)[:-1], np.linspace(0, L, 9)[1:]):
@@ -192,6 +205,27 @@ def build():
         # frames: slightly proud lintel band + chamfer line over the road opening (reads from afar)
         for sg in sides:
             pass
+    # portal: massive concrete plate over the opening (projects 0.9 m, 2.1 m deep with a lower lip), solid parapet + steel railing on top, sign field (photos nord:5, sued:5)
+    for end in (0, 1):
+        s = 0.0 if end == 0 else L; out = -1 if end == 0 else 1
+        ztop = float(G.deck_z(s)) - 0.12; fz = float(G.floor_z(s))
+        so = s + out * 0.9; sl = s + out * 0.55
+        W = G.HALF + 0.6
+        cbox(b, min(s, so), max(s, so), -W, W, ztop - 1.5, ztop, abs_z=True, tint=(222, 220, 212), br=1.0)               # main plate
+        cbox(b, min(s, sl), max(s, sl), -W + 0.3, W - 0.3, ztop - 2.1, ztop - 1.5, abs_z=True, tint=(205, 203, 196), br=0.9)   # lower lip / haunch
+        so2 = s + out * 0.2                                                                                                  # parapet on the plate (0.25 thick, 0.9 high)
+        cbox(b, min(so, so2), max(so, so2), -W, W, ztop, ztop + 0.9, abs_z=True, tint=(214, 212, 204), br=0.95)
+        ro = so - out * 0.12
+        for k in range(int(2 * W / 2.0) + 1):
+            o = min(-W + k * 2.0, W)
+            b.box_s(ro - 0.04, ro + 0.04, o - 0.04, o + 0.04, ztop - fz + 0.9, ztop - fz + 1.9, mm, 3, 0.9)
+        b.box_s(ro - 0.04, ro + 0.04, -W, W, ztop - fz + 1.8, ztop - fz + 1.88, mm, 3, 0.9)
+        b.box_s(ro - 0.04, ro + 0.04, -W, W, ztop - fz + 1.35, ztop - fz + 1.40, mm, 3, 0.9)
+        # sign field: dark panel with a pale frame, centred over the road opening on the plate front
+        sf = so + out * 0.03
+        b.box_s(min(so, sf), max(so, sf), -1.6, 1.6, ztop - fz - 1.2, ztop - fz - 0.55, mm, 4, 0.9)
+        sf2 = sf + out * 0.03
+        b.box_s(min(sf, sf2), max(sf, sf2), -1.5, 1.5, ztop - fz - 1.15, ztop - fz - 0.6, mm, 1, 0.8)
     # ---------------------------------------------------------------- approach troughs (retaining walls with graffiti, floors)
     gz_top = G.GROUND + 0.12
     for side_end in (0, 1):

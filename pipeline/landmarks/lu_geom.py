@@ -43,7 +43,7 @@ def profile_pts():
 def cut_entry():
     return {"name": "Langstrassen-Unterfuehrung: sunken road + passages (floor profile along the OSM tunnel axis, approaches as troughs)",
             "axis": [[round(A[0], 2), round(A[1], 2)], [round(B[0], 2), round(B[1], 2)]], "profile": profile_pts(), "half": HALF, "blend": 1.0,
-            "mode": "min", "lock": True,
+            "mode": "min", "lock": True, "hole": {"s": [0.0, round(L, 2)], "half": HALF},
             "source": "OSM tunnel way 4592588 + footway tunnels 4803419/4803422; pipeline/landmarks/lu_geom.py; photos research/v3/langstr_unterf.md"}
 
 

@@ -22,3 +22,15 @@ Relevant für den Innenraum: nterf 0,3–11,15,24–26, sued 0–6,13,19,20, nor
 ## Umsetzung im Spiel
 - `pipeline/landmarks/lu_geom.py` (Achse, Profil, Masse), `lu_tex.py` (Texturen, eigene Gestaltung), `lu_tunnel.py` (Modell → `web/public/models/landmarks/lu_unterfuehrung.glb`, Eintrag `pipeline/overrides/landmarks_lu.json` mit `colliders`).
 - Geländeeinschnitt: `pipeline/overrides/terrain_cuts.json` (Eintrag «Langstrassen-Unterfuehrung …», Typ `profile`, `lock: true`); Deck für Gleise: `research/v3/langstr_unterf_deck.json`.
+
+## Abnahme Runde 2 (Agent U, 2026-10-19; `preview/lu_before.jpg`, `preview/lu_cmp.jpg`, Foto links | Spiel rechts; Referenz `preview/lu_ref.jpg`)
+- Fehler gefunden und behoben: Boden-UVs waren transponiert (Spurlinien/Mittellinie verliefen quer zur Fahrtrichtung). Jetzt laufen Fahrbahnmarkierungen und gelbe Durchgangslinie längs; Fussgänger-Piktogramm im Durchgang neu.
+- Neu: Portal-Stürze 0.55 m vorspringend, Stahlgeländer an der Deckkante, dunklere Decke, schmalere Querrippen (0.28 m), wärmere Wandtöne. Tris 7236 (im Rahmen).
+- Offen, nicht im LU-Zuständigkeitsbereich: Ein grosses Terrain-Dreieck der Kachel (Schnittkante, z -8.5 bis -3) ragt ca. bei s = 48 in den Durchgang und in den Strassentunnel (graue «Keile»). Ursache vermutlich Gitterauflösung/gltfpack-Vereinfachung am Terrain-Cut; Abhilfe: Cut-Raster feiner oder Boden im Bauwerk als Loch.
+- Noten 1-5 (Spiel vs. Foto): Strasseninneres 3 (Form/Markierung ok, zu dunkel/bläulich, Wände fehlen cremige Tönung); Durchgang 3 (Proportion, Linie, Leuchten, Wandkeile ok; Graffiti/Nischen grob); Portal S aussen 3; Portal N aussen 2 (Stirn mit Geländer da, aber Fotoportal wirkt viel mächtiger, Aussicht aus 48 m nicht vergleichbar); Beleuchtung 3; Terrain-Keil-Artefakt 1.
+
+## Runde 3 (Agent U; `preview/lu_cmp2.jpg`, Foto links | Spiel rechts)
+- Terrain-Keil im Durchgang weg (Bodenloch im Bauwerk-Footprint, `terrain_cuts.json` "hole" + `terrain_cuts.holes()`, Kachel 4_-2 neu gebaut). Im Strassentunnel bleibt links unten eine helle Platte (Randsteinschräge/Bodenstück) sichtbar, nicht weiter untersucht.
+- Markierung: Spur-/Mittellinien weiss, rechte Randlinie gelb. Asphalt neutraler, Wände/Decke heller, Szenenlicht färbt noch bläulich.
+- Portale: Betonplatte + Brüstung + Geländer + Schildfeld; von aussen aus 48 m nur klein sichtbar, Foto-Wirkung (mächtig) nicht erreicht.
+- Noten: Strasseninneres 3, Durchgang 3.5, Portal S 3, Portal N 3, Beleuchtung 3, Keil-Artefakt 4.

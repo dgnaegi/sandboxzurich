@@ -66,3 +66,17 @@ def apply(H, lock_only=False):
         t = np.clip((d - w) / bl, 0, 1)  # 0 inside the corridor, 1 outside the blend band
         H.z[m] = np.where(d <= w + bl, np.minimum(H.z[m], z * (1 - t) + H.z[m] * t), H.z[m])
         print(f"terrain_cuts: {c['name'][:40]} -> z {z:.2f}")
+
+
+def holes():
+    """Footprints (shapely) of profile cuts marked "hole": the draped ground is left out there (a built structure, e.g. the Langstrassen underpass,
+    provides floor/walls/deck itself; a coarse drape cell would otherwise cut long triangles through the interior). None if there are none."""
+    if not F.exists():
+        return None
+    out = []
+    for c in json.load(open(F))["cuts"]:
+        if "profile" in c and "hole" in c:
+            a, b = np.asarray(c["axis"][0], float), np.asarray(c["axis"][1], float)
+            d = (b - a) / np.linalg.norm(b - a); n = np.array([d[1], -d[0]]); h = float(c["hole"]["half"]); s0, s1 = c["hole"]["s"]
+            out.append(shapely.Polygon([a + d * s0 - n * h, a + d * s1 - n * h, a + d * s1 + n * h, a + d * s0 + n * h]))
+    return shapely.union_all(out) if out else None

@@ -114,7 +114,7 @@ def graffiti(seed, bg, word, cols):
 
 
 def asphalt(w, h, seed, dirt=0.0):
-    a = _base((70, 70, 72), w, h, seed, blot=7, fine=5)
+    a = _base((104, 103, 100), w, h, seed, blot=7, fine=5)
     a -= dirt * 8
     return _img(a)
 
@@ -127,10 +127,10 @@ def road_cell(seed, arrow=None):
     white, yellow = (224, 224, 218, 255), (214, 178, 40, 255)
     d.rectangle([X(0.5), 0, X(0.5) + 5, H], fill=white)                     # centre line (solid)
     d.rectangle([X(-5.5) , 0, X(-5.5) + 5, H], fill=white)                  # edge lines
-    d.rectangle([X(5.2), 0, X(5.2) + 5, H], fill=white)
+    d.rectangle([X(5.2), 0, X(5.2) + 5, H], fill=yellow)
     for o in (-2.6, 3.9):                                                  # dashed lane / advisory bike lane lines
         for y0 in (20, 130):
-            d.rectangle([X(o), y0, X(o) + 4, y0 + 56], fill=white if o < 0 else yellow)
+            d.rectangle([X(o), y0, X(o) + 4, y0 + 56], fill=white)
     d.rectangle([X(-4.2), 0, X(-4.2) + 3, H], fill=yellow) if False else None
     if arrow == "straight":
         for o in (-1.4, 2.1):
@@ -143,6 +143,10 @@ def ped_cell(seed):
     im = asphalt(144, 224, seed, dirt=0.3); d = ImageDraw.Draw(im)
     for y0 in (6, 118):
         d.rectangle([68, y0, 75, y0 + 70], fill=(205, 172, 38, 255))
+    y = (205, 172, 38, 255)    # pedestrian pictogram right of the line (photos: yellow walker symbol + keep-apart boxes)
+    d.ellipse([104, 150, 112, 158], fill=y); d.line([(108, 160), (108, 176)], fill=y, width=4)
+    d.line([(108, 164), (101, 172)], fill=y, width=3); d.line([(108, 164), (115, 172)], fill=y, width=3)
+    d.line([(108, 176), (102, 192)], fill=y, width=3); d.line([(108, 176), (115, 192)], fill=y, width=3)
     return im
 
 
@@ -190,7 +194,8 @@ def uv_floor(kind, row, u0, u1, v0, v1):
     x0, w = {"road": (0, 432), "arrow": (432, 432), "ped": (864, 144)}[kind]
     px = lambda u: (x0 + 1 + u * (w - 2)) / 1024
     py = lambda v: 1 - (row * 224 + 1 + v * 222) / 1024
-    return [(px(u0), py(v0)), (px(u1), py(v0)), (px(u1), py(v1)), (px(u0), py(v1))]
+    # corner order of the callers: (s0,o0),(s1,o0),(s1,o1),(s0,o1); texture u runs across (o), v along (s)
+    return [(px(u0), py(v0)), (px(u0), py(v1)), (px(u1), py(v1)), (px(u1), py(v0))]
 
 
 def uv_wall(i, u0=0.0, u1=1.0, v0=0.0, v1=1.0):
