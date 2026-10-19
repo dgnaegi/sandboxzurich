@@ -168,4 +168,4 @@ def build():
 
 if __name__ == "__main__":
     m = build()
-    register(m, "hb_shell", "Zürich Hauptbahnhof", [], hide_ids=[])
+    register(m, "hb_shell", "Zürich Hauptbahnhof", [], hide_ids=json.load(open(ROOT / "research/hb/hide.json"))["swiss"]["canopy"])   # floating roof-only canopies around the station

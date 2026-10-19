@@ -25,7 +25,7 @@ def gable_outline():
 def dormer(m, mp, mt, mf, mdc, a, tt, nh, u, ze, step=0.0):
     """Small pitched dormer: window face 1.0 m inside the wall plane, side cheeks, two tile slopes."""
     P = lambda uu, d, z: (a[0] + tt[0] * uu + nh[0] * d, a[1] + tt[1] * uu + nh[1] * d, z)
-    n = (nh[0], nh[1], 0); hw = 0.7; d0 = -1.0; d1 = -2.6; zb, zs, zr = ze + 0.4, ze + 2.3, ze + 3.1
+    n = (nh[0], nh[1], 0); hw = 0.7; d0 = -1.0; d1 = -3.0; zb, zs, zr = ze + 0.4, ze + 2.8, ze + 3.9
     D._oriented(m, mp, [P(u - hw, d0, zb), P(u + hw, d0, zb), P(u + hw, d0, zs), P(u - hw, d0, zs)], n, [(0, 0), (.4, 0), (.4, .5), (0, .5)], W4)
     D._oriented(m, mp, [P(u - hw, d0, zs), P(u + hw, d0, zs), P(u, d0, zr)], n, [(0, 0), (.4, 0), (.2, .2)], W4)
     D._oriented(m, mdc, [P(u - 0.45, d0 + 0.03, zb + 0.5), P(u + 0.45, d0 + 0.03, zb + 0.5), P(u + 0.45, d0 + 0.03, zs - 0.15), P(u - 0.45, d0 + 0.03, zs - 0.15)], n, T.uvr("win_mod"), W4)
@@ -36,7 +36,7 @@ def dormer(m, mp, mt, mf, mdc, a, tt, nh, u, ze, step=0.0):
         D._oriented(m, mf, [P(u + s * hw, d0, zs), P(u + s * (hw + 0.25), d0 - 0.15, zs - 0.05), P(u + s * (hw + 0.25), d1, zs - 0.05), P(u + s * hw, d1, zs)], (0, 0, -1), [(0, 0), (1, 0), (1, 1), (0, 1)], DARK)
 
 
-def restaurant_extras(m, mp, mt, mf, mdc, info, rp, loc, oz):
+def restaurant_extras(m, mp, mt, mf, mdc, info, rp, loc, oz, st):
     # ---- curved gable + sign on the longest street-facing wall --------------------------------------
     poly0 = gable_outline()
     for (a, b, nh, tt, w, ze, is_long, g) in info:
@@ -61,7 +61,7 @@ def restaurant_extras(m, mp, mt, mf, mdc, info, rp, loc, oz):
             if is_long and abs(u - w / 2) < 5.6: continue
             dormer(m, mp, mt, mf, mdc, a, tt, nh, u, ze)
     # ---- chimneys: on the ridge, found from the highest roof vertices -------------------------------
-    pts = np.array([x for k, p in rp if k == 2 for x in loc(p)])
+    pts = np.array([x for k, p in rp if k == 2 for x in loc(p)]); pts[:, 2] = st(pts[:, 2])
     ridge = pts[pts[:, 2] > pts[:, 2].max() - 0.5]
     if len(ridge) < 2: return
     c = ridge[:, :2].mean(0); u_, s_, vt = np.linalg.svd(ridge[:, :2] - c); ax = vt[0]; pr = (ridge[:, :2] - c) @ ax

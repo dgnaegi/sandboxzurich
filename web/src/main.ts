@@ -51,7 +51,7 @@ import { CarUse } from './player/vehicle_use';
 import { TrafficLights } from './world/trafficlights';
 import { addCar } from './world/night_lights';
 import { parkedCars } from './world/parkedcars';
-import { findSpot } from './player/spawn';
+import { findSpot, findGoodSpot, loadSpawns, nearestSpawn, randomSpawn, validSpot, loadTramTracks } from './player/spawn';
 import type { Obb } from './player/drive';
 
 // Spawn: Helvetiaplatz (local metres). ?at=x,y,yaw overrides it, ?t=HH:MM sets the time (screenshot tests).
@@ -110,7 +110,9 @@ async function main() {
   const saved = state.load();
   bindHud(state);
   const at = params.get('at')?.split(',').map(Number);
-  const [sx, sy, syaw] = at && at.length >= 2 ? at : saved?.x ? [saved.x, saved.y!, 0] : [SPAWN.x, SPAWN.y, SPAWN.yaw];
+  const spawns = await loadSpawns();   // curated start spots; random one for a fresh start, nearest one if the saved position is not legal
+  const pick = randomSpawn(spawns);
+  const [sx, sy, syaw] = at && at.length >= 2 ? at : saved?.x ? [saved.x, saved.y!, 0] : pick ? [pick.x, pick.y, pick.yaw] : [SPAWN.x, SPAWN.y, SPAWN.yaw];
   await L(tiles.update(sx, sy));
   const player = new Player(sx, sy, tiles, humans.instance(humans.player));
   player.teleport(sx, sy, syaw ?? 0);
@@ -154,8 +156,15 @@ async function main() {
   };
   await Promise.all([landmarks3d.load(), rail.load(), transit.load(), transit.loadModels(), traffic.load(), scenes.load(), events.load(), velo.load(), anecdotes.load(), locator.load()].map(L));
   if (!params.has('exact')) { // never start in a building / landmark / on rail land, water or tram tracks (?exact keeps the raw ?at= for screenshot tests)
-    const [fx, fy] = await findSpot({ tiles, landmarks: landmarks3d }, player.x, player.y);
-    if (Math.hypot(fx - player.x, fy - player.y) > 0.01) player.teleport(fx, fy, player.yaw);
+    const env = { tiles, landmarks: landmarks3d };
+    if (at && at.length >= 2) {   // explicit ?at=: only get out of walls / water / rails
+      const [fx, fy] = await findSpot(env, player.x, player.y);
+      if (Math.hypot(fx - player.x, fy - player.y) > 0.01) player.teleport(fx, fy, player.yaw);
+    } else {
+      await Promise.all([tiles.update(player.x, player.y), landmarks3d.prepare(player.x, player.y), loadTramTracks()]);
+      const ok = validSpot(env, player.x, player.y, true);
+      if (!ok) { const s = nearestSpawn(spawns, player.x, player.y); const [fx, fy] = await findGoodSpot(env, s?.x ?? player.x, s?.y ?? player.y); player.teleport(fx, fy, s?.yaw ?? player.yaw); }
+    }
   }
   scene.add(events.group);
   traffic.maxCars = mobile ? 20 : 45;
@@ -194,7 +203,7 @@ async function main() {
   missions.onReward = (chf) => { state.addMoney(chf); state.save(player.x, player.y); };
 
   const jump = (x: number, y: number, yaw = player.yaw) => {
-    void findSpot({ tiles, landmarks: landmarks3d }, x, y).then(([px, py]) => player.teleport(px, py, yaw));
+    void findGoodSpot({ tiles, landmarks: landmarks3d }, x, y).then(([px, py]) => player.teleport(px, py, yaw));
   };
   map.onJump = (x, y) => { if (player.driving) carUse.exit(); player.dismount(); jump(x, y); };
   const audio = new Audio();
@@ -407,7 +416,7 @@ async function main() {
       lastStats = acc;
     }
   });
-  Object.assign(window, { sbxReady: true, sbxActions: sbxActionsHook, sbxFindSpot: (x: number, y: number) => findSpot({ tiles, landmarks: landmarks3d }, x, y), sbxPlayer: player, sbxScene: scene, sbxState: state, sbxBikes: bikes, sbxCarUse: carUse, sbxParked: parkedCars, sbxTraffic: traffic, sbxEvents: events, sbxTransit: transit, sbxRail: rail, sbxRenderer: renderer, sbxCamera: camera, sbxTiles: tiles, sbxDaytime: daytime, sbxMap: map, sbxCrowd: crowd }); // hooks for Playwright tests
+  Object.assign(window, { sbxReady: true, sbxActions: sbxActionsHook, sbxFindSpot: (x: number, y: number) => findGoodSpot({ tiles, landmarks: landmarks3d }, x, y), sbxValidSpot: (x: number, y: number) => validSpot({ tiles, landmarks: landmarks3d }, x, y, true), sbxPlayer: player, sbxScene: scene, sbxState: state, sbxBikes: bikes, sbxCarUse: carUse, sbxParked: parkedCars, sbxTraffic: traffic, sbxEvents: events, sbxTransit: transit, sbxRail: rail, sbxRenderer: renderer, sbxCamera: camera, sbxTiles: tiles, sbxDaytime: daytime, sbxMap: map, sbxCrowd: crowd }); // hooks for Playwright tests
 }
 
 if (!hasWebGL2()) loading.fail('Dein Browser unterstützt WebGL 2 nicht oder hat es abgeschaltet. Bitte aktualisiere den Browser (Chrome, Firefox, Safari ab iOS 15) oder aktiviere die Hardwarebeschleunigung.', false);

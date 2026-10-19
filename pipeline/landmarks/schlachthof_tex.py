@@ -15,21 +15,21 @@ def font(sz, name="Barlow-Bold"): return ImageFont.truetype(str(FONTS / (name + 
 CREAM = (234, 219, 172)
 
 
-def brick_wall(color=CREAM, size=512, rows=48, cols=16, seed=3, red=True):
+def brick_wall(color=CREAM, size=512, rows=40, cols=12, seed=3, red=True):
     """Pale yellowish clinker with visible light-grey joints, 4 m x 4 m per repeat (48 courses of ~8 cm, 25 cm bricks). red=True adds
     the brick-red bands: a horizontal band and a vertical pilaster strip per repeat (halls, photo 3 of research/schlachthof.md)."""
-    rng = np.random.default_rng(seed); joint = (206, 198, 176)
+    rng = np.random.default_rng(seed); joint = (160, 150, 126)
     im = Image.new("RGB", (size, size), joint); d = ImageDraw.Draw(im)
     bh = size / rows; bw = size / cols
-    redcol = (176, 78, 52)
+    redcol = (150, 50, 34)
     for r in range(rows):
         off = (r % 2) * bw / 2
         for k in range(-1, cols + 1):
-            f = 1 + rng.normal(0, 0.035); g = rng.normal(0, 3)
+            f = 1 + rng.normal(0, 0.06) - (0.16 if rng.random() < 0.08 else 0); g = rng.normal(0, 5)
             c = tuple(int(np.clip(v * f + g * (1 if i == 0 else 0.6), 0, 255)) for i, v in enumerate(color))
-            d.rectangle([k * bw + off + 1.5, r * bh + 1.5, (k + 1) * bw + off - 1.5, (r + 1) * bh - 1.5], fill=c)
+            d.rectangle([k * bw + off + 2.5, r * bh + 2.0, (k + 1) * bw + off - 2.5, (r + 1) * bh - 2.0], fill=c)
     if red:
-        for r in (rows - 3, rows - 2, rows - 1):      # horizontal red band (3 courses)
+        for r in (rows - 4, rows - 3, rows - 2, rows - 1, rows // 2, rows // 2 + 1):      # horizontal red band (4 courses)
             for k in range(-1, cols + 1):
                 off = (r % 2) * bw / 2; f = 1 + rng.normal(0, 0.05)
                 d.rectangle([k * bw + off + 1.5, r * bh + 1.5, (k + 1) * bw + off - 1.5, (r + 1) * bh - 1.5], fill=tuple(int(v * f) for v in redcol))

@@ -1,15 +1,6 @@
 {
  "landmarks": [
   {
-   "name": "Z\u00fcrich Hauptbahnhof",
-   "model": "/models/landmarks/hb_shell.glb",
-   "x": 1760.0,
-   "y": -650.0,
-   "z": -2.9,
-   "heading": -0.3665191429188092,
-   "hide": []
-  },
-  {
    "name": "Z\u00fcrich Hauptbahnhof + Perrons",
    "model": "/models/landmarks/hb_perron.glb",
    "x": 1760.0,
@@ -6149,6 +6140,20 @@
     ]
    ],
    "load_r": 260
+  },
+  {
+   "name": "Z\u00fcrich Hauptbahnhof",
+   "model": "/models/landmarks/hb_shell.glb",
+   "x": 1760.0,
+   "y": -650.0,
+   "z": -2.9,
+   "heading": -0.3665191429188092,
+   "hide": [],
+   "hide_ids": [
+    "ID_5CAAC987-6647-42E1-BA87-E5EF3A93E573",
+    "ID_9229FC2D-FC22-49EE-97A0-621A522783F5",
+    "ID_61687615-A28E-4E77-BB5C-C443EC630D88"
+   ]
   }
  ]
 }

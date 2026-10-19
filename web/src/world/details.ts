@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { foliagePatch } from './foliage';
-import { catalogFountainNear } from './catalog';
+import { catalogFountainNear, catalogKioskNear } from './catalog';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
 /**
@@ -160,6 +160,7 @@ export function buildDetails(meta: DetailMeta | undefined, shadows: boolean): TH
   const m = new THREE.Matrix4(), q = new THREE.Quaternion(), p = new THREE.Vector3(), s = new THREE.Vector3(1, 1, 1), up = new THREE.Vector3(0, 1, 0);
   for (const [t, x, y, z, h, a, b, c] of meta.objs ?? []) {
     if (t === 'dwater' && catalogFountainNear(x, y)) continue;   // catalog fountain replaces the generic trough
+    if (t === 'kiosk' && catalogKioskNear(x, y)) continue;   // catalog kiosk (M2) replaces the generic box kiosk
     const f = T[t];
     if (!f) { console.warn('details: unknown type', t); continue; }
     m.compose(p.set(x, z, -y), q.setFromAxisAngle(up, h), s);

@@ -9,7 +9,7 @@ Stops: web/public/data/stops_equip.json (shelters H1/H2 by installation year, ti
 benches H6/H7); positions and facing are taken over 1:1, so only objects that stops_equip draws today appear.
 
 Row format "o": [variant, x, y, yaw, sx, dy, kind]; yaw = rotation about three.js Y (front = +z); sx = x scale (shelters);
-dy = height offset above ground; kind 0 fountain, 1 stop object (z from the stop platform at runtime). Ground z is not stored:
+dy = height offset above ground; kind 0 fountain, 1 stop object, 2 kiosk (collider), 3 kiosk replacing a tile kiosk (z from the stop platform at runtime). Ground z is not stored:
 the runtime asks Tiles.ground() (kerb-lowered terrain), the same function the other props use.
 Usage: python3 pipeline/catalog/assign.py"""
 import json
@@ -134,6 +134,20 @@ def main():
         for side in (1, -1):
             out_o.append(["H5" if ceil else "H4", x, y, round(yaw_of(az, side), 3), 1, 2.5 if ceil else 2.25, 1])
         cnt["H5" if ceil else "H4"] += 1
+    for x, y, az, s in eq["pl"]:   # VBZ poster panels (M3), replace the old poster boxes in stops_equip.ts
+        out_o.append(["M3", x, y, round(yaw_of(az, s), 3), 1, 0, 1])
+        cnt["M3"] += 1
+    # kiosks M2 (kind 2: ground from Tiles.ground(), collider circle), see assign_kiosk.py
+    import assign_kiosk
+    rl = []
+    for r in json.load(open(WEB / "roads.json"))["cars"]:
+        p = r["p"]
+        if len(p) >= 4:
+            rl.append((LineString(list(zip(p[0::2], p[1::2]))), r.get("w", 6.0) / 2))
+    ko, kst = assign_kiosk.rows(area, rl)
+    out_o += ko
+    cnt["M2"] += len(ko)
+    print("kiosks:", kst)
     res = {"src": "WVZ Brunnenkataster, VBZ Infrastruktur OGD (CC0); pipeline/catalog/assign.py", "o": out_o}
     (WEB / "catalog.json").write_text(json.dumps(res, separators=(",", ":")))
     print("fountains in area:", n_in, "stops objs:", sum(1 for o in out_o if o[6]))

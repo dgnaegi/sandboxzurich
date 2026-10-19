@@ -104,7 +104,7 @@ export async function loadEquip(group: THREE.Group, defaults: StopDefault[], gro
     opaque.push(part(fr, 0, 0.8, 0, 0.55, 1.6, 0.4), TICK); opaque.push(part(fr, 0, 1.25, 0.205, 0.4, 0.45, 0.01), SCREEN);
     opaque.push(part(fr, 0, 0.82, 0.205, 0.18, 0.14, 0.012), DARK); void i;
   });
-  eq.pl.forEach(([x, y, az, s], i) => {
+  (cat ? [] : eq.pl).forEach(([x, y, az, s], i) => {
     const z = zAt(x, y), fr = frame(x, y, z, az, s), c = POSTER[(Math.round(x * 7 + y * 13) >>> 0) % POSTER.length];
     opaque.push(part(fr, 0, 1.15, 0, 1.2, 1.8, 0.07), DARK);
     posters.push(part(fr, 0, 1.15, 0.04, 1.04, 1.6, 1), c); posters.push(part(fr, 0, 1.15, -0.04, -1.04, 1.6, 1), c); void i;

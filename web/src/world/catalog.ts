@@ -5,7 +5,8 @@ import type { Colliders } from '../player/collision';
 /** Object catalog at runtime (pipeline/catalog/assign.py -> public/data/catalog.json, models in public/models/catalog/).
  *  Fountains (V1..V9) and stop equipment (H1..H7) as low-poly GLBs sharing one atlas. One InstancedMesh per variant and
  *  material (opaque / blend); only objects in chunks near the player are instanced, their collider circles are registered
- *  with the same chunk (and removed again). Row "o": [variant, x, y, yaw, sx, dy, kind]; kind 0 fountain, 1 stop object. */
+ *  with the same chunk (and removed again). Row "o": [variant, x, y, yaw, sx, dy, kind]; kind 0 fountain, 1 stop object (platform z),
+ *  2 kiosk with collider, 3 kiosk replacing a tile kiosk (details.ts skips it; the tile collider stays). */
 const DIR = '/models/catalog';
 const CHUNK = 64;
 interface Row { v: string; x: number; y: number; yaw: number; sx: number; dy: number; kind: number }
@@ -17,6 +18,7 @@ let info: Record<string, VarInfo> = {};
 const parts = new Map<string, Part[]>();
 let atlas: THREE.Texture | null = null;
 let ready = false;
+const kiosks: Row[] = [];   // kind 3: queried by details.ts to drop the generic kiosk
 const fountains = new Map<string, Row[]>();   // chunk key -> fountains (queried by props.ts / details.ts to drop the generic ones)
 const key = (x: number, y: number) => `${Math.floor(x / CHUNK)},${Math.floor(y / CHUNK)}`;
 
@@ -44,6 +46,7 @@ export async function loadCatalog(mobile: boolean): Promise<boolean> {
     rows = (cat.o as number[][] & [string][]).map((r) => ({ v: r[0] as unknown as string, x: r[1], y: r[2], yaw: r[3], sx: r[4], dy: r[5], kind: r[6] }));
     rows = rows.filter((r) => parts.has(r.v));
     for (const r of rows) if (r.kind === 0) (fountains.get(key(r.x, r.y)) ?? fountains.set(key(r.x, r.y), []).get(key(r.x, r.y))!).push(r);
+    for (const r of rows) if (r.kind === 3) kiosks.push(r);
     ready = true;
   } catch (e) { console.warn('catalog: not available, generic objects stay', e); ready = false; }
   return ready;
@@ -57,6 +60,11 @@ export function catalogFountainNear(x: number, y: number, r = 3): boolean {
   for (let i = -1; i <= 1; i++) for (let j = -1; j <= 1; j++)
     for (const f of fountains.get(`${cx + i},${cy + j}`) ?? []) if (Math.hypot(f.x - x, f.y - y) <= r) return true;
   return false;
+}
+
+/** True when a catalog kiosk replaces the generic tile kiosk at (x, y). */
+export function catalogKioskNear(x: number, y: number, r = 1.5): boolean {
+  return ready && kiosks.some((k) => Math.hypot(k.x - x, k.y - y) <= r);
 }
 
 /** Height of the stop platform at (x, y); set by stops_equip.ts once its data is in (stop objects wait for it). */
@@ -114,7 +122,7 @@ export class CatalogLayer {
         per.set(o.v, n + 1);
       }
       if (!this.active.has(k)) {   // chunk enters the radius: register its fountain colliders (whole chunk)
-        const solids = list.filter((o) => o.kind === 0).map((o) => [o.x, o.y, info[o.v].radius]);
+        const solids = list.filter((o) => o.kind === 0 || o.kind === 2).map((o) => [o.x, o.y, o.kind === 2 ? Math.min(info[o.v].radius, 1.7) : info[o.v].radius]);
         if (solids.length) this.colliders.addCircles(`catalog_${k}`, solids);
       }
     }

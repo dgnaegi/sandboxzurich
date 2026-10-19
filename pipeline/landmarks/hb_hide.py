@@ -23,6 +23,18 @@ def swiss():
     return out
 
 
+def canopies(taken):
+    """Roof-only swissBUILDINGS3D canopies (no wall footprint) around the station that nothing else hides: without walls/posts they float
+    6-7 m over the Bahnhofplatz / Bahnhofquai (the 'grey boxes over the east gable'); stops.ts builds the real shelters."""
+    out = []
+    for f in sorted(glob.glob(str(ROOT / 'data/build/bld/*.pkl'))):
+        for b in pickle.load(open(f, 'rb')):
+            if b['id'] in taken or any(k == 0 for k, _ in b['polys']): continue
+            allp = np.concatenate([p for _, p in b['polys']]); d, c = from_world(*allp[:, :2].mean(0))
+            if -500 < d < 260 and -200 < c < 170: out.append(b['id'])
+    return out
+
+
 def osm_points():
     import sources
     nodes, els = sources.osm(); pts = {"haupt": [], "perron": []}
@@ -45,4 +57,7 @@ if __name__ == "__main__":
         for r in sorted(v, key=lambda r: r[1]): print("  ", r)
     O = osm_points(); print({k: len(v) for k, v in O.items()})
     S["perron"] = [r for r in S["perron"] if r[4] <= 12.5 and r[2] >= -85]   # no towers / buildings south of the tracks
-    json.dump({"swiss": {k: [r[0] for r in v] for k, v in S.items()}, "osm_points": O}, open(ROOT / "research/hb/hide.json", "w"))
+    out = {k: [r[0] for r in v] for k, v in S.items()}
+    out["canopy"] = canopies(set(out["haupt"]) | set(out["perron"]) | {i for f in glob.glob(str(ROOT / "pipeline/overrides/landmarks_*.json")) for e in json.load(open(f))["landmarks"] for i in e.get("hide_ids", [])})
+    print("canopy", len(out["canopy"]))
+    json.dump({"swiss": out, "osm_points": O}, open(ROOT / "research/hb/hide.json", "w"))

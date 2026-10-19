@@ -11,6 +11,8 @@ from k39w3_kit import prep, W4, hexl, Model, taper, ROOT
 from common import ground
 import detail as D
 import schlachthof_tex as T
+import schlachthof_gates as GT
+from shapely.ops import unary_union
 from schlachthof_rest import restaurant_extras
 from lm import Mat
 
@@ -19,7 +21,7 @@ OUTDIR = ROOT / "web" / "public" / "models" / "landmarks"; RAWDIR = ROOT / "data
 HALL_IDS = ["ID_B529B079", "ID_73904D69"]; REST_ID = "ID_E1E2306E"; GATE_ID = "ID_9B116DAC"; HOUSES = [("ID_E1E2306E", True), ("ID_9B116DAC", False)]; CHIM_ID = "ID_45AE7D98"
 A_G, B_G = np.array((-913.0, 50.0)), np.array((-805.0, -25.0))      # vault axis (global local-metres), measured from the roof polygons
 S0, S1, OC, HALF, SPRING, RIDGE = 8.2, 134.0, -5.3, 12.1, 10.5, 14.6   # vault s range along the axis, centre offset, half span, abs heights
-STONE, GREY, RED = hexl("#b4aea0"), hexl("#8a8883"), hexl("#a8472f")
+STONE, GREY, RED = hexl("#b4aea0"), hexl("#5e5a55"), hexl("#a8472f")
 
 
 class M8(Model):
@@ -102,7 +104,7 @@ def build():
         if w < 3.0 or h < 3.5: continue
         ground_wall = z0 <= g + 1.0
         if h >= 6: D.band(m, mf, tuple(a), tuple(b), z1 - 0.5, z1 + 0.15, 0.25, STONE)
-        if ground_wall and h >= 6: D.band(m, mf, tuple(a), tuple(b), z0 + 0.5 if z0 < g else z0, z0 + 1.2 if z0 < g else z0 + 1.1, 0.07, GREY)
+        if ground_wall and h >= 6: D.band(m, mf, tuple(a), tuple(b), g - 0.4, g + 1.6, 0.1, GREY); D.band(m, mf, tuple(a), tuple(b), g + 1.6, g + 1.8, 0.14, STONE)
         nb = max(1, int(round((w - 1.0) / 4.2))); bw = (w - 1.0) / nb
         def place(name, cu, zb_, wd, ht, off=0.04):
             P = lambda u, z: (a[0] + tt[0] * u + nh[0] * off, a[1] + tt[1] * u + nh[1] * off, z)
@@ -132,8 +134,9 @@ def build():
         zb = zg + sp_l - 1.0 + 0.0
         arc = [(HALF * math.cos(math.pi * i / 24), sp_l + HALF * math.sin(math.pi * i / 24)) for i in range(25)]
         pts = [(-15, zb), (15, zb), (15, sp_l + 3.0), (HALF, sp_l + 3.0)] + arc + [(-HALF, sp_l + 3.0), (-15, sp_l + 3.0)]
-        poly = Polygon(pts).buffer(0)
+        hs = GT.holes(zg + sp_l); poly = Polygon(pts).buffer(0).difference(unary_union(hs))
         D.poly_wall(m, pmat, poly, org, tuple(tf), (tf[1], -tf[0]), 0.0, W4, lambda u, z, sl=sp_l: ((u + 15) / 30.0, (z - sl + 15) / 28.0))
+        GT.fill(m, mf, mdc, hs, org, tf, (tf[1], -tf[0]), zg + sp_l, var, sp_l, Rv, zc, HALF)
         # pier caps (pyramids) and cornice along the arch
         for sd in (-1, 1):
             cu = sd * 13.55; q0 = np.array(org[:2]) + tf * cu; n2 = np.array([tf[1], -tf[0]])
@@ -162,15 +165,19 @@ def build():
     m.cylinder(mf, cx, cy, rh + 0.35, zh + 2.1, zh + 2.35, n=16, col=hexl("#a8a396"), cap=mf, capcol=hexl("#2e2e2e"))
     # ---- restaurant ----------------------------------------------------
     for prefix, signed in HOUSES:
-        rp = load(prefix); rw = []; RW_info = []
+        rp = load(prefix); rw = []; RW_info = []; rr = []
         for k, p in rp:
             q = loc(p)
-            if k == 2:
-                n3 = np.cross(q[1] - q[0], q[2] - q[0]); n3 = n3 / (np.linalg.norm(n3) + 1e-9)
-                if n3[2] < 0: n3 = -n3
-                if len(q) in (3, 4): oq(m, mt, [tuple(x) for x in q], n3, [(x[0] * 0.5, x[1] * 0.5) for x in q], W4)
+            if k == 2: rr.append(q)
             elif k == 1: rw.append(q)
         eave = float(np.median([q[:, 2].max() for q in rw if len(q) == 4 and q[:, 2].max() - q[:, 2].min() > 3] or [rw[0][:, 2].max()]))
+        SF = 1.5 if signed else 1.0                                                   # steeper Walmdach than the 3D data (photos 4/5): heights above the eave x1.5
+        def st(z, e=eave): return np.where(z > e + 0.05, e + (z - e) * SF, z)
+        for q in rr:
+            q = q.copy(); q[:, 2] = st(q[:, 2])
+            n3 = np.cross(q[1] - q[0], q[2] - q[0]); n3 = n3 / (np.linalg.norm(n3) + 1e-9)
+            if n3[2] < 0: n3 = -n3
+            if len(q) in (3, 4): oq(m, mt, [tuple(x) for x in q], n3, [(x[0] * 0.5, x[1] * 0.5) for x in q], W4)
         def front_score(q):
             n3 = np.cross(q[1] - q[0], q[2] - q[0]); nh = n3[:2] / (np.hypot(*n3[:2]) + 1e-9); sc = float(nh @ np.array([0.6, -0.8]))
             return (np.hypot(*(q[:, :2].max(0) - q[:, :2].min(0))) if (q[:, 2].max() - q[:, 2].min()) > 3 and sc > 0.3 else 0.0)
@@ -183,7 +190,7 @@ def build():
             nh = nh / ln; tt = np.array([-nh[1], nh[0]]); pr = xy @ tt; ia, ib = int(np.argmin(pr)), int(np.argmax(pr)); a, b = xy[ia], xy[ib]; w = float(pr[ib] - pr[ia])
             if w < 0.3: continue
             g = gl(*(a + b) / 2); z0 = min(z0, g - 0.8); u0 = float(a @ tt) / 4
-            zz0 = float(q[:, 2].min()); qq = q.copy(); qq[qq[:, 2] <= zz0 + 0.01, 2] = z0     # true quad (gable ends/hips are not rectangles)
+            zz0 = float(q[:, 2].min()); qq = q.copy(); qq[:, 2] = st(qq[:, 2]); qq[q[:, 2] <= zz0 + 0.01, 2] = z0     # true quad (gable ends/hips are not rectangles)
             oq(m, mp, [tuple(v) for v in qq], (nh[0], nh[1], 0), [(float(v[:2] @ tt) / 4.0, v[2] / 4.0) for v in qq])
             if w < 3 or z1 - g < 5: continue
             ze = min(z1, eave); D.band(m, mf, tuple(a), tuple(b), ze - 0.35, ze + 0.1, 0.3, hexl("#cfc7b6")); D.band(m, mf, tuple(a), tuple(b), g, g + 0.7, 0.05, GREY)
@@ -199,7 +206,7 @@ def build():
                     if not signed: wd, ht, nm, zb_ = 1.5, 1.7, "win_mod", g + f * 3.3 + 0.9          # plain house: no shutters, no restaurant door
                     oq(m, mdc, [P(cu - wd / 2, zb_), P(cu + wd / 2, zb_), P(cu + wd / 2, zb_ + ht), P(cu - wd / 2, zb_ + ht)], (nh[0], nh[1], 0), T.uvr(nm))
             if signed: RW_info.append((a, b, nh, tt, w, ze, q is longest, g))
-        if signed: restaurant_extras(m, mp, mt, mf, mdc, RW_info, rp, loc, oz)
+        if signed: restaurant_extras(m, mp, mt, mf, mdc, RW_info, rp, loc, oz, st)
         RW_info = []
     # ---- finish --------------------------------------------------------
     hide = [list(h) for h in c.hide]

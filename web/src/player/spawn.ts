@@ -48,6 +48,10 @@ export function validSpot(env: SpawnEnv, x: number, y: number, pavement = false)
   if (Math.hypot(rx - x, ry - y) > 0.05) return false;
   if (pavement && t.onRoad(x, y)) return false;
   const gz = t.ground(x, y), fz = t.groundAt(x, y, gz + 1);
+  if (pavement) {   // strict: no embankment, no roof / deck level, no ledge
+    const sl = Math.max(Math.abs(t.ground(x + 1.5, y) - t.ground(x - 1.5, y)), Math.abs(t.ground(x, y + 1.5) - t.ground(x, y - 1.5))) / 3;
+    if (sl > 0.3 || fz - gz > 2.5 || gz - fz > 1) return false;
+  }
   if (t.bridges.heightAt(x, y, fz + 3.2, 1.3) !== null || t.ceilingAbove(x, y, fz, 4.5)) return false;   // deck / bridge right above the head
   return !env.landmarks.solidAt(x, y, fz);
 }
@@ -67,3 +71,32 @@ export async function findSpot(env: SpawnEnv, x: number, y: number, maxR = 400):
   }
   return [x, y];
 }
+
+/** Nearest legal spot on pavement / square (never carriageway, embankment, roof); falls back to any free spot. */
+export async function findGoodSpot(env: SpawnEnv, x: number, y: number, maxR = 250): Promise<[number, number]> {
+  await Promise.all([env.tiles.update(x, y), loadTramTracks(), env.landmarks.prepare(x, y)]);
+  if (validSpot(env, x, y, true)) return [x, y];
+  for (let r = 1; r <= maxR; r += Math.max(1, r * 0.04)) {
+    const n = Math.max(6, Math.round((Math.PI * 2 * r) / 1.5));
+    for (let k = 0; k < n; k++) {
+      const a = (k / n) * Math.PI * 2 + r * 0.7, px = x + Math.cos(a) * r, py = y + Math.sin(a) * r;
+      if (validSpot(env, px, py, true)) return [px, py];
+    }
+  }
+  return findSpot(env, x, y);
+}
+
+export interface Spawn { name: string; x: number; y: number; yaw: number }
+
+/** Curated start spots (public/data/spawns.json, made and checked by pipeline/spawns.py). */
+export async function loadSpawns(): Promise<Spawn[]> {
+  try { return (await (await fetch('/data/spawns.json')).json()).spawns as Spawn[]; } catch { return []; }
+}
+
+export function nearestSpawn(list: Spawn[], x: number, y: number): Spawn | null {
+  let best: Spawn | null = null, bd = Infinity;
+  for (const s of list) { const d = Math.hypot(s.x - x, s.y - y); if (d < bd) { bd = d; best = s; } }
+  return best;
+}
+
+export const randomSpawn = (list: Spawn[]): Spawn | null => list.length ? list[Math.floor(Math.random() * list.length)] : null;

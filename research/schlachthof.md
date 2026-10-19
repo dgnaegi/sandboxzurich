@@ -20,5 +20,11 @@ Städtischer Schlachthof, 1909, Kreis 4 Hard, direkt nordöstlich des Letzigrund
 
 ## Offen
 - Innenraum der Tore nur dunkel (nicht begehbar).
-- Fassadenfarben der Nordblöcke (73904D69) nicht belegt, daher gleiche Backstein-Sprache.
+- Fassadenfarben der Nordblöcke (73904D69): GESCHÄTZT. Die Mapillary-/Panoramax-Fotos in data/raw/photos/schlachthof (schl_nord, schl_mitte, geprüft Runde 4) zeigen sie nicht, Commons-Fotos nur die Hauptportale. Darum gleiche Klinker-Sprache wie die Hallen.
 - Photovoltaik- und Gründächer nur als Flächenfarbe.
+
+## Runde 4
+- Backstein: 40 Schichten, dunklere Fugen, stärkere Farbvariation inkl. dunkler Klinker, rote Bänder (6 Schichten pro 4 m) und Pilaster kräftiger; Sockel dunkelgrau 2 m mit Steinleiste (`schlachthof_tex.brick_wall`).
+- Tore: echte Öffnungen im Portal mit 0.8 m Laibung (Stein), Haupttor mit zwei Stahlflügeln und offener Mitte mit Blick in eine einfache Innenhalle (Boden, Wände, Säulen, Tonnen-Untersicht, helles Ende); Seitentore geschlossen (Holz am NW, Stahl am SE) (`schlachthof_gates.py`).
+- Restaurant: Dachhöhe über der Traufe x1.5 (Wände und Dachflächen konsistent), Gauben und Kamine passend; PV und Gründächer weiterhin nur Flächenfarbe.
+- Kamin: schlank, verjüngt (3.1 auf 1.8 m), Backsteintextur, Kopfkranz.
