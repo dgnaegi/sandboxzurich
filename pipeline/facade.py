@@ -147,21 +147,30 @@ def add_building(mesh, b, street_dist, neighbour=lambda x, y: False):
     def plausible(f):  # storey height 2.6-4.6 m from the real eave height
         return f >= 1 and 2.6 <= avail / f <= 4.6
 
+    sh = 1 if shop_ok else 0
+    ref = None
     try:  # GWR floors (official) or OSM building:levels (above ground, incl. ground floor) beat guessing
         lv = int(float((osm.get("_gwr") or {}).get("floors") or osm.get("building:levels", "")))
-        if 1 <= lv <= 40 and (not V4 or plausible(max(1, lv - (1 if shop_ok else 0)))):
-            floors = max(1, lv - (1 if shop_ok else 0))
-        elif V4 and v3.get("floors") and plausible(max(1, int(v3["floors"]) - (1 if shop_ok else 0))):
-            floors = max(1, int(v3["floors"]) - (1 if shop_ok else 0))  # photo-counted floors when the register has none / is off
+        if 1 <= lv <= 40:
+            ref = max(1, lv - sh)
     except ValueError:
         pass
-    if V4 and v3.get("floors") and not (osm.get("_gwr") or {}).get("floors") and not osm.get("building:levels"):
-        try:
-            nf = max(1, int(v3["floors"]) - (1 if shop_ok else 0))
-            if plausible(nf):
-                floors = nf
-        except (TypeError, ValueError):
-            pass
+    nf = None
+    try:
+        nf = max(1, int(v3["floors"]) - sh) if V4 and v3.get("floors") else None
+    except (TypeError, ValueError):
+        pass
+    if not V4:
+        if ref:
+            floors = ref
+    elif ref and nf and abs(ref - nf) >= 2:  # register and photo note disagree: take the one whose storey height is closer to 3.1 m
+        cand = [f for f in (ref, nf) if plausible(f)] or [ref]
+        floors = min(cand, key=lambda f: abs(avail / f - 3.1))
+        _v4log("floors-conflict", b["id"], ref, nf, floors, round(avail, 1))
+    elif ref and plausible(ref):
+        floors = ref
+    elif nf and plausible(nf):
+        floors = nf
     tile_h = 4 * avail / floors
     lname = LAYER_NAME.get(layer, "")
     trim = lname.startswith(("g3_", "k3_"))          # v3 Altbau: eave cornice (+ bay windows when the notes say so)
@@ -171,24 +180,37 @@ def add_building(mesh, b, street_dist, neighbour=lambda x, y: False):
     k = 0
     pitch = PITCH_ALT if (V4 and trim) else 3.0
     axes = v3.get("axes") if V4 and vis.get("photo") else None
-    if axes:  # photo-counted window axes of the main front -> axis spacing on every wall of the house
+    if axes:  # photo-counted window axes of the address front -> axis spacing on every wall of the house
         try:
             axes = int(axes)
-            best = 0.0
+            g = osm.get("_gwr") or {}
+            ent = np.array([g["x"], g["y"]], float) if g.get("x") is not None and g.get("y") is not None else None
+            best, bkey = 0.0, None
             for kd, aa in b["polys"]:
                 if kd != 1:
                     continue
                 rr = tri3d(aa[:-1] if np.allclose(aa[0], aa[-1]) else aa)
-                if rr is None or abs(rr[2][2]) >= 0.3:
+                if rr is None or abs(rr[2][2]) >= 0.3 or aa[:, 2].min() >= z0 + 1.5:
                     continue
-                tt = np.array([-rr[2][1], rr[2][0]])
-                uu = aa[:, :2] @ tt / max(np.hypot(*tt), 1e-6)
+                nn = rr[2][:2] / max(np.hypot(*rr[2][:2]), 1e-6)
+                tt = np.array([-nn[1], nn[0]])
+                uu = aa[:, :2] @ tt
                 mm = aa[:, :2].mean(0)
-                if street_dist(mm[0] + rr[2][0] * 3, mm[1] + rr[2][1] * 3) < 14 and aa[:, 2].min() < z0 + 1.5:
-                    best = max(best, float(uu.max() - uu.min()))
+                if ent is not None:  # wall nearest to the entrance (address front)
+                    ue = float(ent @ tt)
+                    du = max(uu.min() - ue, 0, ue - uu.max())
+                    key = float(np.hypot(du, abs(float(ent @ nn) - float(mm @ nn))))
+                else:  # no entrance known: wall nearest to a street
+                    key = float(street_dist(mm[0] + nn[0] * 3, mm[1] + nn[1] * 3))
+                if bkey is None or key < bkey:
+                    bkey, best = key, float(uu.max() - uu.min())
             if axes >= 2 and best > 4:
-                pitch = float(np.clip(best / axes, 2.2, 6.0))
-        except (TypeError, ValueError):
+                pp = best / axes
+                if 2.6 <= pp <= 4.2:
+                    pitch = float(pp)
+                else:
+                    _v4log("axes-ignored", b["id"], osm.get("addr:street"), osm.get("addr:housenumber"), axes, round(best, 1), round(pp, 2))
+        except (TypeError, ValueError, KeyError):
             pass
     egh = tile_h / 4.0 if not shop_ok else SHOP_H
     rustika = None
