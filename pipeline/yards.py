@@ -427,3 +427,46 @@ def tile_meta(tb, H, S, C, P, bld_polys):
         print("yards: tile failed", e, flush=True)
     _apply_excl(out)
     return {"yards": out}
+
+
+# ----------------------------------------------------------------------------------------------- trees vs. bridge decks
+def drop_deck_trees(C, BR, H, margin_nd=2.0):
+    """No tree on or through an elevated deck (Hardbruecke, Duttweilerbruecke, rail viaducts, footbridges ...). The nDSM reads decks,
+    vehicles and catenary as canopy, so nDSM maxima near a deck are dropped; register/OSM trees stay only where the crown clears the
+    deck underside (tree top < underside - 0.2 m). Returns the number removed. pipeline/audit_trees_deck.py"""
+    import trees_dims
+    segs, info = [], []
+    for b in BR or []:
+        p = b["p"]
+        for i in range(len(p) - 1):
+            if min(p[i][2] - b["g"][i], p[i + 1][2] - b["g"][i + 1]) < 0.3:
+                continue
+            segs.append(LineString([q[:2] for q in p[i:i + 2]]).buffer(b["w"] / 2 + 0.3, cap_style="flat"))
+            info.append(min(b["b"][i], b["b"][i + 1]))
+    if not segs:
+        return 0
+    from shapely.strtree import STRtree
+    st = STRtree(segs)
+    keep, n = [], 0
+    for t in C.get("trees", []):
+        x, y = t[0], t[1]
+        pt = Point(x, y)
+        near = [j for j in st.query(pt.buffer(4.0)) if segs[j].distance(pt) <= 4.0]
+        if not near:
+            keep.append(t)
+            continue
+        z = float(H.at(x, y))
+        row = trees_dims.tree_row(C, x, y, z, t[2], t[3], t[4], 0.0, False)   # same crown / height as the tile row (audit_trees_deck.py)
+        rad = max(row[4] * .25, margin_nd if t[4] == "ndsm" else 0)
+        hit = [j for j in near if segs[j].distance(pt) <= rad]
+        if not hit:
+            keep.append(t)
+            continue
+        under = min(info[j] for j in hit)
+        if t[4] == "ndsm" or z > under - 0.5 or z + row[5] > under - 0.2:
+            n += 1
+        else:
+            keep.append(t)
+    C["trees"] = keep
+    print(f"yards: {n} trees removed on/through bridge decks", flush=True)
+    return n

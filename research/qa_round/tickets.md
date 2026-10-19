@@ -201,3 +201,29 @@ Schwere: 1 = kosmetisch, 2 = faellt auf, 3 = bricht den Realismus/Spielbarkeit.
 13. T11 Kamera steht in Gebaeude: Gebaeude liegt auf der Strasse (Hohlstrasse/Altstetten, Foto zei (S3 x 1)
 14. T14 Landmarks erscheinen erst >3.5 s nach Teleport (St. Jakob, Foto 57/48): beim Blick zeigt d (S1 x 2)
 15. T18 Landmark fehlt: Landesmuseum/Platzspitz-Eingang (Foto: Schloss-Bau, Eisentor) (S2 x 1)
+
+## T19 Fussgaengerstreifen: Recall ~50 % nach Ortho-Scan (research/markings_audit.md)
+- Kategorie: Markierung; Schwere: 3; Haeufigkeit: viele Orte; systemisch
+- Orte: Seebahnstrasse/Badenerstrasse (150, -985) (6+ Streifen im Foto, keine im Spiel), Limmatplatz (1105, 95) (3 von ~6), Kalkbreite (270, -1175), Langstrasse/Roentgenstrasse (941, -220)
+- Ursache: Zebra-Scan `markings_ortho25.py` (SWISSIMAGE 0.25 m, `crossings.scan`) findet ~210 Streifen (Praezision ~90 % laut Stichprobe `preview/markings_zebra25_check.jpg`); verpasst werden verschattete Streifen, Streifen ausserhalb Fahrbahnpolygon+1 m, Richtungsfilter (>37 Grad zur OSM-Achse).
+- Fix-Vorschlag: Ortho 0.1 m nur entlang Hauptstrassen holen, Schattenmaske (lokaler Kontrast) fuer Streifen, Filter lockern.
+
+## T20 Markierungen weiss (Mittel-, Halte-, Parklinien) nicht pruefbar bei 0.5 m/px
+- Kategorie: Markierung; Schwere: 2; Haeufigkeit: Gebiet; systemisch
+- Orte: Stichprobe 0.1 m (preview/markings_audit.jpg): Limmatplatz (1130, 74), Langstrasse/Roentgen (945, -257), Lindenplatz (-2265, 419), Wiedikon (599, -1467): Spurtrenner/Pfeile im Foto, nur teilweise im Spiel; Bodenpfeile fehlen (siehe T07).
+- Fix-Vorschlag: 0.1 m SWISSIMAGE-Fenster ausweiten, weisse Linien per Dunkel/Hell-Kontrast extrahieren (audit_markings.py hat die Masken), Overrides `markings_*.json`.
+
+## T21 Fahrbahnpolygon schmaler als echte Strasse an breiten Knoten/Tramhaltestellen
+- Kategorie: Strassenform; Schwere: 2; Haeufigkeit: 4 Orte
+- Orte: Seebahnstrasse/Kalkbreite (290, -1193), Seebahn/Badenerstrasse (144, -980), Limmatplatz (1117, 87), Langstrasse/Zwinglistrasse (840, -474)
+- Ursache: AV-/Kalibrierbreite; Zebras werden dort jetzt mit eigenem Asphalt-Fuss ergaenzt (crossings.scan), sonst weggeschnitten.
+
+## T22 Unterfuehrungsportale mit 22-40 % Neigung (echte DTM-Graeben)
+- Kategorie: Bodenschwelle/Rampe; Schwere: 2; Haeufigkeit: 4 Orte
+- Orte: Badenerstrasse (178, -998), Bullingerstrasse (-527, -269), Hohlstrasse (-61, -190), Foerrlibuckstrasse (-405, 837)
+- Fix-Vorschlag: terrain_cuts-Rampen auf <= 12 % ueber 30 m verlaengern (`overrides/terrain_cuts.json`), ausserhalb road_height.
+
+## T23 Restliche Fahrbahn-Buckel 10-20 cm (research/bumps.md)
+- Kategorie: Bodenschwelle; Schwere: 1; Haeufigkeit: ~15 in 43 Kacheln
+- Orte: Kornhausbruecke (1191, 135), Seebahnstrasse (219, -613) und (231, -595), Hohlstrasse (-74, -177), Foerrlibuckstrasse (-475, 849)
+- Fix-Vorschlag: DTM-Spitzen neben dem Korridor glaetten (Versuch snap_roads brachte nichts), ggf. Fahrbahn-Zellen 4 m.
