@@ -1,0 +1,64 @@
+{
+ "places": [
+  {
+   "id": "z4_goldbrunnenplatz",
+   "center": [
+    -191,
+    -1516
+   ],
+   "src": "SWISSIMAGE 0.5 m (ortho_ground); photos Mapillary/Panoramax (data/raw/photos/squares2, v3/wiedikon_platz, tiles); OGD Baum-/Brunnenkataster; research/zones/zone4.md",
+   "ortho_ground": {
+    "within": {
+     "circle": [
+      0,
+      0,
+      45
+     ]
+    },
+    "paved": "concrete"
+   },
+   "ground": [],
+   "objs": []
+  },
+  {
+   "id": "z4_schmiede",
+   "center": [
+    139,
+    -1562
+   ],
+   "src": "SWISSIMAGE 0.5 m (ortho_ground); photos Mapillary/Panoramax (data/raw/photos/squares2, v3/wiedikon_platz, tiles); OGD Baum-/Brunnenkataster; research/zones/zone4.md",
+   "ortho_ground": {
+    "within": {
+     "circle": [
+      0,
+      0,
+      40
+     ]
+    },
+    "paved": "concrete"
+   },
+   "ground": [],
+   "objs": []
+  },
+  {
+   "id": "z4_bhf_vorplatz",
+   "center": [
+    563,
+    -1400
+   ],
+   "src": "SWISSIMAGE 0.5 m (ortho_ground); photos Mapillary/Panoramax (data/raw/photos/squares2, v3/wiedikon_platz, tiles); OGD Baum-/Brunnenkataster; research/zones/zone4.md",
+   "ortho_ground": {
+    "within": {
+     "circle": [
+      0,
+      0,
+      45
+     ]
+    },
+    "paved": "concrete"
+   },
+   "ground": [],
+   "objs": []
+  }
+ ]
+}

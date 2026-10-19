@@ -57,6 +57,7 @@ from styles import LAYER, h32
 
 CURB = 0.12  # carriageway is lowered by this much
 ROAD_CELL = float(os.environ.get("SBZ_ROAD_CELL", "6"))  # drape cell of the asphalt: the mesh only has vertices on cell borders (road_cell, research/bumps.md)
+CURB_TOP_W = 0.22  # Randstein top width (Zuerich standard 15-20 cm + arris)
 GUT = 0.22  # Rinnstein width (fidelity S4: narrower)
 RAW_OUT = OUT.parent.parent.parent / "data" / "build" / "tiles_raw"
 
@@ -154,6 +155,11 @@ def _ground_base(gm, S, tb, H, white, yellow, rails, bed, bays_white=None, bays_
         p_av = yard.difference(g_av).intersection(S["av_paved"].intersection(tb))
         drape(gm, p_av, H, 0.005, (215, 210, 200), cell=TILE / 10, layer=LAYER["roof_flat"], uv_scale=2.0)
         yard = yard.difference(g_av).difference(p_av)
+    if S.get("av_paved_ext") is not None:  # z4: what is left of the courtyards and is paved in the AV (car park, path, forecourt) stays paved, never lawn
+        pe = yard.intersection(S["av_paved_ext"].intersection(tb))
+        if not pe.is_empty:
+            drape(gm, pe, H, 0.005, (215, 210, 200), cell=TILE / 10, layer=LAYER["roof_flat"], uv_scale=2.0)
+            yard = yard.difference(pe)
     if S.get("av_bld") is not None:  # roads2: ground under AV buildings that are hidden by a landmark model (Bahnhofplatz/HB) is paved, never lawn
         pb = yard.intersection(S["av_bld"].intersection(tb))
         if not pb.is_empty:
@@ -172,8 +178,8 @@ def _ground_base(gm, S, tb, H, white, yellow, rails, bed, bays_white=None, bays_
     drape(gm, parks, H, 0.01, (255, 255, 255), layer=LAYER["grass"], uv_scale=5.0)
     drape(gm, roads, H, -CURB, (255, 255, 255), cell=ROAD_CELL, layer=LAYER["asphalt"], uv_scale=5.0)  # road_cell: bump fix, see research/bumps.md
     curbs(gm, streets.curb_faces(roads, tb), H)
-    top = S["roads"].boundary.buffer(0.16).difference(S["roads"]).difference(S["plaza"]).intersection(tb)
-    drape(gm, top, H, 0.006, (205, 203, 196), cell=10, layer=LAYER["white"])
+    top = S["roads"].boundary.buffer(CURB_TOP_W).difference(S["roads"]).difference(S["plaza"]).intersection(tb)  # z4: Randstein top, wider + lighter so the kerb reads at 10-50 m
+    drape(gm, top, H, 0.006, (226, 223, 214), cell=10, layer=LAYER["white"])
     drape(gm, white.intersection(roads), H, -CURB + 0.008, (238, 238, 232), cell=10, layer=LAYER["white"])
     drape(gm, yellow.intersection(roads), H, -CURB + 0.008, (246, 200, 30), cell=10, layer=LAYER["white"])
     tram_track.paint(gm, S, tb, H, rails, grooves, bed)  # rails flush in the asphalt, own trassee ballast without kerb
@@ -249,6 +255,8 @@ def build():
     S["av_paved"] = shapely.set_precision(G["gravel"].buffer(0), 0.01)
     S["av_rail"] = shapely.set_precision(G["rail"].buffer(0), 0.01)
     S["av_bld"] = shapely.set_precision(G["building"].buffer(0), 0.01)  # roads2
+    # z4 ground: AV carriageway/Trottoir/path land that OSM has no road for (car parks, cemetery paths, forecourts) must not fall through to lawn
+    S["av_paved_ext"] = shapely.set_precision(shapely.union_all([G["carriageway"].buffer(0), G["sidewalk"].buffer(0), G["plaza"].buffer(0)]), 0.01)
     # OSM parks/playgrounds include paved schoolyards (Kanzlei): lawn only where AV says green, the rest is paved
     parks = S["parks"]
     S["parks"] = shapely.set_precision(parks.intersection(S["av_green"].buffer(0.5)), 0.01)

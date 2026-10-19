@@ -23,7 +23,32 @@ def _load():
     return _C["d"]
 
 
+def _zones():
+    """Per-zone overrides overrides/markings_z<N>.json (add_yellow / add_white / cut polygons, decals [x, y, heading, kind]); additive."""
+    if "z" not in _C:
+        z = {k: [] for k in ("add_yellow", "add_white", "cut", "decals")}
+        for f in sorted(F.parent.glob("markings_z[0-9]*.json")):
+            j = json.load(open(f))
+            for k in z:
+                z[k] += j.get(k, [])
+        P = lambda rs: shapely.union_all([Polygon(r).buffer(0) for r in rs]) if rs else None
+        _C["z"] = {**{"_" + k: P(z[k]) for k in ("add_yellow", "add_white", "cut")}, "decals": z["decals"]}
+    return _C["z"]
+
+
 def apply(S, white, yellow):
+    white, yellow = _apply_langa(S, white, yellow)
+    z = _zones()
+    if z["_add_yellow"] is not None:
+        yellow = shapely.union_all([yellow, z["_add_yellow"].intersection(S["roads"].buffer(0.3))])
+    if z["_add_white"] is not None:
+        white = shapely.union_all([white, z["_add_white"].intersection(S["roads"].buffer(0.3))])
+    if z["_cut"] is not None:
+        white, yellow = white.difference(z["_cut"]), yellow.difference(z["_cut"])
+    return white, yellow
+
+
+def _apply_langa(S, white, yellow):
     d = _load()
     if not d or d["_region"] is None:
         return white, yellow
@@ -46,12 +71,10 @@ def apply(S, white, yellow):
 
 def decals(rows, tb, H, curb=0.12):
     """Add the measured/observed road decals (bike pictograms, painted 30) inside the tile: rows are [x, y, z, heading, kind]."""
-    d = _load()
-    if not d:
-        return rows
+    d = _load() or {}
     from shapely.geometry import Point
     out = list(rows)
-    for x, y, h, k in d.get("decals", []):
+    for x, y, h, k in d.get("decals", []) + _zones()["decals"]:
         if tb.contains(Point(x, y)):
             out.append([x, y, round(float(H.at(x, y)) - curb + 0.012, 3), h, k])
     return out

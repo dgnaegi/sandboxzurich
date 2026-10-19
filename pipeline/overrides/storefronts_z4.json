@@ -1,0 +1,27 @@
+{
+ "_meta": "Zone 4 Erdgeschoss-Overrides (Auftrag ZC). Schluessel = OSM-Id ohne n/w/r. v: b/f Schild-/Schriftfarbe, s Stil, a Markise, as gestreift, t Aussensitze, p Pflanzen. Quellen in research/zones/zone4_shops.json.",
+ "345525376": {
+  "name": "Babette",
+  "v": {
+   "a": "#b8202a",
+   "t": 1
+  }
+ },
+ "3010412639": {
+  "v": {
+   "t": 1
+  }
+ },
+ "906856274": {
+  "v": {
+   "t": 1
+  }
+ },
+ "6718125166": {
+  "v": {
+   "b": "#c23a52",
+   "f": "#ffffff",
+   "s": "box"
+  }
+ }
+}

@@ -264,16 +264,17 @@
     -1096
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.zuerich.com/en/visit/bars-lounges/plaza-bar",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Plaza Bar, Badenerstrasse 109 (zuerich.com)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Oh My Greek",
@@ -285,16 +286,17 @@
     -1092
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/en//food/oh-my-greek-16946.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Oh My Greek, Kalkbreitestrasse 1 (zuri.net, hellozurich)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Coop Pronto",
@@ -306,16 +308,17 @@
     -1408
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.local.ch/de/q/zurich/convencience-shop",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "local.ch: Coop Pronto Birmensdorferstrasse 55, 8004 Zuerich",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Steinerhof Kiosk",
@@ -348,16 +351,17 @@
     -1399
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.moneyhouse.ch/de/company/sonja-meier-divala-4635299921/network",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Keine Quelle fuer \"Avec express\" an Nr. 80; nur Firmenregister-Eintraege",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Kobal",
@@ -474,16 +478,17 @@
     -927
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/food-markets?page=2",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Coop Lochergut, Badenerstrasse 244 (zuri.net, Stellenanzeige 07/2026)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Suan Long",
@@ -516,16 +521,17 @@
     -1069
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de//essen/yuma-restaurant-und-bar-12232.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Yuma Restaurant und Bar, Badenerstrasse 120 (zuri.net, findit)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Coop Pronto",
@@ -537,16 +543,17 @@
     -1061
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.local.ch/de/q/zurich/convencience-shop",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Coop Pronto Badenerstrasse 120, 8004 (local.ch-Liste); Oeffnungszeiten nicht gefunden",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Elisaburg",
@@ -747,16 +754,16 @@
     -1029
    ],
    "quelle_osm": true,
-   "quelle_web": null,
+   "quelle_web": "https://www.inyourpocket.com/switzerland/zurich/venues/bei-babette",
    "web_status": null,
-   "name_geprueft": "offen",
-   "foto": null,
+   "name_geprueft": "umbenannt: Bei Babette (Crêperie, Bertastrasse 16; OSM-Name Beke veraltet)",
+   "foto": "preview/ref_z4_ida_1.jpg #12 (Mapillary)",
    "schildfarbe": null,
    "schrift": null,
-   "markise": null,
-   "aussensitze": null,
+   "markise": "rot",
+   "aussensitze": "rote/blaue Tische auf Gehweg",
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Schild BABETTE sichtbar; Schildfarbe nicht lesbar"
   },
   {
    "name": "Ararat",
@@ -789,9 +796,9 @@
     -1315
    ],
    "quelle_osm": true,
-   "quelle_web": null,
+   "quelle_web": "https://www.falstaff.com/en/news/et-cetera-in-zurich-wiedikon-a-new-restaurant-for-the-whole-day",
    "web_status": null,
-   "name_geprueft": "offen",
+   "name_geprueft": "ok (eroeffnet April 2026)",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
@@ -936,16 +943,18 @@
     -921
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/blumen/blumenhaus-sihlfeld-6181.htm",
+   "web_status": "renamed",
+   "name_geprueft": "renamed",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Zuri.net-Listing Badenerstrasse 230 heisst Blumenhaus Sihlfeld (Inhaber Albert Haab); nur eine Quelle",
+   "name_neu": "Blumenhaus Sihlfeld",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Bowl & Wok",
@@ -999,16 +1008,17 @@
     -980
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.zuerich.com/fr/visite/bars-lounges/meyers",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Meyer's, Badenerstrasse 219 (zuerich.com)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Kafi Dihei",
@@ -1062,16 +1072,17 @@
     -992
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.ubereats.com/ch/store/bistro-lochergut/JPFVpMZ6RFaA8KwV3TMI-Q",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Bistro Lochergut, Badenerstrasse 213 (nur Lieferplattform, keine eigene Seite)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Baba Baos",
@@ -1293,16 +1304,17 @@
     -1093
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/african-restaurants/queen-idia-4392.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Queen Idia, Badenerstrasse 125 (zuri.net, findit)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "di Lenardo",
@@ -1356,16 +1368,17 @@
     -1667
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.local.ch/de/q/zurich/kiosk",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kiosk \"Alexsa\" an Zurlindenstrasse 49 nicht gefunden",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "La Côte",
@@ -1377,16 +1390,17 @@
     -1374
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.moneyhouse.ch/de/company/sampleplus-klg-3290011111/network",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Firmenregister: LCR La Cote GmbH an Aemtlerstrasse 26; kein Gastro-Auftritt gefunden",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Berta Bar",
@@ -1405,7 +1419,7 @@
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
-   "aussensitze": null,
+   "aussensitze": "Sitzplaetze draussen im Sommer (Web)",
    "hauptfarbe": null,
    "notiz": null
   },
@@ -1440,16 +1454,17 @@
     -1102
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.guidle.com/de/5V2f3i",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Guidle nennt Kalkbreitestrasse 3; hellozurich verortet DuBischDra in Altstetten/Geerenweg 23B - Standort widerspruechlich",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Enfant terrible",
@@ -1608,16 +1623,17 @@
     -1066
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de//essen/la-taqueria-16862.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "La Taqueria, Badenerstrasse 138 (zuri.net, findit, pearl)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Bottega Berta",
@@ -1629,9 +1645,9 @@
     -1113
    ],
    "quelle_osm": true,
-   "quelle_web": null,
+   "quelle_web": "https://www.myswitzerland.com/en-ca/experiences/food-wine/restaurant/restaurant-bottega-berta/",
    "web_status": null,
-   "name_geprueft": "offen",
+   "name_geprueft": "ok",
    "foto": "mapillary (siehe research/shops_v3)",
    "schildfarbe": null,
    "schrift": null,
@@ -1650,16 +1666,17 @@
     -1672
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/kaffee/kiosk-cafe-semal-17860.htm",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein Kiosk Cafe an Schlossgasse 14 gefunden",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Kafi Ferdinand",
@@ -1692,16 +1709,17 @@
     -981
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/all-restaurants/filfl-24042.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Filfl, Zentralstrasse 136 (zuri.net, Eritreisches Restaurant)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Vini Vergani",
@@ -1734,16 +1752,17 @@
     -989
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.openstreetmap.org/way/4627821",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein Beleg fuer K-Street an Badenerstrasse 217",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Audika",
@@ -1839,16 +1858,17 @@
     -1549
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.parking.ch/en/e-loading/zuerich/ch-mig-e-248843",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Keine Migros-Filialbestaetigung an Nr. 320 gefunden (nur Ladestation)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Denner",
@@ -1902,16 +1922,17 @@
     -1377
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.myswitzerland.com/de-de/erlebnisse/essen-trinken/restaurant/restaurant-hermanseck/",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Restaurant Hermanseck, Birmensdorferstrasse 58 (myswitzerland, zuri.net)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Bozzo's Auto Center Wiedikon",
@@ -2070,16 +2091,17 @@
     -1702
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.local.ch/de/q/zurich/antiquitaeten",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein Antiquitaetenladen an Schlossgasse 11 gefunden; Pk-Cache nennt Velo Schmiede an derselben Adresse (n6718129606, ok)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Barkat Cash & Carry",
@@ -2385,16 +2407,17 @@
     -1659
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.local.ch/de/q/zurich/kiosk",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein Blumenladen \"Alfons\" an Schlossgasse 14 gefunden",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Coop",
@@ -2427,16 +2450,17 @@
     -1513
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://foodle.pro/restaurants/zuerich/remy-restaurant-bar",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein Beleg fuer Flash Bistro an Kalkbreitestrasse 136",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Tiny Fish",
@@ -2448,16 +2472,17 @@
     -1083
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/en/zurich/japanese-restaurants/tiny-fish-badenerstrasse-18590.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Tiny Fish, Badenerstrasse 157 (zuri.net, intravel)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Sher-E-Punjab",
@@ -2532,16 +2557,17 @@
     -1576
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de//shopping/holzofenbackerei-vier-linden-5548.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Holzofenbaeckerei Vier Linden, Goldbrunnenstrasse 111 (zuri.net)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Yoyo Pizza",
@@ -2700,16 +2726,17 @@
     -1337
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/baeckereien-konditoreien/backerei-konditorei-vuaillat-5431.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Vuaillat Baeckerei/Konditorei, Aemtlerstrasse 35 (zuri.net, cremeguides); Oeffnungszeiten uneinheitlich",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Wirtschaft im Franz",
@@ -2805,16 +2832,17 @@
     -1537
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/essen/dominos-pizza-goldbrunnen-12135.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Domino's Pizza Goldbrunnen, Goldbrunnenstrasse 115 (zuri.net, oeffnungszeitenbuch)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Slow Goods",
@@ -2868,16 +2896,17 @@
     -1055
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.zuerich.com/en/visit/bars-lounges/houdini-bar",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Houdini Bar/Kino, Badenerstrasse 173 (zuerich.com, guidle)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Le Calvados",
@@ -2896,7 +2925,7 @@
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
-   "aussensitze": null,
+   "aussensitze": "grosse Terrasse (Web)",
    "hauptfarbe": null,
    "notiz": null
   },
@@ -2910,16 +2939,17 @@
     -1061
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/food-markets/bachsermart-kalkbreite-5875.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "BachserMaert Kalkbreite, Badenerstrasse 171 (zuri.net, spottedbylocals)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Bebek",
@@ -2931,16 +2961,17 @@
     -1067
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.zuerich.com/de/besuchen/restaurants/restaurant-bebek",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Bebek, Badenerstrasse 171 (zuerich.com, inyourpocket)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Wohnzimmerbar",
@@ -2973,16 +3004,17 @@
     -1091
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://intravel.net/zurich/nightlife/felix-bar",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Felix Bar, Kalkbreitestrasse 8 (intravel, evendo, pearl)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Simply Soup Kalkbreite",
@@ -2994,16 +3026,17 @@
     -1110
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/all-take-aways/simply-soup-16323.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Simply Soup Kalkbreite, Kalkbreitestrasse 10 (zuri.net, yellowpages.swiss, HR-Eintrag aktiv)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "k kiosk",
@@ -3015,16 +3048,17 @@
     -1561
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.parking.ch/en/e-loading/zuerich/ch-mig-e-248843",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein k kiosk an Nr. 320 gefunden",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Mikkeller",
@@ -3099,16 +3133,17 @@
     -1526
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/shopping/jung-goldbrunnenplatz-5424.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Jung Goldbrunnenplatz, Kalkbreitestrasse 138 (zuri.net)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Bike Hub",
@@ -3162,16 +3197,17 @@
     -1504
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/vietnamesische-restaurants/xi-muoi-17300.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Xi Muoi, Kalkbreitestrasse 134 (zuri.net, mehrere Eintraege)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Chornlade",
@@ -3330,16 +3366,17 @@
     -1141
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/essen/la-piccola-trattoria-11445.htm",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "zuri.net meldet \"geschlossen\", Bewertungen bis 2025 positiv; keine Bestaetigung",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Velo Crush",
@@ -3414,16 +3451,17 @@
     -1801
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/home-delivery/dominos-pizza-goldbrunnen-12135.htm",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein Beleg fuer Palu Pizza an Goldbrunnenstrasse 57",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Grand Café Lochergut",
@@ -3435,16 +3473,17 @@
     -925
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.zuerich.com/de/besuchen/bars-lounges/grand-cafe-lochergut",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Grand Cafe Lochergut, Badenerstrasse 230 (zuerich.com, zuri.net)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Ying Cusine",
@@ -3582,16 +3621,17 @@
     -1310
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de//shopping/sammelpunkt-6433.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Sammelpunkt Comic-Buchhandlung, Kalkbreitestrasse 84 (zuri.net)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Lidl",
@@ -3855,16 +3895,17 @@
     -960
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/en//shopping/moon-shop-18063.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "MOON Shop, Bertastrasse 4 (zuri.net, besttime)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "avec",
@@ -3918,16 +3959,17 @@
     -1594
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.openstreetmap.org/way/24586241",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein Treffer fuer k kiosk an Nr. 143",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Migros Florissimo",
@@ -3960,16 +4002,17 @@
     -1465
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/italienische-restaurants/grottino-11300.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Grottino 77, Aemtlerstrasse 11 (zuri.net, Pizzeria)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Budgetdisplay",
@@ -3981,16 +4024,17 @@
     -932
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.comparis.ch/immobilien/marktplatz/details/show/34572008",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein Beleg fuer Budgetdisplay an Badenerstrasse 230",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Gelateria di Berna",
@@ -4170,16 +4214,17 @@
     -1462
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://keepthemspinning.com/blogs/record-stores/best-record-stores-zurich",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Plattenladen 6 Pack in Zuerich bestaetigt, Adresse Kalkbreitestrasse 121 nicht belegt",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Dani Reisen",
@@ -4233,16 +4278,17 @@
     -1433
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.homegate.ch/rent/4003172488",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein Treffer fuer Newroz an Nr. 67",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Pla's Thai Kitchen",
@@ -4380,16 +4426,17 @@
     -1265
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/blumen/floristeria-6180.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Floristeria, Kalkbreitestrasse 67 (zuri.net, Firmenverzeichnis)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "E-Move Motors",
@@ -4422,16 +4469,17 @@
     -1115
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/tabakwaren-cbd/kiosk-smoking-5588.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Listing Idaplatz 1 heisst \"Kiosk Smoking\" (Umstellung der Wortfolge, kein Umbenennen belegt)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Freddy",
@@ -4590,16 +4638,17 @@
     -967
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.local.ch/de/q/zurich/nnh",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein Beleg fuer Express Schneiderei Thoma an Bertastrasse 1",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Bar Sacchi",
@@ -4632,16 +4681,17 @@
     -1072
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://hellozurich.ch/en/pass/benefits/sautercopy.html",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "SauterCopy Filiale Badenerstrasse 110 (hellozurich, Pass-Vorteil)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "mit&ohne",
@@ -4653,16 +4703,17 @@
     -913
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.swipein.restaurant/it/restaurant/mitohne-kebab-wildberg-zurich",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Nur automatisch erzeugte Verzeichnisse (Badenerstrasse 248, \"mit&ohne kebab\"); Name nicht bestaetigt",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Atelier-Bucher",
@@ -4737,16 +4788,17 @@
     -1410
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.myswitzerland.com/en-ch/experiences/food-wine/restaurant/les-delices-dorient-aemtlerstrasse/",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Les Delices d'Orient, Aemtlerstrasse 18 (myswitzerland, joinpearl)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Uto",
@@ -4884,16 +4936,17 @@
     -1449
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.zuerich.com/de/besuchen/restaurants/richies-chicken",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Richie's Chicken, Aemtlerstrasse 13 (zuerich.com, Uber Eats)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Gitarren Total",
@@ -4926,16 +4979,17 @@
     -1436
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/metzgereien/metzgerei-kol-tuv-5394.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Metzgerei Kol Tuv, Aemtlerstrasse 8 (zuri.net, koltuv.ch)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "JMS Kiosk",
@@ -5073,16 +5127,16 @@
     -1037
    ],
    "quelle_osm": true,
-   "quelle_web": null,
+   "quelle_web": "https://zuri.net/de/zurich/bikes/wheelhouse-6082.htm",
    "web_status": null,
-   "name_geprueft": "offen",
-   "foto": null,
-   "schildfarbe": null,
-   "schrift": null,
+   "name_geprueft": "ok (Orbea-Haendler)",
+   "foto": "preview/ref_z4_ida_1.jpg #25",
+   "schildfarbe": "rosa-rot",
+   "schrift": "weiss",
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Farbe grob nach Foto, unsicher"
   },
   {
    "name": "Velo Schmiede",
@@ -5115,16 +5169,17 @@
     -1087
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/en/zurich/dumplings-zurich/roots-of-himalaya-12126.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Roots of Himalaya, Badenerstrasse 155 (zuri.net, findit)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Zeig Bar",
@@ -5157,16 +5212,17 @@
     -1151
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/essen/tapas-friends-11848.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Tapas & Friends, Aemtlerstrasse 86 (zuri.net, foodswinesfromspain)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Bord",
@@ -5199,16 +5255,17 @@
     -948
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://facesmag.com/living-en/interior-stores-in-zurich/",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Reseda Moebel, Badenerstrasse 230 (FACES Magazin, reseda.ch genannt); nur eine Quelle",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Vögele Reisen",
@@ -5220,16 +5277,17 @@
     -1097
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.oeffnungszeitenbuch.de/filiale/Zuerich-Voegele%2520Reisen-3822036E.html",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Voegele Reisen nur an Badenerstrasse 549 belegt, nicht an Nr. 141",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Lola's Restaurant",
@@ -5388,16 +5446,17 @@
     -1040
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.inyourpocket.com/switzerland/zurich/venues/bederhof",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein Beleg fuer Blex Blech + Buch an Badenerstrasse 177",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Weera Pura",
@@ -5409,16 +5468,17 @@
     -1044
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.inyourpocket.com/switzerland/zurich/venues/bederhof",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein Beleg fuer Weera Pura an Badenerstrasse 177",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Audika Hörcenter Zürich-Kalkbreite",
@@ -5430,16 +5490,17 @@
     -1048
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/gesundheit/kind-horzentralen-9590.htm",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Adresse 175 gehoert laut zuri.net zu KIND Hoerzentralen; Audika an dieser Adresse nicht belegt",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Roots of Himalaya",
@@ -5451,16 +5512,17 @@
     -1047
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/en/zurich/dumplings-zurich/roots-of-himalaya-12126.htm",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Duplikat: alle Quellen nennen Badenerstrasse 155 (siehe Eintrag Roots of Himalaya Nr. 243)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Contesa Jewellery",
@@ -5556,16 +5618,18 @@
     -1230
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/italienische-restaurants/felice-18362.htm",
+   "web_status": "renamed",
+   "name_geprueft": "renamed",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Verzeichnis: \"Avanti pizza (neuer: FELICE pizza)\", Zentralstrasse 72; nur eine Quelle, Name vor Ort nicht gesehen",
+   "name_neu": "Felice Pizza",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Rémy",
@@ -5577,16 +5641,17 @@
     -1181
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/bars/remy-restaurant-bar-18448.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "rémy, Kalkbreitestrasse 33 (zuri.net, foodle, Michelin-Guide); Oeffnungszeiten widerspruechlich",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Eisladen",
@@ -5682,16 +5747,17 @@
     -1086
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.barnews.ch/en/bars-lokale/bar-lupo-zuerich/7249/",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Bar Lupo, Badenerstrasse 155 (barnews, evendo, mapstr)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Butegar",
@@ -5745,16 +5811,17 @@
     -1086
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.zuerich.com/en/accommodation/guesthouse-kalkbreite",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein Kiosk an Kalkbreitestrasse 1 belegt (Kalkbreite-Haus Nr. 6; Nr. 1 nur Firmenregister)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Coop",
@@ -5955,16 +6022,17 @@
     -1195
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.thoemus.ch",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein Thoemus Factory Store Kalkbreitestrasse 41 belegt",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Pasta Bazaar",
@@ -5997,16 +6065,17 @@
     -1369
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://coparking.ch/en/car-repair-shop/215",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Royal Autogarage GmbH steht an Zweierstrasse 35 (coparking, zuri.net); Eintrag Goldbrunnenstrasse 144 vermutlich veraltet, nicht als Umbenennung belegt",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Sihl Records",
@@ -6354,16 +6423,18 @@
     -1029
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de//shopping/duplicate-book-und-stationery-6400.htm",
+   "web_status": "renamed",
+   "name_geprueft": "renamed",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "zuri.net: Duplicate Book & Stationery, Zentralstrasse 129",
+   "name_neu": "Duplicate Book & Stationery",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Antonio Schlüssel-und Schuhservice",
@@ -6438,16 +6509,17 @@
     -1043
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.zuerich.com/de/besuchen/restaurants/babus-bakery-coffeehouse",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Babu's Bakery Filiale Zentralstrasse 127 (zuerich.com, zuri.net)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Occasioni Mini Brocki",
@@ -6459,16 +6531,17 @@
     -1482
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.moneyhouse.ch/de/company/sonja-meier-divala-4635299921/network",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein Laden \"Occasioni Mini Brocki\" gefunden",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Maverick‘s Secret",
@@ -6774,16 +6847,17 @@
     -965
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://zuri.net/de/zurich/shopping/alte-und-antike-uhren-4442.htm",
+   "web_status": "ok",
+   "name_geprueft": "ok",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Alte und antike Uhren, Bertastrasse 4 (zuri.net)",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Neuroth",
@@ -6837,16 +6911,17 @@
     -1071
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.search.ch/tel/Zurich/Restaurant.en.html",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein Chef Store an Zentralstrasse 118 gefunden",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Grey Gallery",
@@ -6858,16 +6933,17 @@
     -978
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.artgalleries.ch/en/galleries/show/galerie-beatrice-brunner.html",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Keine Galerie \"Grey Gallery\" an Bertastrasse 8 gefunden",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "upbeat.ch",
@@ -7173,16 +7249,17 @@
     -1419
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.spottedbylocals.com/zurich/kaisin",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein Beleg fuer Kaisin an Aemtlerstrasse 16; Blog nennt anderen Standort",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Norkind Heimwaren",
@@ -7194,16 +7271,17 @@
     -1010
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.zuerich.com/de/besuchen/shopping/schweizer-heimatwerk",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein Treffer fuer Norkind Heimwaren an Zentralstrasse 131",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Berta 15",
@@ -7278,16 +7356,17 @@
     -1282
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.local.ch/de/q/zurich/textiles",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein Beleg fuer Schneiderei Ivan an Kalkbreitestrasse 71",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Clayeria",
@@ -7404,16 +7483,17 @@
     -1612
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.treatwell.ch/ort/ame-studio-nails-beauty/bewertungen/seite-2/",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "Kein Nähatelier an Nr. 340 gefunden",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "Helvetia Handy Klinik",
@@ -7446,16 +7526,17 @@
     -1610
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.local.ch/de/q/zurich/hi-fi",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": null,
    "schildfarbe": null,
    "schrift": null,
    "markise": null,
    "aussensitze": null,
    "hauptfarbe": null,
-   "notiz": null
+   "notiz": "local.ch fuehrt Radio-TV Di Meo, Birmensdorferstrasse 340, mit Status \"Geschlossen\" (undatierter Crawl, letzte Bewertung 12/2020); nicht bestaetigt",
+   "geprueft_am": "2026-10-19"
   },
   {
    "name": "mobil-mac.ch",
@@ -7803,16 +7884,17 @@
     -1058
    ],
    "quelle_osm": true,
-   "quelle_web": null,
-   "web_status": null,
-   "name_geprueft": "offen",
+   "quelle_web": "https://www.moneyhouse.ch/de/list/person/kaelin-stefan",
+   "web_status": "unclear",
+   "name_geprueft": "unclear",
    "foto": "mapillary (siehe research/shops_v3)",
    "hauptfarbe": "#dcae96",
    "markise": null,
    "aussensitze": false,
-   "notiz": "Eckhaus lachsrosa, EG helles Schriftband KALIN-MUELLER ueber grossen Fenstern; Mapillary #54 (Ida-Fotos)",
+   "notiz": "Eckhaus lachsrosa, EG helles Schriftband KALIN-MUELLER ueber grossen Fenstern; Mapillary #54 (Ida-Fotos) | Kein Beleg fuer Kaelin + Mueller AG an Bertastrasse 23",
    "schildfarbe": null,
-   "schrift": null
+   "schrift": null,
+   "geprueft_am": "2026-10-19"
   }
  ]
 }

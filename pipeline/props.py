@@ -79,7 +79,7 @@ def signs(S, segs, tb):
     used, out = set(), []
     for poi in S["pois"]:
         p = Point(poi["x"], poi["y"])
-        if not tb.contains(p):
+        if not tb.contains(p) or shopfronts_v3.is_closed(poi):
             continue
         cand = sorted(tree.query(p.buffer(25)), key=lambda i: pts[i].distance(p))
         i = next((i for i in cand if i not in used), None)
@@ -88,7 +88,7 @@ def signs(S, segs, tb):
         used.add(i)
         s = segs[i]
         out.append({"x": round(s["x"], 2), "y": round(s["y"], 2), "z": round(s["z"], 2), "tx": round(s["tx"], 4),
-                    "ty": round(s["ty"], 4), "w": round(min(s["w"] - 0.6, 9), 2), "name": poi["name"],
+                    "ty": round(s["ty"], 4), "w": round(min(s["w"] - 0.6, 9), 2), "name": shopfronts_v3.display_name(poi),
                     "kind": poi["kind"], "osm": poi["osm"]})
         d = pavement_depth(S, out[-1])
         if d is not None:

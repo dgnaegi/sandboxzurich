@@ -45,4 +45,5 @@ H1 Wartehalle 19, H3 Ticketautomat 14, H4 Anzeigewand 22, H6 Bank kurz 30, H7 Ba
 2. Laden-Schilder/Markisen: nur 3 von 372 fotografisch geprueft.
 3. Brunnen-Varianten Idaplatz, Goldbrunnen, Bahnhof Vorplatz: Katalog-Zuordnung nicht bestaetigt.
 4. Haltestellen-Positionen: nicht einzeln geprueft.
-5. Kalkbreite/Friedhof Sihlfeld: Lueckenfotos siehe Log, Auswertung nach Download.
+5. Lueckenfotos geholt (`logs/photos_z4.log`, 102 Fotos an 7 Orten: Schmiede 2, Bahnhof Vorplatz 24, Bahnhof Perron 23, Goldbrunnen 18, Kalkbreite 6, Friedhof 15, Ortsmuseum 14). Noch nicht fotografisch ausgewertet; Kalkbreite mit nur 6 Fotos duenn.
+6. Kontaktbogen-Index: `research/zones/zone4_sheet_index.json`. Bogen `preview/ref_z4_gaps_1-4.jpg` (102 Fotos), `preview/ref_z4_ida_1-4.jpg` (120 Idaplatz-Fotos, erste 120 von 169). Nicht visuell gegengeprueft.

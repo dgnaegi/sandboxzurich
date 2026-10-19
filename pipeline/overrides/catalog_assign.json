@@ -1,6 +1,9 @@
 {
  "_doc": "Manual corrections for pipeline/catalog/assign.py. brunnen: {BR-<objectid>: variant code V1..V9}; exclude: [BR-<objectid>]; rot: {BR-<objectid>: yaw radians}.",
  "brunnen": {},
- "exclude": [],
- "rot": {}
+ "exclude": [
+  "BR-269"
+ ],
+ "rot": {},
+ "_z4": "BR-269 (Idaplatz) excluded: places_detail_idaplatz.json draws the real Trinkbrunnen (dfount); the V2 trough was a second, wrong fountain"
 }

@@ -60,8 +60,34 @@ def _load():
     return _cache
 
 
+# --- zone overrides (pipeline/overrides/storefronts_z*.json: {"<osm id>": {"name": display name, "v": {notes}}}) ---
+def _overrides():
+    if "ovr" not in _cache:
+        o = {}
+        for f in sorted((ROOT / "pipeline" / "overrides").glob("storefronts_z*.json")):
+            o.update({k: v for k, v in json.load(open(f, encoding="utf-8")).items() if not k.startswith("_")})
+        _cache["ovr"] = o
+    return _cache["ovr"]
+
+
+def is_closed(poi):
+    """Venue confirmed closed (override "closed": true, with source): no sign for it."""
+    return bool((_overrides().get(str(poi.get("osm")).lstrip("nwr")) or {}).get("closed"))
+
+
+def display_name(poi):
+    """Venue name for the sign: override (renamed venue) or the OSM name."""
+    return (_overrides().get(str(poi.get("osm")).lstrip("nwr")) or {}).get("name", poi["name"])
+
+
 def notes_for(poi):
-    """-> compact dict for a POI (by OSM id, else same normalised name within 40 m), or None."""
+    """-> compact dict for a POI (by OSM id, else same normalised name within 40 m), or None. Zone overrides win."""
+    base = _notes_photo(poi)
+    ov = (_overrides().get(str(poi.get("osm")).lstrip("nwr")) or {}).get("v")
+    return {**(base or {}), **ov} if ov else base
+
+
+def _notes_photo(poi):
     c = _load()
     r = c["id"].get(str(poi.get("osm")))
     if r is None:

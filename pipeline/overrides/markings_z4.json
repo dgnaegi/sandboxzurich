@@ -1,0 +1,1 @@
+{"doc": "Zone 4 Wiedikon: Handkorrekturen. add_yellow/add_white/cut = Polygone (lokale m), decals = [x,y,heading,kind]. Die automatische Gelb-Messung (markings_z4_measure.py) war unbrauchbar (Friedhofswege, Schatten) und ist leer gelassen.", "add_yellow": [], "add_white": [], "cut": [], "decals": []}
