@@ -36,7 +36,7 @@ S = {
  "tipsy": ("Tipsy Tiger Langstrasse 133 hellblaues Eckhaus", "ID_72CD165B", (838, -462), dict(wall="#8fb0d0", frame="#f4f2ea", eg_h=4.3, eg_col="#2a2f33", base_col="#3a4046", cornice=("#c8d4e0", 0.3, 0.45), seed=307, **HIP("#6c5448"),
              signs=[dict(text="TIPSY TIGER", fg="#ff7a3a", bg="#1b1b1e", glow="#ff5a2a", w=3.8, h=0.7, z=3.4, size=28, px=1024),
                     dict(text="BAR & BITES", fg="#f2f2f2", bg="#2a2f33", w=2.6, h=0.5, z=3.4, size=22, px=512, du=4.8)])),
- "rasputin": ("Rasputin Bar gelbliche Fassade", "ID_2DE170D8", (829, -796), dict(wall="#c9a96a", frame="#f0e8d4", eg_h=4.2, eg_col="#2a2a2a", base_col="#6e6a64", cornice=("#e0cfa0", 0.3, 0.45), seed=308,
+ "rasputin": ("Rasputin Bar gelbliche Fassade", "ID_2DE170D8", (829, -796), dict(wall="#cbbd9c", frame="#f0e8d4", eg_h=4.2, eg_col="#2a2a2a", base_col="#6e6a64", cornice=("#ddd2b4", 0.3, 0.45), seed=308,
              awning=("#2a2a2a", 3.0, 1.0), **HIP("#6c4a3c"),
              signs=[dict(text="RASPUTIN", fg="#e8e0d0", bg="#1d1d1d", glow="#e03a2a", w=3.4, h=0.7, z=3.4, size=28, px=1024)])),
  "tenzmomo": ("Tenz Momo Hohlstrasse 44 Bierhalle-Haus", "ID_8456019E", (740, -718), dict(wall="#d8d0ac", frame="#f1ebd8", eg_h=4.5, eg_col="#3a2a22", base_col="#7a756c", cornice=("#e8dcb8", 0.3, 0.45), seed=309, arch=True, **HIP("#7a5448"),
@@ -55,7 +55,7 @@ S = {
  "stuba": ("Stuebae Brauerstrasse 42", "ID_BB420A18", (798, -678), dict(wall="#8a7f72", frame="#ece4d4", eg_h=4.2, eg_col="#3a2a24", base_col="#6a6258", cornice=("#bdb29e", 0.3, 0.45), seed=314,
              awning=("#b52a24", 3.0, 1.1), **HIP("#6c4a3c"),
              signs=[dict(text="STUBAE", fg="#f2ede4", bg="#b52a24", w=2.8, h=0.6, z=3.4, size=28, px=1024)])),
- "monroe": ("Monroe Brauerstrasse 26 dunkelblaues Eckhaus", "ID_8D7C1222", (862, -726), dict(wall="#2b3550", frame="#e8e2d2", eg_h=4.2, eg_col="#1a2034", base_col="#1e2438", cornice=("#4a5878", 0.3, 0.4), seed=315, arch=True, **HIP("#4a4a52"),
+ "monroe": ("Monroe Brauerstrasse 26 Eckhaus Brauerhof, EG dunkelblau, oben orange", "ID_8D7C1222", (862, -726), dict(wall="#d99a6c", frame="#e8e2d2", eg_h=4.2, eg_col="#2f3a58", base_col="#2a3350", cornice=("#ecd2b0", 0.3, 0.4), seed=315, arch=True, **HIP("#4a4a52"),
              signs=[dict(text="Monroe", fg="#f0d060", bg="#1a2034", glow="#f0c040", w=2.8, h=0.7, z=3.4, size=30, px=1024)])),
 }
 

@@ -8,7 +8,7 @@ from shapely.ops import unary_union
 from shapely.geometry import LineString
 
 CREAM, STONE, STONE_D, TRIM = hx("#d9cfb8"), W, hx("#d8c9a8"), hx("#dccfae")
-VAULT, STEEL, FLOORA, FLOORB = hx("#444a47"), hx("#5b4a3b"), hxw("#4a4a4a", (1.3, 1.0, 0.78)), hxw("#444444", (1.3, 1.0, 0.78))
+VAULT, STEEL, FLOORA, FLOORB = hx("#444a47"), hx("#5b4a3b"), hxw("#4a4a4a", (1.12, 1.0, 0.9)), hxw("#3e3e3e", (1.12, 1.0, 0.9))
 SKY = hx("#ffffff"); FRIEZE = hx("#b4705e")
 import hb3_spec
 WELLS3 = [w for w in hb3_spec.WELLS if w[0] < 0 and w[3] < 0 and w[2] > -64]   # wells inside the Querhalle floor (hb3_spec.WELLS[0])
@@ -29,7 +29,7 @@ def build():
     d0, d1, c0, c1 = G.HALL_D0, G.HALL_D1, G.HALL_C0, G.HALL_C1
 
     # ---------------------------------------------------------------- floors (3 m tiles, small tint variation)
-    LIGHT = hxw("#8e8e8e", (1.25, 1.0, 0.8))
+    LIGHT = hxw("#9a9a9a", (1.08, 1.0, 0.93))
     def floor(x0, x1, y0, y1, z=G.FLOOR, ts=2.5, bands=True, light_all=False):
         nx, ny = max(1, int(round((x1 - x0) / ts))), max(1, int(round((y1 - y0) / ts)))
         for i in range(nx):
@@ -47,7 +47,7 @@ def build():
     floor(d0 - 1, d1 + 1, c0, c1)
     floor(G.Q_D0, G.Q_D1 + 1, G.Q_C0, G.Q_C1, bands=False, light_all=True)
     floor(40.5, 55.5, -68.0, c0 + 0.1, bands=False, light_all=True)
-    # ---------------------------------------------------------------- openings (arch recesses with shops, clerestory windows)
+    # ---------------------------------------------------------------- openings (arcade gates, clerestory windows)
     def poly_in(a, b, poly, col, wmod=(4.0, 4.0)):
         L, t, n = D.frame_of(a, b)
         D.poly_wall(m, mw, poly, a, t, n, 0.0, col, lambda u, z: (u / wmod[0], z / wmod[1]))
@@ -68,28 +68,21 @@ def build():
         for h in holes: reveal(a, t, n, h, depth, rcol)
         return L, t, n
 
-    def shop_recess(a, t, n, u0, u1, zt, depth, idx):
-        """Shop behind an arch opening (u0..u1 on the wall frame a/t/n, pointing away from the room by -n): back wall, sides, ceiling, floor, sign."""
-        bc = [hx("#e9d9b8"), hx("#dfe6e0"), hx("#f0d6c4"), hx("#d6dce8")][idx % 4]
-        zA = zt
-        for (ua, ub, col, nn, zz0, zz1) in ((u0, u1, bc, None, 0, zA),):
-            p0, p1 = D.P3(a, t, n, ua, zz0, -depth), D.P3(a, t, n, ub, zz0, -depth)
-            q(m, mf, [p0, p1, (p1[0], p1[1], zz1), (p0[0], p0[1], zz1)], col, None, (n[0], n[1], 0))
-        for ua, sg in ((u0, 1), (u1, -1)):   # side walls
-            p0, p1 = D.P3(a, t, n, ua, 0, 0), D.P3(a, t, n, ua, 0, -depth)
-            q(m, mf, [p0, p1, (p1[0], p1[1], zA), (p0[0], p0[1], zA)], hx("#cdbf9f"), None, (t[0] * sg, t[1] * sg, 0))
-        p0, p1, p2, p3 = D.P3(a, t, n, u0, 0, 0), D.P3(a, t, n, u1, 0, 0), D.P3(a, t, n, u1, 0, -depth), D.P3(a, t, n, u0, 0, -depth)
-        q(m, mf, [p0, p1, p2, p3], hx("#8f6f4d"), None, (0, 0, 1))
-        for (zz, col, nn) in ((zA - 0.4, hx("#f4efe4"), (0, 0, -1)),):
-            q(m, mf, [D.P3(a, t, n, u0, zz, 0), D.P3(a, t, n, u1, zz, 0), D.P3(a, t, n, u1, zz, -depth), D.P3(a, t, n, u0, zz, -depth)], col, None, nn)
-        # counter + shelf block and an emissive lamp
-        uc = (u0 + u1) / 2; pc = D.P3(a, t, n, uc, 0, -depth * 0.45)
-        bx(m, mf, pc[0] - 0.3, pc[0] + 0.3, pc[1] - 0.3, pc[1] + 0.3, 0, 1.0, hx("#6e5a42"), top=True) if abs(n[0]) < 0.5 else bx(m, mf, pc[0] - 0.3, pc[0] + 0.3, pc[1] - 0.3, pc[1] + 0.3, 0, 1.0, hx("#6e5a42"), top=True)
-        lp = D.P3(a, t, n, uc, zA - 0.45, -depth * 0.5)
-        P.box_uv(m, ms, lp[0] - 0.4, lp[0] + 0.4, lp[1] - 0.4, lp[1] + 0.4, lp[2] - 0.05, lp[2] + 0.05, A.rects["lamp"])
+    OAK, GLASS = hx("#86603c"), hxw("#a9b2b4", (1.0, 1.0, 1.0))
+    def gate(a, t, n, uc, w=3.2, zs=4.6, dep=0.66):
+        """Glazed double door with oak frame and fanlight in an arcade arch (photos Haupthalle #23-#26 #38: framed glass doors, no shop signs;
+        SDA 07/2026: Suedtrakt = Reisezentrum, Nordtrakt gates converted from green to oak look, Nordtrakt shops open only 2027)."""
+        D.poly_wall(m, mf, Polygon(D.arch_pts(uc - w / 2, 0, uc + w / 2, zs)), a, t, n, -dep, GLASS, lambda u, z: (0, 0))
+        def bar(u0, u1, z0, z1):
+            p0, p1 = D.P3(a, t, n, u0, 0, -dep + 0.08), D.P3(a, t, n, u1, 0, -dep - 0.02)
+            bx(m, mf, min(p0[0], p1[0]), max(p0[0], p1[0]), min(p0[1], p1[1]), max(p0[1], p1[1]), z0, z1, OAK, top=True)
+        for u in (uc - w / 2 + 0.09, uc - 0.08, uc + 0.08, uc + w / 2 - 0.09): bar(u - 0.09, u + 0.09, 0, 3.1)   # stiles
+        bar(uc - w / 2, uc + w / 2, 0, 0.8)              # kick panels
+        bar(uc - w / 2, uc + w / 2, 2.95, 3.2)           # transom
+        bar(uc - 0.05, uc + 0.05, 3.2, zs + w / 2 - 0.1)  # fanlight mullion
 
     def arcade_wall(a, b, u_of, gap=None, sign_off=0):
-        """Hall long wall seen from inside (photos Haupthalle #26 #33 #38): lower arcade of 3.2 m arches (shops/doors) to 6.2 m, stone band + frieze,
+        """Hall long wall seen from inside (photos Haupthalle #26 #33 #38): lower arcade of 3.2 m arches (glazed oak gates) to 6.2 m, stone band + frieze,
         above it per 18.2 m bay one big arched window (7.4 m) flanked by two small ones; cornice at the eaves. u_of(d) -> position on the wall."""
         L, t, n = D.frame_of(a, b)
         holes, lows, ups = [], [], []
@@ -105,11 +98,7 @@ def build():
                 ups.append((uc, w, z0_, hs)); holes.append(D.arch_pts(uc - w / 2, z0_, uc + w / 2, hs))
         if gap: holes.append(D.arch_pts(gap[0], 0.0, gap[1], 9.5))
         wall_with_holes(a, b, 0.0, 21.0, holes, STONE, depth=0.7)
-        for k, uc in enumerate(lows):
-            shop_recess(a, t, n, uc - 1.6, uc + 1.6, 4.6, 5.0, k)
-            R = A.rects[f"shop{(k + sign_off) % len(P.SHOPS)}"]
-            p0, p1 = D.P3(a, t, n, uc - 1.4, 5.0, 0.06), D.P3(a, t, n, uc + 1.4, 5.0, 0.06)
-            m.quad(ms, [p0, p1, (p1[0], p1[1], 5.9), (p0[0], p0[1], 5.9)], uvr(R), W)
+        for uc in lows: gate(a, t, n, uc)
         for uc, w, z0_, hs in ups:
             hh = D.arch_pts(uc - w / 2, z0_, uc + w / 2, hs); pts = [D.P3(a, t, n, u, z, -0.7) for u, z in hh]
             for k in range(1, len(pts) - 1): D._oriented(m, mf, [pts[0], pts[k], pts[k + 1]], (n[0], n[1], 0), [(0, 0), (1, 0), (1, 1)], SKY)
@@ -246,15 +235,9 @@ def build():
     P.board_pair(m, ms, mf, A, 90.0, HM, 12.0, 6.4, 4.6, hang=17.5)
     P.clock_pair(m, ms, mf, A, -33.0, HM, 6.8, 1.2, hang=14.5)
     P.angel(m, mf, 52.0, HM, 13.5)
-    P.xmas_tree(m, mf, 104.0, HM + 0.0, 13.0, 3.4); wallc((102.5, HM), (105.5, HM), 3.0)
     for dd in (51.2, 52.8):
         bx(m, mf, dd - 0.03, dd + 0.03, HM - 0.03, HM + 0.03, 15.0, 24.6, hx("#303338"), top=False)
-    ks = [(18.0, HM - 6.0, 4.2, 2.4, 3.0, 0), (30.0, HM + 15.75, 3.6, 2.2, 3.0, 1), (78.0, HM - 8.0, 4.4, 2.4, 3.0, 3), (96.0, HM + 15.75, 3.6, 2.2, 3.0, 4)]
-    for (kd, kc, kw, kdp, kh, si) in ks:
-        P.kiosk(m, ms, mf, A, kd, kc, kw, kdp, kh, si); wallc((kd - kw / 2, kc), (kd + kw / 2, kc), kdp)
-    for i, sd in enumerate([58.0, 69.0, 80.0, 91.0, 102.0]):   # market huts: two rows with a free aisle in the middle
-        for cc, sg in ((HM - 12.0, 0), (HM + 6.0, 1)):
-            P.stall(m, ms, mf, A, sd, cc, 3.2, 2.2, 2.3, seed=i * 2 + sg); wallc((sd - 1.6, cc), (sd + 1.6, cc), 2.2)
+    # no market huts / kiosks / Christmas tree: the hall is an empty event floor on normal days (photos #21 #25 #39); markets are temporary
     for bd in (8.0, 22.0, 36.0, 62.0, 74.0, 98.0):
         P.bench(m, mf, bd, HM + 2.5); P.bench(m, mf, bd, HM - 7.5)
     # stair wells to the Shopville (dark void, railings, hanging sign; visual, solid)

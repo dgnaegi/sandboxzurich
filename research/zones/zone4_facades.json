@@ -124,6 +124,7 @@
     "rustika"
    ],
    "notiz": "pfirsichfarbener Putz, grauer Natursteinsockel EG",
+   "quelle": "panoramax:53163e34-33b5-46a0-b75f-fec71efae247",
    "xy": [
     -17,
     -1460
@@ -157,6 +158,7 @@
     "gesims"
    ],
    "notiz": "hellblauer Putz, EG dunkelgrau mit Garageneinfahrt",
+   "quelle": "panoramax:9def2c08-3d4c-45a7-8c1c-0a2e95ca3211",
    "xy": [
     -27,
     -1444
@@ -718,6 +720,7 @@
    "stil": "buero",
    "geschosse": 11,
    "notiz": "Buerohaus mit Bandfenstern, Glas",
+   "quelle": "panoramax:a9775fc2-4865-462f-afc2-e3f86cd3504a",
    "xy": [
     462,
     -1106
@@ -859,6 +862,7 @@
    "stil": "neubau",
    "geschosse": 8,
    "notiz": "cremeweisser Neubau mit Holzverkleidung EG",
+   "quelle": "panoramax:41775597-793d-4b03-a9a6-f5b95c780aaf",
    "xy": [
     -34,
     -902
@@ -876,6 +880,7 @@
     "erker"
    ],
    "notiz": "orangeroter Putz, verglaster Erker",
+   "quelle": "panoramax:2c0a8981-df55-43d1-9c63-ba36ed508ab0",
    "xy": [
     -51,
     -934
@@ -890,6 +895,7 @@
    "stil": "70er",
    "geschosse": 9,
    "notiz": "graubrauner Bau der 80er, EG Laeden mit Vordach",
+   "quelle": "panoramax:beaef427-2af7-4201-bcbc-9f698de18c42",
    "xy": [
     -70,
     -927
@@ -1271,6 +1277,7 @@
     "rustika"
    ],
    "notiz": "Schulhaus beigeocker, Rundbogenportal, rotes Ziegeldach, Zaun",
+   "quelle": "panoramax:a2026ee7-9af9-4088-a022-8a5b1384fee1",
    "xy": [
     -283,
     -1161
@@ -1748,6 +1755,7 @@
     "rustika"
    ],
    "notiz": "grauer Eckbau mit Natursteinsockel",
+   "quelle": "panoramax:98c37347-4d96-4077-b871-45843d969527",
    "xy": [
     271,
     -1611
@@ -2887,6 +2895,7 @@
     "balkon"
    ],
    "notiz": "ockerbeiger Putz, Balkon, daneben weisse Werkstatttore",
+   "quelle": "panoramax:0488830a-af68-4175-83fb-b4bb6a2331e6",
    "xy": [
     -120,
     -1227
@@ -3079,6 +3088,7 @@
     "balkon"
    ],
    "notiz": "rotorange Putz, graue Laeden, Balkone",
+   "quelle": "panoramax:4102f254-a0ae-4968-be6a-26aa666445a1",
    "xy": [
     -250,
     -1339
@@ -3303,6 +3313,7 @@
     "balkon"
    ],
    "notiz": "graubeiger Putz, Balkone, Hecke",
+   "quelle": "panoramax:2d7f3041-9cee-4d6f-9270-d35b84be4254",
    "xy": [
     -324,
     -1464
@@ -3355,6 +3366,7 @@
     "balkon"
    ],
    "notiz": "beigegrauer Putz, Balkone mit Rolllaeden",
+   "quelle": "panoramax:a0997801-214e-41d3-99aa-bcef94308a53",
    "xy": [
     -341,
     -1448
@@ -3451,6 +3463,7 @@
    "dach": "flach",
    "stil": "neubau",
    "notiz": "grauer Neubau, Rolllaeden",
+   "quelle": "panoramax:a0605b4a-7236-488f-9236-ab4ac0bd0b07",
    "xy": [
     -412,
     -1396
@@ -3638,6 +3651,7 @@
     "balkon"
    ],
    "notiz": "hellgrauer Putz, EG Laden E-Scooter",
+   "quelle": "panoramax:2278c6e5-8be7-4519-afee-a83fe2ebb4c4",
    "xy": [
     -12,
     -1349
@@ -3767,6 +3781,7 @@
     "balkon"
    ],
    "notiz": "orangeroter Putz, blaue Fensterlaeden, Balkone",
+   "quelle": "panoramax:2cad4854-85bb-406c-b616-54e72eec06be",
    "xy": [
     -59,
     -1242
@@ -3784,6 +3799,7 @@
     "balkon"
    ],
    "notiz": "orangeroter Putz, blaue Fensterlaeden, Balkone",
+   "quelle": "panoramax:555b9ae2-63ab-44d2-900f-912ad35fe03e",
    "xy": [
     -63,
     -1229
@@ -4294,6 +4310,7 @@
    "stil": "buero",
    "geschosse": 10,
    "notiz": "Buerohaus mit Glas-Vorhangfassade",
+   "quelle": "panoramax:a45c2122-918a-42c4-bbd5-075ac21bf028",
    "xy": [
     194,
     -1237
@@ -4799,6 +4816,7 @@
     "balkon"
    ],
    "notiz": "orangeocker Putz, gruene Laeden, Balkone",
+   "quelle": "panoramax:27eb52c4-3566-46f5-a708-5b5e293bf082",
    "xy": [
     -281,
     -1019
@@ -4816,6 +4834,7 @@
     "rustika"
    ],
    "notiz": "ockerbeiger Putz, Hofdurchgang EG mit Graffiti",
+   "quelle": "panoramax:896fa6b3-59aa-498c-9cc0-553f10f55f44",
    "xy": [
     -268,
     -1040
@@ -4832,6 +4851,7 @@
     "balkon"
    ],
    "notiz": "orangeocker Putz mit hellen Streifen, Balkone",
+   "quelle": "panoramax:27eb52c4-3566-46f5-a708-5b5e293bf082",
    "xy": [
     -288,
     -1026
@@ -5228,6 +5248,7 @@
     "balkon"
    ],
    "notiz": "braunbeiger Putz, Balkone, EG Laeden",
+   "quelle": "panoramax:aa584b7c-03b5-44ce-b5ef-d92aba91e6ae",
    "xy": [
     15,
     -1016
@@ -5261,6 +5282,7 @@
     "balkon"
    ],
    "notiz": "graubeiger Putz, Balkone, EG Gastro mit Aussensitzen",
+   "quelle": "panoramax:da907dc1-a26c-4b9b-9f44-0ab4dff6694e",
    "xy": [
     12,
     -1001
@@ -5296,6 +5318,7 @@
     "gesims"
    ],
    "notiz": "beigebrauner Putz, Jugendstilbalkone, EG Cafe mit Terrasse",
+   "quelle": "panoramax:07e33aa5-12ea-4cd6-a183-41639c296a89",
    "xy": [
     9,
     -986
@@ -5356,6 +5379,7 @@
    "dach": "sattel",
    "stil": "heimatstil",
    "notiz": "gelber Putz mit Giebel, helle Holzlaeden, Hecke",
+   "quelle": "panoramax:22dbcfb0-4669-4e36-b9c0-e5b7f8dae8ca",
    "xy": [
     -338,
     -1294
@@ -5370,6 +5394,7 @@
    "stil": "heimatstil",
    "geschosse": 5,
    "notiz": "lachsrosa Putz, helle Holzlaeden",
+   "quelle": "panoramax:423d5549-e352-4918-9362-ed79be8e35b7",
    "xy": [
     -317,
     -1308
@@ -5557,6 +5582,7 @@
     "balkon"
    ],
    "notiz": "blaugrauer Putz, EG Laeden mit Velos",
+   "quelle": "panoramax:61517e32-e47a-4265-9deb-4f3071cce361",
    "xy": [
     -78,
     -978

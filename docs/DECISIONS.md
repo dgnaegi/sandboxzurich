@@ -207,3 +207,9 @@ Start an einem Eintrag aus `web/public/data/spawns.json` (`pipeline/spawns.py`, 
 
 ## #57 – 2026-10-19 – Dach-only-Objekte bekommen Stützen
 swissBUILDINGS3D-Objekte ohne Grundriss (Vordächer) schwebten. Sie bekommen schlanke Stützen an Ecken/alle 8 m (`build_testarea.canopy_posts`), nie auf der Fahrbahn; am HB werden sie stattdessen versteckt (`hb_hide.canopies`).
+
+## #58 – 2026-10-19 – HB-Haupthalle als leere Eventfläche, Arkaden mit Toren statt erfundener Läden
+Keine dauerhaften Marktbuden, Kioske oder Weihnachtsbaum in der Halle. Die Bogenarkaden bekommen verglaste Eichentore, keine Ladenschilder: Der Südtrakt ist das Reisezentrum, die Nordtrakt-Läden öffnen erst 2027 (SDA 07/2026). Saisonale Märkte wären später ein Ereignis, kein festes Modell. Details: `research/hb/fix_2026-10-19.md`.
+
+## #59 – 2026-10-19 – Zonen-Kamerapunkte von Hand, mit Blickrichtung
+Die Namensabfragen in `pipeline/zones.py` trafen in Zone 1 falsche Orte (HB-Knoten am Perronende, Kamera im Volkshausdach, Sihlpost/Haltestelle daneben). Zone 1 nutzt jetzt Koordinaten aus geprüften Spawn-Orten, Adressen und OSM-Haltestellen, mit optionalem `yaw` (0 = Nord, π/2 = Ost). Vor jeder Zonen-Nacht die Vorher-Aufnahmen auf Fehlplatzierungen prüfen.

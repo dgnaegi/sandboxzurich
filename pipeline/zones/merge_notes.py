@@ -65,7 +65,7 @@ def main(dry):
     json.dump(zf, open(Z / ZF, "w"), ensure_ascii=False, indent=1)
 def fields(dry):
     vn = json.load(open(V3)); zf = json.load(open(Z / ZF)); n = 0
-    for ln in (Z / "z4/fields_z4.tsv").read_text().splitlines():
+    for ln in (Z / f"{ZN}/fields_{ZN}.tsv").read_text().splitlines():
         if not ln.strip() or ln.startswith("#"): continue
         a, g, ax, ex = [x.strip() for x in ln.split("|")]
         if a not in vn: print("no note for", a); continue

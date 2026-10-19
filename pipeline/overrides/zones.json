@@ -55,43 +55,51 @@
    "cams": [
     {
      "name": "Bahnhofplatz (Escher)",
-     "x": 1772.4,
-     "y": -751.7
+     "x": 1765,
+     "y": -770,
+     "yaw": 0.37
     },
     {
      "name": "HB-Halle",
-     "x": 1315.3,
-     "y": -638.1
+     "x": 1763,
+     "y": -656,
+     "yaw": 1.94
     },
     {
-     "name": "Querhalle/Shopville",
-     "x": 1825.9,
-     "y": -768.5
+     "name": "Querhalle",
+     "x": 1728,
+     "y": -641,
+     "yaw": 0.37
     },
     {
      "name": "Europaallee/Lagerstrasse",
-     "x": 1297.4,
-     "y": -591.0
+     "x": 1330,
+     "y": -560,
+     "yaw": 2.1
     },
     {
      "name": "Sihlpost",
-     "x": 1368.9,
-     "y": -774.7
+     "x": 1382,
+     "y": -812,
+     "yaw": 0.43
     },
     {
      "name": "Haltestelle Bahnhofplatz/HB",
      "x": 1700,
-     "y": -770
+     "y": -748,
+     "yaw": 1.2
     },
     {
      "name": "Langstrasse/Lagerstrasse",
-     "x": 976,
-     "y": -443
+     "x": 875,
+     "y": -430,
+     "yaw": -2.74
     },
     {
      "name": "Langstrassen-Unterführung",
-     "x": 930,
-     "y": -324
+     "x": 893,
+     "y": -372,
+     "yaw": 0.42
     },
     {
      "name": "Langstrasse/Dienerstrasse",
@@ -110,23 +118,26 @@
     },
     {
      "name": "Helvetiaplatz (Volkshaus)",
-     "x": 829.5,
-     "y": -935.8
+     "x": 784,
+     "y": -886,
+     "yaw": 2.48
     },
     {
      "name": "Haltestelle Helvetiaplatz",
-     "x": 705.7,
-     "y": -873.4
+     "x": 743,
+     "y": -888
     },
     {
      "name": "Kanzlei",
-     "x": 717.7,
-     "y": -998.7
+     "x": 692.9,
+     "y": -973.4,
+     "yaw": 0.43
     },
     {
      "name": "Bäckeranlage",
-     "x": 617.3,
-     "y": -667.1
+     "x": 528,
+     "y": -693,
+     "yaw": 1.89
     },
     {
      "name": "Kasernenstrasse",
@@ -135,13 +146,15 @@
     },
     {
      "name": "Velotunnel-Portal",
-     "x": 1399.3,
-     "y": -639.7
+     "x": 1400,
+     "y": -790,
+     "yaw": 1.07
     },
     {
-     "name": "Shopville unten",
-     "x": 1825.9,
-     "y": -768.5
+     "name": "Langstrasse/Hohlstrasse",
+     "x": 737.2,
+     "y": -738.9,
+     "yaw": 2.73
     }
    ],
    "unresolved": []

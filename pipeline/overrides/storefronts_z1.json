@@ -1,0 +1,99 @@
+{
+ "_meta": "Zone 1 Erdgeschoss-Overrides (Auftrag ZC). Schluessel = OSM-Id ohne n/w/r. v: a Markise (Hex), t Aussensitze. Nur was ein lokales Foto (research/shops_v3, Mapillary/Panoramax CC BY-SA) zeigt; Fassaden der Langstrasse-Landmarks bewusst nicht gesetzt. Kontaktboegen preview/ref_z1_shops_*.jpg.",
+ "6989685409": {
+  "v": {
+   "t": 1
+  },
+  "src": "Foto shops_r2 Josefstrasse 13: Tische und roter Sonnenschirm vor dem Lokal"
+ },
+ "6765644326": {
+  "v": {
+   "a": "#5a2a26"
+  },
+  "src": "Foto shops_r2 Zollstrasse 37: dunkelbraune Markisen"
+ },
+ "11216071007": {
+  "v": {
+   "a": "#1f4f9a",
+   "t": 1
+  },
+  "src": "Foto shops: blaue Markise, Tische auf dem Trottoir"
+ },
+ "3926102925": {
+  "v": {
+   "a": "#8a8a86",
+   "t": 1
+  },
+  "src": "Foto langstrasse_b Brauerstrasse 34: graue Markise, Tische"
+ },
+ "656649674": {
+  "v": {
+   "t": 1
+  },
+  "src": "Foto shops_r2 Brauerstrasse 4: Tische und Baenke vor dem Lokal"
+ },
+ "7531078063": {
+  "v": {
+   "t": 1
+  },
+  "src": "Foto shops_r2 Brauerstrasse 58: Gaeste an Tischen vor dem Lokal"
+ },
+ "5077193368": {
+  "v": {
+   "a": "#b0303c",
+   "t": 1
+  },
+  "src": "Foto langstrasse_b Brauerstrasse 30a: rote Markise, Terrasse mit Zaun"
+ },
+ "9792386803": {
+  "v": {
+   "t": 1
+  },
+  "src": "Foto shops Europaallee 4: Tische und Stuehle draussen"
+ },
+ "2039838359": {
+  "v": {
+   "t": 1
+  },
+  "src": "Foto shops_r3 Europaallee 7: Aussensitze unter dunklem Vordach"
+ },
+ "6284033411": {
+  "v": {
+   "a": "#2b2b2b",
+   "t": 1
+  },
+  "src": "Foto shops_r2 Kasernenstrasse 77b: dunkle Markise, Aussentische"
+ },
+ "10795431343": {
+  "v": {
+   "t": 1
+  },
+  "src": "Foto shops Lagerstrasse 18c: Tische am Trottoir"
+ },
+ "808458794": {
+  "v": {
+   "a": "#2f5b43",
+   "t": 1
+  },
+  "src": "Foto shops_r2 Langstrasse 13: gruene Markise, Tische (auch inyourpocket: Sommerterrasse)"
+ },
+ "808458835": {
+  "v": {
+   "t": 1
+  },
+  "src": "Foto shops Langstrasse 35: Aussenbestuhlung unter heller Markise"
+ },
+ "1016012577": {
+  "v": {
+   "a": "#3f6b3a",
+   "t": 1
+  },
+  "src": "Foto shops_r2 Stauffacherstrasse 101: gruene Markise, Aussentische"
+ },
+ "w107080965": {
+  "v": {
+   "t": 1
+  },
+  "src": "Foto shops_r2 Gessnerallee 17: Rio Bar, Sonnenschirme und Tische"
+ }
+}

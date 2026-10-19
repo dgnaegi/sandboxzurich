@@ -131,12 +131,13 @@ CAMS = {
         ("Thomasweg/Martastrasse", "S:Thomasweg"), ("Schmiede Wiedikon", "Schmiede Wiedikon"), ("Bahnhof Wiedikon Vorplatz", "H:Bahnhof Wiedikon"),
         ("Bahnhof Wiedikon Perron", "^(Zürich )?Wiedikon$"), ("Goldbrunnenplatz", "^Goldbrunnenplatz"), ("Friedhof Sihlfeld Haupteingang", "Friedhof Sihlfeld|Sihlfeld.*Friedhof"),
         ("Ortsmuseum Wiedikon", "Ortsmuseum Wiedikon"), ("Kalkbreite", (340, -1170))],
-    1: [("Bahnhofplatz (Escher)", "Alfred-Escher|Escher-Brunnen"), ("HB-Halle", "^Zürich Hauptbahnhof$"), ("Querhalle/Shopville", "Shopville"),
-        ("Europaallee/Lagerstrasse", "S:Europaallee"), ("Sihlpost", "Sihlpost"), ("Haltestelle Bahnhofplatz/HB", (1700, -770)),
-        ("Langstrasse/Lagerstrasse", (976, -443)), ("Langstrassen-Unterführung", (930, -324)), ("Langstrasse/Dienerstrasse", "X:Langstrasse|Dienerstrasse"),
-        ("Langstrasse/Militärstrasse", "X:Langstrasse|Militärstrasse"), ("Langstrasse/Brauerstrasse", "X:Langstrasse|Brauerstrasse"), ("Helvetiaplatz (Volkshaus)", "Volkshaus"),
-        ("Haltestelle Helvetiaplatz", "H:Helvetiaplatz"), ("Kanzlei", "S:Kanzleistrasse"), ("Bäckeranlage", "Bäckeranlage"),
-        ("Kasernenstrasse", "S:Kasernenstrasse"), ("Velotunnel-Portal", "Velostation|Velotunnel"), ("Shopville unten", "Shopville")],
+    # Zone 1: manual points (x, y[, yaw]); the name queries hit wrong places (HB node at the platform tips, Volkshaus roof), checked 2026-10-19
+    1: [("Bahnhofplatz (Escher)", (1765, -770, 0.37)), ("HB-Halle", (1763, -656, 1.94)), ("Querhalle", (1728, -641, 0.37)),
+        ("Europaallee/Lagerstrasse", (1330, -560, 2.1)), ("Sihlpost", (1382, -812, 0.43)), ("Haltestelle Bahnhofplatz/HB", (1700, -748, 1.2)),
+        ("Langstrasse/Lagerstrasse", (875, -430, -2.74)), ("Langstrassen-Unterführung", (893, -372, 0.42)), ("Langstrasse/Dienerstrasse", "X:Langstrasse|Dienerstrasse"),
+        ("Langstrasse/Militärstrasse", "X:Langstrasse|Militärstrasse"), ("Langstrasse/Brauerstrasse", "X:Langstrasse|Brauerstrasse"), ("Helvetiaplatz (Volkshaus)", (784, -886, 2.48)),
+        ("Haltestelle Helvetiaplatz", (743, -888)), ("Kanzlei", (692.9, -973.4, 0.43)), ("Bäckeranlage", (528, -693, 1.89)),
+        ("Kasernenstrasse", "S:Kasernenstrasse"), ("Velotunnel-Portal", (1400, -790, 1.07)), ("Langstrasse/Hohlstrasse", (737.2, -738.9, 2.73))],
     3: [("Stauffacher", "H:Stauffacher"), ("Bullingerplatz (Brunnen)", "S:Bullingerplatz"), ("Bullingerhof", "Bullingerhof"),
         ("Hardplatz", "H:Hardplatz"), ("Albisriederplatz", "H:Albisriederplatz"), ("Lochergut", "Lochergut"),
         ("Badenerstrasse/Kalkbreite-Seite", "X:Badenerstrasse|Kalkbreitestrasse"), ("Badenerstrasse/Zypressenstrasse", "X:Badenerstrasse|Zypressenstrasse"),
@@ -183,7 +184,7 @@ def build():
             if p is None:
                 miss.append(label)
             else:
-                cams.append(dict(name=label, x=round(p[0], 1), y=round(p[1], 1)))
+                cams.append(dict(name=label, x=round(p[0], 1), y=round(p[1], 1), **({"yaw": p[2]} if len(p) > 2 else {})))
         zones.append(dict(id=z["id"], name=z["name"], polys=z["polys"], tiles=[f"t_{ix}_{iy}" for ix, iy in ts],
                           n_tiles=len(ts), cams=cams, unresolved=miss))
     zones.sort(key=lambda z: z["id"])

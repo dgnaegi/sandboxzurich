@@ -1,0 +1,146 @@
+[
+ {
+  "id": "z1_bahnhofplatz_escher",
+  "name": "Bahnhofplatz (Escher)",
+  "kind": "place",
+  "lat": 47.376957,
+  "lon": 8.539862,
+  "radius": 45
+ },
+ {
+  "id": "z1_hb_halle",
+  "name": "HB-Halle",
+  "kind": "place",
+  "lat": 47.377982,
+  "lon": 8.539857,
+  "radius": 45
+ },
+ {
+  "id": "z1_querhalle",
+  "name": "Querhalle",
+  "kind": "place",
+  "lat": 47.378122,
+  "lon": 8.539396,
+  "radius": 45
+ },
+ {
+  "id": "z1_europaallee_lagerstrasse",
+  "name": "Europaallee/Lagerstrasse",
+  "kind": "place",
+  "lat": 47.3789,
+  "lon": 8.534141,
+  "radius": 45
+ },
+ {
+  "id": "z1_sihlpost",
+  "name": "Sihlpost",
+  "kind": "place",
+  "lat": 47.376627,
+  "lon": 8.534783,
+  "radius": 45
+ },
+ {
+  "id": "z1_haltestelle_bahnhofplatz_hb",
+  "name": "Haltestelle Bahnhofplatz/HB",
+  "kind": "place",
+  "lat": 47.377163,
+  "lon": 8.539005,
+  "radius": 45
+ },
+ {
+  "id": "z1_langstrasse_lagerstrasse",
+  "name": "Langstrasse/Lagerstrasse",
+  "kind": "place",
+  "lat": 47.380126,
+  "lon": 8.528141,
+  "radius": 45
+ },
+ {
+  "id": "z1_langstrassen_unterfuehrung",
+  "name": "Langstrassen-Unterführung",
+  "kind": "place",
+  "lat": 47.380646,
+  "lon": 8.52839,
+  "radius": 45
+ },
+ {
+  "id": "z1_langstrasse_dienerstrasse",
+  "name": "Langstrasse/Dienerstrasse",
+  "kind": "place",
+  "lat": 47.37847,
+  "lon": 8.527013,
+  "radius": 45
+ },
+ {
+  "id": "z1_langstrasse_militaerstrasse",
+  "name": "Langstrasse/Militärstrasse",
+  "kind": "place",
+  "lat": 47.37965,
+  "lon": 8.527699,
+  "radius": 45
+ },
+ {
+  "id": "z1_langstrasse_brauerstrasse",
+  "name": "Langstrasse/Brauerstrasse",
+  "kind": "place",
+  "lat": 47.377974,
+  "lon": 8.52672,
+  "radius": 45
+ },
+ {
+  "id": "z1_helvetiaplatz_volkshaus",
+  "name": "Helvetiaplatz (Volkshaus)",
+  "kind": "place",
+  "lat": 47.376037,
+  "lon": 8.526852,
+  "radius": 45
+ },
+ {
+  "id": "z1_haltestelle_helvetiaplatz",
+  "name": "Haltestelle Helvetiaplatz",
+  "kind": "place",
+  "lat": 47.376024,
+  "lon": 8.526309,
+  "radius": 45
+ },
+ {
+  "id": "z1_kanzlei",
+  "name": "Kanzlei",
+  "kind": "place",
+  "lat": 47.375262,
+  "lon": 8.52563,
+  "radius": 45
+ },
+ {
+  "id": "z1_baeckeranlage",
+  "name": "Bäckeranlage",
+  "kind": "place",
+  "lat": 47.377804,
+  "lon": 8.523498,
+  "radius": 45
+ },
+ {
+  "id": "z1_kasernenstrasse",
+  "name": "Kasernenstrasse",
+  "kind": "place",
+  "lat": 47.376019,
+  "lon": 8.533833,
+  "radius": 45
+ },
+ {
+  "id": "z1_velotunnel_portal",
+  "name": "Velotunnel-Portal",
+  "kind": "place",
+  "lat": 47.376823,
+  "lon": 8.535026,
+  "radius": 45
+ },
+ {
+  "id": "z1_langstrasse_hohlstrasse",
+  "name": "Langstrasse/Hohlstrasse",
+  "kind": "place",
+  "lat": 47.377365,
+  "lon": 8.52626,
+  "radius": 45
+ }
+]

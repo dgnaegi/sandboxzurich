@@ -2,6 +2,22 @@
 
 Wird am Ende jedes Arbeitsschritts überschrieben. Eine neue Session liest das zuerst.
 
+## Stand 2026-10-19 abends: Nacht 3 / Zone 1 (HB und Langstrasse) – ZUERST LESEN
+Zone-1-Kacheln (24) neu gebaut (`logs/build_z1.log`, 0 Fehler, 15 min), Weltdaten veröffentlicht (`logs/publish_z1.log`). QA `logs/qa_z1.log` grün: gameplay, traffic_legal 0.02 %, qa_spawn 26/26, qa_leak +24 MB, Handy-Texturen Langstrasse 157 / HB 145 MB, perf Handy 58 fps / 268 Calls / 591k Tris / 4.3 s.
+- **HB-Haupthalle** (User-Feedback «offene Klappen», «Ladenhalle umgebaut»): Buden/Kioske/Weihnachtsbaum weg, Arkaden mit verglasten Eichentoren statt erfundener Läden, Boden grau (#58, `research/hb/fix_2026-10-19.md`, `preview/hb_hall_fix.jpg`).
+- **Kamerapunkte Zone 1** neu von Hand mit Blickrichtung (#59), die Namensabfragen lagen bei 8 von 18 Punkten falsch.
+- **Foto | Spiel:** `pipeline/zones/zone_cmp.py <N> <tag>` (Foto von Mapillary/Panoramax an jedem Kamerapunkt, Spielbild von der Fotoposition aus) → `preview/zone<N>_cmp_<tag>_*.jpg`; Fotos via `pipeline/photos/fetch_z1.py`. Ad-hoc-Bögen: `web/tests/spot_shots.mjs`.
+- **Fassaden:** Notizen 378 → 520, Geschosse 106 → 354 (von 944 Adressen), Achsen 34 → 39; Farben Rasputin/Monroe korrigiert. **Läden:** 430 inventarisiert, 15 Fronten (Markise/Aussensitze), keine Umbenennung ohne Quelle (`research/zones/zone1_*`).
+- **Noten** Ø 2.8 → 2.9 (Ziel 4 nicht erreicht), Tickets Z1-1…6: `research/qa_round/z1_night3.md`.
+**Lehren (Ergänzung zu den Lehren unten):**
+5. Kamerapunkte vor der Zonen-Nacht im Vorher-Bogen prüfen, Namensabfragen treffen oft daneben → Koordinaten + `yaw` von Hand (`zones.py`).
+6. Mehr Notizdaten (Geschosse) sieht man auf Kamerahöhe kaum: Höhe/Farbe stimmten schon. Note 4 braucht Handarbeit an den Kamerapunkten (Platzbeläge, Haltestellen, EG/Schilder, prägende Häuser), nicht noch mehr Notizen.
+7. Fotoauswahl automatisch: Mapillary hat viele Boden-/Füsse-/Nachtbilder, deshalb Helligkeits-/Strukturfilter (`zone_cmp.usable`); besser Pitch/Kameratyp beim Abruf speichern.
+8. Neue Foto-Abrufe pro Zone brauchen eigene ID-Offsets (`facades_z1_fetch.py` 1.1/1.2/1.3 Mio.), sonst liefert der Cache die Treffer einer anderen Zone.
+9. `timeout` gibt es auf macOS nicht (rc 127) – Tests ohne `timeout` starten.
+10. Nach `merge.py` immer `apply_names.py` (sonst geht «Ni-Una-Menos-Platz» in landmarks.json verloren).
+**Nächste Nacht:** Zone 5 (Kreis 9 West) laut `docs/NIGHT_PLAN.md`; vorher Z1-Tickets nur wenn Zeit. Lehre 6 einplanen: Agents an Kamerapunkten arbeiten lassen statt flächig Notizen sammeln.
+
 ## Linien (Auftrag L, 19.10.)
 Längslinien neu (`pipeline/markings_lines.py`, Eingriffe in `streets.markings/junction_gaps`, `build_testarea._ground_base` LINE_LIFT/ROAD_CELL); wirkt erst im nächsten Komplett-Build (Build 14 lief mit altem Code). Zahlen `research/lines.md`.
 
@@ -14,7 +30,7 @@ Sondernacht 18.10. 22:00 – 19.10. 16:00 abgeschlossen: 4 Releases (Builds 12�
 2. Notizen immer mit allen v4-Feldern erfassen (geschosse, achsen, gesims/rustika, gauben/mansarde, erker, laden), sonst wirkt der Generator nicht.
 3. Nach `facades_notes.py` immer `pipeline/zones/merge_notes.py --zone z2|z4` (und `--fields`) neu laufen lassen.
 4. Agents hinterlassen `until …; sleep`-Warteschleifen → am Ende `ps -eo pid,command | grep "until \[ -s logs/agent"` prüfen und per PID beenden.
-**Offene Fragen an den User:** frontale Fotos aus dem eigenen Quartier? · 3 Laden-Umbenennungen ohne Quelle (Felice Pizza, Blumenhaus Sihlfeld, Duplikat) · Wasserwerkstrasse (1604,81) als Unterführung erkannt – echt? · Farbe Schlachthof-Nordblöcke · Ni-Una-Menos nur als Platzname (Haltestelle bleibt Helvetiaplatz) ok? · iPhone-Test Langstrasse/HB/Idaplatz.
+**Antworten User 2026-10-19:** keine frontalen Fotos (mit vorhandenen Daten arbeiten) · Felice Pizza + Blumenhaus Sihlfeld bestätigt (`storefronts_z4.json`), Duplikat bleibt · Unterführung Wasserwerkstrasse echt (klein) · Schlachthof-Nordblöcke Backstein · **Ni-Una-Menos-Platz ÜBERALL** (auch Haltestelle, Strassenschilder, Amtshaus, Texte): `pipeline/apply_names.py` nach JEDEM Build/Generator laufen lassen (ersetzt in web/public/data + tiles, Regeln `pipeline/overrides/names.json` → `everywhere`) · iPhone-Test funktioniert.
 **Offene Tickets:** T21 (Fahrbahn an breiten Knoten zu schmal), Mulden unter Brücken ohne OSM-Brückentag (Seebahn-, Kanzleistrasse, Sihlbrücke), Restbuckel Kornhausbrücke 20 cm, FGG-Hecke Eingang, Katalog V9 ohne Foto, Leuchten nicht im Katalog, Läden Zone 4/2 meist Default-Schilder, Zone-4-Achsen nur 54 Häuser. Langstrassen-Unterführung (Release 4b): Boden-UVs korrigiert (Markierung längs), weisse Spurlinien, hellere Wände, massivere Portale (Platte, Brüstung, Geländer), Terrain-Loch im Bauwerk (`terrain_cuts.holes()`, nur Kachel 4_-2 neu gebaut – wirkt überall nach Komplett-Build); Noten 3–3.5 (`research/v3/langstr_unterf.md`, `preview/lu_cmp2.jpg`). Orange Keile + schräge Aussenwand im Durchgang sind fotobelegt (Wandgestaltung 1986). Offen: bläuliches Szenenlicht im Tunnel, helle Platte links im Strassentunnel, Portale aus 48 m zu klein.
 
 ## Stand 2026-10-19 morgens (Build 13, Release 2) – zuerst lesen
@@ -92,7 +108,7 @@ Shopville + Bahnhöfe Museumstrasse/Löwenstrasse als begehbare Landmark-GLB `hb
 1. Nur bei Bedarf: Texturen (`gen_facades.py neubau_b`, `gen_facades3.py`, `gen_textures.py`, `gen_wildposters.py`), Modelle (Blender-Skripte, danach `pack_models.py`), Landmarks (`k*_*.py`, `merge.py`), Bahn (`railways.py`).
 2. `playarea.py` → `roadgraph.py` → `transit.py` → `decktrack.py` → `railzone.py`.
 3. `.venv/bin/python pipeline/build_testarea.py > logs/build_fullN.log 2>&1` (~55–60 min; einzelne Kacheln `SBZ_TILES=ix_iy,…`).
-4. `deploy/publish_world.sh`, Commit, Push.
+4. `.venv/bin/python pipeline/apply_names.py` (Ni-Una-Menos-Platz überall), dann `deploy/publish_world.sh`, Commit, Push.
 
 ### Tests (web/tests)
 gameplay, touch, drive, crash, clock, music, traffic_legal, qa_leak, qa_spawn, perf (Handy 4×), perf_pc, shots (Kontaktbogen per PIL), look, topdown, fidelity_shots. Regeln für Agents: keine Warteschleifen mit `pgrep -f build_testarea` (matchen sich selbst), nie `git stash`, nie `pkill -f build_testarea` (bricht fremde Builds ab).
