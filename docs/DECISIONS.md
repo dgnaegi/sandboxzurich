@@ -189,3 +189,21 @@ Ursache «aussen zu hoch»: Das alte Modell hatte eine 23 m hohe Fassade samt Gl
 
 ## #51 – 2026-10-19 – Längslinien als Ketten mit eingepassten Strichen (Auftrag L)
 Mittel-/Spur-/Velolinien kommen aus `pipeline/markings_lines.py` (Ketten über Way-Grenzen, geglättet, Striche pro freiem Intervall eingepasst) statt je OSM-Way; Markierung wird mit Asphalt-Raster (`ROAD_CELL`) und 3 cm Höhe (`SBZ_LINE_LIFT`) gezeichnet. Details, Zahlen: `research/lines.md`, Audit `pipeline/audit_lines.py`.
+
+## #52 – 2026-10-19 – Objekt-Katalog: echte Varianten statt Einheitsmodell
+Brunnen, Haltestellen-Ausstattung, Plakatstellen und Kioske kommen aus einem Katalog (`pipeline/catalog/`, 21+ GLBs mit einem gemeinsamen Atlas, `web/public/models/catalog/`). Zuordnung per Datenattribut (WVZ-Brunnen `material_*`, `art`, `brunnenart`; VBZ `stops_equip`), Foto-Overrides in `pipeline/overrides/catalog_assign.json`, Ergebnis `web/public/data/catalog.json`, Laufzeit `web/src/world/catalog.ts` (InstancedMesh je Variante, A/B `?nocatalog`). Kein Kachel-Build nötig. Leuchten bewusst nicht ersetzt (kein Typ in den ewz-Daten).
+
+## #53 – 2026-10-19 – Zonen und Bestandsaufnahme als Massstab
+Spielgebiet in 5 Zonen (`pipeline/zones.py` → `pipeline/overrides/zones.json`, Zone 2 endet an der Limmat). Fortschritt wird pro Zone gegen Fotos an festen Kamerapunkten benotet (1–5; Bestandsaufnahme Ø 2.5, `research/zones/baseline.md`). Arbeit pro Nacht = eine Zone (`docs/NIGHT_PLAN.md`).
+
+## #54 – 2026-10-19 – Tramgleise Teil der Fahrbahn
+Gleiskorridore im Strassenraum werden in die Fahrbahn gemergt (`pipeline/tram_track.py`), Rillenschiene bündig (+1.2 cm), keine Randsteinwände neben dem Gleis; eigene Trassees behalten Schotterbett ohne Randstein. `SBZ_TRAM_OLD=1` für A/B.
+
+## #55 – 2026-10-19 – Fassaden v4: Notiz-Felder steuern Geschosse/Achsen/EG
+`pipeline/facade.py`: Geschosse (Konflikt GWR/OSM vs. Notiz per Geschosshöhe entschieden), Achsabstand an der Adress-Front (GWR-Eingang, Clamp 2.6–4.2 m), Rustika-EG ohne Laden, Stockwerkband, Gauben. Keine neuen Texturen/Draw Calls; `SBZ_FACADES_V4=0` schaltet ab. Grenze ist die Datenlage: Notizen aus Schrägfotos liefern selten Achsen.
+
+## #56 – 2026-10-19 – Spawn nur an kuratierten, geprüften Orten
+Start an einem Eintrag aus `web/public/data/spawns.json` (`pipeline/spawns.py`, geprüft: Trottoir/Platz, kein Wasser/Gleis/Collider/Hang, freie Kamera, Blick aufs Ziel). Gespeicherte Position und Kartensprung laufen durch dieselbe Prüfung (`player/spawn.ts`).
+
+## #57 – 2026-10-19 – Dach-only-Objekte bekommen Stützen
+swissBUILDINGS3D-Objekte ohne Grundriss (Vordächer) schwebten. Sie bekommen schlanke Stützen an Ecken/alle 8 m (`build_testarea.canopy_posts`), nie auf der Fahrbahn; am HB werden sie stattdessen versteckt (`hb_hide.canopies`).
