@@ -9,9 +9,10 @@ export interface StopDefault { x: number; y: number; z: number; lines: string[];
 interface Equip { sh: number[][]; bn: number[][]; df: number[][]; tk: number[][]; pl: number[][]; cov: number[][] }
 
 /** Passenger information display (dark LED box: next departures as orange text). */
-export function infoTex(lines: string[]): THREE.Texture {
-  const c = document.createElement('canvas'); c.width = 128; c.height = 64;
-  const g = c.getContext('2d')!;
+export function infoTex(lines: string[], half = false): THREE.Texture {
+  const k = half ? 1 : 2;   // phones: half resolution (128x64 instead of 256x128)
+  const c = document.createElement('canvas'); c.width = 128 * k; c.height = 64 * k;
+  const g = c.getContext('2d')!; g.scale(k, k);
   g.fillStyle = '#07090c'; g.fillRect(0, 0, 128, 64);
   g.fillStyle = '#ffb347'; g.font = 'bold 15px monospace'; g.textAlign = 'left';
   lines.slice(0, 3).forEach((l, i) => { g.fillText(`${l.padEnd(3)} ${2 + i * 4 + (l.length * 3) % 5} min`, 8, 18 + i * 19); });
@@ -19,6 +20,7 @@ export function infoTex(lines: string[]): THREE.Texture {
   return t;
 }
 
+const MOBILE = typeof matchMedia !== 'undefined' && matchMedia('(pointer: coarse)').matches;
 const UP = new THREE.Vector3(0, 1, 0);
 const POSTER = [0xd9c9a3, 0x8fb0c9, 0xc96b5a, 0xe6dfcf, 0x6f9a7a, 0xd8b04a, 0x5d6f93, 0xe9e9e4].map((c) => new THREE.Color(c));
 const WOOD = new THREE.Color(0x8a6a45), STEEL = new THREE.Color(0x7d848a), DARK = new THREE.Color(0x30353a), ROOF = new THREE.Color(0x5f666b);
@@ -116,8 +118,12 @@ export async function loadEquip(group: THREE.Group, defaults: StopDefault[], gro
     const z = zAt(x, y), fr = frame(x, y, z, az, 1), k = lineKey(x, y);
     if (!cat) opaque.push(part(fr, 0, ceil ? 2.12 : 2.25, 0, 0.62, 0.32, 0.1), DARK);
     if (!ceil) opaque.push(part(fr, 0, 1.1, 0, 0.06, 2.2, 0.06), STEEL);
-    if (cat) continue;
     const arr = dfi.get(k) ?? dfi.set(k, []).get(k)!;
+    if (cat) {   // catalog screen (H4 wall at 2.25 m, H5 ceiling-hung, centre 1.95 m): departure text plane over the atlas screen
+      const cy = ceil ? 1.95 : 2.25;
+      arr.push(part(fr, 0, cy, 0.055, 0.58, 0.38, 1), part(fr, 0, cy, -0.055, -0.58, 0.38, 1));
+      continue;
+    }
     arr.push(part(fr, 0, ceil ? 2.12 : 2.25, 0.055, 0.56, 0.26, 1), part(fr, 0, ceil ? 2.12 : 2.25, -0.055, -0.56, 0.26, 1));
   }
   // own group on the scene: main.ts toggles visibility of every child of the stops group by its (origin) position
@@ -125,7 +131,7 @@ export async function loadEquip(group: THREE.Group, defaults: StopDefault[], gro
   const add = (m: THREE.InstancedMesh | null) => { if (m) eqGroup.add(m); return m; };
   add(opaque.mesh(box, solid, true)); add(glassA.mesh(box, glassM, false)); add(posters.mesh(plane, posterM, true));
   for (const [k, mats] of dfi) {
-    const tex = infoTex(k ? k.split(',') : ['1']), mat = new THREE.MeshBasicMaterial({ map: tex, side: THREE.DoubleSide });
+    const tex = infoTex(k ? k.split(',') : ['1'], MOBILE), mat = new THREE.MeshBasicMaterial({ map: tex, side: THREE.DoubleSide });
     const im = new THREE.InstancedMesh(plane, mat, mats.length);
     mats.forEach((m, i) => im.setMatrixAt(i, m)); im.matrixAutoUpdate = false; eqGroup.add(im); disposables.push(tex, mat);
   }

@@ -1,0 +1,2754 @@
+{
+ "_meta": "Zone 4 Wiedikon, Auszug aus research/buildings/visual_notes_v3.json (gleiches Format). Lage aus OSM-Adressen im Zonen-Polygon (zones.json). Felder unverändert übernommen; ergänzt durch Fotoprüfung in Zone-4-Lauf, falls notiert.",
+ "entries": {
+  "Aemtlerstrasse 102": {
+   "hex": "#dfaea4",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "lachsrosa, dunkle Rolllaeden",
+   "quelle": "mapillary:1092011312977865",
+   "xy": [
+    -270,
+    -1059
+   ]
+  },
+  "Aemtlerstrasse 108": {
+   "hex": "#e0d0a8",
+   "material": "putz",
+   "fenster": "hoch",
+   "details": [
+    "balkon"
+   ],
+   "quelle": "mapillary:1097877655480895",
+   "xy": [
+    -306,
+    -1019
+   ]
+  },
+  "Aemtlerstrasse 110": {
+   "hex": "#e0d0a8",
+   "material": "putz",
+   "fenster": "hoch",
+   "details": [
+    "balkon"
+   ],
+   "quelle": "mapillary:1097877655480895",
+   "xy": [
+    -310,
+    -1015
+   ]
+  },
+  "Aemtlerstrasse 112": {
+   "hex": "#e5c9a8",
+   "material": "putz",
+   "fenster": "hoch",
+   "details": [
+    "balkon"
+   ],
+   "quelle": "mapillary:1097877655480895",
+   "xy": [
+    -324,
+    -1003
+   ]
+  },
+  "Aemtlerstrasse 114": {
+   "hex": "#e8c8b0",
+   "material": "putz",
+   "fenster": "hoch",
+   "details": [
+    "balkon"
+   ],
+   "quelle": "mapillary:1163678098794992",
+   "xy": [
+    -331,
+    -989
+   ]
+  },
+  "Aemtlerstrasse 32": {
+   "hex": "#d8d6cf",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrauer Rauhputz, graugruene Balkone, Lamellenladen",
+   "quelle": "mapillary:3427119457537875",
+   "xy": [
+    -55,
+    -1338
+   ]
+  },
+  "Aemtlerstrasse 32a": {
+   "hex": "#d8d6cf",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrauer Rauhputz, graugruene Balkone, Lamellenladen",
+   "quelle": "mapillary:3427119457537875",
+   "xy": [
+    -52,
+    -1325
+   ]
+  },
+  "Aemtlerstrasse 34": {
+   "hex": "#d8d6cf",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrauer Rauhputz, graugruene Balkone, Lamellenladen",
+   "quelle": "mapillary:3427119457537875",
+   "xy": [
+    -65,
+    -1323
+   ]
+  },
+  "Aemtlerstrasse 6": {
+   "hex": "#d8a040",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "erker",
+    "balkon"
+   ],
+   "notiz": "orange-ocker, Erker",
+   "quelle": "mapillary:1092707411214060",
+   "xy": [
+    17,
+    -1444
+   ]
+  },
+  "Aemtlerstrasse 74": {
+   "hex": "#e2d08c",
+   "material": "putz",
+   "rahmen": "weiss",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -160,
+    -1196
+   ]
+  },
+  "Aemtlerstrasse 76": {
+   "hex": "#e6dcc0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -169,
+    -1186
+   ]
+  },
+  "Aemtlerstrasse 78": {
+   "hex": "#dcc088",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -179,
+    -1172
+   ]
+  },
+  "Aemtlerstrasse 8": {
+   "hex": "#d8a040",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "erker",
+    "balkon"
+   ],
+   "notiz": "orange-ocker, gelb",
+   "quelle": "mapillary:693906000366154",
+   "xy": [
+    17,
+    -1433
+   ]
+  },
+  "Aemtlerstrasse 83": {
+   "hex": "#e6dcc0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -211,
+    -1171
+   ]
+  },
+  "Aemtlerstrasse 83c": {
+   "hex": "#e2d08c",
+   "material": "putz",
+   "rahmen": "weiss",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -212,
+    -1158
+   ]
+  },
+  "Aemtlerstrasse 84": {
+   "hex": "#d8c8a8",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -189,
+    -1155
+   ]
+  },
+  "Aemtlerstrasse 86": {
+   "hex": "#dcc088",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -199,
+    -1142
+   ]
+  },
+  "Aemtlerstrasse 90": {
+   "hex": "#d8c8a8",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -225,
+    -1107
+   ]
+  },
+  "Aemtlerstrasse 90c": {
+   "hex": "#e6dcc0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -234,
+    -1114
+   ]
+  },
+  "Aemtlerstrasse 92": {
+   "hex": "#e4e2dc",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "weiss, blaue Fensterlaeden, Balkon",
+   "quelle": "mapillary:1710640869520055",
+   "xy": [
+    -233,
+    -1101
+   ]
+  },
+  "Aemtlerstrasse 94": {
+   "hex": "#e4e0d2",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "50er",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "cremeweiss, Balkone, graue Lamellenlaeden, EG Hecke und Graffiti",
+   "quelle": "mapillary:1710640869520055",
+   "xy": [
+    -249,
+    -1085
+   ]
+  },
+  "Aemtlerstrasse 94a": {
+   "hex": "#e4e0d2",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "50er",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "cremeweiss, Balkone, graue Lamellenlaeden, EG Hecke und Graffiti",
+   "quelle": "mapillary:1710640869520055",
+   "xy": [
+    -240,
+    -1078
+   ]
+  },
+  "Aemtlerstrasse 96": {
+   "hex": "#e4d8b4",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -231,
+    -1069
+   ]
+  },
+  "Aemtlerstrasse 96a": {
+   "hex": "#d9d4c8",
+   "material": "putz",
+   "rahmen": "weiss",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -213,
+    -1055
+   ]
+  },
+  "Aemtlerstrasse 98": {
+   "hex": "#e0d8c0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "cremeweiss, Balkone, Tramleitung davor",
+   "quelle": "mapillary:1710640869520055",
+   "xy": [
+    -256,
+    -1075
+   ]
+  },
+  "Badenerstrasse 108": {
+   "hex": "#d6dcd3",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrün-weiss, dunkelgrüne Läden",
+   "quelle": "mapillary:298309833070256",
+   "xy": [
+    636,
+    -1072
+   ]
+  },
+  "Badenerstrasse 109": {
+   "hex": "#a0453d",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "geschosse": 3,
+   "achsen": 8,
+   "details": [
+    "rustika"
+   ],
+   "notiz": "rotbraun verputzt, Sockel/EG grauer Naturstein mit Bögen",
+   "quelle": "mapillary:1345346696150689",
+   "xy": [
+    617,
+    -1109
+   ]
+  },
+  "Badenerstrasse 110": {
+   "hex": "#dde0da",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 6,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrau, dunkelgrüne Läden",
+   "quelle": "mapillary:727939396106334",
+   "xy": [
+    624,
+    -1072
+   ]
+  },
+  "Badenerstrasse 123": {
+   "hex": "#dcdad4",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 6,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrau-creme, gerundete Balkone",
+   "quelle": "mapillary:941325581529254",
+   "xy": [
+    547,
+    -1103
+   ]
+  },
+  "Badenerstrasse 125": {
+   "hex": "#c3c7ce",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "50er",
+   "geschosse": 6,
+   "notiz": "hellblaugrau, 40er-Block mit Fensterraster, EG Läden",
+   "quelle": "mapillary:589482507255158",
+   "xy": [
+    532,
+    -1097
+   ]
+  },
+  "Badenerstrasse 129": {
+   "hex": "#d6d6d2",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "achsen": 3,
+   "details": [
+    "balkon",
+    "rustika"
+   ],
+   "notiz": "hellgrau, Eisenbalkon, dunkler Sockel",
+   "quelle": "mapillary:774323064232430",
+   "xy": [
+    513,
+    -1093
+   ]
+  },
+  "Badenerstrasse 131": {
+   "hex": "#a8937e",
+   "material": "putz",
+   "fenster": "glas",
+   "laeden": "keine",
+   "rahmen": "dunkel",
+   "stil": "neubau",
+   "geschosse": 6,
+   "notiz": "Neubau 2020, taupe Reliefputz",
+   "quelle": "mapillary:1072076810552149",
+   "xy": [
+    499,
+    -1098
+   ]
+  },
+  "Badenerstrasse 133": {
+   "hex": "#d4d4d2",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "60er",
+   "geschosse": 8,
+   "notiz": "weiss-hellgrau Büro, Fensterraster",
+   "quelle": "mapillary:441870404848113",
+   "xy": [
+    482,
+    -1107
+   ]
+  },
+  "Badenerstrasse 138": {
+   "hex": "#8f8c86",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "graubeige verputzt, Eisenbalkon",
+   "quelle": "mapillary:782433897132547",
+   "xy": [
+    491,
+    -1066
+   ]
+  },
+  "Badenerstrasse 144": {
+   "hex": "#bab5aa",
+   "material": "putz",
+   "stil": "50er",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "graubeiger Eckbau mit Balkonen, EG Tattoo-Studio mit schwarzer Front",
+   "quelle": "panoramax:49107301-3164-4957-8835-e211052fd33c",
+   "xy": [
+    462,
+    -1066
+   ]
+  },
+  "Badenerstrasse 153": {
+   "hex": "#dfdbb2",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 4,
+   "achsen": 4,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "cremegelb, dunkelgrüne Läden, Balkon",
+   "quelle": "mapillary:747130477169839",
+   "xy": [
+    429,
+    -1090
+   ]
+  },
+  "Badenerstrasse 155": {
+   "hex": "#d9a58d",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "braun",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "notiz": "lachsrosa, braune Läden",
+   "quelle": "mapillary:906547037120814",
+   "xy": [
+    417,
+    -1087
+   ]
+  },
+  "Badenerstrasse 157": {
+   "hex": "#e4dfcc",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "notiz": "cremeweiss, Eckbau mit Fensterband im EG",
+   "quelle": "mapillary:1561423504401300",
+   "xy": [
+    395,
+    -1083
+   ]
+  },
+  "Badenerstrasse 170": {
+   "hex": "#b5b6b3",
+   "material": "beton",
+   "fenster": "band",
+   "laeden": "keine",
+   "rahmen": "dunkel",
+   "stil": "buero",
+   "geschosse": 9,
+   "notiz": "Beton-/Glasraster 1984, grau",
+   "quelle": "mapillary:1914700252437479",
+   "xy": [
+    342,
+    -1003
+   ]
+  },
+  "Badenerstrasse 211": {
+   "hex": "#8c8c6f",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "dach": "sattel",
+   "stil": "gruenderzeit",
+   "geschosse": 3,
+   "notiz": "olivgrau verwittert, Giebel",
+   "quelle": "mapillary:328525650215196",
+   "xy": [
+    134,
+    -1000
+   ]
+  },
+  "Badenerstrasse 219": {
+   "hex": "#b69b97",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "grau",
+   "rahmen": "weiss",
+   "dach": "sattel",
+   "stil": "gruenderzeit",
+   "geschosse": 3,
+   "notiz": "altrosa, graue Läden, Satteldächer",
+   "quelle": "mapillary:858257206067781",
+   "xy": [
+    92,
+    -986
+   ]
+  },
+  "Bertastrasse 14": {
+   "hex": "#e2d08c",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -102,
+    -1019
+   ]
+  },
+  "Bertastrasse 16": {
+   "hex": "#e6dcc0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -115,
+    -1025
+   ]
+  },
+  "Bertastrasse 17": {
+   "hex": "#e4d8b4",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -77,
+    -1039
+   ]
+  },
+  "Bertastrasse 18": {
+   "hex": "#dcc088",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -126,
+    -1034
+   ]
+  },
+  "Bertastrasse 19": {
+   "hex": "#e0bc88",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -85,
+    -1043
+   ]
+  },
+  "Bertastrasse 20": {
+   "hex": "#d3c9b8",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "graubeige Eckfassade, Balkone",
+   "quelle": "mapillary:1740018613212716",
+   "xy": [
+    -135,
+    -1046
+   ]
+  },
+  "Bertastrasse 21": {
+   "hex": "#e6dcc0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -93,
+    -1049
+   ]
+  },
+  "Bertastrasse 23": {
+   "hex": "#e2d08c",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -101,
+    -1057
+   ]
+  },
+  "Bertastrasse 26": {
+   "hex": "#d8c8a8",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -171,
+    -1074
+   ]
+  },
+  "Bertastrasse 28": {
+   "hex": "#e2d08c",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -183,
+    -1086
+   ]
+  },
+  "Bertastrasse 31": {
+   "hex": "#dcc6d0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "nach Foto, Putz #dcc6d0",
+   "xy": [
+    -174,
+    -1120
+   ]
+  },
+  "Bertastrasse 32": {
+   "hex": "#d8c8a8",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -193,
+    -1097
+   ]
+  },
+  "Bertastrasse 33": {
+   "hex": "#e0d8cc",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "nach Foto, Putz #e0d8cc",
+   "xy": [
+    -183,
+    -1126
+   ]
+  },
+  "Bertastrasse 34": {
+   "hex": "#e4d8b4",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -207,
+    -1105
+   ]
+  },
+  "Bertastrasse 35": {
+   "hex": "#e6dcc0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -188,
+    -1134
+   ]
+  },
+  "Bertastrasse 36": {
+   "hex": "#d9d4c8",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -219,
+    -1117
+   ]
+  },
+  "Bertastrasse 39": {
+   "hex": "#d8c8a8",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -221,
+    -1164
+   ]
+  },
+  "Birmensdorferstrasse 101": {
+   "hex": "#a8a8a4",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "rustika"
+   ],
+   "notiz": "grauer Putz mit rosa Fenstereinfassungen, Sockel Naturstein",
+   "quelle": "panoramax:bb5228af-8c66-4fd6-81c3-a1447a6d34ec",
+   "xy": [
+    468,
+    -1500
+   ]
+  },
+  "Birmensdorferstrasse 109": {
+   "hex": "#d0b8b0",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "braun",
+   "stil": "50er",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "altrosa-beige",
+   "quelle": "mapillary:863095141939547",
+   "xy": [
+    419,
+    -1522
+   ]
+  },
+  "Birmensdorferstrasse 114": {
+   "hex": "#e8e6e0",
+   "material": "putz",
+   "fenster": "hoch",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "farbige Balkone",
+   "quelle": "mapillary:23911313081808680",
+   "xy": [
+    385,
+    -1503
+   ]
+  },
+  "Birmensdorferstrasse 116": {
+   "hex": "#e8e2d4",
+   "material": "putz",
+   "fenster": "hoch",
+   "details": [
+    "balkon"
+   ],
+   "xy": [
+    372,
+    -1511
+   ]
+  },
+  "Birmensdorferstrasse 123": {
+   "hex": "#c8b8a0",
+   "material": "beton",
+   "fenster": "band",
+   "stil": "neubau",
+   "notiz": "rote Fensterrahmen 80er",
+   "quelle": "mapillary:663231266507120",
+   "xy": [
+    386,
+    -1556
+   ]
+  },
+  "Birmensdorferstrasse 125": {
+   "hex": "#c8b8a0",
+   "material": "beton",
+   "fenster": "band",
+   "stil": "neubau",
+   "notiz": "rote Fensterrahmen 80er",
+   "quelle": "mapillary:2022383421590256",
+   "xy": [
+    366,
+    -1559
+   ]
+  },
+  "Birmensdorferstrasse 126": {
+   "hex": "#c4705a",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "terrakottarot, weisse Fenster, Balkone",
+   "quelle": "mapillary:2509430149564644",
+   "xy": [
+    327,
+    -1534
+   ]
+  },
+  "Birmensdorferstrasse 140": {
+   "hex": "#a8b4b8",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "neubau",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "graublau, Storen",
+   "quelle": "panoramax:fb1877eb-8cc6-4907-9a89-c59e7c1acf23",
+   "xy": [
+    281,
+    -1550
+   ]
+  },
+  "Birmensdorferstrasse 169": {
+   "hex": "#d5d6d4",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrau, Balkon, Sockel aus Naturstein",
+   "quelle": "panoramax:897a27cc-eca2-4c34-ab63-8d93b7187d40",
+   "xy": [
+    137,
+    -1537
+   ]
+  },
+  "Birmensdorferstrasse 171": {
+   "hex": "#ba4b46",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 4,
+   "details": [
+    "rustika"
+   ],
+   "notiz": "dunkles Ziegelrot, grauer Sockel",
+   "quelle": "panoramax:d35db9bb-e67c-4b4a-a1e3-4a5e665a9e62",
+   "xy": [
+    126,
+    -1534
+   ]
+  },
+  "Birmensdorferstrasse 175": {
+   "hex": "#7e8467",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "erker",
+    "balkon",
+    "rustika"
+   ],
+   "notiz": "olivgrün, Erker, Granitsockel mit Rundbogen",
+   "quelle": "panoramax:5c497ed5-597c-4119-a6e0-894e5d75a056",
+   "xy": [
+    108,
+    -1526
+   ]
+  },
+  "Birmensdorferstrasse 177": {
+   "hex": "#d98a66",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "lachsorange, grüne Läden",
+   "quelle": "panoramax:9c7d71b8-ba2d-4a9e-87d0-f452735b0368",
+   "xy": [
+    97,
+    -1523
+   ]
+  },
+  "Birmensdorferstrasse 187": {
+   "hex": "#dedbd2",
+   "material": "putz",
+   "fenster": "hoch",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "gestapelte Balkone",
+   "quelle": "panoramax:3b021014-83bf-47c5-9d89-f724f8e1dbf1",
+   "xy": [
+    54,
+    -1507
+   ]
+  },
+  "Birmensdorferstrasse 190": {
+   "hex": "#c68e64",
+   "material": "klinker",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 4,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "ziegelfarbene Verkleidung, grüne Läden und Türen",
+   "quelle": "panoramax:7fe75a37-003f-4eb1-9dfe-478ef810d853",
+   "xy": [
+    59,
+    -1476
+   ]
+  },
+  "Birmensdorferstrasse 191": {
+   "hex": "#d6d4cc",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "50er",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "Balkone grau",
+   "quelle": "panoramax:ada8817e-6f64-4551-aba2-3c05581a0afc",
+   "xy": [
+    37,
+    -1512
+   ]
+  },
+  "Birmensdorferstrasse 192": {
+   "hex": "#b87a55",
+   "material": "klinker",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 4,
+   "notiz": "Backstein, grüne Läden",
+   "quelle": "panoramax:7fe75a37-003f-4eb1-9dfe-478ef810d853",
+   "xy": [
+    48,
+    -1472
+   ]
+  },
+  "Birmensdorferstrasse 197": {
+   "hex": "#c58a70",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon",
+    "rustika"
+   ],
+   "notiz": "lachsbraun, Balkone, Sockel aus Naturstein",
+   "quelle": "panoramax:17a97f56-646a-4a82-8ce2-9d5d7dce46c1",
+   "xy": [
+    4,
+    -1521
+   ]
+  },
+  "Birmensdorferstrasse 199": {
+   "hex": "#c58a70",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon",
+    "rustika"
+   ],
+   "notiz": "lachsbraun, Balkone, Sockel aus Naturstein",
+   "quelle": "panoramax:f3f5ee5c-de4b-4d7a-97ef-172462cf069a",
+   "xy": [
+    -5,
+    -1517
+   ]
+  },
+  "Birmensdorferstrasse 203": {
+   "hex": "#b57050",
+   "material": "klinker",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 6,
+   "details": [
+    "balkon",
+    "gesims"
+   ],
+   "notiz": "rötlicher Backstein mit grauen Gesimsbändern, Balkone",
+   "quelle": "panoramax:9a61b040-b771-4ff6-aca8-4f312ca7af1d",
+   "xy": [
+    -29,
+    -1524
+   ]
+  },
+  "Birmensdorferstrasse 55": {
+   "hex": "#4a4846",
+   "material": "glas",
+   "fenster": "band",
+   "dach": "flach",
+   "stil": "70er",
+   "notiz": "dunkle Bürofassade (Baloise)",
+   "quelle": "mapillary:348807567630257",
+   "xy": [
+    646,
+    -1408
+   ]
+  },
+  "Birmensdorferstrasse 58": {
+   "hex": "#dcdad4",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "weiss-grau, grüne Läden, Eck",
+   "quelle": "mapillary:859340662357803",
+   "xy": [
+    641,
+    -1373
+   ]
+  },
+  "Birmensdorferstrasse 67": {
+   "hex": "#c6c2ba",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrau, Arkade im EG, Balkon",
+   "quelle": "mapillary:1652293405767089",
+   "xy": [
+    608,
+    -1442
+   ]
+  },
+  "Birmensdorferstrasse 80": {
+   "hex": "#b0aaa0",
+   "material": "putz",
+   "fenster": "hoch",
+   "dach": "flach",
+   "stil": "50er",
+   "notiz": "grauer Putzbau, Schule",
+   "quelle": "mapillary:3766021346960024",
+   "xy": [
+    542,
+    -1397
+   ]
+  },
+  "Birmensdorferstrasse 83": {
+   "hex": "#c4bfb6",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "50er",
+   "notiz": "Arkade EG",
+   "quelle": "mapillary:1251044173027109",
+   "xy": [
+    572,
+    -1472
+   ]
+  },
+  "Birmensdorferstrasse 95": {
+   "hex": "#b8b4aa",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "graue Putzfassade mit rosa Fenstereinfassungen",
+   "quelle": "mapillary:876659154039889",
+   "xy": [
+    498,
+    -1480
+   ]
+  },
+  "Birmensdorferstrasse 97": {
+   "hex": "#b4a89e",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "grau mit rosa Einfassungen",
+   "quelle": "mapillary:1394926221426392",
+   "xy": [
+    489,
+    -1486
+   ]
+  },
+  "Birmensdorferstrasse 99": {
+   "hex": "#c8a898",
+   "material": "klinker",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon",
+    "rustika"
+   ],
+   "notiz": "Backstein hell, EG Granit",
+   "quelle": "mapillary:287080434164353",
+   "xy": [
+    480,
+    -1493
+   ]
+  },
+  "Gertrudstrasse 20": {
+   "hex": "#e2d08c",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -48,
+    -1103
+   ]
+  },
+  "Gertrudstrasse 22": {
+   "hex": "#e6dcc0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -29,
+    -1114
+   ]
+  },
+  "Gertrudstrasse 24": {
+   "hex": "#ddd2ae",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "60er",
+   "notiz": "cremefarben, EG Gastro mit Aussensitzen",
+   "quelle": "mapillary:3987728834875918",
+   "xy": [
+    -41,
+    -1125
+   ]
+  },
+  "Gertrudstrasse 26": {
+   "hex": "#d8cf9a",
+   "material": "putz",
+   "rahmen": "weiss",
+   "dach": "flach",
+   "stil": "gewerbe",
+   "notiz": "niedriges Eckgebaeude mit Aussensitzplatz, braune Garagentore",
+   "quelle": "mapillary:1689169578357979",
+   "xy": [
+    -51,
+    -1129
+   ]
+  },
+  "Gertrudstrasse 27": {
+   "hex": "#c9803c",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "orange-ocker Genossenschaftsbau, durchlaufende Betonbalkone",
+   "quelle": "mapillary:597367960134179",
+   "xy": [
+    -55,
+    -1172
+   ]
+  },
+  "Gertrudstrasse 28": {
+   "hex": "#dcdcd6",
+   "material": "putz",
+   "rahmen": "weiss",
+   "dach": "attika",
+   "stil": "neubau",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrauer Neubau/Sanierung, Balkone, zurueckversetztes Attikageschoss",
+   "quelle": "mapillary:594253323631443",
+   "xy": [
+    -73,
+    -1154
+   ]
+  },
+  "Gertrudstrasse 29": {
+   "hex": "#c9803c",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "orange-ocker Genossenschaftsbau, Betonbalkone",
+   "quelle": "mapillary:3625854347714730",
+   "xy": [
+    -34,
+    -1182
+   ]
+  },
+  "Gertrudstrasse 31": {
+   "hex": "#c98a44",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "orange-ocker Genossenschaftsbau, Balkone",
+   "quelle": "mapillary:3494377304191320",
+   "xy": [
+    -23,
+    -1192
+   ]
+  },
+  "Gertrudstrasse 34": {
+   "hex": "#e2d08c",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -87,
+    -1165
+   ]
+  },
+  "Gertrudstrasse 35": {
+   "hex": "#d9d4c8",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -68,
+    -1179
+   ]
+  },
+  "Gertrudstrasse 36": {
+   "hex": "#e6dcc0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -95,
+    -1169
+   ]
+  },
+  "Gertrudstrasse 44": {
+   "hex": "#d8c8a8",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -123,
+    -1193
+   ]
+  },
+  "Gertrudstrasse 46": {
+   "hex": "#dcc088",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -131,
+    -1200
+   ]
+  },
+  "Gertrudstrasse 48": {
+   "hex": "#e6dcc0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -137,
+    -1207
+   ]
+  },
+  "Gertrudstrasse 50": {
+   "hex": "#d8c8a8",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -145,
+    -1215
+   ]
+  },
+  "Goldbrunnenstrasse 158": {
+   "hex": "#cfd4b8",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "gruen",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrün",
+   "quelle": "panoramax:1b360550-aab8-41ce-9702-288ddf5894af",
+   "xy": [
+    -469,
+    -1307
+   ]
+  },
+  "Goldbrunnenstrasse 160": {
+   "hex": "#c8d4b8",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "blau",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrün",
+   "quelle": "panoramax:cd2cf777-78b3-40b7-85fd-538e5d512af7",
+   "xy": [
+    -484,
+    -1297
+   ]
+  },
+  "Idastrasse 10": {
+   "hex": "#d8d6cf",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrauer Rauhputz, graugruene Balkone, Lamellenladen",
+   "quelle": "mapillary:184793224488546",
+   "xy": [
+    -20,
+    -1299
+   ]
+  },
+  "Idastrasse 12": {
+   "hex": "#d8d6cf",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrauer Rauhputz, graugruene Balkone, Lamellenladen",
+   "quelle": "mapillary:266291279155099",
+   "xy": [
+    -21,
+    -1289
+   ]
+  },
+  "Idastrasse 14": {
+   "hex": "#d8d6cf",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrauer Rauhputz, graugruene Balkone, Lamellenladen",
+   "quelle": "mapillary:803107604720295",
+   "xy": [
+    -31,
+    -1278
+   ]
+  },
+  "Idastrasse 3": {
+   "hex": "#d8d6cf",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrauer Rauhputz, graugruene Balkone, Lamellenladen",
+   "quelle": "mapillary:1007987010365797",
+   "xy": [
+    -20,
+    -1339
+   ]
+  },
+  "Idastrasse 45": {
+   "hex": "#d9d4c8",
+   "material": "putz",
+   "rahmen": "weiss",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -128,
+    -1177
+   ]
+  },
+  "Idastrasse 46": {
+   "hex": "#e6dcc0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -103,
+    -1174
+   ]
+  },
+  "Idastrasse 47": {
+   "hex": "#e4d8b4",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -131,
+    -1159
+   ]
+  },
+  "Idastrasse 48": {
+   "hex": "#dcc088",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -102,
+    -1151
+   ]
+  },
+  "Idastrasse 49": {
+   "hex": "#e0bc88",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -137,
+    -1145
+   ]
+  },
+  "Idastrasse 49a": {
+   "hex": "#d9d4c8",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -154,
+    -1164
+   ]
+  },
+  "Idastrasse 49b": {
+   "hex": "#e6dcc0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -150,
+    -1171
+   ]
+  },
+  "Idastrasse 5": {
+   "hex": "#d8d6cf",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrauer Rauhputz, graugruene Balkone, Lamellenladen",
+   "quelle": "mapillary:1007987010365797",
+   "xy": [
+    -33,
+    -1325
+   ]
+  },
+  "Idastrasse 50": {
+   "hex": "#e4b07a",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "nach Foto, Putz #e4b07a",
+   "xy": [
+    -107,
+    -1135
+   ]
+  },
+  "Idastrasse 6": {
+   "hex": "#d8d6cf",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrauer Rauhputz, graugruene Balkone, Lamellenladen",
+   "quelle": "mapillary:803107604720295",
+   "xy": [
+    -10,
+    -1307
+   ]
+  },
+  "Idastrasse 7": {
+   "hex": "#d8d6cf",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrauer Rauhputz, graugruene Balkone, Hecke",
+   "quelle": "mapillary:266291279155099",
+   "xy": [
+    -42,
+    -1308
+   ]
+  },
+  "Idastrasse 8": {
+   "hex": "#d8d6cf",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrauer Rauhputz, graugruene Balkone, Lamellenladen",
+   "quelle": "mapillary:239089298769665",
+   "xy": [
+    7,
+    -1283
+   ]
+  },
+  "Kalkbreitestrasse 1": {
+   "hex": "#7b8978",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "grau",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "graugruene Fassade, weisse Lamellenläden, EG Läden",
+   "quelle": "panoramax:70b9ecf7-d295-44ee-a1b9-7d090a88d38e",
+   "xy": [
+    379,
+    -1092
+   ]
+  },
+  "Kalkbreitestrasse 41": {
+   "hex": "#adaca7",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "50er",
+   "geschosse": 6,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "grau verputzt, Balkone",
+   "quelle": "panoramax:fc46e02c-6c37-41ce-85cc-fc6504eb1817",
+   "xy": [
+    232,
+    -1196
+   ]
+  },
+  "Kalkbreitestrasse 67": {
+   "hex": "#c9bba0",
+   "material": "sandstein",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "details": [
+    "rustika"
+   ],
+   "notiz": "Sandstein-Sockel, Backsteinbaender, EG Floristeria",
+   "quelle": "mapillary:1373207210687959",
+   "xy": [
+    129,
+    -1268
+   ]
+  },
+  "Kalkbreitestrasse 69": {
+   "hex": "#7f8184",
+   "material": "putz",
+   "rahmen": "dunkel",
+   "stil": "gruenderzeit",
+   "notiz": "dunkelgraue Eckfassade, EG Coiffeur",
+   "quelle": "mapillary:647351507938720",
+   "xy": [
+    121,
+    -1274
+   ]
+  },
+  "Kalkbreitestrasse 71": {
+   "hex": "#dcdad2",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "50er",
+   "notiz": "hellgrau, EG Coiffeur mit Markise",
+   "quelle": "mapillary:1844917369687758",
+   "xy": [
+    110,
+    -1284
+   ]
+  },
+  "Kalkbreitestrasse 74": {
+   "hex": "#d9a84a",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "gelbocker Eckbau, Balkone, Hecke",
+   "quelle": "mapillary:946360091029605",
+   "xy": [
+    62,
+    -1280
+   ]
+  },
+  "Kalkbreitestrasse 76": {
+   "hex": "#c9863f",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "orange-ocker Genossenschaftsbau, Balkone",
+   "quelle": "mapillary:1173812254228183",
+   "xy": [
+    52,
+    -1269
+   ]
+  },
+  "Kalkbreitestrasse 78": {
+   "hex": "#c9863f",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "orange-ocker Genossenschaftsbau, Balkone",
+   "quelle": "mapillary:1397184981459746",
+   "xy": [
+    42,
+    -1258
+   ]
+  },
+  "Martastrasse 134": {
+   "hex": "#e3dccb",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "cremeweiss, graue Laeden, begruente Fassade",
+   "quelle": "mapillary:1212850047135365",
+   "xy": [
+    -251,
+    -991
+   ]
+  },
+  "Schlossgasse 10": {
+   "hex": "#e4e2da",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "quelle": "mapillary:1065925229073304",
+   "xy": [
+    251,
+    -1638
+   ]
+  },
+  "Schlossgasse 11": {
+   "hex": "#dfa880",
+   "material": "putz",
+   "fenster": "hoch",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "lachs, Läden EG",
+   "quelle": "panoramax:147b01b9-4291-4b7e-8dc3-5605fddc04aa",
+   "xy": [
+    268,
+    -1693
+   ]
+  },
+  "Schlossgasse 14": {
+   "hex": "#e8e6de",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "50er",
+   "details": [
+    "balkon"
+   ],
+   "quelle": "panoramax:bfc04609-620f-48bd-909e-3030b5f1bd42",
+   "xy": [
+    238,
+    -1660
+   ]
+  },
+  "Schlossgasse 22": {
+   "hex": "#d8a890",
+   "material": "putz",
+   "fenster": "hoch",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "gerundete Ecke mit Balkonen",
+   "quelle": "panoramax:c779c42c-782e-488b-93bf-37e893d8fe52",
+   "xy": [
+    216,
+    -1685
+   ]
+  },
+  "Schlossgasse 24": {
+   "hex": "#e0b860",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "heimatstil",
+   "notiz": "gelb, Läden EG",
+   "quelle": "panoramax:466dec4b-6104-4b08-a617-3b690b3813a1",
+   "xy": [
+    201,
+    -1692
+   ]
+  },
+  "Schlossgasse 3": {
+   "hex": "#d8d0b0",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "50er",
+   "quelle": "mapillary:377223720381349",
+   "xy": [
+    300,
+    -1633
+   ]
+  },
+  "Schlossgasse 7": {
+   "hex": "#dfa880",
+   "material": "putz",
+   "fenster": "hoch",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "lachs, Läden EG",
+   "quelle": "panoramax:f98f64aa-70e4-4830-85ba-b243f7e75b2a",
+   "xy": [
+    282,
+    -1662
+   ]
+  },
+  "Schlossgasse 9": {
+   "hex": "#dfa880",
+   "material": "putz",
+   "fenster": "hoch",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "lachs",
+   "quelle": "panoramax:08e18f5e-f7d1-4e9a-a026-d6c387940497",
+   "xy": [
+    275,
+    -1674
+   ]
+  },
+  "Sihlfeldstrasse 20": {
+   "hex": "#d8d6cf",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrauer Rauhputz, graugruene Balkone, Lamellenladen",
+   "quelle": "mapillary:201366409339932",
+   "xy": [
+    80,
+    -1159
+   ]
+  },
+  "Sihlfeldstrasse 22": {
+   "hex": "#d8d6cf",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrauer Rauhputz, graugruene Balkone, Lamellenladen",
+   "quelle": "mapillary:539666461693865",
+   "xy": [
+    77,
+    -1149
+   ]
+  },
+  "Sihlfeldstrasse 22a": {
+   "hex": "#dcdad2",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "60er",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrau, Balkone, Lamellenladen",
+   "quelle": "mapillary:219073234096968",
+   "xy": [
+    79,
+    -1140
+   ]
+  },
+  "Sihlfeldstrasse 24": {
+   "hex": "#d8d6cf",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrauer Rauhputz, graugruene Balkone, Lamellenladen",
+   "quelle": "mapillary:3303258769985548",
+   "xy": [
+    74,
+    -1135
+   ]
+  },
+  "Sihlfeldstrasse 26": {
+   "hex": "#d8d6cf",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrauer Rauhputz, graugruene Balkone, Lamellenladen",
+   "quelle": "mapillary:105035845910451",
+   "xy": [
+    70,
+    -1120
+   ]
+  },
+  "Sihlfeldstrasse 28": {
+   "hex": "#d8d6cf",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrauer Rauhputz, graugruene Balkone, Lamellenladen",
+   "quelle": "mapillary:799342764513862",
+   "xy": [
+    66,
+    -1103
+   ]
+  },
+  "Sihlfeldstrasse 58": {
+   "hex": "#d0dac8",
+   "material": "putz",
+   "fenster": "verdachung",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "blassgrün-grau, gerundete Ecke, Fensterverdachungen",
+   "quelle": "panoramax:6e3867cb-2437-4961-b62b-d6aff1f179a5",
+   "xy": [
+    38,
+    -970
+   ]
+  },
+  "Sihlfeldstrasse 81": {
+   "hex": "#c8a66b",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 5,
+   "details": [
+    "balkon"
+   ],
+   "notiz": "ockerbraun, Eisenbalkon",
+   "quelle": "panoramax:892744bf-6ef7-495f-9da8-91f92a44389c",
+   "xy": [
+    -3,
+    -920
+   ]
+  },
+  "Wiesendangerstrasse 2": {
+   "hex": "#e6dcc0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -208,
+    -1183
+   ]
+  },
+  "Zentralstrasse 117": {
+   "hex": "#e6dcc0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -31,
+    -1088
+   ]
+  },
+  "Zentralstrasse 117a": {
+   "hex": "#e4d8b4",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -36,
+    -1096
+   ]
+  },
+  "Zentralstrasse 119": {
+   "hex": "#dcc088",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -39,
+    -1073
+   ]
+  },
+  "Zentralstrasse 119a": {
+   "hex": "#e6dcc0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -69,
+    -1076
+   ]
+  },
+  "Zentralstrasse 121": {
+   "hex": "#e4d8b4",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -42,
+    -1066
+   ]
+  },
+  "Zentralstrasse 123": {
+   "hex": "#d9d4c8",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -47,
+    -1058
+   ]
+  },
+  "Zentralstrasse 125": {
+   "hex": "#dcc088",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -54,
+    -1052
+   ]
+  },
+  "Zentralstrasse 127": {
+   "hex": "#d8c8a8",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -60,
+    -1043
+   ]
+  },
+  "Zentralstrasse 129": {
+   "hex": "#e2d08c",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -71,
+    -1031
+   ]
+  },
+  "Zentralstrasse 131": {
+   "hex": "#dcc088",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -93,
+    -1009
+   ]
+  },
+  "Zentralstrasse 133": {
+   "hex": "#d8c8a8",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -101,
+    -999
+   ]
+  },
+  "Zentralstrasse 137": {
+   "hex": "#d9d4c8",
+   "material": "putz",
+   "rahmen": "weiss",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -121,
+    -991
+   ]
+  },
+  "Zurlindenstrasse 105": {
+   "hex": "#d8cfb4",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "neubau",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "beige, Bank im EG",
+   "quelle": "mapillary:765508301853062",
+   "xy": [
+    188,
+    -1479
+   ]
+  },
+  "Zurlindenstrasse 111": {
+   "hex": "#c4c6c8",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "neubau",
+   "xy": [
+    178,
+    -1451
+   ]
+  },
+  "Zurlindenstrasse 118": {
+   "hex": "#e8e6df",
+   "material": "putz",
+   "fenster": "hoch",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "weiss, Läden EG",
+   "xy": [
+    175,
+    -1387
+   ]
+  },
+  "Zurlindenstrasse 120": {
+   "hex": "#e6e4dc",
+   "material": "putz",
+   "fenster": "hoch",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "weiss",
+   "xy": [
+    166,
+    -1375
+   ]
+  },
+  "Zurlindenstrasse 121": {
+   "hex": "#c4907a",
+   "material": "putz",
+   "fenster": "hoch",
+   "notiz": "lachsbraun",
+   "xy": [
+    141,
+    -1390
+   ]
+  },
+  "Zurlindenstrasse 123": {
+   "hex": "#c58f78",
+   "material": "putz",
+   "fenster": "hoch",
+   "notiz": "lachsbraun",
+   "xy": [
+    129,
+    -1379
+   ]
+  },
+  "Zurlindenstrasse 140": {
+   "hex": "#dcdad2",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "50er",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrau, Rollladen, EG Coiffeur",
+   "quelle": "mapillary:1844917369687758",
+   "xy": [
+    108,
+    -1290
+   ]
+  },
+  "Zurlindenstrasse 186": {
+   "hex": "#e6dcc0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -56,
+    -1115
+   ]
+  },
+  "Zurlindenstrasse 190": {
+   "hex": "#d9c39a",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "details": [
+    "gesims"
+   ],
+   "notiz": "beige mit roten Ziegelbaendern, Rundbogenfenster",
+   "quelle": "mapillary:1365886421110543",
+   "xy": [
+    -75,
+    -1105
+   ]
+  },
+  "Zurlindenstrasse 191": {
+   "hex": "#d8b0a2",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "lachsrosa, Balkone mit blaugrauen Wellblech-Bruestungen",
+   "quelle": "mapillary:1024190825806593",
+   "xy": [
+    -89,
+    -1138
+   ]
+  },
+  "Zurlindenstrasse 192": {
+   "hex": "#e6dcc0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "quelle": "mapillary:2058413501289293",
+   "xy": [
+    -82,
+    -1099
+   ]
+  },
+  "Zurlindenstrasse 193": {
+   "hex": "#c4c48c",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "gelbgruen verputzt (Foto im Licht; im Schatten wirkt es graugruen), EG grosse dunkle Glasfront",
+   "quelle": "mapillary:1831003997755015",
+   "xy": [
+    -97,
+    -1127
+   ]
+  },
+  "Zurlindenstrasse 211": {
+   "hex": "#cdbfa0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "beige, EG Damensalon mit Schriftzug",
+   "quelle": "mapillary:885143007047715",
+   "xy": [
+    -162,
+    -1066
+   ]
+  },
+  "Zurlindenstrasse 213": {
+   "hex": "#cfcbc0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "details": [
+    "gesims"
+   ],
+   "notiz": "hellgrau, Gesims, Rundbogenfenster EG",
+   "quelle": "mapillary:1594517171987133",
+   "xy": [
+    -171,
+    -1060
+   ]
+  },
+  "Zurlindenstrasse 214": {
+   "hex": "#d0ccc0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "details": [
+    "gesims"
+   ],
+   "notiz": "weissgrau verputzt, Gesims",
+   "quelle": "mapillary:701705072419211",
+   "xy": [
+    -144,
+    -1036
+   ]
+  },
+  "Zurlindenstrasse 215": {
+   "hex": "#cdc7b8",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "details": [
+    "gesims"
+   ],
+   "notiz": "graubeige, braune Fensterlaeden",
+   "quelle": "mapillary:866415518973896",
+   "xy": [
+    -177,
+    -1051
+   ]
+  },
+  "Zurlindenstrasse 215a": {
+   "hex": "#dcc088",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -195,
+    -1065
+   ]
+  },
+  "Zurlindenstrasse 215b": {
+   "hex": "#e0b8a4",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -205,
+    -1073
+   ]
+  },
+  "Zurlindenstrasse 216": {
+   "hex": "#e6dcc0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -155,
+    -1026
+   ]
+  },
+  "Zurlindenstrasse 218": {
+   "hex": "#d9c07e",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon",
+    "erker"
+   ],
+   "notiz": "gelbocker Eckbau, dunkelbraune Laeden, Balkone",
+   "quelle": "mapillary:542560115173047",
+   "xy": [
+    -169,
+    -1015
+   ]
+  },
+  "Zurlindenstrasse 219": {
+   "hex": "#d9c9a8",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "beige, braune Laeden, Rundbogeneingang",
+   "quelle": "mapillary:1385952189407303",
+   "xy": [
+    -189,
+    -1038
+   ]
+  },
+  "Zurlindenstrasse 221": {
+   "hex": "#dccfb2",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "beige-creme, braune Laeden",
+   "quelle": "mapillary:1594517171987133",
+   "xy": [
+    -200,
+    -1028
+   ]
+  },
+  "Zurlindenstrasse 222": {
+   "hex": "#e0b8b8",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "jugendstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "rosa, rote Laeden, Balkone",
+   "quelle": "mapillary:1385952189407303",
+   "xy": [
+    -181,
+    -997
+   ]
+  },
+  "Zurlindenstrasse 223": {
+   "hex": "#dccfb0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "beige-creme, braune Laeden",
+   "quelle": "mapillary:542560115173047",
+   "xy": [
+    -212,
+    -1020
+   ]
+  },
+  "Zurlindenstrasse 224": {
+   "hex": "#dcc064",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "gelb, niedrigerer Bau",
+   "quelle": "mapillary:1335465541037889",
+   "xy": [
+    -196,
+    -992
+   ]
+  },
+  "Zurlindenstrasse 225": {
+   "hex": "#e0bc88",
+   "material": "putz",
+   "rahmen": "weiss",
+   "notiz": "Farbton geschaetzt (Gruenderzeit-Palette), kein Foto der Fassade",
+   "xy": [
+    -237,
+    -1047
+   ]
+  },
+  "Zurlindenstrasse 226": {
+   "hex": "#bfa488",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "ockerbraun, EG Laden",
+   "quelle": "mapillary:1393702674965782",
+   "xy": [
+    -201,
+    -982
+   ]
+  },
+  "Zurlindenstrasse 227": {
+   "hex": "#ece8e0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "notiz": "weiss verputzt",
+   "quelle": "mapillary:1007151171001366",
+   "xy": [
+    -221,
+    -1012
+   ]
+  },
+  "Zurlindenstrasse 229": {
+   "hex": "#e8e4dc",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "jugendstil",
+   "details": [
+    "erker"
+   ],
+   "notiz": "weiss, Erker, Rundbogenfenster EG",
+   "quelle": "mapillary:1007151171001366",
+   "xy": [
+    -228,
+    -1005
+   ]
+  },
+  "Zurlindenstrasse 230": {
+   "hex": "#e0c8a0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "ockerbeige Eckhaus, braune Laeden, EG Laden mit Schaufenster",
+   "quelle": "mapillary:1392224152199271",
+   "xy": [
+    -222,
+    -963
+   ]
+  },
+  "Zurlindenstrasse 231": {
+   "hex": "#c8a07a",
+   "material": "klinker",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "Backstein-Klinkerbaender, ocker, Erker/Balkone, EG Markise",
+   "quelle": "mapillary:1392224152199271",
+   "xy": [
+    -247,
+    -985
+   ]
+  },
+  "Zurlindenstrasse 232": {
+   "hex": "#d4d6d0",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "notiz": "hellgrau, graugruene Laeden, Durchfahrt in Hof",
+   "quelle": "mapillary:1339720643884411",
+   "xy": [
+    -232,
+    -956
+   ]
+  },
+  "Zurlindenstrasse 233": {
+   "hex": "#d6d8d2",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrau, grauer Sockel, Balkone mit Gelaendern",
+   "quelle": "mapillary:520390210947412",
+   "xy": [
+    -254,
+    -976
+   ]
+  },
+  "Zurlindenstrasse 234": {
+   "hex": "#d6d8d2",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrau, gruengraue Laeden, Holzbalkon",
+   "quelle": "mapillary:1424038532291000",
+   "xy": [
+    -248,
+    -946
+   ]
+  },
+  "Zurlindenstrasse 235": {
+   "hex": "#d6d8d2",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "erker"
+   ],
+   "notiz": "hellgrau, gruenlich graue Laeden, Erker",
+   "quelle": "mapillary:1798061797719970",
+   "xy": [
+    -265,
+    -963
+   ]
+  },
+  "Zurlindenstrasse 236": {
+   "hex": "#d6d8d2",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrau, gruengraue Laeden, Balkone",
+   "quelle": "mapillary:1386850639295791",
+   "xy": [
+    -262,
+    -932
+   ]
+  },
+  "Zurlindenstrasse 237": {
+   "hex": "#d6d8d2",
+   "material": "putz",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "hellgrau, gruengraue Laeden, Balkone",
+   "quelle": "mapillary:659183650083423",
+   "xy": [
+    -282,
+    -948
+   ]
+  },
+  "Zurlindenstrasse 45": {
+   "hex": "#a9aeb0",
+   "material": "beton",
+   "fenster": "band",
+   "stil": "60er",
+   "notiz": "Betonraster",
+   "quelle": "mapillary:536768925822453",
+   "xy": [
+    363,
+    -1685
+   ]
+  },
+  "Zurlindenstrasse 49": {
+   "hex": "#8ea0b4",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "keine",
+   "rahmen": "weiss",
+   "stil": "70er",
+   "geschosse": 6,
+   "notiz": "graublau, Fensterbänder",
+   "quelle": "mapillary:1213705486980010",
+   "xy": [
+    349,
+    -1667
+   ]
+  },
+  "Zurlindenstrasse 50": {
+   "hex": "#b04a3c",
+   "material": "putz",
+   "fenster": "hoch",
+   "laeden": "grau",
+   "stil": "heimatstil",
+   "details": [
+    "erker"
+   ],
+   "notiz": "rot, Erker",
+   "quelle": "panoramax:4392ce33-1adf-4d33-9d8f-2883f119331e",
+   "xy": [
+    362,
+    -1634
+   ]
+  },
+  "Zurlindenstrasse 52": {
+   "hex": "#e4b8b0",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "rosa",
+   "quelle": "mapillary:195275919113413",
+   "xy": [
+    344,
+    -1620
+   ]
+  },
+  "Zurlindenstrasse 55": {
+   "hex": "#e0b4a8",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "rosa",
+   "quelle": "mapillary:303535294726670",
+   "xy": [
+    327,
+    -1647
+   ]
+  },
+  "Zurlindenstrasse 57": {
+   "hex": "#e0b8a8",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "gruenderzeit",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "rosa, Beiz EG",
+   "quelle": "mapillary:303535294726670",
+   "xy": [
+    316,
+    -1636
+   ]
+  },
+  "Zurlindenstrasse 58": {
+   "hex": "#e4bcb4",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "rosa",
+   "quelle": "mapillary:1792594231164131",
+   "xy": [
+    337,
+    -1608
+   ]
+  },
+  "Zurlindenstrasse 60": {
+   "hex": "#e4bcb4",
+   "material": "putz",
+   "fenster": "hoch",
+   "stil": "heimatstil",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "rosa",
+   "quelle": "mapillary:167701223081090",
+   "xy": [
+    322,
+    -1593
+   ]
+  },
+  "Zurlindenstrasse 87": {
+   "hex": "#dbb88a",
+   "material": "putz",
+   "fenster": "bogen",
+   "laeden": "gruen",
+   "rahmen": "weiss",
+   "stil": "gruenderzeit",
+   "geschosse": 4,
+   "details": [
+    "rustika"
+   ],
+   "notiz": "sandocker, grüne Läden, Rundbogenfenster, Sockel aus Naturstein",
+   "quelle": "panoramax:9556a922-d1a5-43ad-81f8-298423e1cbb4",
+   "xy": [
+    223,
+    -1517
+   ]
+  }
+ }
+}

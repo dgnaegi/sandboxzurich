@@ -28,7 +28,7 @@ ok(await page.evaluate(() => !!window.sbxPlayer.driving), 'in car');
 // for each kind: find up to 4 knockables with clear run-up and drive into each at ~8 m/s
 const res = await page.evaluate(async () => {
   const t = window.sbxTiles, p = window.sbxPlayer, c = p.driving, col = t.colliders, out = [];
-  let crashes = 0; const prev = c.onCrash; c.onCrash = (k) => { crashes++; window.__lastCrash = [+k.px.toFixed(1), +k.py.toFixed(1), !!k.obb, +k.strength.toFixed(1)]; prev?.(k); };
+  let crashes = 0, tgtNow = null; const prev = c.onCrash; c.onCrash = (k) => { if (tgtNow && Math.hypot(k.px - tgtNow[0], k.py - tgtNow[1]) > 4) { window.__extCrash = [+k.px.toFixed(1), +k.py.toFixed(1)]; prev?.(k); return; } /* crash with something else (a passing NPC car) is not this knockable's failure */ crashes++; window.__lastCrash = [+k.px.toFixed(1), +k.py.toFixed(1), !!k.obb, +k.strength.toFixed(1)]; prev?.(k); };
   const targets = [];
   for (const l of col.circles.values()) for (const r of l) if (r[3] && Math.hypot(r[0] - c.x, r[1] - c.y) < 220) targets.push(r);
   const seenKind = {};
@@ -43,7 +43,7 @@ const res = await page.evaluate(async () => {
     const find = () => [...col.circles.values()].flat().find((q) => Math.abs(q[0] - r[0]) < 0.02 && Math.abs(q[1] - r[1]) < 0.02);
     r = find(); if (!r) continue;
     c.x = r[0] + 0.05; c.y = r[1] - 12; c.h = 0; c.vx = 0; c.vy = 8; c.speed = 8; c.damage = 0; c.dead = false; c.z = t.ground(c.x, c.y); c.zV = 0;
-    const c0 = crashes, k0 = col.knocked;
+    tgtNow = r; const c0 = crashes, k0 = col.knocked;
     await new Promise((res) => { const t0 = performance.now(); const tick = () => { window.sbxActions.kb.y = 0.3; if (c.y > r[1] + 1.5 || performance.now() - t0 > 4000) res(); else requestAnimationFrame(tick); }; tick(); });
     const vEnd = c.speed, cr = crashes - c0, dm = c.damage;
     await new Promise((r2) => setTimeout(r2, 800));

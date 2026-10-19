@@ -85,7 +85,7 @@ def mast(kind):
     m = Mesh("mast_" + kind); cell = "fahne_" + kind
     m.lathe("steel_dark", [(0.18, 0.0), (0.18, 0.06), (0.05, 0.08), (0.05, 3.55), (0.0, 3.58)], 8)
     m.box("steel_dark", (0.12, 3.20, 0.0), (0.24, 0.03, 0.04))
-    m.box("white", (0.30, 2.85, 0.0), (0.46, 0.80, 0.025), front=cell, back=cell)
+    m.box("white", (0.32, 3.00, 0.0), (0.66, 0.50, 0.025), front=cell, back=cell)
     return m
 
 

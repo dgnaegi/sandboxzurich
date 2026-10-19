@@ -115,8 +115,8 @@ export class Colliders {
   }
 
   /** True if local (x, y) lies inside any footprint. */
-  inside(x: number, y: number): boolean {
-    return !!this.grid.get(`${Math.floor(x / CELL)},${Math.floor(y / CELL)}`)?.some((r) => pointInRing(x, y, r));
+  inside(x: number, y: number, minArea = 0): boolean {
+    return !!this.grid.get(`${Math.floor(x / CELL)},${Math.floor(y / CELL)}`)?.some((r) => pointInRing(x, y, r) && (!minArea || ringArea(r) >= minArea));
   }
 
   /** Inside a footprint that is larger than a parked car (building, not a car-sized box)? */
@@ -130,21 +130,22 @@ export class Colliders {
   }
 
   /** Fraction (0..1) of the segment a→b that is free before entering a footprint. */
-  freeFraction(ax: number, ay: number, bx: number, by: number, steps = 24): number {
+  freeFraction(ax: number, ay: number, bx: number, by: number, steps = 24, minArea = 0): number {
     for (let i = 1; i <= steps; i++) {
       const t = i / steps;
-      if (this.inside(ax + (bx - ax) * t, ay + (by - ay) * t)) return (i - 1) / steps;
+      if (this.inside(ax + (bx - ax) * t, ay + (by - ay) * t, minArea)) return (i - 1) / steps;
     }
     return 1;
   }
 
   /** Push the circle (x, y, radius) out of every footprint it overlaps. Returns corrected position. */
-  resolve(x: number, y: number, rad: number): [number, number] {
+  resolve(x: number, y: number, rad: number, minArea = 0): [number, number] {
     for (let pass = 0; pass < 3; pass++) {
       const rings = this.grid.get(`${Math.floor(x / CELL)},${Math.floor(y / CELL)}`);
       if (!rings) break;
       let moved = false;
       for (const r of rings) {
+        if (minArea && ringArea(r) < minArea) continue; // camera: small boxes (site containers, kiosks) never trap it
         const inside = pointInRing(x, y, r);
         let best = Infinity, bx = 0, by = 0;
         for (let i = 0, j = r.length - 1; i < r.length; j = i++) {
@@ -164,6 +165,18 @@ export class Colliders {
     }
     return [x, y];
   }
+}
+
+const areaCache = new WeakMap<Ring, number>();
+function ringArea(r: Ring): number {
+  let a = areaCache.get(r);
+  if (a === undefined) {
+    a = 0;
+    for (let i = 0, j = r.length - 1; i < r.length; j = i++) a += r[j][0] * r[i][1] - r[i][0] * r[j][1];
+    a = Math.abs(a) / 2;
+    areaCache.set(r, a);
+  }
+  return a;
 }
 
 function pointInRing(x: number, y: number, r: Ring): boolean {

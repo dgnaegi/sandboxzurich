@@ -8,6 +8,9 @@ import { rideBones, ridePose, type RideBones } from '../world/ridepose';
 import { driveStep, type DriveState } from './vehicle_player';
 import type { DriveCar } from './drive';
 
+/** Camera sweep ignores footprints smaller than this (site containers, toilets, kiosks): it passes through them instead of being trapped (T11). */
+const CAM_MIN_AREA = 20;
+
 // Mocap clips run at ~1.35 / 3.7 m/s (manifest clip_speed); Human.setSpeed scales playback by v / clip speed, so these stay slide-free.
 const WALK = 1.55, RUN = 4.5, RADIUS = 0.35, ACCEL = 7, DECEL = 11;
 const TURN_WALK = 9, TURN_RUN = 6; // max turn rate (rad/s) of the body while walking / running
@@ -188,13 +191,13 @@ export class Player {
     // sweep a ~0.5 m wide corridor (centre + both sides) instead of a single ray, then keep a wall margin at the end point
     const bx = this.x - Math.sin(this.yaw) * cp0, by = this.y - Math.cos(this.yaw) * cp0, sx = Math.cos(this.yaw) * 0.5, sy = -Math.sin(this.yaw) * 0.5;
     const col = this.tiles.colliders;
-    const free = Math.min(col.freeFraction(this.x, this.y, bx, by), col.freeFraction(this.x + sx, this.y + sy, bx + sx, by + sy), col.freeFraction(this.x - sx, this.y - sy, bx - sx, by - sy));
+    const free = Math.min(col.freeFraction(this.x, this.y, bx, by, 24, CAM_MIN_AREA), col.freeFraction(this.x + sx, this.y + sy, bx + sx, by + sy, 24, CAM_MIN_AREA), col.freeFraction(this.x - sx, this.y - sy, bx - sx, by - sy, 24, CAM_MIN_AREA));
     this.camDist += (Math.max(1.0, want * free - 0.5) - this.camDist) * Math.min(1, dt * (free < 1 ? 20 : 4));
     const target = new THREE.Vector3(this.x, this.z + 1.55, -this.y);
     const cp = Math.cos(this.pitch);
     camera.position.set(target.x - Math.sin(this.yaw) * cp * this.camDist, target.y + Math.sin(this.pitch) * this.camDist,
       target.z + Math.cos(this.yaw) * cp * this.camDist);
-    const [cx, cy] = col.resolve(camera.position.x, -camera.position.z, 0.55); // camera sphere vs footprints: never inside, >= 0.55 m from walls
+    const [cx, cy] = col.resolve(camera.position.x, -camera.position.z, 0.55, CAM_MIN_AREA); // camera sphere vs footprints: never inside, >= 0.55 m from walls
     camera.position.x = cx; camera.position.z = -cy;
     // hb3: below the terrain (underground deck) the camera stays between that floor and the ceiling instead of being lifted above the terrain
     if (this.z < this.tiles.ground(this.x, this.y) - 1.0) camera.position.y = Math.min(Math.max(camera.position.y, this.z + 0.7), this.z + 2.9);

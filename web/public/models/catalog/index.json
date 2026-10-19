@@ -25,7 +25,7 @@
      0.95
     ]
    ],
-   "bytes": 50068
+   "bytes": 50504
   },
   "V2": {
    "file": "brunnen_v2.glb",
@@ -49,31 +49,55 @@
      1.05
     ]
    ],
-   "bytes": 43168
+   "bytes": 43604
   },
   "V3": {
    "file": "brunnen_v3.glb",
-   "desc": "Bronzeguss-Schale",
-   "tris": 412,
-   "radius": 0.87,
+   "desc": "Granittrog mit Bronzefiguren",
+   "tris": 306,
+   "radius": 1.12,
    "size": [
-    1.24,
-    1.16,
-    1.21
+    1.9,
+    1.99,
+    1.09
    ],
    "bbox": [
     [
-     -0.62,
+     -0.95,
      0.0,
-     -0.6
+     -0.59
     ],
     [
-     0.62,
-     1.16,
-     0.6
+     0.95,
+     1.99,
+     0.5
     ]
    ],
-   "bytes": 59444
+   "bytes": 50144
+  },
+  "V7": {
+   "file": "brunnen_v7.glb",
+   "desc": "Wandbrunnen in Nische",
+   "tris": 160,
+   "radius": 1.36,
+   "size": [
+    2.0,
+    2.2,
+    1.24
+   ],
+   "bbox": [
+    [
+     -1.0,
+     0.0,
+     -0.32
+    ],
+    [
+     1.0,
+     2.2,
+     0.92
+    ]
+   ],
+   "bytes": 40412
   },
   "V4": {
    "file": "brunnen_v4.glb",
@@ -97,7 +121,7 @@
      1.7
     ]
    ],
-   "bytes": 59120
+   "bytes": 59556
   },
   "V5": {
    "file": "brunnen_v5.glb",
@@ -121,7 +145,7 @@
      0.68
     ]
    ],
-   "bytes": 39948
+   "bytes": 40384
   },
   "V6": {
    "file": "brunnen_v6.glb",
@@ -145,31 +169,31 @@
      1.1
     ]
    ],
-   "bytes": 52000
+   "bytes": 52436
   },
   "V8": {
    "file": "brunnen_v8.glb",
    "desc": "Notwasserbrunnen",
-   "tris": 250,
-   "radius": 0.52,
+   "tris": 176,
+   "radius": 0.54,
    "size": [
-    0.76,
-    1.3,
-    0.72
+    0.6,
+    1.17,
+    0.75
    ],
    "bbox": [
     [
-     -0.38,
+     -0.3,
      0.0,
-     -0.36
+     -0.3
     ],
     [
-     0.38,
-     1.3,
-     0.36
+     0.3,
+     1.17,
+     0.45
     ]
    ],
-   "bytes": 47076
+   "bytes": 42588
   },
   "V9": {
    "file": "brunnen_v9.glb",
@@ -193,7 +217,7 @@
      0.52
     ]
    ],
-   "bytes": 43516
+   "bytes": 43952
   },
   "H1": {
    "file": "wartehalle_h1.glb",
@@ -217,7 +241,7 @@
      0.98
     ]
    ],
-   "bytes": 41700
+   "bytes": 42136
   },
   "H2": {
    "file": "wartehalle_h2.glb",
@@ -241,7 +265,7 @@
      1.05
     ]
    ],
-   "bytes": 36100
+   "bytes": 36536
   },
   "H3": {
    "file": "ticketautomat_h3.glb",
@@ -265,7 +289,7 @@
      0.2
     ]
    ],
-   "bytes": 29772
+   "bytes": 30208
   },
   "H4": {
    "file": "anzeige_wand_h4.glb",
@@ -289,7 +313,7 @@
      0.05
     ]
    ],
-   "bytes": 28268
+   "bytes": 28704
   },
   "H5": {
    "file": "anzeige_decke_h5.glb",
@@ -313,7 +337,7 @@
      0.05
     ]
    ],
-   "bytes": 30392
+   "bytes": 30828
   },
   "H6": {
    "file": "bank_kurz_h6.glb",
@@ -337,7 +361,7 @@
      0.26
     ]
    ],
-   "bytes": 32468
+   "bytes": 32904
   },
   "H7": {
    "file": "bank_lang_h7.glb",
@@ -361,15 +385,15 @@
      0.26
     ]
    ],
-   "bytes": 32468
+   "bytes": 32904
   },
   "mast_tram": {
    "file": "mast_tram.glb",
    "desc": "Haltestellenmast Tram",
    "tris": 76,
-   "radius": 0.56,
+   "radius": 0.67,
    "size": [
-    0.71,
+    0.83,
     3.58,
     0.36
    ],
@@ -380,20 +404,20 @@
      -0.18
     ],
     [
-     0.53,
+     0.65,
      3.58,
      0.18
     ]
    ],
-   "bytes": 33420
+   "bytes": 33856
   },
   "mast_bus": {
    "file": "mast_bus.glb",
    "desc": "Haltestellenmast Bus",
    "tris": 76,
-   "radius": 0.56,
+   "radius": 0.67,
    "size": [
-    0.71,
+    0.83,
     3.58,
     0.36
    ],
@@ -404,12 +428,12 @@
      -0.18
     ],
     [
-     0.53,
+     0.65,
      3.58,
      0.18
     ]
    ],
-   "bytes": 33420
+   "bytes": 33856
   },
   "M1": {
    "file": "leuchte_m1.glb",
@@ -433,7 +457,7 @@
      0.14
     ]
    ],
-   "bytes": 34116
+   "bytes": 34552
   },
   "M1b": {
    "file": "seilleuchte_m1b.glb",
@@ -457,12 +481,12 @@
      0.3
     ]
    ],
-   "bytes": 37336
+   "bytes": 37772
   },
   "M2": {
    "file": "kiosk_m2.glb",
    "desc": "Kiosk",
-   "tris": 54,
+   "tris": 64,
    "radius": 2.5,
    "size": [
     2.85,
@@ -481,7 +505,7 @@
      2.05
     ]
    ],
-   "bytes": 31332
+   "bytes": 32472
   },
   "M3": {
    "file": "plakatstelle_m3.glb",
@@ -505,11 +529,10 @@
      0.22
     ]
    ],
-   "bytes": 29660
+   "bytes": 30096
   }
  },
  "fallback": {
-  "V7": "V2",
   "V10": "V2"
  }
 }

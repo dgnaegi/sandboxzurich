@@ -8,13 +8,13 @@ Start 2026-10-18. Ziel: mehr Details, mehr Realismus, alles so nah an der echten
 - [ ] **Sondernacht (So 18.10. 22:00 – Mo 19.10. 16:00, 18 h)** – User-Auftrag: Schlachthof, Letzipark, Frau Gerolds Garten nach Fotos; Bäume Hardbrücke; Markierungen/Bodenschwellen gegen SWISSIMAGE; Fahrverhalten + umfahrbare Schilder; Ni-Una-Menos-Platz; Übergabe-Punkte; Komplett-Build ~03:30 + Release 1; danach Objekt-Katalog (Nacht 0) im Tagesblock, Komplett-Build ~13:00 + Release 2. Cache-/Speicherfix wurde schon am 18.10. erledigt (Build 11).
 - [ ] **Nacht 0 (So 18.10.)** – Grundlagen + Objekt-Katalog (Brunnen, Haltestellen, Möbel)
 - [ ] **Nacht 1 (Mo 19.10.)** – Zone 4 Wiedikon
-- [ ] **Nacht 2 (Di 20.10.)** – Zone 1 HB und Langstrasse
-- [ ] **Nacht 3 (Mi 21.10.)** – Zone 3 Kreis 4 Mitte
-- [ ] **Nacht 4 (Do 22.10.)** – Zone 2 Kreis 5 Industrie
-- [ ] **Nacht 5 (Fr 23.10.)** – Zone 5 Kreis 9 West
+- [ ] **Nacht 2 (Di 20.10.)** – Zone 2 Kreis 5 Industrie
+- [ ] **Nacht 3 (Mi 21.10.)** – Zone 1 HB und Langstrasse
+- [ ] **Nacht 4 (Do 22.10.)** – Zone 5 Kreis 9 West
+- [ ] **Nacht 5 (Fr 23.10.)** – Zone 3 Kreis 4 Mitte
 - [ ] **Nacht 6 (Sa 24.10.)** – Komplett-Build, stadtweite Kontrolle, Deploy, Rückblick
 
-Reihenfolge der Zonen darf der User jederzeit ändern; dann hier umstellen.
+Reihenfolge nach Bestandsaufnahme 2026-10-19 (`research/zones/baseline.md`, Ø gesamt 2.5): Zone 4 (2.7, eigenes Quartier) → 2 (2.2) → 1 (2.3) → 5 (2.7) → 3 (2.8). Die Abschnitte «Nacht 1–5» unten sind nach Zone benannt; massgeblich ist diese Reihenfolge.
 
 ## Was «Detail» hier heisst (User 2026-10-18)
 Nicht jeder Pixel und nicht alles ganz genau. Es heisst: **die relevanten, grösseren Sachen stimmen mit einem Foto überein.** Massstab ist der Blick aus Fussgänger-/Velo-Distanz (10–50 m), nicht die Nahaufnahme.

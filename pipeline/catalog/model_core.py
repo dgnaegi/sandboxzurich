@@ -7,11 +7,11 @@ ATLAS = 512
 CELL = 64
 NAMES = ["granite", "gneiss", "kalk", "sandstein", "concrete", "kunststein", "bronze", "bronze_hi", "wood", "wood_dark", "steel_dark",
          "steel_grey", "glass", "glass_green", "water", "jet", "roofglass", "poster_a", "poster_b", "screen", "fahne_tram", "fahne_bus",
-         "kiosk_body", "awning", "lampglass", "iron", "ticket", "white", "yellow", "red", "bank_wood", "poster_blank", "kiosk_window", "asphalt_dark", "rubber"]
+         "kiosk_body", "awning", "lampglass", "iron", "ticket", "white", "yellow", "red", "bank_wood", "poster_blank", "kiosk_window", "asphalt_dark", "rubber", "kiosk_sign"]
 BLEND = {"glass", "glass_green", "water", "jet", "roofglass"}
 BASE = dict(granite="#7d7d78", gneiss="#5e5e5a", kalk="#cfc4ad", sandstein="#bdb5a0", concrete="#9a9a96", kunststein="#b8b2a6", bronze="#4a3d2c",
             bronze_hi="#8a6d45", wood="#7a5a3a", wood_dark="#4d3a28", steel_dark="#3a3f44", steel_grey="#767b80", iron="#3a3b3c", white="#e8e8e4",
-            yellow="#e8b820", red="#b8322a", bank_wood="#b08a5a", kiosk_body="#6c7a6e", asphalt_dark="#2c2d2f", rubber="#2a2a2a")
+            yellow="#e8b820", red="#b8322a", bank_wood="#b08a5a", kiosk_body="#5a4636", asphalt_dark="#2c2d2f", rubber="#2a2a2a")
 
 
 def hexc(h):
@@ -61,17 +61,22 @@ def paint(name, seed):
     elif name == "screen":
         im.paste((16, 18, 22, 255), (0, 0, CELL, CELL))
         for i, y in enumerate(range(8, 56, 12)): d.rectangle([5, y, 12, y + 5], fill=(240, 240, 240, 255)); d.rectangle([17, y, 40 - i * 3, y + 5], fill=(255, 150, 20, 255)); d.rectangle([48, y, 58, y + 5], fill=(255, 150, 20, 255))
-    elif name in ("fahne_tram", "fahne_bus"):
-        im.paste((250, 250, 248, 255), (0, 0, CELL, CELL)); d.rectangle([0, 0, CELL, 17], fill=(0, 61, 130, 255))
-        d.rectangle([6, 5, 26, 12], fill=(255, 255, 255, 255)); d.rectangle([32, 5, 58, 12], fill=(255, 255, 255, 255))
-        for i, x in enumerate((6, 26, 46)): d.rectangle([x, 24, x + 14, 38], fill=((0, 61, 130, 255) if name == "fahne_tram" else (150, 20, 30, 255)))
-        d.rectangle([6, 46, 58, 52], fill=(60, 60, 60, 255)); d.rectangle([6, 56, 40, 60], fill=(120, 120, 120, 255))
+    elif name in ("fahne_tram", "fahne_bus"):   # VBZ stop sign (photos Commons: blue field, white stop name; pictogram tram / bus; white line row)
+        im.paste((252, 252, 250, 255), (0, 0, CELL, CELL)); d.rectangle([0, 0, CELL, 38], fill=(0, 66, 140, 255))
+        d.rectangle([14, 6, 58, 12], fill=(255, 255, 255, 255)); d.rectangle([14, 17, 50, 22], fill=(220, 230, 245, 255)); d.rectangle([14, 27, 40, 31], fill=(190, 205, 230, 255))
+        d.rounded_rectangle([2, 8, 11, 30], radius=2, fill=(255, 255, 255, 255))
+        if name == "fahne_tram": d.line([(6, 3), (6, 8)], fill=(255, 255, 255, 255), width=1); d.rectangle([4, 12, 9, 17], fill=(0, 66, 140, 255)); d.rectangle([4, 21, 9, 26], fill=(0, 66, 140, 255))
+        else: d.rectangle([4, 11, 9, 20], fill=(0, 66, 140, 255)); d.ellipse([3, 26, 6, 30], fill=(0, 66, 140, 255)); d.ellipse([7, 26, 10, 30], fill=(0, 66, 140, 255))
+        for i, x in enumerate((4, 24, 44)): d.rounded_rectangle([x, 43, x + 16, 58], radius=3, fill=((0, 66, 140, 255) if name == "fahne_tram" else (30, 120, 70, 255))); d.rectangle([x + 4, 47, x + 12, 54], fill=(255, 255, 255, 255))
     elif name == "awning":
         for i in range(8): d.rectangle([i * 8, 0, i * 8 + 7, CELL], fill=((196, 50, 40, 255) if i % 2 == 0 else (240, 238, 232, 255)))
     elif name == "lampglass": im.paste((255, 235, 190, 255), (0, 0, CELL, CELL))
     elif name == "ticket":
         im.paste((78, 82, 88, 255), (0, 0, CELL, CELL)); d.rectangle([8, 6, 56, 30], fill=(25, 60, 110, 255)); d.rectangle([12, 10, 52, 14], fill=(235, 235, 235, 255))
         d.rectangle([10, 38, 30, 52], fill=(30, 30, 32, 255)); d.rectangle([38, 38, 54, 44], fill=(20, 20, 22, 255)); d.rectangle([38, 48, 54, 52], fill=(210, 190, 60, 255))
+    elif name == "kiosk_sign":   # "k kiosk" fascia: dark field, white wordmark (Commons photos Zuerich Heimplatz/Paradeplatz)
+        im.paste((36, 30, 28, 255), (0, 0, CELL, CELL)); d.rectangle([6, 22, 12, 42], fill=(255, 255, 255, 255)); d.rectangle([16, 22, 56, 42], outline=(255, 255, 255, 255), width=2)
+        d.rectangle([22, 28, 50, 36], fill=(235, 235, 235, 255))
     elif name == "kiosk_window":
         im.paste((38, 44, 50, 255), (0, 0, CELL, CELL)); d.rectangle([4, 36, 60, 60], fill=(190, 150, 90, 255)); [d.rectangle([6 + i * 12, 40, 14 + i * 12, 56], fill=c) for i, c in enumerate([(200, 60, 50, 255), (60, 120, 200, 255), (230, 200, 60, 255), (80, 160, 90, 255), (220, 220, 220, 255)])]
     return im

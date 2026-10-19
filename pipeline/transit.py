@@ -6,14 +6,27 @@ from collections import defaultdict
 from config import AREA, ROOT
 import sources
 
-MARGIN = 300.0
 OUT = ROOT / "web" / "public" / "data" / "transit.json"
 MODES = {"tram": "tram", "bus": "bus", "trolleybus": "trolleybus"}
-BOX = (AREA[0] - MARGIN, AREA[1] - MARGIN, AREA[2] + MARGIN, AREA[3] + MARGIN)
+EDGE = 60.0  # lines are clipped to the play-area polygon plus this rim (turn-around points sit just outside)
+
+
+def _poly():
+    from shapely.geometry import Polygon
+    from shapely.prepared import prep
+    pa = json.load(open(ROOT / "data" / "build" / "playarea.json"))
+    pg = pa["polygon"]
+    if pg and isinstance(pg[0][0], (list, tuple)):  # multi-ring -> first ring
+        pg = pg[0]
+    return prep(Polygon(pg).buffer(EDGE))
+
+
+_POLY = _poly()
 
 
 def inside(p):
-    return BOX[0] <= p[0] <= BOX[2] and BOX[1] <= p[1] <= BOX[3]
+    from shapely.geometry import Point
+    return _POLY.contains(Point(p[0], p[1]))
 
 
 def chain(ways):

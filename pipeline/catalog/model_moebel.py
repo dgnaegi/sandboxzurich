@@ -24,6 +24,7 @@ def kiosk():
     m = Mesh("M2"); w, d, h = 2.6, 2.4, 2.65
     m.box("kiosk_body", (0, h / 2, 0), (w, h, d), front="kiosk_window")
     m.box("steel_dark", (0, h + 0.07, 0), (w + 0.25, 0.14, d + 0.25))
+    m.box("steel_dark", (0, h - 0.22, d / 2 + 0.02), (w, 0.40, 0.05), front="kiosk_sign")   # k kiosk fascia
     m.box("steel_dark", (0, 0.04, 0), (w + 0.1, 0.08, d + 0.1))
     m.box("steel_grey", (0, 1.05, d / 2 + 0.12), (w - 0.2, 0.06, 0.28))
     for p in ([(-w / 2 - 0.1, 2.15, d / 2 + 0.05), (w / 2 + 0.1, 2.15, d / 2 + 0.05), (w / 2 + 0.1, 2.40, d / 2 + 0.85), (-w / 2 - 0.1, 2.40, d / 2 + 0.85)],):

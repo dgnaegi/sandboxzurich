@@ -1,0 +1,58 @@
+[
+ {
+  "id": "z4_schmiede",
+  "name": "Schmiede Wiedikon (Kreuzung + Tram)",
+  "kind": "place",
+  "lat": 47.370037,
+  "lon": 8.51819,
+  "radius": 60
+ },
+ {
+  "id": "z4_bahnhof_vp",
+  "name": "Bahnhof Wiedikon Vorplatz",
+  "kind": "place",
+  "lat": 47.371442,
+  "lon": 8.523832,
+  "radius": 70
+ },
+ {
+  "id": "z4_bahnhof_perron",
+  "name": "Bahnhof Wiedikon Perron",
+  "kind": "place",
+  "lat": 47.372349,
+  "lon": 8.521997,
+  "radius": 60
+ },
+ {
+  "id": "z4_goldbrunnen",
+  "name": "Goldbrunnenplatz + Haltestelle",
+  "kind": "place",
+  "lat": 47.370492,
+  "lon": 8.513829,
+  "radius": 70
+ },
+ {
+  "id": "z4_kalkbreite",
+  "name": "Kalkbreite",
+  "kind": "place",
+  "lat": 47.373538,
+  "lon": 8.520922,
+  "radius": 70
+ },
+ {
+  "id": "z4_friedhof",
+  "name": "Friedhof Sihlfeld Haupteingang",
+  "kind": "place",
+  "lat": 47.375707,
+  "lon": 8.511101,
+  "radius": 70
+ },
+ {
+  "id": "z4_ortsmuseum",
+  "name": "Ortsmuseum Wiedikon",
+  "kind": "place",
+  "lat": 47.368236,
+  "lon": 8.519437,
+  "radius": 60
+ }
+]

@@ -115,7 +115,7 @@ Schwere: 1 = kosmetisch, 2 = faellt auf, 3 = bricht den Realismus/Spielbarkeit.
 
 ## T10 Ausserhalb Spielgebiet: blasse Ebene ohne Boden, Wiese ohne Strasse, Bus schwebt im Nichts
 - Kategorie: Verkehr; Schwere: 2; Haeufigkeit: 6 Orte; SYSTEMISCH
-- Status: OFFEN, Ursache gefunden (Agent E): pipeline/transit.py clippt die Linien auf bbox+MARGIN statt auf das Spielgebiet-Polygon (alle 64 Linien haben Punkte ausserhalb, Bus bei (-1716,-663) liegt 466 m ausserhalb); Fix: Linien am Polygon clippen / Fahrzeuge ausserhalb despawnen.
+- Status: ERLEDIGT (Agent F, 2026-10-19): transit.py clippt jetzt aufs Spielgebiet-Polygon + 60 m Rand (64 -> 53 Linien, 0 Punkte ausserhalb); traffic_legal gruen. Vorher: pipeline/transit.py clippt die Linien auf bbox+MARGIN statt auf das Spielgebiet-Polygon (alle 64 Linien haben Punkte ausserhalb, Bus bei (-1716,-663) liegt 466 m ausserhalb); Fix: Linien am Polygon clippen / Fahrzeuge ausserhalb despawnen.
 - Orte (Ort, x/y, Kachel, Shot):
   - Albisrank, (-1651, -508), -9_-3, #66
   - Siemens/Albisriederstr. (Bus schwebt), (-1716, -663), -9_-4, #68
@@ -127,7 +127,7 @@ Schwere: 1 = kosmetisch, 2 = faellt auf, 3 = bricht den Realismus/Spielbarkeit.
 
 ## T11 Kamera steht in Gebaeude: Gebaeude liegt auf der Strasse (Hohlstrasse/Altstetten, Foto zeigt freie Kreuzung)
 - Kategorie: Gebaeude-Form; Schwere: 3; Haeufigkeit: 1 Orte; lokal
-- Status: OFFEN, Ursache gefunden (Agent E): kein Gebaeude. Kachel -11_3 hat bei (-2053,696) einen 14 m2-Collider aus pipeline/sites.py (Baustellen OGD, Sites bei (-2055,690)/(-2053,689)) auf der Kreuzung; SB3D/OSM-Gebaeude liegen nicht auf der Fahrbahn. Fix: Baustellen auf Fahrbahn/Kreuzung filtern.
+- Status: ERLEDIGT (Agent F, 2026-10-19): systemisch im Kamera-Sweep (player.ts/collision.ts: Footprints < 20 m2 werden von Kamera-freeFraction/resolve ignoriert). Vorher: kein Gebaeude. Kachel -11_3 hat bei (-2053,696) einen 14 m2-Collider aus pipeline/sites.py (Baustellen OGD, Sites bei (-2055,690)/(-2053,689)) auf der Kreuzung; SB3D/OSM-Gebaeude liegen nicht auf der Fahrbahn. Fix: Baustellen auf Fahrbahn/Kreuzung filtern.
 - Orte (Ort, x/y, Kachel, Shot):
   - Hohlstr. bei Bhf Altstetten Nord, (-2053, 699), -11_3, #26
 - Vermutete Ursache: Gebaeude-Footprint ueber Fahrbahn: osm_buildings.update() (Aenderungen nach 2019) oder falscher AV-Gebaeudeeintrag; Strasse aus roadgraph unter dem Haus.
@@ -216,6 +216,7 @@ Schwere: 1 = kosmetisch, 2 = faellt auf, 3 = bricht den Realismus/Spielbarkeit.
 ## T21 Fahrbahnpolygon schmaler als echte Strasse an breiten Knoten/Tramhaltestellen
 - Kategorie: Strassenform; Schwere: 2; Haeufigkeit: 4 Orte
 - Orte: Seebahnstrasse/Kalkbreite (290, -1193), Seebahn/Badenerstrasse (144, -980), Limmatplatz (1117, 87), Langstrasse/Zwinglistrasse (840, -474)
+- Status: OFFEN (Agent F geprueft): Vergroesserte Knoten-Discs (carriageway.junction_discs, +2 m je Arm ab 3 Armen) aendern die 4 Orte um 0-8 m2 (insgesamt +4430 m2 von 2.05 Mio) -> nicht die Ursache; Polygon ist durch den AV-Carriageway selbst begrenzt (Cap/Kalibrierbreite in carriageway.apply), kein einfacher Fix. Nicht uebernommen.
 - Ursache: AV-/Kalibrierbreite; Zebras werden dort jetzt mit eigenem Asphalt-Fuss ergaenzt (crossings.scan), sonst weggeschnitten.
 
 ## T22 Unterfuehrungsportale mit 22-40 % Neigung (echte DTM-Graeben)
@@ -227,3 +228,6 @@ Schwere: 1 = kosmetisch, 2 = faellt auf, 3 = bricht den Realismus/Spielbarkeit.
 - Kategorie: Bodenschwelle; Schwere: 1; Haeufigkeit: ~15 in 43 Kacheln
 - Orte: Kornhausbruecke (1191, 135), Seebahnstrasse (219, -613) und (231, -595), Hohlstrasse (-74, -177), Foerrlibuckstrasse (-475, 849)
 - Fix-Vorschlag: DTM-Spitzen neben dem Korridor glaetten (Versuch snap_roads brachte nichts), ggf. Fahrbahn-Zellen 4 m.
+
+## knock Test flaky (Agent F, 2026-10-19)
+- Status: ERLEDIGT: Pfosten (679.4,-708.6): an (683.5,-708.2) existiert kein Collider/Parkauto (Sonde), Crash stammte von dynamischem Fremdobjekt (NPC-Auto). knock.mjs wertet Crashs > 4 m vom Ziel nicht mehr als Fehler des Ziels (window.__extCrash). 4 Laeufe gruen.

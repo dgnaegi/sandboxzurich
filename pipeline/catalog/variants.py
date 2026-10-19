@@ -32,7 +32,7 @@ BRUNNEN_VARIANTS = {
 
 
 def brunnen_variant(a):
-    if a.get("art") == "Notwasserbrunnen":
+    if a.get("art") == "Notwasserbrunnen" or a.get("brunnenart") == "Notwasserbrunnen":   # 27 objects; photos (Hardplatz, Baeckerstrasse) confirm the type
         return "V8_notwasser"
     if a.get("material_figur"):
         return "V6_figur"

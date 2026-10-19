@@ -29,7 +29,7 @@ ROOT = HERE.parents[1]
 WEB = ROOT / "web" / "public" / "data"
 RAW_ALL = ROOT / "data" / "raw" / "stadtzh_all"
 CODE = {"V1_saeule_trog": "V1", "V2_stein_trog": "V2", "V3_bronze_trog": "V3", "V4_beton": "V4", "V5_kunststein": "V5",
-        "V6_figur": "V6", "V7_wandbrunnen": "V2", "V8_notwasser": "V8", "V9_holz": "V9", "V10_ohne_angabe": "V2"}
+        "V6_figur": "V6", "V7_wandbrunnen": "V7", "V8_notwasser": "V8", "V9_holz": "V9", "V10_ohne_angabe": "V2"}
 OVR = ROOT / "pipeline" / "overrides" / "catalog_assign.json"
 
 
