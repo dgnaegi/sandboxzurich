@@ -2,6 +2,9 @@
 
 Wird am Ende jedes Arbeitsschritts überschrieben. Eine neue Session liest das zuerst.
 
+## Linien (Auftrag L, 19.10.)
+Längslinien neu (`pipeline/markings_lines.py`, Eingriffe in `streets.markings/junction_gaps`, `build_testarea._ground_base` LINE_LIFT/ROAD_CELL); wirkt erst im nächsten Komplett-Build (Build 14 lief mit altem Code). Zahlen `research/lines.md`.
+
 ## Stand 2026-10-19 morgens (Build 13, Release 2) – zuerst lesen
 Build 13: `logs/build_full13.log` 0 Fehler, 49 min; Weltdaten `logs/publish13.log`. QA `logs/qa13.log`: tsc, gameplay, touch, crash, drive, traffic_legal (0.01 %, Parkautos 0.17 %), move_quality, qa_spawn 26/26, qa_leak +25 MB, perf Handy 58 fps / 270 Calls / 583k Tris / 4.3 s. Rot: knock.mjs – Ziel-Pfosten (884.4,-834.6) kippt, Auto stoppt 3 m dahinter an hartem Objekt (884.7,-831.3) – Testziel-Auswahl robuster machen (Ziele ohne harte Nachbarn ≤ 5 m). Sicht `preview/qa13_sheet.jpg`.
 **Seit Release 1 neu:**

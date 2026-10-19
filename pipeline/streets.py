@@ -187,7 +187,7 @@ def junction_gaps(S):
     """Per way: [(s0, s1)] where side streets / driveways open into the carriageway (no centre or lane line there).
     Continuations of the same street (parallel at the touch point) are ignored. Cached in w['gaps']."""
     ways = [w for w in S["ways"]]
-    if all("gaps" in w for w in ways):
+    if all("gaps" in w and "gaps_main" in w for w in ways):
         return
     tree = STRtree([w["line"] for w in ways])
     for w in ways:
@@ -200,19 +200,24 @@ def junction_gaps(S):
                 if p.geom_type != "Point":
                     continue
                 s = ln.project(p)
-                if abs(np.dot(_tangent(ln, s), _tangent(o["line"], o["line"].project(p)))) > 0.85:
+                dot = abs(np.dot(_tangent(ln, s), _tangent(o["line"], o["line"].project(p))))
+                if dot > 0.85:
                     continue  # same street continues
+                if dot > 0.5 and o["name"] and o["name"] == w["name"] and o["hw"] == w["hw"] and (s < 0.6 or s > ln.length - 0.6) \
+                        and min(p.distance(Point(o["line"].coords[0])), p.distance(Point(o["line"].coords[-1]))) < 0.6:
+                    continue  # kinked OSM node between two ways of the same street (markings_lines.py): not a junction
                 oh = 1.5 if o["hw"] == "service" else o["w"] / 2
-                gaps.append((s - oh - 0.8, s + oh + 0.8))
+                gaps.append((s - oh - 0.8, s + oh + 0.8, o["hw"] == "service"))
         gaps.sort()
-        w["gaps"] = gaps
+        w["gaps_main"] = [(a, b) for a, b, svc in gaps if not svc]  # driveways (service) do not interrupt the centre line
+        w["gaps"] = [(a, b) for a, b, svc in gaps]
 
 
 def _minus(iv, gaps):
     out = []
     for a, b in iv:
         cur = a
-        for g0, g1 in gaps:
+        for g0, g1 in sorted(gaps):
             if g1 <= cur or g0 >= b:
                 continue
             if g0 > cur:
@@ -324,49 +329,12 @@ def markings(S):
     import streets_rules
     streets_rules.annotate(S)
     junction_gaps(S)
+    import markings_lines as ML
     white, yellow = [], []
     tram = shapely.union_all([t.buffer(2.0) for t in S["tram"]]) if S["tram"] else None
     if tram is not None:
         shapely.prepare(tram)
-    for w in S["ways"]:
-        ln, t = mline(w), w["tags"]
-        if w["hw"] == "service" or w["zone"] in ("beg", "fuss"):
-            continue
-        L = w["line"].length
-        # centre line (Leitlinie): classified streets with two-way traffic, not inside zone 30, not on the tram track
-        lanes = int(_num(t.get("lanes"), 0))
-        if w["hw"] in MAIN and not w["oneway"] and w["w"] >= 7 and w["zone"] is None and w["tempo"] != 20 and lanes != 1:
-            for a, b in _minus([(0, L)], w["gaps"] + [(L - 3, L + 3), (-3, 3)]):
-                sub = _sub(ln, a, b, L)
-                for d in dashes(sub, 3, 6, 0.5):
-                    if tram is None or not tram.intersects(d):
-                        white.append(d.buffer(0.06, cap_style="flat"))
-        # multi-lane roads: broken lane lines between the lanes of one direction
-        if lanes >= 4 and w["hw"] in MAIN and w["zone"] is None:
-            lw = (w["w"] - 2.5) / lanes
-            for k in range(1, lanes // 2):
-                for sgn in (1, -1):
-                    off = ln.offset_curve(sgn * k * lw)
-                    if not off.is_empty and off.geom_type == "LineString":
-                        white += [d.buffer(0.06, cap_style="flat") for a, b in _minus([(0, L)], w["gaps"] + [(L - 3, L + 3), (-3, 3)])
-                                  for d in dashes(_sub(off, a, b, L), 3, 6, 0.5) if tram is None or not tram.intersects(d)]
-        # painted bike lanes: continuous yellow line, broken before junctions
-        for side, solid, broken in bike_lane_pieces(w):
-            sgn = 1 if side == "left" else -1
-            off = ln.offset_curve(sgn * (w["w"] / 2 - 1.5))
-            if off.is_empty or off.geom_type != "LineString":
-                continue
-            for a, b in solid:
-                yellow.append(_sub(off, a, b, L).buffer(0.06, cap_style="flat"))
-            for a, b in broken:
-                yellow += [d.buffer(0.06, cap_style="flat") for d in dashes(_sub(off, a, b, L), 1.5, 1.0)]
-    # bus lanes: yellow line 3.2 m from the kerb, broken at side streets
-    for w in S["ways"]:
-        for side in bus_sides(w):
-            ln, L = mline(w), w["line"].length
-            off = ln.offset_curve((1 if side == "left" else -1) * (w["w"] / 2 - 3.2))
-            if not off.is_empty and off.geom_type == "LineString":
-                yellow += [_sub(off, a, b, L).buffer(0.07, cap_style="flat") for a, b in _minus([(0, L)], w["gaps"])]
+    zg = {}  # id(way) -> [(s0, s1)]: zebras / stop lines cut centre, lane and bike lines (markings_lines.py)
     # pedestrian crossings (yellow in Switzerland) at mapped crossing nodes, none inside zone 30 / Begegnungszone
     R = streets_rules.rules()
     import crossings  # crossings2: tags + SWISSIMAGE stripe evidence + snapping (pipeline/crossings.py)
@@ -378,6 +346,8 @@ def markings(S):
         off = w.get("off", 0.0)  # centre the stripes on the carriageway (left normal = (-d1, d0))
         yellow += zebra(x - d[1] * off, y + d[0] * off, d, w["w"] / 2 - 0.3)
         placed.append((x, y))
+        if "line" in w:
+            sz = w["line"].project(Point(x, y)); zg.setdefault(id(w), []).append((sz - 3.4, sz + 3.4))
     # signalised approaches: stop line (Haltelinie) at the signal, crossing 1 m beyond it if none is mapped there
     for a in signal_arms(S):
         p, t, w = np.array(a["p"]), a["t"], a["way"]
@@ -387,11 +357,43 @@ def markings(S):
         if not any(np.hypot(zc[0] - q[0], zc[1] - q[1]) < 9 for q in placed) and a["half"] >= 2.5:
             yellow += zebra(zc[0], zc[1], t, a["half"] - 0.3)
             placed.append(tuple(zc))
+            sz = w["line"].project(Point(zc[0], zc[1])); zg.setdefault(id(w), []).append((sz - 3.4, sz + 3.4))
         bike_side = "right" if a["sgn"] > 0 else "left"
         inner = a["half"] - 0.25 - (1.6 if has_lane(w, bike_side, a["s"]) else 0.0)
         lat0 = -a["half"] + 0.25 if a["oneway"] else 0.25
         if inner > lat0 + 1:
             white.append(LineString([p + r * lat0, p + r * inner]).buffer(0.25, cap_style="flat"))
+    # --- longitudinal lines (continuous chains, fitted dashes: pipeline/markings_lines.py)
+    def centre_ok(w):
+        return (w["hw"] in MAIN and not w["oneway"] and w["w"] >= 7 and w["zone"] is None and w["tempo"] != 20
+                and int(_num(w["tags"].get("lanes"), 0)) != 1)
+
+    def lane_fn(w):
+        n = int(_num(w["tags"].get("lanes"), 0))
+        return (n, (w["w"] - 2.5) / n) if n >= 4 and w["hw"] in MAIN and w["zone"] is None and w["zone"] not in ("beg", "fuss") else None
+    white += ML.centre_lines(S, centre_ok, zg, tram)
+    white += ML.lane_lines(S, lane_fn, zg, tram)
+    # painted bike lanes: continuous yellow line, broken (1 m / 1 m) before junctions
+    for w in S["ways"]:
+        if w["hw"] == "service" or w["zone"] in ("beg", "fuss"):
+            continue
+        ln, L = ML.way_line(S, w), w["line"].length
+        for side, solid, broken in bike_lane_pieces(w):
+            sgn = 1 if side == "left" else -1
+            off = ln.offset_curve(sgn * (w["w"] / 2 - 1.5))
+            if off.is_empty or off.geom_type != "LineString":
+                continue
+            for a, b in _minus(solid, zg.get(id(w), [])):
+                yellow.append(_sub(off, a, b, L).buffer(0.06, cap_style="flat"))
+            for a, b in broken:
+                yellow += [_sub(off, d0, d1, L).buffer(0.06, cap_style="flat") for d0, d1 in ML.fit_dashes(a, b, 1.0, 1.0)]
+    # bus lanes: yellow line 3.2 m from the kerb, broken at side streets
+    for w in S["ways"]:
+        for side in bus_sides(w):
+            ln, L = ML.way_line(S, w), w["line"].length
+            off = ln.offset_curve((1 if side == "left" else -1) * (w["w"] / 2 - 3.2))
+            if not off.is_empty and off.geom_type == "LineString":
+                yellow += [_sub(off, a, b, L).buffer(0.07, cap_style="flat") for a, b in _minus([(0, L)], w["gaps"] + zg.get(id(w), []))]
     return shapely.union_all(white), shapely.union_all(yellow)
 
 

@@ -1393,7 +1393,8 @@
    "xy": [
     -441,
     -1306
-   ]
+   ],
+   "achsen": 4
   },
   "Bertastrasse 76": {
    "hex": "#d8b078",
@@ -2021,7 +2022,8 @@
    "xy": [
     -86,
     -1532
-   ]
+   ],
+   "achsen": 3
   },
   "Birmensdorferstrasse 223": {
    "hex": "#8a7a6a",
@@ -2037,7 +2039,8 @@
    "xy": [
     -104,
     -1536
-   ]
+   ],
+   "achsen": 3
   },
   "Birmensdorferstrasse 225": {
    "hex": "#dcb8a0",
@@ -2061,7 +2064,7 @@
    "rahmen": "weiss",
    "dach": "mansard",
    "stil": "gruenderzeit",
-   "geschosse": 6,
+   "geschosse": 5,
    "details": [
     "erker",
     "balkon",
@@ -2073,7 +2076,8 @@
    "xy": [
     -244,
     -1563
-   ]
+   ],
+   "achsen": 3
   },
   "Birmensdorferstrasse 251": {
    "hex": "#e4c8c4",
@@ -2082,17 +2086,19 @@
    "rahmen": "weiss",
    "dach": "mansard",
    "stil": "gruenderzeit",
-   "geschosse": 8,
+   "geschosse": 4,
    "details": [
     "balkon",
-    "mansarde"
+    "mansarde",
+    "gauben"
    ],
    "notiz": "rosa Putz, Mansarde, Balkone, EG Barbershop",
    "quelle": "panoramax:32fde191-430e-4c5d-a651-a82a25ebe314",
    "xy": [
     -258,
     -1565
-   ]
+   ],
+   "achsen": 3
   },
   "Birmensdorferstrasse 253": {
    "hex": "#dcd0d0",
@@ -2101,17 +2107,19 @@
    "rahmen": "dunkel",
    "dach": "mansard",
    "stil": "gruenderzeit",
-   "geschosse": 7,
+   "geschosse": 5,
    "details": [
     "balkon",
-    "mansarde"
+    "mansarde",
+    "gauben"
    ],
    "notiz": "hellrosagrauer Putz, Mansarde, Balkone, EG Laden",
    "quelle": "panoramax:3fae7254-7b31-4af0-9661-9582e9fc1dab",
    "xy": [
     -267,
     -1566
-   ]
+   ],
+   "achsen": 3
   },
   "Birmensdorferstrasse 255": {
    "hex": "#8c9a94",
@@ -2159,14 +2167,16 @@
    "geschosse": 7,
    "details": [
     "balkon",
-    "mansarde"
+    "mansarde",
+    "gauben"
    ],
    "notiz": "blauer Putz, Mansarde, Balkone, EG Feuerwerkladen",
    "quelle": "panoramax:f932aac8-7922-4041-a8a9-f22165cd6442",
    "xy": [
     -295,
     -1572
-   ]
+   ],
+   "achsen": 3
   },
   "Birmensdorferstrasse 260": {
    "hex": "#e0a8a0",
@@ -2191,7 +2201,7 @@
    "fenster": "bogen",
    "rahmen": "weiss",
    "stil": "gruenderzeit",
-   "geschosse": 7,
+   "geschosse": 5,
    "details": [
     "balkon"
    ],
@@ -2200,7 +2210,8 @@
    "xy": [
     -307,
     -1576
-   ]
+   ],
+   "achsen": 4
   },
   "Birmensdorferstrasse 269": {
    "hex": "#b8603c",
@@ -2209,17 +2220,19 @@
    "rahmen": "weiss",
    "dach": "mansard",
    "stil": "gruenderzeit",
-   "geschosse": 7,
+   "geschosse": 5,
    "details": [
     "rustika",
-    "balkon"
+    "balkon",
+    "gauben"
    ],
    "notiz": "roter Backstein, Natursteinsockel, Mansarddach, Balkone",
    "quelle": "panoramax:bd72dc73-e032-47f5-bd57-64540cb714cd",
    "xy": [
     -354,
     -1583
-   ]
+   ],
+   "achsen": 4
   },
   "Birmensdorferstrasse 270": {
    "hex": "#e4e2dc",
@@ -2250,7 +2263,8 @@
    "details": [
     "rustika",
     "balkon",
-    "mansarde"
+    "mansarde",
+    "gauben"
    ],
    "notiz": "orangeroter Backstein, grauer Sockel, Mansarde, Balkone",
    "quelle": "panoramax:bd72dc73-e032-47f5-bd57-64540cb714cd",
@@ -2265,7 +2279,7 @@
    "fenster": "hoch",
    "rahmen": "weiss",
    "stil": "gruenderzeit",
-   "geschosse": 6,
+   "geschosse": 4,
    "details": [
     "balkon",
     "gauben"
@@ -2275,7 +2289,8 @@
    "xy": [
     -396,
     -1591
-   ]
+   ],
+   "achsen": 3
   },
   "Birmensdorferstrasse 280": {
    "hex": "#ecebe6",
@@ -2336,7 +2351,8 @@
    "dach": "mansard",
    "stil": "gruenderzeit",
    "details": [
-    "mansarde"
+    "mansarde",
+    "gauben"
    ],
    "notiz": "blaugrauer Putz, blaue Fensterlaeden, Mansarde, Tramhaltestelle davor",
    "quelle": "panoramax:58911237-5204-4441-bbba-bedc7c5e276e",
@@ -2353,7 +2369,8 @@
    "dach": "mansard",
    "stil": "gruenderzeit",
    "details": [
-    "mansarde"
+    "mansarde",
+    "gauben"
    ],
    "notiz": "orangeroter Putz, blaue Laeden, Mansarde",
    "quelle": "panoramax:14ee55ff-72ae-44e6-9015-536754a157fd",
@@ -6392,7 +6409,8 @@
    "xy": [
     435,
     -1766
-   ]
+   ],
+   "achsen": 3
   },
   "Zurlindenstrasse 211": {
    "hex": "#cdbfa0",

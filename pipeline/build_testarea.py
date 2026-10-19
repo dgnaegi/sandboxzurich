@@ -56,6 +56,7 @@ from mesh import Heights, Mesh, drape
 from styles import LAYER, h32
 
 CURB = 0.12  # carriageway is lowered by this much
+LINE_LIFT = float(os.environ.get("SBZ_LINE_LIFT", "0.03"))  # paint height above the asphalt (lines, research/lines.md)
 ROAD_CELL = float(os.environ.get("SBZ_ROAD_CELL", "6"))  # drape cell of the asphalt: the mesh only has vertices on cell borders (road_cell, research/bumps.md)
 CURB_TOP_W = 0.22  # Randstein top width (Zuerich standard 15-20 cm + arris)
 GUT = 0.22  # Rinnstein width (fidelity S4: narrower)
@@ -180,10 +181,46 @@ def _ground_base(gm, S, tb, H, white, yellow, rails, bed, bays_white=None, bays_
     curbs(gm, streets.curb_faces(roads, tb), H)
     top = S["roads"].boundary.buffer(CURB_TOP_W).difference(S["roads"]).difference(S["plaza"]).intersection(tb)  # z4: Randstein top, wider + lighter so the kerb reads at 10-50 m
     drape(gm, top, H, 0.006, (226, 223, 214), cell=10, layer=LAYER["white"])
-    drape(gm, white.intersection(roads), H, -CURB + 0.008, (238, 238, 232), cell=10, layer=LAYER["white"])
-    drape(gm, yellow.intersection(roads), H, -CURB + 0.008, (246, 200, 30), cell=10, layer=LAYER["white"])
+    # lines (research/lines.md): same drape cell as the asphalt (ROAD_CELL) and 3 cm lift: with cell 10 / 0.8 cm 7 % of the paint triangles lay below the asphalt surface
+    drape(gm, white.intersection(roads), H, -CURB + LINE_LIFT, (238, 238, 232), cell=ROAD_CELL, layer=LAYER["white"])
+    drape(gm, yellow.intersection(roads), H, -CURB + LINE_LIFT, (246, 200, 30), cell=ROAD_CELL, layer=LAYER["white"])
     tram_track.paint(gm, S, tb, H, rails, grooves, bed)  # rails flush in the asphalt, own trassee ballast without kerb
 
+
+
+def canopy_posts(mesh, b, H, colliders, roads=None, step=8.0, w=0.25, col=(128, 130, 132)):
+    """Roof-only swissBUILDINGS3D objects (no ground polygon: canopies, station/fuel roofs) floated in the air: add slim posts
+    at the corners and every `step` m along the long sides of the roof's rotated rectangle, terrain -> roof underside (+ colliders)."""
+    if any(k == 0 for k, _ in b["polys"]):
+        return 0
+    P = np.concatenate([p for _, p in b["polys"]])
+    zr = float(P[:, 2].min())
+    rect = shapely.MultiPoint(P[:, :2].tolist()).minimum_rotated_rectangle
+    if rect.geom_type != "Polygon" or rect.area < 6:
+        return 0
+    c = np.asarray(rect.exterior.coords)[:4]
+    cen = c.mean(0)
+    c = cen + (c - cen) * np.maximum(0, 1 - 0.4 / np.maximum(np.linalg.norm(c - cen, axis=1, keepdims=True), 0.5))
+    pts = []
+    for i in range(4):
+        a, e = c[i], c[(i + 1) % 4]
+        n = max(1, int(np.linalg.norm(e - a) // step))
+        pts += [a + (e - a) * t / n for t in range(n)]
+    k = 0
+    for x, y in pts:
+        z0 = float(H.at(x, y))
+        if not 1.8 < zr - z0 < 14 or (roads is not None and roads.contains(Point(x, y))):  # never a post on the carriageway
+            continue
+        h = w / 2
+        q = [(x - h, y - h), (x + h, y - h), (x + h, y + h), (x - h, y + h)]
+        for j in range(4):
+            (ax, ay), (ex, ey) = q[j], q[(j + 1) % 4]
+            nrm = np.array([ey - ay, -(ex - ax), 0.0]); nrm /= np.linalg.norm(nrm)
+            quad = np.array([[ax, ay, z0], [ex, ey, z0], [ex, ey, zr], [ax, ay, zr]], np.float32)
+            mesh.add(quad, np.array([[0, 1, 2], [0, 2, 3]]), nrm, col)
+        colliders.append([[round(a_, 2), round(b_, 2)] for a_, b_ in q])
+        k += 1
+    return k
 
 def build():
     OUT.mkdir(parents=True, exist_ok=True)
@@ -236,7 +273,7 @@ def build():
     S = streets.parse(nodes, els)
     import copy as _copy; H_raw = _copy.deepcopy(H)  # roads2: terrain before road smoothing (bridge clearance over trenches)
     if not os.environ.get("SBZ_NO_ROADH"):  # A/B switch for the ride test
-        road_height.apply(H, S["ways"])  # smooth road surface (pipeline/road_height.py): carriageway, sidewalks, hmap, vehicles share it
+        road_height.apply(H, S["ways"], roads=S.get("roads"))  # smooth road surface (pipeline/road_height.py): carriageway, sidewalks, hmap, vehicles share it
     terrain_cuts.apply(H, lock_only=True)  # sunken underpass floors ("lock": true) must survive the road smoothing (Langstrassen-Unterfuehrung)
     blds = osm_buildings.update(blds, nodes, els, H, footprint, Polygon(POLYGON))  # post-2019 changes
     if hide or hide_ids:  # OSM re-adds footprints of the hidden landmarks (no 2019 building left under them): hide them again
@@ -441,6 +478,7 @@ def build():
             except Exception as _e:
                 print("rooftops failed", b.get("id"), _e, flush=True)
             segs += add_building(bm, b, street_dist, neighbour_fn(b["id"]))
+            canopy_posts(bm, b, H, colliders, S["roads"])  # roof-only canopies get posts instead of floating
             if fp is not None and not fp.is_empty:
                 for p in getattr(fp, "geoms", [fp]):
                     if p.geom_type == "Polygon":

@@ -1,11 +1,14 @@
 """Merge hand-read Zone 4 facade notes (research/zones/z4/notes_raw_z4_*.tsv, same 12-column format as pipeline/photos/facades_notes.py)
 into research/buildings/visual_notes_v3.json (read by pipeline/visual_overrides.load_v3 -> build_testarea) and into research/zones/zone4_facades.json.
 Only adds addresses that have no note yet (existing, photo-checked notes win). Idempotent. Re-run after pipeline/photos/facades_notes.py (it rewrites v3 from its own TSVs).
-Usage: python pipeline/zones/merge_notes.py [--dry]"""
+Usage: python pipeline/zones/merge_notes.py [--dry]
+       python pipeline/zones/merge_notes.py --fields [--dry]   # supplement existing notes from z4/fields_z4.tsv (addr|geschosse|achsen|details): sets geschosse/achsen, unions details, keeps everything else"""
 import json, re, sys
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 Z = ROOT / "research/zones"; V3 = ROOT / "research/buildings/visual_notes_v3.json"
+ZN = sys.argv[sys.argv.index("--zone") + 1] if "--zone" in sys.argv else "z4"   # z4 (default) or z2: research/zones/<zn>/, zone<N>_facades.json
+ZF = f"zone{ZN[1:]}_facades.json"
 MAT = dict(P="putz", K="klinker", S="sandstein", B="beton", G="glas", H="holz")
 WIN = dict(r="hoch", a="bogen", h="verdachung", b="band", g="glas", k="klein")
 SH = dict(n="keine", g="gruen", s="grau", b="braun", u="blau", r="rot")
@@ -16,6 +19,7 @@ STIL = dict(g="gruenderzeit", j="jugendstil", h="heimatstil", **{"5": "50er", "6
 
 def parse(ln):
     c = [x.strip() for x in ln.split("|")]
+    if len(c) == 10: c = c[:4] + [""] + c[4:6] + [""] + c[6:]   # short form (z2): addr|hex|mat|floors|win|shutter|ext|roof|style|text
     if len(c) != 12: return None, "fields=%d" % len(c)
     addr, hx, mat, fl, ax, win, sh, fr, ext, roof, style, txt = c
     if not re.fullmatch(r"#?[0-9a-fA-F]{6}", hx): return None, "hex"
@@ -33,9 +37,12 @@ def parse(ln):
     return addr, v
 
 def main(dry):
-    photos = json.load(open(Z / "z4/photos.json")); targets = {t["addr"]: t for t in json.load(open(Z / "z4/targets.json"))}
+    photos = {}
+    for pf in ("photos.json", "photos2.json", "photos3.json"):   # z2 has three selection passes, later passes only fill gaps
+        if (Z / ZN / pf).exists(): photos = {**{a: m for a, m in json.load(open(Z / ZN / pf)).items() if m["photos"]}, **photos}
+    targets = {t["addr"]: t for t in json.load(open(Z / f"{ZN}/targets.json"))}
     new, bad = {}, 0
-    for f in sorted((Z / "z4").glob("notes_raw_z4_*.tsv")):
+    for f in sorted((Z / ZN).glob(f"notes_raw_{ZN}_*.tsv")):
         for ln in f.read_text().splitlines():
             if not ln.strip() or ln.startswith("#"): continue
             a, v = parse(ln)
@@ -44,7 +51,7 @@ def main(dry):
             ph = (photos.get(a) or {}).get("photos") or []
             if ph: v["quelle"] = f"{ph[0]['source']}:{ph[0]['id']}"
             new[a] = v
-    vn = json.load(open(V3)); zf = json.load(open(Z / "zone4_facades.json"))
+    vn = json.load(open(V3)); zf = json.load(open(Z / ZF))
     add = {a: v for a, v in new.items() if a not in vn}
     print(len(new), "parsed,", bad, "bad,", len(add), "new to v3 (", len(new) - len(add), "already present)")
     if dry: return
@@ -55,5 +62,25 @@ def main(dry):
     for a, v in new.items():
         t = targets[a]; zf["entries"][a] = dict(vn.get(a, v), xy=[round(t["x"]), round(t["y"])])
     zf["entries"] = dict(sorted(zf["entries"].items()))
-    json.dump(zf, open(Z / "zone4_facades.json", "w"), ensure_ascii=False, indent=1)
-main("--dry" in sys.argv)
+    json.dump(zf, open(Z / ZF, "w"), ensure_ascii=False, indent=1)
+def fields(dry):
+    vn = json.load(open(V3)); zf = json.load(open(Z / ZF)); n = 0
+    for ln in (Z / "z4/fields_z4.tsv").read_text().splitlines():
+        if not ln.strip() or ln.startswith("#"): continue
+        a, g, ax, ex = [x.strip() for x in ln.split("|")]
+        if a not in vn: print("no note for", a); continue
+        v = vn[a]
+        if g: v["geschosse"] = int(g)
+        if ax: v["achsen"] = int(ax)
+        d = list(v.get("details", [])) + [EXT[c] for c in ex if EXT[c] not in v.get("details", [])]
+        if d: v["details"] = d
+        if a in zf["entries"]: zf["entries"][a].update({k: v[k] for k in ("geschosse", "achsen", "details") if k in v})
+        n += 1
+    print(n, "entries supplemented")
+    if dry: return
+    meta = {k: v for k, v in vn.items() if k.startswith("_")}
+    body = dict(sorted((k, v) for k, v in vn.items() if not k.startswith("_")))
+    json.dump({**meta, **body}, open(V3, "w"), ensure_ascii=False, indent=0)
+    json.dump(zf, open(Z / ZF, "w"), ensure_ascii=False, indent=1)
+if "--fields" in sys.argv: fields("--dry" in sys.argv)
+else: main("--dry" in sys.argv)

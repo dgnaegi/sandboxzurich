@@ -1,0 +1,92 @@
+{
+ "landmarks": [
+  {
+   "name": "Hardstrasse 316 ockergelbes Eckhaus",
+   "model": "/models/landmarks/z2_hard316.glb",
+   "x": 418.0,
+   "y": 664.4,
+   "z": -8.12,
+   "heading": 0,
+   "hide": [
+    [
+     416.4,
+     664.8
+    ]
+   ]
+  },
+  {
+   "name": "Traugottstrasse 8 ockergelb mit Backsteinbaendern",
+   "model": "/models/landmarks/z2_traug8.glb",
+   "x": 430.5,
+   "y": 652.8,
+   "z": -8.47,
+   "heading": 0,
+   "hide": [
+    [
+     430.5,
+     652.8
+    ]
+   ]
+  },
+  {
+   "name": "Gasometerstrasse 26 cremefarbenes Eckhaus",
+   "model": "/models/landmarks/z2_gaso26.glb",
+   "x": 950.2,
+   "y": 9.0,
+   "z": -5.73,
+   "heading": 0,
+   "hide": [
+    [
+     948.4,
+     10.0
+    ],
+    [
+     958.5,
+     9.5
+    ]
+   ]
+  },
+  {
+   "name": "Ackerstrasse 52 gelbes Eckhaus mit Markisen",
+   "model": "/models/landmarks/z2_acker52.glb",
+   "x": 1236.9,
+   "y": -94.8,
+   "z": -5.31,
+   "heading": 0,
+   "hide": [
+    [
+     1237.5,
+     -94.3
+    ]
+   ]
+  },
+  {
+   "name": "Josefstrasse 130 Sandsteinfassade",
+   "model": "/models/landmarks/z2_josef130.glb",
+   "x": 916.3,
+   "y": 33.0,
+   "z": -5.97,
+   "heading": 0,
+   "hide": [
+    [
+     916.2,
+     32.9
+    ]
+   ]
+  },
+  {
+   "name": "Fabrikstrasse 17 Backstein und Rustika",
+   "model": "/models/landmarks/z2_fabrik17.glb",
+   "x": 884.9,
+   "y": 265.6,
+   "z": -6.66,
+   "heading": 0,
+   "hide": [
+    [
+     884.6,
+     265.1
+    ]
+   ]
+  }
+ ]
+}

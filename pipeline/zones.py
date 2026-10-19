@@ -115,8 +115,12 @@ ZONES = [
     dict(id=1, name="HB und Langstrasse", polys=[[[400, -1010], [2000, -1010], [2000, -300], [400, -300]]]),
     dict(id=3, name="Kreis 4 Mitte", polys=[[[-750, -120], [400, -120], [400, -900], [-750, -900]],
                                             [[650, -1010], [1120, -1010], [1120, -1360], [650, -1360]]]),
-    dict(id=2, name="Kreis 5 Industrie", polys=[[[-250, -300], [2000, -300], [2000, 1300], [-250, 1300]]]),
-    dict(id=5, name="Kreis 9 West", polys=[[[-2700, -2200], [-750, -2200], [-750, -120], [-250, -120], [-250, 1300], [-2700, 1300]]]),
+    # Zone 2 only south-west of the Limmat (river line from OSM, local m); PJZ and Westpark tiles belong to zone 5 (excl)
+    dict(id=2, name="Kreis 5 Industrie", polys=[[[-250, -300], [1810, -300], [1771, -209], [1692, -145], [1551, -25], [1382, 117], [1089, 379],
+                                                 [985, 484], [254, 915], [-250, 1135]]],
+         excl=[[[440, 50], [560, 50], [560, 150], [440, 150]], [[-200, 600], [0, 600], [0, 800], [-200, 800]]]),
+    dict(id=5, name="Kreis 9 West", polys=[[[-2700, -2200], [-750, -2200], [-750, -120], [-250, -120], [-250, 1300], [-2700, 1300]],
+                                           [[440, 50], [560, 50], [560, 150], [440, 150]], [[-200, 600], [0, 600], [0, 800], [-200, 800]]]),
 ]
 
 # camera points per zone, from docs/NIGHT_PLAN.md. (label, query)
@@ -143,7 +147,7 @@ CAMS = {
         ("Turbinenplatz", "Turbinenplatz"), ("Schiffbau", (231, 430)), ("Prime Tower Fuss", (42, 155)), ("Josefwiese", "Josefwiese"),
         ("Viadukt (Markthalle)", "Markthalle"), ("Limmatplatz", (1131, 74)), ("Röntgenplatz", (759, 126)),
         ("Limmatstrasse/Konradstrasse", (1286, -229)), ("Josefstrasse", "S:Josefstrasse"), ("Heinrichstrasse", "S:Heinrichstrasse"),
-        ("Fabrikstrasse", "S:Fabrikstrasse"), ("Sihlquai", (1550, -92)), ("Limmatufer", (1250, 250))],
+        ("Fabrikstrasse", "S:Fabrikstrasse"), ("Sihlquai", (1550, -92)), ("Limmatufer", (1220, 200))],
     5: [("Letzigrund Stadion", "L:Stadion Letzigrund"), ("Haltestelle Letzigrund", "L:Stadion Letzigrund"), ("Badenerstrasse West", "X:Badenerstrasse|Hohlstrasse"),
         ("Hohlstrasse Egli-Siedlung", "S:Hohlstrasse"), ("PJZ Eingang", "L:PJZ"), ("Bahnhof Altstetten Vorplatz", (-2179, 748)),
         ("Bahnhof Altstetten Perron", "^Zürich Altstetten$"), ("Lindenplatz", "^Lindenplatz"), ("Altstetterstrasse", "S:Altstetterstrasse"),
@@ -167,7 +171,7 @@ def build():
     for ix, iy in tiles:
         cx, cy = (ix + 0.5) * config.TILE, (iy + 0.5) * config.TILE
         for z in ZONES:
-            if any(inside(pl, cx, cy) for pl in z["polys"]):
+            if any(inside(pl, cx, cy) for pl in z["polys"]) and not any(inside(pl, cx, cy) for pl in z.get("excl", [])):
                 assigned[(ix, iy)] = z["id"]
                 break
     zones = []
