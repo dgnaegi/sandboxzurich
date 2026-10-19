@@ -20,7 +20,7 @@ export interface YardMeta {
 let mobileLod = false;
 export function setYardsMobile(m: boolean) { mobileLod = m; }
 
-const GREENS = [0x4f6b3a, 0x5d7a40, 0x46603a, 0x6a8344, 0x7d8a3c, 0x9a8a35, 0x8a5a2c, 0x56733f];
+const GREENS = [0x4f6b3a, 0x5d7a40, 0x46603a, 0x6a8344, 0x7d8a3c, 0x66783a, 0x4c5f36, 0x56733f];   // 5/6 were olive/brown: smooth brown blobs on the street (2026-10-19)
 const rnd = (x: number, y: number) => { const v = Math.sin(x * 127.1 + y * 311.7) * 43758.5453; return v - Math.floor(v); };
 
 type G = THREE.BufferGeometry;
@@ -75,12 +75,12 @@ export function buildYards(meta: YardMeta | undefined, shadows: boolean): THREE.
   if (!meta) return [];
   const out: THREE.Object3D[] = [];
   const m = new THREE.Matrix4(), q = new THREE.Quaternion(), p = new THREE.Vector3(), s = new THREE.Vector3(), up = new THREE.Vector3(0, 1, 0), col = new THREE.Color();
-  const white = new THREE.MeshLambertMaterial({ color: 0xffffff });
   const step = mobileLod ? 2 : 1;
 
   const bush = (meta.bushes ?? []).filter((_, i) => i % step === 0);
   if (bush.length) {
-    const im = mkInst(new THREE.IcosahedronGeometry(1, 1), white, bush.length);
+    const bm = new THREE.MeshLambertMaterial({ color: 0xffffff }); foliagePatch(bm, 'inst', mobileLod);   // leafy look like the hedges
+    const im = mkInst(new THREE.IcosahedronGeometry(1, 2), bm, bush.length);
     bush.forEach(([x, y, z, r, h, c], i) => {
       q.setFromAxisAngle(up, rnd(x, y) * 6.28);
       im.setMatrixAt(i, m.compose(p.set(x, z + h * .42, -y), q, s.set(r, h * .5, r)));

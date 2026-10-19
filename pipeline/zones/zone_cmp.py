@@ -1,4 +1,4 @@
-"""Photo | game comparison at the zone camera points: per camera point the best local photo from research/zones/zone<N>_photos.json
+"""Photo | game comparison at the zone camera points: per camera point the best local photo from research/zones/zone<N>_cam_photos.json (pipeline/photos/fetch_zone_cams.py)
 (daytime, recent, close), then a game view from the photo position and heading (player 4 m ahead so the chase camera sits near the photo point).
 Output: preview/zone<N>_cmp_<tag>_<k>.jpg (9 pairs per sheet, photo left, game right) + preview/zone<N>_cmp_<tag>/picks.json.
 Needs the dev server (web, port 5173). Usage: python pipeline/zones/zone_cmp.py <N> [tag]   (tag default 'after')"""
@@ -36,7 +36,7 @@ def pick(photos):
 
 
 def main():
-    meta = json.load(open(ROOT / f"research/zones/zone{N}_photos.json"))
+    meta = json.load(open(ROOT / f"research/zones/zone{N}_cam_photos.json"))
     picks, views = [], []
     for sid, s in meta.items():
         p = pick(s.get("photos", []))

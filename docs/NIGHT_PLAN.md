@@ -178,6 +178,7 @@ Eine 8-h-Nacht überspannt zwei 5-h-Fenster. Die Nacht muss auch sauber enden, w
 
 ## Protokoll
 <!-- Eine Zeile pro Nacht: Datum – Nacht N – Ergebnis – Note vorher→nachher – offene Tickets – Textur-MB Handy -->
+- 2026-10-19 nachts – Nacht 1 Rest (Zone 4) – Kamerapunkte, Ecken-Abgleich 77 Ecken (wenige sichere Fixes), Autofassade verworfen (#60), Mapillary-Schilder als Schalter (#61), braune Kugel-Sträucher grün, erfundene Gerüste raus (#62); Build 16 – Zone 4 ~3.0 unverändert – T-N1…5, T-S1…7 – 157/145 MB, 58 fps
 - 2026-10-19 abends – Nacht 3 Zone 1 – HB-Halle (Buden weg, Tore), Kamerapunkte neu, Foto|Spiel-Werkzeug, +142 Notizen (Geschosse 106→354), 15 Ladenfronten; 24 Kacheln, publiziert – Ø 2.8→2.9 – Z1-1…6 – Langstrasse 157 MB, HB 145 MB, 58 fps
 - 2026-10-19 Tag – Zone 2 (~70 %), Fassaden v4, Spawn, HB-Dächer, Schlachthof R4, Linien, Zebras 403, Unterführungen; Builds 14+15, Releases 3+4 – Zone 2 nicht neu benotet – T21, Brücken-Mulden – perf Handy 58 fps
 - 2026-10-19 – Sondernacht + Nacht 0 + Nacht 1 (Zone 4) – Schlachthof/Letzipark/FGG/Letzigrund, Katalog (21 Modelle), Fahren, Tram, Zebras, Bodenfehler; Builds 12+13 – Baseline Ø 2.5 (Zone 4 nachher nicht neu benotet) – Tickets T19–T23, knock-Test – perf Handy 58 fps

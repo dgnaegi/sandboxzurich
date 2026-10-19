@@ -1,0 +1,6 @@
+{
+ "_meta": "Zone 4 Nord (Idaplatz-Quartier) Eckenabgleich: nur Schild-/Markisenfarben nach Fotos, keine Namen geaendert. Schluessel = OSM-Id. src Pflicht.",
+ "4993486522": {"v": {"a": "#b8202a", "t": 1}, "src": "Mapillary 24332492813086116 (k3rn3lp4n1c, CC BY-SA 4.0): Smoking Kiosk Idaplatz, rote Markise, Sitzplaetze davor"},
+ "2463374628": {"v": {"a": "#2a2a2a", "t": 1}, "src": "Mapillary 1280080496763777 (CC BY-SA 4.0): Restaurant Gertrudhof, dunkle Markise, Aussensitzplatz"},
+ "11664936660": {"v": {"t": 1}, "src": "Mapillary 831476732776965 (CC BY-SA 4.0): Lalin/Hotel Gertrud, Aussensitzplatz unter Baeumen an der Gertrudstrasse"}
+}

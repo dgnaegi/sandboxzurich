@@ -1,0 +1,130 @@
+[
+ {
+  "id": "z4_idaplatz_mitte",
+  "name": "Idaplatz Mitte",
+  "kind": "place",
+  "lat": 47.3741,
+  "lon": 8.514944,
+  "radius": 45
+ },
+ {
+  "id": "z4_idaplatz_nord_zurlindenstrasse",
+  "name": "Idaplatz Nord/Zurlindenstrasse",
+  "kind": "place",
+  "lat": 47.374262,
+  "lon": 8.514706,
+  "radius": 45
+ },
+ {
+  "id": "z4_idastrasse_sued",
+  "name": "Idastrasse Süd",
+  "kind": "place",
+  "lat": 47.374006,
+  "lon": 8.514779,
+  "radius": 45
+ },
+ {
+  "id": "z4_bertastrasse",
+  "name": "Bertastrasse",
+  "kind": "place",
+  "lat": 47.374519,
+  "lon": 8.514634,
+  "radius": 45
+ },
+ {
+  "id": "z4_gertrudstrasse",
+  "name": "Gertrudstrasse",
+  "kind": "place",
+  "lat": 47.37301,
+  "lon": 8.514434,
+  "radius": 45
+ },
+ {
+  "id": "z4_aemtler_wiesendangerstrasse",
+  "name": "Aemtler-/Wiesendangerstrasse",
+  "kind": "place",
+  "lat": 47.37315,
+  "lon": 8.513372,
+  "radius": 45
+ },
+ {
+  "id": "z4_zentralstrasse",
+  "name": "Zentralstrasse",
+  "kind": "place",
+  "lat": 47.374193,
+  "lon": 8.516535,
+  "radius": 45
+ },
+ {
+  "id": "z4_zurlindenstrasse_west",
+  "name": "Zurlindenstrasse West",
+  "kind": "place",
+  "lat": 47.373767,
+  "lon": 8.515768,
+  "radius": 45
+ },
+ {
+  "id": "z4_zurlindenstrasse_ost",
+  "name": "Zurlindenstrasse Ost",
+  "kind": "place",
+  "lat": 47.373396,
+  "lon": 8.516814,
+  "radius": 45
+ },
+ {
+  "id": "z4_thomasweg_martastrasse",
+  "name": "Thomasweg/Martastrasse",
+  "kind": "place",
+  "lat": 47.37554,
+  "lon": 8.514891,
+  "radius": 45
+ },
+ {
+  "id": "z4_schmiede_wiedikon",
+  "name": "Schmiede Wiedikon",
+  "kind": "place",
+  "lat": 47.370022,
+  "lon": 8.519858,
+  "radius": 45
+ },
+ {
+  "id": "z4_bahnhof_wiedikon_vorplatz",
+  "name": "Bahnhof Wiedikon Vorplatz",
+  "kind": "place",
+  "lat": 47.371086,
+  "lon": 8.522395,
+  "radius": 45
+ },
+ {
+  "id": "z4_goldbrunnenplatz",
+  "name": "Goldbrunnenplatz",
+  "kind": "place",
+  "lat": 47.370493,
+  "lon": 8.513825,
+  "radius": 45
+ },
+ {
+  "id": "z4_friedhof_sihlfeld_haupteingang",
+  "name": "Friedhof Sihlfeld Haupteingang",
+  "kind": "place",
+  "lat": 47.375706,
+  "lon": 8.511097,
+  "radius": 45
+ },
+ {
+  "id": "z4_ortsmuseum_wiedikon",
+  "name": "Ortsmuseum Wiedikon",
+  "kind": "place",
+  "lat": 47.368496,
+  "lon": 8.519482,
+  "radius": 45
+ },
+ {
+  "id": "z4_kalkbreite",
+  "name": "Kalkbreite",
+  "kind": "place",
+  "lat": 47.374219,
+  "lon": 8.521134,
+  "radius": 45
+ }
+]

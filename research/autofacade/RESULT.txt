@@ -1,0 +1,5 @@
+Prototype autofacade (Mapillary -> facade colour), validation vs hand hex, zones 1+4, n=436 addresses with >=1 usable image
+raw dE2000 median 25.4 (<10: 11%, <20: 30%); affine-Lab-calibrated, 5-fold CV: median 10.5 (<10 47%, <20 87%)
+constant-median-colour baseline: median 11.0 (<10 43%, <20 85%)  -> no skill beyond baseline
+Spearman auto vs hand (L,a,b): 0.15/0.16/0.29 (>=2 agreeing images: ~0.25/0.29/0.29)
+Coverage: 1800 of 2968 target buildings had a candidate image (4486 images); no full run (gate not met meaningfully).

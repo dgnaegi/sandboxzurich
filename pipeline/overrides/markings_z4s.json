@@ -1,0 +1,1 @@
+{"doc": "Zone 4 Sued/Ost Eckenabgleich: keine Handpolygone. Weisse Parkfelder und blaue Zone sind in den Spielbildern vorhanden (#13, #51); rote Velostreifen/Bushaltestellen-Rot brauchen Code (Ticket in research/zones/z4/corners_south.md), da markings_override nur add_yellow/add_white/cut/decals kennt.", "add_yellow": [], "add_white": [], "cut": [], "decals": []}

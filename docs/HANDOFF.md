@@ -2,11 +2,20 @@
 
 Wird am Ende jedes Arbeitsschritts überschrieben. Eine neue Session liest das zuerst.
 
+## Stand 2026-10-19 nachts: Zone 4 Runde 2 + Breiten-Ideen – ZUERST LESEN
+User: «mach weiter Nacht 0 oder 1» → Rest von Nacht 1 (Zone 4), dann «mehr Agents, jede Ecke abgleichen / sei kreativ».
+- Kamerapunkte Zone 4: 5 neu gesetzt, Perron Wiedikon gestrichen (Baumkronen über dem Einschnitt = Ticket), 16 Punkte. Fotos an Kamerapunkten für jede Zone: `pipeline/photos/fetch_zone_cams.py <N>` → `research/zones/zone<N>_cam_photos.json`.
+- Ecken-Abgleich Nord/Süd (2 Agents, 77 Ecken): wenige, sichere Fixes – 5 Farbkorrekturen (`research/zones/z4/fields_z4_hexfix.tsv`, neue 5. Spalte hex), 3 neue Häuser, 4 Ladenfronten (`storefronts_z4n/z4s.json`), «30» Bertastrasse (`markings_z4n.json`). Protokolle `research/zones/z4/corners_{north,south}.md` (Tickets T-N1…5, T-S1…7).
+- **Breiten-Ideen getestet:** Autofassade aus Mapillary → nein (#60). Mapillary-Verkehrsschilder → Hook `SBZ_MLY_SIGNS=1`, aus (#61); Testkachel t_-1_-8 nicht beurteilbar (Bauzaun davor).
+- **Gefunden und behoben (stadtweit):** 3 700 braune Kugel-Sträucher (Farbindex 5/6) → grün mit Blatt-Shader (`web/src/world/yards.ts`, Laufzeit). Erfundene Baugerüste/Bauzäune an Hauptstrassen (`props.construction`, Hash-Auswahl + «Im Bau» 2019) → aus (#62); **Komplett-Build 16** fertig (`logs/build_full16.log`, 0 Fehler, 51 min; Gerüste 133 → 50 echte), publiziert (`logs/publish16.log`); QA `logs/qa16.log` grün (gameplay, touch, drive, traffic_legal 0.02 %, qa_spawn 26/26, qa_leak +23 MB, Texturen Langstrasse 157 / HB 145 MB, perf Handy 58 fps / 269 Calls / 4.3 s). Linien-Code aus Auftrag L ist damit jetzt überall gebaut.
+- Zone 4 nachher: `preview/zone4_after2.jpg`, `preview/zone4_cmp_after_{1,2}.jpg`. Note praktisch unverändert (~3.0); sichtbar besser: Gertrudstrasse-Eckhaus lachsrot.
+**Idee für die nächste Session (kreativ, hohe Wirkung):** Audit aller Hash-/Zufallsplatzierungen in der Pipeline (Gerüste waren eine; prüfen: Plakate, Graffiti, Wildplakate, Kioske, Baustellenschilder) – alles Erfundene, das wie ein echtes Objekt aussieht, raus oder an Daten binden.
+
 ## Stand 2026-10-19 abends: Nacht 3 / Zone 1 (HB und Langstrasse) – ZUERST LESEN
 Zone-1-Kacheln (24) neu gebaut (`logs/build_z1.log`, 0 Fehler, 15 min), Weltdaten veröffentlicht (`logs/publish_z1.log`). QA `logs/qa_z1.log` grün: gameplay, traffic_legal 0.02 %, qa_spawn 26/26, qa_leak +24 MB, Handy-Texturen Langstrasse 157 / HB 145 MB, perf Handy 58 fps / 268 Calls / 591k Tris / 4.3 s.
 - **HB-Haupthalle** (User-Feedback «offene Klappen», «Ladenhalle umgebaut»): Buden/Kioske/Weihnachtsbaum weg, Arkaden mit verglasten Eichentoren statt erfundener Läden, Boden grau (#58, `research/hb/fix_2026-10-19.md`, `preview/hb_hall_fix.jpg`).
 - **Kamerapunkte Zone 1** neu von Hand mit Blickrichtung (#59), die Namensabfragen lagen bei 8 von 18 Punkten falsch.
-- **Foto | Spiel:** `pipeline/zones/zone_cmp.py <N> <tag>` (Foto von Mapillary/Panoramax an jedem Kamerapunkt, Spielbild von der Fotoposition aus) → `preview/zone<N>_cmp_<tag>_*.jpg`; Fotos via `pipeline/photos/fetch_z1.py`. Ad-hoc-Bögen: `web/tests/spot_shots.mjs`.
+- **Foto | Spiel:** `pipeline/zones/zone_cmp.py <N> <tag>` (Foto von Mapillary/Panoramax an jedem Kamerapunkt, Spielbild von der Fotoposition aus) → `preview/zone<N>_cmp_<tag>_*.jpg`; Fotos via `pipeline/photos/fetch_zone_cams.py <N>`. Ad-hoc-Bögen: `web/tests/spot_shots.mjs`.
 - **Fassaden:** Notizen 378 → 520, Geschosse 106 → 354 (von 944 Adressen), Achsen 34 → 39; Farben Rasputin/Monroe korrigiert. **Läden:** 430 inventarisiert, 15 Fronten (Markise/Aussensitze), keine Umbenennung ohne Quelle (`research/zones/zone1_*`).
 - **Noten** Ø 2.8 → 2.9 (Ziel 4 nicht erreicht), Tickets Z1-1…6: `research/qa_round/z1_night3.md`.
 **Lehren (Ergänzung zu den Lehren unten):**
@@ -16,6 +25,9 @@ Zone-1-Kacheln (24) neu gebaut (`logs/build_z1.log`, 0 Fehler, 15 min), Weltdate
 8. Neue Foto-Abrufe pro Zone brauchen eigene ID-Offsets (`facades_z1_fetch.py` 1.1/1.2/1.3 Mio.), sonst liefert der Cache die Treffer einer anderen Zone.
 9. `timeout` gibt es auf macOS nicht (rc 127) – Tests ohne `timeout` starten.
 10. Nach `merge.py` immer `apply_names.py` (sonst geht «Ni-Una-Menos-Platz» in landmarks.json verloren).
+11. Mapillary-GPS/Heading liegen oft 10–30 m bzw. 20° daneben: Ecken-Abgleich über die Fotopose trifft oft das falsche Haus (Zone 4: 77 Ecken → nur ~15 sichere Fixes). Hausweise nur mit Adress-Label im Bild oder zwei sich deckenden Fotos.
+12. Automatische Fassadenfarbe aus Mapillary bringt nichts (#60); Hand-Hex sind heller/gesättigter als die Fotos (idealisiert), passt aber zum Spiel-Look.
+13. `merge_notes --fields` kann Farben korrigieren: optionale 5. Spalte `#rrggbb`; mehrere `fields_<zn>*.tsv` pro Zone erlaubt (je Agent eine Datei).
 **Nächste Nacht:** Zone 5 (Kreis 9 West) laut `docs/NIGHT_PLAN.md`; vorher Z1-Tickets nur wenn Zeit. Lehre 6 einplanen: Agents an Kamerapunkten arbeiten lassen statt flächig Notizen sammeln.
 
 ## Linien (Auftrag L, 19.10.)

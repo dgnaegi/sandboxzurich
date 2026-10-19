@@ -125,12 +125,13 @@ ZONES = [
 
 # camera points per zone, from docs/NIGHT_PLAN.md. (label, query)
 CAMS = {
+    # Zone 4: points that showed only a wall/pole fixed by hand 2026-10-19 (perron dropped: canopies over the cutting)
     4: [("Idaplatz Mitte", "^Idaplatz$"), ("Idaplatz Nord/Zurlindenstrasse", "X:Zurlindenstrasse|Idastrasse"), ("Idastrasse Süd", "S:Idastrasse"),
         ("Bertastrasse", "S:Bertastrasse"), ("Gertrudstrasse", "S:Gertrudstrasse"), ("Aemtler-/Wiesendangerstrasse", "S:Wiesendangerstrasse"),
-        ("Zentralstrasse", "S:Zentralstrasse"), ("Zurlindenstrasse West", "S:Zurlindenstrasse"), ("Zurlindenstrasse Ost", "X:Zurlindenstrasse|Zentralstrasse"),
-        ("Thomasweg/Martastrasse", "S:Thomasweg"), ("Schmiede Wiedikon", "Schmiede Wiedikon"), ("Bahnhof Wiedikon Vorplatz", "H:Bahnhof Wiedikon"),
-        ("Bahnhof Wiedikon Perron", "^(Zürich )?Wiedikon$"), ("Goldbrunnenplatz", "^Goldbrunnenplatz"), ("Friedhof Sihlfeld Haupteingang", "Friedhof Sihlfeld|Sihlfeld.*Friedhof"),
-        ("Ortsmuseum Wiedikon", "Ortsmuseum Wiedikon"), ("Kalkbreite", (340, -1170))],
+        ("Zentralstrasse", "S:Zentralstrasse"), ("Zurlindenstrasse West", "S:Zurlindenstrasse"), ("Zurlindenstrasse Ost", (30, -1190, -2.2)),
+        ("Thomasweg/Martastrasse", "S:Thomasweg"), ("Schmiede Wiedikon", (265, -1562, 1.57)), ("Bahnhof Wiedikon Vorplatz", (455, -1441, 1.17)),
+        ("Goldbrunnenplatz", "^Goldbrunnenplatz"), ("Friedhof Sihlfeld Haupteingang", "Friedhof Sihlfeld|Sihlfeld.*Friedhof"),
+        ("Ortsmuseum Wiedikon", (239, -1732, 3.14)), ("Kalkbreite", (355, -1094, 2.77))],
     # Zone 1: manual points (x, y[, yaw]); the name queries hit wrong places (HB node at the platform tips, Volkshaus roof), checked 2026-10-19
     1: [("Bahnhofplatz (Escher)", (1765, -770, 0.37)), ("HB-Halle", (1763, -656, 1.94)), ("Querhalle", (1728, -641, 0.37)),
         ("Europaallee/Lagerstrasse", (1330, -560, 2.1)), ("Sihlpost", (1382, -812, 0.43)), ("Haltestelle Bahnhofplatz/HB", (1700, -748, 1.2)),

@@ -2,7 +2,7 @@
 into research/buildings/visual_notes_v3.json (read by pipeline/visual_overrides.load_v3 -> build_testarea) and into research/zones/zone4_facades.json.
 Only adds addresses that have no note yet (existing, photo-checked notes win). Idempotent. Re-run after pipeline/photos/facades_notes.py (it rewrites v3 from its own TSVs).
 Usage: python pipeline/zones/merge_notes.py [--dry]
-       python pipeline/zones/merge_notes.py --fields [--dry]   # supplement existing notes from z4/fields_z4.tsv (addr|geschosse|achsen|details): sets geschosse/achsen, unions details, keeps everything else"""
+       python pipeline/zones/merge_notes.py --fields [--dry]   # supplement existing notes from z4/fields_z4.tsv (addr|geschosse|achsen|details[|hex]): sets geschosse/achsen, unions details, keeps everything else"""
 import json, re, sys
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -65,16 +65,17 @@ def main(dry):
     json.dump(zf, open(Z / ZF, "w"), ensure_ascii=False, indent=1)
 def fields(dry):
     vn = json.load(open(V3)); zf = json.load(open(Z / ZF)); n = 0
-    for ln in (Z / f"{ZN}/fields_{ZN}.tsv").read_text().splitlines():
+    for ln in [l for ff in sorted((Z / ZN).glob(f"fields_{ZN}*.tsv")) for l in ff.read_text().splitlines()]:   # fields_<zn>.tsv + per-agent fields_<zn>_<area>.tsv
         if not ln.strip() or ln.startswith("#"): continue
-        a, g, ax, ex = [x.strip() for x in ln.split("|")]
+        a, g, ax, ex, *rest = [x.strip() for x in ln.split("|")]   # optional 5th column: hex correction from a photo (#rrggbb)
         if a not in vn: print("no note for", a); continue
         v = vn[a]
         if g: v["geschosse"] = int(g)
         if ax: v["achsen"] = int(ax)
+        if rest and re.fullmatch(r"#[0-9a-fA-F]{6}", rest[0]): v["hex"] = rest[0].lower()
         d = list(v.get("details", [])) + [EXT[c] for c in ex if EXT[c] not in v.get("details", [])]
         if d: v["details"] = d
-        if a in zf["entries"]: zf["entries"][a].update({k: v[k] for k in ("geschosse", "achsen", "details") if k in v})
+        if a in zf["entries"]: zf["entries"][a].update({k: v[k] for k in ("geschosse", "achsen", "details", "hex") if k in v})
         n += 1
     print(n, "entries supplemented")
     if dry: return

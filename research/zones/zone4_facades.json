@@ -2690,6 +2690,19 @@
     -1493
    ]
   },
+  "Elisabethenstrasse 43": {
+   "hex": "#d8d5dc",
+   "material": "putz",
+   "laeden": "rot",
+   "rahmen": "dunkel",
+   "dach": "flach",
+   "stil": "gewerbe",
+   "notiz": "hellgrauer Putz, Stahlfenster-Raster, Gewerbebau am Tramdepot (Foto Kalkbreite #44)",
+   "xy": [
+    348,
+    -1131
+   ]
+  },
   "Gertrudstrasse 106": {
    "hex": "#d8b078",
    "material": "putz",
@@ -2756,7 +2769,7 @@
    ]
   },
   "Gertrudstrasse 26": {
-   "hex": "#d8cf9a",
+   "hex": "#e8dcc0",
    "material": "putz",
    "rahmen": "weiss",
    "dach": "flach",
@@ -2766,6 +2779,10 @@
    "xy": [
     -51,
     -1129
+   ],
+   "geschosse": 6,
+   "details": [
+    "mansarde"
    ]
   },
   "Gertrudstrasse 27": {
@@ -2913,7 +2930,7 @@
    ]
   },
   "Gertrudstrasse 50": {
-   "hex": "#d8c8a8",
+   "hex": "#e0be72",
    "material": "putz",
    "rahmen": "weiss",
    "stil": "gruenderzeit",
@@ -2921,6 +2938,19 @@
    "xy": [
     -145,
     -1215
+   ]
+  },
+  "Gertrudstrasse 54": {
+   "hex": "#c8584a",
+   "material": "putz",
+   "fenster": "hoch",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "notiz": "lachsroter Putz, Laden im EG (Fotos #29/#30 Gertrud-/Aemtlerstrasse)",
+   "quelle": "panoramax:33d7d5e3-0625-48c1-9996-bc2e133d6206",
+   "xy": [
+    -172,
+    -1235
    ]
   },
   "Gertrudstrasse 56": {
@@ -4560,6 +4590,21 @@
     -1392
    ]
   },
+  "Kehlhofstrasse 15": {
+   "hex": "#e8d2c4",
+   "material": "putz",
+   "rahmen": "weiss",
+   "dach": "flach",
+   "stil": "70er",
+   "details": [
+    "balkon"
+   ],
+   "notiz": "blassrosa Putz, Balkone, weisse Rahmen (Foto Schmiede #52)",
+   "xy": [
+    227,
+    -1641
+   ]
+  },
   "Martastrasse 116": {
    "hex": "#e8b890",
    "material": "putz",
@@ -5359,6 +5404,18 @@
     -910
    ]
   },
+  "Wiesendangerstrasse 18": {
+   "hex": "#dca898",
+   "material": "putz",
+   "laeden": "gruen",
+   "rahmen": "weiss",
+   "stil": "heimatstil",
+   "notiz": "rosa Putz, grüne Läden (Foto Wiesendangerstrasse #0, unsicher)",
+   "xy": [
+    -312,
+    -1271
+   ]
+  },
   "Wiesendangerstrasse 2": {
    "hex": "#e6dcc0",
    "material": "putz",
@@ -5598,8 +5655,22 @@
     -991
    ]
   },
+  "Zentralstrasse 138": {
+   "hex": "#cdc4ba",
+   "material": "putz",
+   "fenster": "band",
+   "dach": "flach",
+   "stil": "60er",
+   "geschosse": 8,
+   "notiz": "graubeiger 60er-Jahre-Bau mit Fensterband und Blumenkaesten, dunkle Arkade mit beleuchtetem Eingang im EG, rosa Kopfwand",
+   "quelle": "panoramax:671c72c4-ce73-407e-ab1f-10eb73694bb3",
+   "xy": [
+    -86,
+    -969
+   ]
+  },
   "Zentralstrasse 140": {
-   "hex": "#ded6c2",
+   "hex": "#cdc4ba",
    "material": "putz",
    "fenster": "bogen",
    "rahmen": "weiss",
@@ -6408,7 +6479,7 @@
    ]
   },
   "Zurlindenstrasse 193": {
-   "hex": "#c4c48c",
+   "hex": "#e4dc90",
    "material": "putz",
    "rahmen": "weiss",
    "stil": "gruenderzeit",
@@ -6417,6 +6488,10 @@
    "xy": [
     -97,
     -1127
+   ],
+   "geschosse": 8,
+   "details": [
+    "rustika"
    ]
   },
   "Zurlindenstrasse 21": {
@@ -6466,19 +6541,21 @@
    ]
   },
   "Zurlindenstrasse 214": {
-   "hex": "#d0ccc0",
+   "hex": "#e6b87c",
    "material": "putz",
    "rahmen": "weiss",
    "stil": "gruenderzeit",
    "details": [
-    "gesims"
+    "gesims",
+    "erker"
    ],
    "notiz": "weissgrau verputzt, Gesims",
    "quelle": "mapillary:701705072419211",
    "xy": [
     -144,
     -1036
-   ]
+   ],
+   "geschosse": 7
   },
   "Zurlindenstrasse 215": {
    "hex": "#cdc7b8",

@@ -1,0 +1,7 @@
+{
+ "_meta": "Zone 4 Sued/Ost, Eckenabgleich 2026-10-19 (pipeline/zones/corners_south.py). Format wie storefronts_z4.json; src Pflicht.",
+ "352860119": {
+  "src": "Mapillary 2127401074409843 (fcignat 2025), 937388784130986 (Yha1 2023): Migros Birmensdorferstrasse 140, orange Schrift auf dunkelgrauem Band",
+  "v": {"b": "#3d3936", "f": "#f26a1b", "s": "box"}
+ }
+}

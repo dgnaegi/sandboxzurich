@@ -271,8 +271,28 @@ def sign_rows(area, H, nodes=None, els=None):
             continue
         seen.append(r)
         out.append(r)
+    out = _mly_hook(out, area, H)
     print("traffic signs:", len(out), ", ".join(f"{k} {v}" for k, v in Counter(r[4] for r in out).most_common(20)))
     return out
+
+
+def _mly_hook(out, area, H, radius=15.0):
+    """SBZ_MLY_SIGNS=1: real Mapillary signs (pipeline/overrides/mly_signs.json, built by mapillary_features.py build)
+    replace derived signs of the same code within `radius` m. Default off."""
+    import json
+    import os
+    from pathlib import Path
+    if os.environ.get("SBZ_MLY_SIGNS") != "1":
+        return out
+    f = Path(__file__).resolve().parent / "overrides" / "mly_signs.json"
+    if not f.exists():
+        return out
+    x0, y0, x1, y1 = area
+    mly = [m for m in json.load(open(f))["signs"] if x0 <= m["x"] < x1 and y0 <= m["y"] < y1 and m.get("h") is not None]
+    keep = [r for r in out if not any(r[4] == m["code"] and math.hypot(r[0] - m["x"], r[1] - m["y"]) <= radius for m in mly)]
+    new = [[m["x"], m["y"], round(float(H.at(m["x"], m["y"])), 2), round(m["h"], 3), m["code"]] for m in mly]
+    print(f"mapillary signs: +{len(new)}, replaced {len(out) - len(keep)} derived")
+    return keep + new
 
 
 def signal_rows(area, H, nodes=None, els=None):

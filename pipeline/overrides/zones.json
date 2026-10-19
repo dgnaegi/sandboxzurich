@@ -595,8 +595,9 @@
     },
     {
      "name": "Zurlindenstrasse Ost",
-     "x": 42.8,
-     "y": -1200.1
+     "x": 30,
+     "y": -1190,
+     "yaw": -2.2
     },
     {
      "name": "Thomasweg/Martastrasse",
@@ -605,18 +606,15 @@
     },
     {
      "name": "Schmiede Wiedikon",
-     "x": 138.7,
-     "y": -1562.2
+     "x": 265,
+     "y": -1562,
+     "yaw": 1.57
     },
     {
      "name": "Bahnhof Wiedikon Vorplatz",
-     "x": 563.0,
-     "y": -1399.7
-    },
-    {
-     "name": "Bahnhof Wiedikon Perron",
-     "x": 422.8,
-     "y": -1301.1
+     "x": 455,
+     "y": -1441,
+     "yaw": 1.17
     },
     {
      "name": "Goldbrunnenplatz",
@@ -630,13 +628,15 @@
     },
     {
      "name": "Ortsmuseum Wiedikon",
-     "x": 235.8,
-     "y": -1760.9
+     "x": 239,
+     "y": -1732,
+     "yaw": 3.14
     },
     {
      "name": "Kalkbreite",
-     "x": 340,
-     "y": -1170
+     "x": 355,
+     "y": -1094,
+     "yaw": 2.77
     }
    ],
    "unresolved": []

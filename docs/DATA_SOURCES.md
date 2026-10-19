@@ -12,6 +12,7 @@ Jede Quelle, die ins Spiel einfliesst, steht hier mit Lizenz. Neue Quellen zuers
 | Stadt Zürich Open Data (data.stadt-zuerich.ch) | Stadtkreise, Velovorzugsrouten, Velonetz, Baumkataster, Brunnen, Tempo-30-Zonen, Parkplätze u.a. | Meist CC0 oder CC BY, **pro Datensatz prüfen** |
 | amtliche Gebäudeadressen (GWR / swisstopo) | Hausnummern | OGD, Quellenangabe |
 | Mapillary | Strassenfotos als Referenz, eventuell Texturen | CC BY-SA 4.0, Namensnennung |
+| Mapillary Map Features (Graph API `map_features`, Schilder-Positionen/-Klassen aus Objekterkennung) | Position und Klasse echter Verkehrsschilder (`pipeline/mapillary_features.py`, `pipeline/overrides/mly_signs.json`); keine Bilder, nur Koordinaten und Klassen | CC BY-SA 4.0 (Mapillary-Daten inkl. abgeleiteter Map Features, https://www.mapillary.com/terms und https://www.mapillary.com/developer/api-documentation), Namensnennung «© Mapillary-Mitwirkende, CC BY-SA 4.0», Share-Alike gilt für die abgeleitete Datei mly_signs.json |
 | Panoramax | Strassenfotos | meist CC BY-SA, pro Bild prüfen |
 | Wikimedia Commons | Fotos von Landmarks | pro Bild, siehe `../gta6/research/credits*` (lokal) |
 | Eigene Fotos des Users | Fassaden, Läden | frei |

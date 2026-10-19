@@ -213,3 +213,12 @@ Keine dauerhaften Marktbuden, Kioske oder Weihnachtsbaum in der Halle. Die Bogen
 
 ## #59 – 2026-10-19 – Zonen-Kamerapunkte von Hand, mit Blickrichtung
 Die Namensabfragen in `pipeline/zones.py` trafen in Zone 1 falsche Orte (HB-Knoten am Perronende, Kamera im Volkshausdach, Sihlpost/Haltestelle daneben). Zone 1 nutzt jetzt Koordinaten aus geprüften Spawn-Orten, Adressen und OSM-Haltestellen, mit optionalem `yaw` (0 = Nord, π/2 = Ost). Vor jeder Zonen-Nacht die Vorher-Aufnahmen auf Fehlplatzierungen prüfen.
+
+## #60 – 2026-10-19 – Keine automatische Fassadenfarbe aus Mapillary
+Prototyp `pipeline/autofacade/` (Posen aus Mapillary, LOD2-Wände ins Bild projiziert, Lab-Median): gegen 436 von Hand gelesene Farben ΔE2000-Median 10.5 kalibriert, die konstante Durchschnittsfarbe schafft 11.0. Die Rangkorrelation ist schwach (0.15–0.3). Ursache ist die Pose (kein Pitch/Roll, GPS 10–30 m), nicht die Farbmessung. Nicht übernommen; Farben bleiben Handnotizen. Ein neuer Versuch lohnt sich nur mit Posen-Refinement oder Segmentierung (`research/autofacade/RESULT.txt`).
+
+## #61 – 2026-10-19 – Mapillary-Verkehrsschilder nur als Ergänzung, standardmässig aus
+`pipeline/mapillary_features.py` → `pipeline/overrides/mly_signs.json` (CC BY-SA 4.0), Hook `SBZ_MLY_SIGNS=1` in `traffic_signs.py`. Zone 4: 168 Schilder ab 2022, nur 11 decken sich mit den OSM-abgeleiteten (603). Die Abdeckung beschränkt sich auf Cluster an den Hauptachsen. Grösster Gewinn: Vortritt (44), Rad-/Fussweg, Halteverbot. Einschalten erst nach Sichtprüfung auf Testkacheln (`research/mapillary_features.md`).
+
+## #62 – 2026-10-19 – Keine erfundenen Baugerüste mehr
+`props.construction` setzte pro Kachel bis zu 6 Gerüste mit Bauzaun an Hauptstrassen (Hash-Auswahl, ohne Datengrundlage) und Gerüste an Gebäuden mit swissBUILDINGS3D-Status «Im Bau» (Stand 2019). Gefunden am Goldbrunnenplatz: Foto 2024/25 ohne Baustelle, im Spiel mit Bauzaun. Ab jetzt nur noch echte Baustellen (OGD Tief-/Hochbau, OSM, `sites.scaffold_rows`). Mit `SBZ_DECOR_SCAFFOLD=1` lässt sich das alte Verhalten wiederherstellen. Wirkt pro Kachel nach dem Neubau.

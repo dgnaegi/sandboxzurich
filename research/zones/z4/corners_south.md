@@ -1,0 +1,79 @@
+# Zone 4 Süd/Ost – Eckenabgleich Foto | Spiel (2026-10-19)
+Werkzeug: `pipeline/zones/corners_south_collect.py` (Kandidaten), `corners_south.py pick|shoot|sheets|view` (59 Ecken, 9 Gruppen). Bögen `preview/z4s_corner_w1..w8.jpg` (alle 59), Einzelbilder `preview/z4s_corner_shots/`. Foto-Positionen sind GPS/Heading-genau auf ca. 10-30 m/20°: Hausvergleiche nur wo zwei Fotos übereinstimmen.
+## Fixes (angewendet)
+- Notizen `research/zones/z4/notes_raw_z4_cs_001.tsv`: Gertrudstrasse 54 (lachsrot, Fotos #29 Panoramax b762da0f, #30 Mapillary 1095116275536249), Wiesendangerstrasse 18 (rosa, unsicher, #0). In v3/zone4_facades gemerged (facades_notes + merge z4/z1/z2 gelaufen, 0 Verluste).
+- Laden `storefronts_z4s.json`: Migros Birmensdorferstrasse 140 (OSM n352860119): graues Band, orange Schrift (#57 Mapillary 2127401074409843, #58 937388784130986).
+- `places_detail_z4s.json` leer, `markings_z4s.json` leer (begründet unten).
+## Liste für Hauptsession: falsche bestehende Farben (Adresse, alt, neu, Foto)
+- Gertrudstrasse 50 (Restaurant-Eckhaus, Efeu): #d8c8a8 -> ockergelb ~#e0be72 (#30 Mapillary 1095116275536249)
+- Aemtlerstrasse 48 / Gertrudstrasse 47 (grosses Eckhaus links in #26): #e2c9a0 / #dcc090 -> sattes Gelb ~#e4cc66 (Mapillary-Foto #26, mittlere Sicherheit)
+## Tickets (Code, Kachel-Build oder Dateien ausserhalb meiner Zuständigkeit)
+- T-S1 `targets.json` (z4) um **Kehlhofstrasse 15** und **Elisabethenstrasse 43** erweitern (merge_notes lehnt sie als «unknown addr» ab). Zeilen stehen fertig in `notes_raw_z4_cs_001.tsv`. Kehlhofstr. 15: im Spiel graue Rauputz-Fassade, Foto #52 blassrosa Putz mit Balkonen. Elisabethenstr. 43 (Bürogebäude, Tramdepot Kalkbreite): im Spiel dunkle Glasfassade, Foto #44 hellgrauer Putz mit Stahlfenstern.
+- T-S2 **Aufnahmegebäude Bahnhof Wiedikon** (Birmensdorferstr./Seebahnstr., Fotos #18/#19): Spiel ockergelb mit grossen weissen Fenstern, Foto cremeweiss (~#e6e0cc), hohe Bogenfenster mit dunklem Rahmen, Schrift «ZÜRICH WIEDIKON». Gebäude ohne Adresse (GWR 74/76 sind 21-m²-Kioske) -> Override in `overrides/buildings.json` oder Landmark.
+- T-S3 **Goldbrunnenplatz**: im Spiel liegt eine OGD-Baustelle (Sperrzaun «Durchgang gesperrt», #32-#37) über dem Platz; Fotos (2024/25) zeigen keinen Zaun. Prüfen, ob die Baustelle 2026 echt ist (sites.py/OGD Tiefbau). Glasdach-Wartehalle und Haltestellenobjekte nicht ergänzt, kein Punkt-Beleg (VBZ-OGD hat dort keine Wartehalle).
+- T-S4 **Rote Velostreifen** (Birmensdorferstr. vor Goldbrunnenplatz #32/#33, Schmiede #52 mit weissen Pfeilen, Bhf Wiedikon/Haltestelle): im Foto rot, im Spiel nur Asphalt; `markings_override` kennt nur gelb/weiss -> Farbfläche «rot» in markings_override/Kachel-Build nötig.
+- T-S5 **Aemtlerstrasse/Zurlindenstrasse** Tram-Haltestelle mit Glasdach ~(-204,-1174) (#3): OGD hat keine Wartehalle im Umkreis 60 m, Spiel zeigt generischen Satz. Position nur grob -> nicht gesetzt.
+- T-S6 Kalkbreite: braune Mosaikkachel-Wand der Tramhalle (#43) und Kalkbreitestr. 2 (hell, im Spiel dunkel) ohne Adress-Notiz/Target.
+- T-S7 Friedhof Sihlfeld: Haupteingang (Sandstein-Arkadenportal, Fotos #20/#21) im Spielbild nicht klar erkennbar, Fotos-Heading ungenau. Gesonderte Prüfung am Kamerapunkt (-405,-939).
+## Bestätigt (Foto = Spiel)
+- Kirche Wiedikon (Schlossgasse 10, gelb, Bogenfenster), Baustelle Guter Zotti Gotthelfstr. (#50/#51), blaue Zone/weisse Parkfelder (#13, #51), Migros-Uhrmast Schmiede (#58), Birmensdorferstr. Kreuzungen/Fussgängerstreifen, Gertrud-/Aemtlerstr. Farbpalette weitgehend richtig.
+## Ecken im Protokoll (Id, Gruppe, Strassen, Foto, Befund)
+- #0 Aemtler/Wiesendangerstr (-268,-1275) Rotachstrasse/Wiesendangerstrasse: panoramax captaininler https://panoramax.openstreetmap.fr/#focus=pic&pic=2b013d85-88d9-4284-a7fc-07a182df0f35
+- #1 Aemtler/Wiesendangerstr (-266,-1280) Rotachstrasse/Wiesendangerstrasse: panoramax captaininler https://panoramax.openstreetmap.fr/#focus=pic&pic=d9eb6b53-e24f-4b4a-92f4-ab8be5faee49
+- #2 Aemtler/Wiesendangerstr (-245,-1236) Wiesendangerstrasse: mapillary fcignat https://www.mapillary.com/app/?pKey=633365199365509
+- #3 Aemtler/Wiesendangerstr (-212,-1150) Aemtlerstrasse/Bertastrasse: mapillary  https://www.mapillary.com/app/?pKey=1438592550744683
+- #4 Aemtler/Wiesendangerstr (-204,-1162) Aemtlerstrasse/Wiesendangerstrasse: mapillary  https://www.mapillary.com/app/?pKey=635786319314874
+- #5 Aemtler/Wiesendangerstr (-201,-1169) Aemtlerstrasse/Wiesendangerstrasse: mapillary  https://www.mapillary.com/app/?pKey=755845470396102
+- #6 Bhf Wiedikon (448,-1409) -: mapillary Lezurex https://www.mapillary.com/app/?pKey=1770001684165574
+- #7 Bhf Wiedikon (486,-1379) Seebahnstrasse: mapillary Yha1 https://www.mapillary.com/app/?pKey=1000415864777893
+- #8 Bhf Wiedikon (497,-1408) Seebahnstrasse/Schimmelstrasse: mapillary Yha1 https://www.mapillary.com/app/?pKey=256620280178968
+- #9 Bhf Wiedikon (513,-1426) Seebahnstrasse/Schimmelstrasse/Birmensdorferstrasse: mapillary Yha1 https://www.mapillary.com/app/?pKey=993995998718362
+- #10 Bhf Wiedikon (515,-1426) Seebahnstrasse/Schimmelstrasse/Birmensdorferstrasse: mapillary Yha1 https://www.mapillary.com/app/?pKey=3581150905532049
+- #11 Bhf Wiedikon (521,-1417) Schimmelstrasse/Seebahnstrasse: mapillary canadarunner https://www.mapillary.com/app/?pKey=1888383511308854
+- #12 Bhf Wiedikon (530,-1438) Seebahnstrasse/Birmensdorferstrasse/Schimmelstrasse: mapillary fcignat https://www.mapillary.com/app/?pKey=3574926589423072
+- #13 Birmensdorferstr (-91,-1494) Rotachstrasse/Birmensdorferstrasse: panoramax captaininler https://panoramax.openstreetmap.fr/#focus=pic&pic=4930169b-2b2b-4585-9e7e-1f4fb344194b
+- #14 Birmensdorferstr (-90,-1492) Rotachstrasse/Birmensdorferstrasse: panoramax captaininler https://panoramax.openstreetmap.fr/#focus=pic&pic=5f174414-9b56-47bd-b9e5-65ad4194e8f8
+- #15 Birmensdorferstr (99,-1500) Birmensdorferstrasse/Bremgartnerstrasse: panoramax captaininler https://panoramax.openstreetmap.fr/#focus=pic&pic=56548def-97c0-4557-9c5c-aa33cc86516d
+- #16 Birmensdorferstr (542,-1444) Birmensdorferstrasse/Schimmelstrasse/Seebahnstrasse: mapillary  https://www.mapillary.com/app/?pKey=301134763014325
+- #17 Birmensdorferstr (561,-1448) Schimmelstrasse/Birmensdorferstrasse/Seebahnstrasse: mapillary  https://www.mapillary.com/app/?pKey=233373702968938
+- #18 Birmensdorferstr (583,-1444) Schimmelstrasse/Birmensdorferstrasse: mapillary  https://www.mapillary.com/app/?pKey=7299243146780750
+- #19 Birmensdorferstr (595,-1443) Schimmelstrasse/Birmensdorferstrasse: mapillary  https://www.mapillary.com/app/?pKey=722174459905596
+- #20 Friedhof Sihlfeld (-436,-915) Aemtlerstrasse/Zypressenstrasse: mapillary  https://www.mapillary.com/app/?pKey=1200444471620520
+- #21 Friedhof Sihlfeld (-427,-923) Aemtlerstrasse/Zypressenstrasse: mapillary  https://www.mapillary.com/app/?pKey=1376345243601298
+- #22 Friedhof Sihlfeld (-409,-892) Zypressenstrasse: panoramax  https://api.panoramax.xyz/#focus=pic&pic=3f671a62-ce1f-43a2-a583-3059df771b5e
+- #23 Friedhof Sihlfeld (-395,-950) Aemtlerstrasse: panoramax  https://api.panoramax.xyz/#focus=pic&pic=15e451ac-6aff-426d-bfdb-36cea900870c
+- #24 Gertrudstrasse (-188,-1186) Aemtlerstrasse/Wiesendangerstrasse: mapillary  https://www.mapillary.com/app/?pKey=1134555928525253
+- #25 Gertrudstrasse (-175,-1201) Aemtlerstrasse: mapillary fcignat https://www.mapillary.com/app/?pKey=1052055800425635
+- #26 Gertrudstrasse (-169,-1210) Aemtlerstrasse: mapillary  https://www.mapillary.com/app/?pKey=1205545644785506
+- #27 Gertrudstrasse (-161,-1224) Aemtlerstrasse/Gertrudstrasse: mapillary fcignat https://www.mapillary.com/app/?pKey=24798216613199777
+- #28 Gertrudstrasse (-148,-1235) Gertrudstrasse/Aemtlerstrasse: panoramax captaininler https://api.panoramax.xyz/#focus=pic&pic=69374138-1b2b-41d6-bd92-30c009874642
+- #29 Gertrudstrasse (-145,-1236) Gertrudstrasse/Aemtlerstrasse: panoramax captaininler https://api.panoramax.xyz/#focus=pic&pic=b762da0f-a888-4a4b-a31b-8353e0710f40
+- #30 Gertrudstrasse (-133,-1255) Aemtlerstrasse: mapillary fcignat https://www.mapillary.com/app/?pKey=1095116275536249
+- #31 Goldbrunnenplatz (-248,-1532) Goldbrunnenstrasse/Birmensdorferstrasse: mapillary  https://www.mapillary.com/app/?pKey=1685286495207843
+- #32 Goldbrunnenplatz (-247,-1548) Birmensdorferstrasse/Goldbrunnenstrasse: mapillary  https://www.mapillary.com/app/?pKey=1306295124290932
+- #33 Goldbrunnenplatz (-238,-1554) Birmensdorferstrasse/Goldbrunnenstrasse: mapillary  https://www.mapillary.com/app/?pKey=1562958478050036
+- #34 Goldbrunnenplatz (-221,-1554) Goldbrunnenstrasse/Birmensdorferstrasse/Kalkbreitestrasse: mapillary  https://www.mapillary.com/app/?pKey=1705655253401572
+- #35 Goldbrunnenplatz (-190,-1516) Kalkbreitestrasse/Birmensdorferstrasse/Saumstrasse: panoramax  https://api.panoramax.xyz/#focus=pic&pic=5385759f-3599-4285-8de5-fb56a6bb3a3c
+- #36 Goldbrunnenplatz (-176,-1507) Kalkbreitestrasse/Saumstrasse/Birmensdorferstrasse: panoramax  https://api.panoramax.xyz/#focus=pic&pic=618f9153-2685-4cd4-ad83-f427b52eff84
+- #37 Goldbrunnenplatz (-127,-1532) Schrennengasse/Birmensdorferstrasse: mapillary  https://www.mapillary.com/app/?pKey=1074629600533564
+- #38 Kalkbreite (299,-1040) Badenerstrasse/Feldstrasse: mapillary lto https://www.mapillary.com/app/?pKey=228878399825829
+- #39 Kalkbreite (306,-1137) Kalkbreitestrasse/Urselweg: mapillary Harshali https://www.mapillary.com/app/?pKey=885587194481065
+- #40 Kalkbreite (309,-1149) Kalkbreitestrasse: mapillary fcignat https://www.mapillary.com/app/?pKey=9142991835785522
+- #41 Kalkbreite (312,-1116) Kalkbreitestrasse: panoramax captaininler https://panoramax.openstreetmap.fr/#focus=pic&pic=790f6f13-68d9-4e07-8074-e65e8989d0b5
+- #42 Kalkbreite (320,-1124) Kalkbreitestrasse: panoramax captaininler https://panoramax.openstreetmap.fr/#focus=pic&pic=91d1288c-5cd6-48b0-bfd2-9e80450b690f
+- #43 Kalkbreite (342,-1097) Elisabethenstrasse/Kalkbreitestrasse: mapillary ahojnnes https://www.mapillary.com/app/?pKey=762719716320587
+- #44 Kalkbreite (346,-1101) Kalkbreitestrasse/Elisabethenstrasse: mapillary  https://www.mapillary.com/app/?pKey=287386149608058
+- #45 Ortsmuseum (247,-1716) Steinstrasse/Gotthelfstrasse/Schlossgasse: mapillary fcignat https://www.mapillary.com/app/?pKey=1478326376847678
+- #46 Ortsmuseum (251,-1733) Steinstrasse/Gotthelfstrasse/Wuhrstrasse: mapillary  https://www.mapillary.com/app/?pKey=601252372919161
+- #47 Ortsmuseum (255,-1723) Steinstrasse/Gotthelfstrasse/Wuhrstrasse: mapillary  https://www.mapillary.com/app/?pKey=1380540560410102
+- #48 Ortsmuseum (257,-1753) Steinstrasse/Gotthelfstrasse: mapillary  https://www.mapillary.com/app/?pKey=1707497073171234
+- #49 Ortsmuseum (273,-1724) Gotthelfstrasse/Wuhrstrasse/Steinstrasse: panoramax  https://api.panoramax.xyz/#focus=pic&pic=0108452a-623e-46bb-aee8-3ba5738dc644
+- #50 Ortsmuseum (301,-1715) Gotthelfstrasse: panoramax paulb_imagery https://panoramax.openstreetmap.fr/#focus=pic&pic=59e117ee-cb55-4ff1-89bb-1c65502221d4
+- #51 Ortsmuseum (304,-1720) Gotthelfstrasse: panoramax paulb_imagery https://panoramax.openstreetmap.fr/#focus=pic&pic=bcaec1e7-78e1-44a3-9f3a-b87c449a8b6c
+- #52 Schmiede (230,-1624) -: mapillary fcignat https://www.mapillary.com/app/?pKey=1308164040716663
+- #53 Schmiede (253,-1624) -: mapillary endszbrxns https://www.mapillary.com/app/?pKey=305151184469338
+- #54 Schmiede (257,-1538) Zurlindenstrasse: mapillary Yha1 https://www.mapillary.com/app/?pKey=1398682097826166
+- #55 Schmiede (266,-1602) Schlossgasse: mapillary endszbrxns https://www.mapillary.com/app/?pKey=1891865957655756
+- #56 Schmiede (267,-1547) Zurlindenstrasse/Birmensdorferstrasse: mapillary fcignat https://www.mapillary.com/app/?pKey=1399982457308078
+- #57 Schmiede (281,-1578) Birmensdorferstrasse/Zurlindenstrasse/Schlossgasse: mapillary fcignat https://www.mapillary.com/app/?pKey=2127401074409843
+- #58 Schmiede (291,-1585) Zurlindenstrasse/Schlossgasse/Birmensdorferstrasse: mapillary Yha1 https://www.mapillary.com/app/?pKey=937388784130986

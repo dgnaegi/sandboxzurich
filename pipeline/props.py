@@ -1,5 +1,6 @@
 """Placed objects for a tile: parked cars, suspended street lamps, signs, walk paths, road mask."""
 import base64
+import os
 
 import numpy as np
 import shapely
@@ -397,7 +398,11 @@ def graffiti(blank_segs, used, tb, main_dist):
 
 def construction(blds, segs, tb, main_dist, n_extra=6):
     """Facade scaffolding: every building marked «Im Bau» (max 6 per tile) plus facades on main streets (>= 70 m apart).
-    Real sites (OGD/OSM) are added by sites.scaffold_rows(). Rows [x, y, z, tx, ty, width, height]."""
+    Real sites (OGD/OSM) are added by sites.scaffold_rows(). Rows [x, y, z, tx, ty, width, height].
+    Off by default since 2026-10-19 (decision #62): the hash-picked main-street scaffolds were invented and «Im Bau» comes from
+    swissBUILDINGS3D 2019 (long finished). SBZ_DECOR_SCAFFOLD=1 restores the old decoration."""
+    if os.environ.get("SBZ_DECOR_SCAFFOLD") != "1":
+        return []
     out = []
     cand = [s for s in segs if tb.contains(Point(s["x"], s["y"]))]
     building_ids = {b["id"] for b in blds if b.get("type") == "Im Bau"}
