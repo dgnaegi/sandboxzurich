@@ -7,6 +7,14 @@ from shapely.geometry import Polygon, box
 
 from mesh import tri3d
 import facade_trim
+def _v4log(*a):
+    if os.environ.get("SBZ_V4_LOG"):
+        with open(os.environ["SBZ_V4_LOG"], "a") as f:
+            f.write(json.dumps(a, default=str) + "\n")
+
+
+V4 = os.environ.get("SBZ_FACADES_V4", "1") != "0"  # facade v4: note-driven floors / axes / rustika EG / bands / dormers (research/facades_v4.md)
+PITCH_ALT = 3.3  # window axis spacing of Gründerzeit fronts (m); other houses keep 3.0
 from styles import LAYER_NAME, h32, roof_override, BAY_W, FLOOR_H, LAYER, SHOP_H, building_style, shop_layer
 
 
@@ -47,7 +55,7 @@ def _tri2d(poly):
     return xy, t
 
 
-def _wall(mesh, a, n, tint, layer, z0, shop, shop_lay, tile_h=FLOOR_H, shop_at=None):
+def _wall(mesh, a, n, tint, layer, z0, shop, shop_lay, tile_h=FLOOR_H, shop_at=None, pitch=3.0, rustika=None):
     """Vertical wall: map to (u metres, z), split at the shop line, add with facade UVs."""
     nh = np.array([n[0], n[1]]) / np.hypot(n[0], n[1])
     t = np.array([-nh[1], nh[0]])  # right-hand direction when facing the wall
@@ -58,7 +66,7 @@ def _wall(mesh, a, n, tint, layer, z0, shop, shop_lay, tile_h=FLOOR_H, shop_at=N
         return None
     u0, _, u1, _ = P.bounds
     width = max(u1 - u0, 0.1)
-    bays = max(1, round(width / 3.0))
+    bays = max(1, round(width / pitch))
     su = bays / 4.0 / width  # texture repeats per metre, integer number of bays
     nrm = np.array([nh[0], nh[1], 0.0])
     parts = []
@@ -79,9 +87,16 @@ def _wall(mesh, a, n, tint, layer, z0, shop, shop_lay, tile_h=FLOOR_H, shop_at=N
         parts.append((P.difference(low), layer, z0 + SHOP_H, tile_h, tint))
     else:
         # darker plinth zone (Sockel) like on real Zürich houses, same texture continues above
-        plinth = P.intersection(box(u0 - 1, z0 - 50, u1 + 1, z0 + 0.7))
-        parts.append((plinth, layer, z0, tile_h, tuple(np.array(tint) * 0.68)))
-        parts.append((P.difference(plinth), layer, z0, tile_h, tint))
+        if rustika:  # rusticated ground floor (notes: details 'rustika'): stone-coloured EG, darker plinth, plaster above
+            eg = P.intersection(box(u0 - 1, z0 - 50, u1 + 1, z0 + rustika[0]))
+            plinth = P.intersection(box(u0 - 1, z0 - 50, u1 + 1, z0 + 0.7))
+            parts.append((plinth, layer, z0, tile_h, tuple(np.array(rustika[1]) * 0.8)))
+            parts.append((eg.difference(plinth), layer, z0, tile_h, rustika[1]))
+            parts.append((P.difference(eg), layer, z0, tile_h, tint))
+        else:
+            plinth = P.intersection(box(u0 - 1, z0 - 50, u1 + 1, z0 + 0.7))
+            parts.append((plinth, layer, z0, tile_h, tuple(np.array(tint) * 0.68)))
+            parts.append((P.difference(plinth), layer, z0, tile_h, tint))
     for part in parts:
         geom, lay, zb, hv, col = part[:5]
         for poly in getattr(geom, "geoms", [geom]):
@@ -125,12 +140,28 @@ def add_building(mesh, b, street_dist, neighbour=lambda x, y: False):
     eave = float(np.percentile(tops, 40)) if tops else z0 + height
     avail = max(2.6, eave - z0 - (SHOP_H if shop_ok else 0.0))
     floors = max(1, round(avail / 3.1))
+    vis = osm.get("_visual") or {}
+    v3 = vis.get("v3") or {}
+    ext = [str(e) for e in (v3.get("ext") or [])] if V4 and vis.get("photo") else []
+
+    def plausible(f):  # storey height 2.6-4.6 m from the real eave height
+        return f >= 1 and 2.6 <= avail / f <= 4.6
+
     try:  # GWR floors (official) or OSM building:levels (above ground, incl. ground floor) beat guessing
         lv = int(float((osm.get("_gwr") or {}).get("floors") or osm.get("building:levels", "")))
-        if 1 <= lv <= 40:
+        if 1 <= lv <= 40 and (not V4 or plausible(max(1, lv - (1 if shop_ok else 0)))):
             floors = max(1, lv - (1 if shop_ok else 0))
+        elif V4 and v3.get("floors") and plausible(max(1, int(v3["floors"]) - (1 if shop_ok else 0))):
+            floors = max(1, int(v3["floors"]) - (1 if shop_ok else 0))  # photo-counted floors when the register has none / is off
     except ValueError:
         pass
+    if V4 and v3.get("floors") and not (osm.get("_gwr") or {}).get("floors") and not osm.get("building:levels"):
+        try:
+            nf = max(1, int(v3["floors"]) - (1 if shop_ok else 0))
+            if plausible(nf):
+                floors = nf
+        except (TypeError, ValueError):
+            pass
     tile_h = 4 * avail / floors
     lname = LAYER_NAME.get(layer, "")
     trim = lname.startswith(("g3_", "k3_"))          # v3 Altbau: eave cornice (+ bay windows when the notes say so)
@@ -138,6 +169,35 @@ def add_building(mesh, b, street_dist, neighbour=lambda x, y: False):
     n_erker = 0
     segs = []
     k = 0
+    pitch = PITCH_ALT if (V4 and trim) else 3.0
+    axes = v3.get("axes") if V4 and vis.get("photo") else None
+    if axes:  # photo-counted window axes of the main front -> axis spacing on every wall of the house
+        try:
+            axes = int(axes)
+            best = 0.0
+            for kd, aa in b["polys"]:
+                if kd != 1:
+                    continue
+                rr = tri3d(aa[:-1] if np.allclose(aa[0], aa[-1]) else aa)
+                if rr is None or abs(rr[2][2]) >= 0.3:
+                    continue
+                tt = np.array([-rr[2][1], rr[2][0]])
+                uu = aa[:, :2] @ tt / max(np.hypot(*tt), 1e-6)
+                mm = aa[:, :2].mean(0)
+                if street_dist(mm[0] + rr[2][0] * 3, mm[1] + rr[2][1] * 3) < 14 and aa[:, 2].min() < z0 + 1.5:
+                    best = max(best, float(uu.max() - uu.min()))
+            if axes >= 2 and best > 4:
+                pitch = float(np.clip(best / axes, 2.2, 6.0))
+        except (TypeError, ValueError):
+            pass
+    egh = tile_h / 4.0 if not shop_ok else SHOP_H
+    rustika = None
+    if "rustika" in ext and not shop_ok:
+        c = np.array(tint, float)
+        rustika = (min(egh, 3.6), tuple(int(v) for v in np.clip(c * 0.55 + np.array([196, 184, 164]) * 0.45 * (c.mean() / 230), 0, 255)))
+    _v4log("b", b["id"], vis.get("photo"), bool(v3), osm.get("addr:street"), osm.get("addr:housenumber"), floors, round(pitch, 2), bool(rustika), ext, shop_ok, round(avail / floors, 2))
+    band = V4 and ("gesims" in ext or "rustika" in ext) and floors >= 3
+    trim_failed = False
     for kind, a in b["polys"]:
         if kind == 0:
             continue
@@ -168,8 +228,10 @@ def add_building(mesh, b, street_dist, neighbour=lambda x, y: False):
                     px, py = mid[0] + (((hh >> 5) % 100) / 100 - 0.5) * 6 * -n[1], mid[1] + (((hh >> 5) % 100) / 100 - 0.5) * 6 * n[0]
                 flip = nt.get("d") == "corner" and ((hh >> 3) & 1) or (nt.get("d") != "corner" and (hh >> 3) % 4 == 0)
                 shop_at = (px, py, wmax, bool(flip))
-            seg = _wall(mesh, a, n, tint, LAYER.get("brandmauer", layer) if party else layer, z0, shop, shop_layer(b["id"], k, kind, nt.get("w")), tile_h, shop_at)
+            seg = _wall(mesh, a, n, tint, LAYER.get("brandmauer", layer) if party else layer, z0, shop, shop_layer(b["id"], k, kind, nt.get("w")), tile_h, shop_at, pitch, None if party else rustika)
             k += 1
+            if band and seg and not party and seg[5] > 3.0:  # Stockwerkband over the ground floor
+                facade_trim.band(mesh, seg, z0 + (SHOP_H if shop_ok else egh), tuple(min(255, c * 1.06) for c in tint))
             if trim and seg and not party and seg[5] > 3.0:
                 facade_trim.cornice(mesh, seg, eave, tuple(min(255, c * 1.04) for c in tint))
                 if want_erker and n_erker < 2 and floors >= 4 and street_dist(mid[0] + n[0] * 3, mid[1] + n[1] * 3) < 14:
@@ -202,6 +264,10 @@ def add_building(mesh, b, street_dist, neighbour=lambda x, y: False):
                     roof_tint = roof_override(osm) or ROOF_TINTS[h32(b["id"] + "r") % len(ROOF_TINTS)]  # tiles vary
                     mesh.add(pts, tri, n, roof_tint, uv=uv, layer=LAYER["roof_tiles"])
                 roof_area = 0.5 * np.linalg.norm(np.cross(pts[tri[:, 1]] - pts[tri[:, 0]], pts[tri[:, 2]] - pts[tri[:, 0]]), axis=1).sum()
+                if V4 and ("gauben" in ext or "mansarde" in ext) and roof_area > 25 and not trim_failed:
+                    _v4log("dormer-try", b["id"], round(float(n[2]), 2), round(roof_area))
+                    facade_trim.dormers(mesh, pts, n, tint, layer, (96, 92, 94), pitch,
+                                        lambda x, y: street_dist(x, y) < 16)
                 if roof_area > 35 and (h32(b["id"]) + k) % 3 != 0:
                     chimney(mesh, pts, k + h32(b["id"]))
             else:
