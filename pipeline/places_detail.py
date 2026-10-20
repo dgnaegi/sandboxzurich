@@ -28,6 +28,7 @@ MAT = {
     "asphalt": ("asphalt", (255, 255, 255)), "pave": ("cobble", (255, 255, 255)), "sidewalk": ("sidewalk", (255, 255, 255)),
     "grass": ("grass", (255, 255, 255)), "gravel": ("roof_flat", (225, 214, 190)), "mergel": ("roof_flat", (214, 190, 150)),
     "concrete": ("sidewalk", (214, 212, 206)), "granite": ("white", (150, 148, 144)), "plain": ("white", (200, 200, 200)),
+    "red": ("white", (168, 78, 62)),   # red asphalt (paths/bike areas, e.g. Westpark); same tone family as ground_paint.RED
 }
 
 

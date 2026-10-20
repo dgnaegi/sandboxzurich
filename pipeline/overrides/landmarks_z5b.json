@@ -1,0 +1,142 @@
+{
+ "landmarks": [
+  {
+   "name": "Altstetterstrasse 150 beiges Ladenhaus",
+   "model": "/models/landmarks/z5b_altst150.glb",
+   "x": -2291.0,
+   "y": 348.2,
+   "z": -8.57,
+   "heading": 0,
+   "hide": [
+    [
+     -2300.7,
+     319.0
+    ],
+    [
+     -2289.9,
+     351.7
+    ]
+   ]
+  },
+  {
+   "name": "Altstetterstrasse 152 beiges Ladenhaus",
+   "model": "/models/landmarks/z5b_altst152.glb",
+   "x": -2296.6,
+   "y": 329.8,
+   "z": -8.19,
+   "heading": 0,
+   "hide": [
+    [
+     -2296.6,
+     329.8
+    ]
+   ]
+  },
+  {
+   "name": "Badenerstrasse 672 Eckhaus rotes Dach",
+   "model": "/models/landmarks/z5b_baden672.glb",
+   "x": -2287.3,
+   "y": 405.0,
+   "z": -9.6,
+   "heading": 0,
+   "hide": [
+    [
+     -2288.7,
+     394.0
+    ],
+    [
+     -2287.8,
+     405.7
+    ]
+   ]
+  },
+  {
+   "name": "Altstetterstrasse 149 graues Wohnhaus",
+   "model": "/models/landmarks/z5b_altst149.glb",
+   "x": -2252.5,
+   "y": 343.9,
+   "z": -8.35,
+   "heading": 0,
+   "hide": [
+    [
+     -2252.5,
+     343.7
+    ]
+   ]
+  },
+  {
+   "name": "Altstetterstrasse 147 graues Wohnhaus",
+   "model": "/models/landmarks/z5b_altst147.glb",
+   "x": -2257.5,
+   "y": 330.1,
+   "z": -8.9,
+   "heading": 0,
+   "hide": [
+    [
+     -2258.1,
+     328.9
+    ]
+   ]
+  },
+  {
+   "name": "Hohlstrasse 459 Buerohaus Letzipark",
+   "model": "/models/landmarks/z5b_hohl_letzi.glb",
+   "x": -1372.4,
+   "y": 367.7,
+   "z": -10.97,
+   "heading": 0,
+   "hide": [
+    [
+     -1427.5,
+     367.8
+    ]
+   ]
+  },
+  {
+   "name": "Flurstrasse 2 weisses Balkonhaus",
+   "model": "/models/landmarks/z5b_flur_block.glb",
+   "x": -1506.7,
+   "y": 417.6,
+   "z": -10.54,
+   "heading": 0,
+   "hide": [
+    [
+     -1507.5,
+     418.3
+    ]
+   ]
+  },
+  {
+   "name": "Badenerstrasse 681 Spirgarten/Coop",
+   "model": "/models/landmarks/z5b_spirgarten.glb",
+   "x": -2370.2,
+   "y": 355.4,
+   "z": -8.63,
+   "heading": 0,
+   "hide": [
+    [
+     -2374.0,
+     352.7
+    ],
+    [
+     -2388.8,
+     334.1
+    ]
+   ]
+  },
+  {
+   "name": "Hohlstrasse Backsteinfabrik",
+   "model": "/models/landmarks/z5b_hohl_brick.glb",
+   "x": -1376.1,
+   "y": 449.3,
+   "z": -10.33,
+   "heading": 0,
+   "hide": [
+    [
+     -1373.6,
+     450.4
+    ]
+   ]
+  }
+ ]
+}

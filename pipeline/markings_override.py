@@ -24,15 +24,16 @@ def _load():
 
 
 def _zones():
-    """Per-zone overrides overrides/markings_z<N>.json (add_yellow / add_white / cut polygons, decals [x, y, heading, kind]); additive."""
+    """Per-zone overrides overrides/markings_z<N>.json (add_yellow / add_white / add_red / cut polygons, decals [x, y, heading, kind]); additive.
+    add_red = red bike surfaces the ortho detection missed (drawn by ground_paint.paint)."""
     if "z" not in _C:
-        z = {k: [] for k in ("add_yellow", "add_white", "cut", "decals")}
+        z = {k: [] for k in ("add_yellow", "add_white", "add_red", "cut", "decals")}
         for f in sorted(F.parent.glob("markings_z[0-9]*.json")):
             j = json.load(open(f))
             for k in z:
                 z[k] += j.get(k, [])
         P = lambda rs: shapely.union_all([Polygon(r).buffer(0) for r in rs]) if rs else None
-        _C["z"] = {**{"_" + k: P(z[k]) for k in ("add_yellow", "add_white", "cut")}, "decals": z["decals"]}
+        _C["z"] = {**{"_" + k: P(z[k]) for k in ("add_yellow", "add_white", "add_red", "cut")}, "decals": z["decals"]}
     return _C["z"]
 
 
@@ -78,3 +79,9 @@ def decals(rows, tb, H, curb=0.12):
         if tb.contains(Point(x, y)):
             out.append([x, y, round(float(H.at(x, y)) - curb + 0.012, 3), h, k])
     return out
+
+
+def red_extra(tb, roads):
+    """Hand-measured red surfaces from markings_z*.json add_red, clipped to the tile's carriageway (+0.3 m)."""
+    r = _zones()["_add_red"]
+    return None if r is None else r.intersection(roads.buffer(0.3)).intersection(tb)

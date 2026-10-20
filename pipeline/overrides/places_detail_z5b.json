@@ -1,0 +1,12 @@
+{
+ "places": [
+  {
+   "id": "lindenplatz_z5b",
+   "center": [-2328, 354],
+   "src": "SWISSIMAGE 2022 (cobbled market square between Spirgarten block, Altstetterstrasse 150/152 and the Badenerstrasse tram street, with trees and market stalls); Commons Welti_Spirgarten (CC BY-SA 3.0): grey granite setts with smooth slab strips; research/zones/z5/area_linden.md",
+   "ground": [
+    {"rect": [0, 0, 38, 48, 0], "mat": "pave", "lift": 0.04, "uv": 2.5}
+   ]
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "_meta": "Zone 5 Lindenplatz (agent z5b, 2026-10-20). Format wie storefronts_z4.json; key = OSM node id; src Pflicht.",
+ "2028881218": {
+  "src": "Mapillary 498123644871495 (2015, CC BY-SA 4.0): Coop Lindenplatz, Badenerstrasse 681, orange coop-Logo auf dunklem Band, grosse Schaufenster",
+  "v": {"b": "#3d3a38", "f": "#f26b21", "s": "box", "w": "gross"}
+ },
+ "1701730818": {
+  "src": "Commons 'UBS Bank Branch in Badenerstrasse 678 Altstetten Zuerich' (2019): dunkelgruene/schwarze Portalfassung, rotes UBS-Logo auf dunklem Grund, kleines Fenster",
+  "v": {"b": "#1b2420", "f": "#e60000", "s": "box", "w": "klein"}
+ }
+}

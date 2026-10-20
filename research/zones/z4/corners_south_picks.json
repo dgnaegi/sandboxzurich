@@ -1,0 +1,1173 @@
+[
+{
+"file": "data/raw/photos/tiles/-2_-7/pano_2b013d85_88d9_4284_a7fc_07a182df0f35.jpg",
+"x": -267.8,
+"y": -1274.9,
+"h": 310,
+"year": null,
+"src": "panoramax",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=2b013d85-88d9-4284-a7fc-07a182df0f35",
+"near": "Aemtler/Wiesendangerstr",
+"id": 0,
+"gx": -270.9,
+"gy": -1272.3,
+"yaw": 5.41,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c000.jpg",
+"streets": [
+"Rotachstrasse",
+"Wiesendangerstrasse"
+]
+},
+{
+"file": "data/raw/photos/tiles/-2_-7/pano_d9eb6b53_e24f_4b4a_92f4_ab8be5faee49.jpg",
+"x": -266.3,
+"y": -1279.8,
+"h": 131,
+"year": null,
+"src": "panoramax",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=d9eb6b53-e24f-4b4a-92f4-ab8be5faee49",
+"near": "Aemtler/Wiesendangerstr",
+"id": 1,
+"gx": -263.3,
+"gy": -1282.4,
+"yaw": 2.29,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c001.jpg",
+"streets": [
+"Rotachstrasse",
+"Wiesendangerstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_aemtler_wiesendangerstrasse/ml_633365199365509.jpg",
+"x": -245.0,
+"y": -1235.8,
+"h": 11.420217599272,
+"year": 2025,
+"src": "mapillary",
+"author": "fcignat",
+"url": "https://www.mapillary.com/app/?pKey=633365199365509",
+"near": "Aemtler/Wiesendangerstr",
+"id": 2,
+"gx": -244.2,
+"gy": -1231.9,
+"yaw": 0.2,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c002.jpg",
+"streets": [
+"Wiesendangerstrasse"
+]
+},
+{
+"file": "data/raw/photos/ida/ida_aemtler/ml_1438592550744683.jpg",
+"x": -211.5,
+"y": -1149.6,
+"h": 146.33037931601,
+"year": 2025,
+"src": "mapillary",
+"author": null,
+"url": "https://www.mapillary.com/app/?pKey=1438592550744683",
+"near": "Aemtler/Wiesendangerstr",
+"id": 3,
+"gx": -209.3,
+"gy": -1152.9,
+"yaw": 2.55,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c003.jpg",
+"streets": [
+"Aemtlerstrasse",
+"Bertastrasse"
+]
+},
+{
+"file": "data/raw/photos/ida/ida_zurlinden_w/ml_635786319314874.jpg",
+"x": -204.3,
+"y": -1162.3,
+"h": 327.97066881713,
+"year": 2025,
+"src": "mapillary",
+"author": null,
+"url": "https://www.mapillary.com/app/?pKey=635786319314874",
+"near": "Aemtler/Wiesendangerstr",
+"id": 4,
+"gx": -206.4,
+"gy": -1158.9,
+"yaw": 5.72,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c004.jpg",
+"streets": [
+"Aemtlerstrasse",
+"Wiesendangerstrasse"
+]
+},
+{
+"file": "data/raw/photos/ida/ida_aemtler/ml_755845470396102.jpg",
+"x": -201.0,
+"y": -1169.3,
+"h": 143.09262472109,
+"year": 2025,
+"src": "mapillary",
+"author": null,
+"url": "https://www.mapillary.com/app/?pKey=755845470396102",
+"near": "Aemtler/Wiesendangerstr",
+"id": 5,
+"gx": -198.6,
+"gy": -1172.5,
+"yaw": 2.5,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c005.jpg",
+"streets": [
+"Aemtlerstrasse",
+"Wiesendangerstrasse"
+]
+},
+{
+"file": "data/raw/photos/v3/wiedikon_platz/ml_1770001684165574.jpg",
+"x": 448.5,
+"y": -1409.0,
+"h": 67.364,
+"year": null,
+"src": "mapillary",
+"author": "Lezurex",
+"url": "https://www.mapillary.com/app/?pKey=1770001684165574",
+"near": "Bhf Wiedikon",
+"id": 6,
+"gx": 452.2,
+"gy": -1407.5,
+"yaw": 1.18,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c006.jpg",
+"streets": []
+},
+{
+"file": "data/raw/photos/v3/wiedikon_platz/ml_1000415864777893.jpg",
+"x": 485.7,
+"y": -1379.1,
+"h": 208.46570324898,
+"year": null,
+"src": "mapillary",
+"author": "Yha1",
+"url": "https://www.mapillary.com/app/?pKey=1000415864777893",
+"near": "Bhf Wiedikon",
+"id": 7,
+"gx": 483.8,
+"gy": -1382.6,
+"yaw": 3.64,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c007.jpg",
+"streets": [
+"Seebahnstrasse"
+]
+},
+{
+"file": "data/raw/photos/v3/wiedikon_platz/ml_256620280178968.jpg",
+"x": 496.7,
+"y": -1408.2,
+"h": 256.03362751007,
+"year": null,
+"src": "mapillary",
+"author": "Yha1",
+"url": "https://www.mapillary.com/app/?pKey=256620280178968",
+"near": "Bhf Wiedikon",
+"id": 8,
+"gx": 492.8,
+"gy": -1409.2,
+"yaw": 4.47,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c008.jpg",
+"streets": [
+"Seebahnstrasse",
+"Schimmelstrasse"
+]
+},
+{
+"file": "data/raw/photos/v3/wiedikon_platz/ml_993995998718362.jpg",
+"x": 513.3,
+"y": -1426.2,
+"h": 284.31629323959,
+"year": null,
+"src": "mapillary",
+"author": "Yha1",
+"url": "https://www.mapillary.com/app/?pKey=993995998718362",
+"near": "Bhf Wiedikon",
+"id": 9,
+"gx": 509.4,
+"gy": -1425.2,
+"yaw": 4.96,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c009.jpg",
+"streets": [
+"Seebahnstrasse",
+"Schimmelstrasse",
+"Birmensdorferstrasse"
+]
+},
+{
+"file": "data/raw/photos/squares2/bhf_wiedikon_platz/ml_3581150905532049.jpg",
+"x": 515.0,
+"y": -1426.5,
+"h": 54.43749666214,
+"year": null,
+"src": "mapillary",
+"author": "Yha1",
+"url": "https://www.mapillary.com/app/?pKey=3581150905532049",
+"near": "Bhf Wiedikon",
+"id": 10,
+"gx": 518.3,
+"gy": -1424.2,
+"yaw": 0.95,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c010.jpg",
+"streets": [
+"Seebahnstrasse",
+"Schimmelstrasse",
+"Birmensdorferstrasse"
+]
+},
+{
+"file": "data/raw/photos/v3/wiedikon_platz/ml_1888383511308854.jpg",
+"x": 521.2,
+"y": -1417.2,
+"h": 307.97212347902,
+"year": null,
+"src": "mapillary",
+"author": "canadarunner",
+"url": "https://www.mapillary.com/app/?pKey=1888383511308854",
+"near": "Bhf Wiedikon",
+"id": 11,
+"gx": 518.0,
+"gy": -1414.7,
+"yaw": 5.38,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c011.jpg",
+"streets": [
+"Schimmelstrasse",
+"Seebahnstrasse"
+]
+},
+{
+"file": "data/raw/photos/v3/wiedikon_platz/ml_3574926589423072.jpg",
+"x": 529.9,
+"y": -1438.4,
+"h": 291.15885738518,
+"year": null,
+"src": "mapillary",
+"author": "fcignat",
+"url": "https://www.mapillary.com/app/?pKey=3574926589423072",
+"near": "Bhf Wiedikon",
+"id": 12,
+"gx": 526.2,
+"gy": -1437.0,
+"yaw": 5.08,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c012.jpg",
+"streets": [
+"Seebahnstrasse",
+"Birmensdorferstrasse",
+"Schimmelstrasse"
+]
+},
+{
+"file": "data/raw/photos/tiles/-1_-8/pano_4930169b_2b2b_4585_9e7e_1f4fb344194b.jpg",
+"x": -91.2,
+"y": -1493.7,
+"h": 129,
+"year": null,
+"src": "panoramax",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=4930169b-2b2b-4585-9e7e-1f4fb344194b",
+"near": "Birmensdorferstr",
+"id": 13,
+"gx": -88.1,
+"gy": -1496.2,
+"yaw": 2.25,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c013.jpg",
+"streets": [
+"Rotachstrasse",
+"Birmensdorferstrasse"
+]
+},
+{
+"file": "data/raw/photos/tiles/-1_-8/pano_5f174414_9b56_47bd_b9e5_65ad4194e8f8.jpg",
+"x": -90.0,
+"y": -1492.2,
+"h": 308,
+"year": null,
+"src": "panoramax",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=5f174414-9b56-47bd-b9e5-65ad4194e8f8",
+"near": "Birmensdorferstr",
+"id": 14,
+"gx": -93.2,
+"gy": -1489.7,
+"yaw": 5.38,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c014.jpg",
+"streets": [
+"Rotachstrasse",
+"Birmensdorferstrasse"
+]
+},
+{
+"file": "data/raw/photos/tiles/0_-8/pano_56548def_97c0_4557_9c5c_aa33cc86516d.jpg",
+"x": 98.9,
+"y": -1499.8,
+"h": 56,
+"year": null,
+"src": "panoramax",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=56548def-97c0-4557-9c5c-aa33cc86516d",
+"near": "Birmensdorferstr",
+"id": 15,
+"gx": 102.2,
+"gy": -1497.6,
+"yaw": 0.98,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c015.jpg",
+"streets": [
+"Birmensdorferstrasse",
+"Bremgartnerstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_bahnhof_vp/ml_301134763014325.jpg",
+"x": 542.4,
+"y": -1443.5,
+"h": 46.437570333481,
+"year": 2024,
+"src": "mapillary",
+"author": null,
+"url": "https://www.mapillary.com/app/?pKey=301134763014325",
+"near": "Birmensdorferstr",
+"id": 16,
+"gx": 545.3,
+"gy": -1440.7,
+"yaw": 0.81,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c016.jpg",
+"streets": [
+"Birmensdorferstrasse",
+"Schimmelstrasse",
+"Seebahnstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_bahnhof_vp/ml_233373702968938.jpg",
+"x": 560.9,
+"y": -1447.6,
+"h": 360.31643438339,
+"year": 2023,
+"src": "mapillary",
+"author": null,
+"url": "https://www.mapillary.com/app/?pKey=233373702968938",
+"near": "Birmensdorferstr",
+"id": 17,
+"gx": 560.9,
+"gy": -1443.6,
+"yaw": 6.29,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c017.jpg",
+"streets": [
+"Schimmelstrasse",
+"Birmensdorferstrasse",
+"Seebahnstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_bahnhof_vp/ml_7299243146780750.jpg",
+"x": 583.0,
+"y": -1443.6,
+"h": 335.07106351852,
+"year": 2024,
+"src": "mapillary",
+"author": null,
+"url": "https://www.mapillary.com/app/?pKey=7299243146780750",
+"near": "Birmensdorferstr",
+"id": 18,
+"gx": 581.3,
+"gy": -1440.0,
+"yaw": 5.85,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c018.jpg",
+"streets": [
+"Schimmelstrasse",
+"Birmensdorferstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_bahnhof_vp/ml_722174459905596.jpg",
+"x": 594.7,
+"y": -1442.8,
+"h": 314.37955585267,
+"year": 2024,
+"src": "mapillary",
+"author": null,
+"url": "https://www.mapillary.com/app/?pKey=722174459905596",
+"near": "Birmensdorferstr",
+"id": 19,
+"gx": 591.8,
+"gy": -1440.0,
+"yaw": 5.49,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c019.jpg",
+"streets": [
+"Schimmelstrasse",
+"Birmensdorferstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_friedhof/ml_1200444471620520.jpg",
+"x": -435.9,
+"y": -914.8,
+"h": 127.35385571552,
+"year": 2025,
+"src": "mapillary",
+"author": null,
+"url": "https://www.mapillary.com/app/?pKey=1200444471620520",
+"near": "Friedhof Sihlfeld",
+"id": 20,
+"gx": -432.7,
+"gy": -917.2,
+"yaw": 2.22,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c020.jpg",
+"streets": [
+"Aemtlerstrasse",
+"Zypressenstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_friedhof/ml_1376345243601298.jpg",
+"x": -427.0,
+"y": -923.0,
+"h": 126.20804651187,
+"year": 2025,
+"src": "mapillary",
+"author": null,
+"url": "https://www.mapillary.com/app/?pKey=1376345243601298",
+"near": "Friedhof Sihlfeld",
+"id": 21,
+"gx": -423.8,
+"gy": -925.4,
+"yaw": 2.2,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c021.jpg",
+"streets": [
+"Aemtlerstrasse",
+"Zypressenstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_friedhof/px_3f671a62-ce1.jpg",
+"x": -409.1,
+"y": -891.5,
+"h": 218,
+"year": 2024,
+"src": "panoramax",
+"author": null,
+"url": "https://api.panoramax.xyz/#focus=pic&pic=3f671a62-ce1f-43a2-a583-3059df771b5e",
+"near": "Friedhof Sihlfeld",
+"id": 22,
+"gx": -411.6,
+"gy": -894.7,
+"yaw": 3.8,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c022.jpg",
+"streets": [
+"Zypressenstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_friedhof/px_15e451ac-6af.jpg",
+"x": -395.3,
+"y": -950.5,
+"h": 302,
+"year": 2024,
+"src": "panoramax",
+"author": null,
+"url": "https://api.panoramax.xyz/#focus=pic&pic=15e451ac-6aff-426d-bfdb-36cea900870c",
+"near": "Friedhof Sihlfeld",
+"id": 23,
+"gx": -398.7,
+"gy": -948.4,
+"yaw": 5.27,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c023.jpg",
+"streets": [
+"Aemtlerstrasse"
+]
+},
+{
+"file": "data/raw/photos/ida/ida_aemtler/ml_1134555928525253.jpg",
+"x": -187.9,
+"y": -1186.0,
+"h": 326.26051553652,
+"year": 2025,
+"src": "mapillary",
+"author": null,
+"url": "https://www.mapillary.com/app/?pKey=1134555928525253",
+"near": "Gertrudstrasse",
+"id": 24,
+"gx": -190.1,
+"gy": -1182.7,
+"yaw": 5.69,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c024.jpg",
+"streets": [
+"Aemtlerstrasse",
+"Wiesendangerstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_gertrudstrasse/ml_1052055800425635.jpg",
+"x": -174.6,
+"y": -1201.0,
+"h": 143.24480978682,
+"year": 2025,
+"src": "mapillary",
+"author": "fcignat",
+"url": "https://www.mapillary.com/app/?pKey=1052055800425635",
+"near": "Gertrudstrasse",
+"id": 25,
+"gx": -172.2,
+"gy": -1204.2,
+"yaw": 2.5,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c025.jpg",
+"streets": [
+"Aemtlerstrasse"
+]
+},
+{
+"file": "data/raw/photos/ida/ida_aemtler/ml_1205545644785506.jpg",
+"x": -169.0,
+"y": -1210.1,
+"h": 323.26654408894,
+"year": 2025,
+"src": "mapillary",
+"author": null,
+"url": "https://www.mapillary.com/app/?pKey=1205545644785506",
+"near": "Gertrudstrasse",
+"id": 26,
+"gx": -171.4,
+"gy": -1206.9,
+"yaw": 5.64,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c026.jpg",
+"streets": [
+"Aemtlerstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_gertrudstrasse/ml_24798216613199777.jpg",
+"x": -161.2,
+"y": -1223.8,
+"h": 134.95637231172,
+"year": 2025,
+"src": "mapillary",
+"author": "fcignat",
+"url": "https://www.mapillary.com/app/?pKey=24798216613199777",
+"near": "Gertrudstrasse",
+"id": 27,
+"gx": -158.4,
+"gy": -1226.6,
+"yaw": 2.36,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c027.jpg",
+"streets": [
+"Aemtlerstrasse",
+"Gertrudstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_gertrudstrasse/px_69374138-1b2.jpg",
+"x": -148.0,
+"y": -1234.6,
+"h": 225,
+"year": 2024,
+"src": "panoramax",
+"author": "captaininler",
+"url": "https://api.panoramax.xyz/#focus=pic&pic=69374138-1b2b-41d6-bd92-30c009874642",
+"near": "Gertrudstrasse",
+"id": 28,
+"gx": -150.8,
+"gy": -1237.4,
+"yaw": 3.93,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c028.jpg",
+"streets": [
+"Gertrudstrasse",
+"Aemtlerstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_gertrudstrasse/px_b762da0f-a88.jpg",
+"x": -145.0,
+"y": -1235.6,
+"h": 316,
+"year": 2024,
+"src": "panoramax",
+"author": "captaininler",
+"url": "https://api.panoramax.xyz/#focus=pic&pic=b762da0f-a888-4a4b-a31b-8353e0710f40",
+"near": "Gertrudstrasse",
+"id": 29,
+"gx": -147.8,
+"gy": -1232.7,
+"yaw": 5.52,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c029.jpg",
+"streets": [
+"Gertrudstrasse",
+"Aemtlerstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_gertrudstrasse/ml_1095116275536249.jpg",
+"x": -132.7,
+"y": -1254.7,
+"h": 323.45053901047,
+"year": 2025,
+"src": "mapillary",
+"author": "fcignat",
+"url": "https://www.mapillary.com/app/?pKey=1095116275536249",
+"near": "Gertrudstrasse",
+"id": 30,
+"gx": -135.1,
+"gy": -1251.5,
+"yaw": 5.65,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c030.jpg",
+"streets": [
+"Aemtlerstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_goldbrunnen/ml_1685286495207843.jpg",
+"x": -248.4,
+"y": -1532.3,
+"h": 67.994232177734,
+"year": 2023,
+"src": "mapillary",
+"author": null,
+"url": "https://www.mapillary.com/app/?pKey=1685286495207843",
+"near": "Goldbrunnenplatz",
+"id": 31,
+"gx": -244.7,
+"gy": -1530.8,
+"yaw": 1.19,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c031.jpg",
+"streets": [
+"Goldbrunnenstrasse",
+"Birmensdorferstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_goldbrunnen/ml_1306295124290932.jpg",
+"x": -246.6,
+"y": -1547.8,
+"h": 78.067,
+"year": 2025,
+"src": "mapillary",
+"author": null,
+"url": "https://www.mapillary.com/app/?pKey=1306295124290932",
+"near": "Goldbrunnenplatz",
+"id": 32,
+"gx": -242.7,
+"gy": -1547.0,
+"yaw": 1.36,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c032.jpg",
+"streets": [
+"Birmensdorferstrasse",
+"Goldbrunnenstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_goldbrunnen/ml_1562958478050036.jpg",
+"x": -238.5,
+"y": -1553.5,
+"h": 78.607317863692,
+"year": 2025,
+"src": "mapillary",
+"author": null,
+"url": "https://www.mapillary.com/app/?pKey=1562958478050036",
+"near": "Goldbrunnenplatz",
+"id": 33,
+"gx": -234.6,
+"gy": -1552.7,
+"yaw": 1.37,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c033.jpg",
+"streets": [
+"Birmensdorferstrasse",
+"Goldbrunnenstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_goldbrunnen/ml_1705655253401572.jpg",
+"x": -220.8,
+"y": -1553.6,
+"h": 24.656591396427,
+"year": 2025,
+"src": "mapillary",
+"author": null,
+"url": "https://www.mapillary.com/app/?pKey=1705655253401572",
+"near": "Goldbrunnenplatz",
+"id": 34,
+"gx": -219.1,
+"gy": -1550.0,
+"yaw": 0.43,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c034.jpg",
+"streets": [
+"Goldbrunnenstrasse",
+"Birmensdorferstrasse",
+"Kalkbreitestrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_goldbrunnen/px_5385759f-359.jpg",
+"x": -189.6,
+"y": -1516.1,
+"h": 243,
+"year": 2024,
+"src": "panoramax",
+"author": null,
+"url": "https://api.panoramax.xyz/#focus=pic&pic=5385759f-3599-4285-8de5-fb56a6bb3a3c",
+"near": "Goldbrunnenplatz",
+"id": 35,
+"gx": -193.2,
+"gy": -1517.9,
+"yaw": 4.24,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c035.jpg",
+"streets": [
+"Kalkbreitestrasse",
+"Birmensdorferstrasse",
+"Saumstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_goldbrunnen/px_618f9153-268.jpg",
+"x": -175.6,
+"y": -1506.9,
+"h": 196,
+"year": 2025,
+"src": "panoramax",
+"author": null,
+"url": "https://api.panoramax.xyz/#focus=pic&pic=618f9153-2685-4cd4-ad83-f427b52eff84",
+"near": "Goldbrunnenplatz",
+"id": 36,
+"gx": -176.7,
+"gy": -1510.7,
+"yaw": 3.42,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c036.jpg",
+"streets": [
+"Kalkbreitestrasse",
+"Saumstrasse",
+"Birmensdorferstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_goldbrunnen/ml_1074629600533564.jpg",
+"x": -126.8,
+"y": -1532.2,
+"h": 250.97862526508,
+"year": 2023,
+"src": "mapillary",
+"author": null,
+"url": "https://www.mapillary.com/app/?pKey=1074629600533564",
+"near": "Goldbrunnenplatz",
+"id": 37,
+"gx": -130.6,
+"gy": -1533.5,
+"yaw": 4.38,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c037.jpg",
+"streets": [
+"Schrennengasse",
+"Birmensdorferstrasse"
+]
+},
+{
+"file": "data/raw/photos/v3/idaplatz_block/ml_228878399825829.jpg",
+"x": 299.3,
+"y": -1039.9,
+"h": 201.27908682823,
+"year": null,
+"src": "mapillary",
+"author": "lto",
+"url": "https://www.mapillary.com/app/?pKey=228878399825829",
+"near": "Kalkbreite",
+"id": 38,
+"gx": 297.8,
+"gy": -1043.6,
+"yaw": 3.51,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c038.jpg",
+"streets": [
+"Badenerstrasse",
+"Feldstrasse"
+]
+},
+{
+"file": "data/raw/photos/v3/idaplatz_block/ml_885587194481065.jpg",
+"x": 305.8,
+"y": -1136.7,
+"h": 346,
+"year": null,
+"src": "mapillary",
+"author": "Harshali",
+"url": "https://www.mapillary.com/app/?pKey=885587194481065",
+"near": "Kalkbreite",
+"id": 39,
+"gx": 304.8,
+"gy": -1132.8,
+"yaw": 6.04,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c039.jpg",
+"streets": [
+"Kalkbreitestrasse",
+"Urselweg"
+]
+},
+{
+"file": "data/raw/photos/v3/idaplatz_block/ml_9142991835785522.jpg",
+"x": 308.9,
+"y": -1149.2,
+"h": 353,
+"year": null,
+"src": "mapillary",
+"author": "fcignat",
+"url": "https://www.mapillary.com/app/?pKey=9142991835785522",
+"near": "Kalkbreite",
+"id": 40,
+"gx": 308.4,
+"gy": -1145.2,
+"yaw": 6.16,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c040.jpg",
+"streets": [
+"Kalkbreitestrasse"
+]
+},
+{
+"file": "data/raw/photos/tiles/1_-6/pano_790f6f13_68d9_4e07_8074_e65e8989d0b5.jpg",
+"x": 311.8,
+"y": -1115.5,
+"h": 247,
+"year": null,
+"src": "panoramax",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=790f6f13-68d9-4e07-8074-e65e8989d0b5",
+"near": "Kalkbreite",
+"id": 41,
+"gx": 308.1,
+"gy": -1117.1,
+"yaw": 4.31,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c041.jpg",
+"streets": [
+"Kalkbreitestrasse"
+]
+},
+{
+"file": "data/raw/photos/tiles/1_-6/pano_91d1288c_5cd6_48b0_bfd2_9e80450b690f.jpg",
+"x": 320.4,
+"y": -1123.8,
+"h": 65,
+"year": null,
+"src": "panoramax",
+"author": "captaininler",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=91d1288c-5cd6-48b0-bfd2-9e80450b690f",
+"near": "Kalkbreite",
+"id": 42,
+"gx": 324.0,
+"gy": -1122.1,
+"yaw": 1.13,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c042.jpg",
+"streets": [
+"Kalkbreitestrasse"
+]
+},
+{
+"file": "data/raw/photos/v3/idaplatz_block/ml_762719716320587.jpg",
+"x": 342.2,
+"y": -1096.8,
+"h": 286.48044709412,
+"year": null,
+"src": "mapillary",
+"author": "ahojnnes",
+"url": "https://www.mapillary.com/app/?pKey=762719716320587",
+"near": "Kalkbreite",
+"id": 43,
+"gx": 338.4,
+"gy": -1095.7,
+"yaw": 5.0,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c043.jpg",
+"streets": [
+"Elisabethenstrasse",
+"Kalkbreitestrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_kalkbreite/ml_287386149608058.jpg",
+"x": 346.2,
+"y": -1100.8,
+"h": 174,
+"year": 2015,
+"src": "mapillary",
+"author": null,
+"url": "https://www.mapillary.com/app/?pKey=287386149608058",
+"near": "Kalkbreite",
+"id": 44,
+"gx": 346.6,
+"gy": -1104.8,
+"yaw": 3.04,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c044.jpg",
+"streets": [
+"Kalkbreitestrasse",
+"Elisabethenstrasse"
+]
+},
+{
+"file": "data/raw/photos/v3/goldbrunnen/ml_1478326376847678.jpg",
+"x": 247.0,
+"y": -1715.6,
+"h": 155.86075915451,
+"year": null,
+"src": "mapillary",
+"author": "fcignat",
+"url": "https://www.mapillary.com/app/?pKey=1478326376847678",
+"near": "Ortsmuseum",
+"id": 45,
+"gx": 248.6,
+"gy": -1719.3,
+"yaw": 2.72,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c045.jpg",
+"streets": [
+"Steinstrasse",
+"Gotthelfstrasse",
+"Schlossgasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_ortsmuseum/ml_601252372919161.jpg",
+"x": 250.8,
+"y": -1732.7,
+"h": 176.84128748176,
+"year": 2025,
+"src": "mapillary",
+"author": null,
+"url": "https://www.mapillary.com/app/?pKey=601252372919161",
+"near": "Ortsmuseum",
+"id": 46,
+"gx": 251.0,
+"gy": -1736.7,
+"yaw": 3.09,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c046.jpg",
+"streets": [
+"Steinstrasse",
+"Gotthelfstrasse",
+"Wuhrstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_ortsmuseum/ml_1380540560410102.jpg",
+"x": 255.2,
+"y": -1723.2,
+"h": 180.40063875955,
+"year": 2025,
+"src": "mapillary",
+"author": null,
+"url": "https://www.mapillary.com/app/?pKey=1380540560410102",
+"near": "Ortsmuseum",
+"id": 47,
+"gx": 255.2,
+"gy": -1727.2,
+"yaw": 3.15,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c047.jpg",
+"streets": [
+"Steinstrasse",
+"Gotthelfstrasse",
+"Wuhrstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_ortsmuseum/ml_1707497073171234.jpg",
+"x": 257.4,
+"y": -1752.9,
+"h": 241,
+"year": 2025,
+"src": "mapillary",
+"author": null,
+"url": "https://www.mapillary.com/app/?pKey=1707497073171234",
+"near": "Ortsmuseum",
+"id": 48,
+"gx": 253.9,
+"gy": -1754.8,
+"yaw": 4.21,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c048.jpg",
+"streets": [
+"Steinstrasse",
+"Gotthelfstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_ortsmuseum/px_0108452a-623.jpg",
+"x": 272.9,
+"y": -1723.6,
+"h": 264,
+"year": 2024,
+"src": "panoramax",
+"author": null,
+"url": "https://api.panoramax.xyz/#focus=pic&pic=0108452a-623e-46bb-aee8-3ba5738dc644",
+"near": "Ortsmuseum",
+"id": 49,
+"gx": 268.9,
+"gy": -1724.0,
+"yaw": 4.61,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c049.jpg",
+"streets": [
+"Gotthelfstrasse",
+"Wuhrstrasse",
+"Steinstrasse"
+]
+},
+{
+"file": "data/raw/photos/tiles/1_-9/pano_59e117ee_cb55_4ff1_89bb_1c65502221d4.jpg",
+"x": 301.1,
+"y": -1714.9,
+"h": 262,
+"year": null,
+"src": "panoramax",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=59e117ee-cb55-4ff1-89bb-1c65502221d4",
+"near": "Ortsmuseum",
+"id": 50,
+"gx": 297.1,
+"gy": -1715.5,
+"yaw": 4.57,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c050.jpg",
+"streets": [
+"Gotthelfstrasse"
+]
+},
+{
+"file": "data/raw/photos/tiles/1_-9/pano_bcaec1e7_78e1_44a3_9f3a_b87c449a8b6c.jpg",
+"x": 303.6,
+"y": -1719.9,
+"h": 81,
+"year": null,
+"src": "panoramax",
+"author": "paulb_imagery",
+"url": "https://panoramax.openstreetmap.fr/#focus=pic&pic=bcaec1e7-78e1-44a3-9f3a-b87c449a8b6c",
+"near": "Ortsmuseum",
+"id": 51,
+"gx": 307.6,
+"gy": -1719.3,
+"yaw": 1.41,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c051.jpg",
+"streets": [
+"Gotthelfstrasse"
+]
+},
+{
+"file": "data/raw/photos/v3/bethaus_wiedikon/ml_1308164040716663.jpg",
+"x": 229.5,
+"y": -1624.2,
+"h": 149.35375498881,
+"year": null,
+"src": "mapillary",
+"author": "fcignat",
+"url": "https://www.mapillary.com/app/?pKey=1308164040716663",
+"near": "Schmiede",
+"id": 52,
+"gx": 231.5,
+"gy": -1627.6,
+"yaw": 2.61,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c052.jpg",
+"streets": []
+},
+{
+"file": "data/raw/photos/v3/bethaus_wiedikon/ml_305151184469338.jpg",
+"x": 252.9,
+"y": -1624.5,
+"h": 161.2,
+"year": null,
+"src": "mapillary",
+"author": "endszbrxns",
+"url": "https://www.mapillary.com/app/?pKey=305151184469338",
+"near": "Schmiede",
+"id": 53,
+"gx": 254.2,
+"gy": -1628.3,
+"yaw": 2.81,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c053.jpg",
+"streets": []
+},
+{
+"file": "data/raw/photos/squares2/schmiede_wiedikon/ml_1398682097826166.jpg",
+"x": 256.8,
+"y": -1538.1,
+"h": 239,
+"year": null,
+"src": "mapillary",
+"author": "Yha1",
+"url": "https://www.mapillary.com/app/?pKey=1398682097826166",
+"near": "Schmiede",
+"id": 54,
+"gx": 253.4,
+"gy": -1540.2,
+"yaw": 4.17,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c054.jpg",
+"streets": [
+"Zurlindenstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_schmiede_wiedikon/ml_1891865957655756.jpg",
+"x": 265.9,
+"y": -1602.4,
+"h": 331.7,
+"year": 2015,
+"src": "mapillary",
+"author": "endszbrxns",
+"url": "https://www.mapillary.com/app/?pKey=1891865957655756",
+"near": "Schmiede",
+"id": 55,
+"gx": 264.0,
+"gy": -1598.9,
+"yaw": 5.79,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c055.jpg",
+"streets": [
+"Schlossgasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_schmiede_wiedikon/ml_1399982457308078.jpg",
+"x": 267.1,
+"y": -1547.1,
+"h": 150.00659612866,
+"year": 2024,
+"src": "mapillary",
+"author": "fcignat",
+"url": "https://www.mapillary.com/app/?pKey=1399982457308078",
+"near": "Schmiede",
+"id": 56,
+"gx": 269.1,
+"gy": -1550.6,
+"yaw": 2.62,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c056.jpg",
+"streets": [
+"Zurlindenstrasse",
+"Birmensdorferstrasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_schmiede_wiedikon/ml_2127401074409843.jpg",
+"x": 280.7,
+"y": -1577.8,
+"h": 330.54233886419,
+"year": 2025,
+"src": "mapillary",
+"author": "fcignat",
+"url": "https://www.mapillary.com/app/?pKey=2127401074409843",
+"near": "Schmiede",
+"id": 57,
+"gx": 278.7,
+"gy": -1574.3,
+"yaw": 5.77,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c057.jpg",
+"streets": [
+"Birmensdorferstrasse",
+"Zurlindenstrasse",
+"Schlossgasse"
+]
+},
+{
+"file": "data/raw/photos/z4/z4_schmiede_wiedikon/ml_937388784130986.jpg",
+"x": 290.7,
+"y": -1584.6,
+"h": 312.2926800251,
+"year": 2023,
+"src": "mapillary",
+"author": "Yha1",
+"url": "https://www.mapillary.com/app/?pKey=937388784130986",
+"near": "Schmiede",
+"id": 58,
+"gx": 287.7,
+"gy": -1581.9,
+"yaw": 5.45,
+"game": "/Users/danielgnagi/sandboxzurich/preview/z4s_corner_shots/c058.jpg",
+"streets": [
+"Zurlindenstrasse",
+"Schlossgasse",
+"Birmensdorferstrasse"
+]
+}
+]

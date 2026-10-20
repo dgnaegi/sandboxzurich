@@ -10,7 +10,7 @@ Start 2026-10-18. Ziel: mehr Details, mehr Realismus, alles so nah an der echten
 - [x] **Nacht 1 (Mo 19.10.)** (in der Sondernacht vorgezogen, Teilziel: Notizen 248/495, Läden schwach) – Zone 4 Wiedikon
 - [x] **Nacht 2 (Di 20.10.)** – Zone 2 Kreis 5 Industrie (am 19.10. tagsüber vorgezogen, ~70 %: Häuser/Plätze ja; Escher-Wyss/Hardbrücke-Häuser, Läden, Haltestellen offen)
 - [x] **Nacht 3 (Mi 21.10.)** – Zone 1 HB und Langstrasse (am 19.10. abends vorgezogen; Daten ja, Note nur 2.8 → 2.9)
-- [ ] **Nacht 4 (Do 22.10.)** – Zone 5 Kreis 9 West
+- [x] **Nacht 4 (Do 22.10.)** – Zone 5 Kreis 9 West (am 20.10. vorgezogen; 17 Landmarks, PJZ verschoben, Ø ~2.7 → 3.2)
 - [ ] **Nacht 5 (Fr 23.10.)** – Zone 3 Kreis 4 Mitte
 - [ ] **Nacht 6 (Sa 24.10.)** – Komplett-Build, stadtweite Kontrolle, Deploy, Rückblick
 
@@ -178,6 +178,7 @@ Eine 8-h-Nacht überspannt zwei 5-h-Fenster. Die Nacht muss auch sauber enden, w
 
 ## Protokoll
 <!-- Eine Zeile pro Nacht: Datum – Nacht N – Ergebnis – Note vorher→nachher – offene Tickets – Textur-MB Handy -->
+- 2026-10-20 – Nacht 4 Zone 5 – Kamerapunkte von Hand, PJZ aufs richtige Gebäude (#63), 3 Agents an Kamerapunkten: 17 Landmarks + Lindenplatz-Pflaster, rote Flächen per Override (#64); 133 Kacheln, publiziert – Ø ~2.7→3.2 – Z5a/b/c-Tickets – 157/145 MB, 58 fps
 - 2026-10-19 nachts – Nacht 1 Rest (Zone 4) – Kamerapunkte, Ecken-Abgleich 77 Ecken (wenige sichere Fixes), Autofassade verworfen (#60), Mapillary-Schilder als Schalter (#61), braune Kugel-Sträucher grün, erfundene Gerüste raus (#62); Build 16 – Zone 4 ~3.0 unverändert – T-N1…5, T-S1…7 – 157/145 MB, 58 fps
 - 2026-10-19 abends – Nacht 3 Zone 1 – HB-Halle (Buden weg, Tore), Kamerapunkte neu, Foto|Spiel-Werkzeug, +142 Notizen (Geschosse 106→354), 15 Ladenfronten; 24 Kacheln, publiziert – Ø 2.8→2.9 – Z1-1…6 – Langstrasse 157 MB, HB 145 MB, 58 fps
 - 2026-10-19 Tag – Zone 2 (~70 %), Fassaden v4, Spawn, HB-Dächer, Schlachthof R4, Linien, Zebras 403, Unterführungen; Builds 14+15, Releases 3+4 – Zone 2 nicht neu benotet – T21, Brücken-Mulden – perf Handy 58 fps

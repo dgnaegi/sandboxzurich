@@ -832,43 +832,50 @@
    "cams": [
     {
      "name": "Letzigrund Stadion",
-     "x": -968.9,
-     "y": -165.9
+     "x": -1060,
+     "y": -240,
+     "yaw": 0.86
     },
     {
      "name": "Haltestelle Letzigrund",
-     "x": -968.9,
-     "y": -165.9
+     "x": -970,
+     "y": -330,
+     "yaw": 1.2
     },
     {
      "name": "Badenerstrasse West",
-     "x": -1944.8,
-     "y": 463.5
+     "x": -1934,
+     "y": 441,
+     "yaw": 5.15
     },
     {
-     "name": "Hohlstrasse Egli-Siedlung",
+     "name": "Hohlstrasse Letzipark",
      "x": -1366.9,
      "y": 411.2
     },
     {
-     "name": "PJZ Eingang",
-     "x": 523.7,
-     "y": 30.1
+     "name": "PJZ Ost",
+     "x": 330,
+     "y": -200,
+     "yaw": -2.3
     },
     {
      "name": "Bahnhof Altstetten Vorplatz",
-     "x": -2179,
-     "y": 748
+     "x": -2183,
+     "y": 764,
+     "yaw": 4.6
     },
     {
-     "name": "Bahnhof Altstetten Perron",
-     "x": -2071.9,
-     "y": 774.1
+     "name": "Bahnhof Altstetten Aufnahmegebäude",
+     "x": -2040,
+     "y": 747,
+     "yaw": 6.1
     },
     {
      "name": "Lindenplatz",
-     "x": -2284.8,
-     "y": 318.4
+     "x": -2344.8,
+     "y": 352.3,
+     "yaw": 0.53
     },
     {
      "name": "Altstetterstrasse",
@@ -877,8 +884,9 @@
     },
     {
      "name": "Hohlstrasse/Flurstrasse",
-     "x": -1456.6,
-     "y": 448.4
+     "x": -1450,
+     "y": 440,
+     "yaw": -2.6
     },
     {
      "name": "Herdernstrasse",
@@ -892,18 +900,14 @@
     },
     {
      "name": "Vulkanplatz",
-     "x": -1988,
-     "y": 892
+     "x": -1972,
+     "y": 925,
+     "yaw": 4.9
     },
     {
      "name": "Baslerstrasse",
      "x": -1446.9,
      "y": 209.0
-    },
-    {
-     "name": "Rautistrasse-Rand",
-     "x": -1816.5,
-     "y": -389.8
     }
    ],
    "unresolved": []

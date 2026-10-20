@@ -222,3 +222,9 @@ Prototyp `pipeline/autofacade/` (Posen aus Mapillary, LOD2-Wände ins Bild proji
 
 ## #62 – 2026-10-19 – Keine erfundenen Baugerüste mehr
 `props.construction` setzte pro Kachel bis zu 6 Gerüste mit Bauzaun an Hauptstrassen (Hash-Auswahl, ohne Datengrundlage) und Gerüste an Gebäuden mit swissBUILDINGS3D-Status «Im Bau» (Stand 2019). Gefunden am Goldbrunnenplatz: Foto 2024/25 ohne Baustelle, im Spiel mit Bauzaun. Ab jetzt nur noch echte Baustellen (OGD Tief-/Hochbau, OSM, `sites.scaffold_rows`). Mit `SBZ_DECOR_SCAFFOLD=1` lässt sich das alte Verhalten wiederherstellen. Wirkt pro Kachel nach dem Neubau.
+
+## #63 – 2026-10-20 – PJZ auf das richtige Gebäude verschoben
+Das PJZ-Landmark sass auf swissBUILDINGS3D `ID_FEBC2FA3` (Neugasse 145, Kreis 5), 400 m vom echten Standort entfernt. Jetzt steht es auf `ID_3D89E8BB` (GWR Güterstrasse 33, Baujahr 2022, 16 700 m²). Die alte x-Trennung zwischen Hauptbau und Gefängnistrakt passte nur zum falschen Grundriss. Vorläufig ist der ganze Grundriss Hauptbau; den Gefängnistrakt nach Fotos neu einpassen (Ticket). Gefunden beim Prüfen der Zone-5-Kamerapunkte.
+
+## #64 – 2026-10-20 – Rote Flächen per Override
+Die automatische Rot-Erkennung aus SWISSIMAGE (`streets_ortho.red_surfaces`) verpasst Velostreifen im Schatten oder mit Belagswechsel. Neu: `add_red`-Polygone in `markings_z*.json` (auf die Fahrbahn geschnitten, `ground_paint.paint`) und Material `red` in `places_detail` für Wege und Plätze. Jede Fläche braucht einen Foto- oder Ortho-Beleg.

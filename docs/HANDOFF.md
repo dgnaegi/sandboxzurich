@@ -2,6 +2,19 @@
 
 Wird am Ende jedes Arbeitsschritts überschrieben. Eine neue Session liest das zuerst.
 
+## Stand 2026-10-20: Nacht 4 / Zone 5 (Kreis 9 West) – ZUERST LESEN
+- Audit erfundener Objekte: nur die Gerüste waren falsch (`research/invented_audit.md`).
+- **PJZ war auf dem falschen Gebäude** (Neugasse 145, 400 m daneben) → `ID_3D89E8BB` Güterstrasse 33 (#63); danach Agent: Trakte nach 3D-Dachhöhen (Gefängnis NW dunkel 21 m, Mittelblock 31 m, Ring 23 m), Foyer SW (`research/pjz.md`).
+- Build `logs/build_z5.log` (Zone 5 + PJZ-/Neugasse-Kacheln, 133, 0 Fehler), publiziert; QA `logs/qa_z5.log` grün (traffic_legal 0.01 %, qa_spawn 26/26, qa_leak +24 MB, Texturen 157/145 MB, perf Handy 58 fps / 260 Calls / 4.4 s). Bögen `preview/zone5_before.jpg`, `zone5_after.jpg`; Note geschätzt Ø 2.7 → 3.2.
+- Kamerapunkte Zone 5 von Hand (14; Rautistrasse gestrichen, «Hohlstrasse Egli-Siedlung» → «Hohlstrasse Letzipark», Altstetten-Punkte nach Agent-Peilung).
+- 3 Agents an den Kamerapunkten: 17 neue Landmarks (`z5a_*` Bushof-Vordächer, Migros, ABZ, Aufnahmegebäude; `z5b_*` Spirgarten/Coop, Altstetterstr. 150/152/672/147/149, Hohlstrasse Backstein + Letzipark-Büro, Flurstrasse; `z5c_*` rosa Reihe Letzigrund, Y-Hochhäuser, Herdern-Blöcke), Lindenplatz Granitpflaster, Bahnhofplatz Beton, 3 Ladenfronten. Protokolle `research/zones/z5/area_{station,linden,letzi}.md` (Tickets Z5a-1…5, T-B1/S1/L1/F1/H1/N1, Z5c-1…6).
+- Neu: rote Flächen per Override – `add_red` in `markings_z*.json` (Fahrbahn) und Material `red` in `places_detail` (Wege/Plätze). Offene Rot-Tickets (Baslerstrasse, Goldbrunnenplatz, Westpark, Letzigrund-Knoten) brauchen nur noch vermessene Polygone.
+**Lehren (Fortsetzung):**
+14. Landmark-`hide` wirkt erst beim Kachel-Build der betroffenen Kacheln – nach neuen Landmarks immer deren Kacheln bauen (auch ausserhalb der Zone, z. B. PJZ).
+15. Mapillary-Heading kann bis 90° falsch sein (Dashcam ≠ Fahrtrichtung): Hausbezug über `common.near()` + Grundrisskarte + freie Kamera statt über Foto-Heading.
+16. Agents im selben Scratchpad überschreiben sich Hilfsskripte → jedem Agent ein eigenes Unterverzeichnis vorgeben.
+17. Am meisten bringt pro Kamerapunkt: 2–5 prägende Häuser als Landmark nach Fotos + Platzboden. Notizen allein heben die Note nicht.
+
 ## Stand 2026-10-19 nachts: Zone 4 Runde 2 + Breiten-Ideen – ZUERST LESEN
 User: «mach weiter Nacht 0 oder 1» → Rest von Nacht 1 (Zone 4), dann «mehr Agents, jede Ecke abgleichen / sei kreativ».
 - Kamerapunkte Zone 4: 5 neu gesetzt, Perron Wiedikon gestrichen (Baumkronen über dem Einschnitt = Ticket), 16 Punkte. Fotos an Kamerapunkten für jede Zone: `pipeline/photos/fetch_zone_cams.py <N>` → `research/zones/zone<N>_cam_photos.json`.

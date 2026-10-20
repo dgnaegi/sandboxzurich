@@ -1,0 +1,87 @@
+{
+ "landmarks": [
+  {
+   "name": "Altstetterstrasse Bandfassaden-Bau (Aktiv Fitness)",
+   "model": "/models/landmarks/z5a_migros.glb",
+   "x": -2213.6,
+   "y": 790.3,
+   "z": -12.0,
+   "heading": 0,
+   "hide": [
+    [
+     -2213.6,
+     790.3
+    ],
+    [
+     -2202.3,
+     773.0
+    ]
+   ]
+  },
+  {
+   "name": "Altstetterstrasse ABZ-Backsteinbau",
+   "model": "/models/landmarks/z5a_abz.glb",
+   "x": -2255.3,
+   "y": 686.9,
+   "z": -11.28,
+   "heading": 0,
+   "hide": [
+    [
+     -2275.1,
+     618.1
+    ],
+    [
+     -2245.5,
+     684.4
+    ],
+    [
+     -2282.9,
+     636.3
+    ],
+    [
+     -2266.2,
+     757.6
+    ],
+    [
+     -2242.3,
+     747.9
+    ],
+    [
+     -2227.2,
+     728.3
+    ],
+    [
+     -2233.0,
+     747.8
+    ]
+   ]
+  },
+  {
+   "name": "Altstetterplatz Bushof-Dach",
+   "model": "/models/landmarks/z5a_bushof.glb",
+   "x": -2151.5,
+   "y": 755.3,
+   "z": -12.07,
+   "heading": 0,
+   "hide": []
+  },
+  {
+   "name": "Bahnhof Altstetten Aufnahmegebaeude",
+   "model": "/models/landmarks/z5a_station.glb",
+   "x": -2106.3,
+   "y": 788.0,
+   "z": -11.84,
+   "heading": 0,
+   "hide": [
+    [
+     -2109.1,
+     788.1
+    ],
+    [
+     -2053.2,
+     759.5
+    ]
+   ]
+  }
+ ]
+}

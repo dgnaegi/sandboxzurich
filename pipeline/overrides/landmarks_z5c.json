@@ -1,0 +1,76 @@
+{
+ "landmarks": [
+  {
+   "name": "Badenerstrasse rosa Wohnblock (Letzigrund)",
+   "model": "/models/landmarks/z5c_letzi_pink.glb",
+   "x": -1082.8,
+   "y": -283.6,
+   "z": -2.36,
+   "heading": 0,
+   "hide": [
+    [
+     -1077.7,
+     -287.2
+    ],
+    [
+     -1088.8,
+     -279.6
+    ]
+   ]
+  },
+  {
+   "name": "Badenerstrasse ockerfarbenes Haus (Letzigrund)",
+   "model": "/models/landmarks/z5c_letzi_ocker.glb",
+   "x": -1099.9,
+   "y": -272.0,
+   "z": -2.39,
+   "heading": 0,
+   "hide": [
+    [
+     -1099.9,
+     -272.0
+    ]
+   ]
+  },
+  {
+   "name": "Herdernstrasse weisse Blocks mit blauen Fenstern",
+   "model": "/models/landmarks/z5c_herdern_block.glb",
+   "x": -923.0,
+   "y": -296.6,
+   "z": -1.75,
+   "heading": 0,
+   "hide": [
+    [
+     -913.7,
+     -281.7
+    ],
+    [
+     -922.1,
+     -296.1
+    ],
+    [
+     -934.2,
+     -313.3
+    ]
+   ]
+  },
+  {
+   "name": "Hochhaeuser Letzigrund (Y-Form)",
+   "model": "/models/landmarks/z5c_letzi_tower.glb",
+   "x": -955.0,
+   "y": -417.7,
+   "z": -1.46,
+   "heading": 0,
+   "hide": [
+    [
+     -925.2,
+     -418.8
+    ],
+    [
+     -984.6,
+     -417.7
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,114 @@
+[
+ {
+  "id": "z5_letzigrund_stadion",
+  "name": "Letzigrund Stadion",
+  "kind": "place",
+  "lat": 47.382074,
+  "lon": 8.502554,
+  "radius": 45
+ },
+ {
+  "id": "z5_haltestelle_letzigrund",
+  "name": "Haltestelle Letzigrund",
+  "kind": "place",
+  "lat": 47.381254,
+  "lon": 8.50373,
+  "radius": 45
+ },
+ {
+  "id": "z5_badenerstrasse_west",
+  "name": "Badenerstrasse West",
+  "kind": "place",
+  "lat": 47.388508,
+  "lon": 8.490963,
+  "radius": 45
+ },
+ {
+  "id": "z5_hohlstrasse_egli_siedlung",
+  "name": "Hohlstrasse Egli-Siedlung",
+  "kind": "place",
+  "lat": 47.387968,
+  "lon": 8.498607,
+  "radius": 45
+ },
+ {
+  "id": "z5_pjz_ost",
+  "name": "PJZ Ost",
+  "kind": "place",
+  "lat": 47.382263,
+  "lon": 8.520967,
+  "radius": 45
+ },
+ {
+  "id": "z5_bahnhof_altstetten_vorplatz",
+  "name": "Bahnhof Altstetten Vorplatz",
+  "kind": "place",
+  "lat": 47.391095,
+  "lon": 8.487912,
+  "radius": 45
+ },
+ {
+  "id": "z5_bahnhof_altstetten_perron",
+  "name": "Bahnhof Altstetten Perron",
+  "kind": "place",
+  "lat": 47.391317,
+  "lon": 8.489335,
+  "radius": 45
+ },
+ {
+  "id": "z5_lindenplatz",
+  "name": "Lindenplatz",
+  "kind": "place",
+  "lat": 47.387556,
+  "lon": 8.485646,
+  "radius": 45
+ },
+ {
+  "id": "z5_altstetterstrasse",
+  "name": "Altstetterstrasse",
+  "kind": "place",
+  "lat": 47.387455,
+  "lon": 8.486548,
+  "radius": 45
+ },
+ {
+  "id": "z5_hohlstrasse_flurstrasse",
+  "name": "Hohlstrasse/Flurstrasse",
+  "kind": "place",
+  "lat": 47.388237,
+  "lon": 8.497512,
+  "radius": 45
+ },
+ {
+  "id": "z5_herdernstrasse",
+  "name": "Herdernstrasse",
+  "kind": "place",
+  "lat": 47.381966,
+  "lon": 8.504451,
+  "radius": 45
+ },
+ {
+  "id": "z5_westpark",
+  "name": "Westpark",
+  "kind": "place",
+  "lat": 47.390463,
+  "lon": 8.514418,
+  "radius": 45
+ },
+ {
+  "id": "z5_vulkanplatz",
+  "name": "Vulkanplatz",
+  "kind": "place",
+  "lat": 47.392367,
+  "lon": 8.490467,
+  "radius": 45
+ },
+ {
+  "id": "z5_baslerstrasse",
+  "name": "Baslerstrasse",
+  "kind": "place",
+  "lat": 47.386159,
+  "lon": 8.497511,
+  "radius": 45
+ }
+]

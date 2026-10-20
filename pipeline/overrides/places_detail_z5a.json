@@ -1,0 +1,6 @@
+{"places": [
+ {"id": "altstetterplatz", "center": [-2140, 772],
+  "src": "research/zones/z5/area_station.md; Mapillary 2015 #9, Commons 'Z_rich_Altstetterplatz' (Platz vor der Ladenarkade: hellgraue Betonplatten, Betonbaenke); SWISSIMAGE-Klassierung",
+  "ground": [], "objs": [],
+  "ortho_ground": {"within": {"circle": [0, 0, 48]}, "paved": "concrete", "grass": false, "gravel": false, "lift": 0.03}}
+]}

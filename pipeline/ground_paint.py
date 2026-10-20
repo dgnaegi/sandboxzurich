@@ -59,6 +59,10 @@ def paint(gm, S, tb, H):
         k = "%d_%d" % (round(tb.bounds[0] / 200), round(tb.bounds[1] / 200))
         dbg = f"/tmp/paint_{k}.png"
     red = streets_ortho.red_surfaces(tb, roads, dbg)
+    import markings_override
+    rx = markings_override.red_extra(tb, roads)   # hand-measured add_red (markings_z*.json)
+    if rx is not None and not rx.is_empty:
+        red = rx if red is None or red.is_empty else shapely.union_all([red, rx])
     if red is not None and not red.is_empty:
         drape(gm, red, H, -CURB + 0.005, RED, cell=10, layer=LAYER["white"])
         print(f"  paint: red surfaces {red.area:.0f} m2", flush=True)
