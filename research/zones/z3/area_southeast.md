@@ -1,0 +1,26 @@
+# Zone 3, Gebiet Südost (Stauffacher, Badenerstrasse/Kalkbreite-Seite, Lochergut-Umgebung, Seebahnstrasse) – Agent z3a, 2026-10-20
+
+Bögen: `preview/z3a_stauffacher_kalkbreite.jpg`, `preview/z3a_lochergut_seebahn.jpg` (Foto | Spiel vorher | Modell isoliert).
+Fotos: Mapillary (CC BY-SA 4.0), Panoramax, Commons (`data/raw/photos/z3/`). Mapillary-Heading war an allen vier Punkten unbrauchbar (Seebahnstrasse: um 180° gedreht; Kalkbreite/Stauffacher bis 90° daneben, Lehre 15). Häuser deshalb über Grundrisskarte (`common.near`) + Freikamera im Spiel (Höhe/Lage), nicht über das Heading zugeordnet.
+**Wichtig:** Landmarks ersetzen die alten Häuser erst nach dem Kachel-Build (hide, Lehre 14); `places_detail` (Zaun) ebenfalls erst nach Build. «Nachher» ist darum nur isoliert belegt, nicht im Spiel. Zu bauende Kacheln: `t_0_-4 t_0_-5 t_1_-3 t_1_-4 t_1_-6 t_2_-6 t_4_-6 t_4_-7`.
+
+## Pro Kamerapunkt
+| Punkt | Foto | Befund (Spiel vorher) | Fix / Ticket | Note vorher → geschätzt nachher |
+|---|---|---|---|---|
+| Stauffacher (933, -1219, yaw -2.49) | px_33197263-a8f, ml_427038079830413 (Kreuzung/Stauffacherstrasse, 2024) | **Kamerapunkt liegt im Innenhof** des Blocks (Hof zwischen DE705E und C83D6F/2E2325): Blick auf graue Wand mit braunen Paneelen, nichts vom Platz/Haltestelle. Kreuzung selbst: Häuser W-Seite einheitlich grau-glatt ohne Arkaden/Markisen, NO-Eckhaus statt Bandfenster-Bürohaus ein plain Wohnblock | Landmarks `z3a_stf_west` (3 Arkadenhäuser sandbeige, EG Bogenöffnungen, gelbe Markisenbänder, 5 hohe Geschosse; C83D6F/2E2325/1495D2), `z3a_stf_glass` (296ADA9D, weisses Bandfensterhaus). Ticket Z3a-1: Kamerapunkt auf die Strasse legen (x 957, y -1196, yaw 2.9, Blick S entlang Stauffacherstrasse) | 2.5 → 3.2 am jetzigen Punkt (Hof unverändert), 3.8 am verlegten Punkt |
+| Badenerstrasse/Kalkbreite-Seite (386, -1068) | ml_443290651463652, 1448850089048149, 287510466406959, 1164528874022212, 1083915096167252 | N-Seite: Büro-Bandfensterhäuser (D8816D, 507C9C) als Stein-Bogenfenster-Bau mit grünen Bändern (falsch); Balkonblock 305C97 hellbraun mit unregelmässigen Fenstern ohne Balkone. S-Seite (beiges Haus mit grünen Läden, rosa Haus, «Roots»-Eck) stimmt schon (Fassadennotizen) | Landmarks `z3a_kal_glass` (graue Bandfenster-Büros, 2 Volumen), `z3a_kal_block` (305C979A: beigegrauer Betonbau, gestufte Höhen 22–34 m, Balkonbänder, dunkelrote Fensterrahmen) | 3.0 → 3.9 |
+| Lochergut (68, -971, yaw 0.44) | ml_388177537298792, ml_858257206067781, ml_1597435827696186, px_335a8321-0cd | Halle/Haltestelle/Hochhaus stimmen (lochergut_v2, nicht angefasst). Eckhaus Badenerstr./Sihlfeldstr. (72F2AC): im Spiel gelb-beige und mit verzogenem Dach, Foto: staubrosa mit dunklem EG | Landmark `z3a_loch_pink` (rosa, flaches Dach, Schaufenster-EG). Rosa Giebelhäuser daneben (615659) stimmen bereits | 3.6 → 3.9 |
+| Seebahnstrasse (185.6, -666) | ml_816780163741394, 572601749197518, 227007105862174, 6252641528158777 | Häuser W-Seite rosa-weiss mit bunten Ladenstreifen und Bogenfenstern; Fotos: graubeige/cremefarbener Verputz, ruhige EG-Zone hinter Hecken. **Zaun fehlt** am Rand der Bahneinschnitts (dunkelgrüner Stabzaun, 1.2 m). Platanenstämme im Spiel hell/weiss (Fotos dunkelgrau-braun) | Landmarks `z3a_see_a` (cremefarben: 04B8041F, 90D17900, AAF4B3C3), `z3a_see_b` (graubeige: A4ED2362, 3D480FEC, 424FE598), Walmdächer; `places_detail_z3a.json`: `rail`-Zaun entlang der Böschungskante (Kante aus dem Geländemodell, y -760…-550) | 3.2 → 3.8 |
+
+## Tickets
+- **Z3a-1** Kamerapunkt «Stauffacher» in `pipeline/zones.py`/`zones.json` verlegen (Hof → Strasse, s. o.). Ohne Verlegung bleibt die Note < 4.
+- **Z3a-2 hip_roof-Spitze** (T-S1 bleibt offen): `hip`/`gable` auf Stauffacher- und Lochergut-Eckhaus ergab Dachspitzen bzw. Flügel; deshalb Flachdach mit Brüstung. Bei Seebahn-Zeilen (rechteckig) funktioniert `hip`.
+- **Z3a-3 Baumstämme** im Spiel hell/weiss, Fotos dunkelgrau-braun (Seebahnstrasse, Platanen) – Baumkatalog/Stamm-Farbe (nicht in meinen Dateien).
+- **Z3a-4 Blauglas-Hochhaus** Badenerstrasse O (C5164B2E/7C3758, ~30 m, ca. x 470, y -1105): im Spiel blaue Glasfassade, auf Fotos (ml_1083915096167252, ml_339146485261609 links) graue Betonscheibe; Zuordnung nicht sicher, nicht angefasst.
+- **Z3a-5 Haltestelle Kalkbreite**: Fotos zeigen Granit-Kopfsteinpflaster am Haltekante/Gleisbereich (ml_443290651463652); im Spiel beige Streifen. Polygone ohne Orthobeleg nicht vermessen.
+- **Z3a-6 Rote Velo-Flächen**: auf allen vier Punkten keine roten Flächen belegt (gelbe Fussgängerstreifen, weisse Velostreifen, Seebahnstrasse ohne Rot) – kein `markings_z3a.json` angelegt.
+- **Z3a-7 Seebahn-EG**: Ladenstreifen im Spiel (generierte Fassade) sind auf den Fotos nicht belegt; mit dem Landmark ersetzt durch ruhiges EG. Falls an den Adressen echte Läden stehen, über `storefronts_z3a.json` nachtragen (keine Quelle vorhanden, nichts erfunden).
+- Nach dem Kachel-Build in-game prüfen: `python pipeline/zones/zone_cmp.py 3 after`.
+
+## Dateien
+`pipeline/landmarks/z3a_houses.py` (7 Landmarks: stf_west, stf_glass, kal_glass, kal_block, loch_pink, see_a, see_b), `pipeline/overrides/landmarks_z3a.json`, `web/public/models/landmarks/z3a_*.glb`, `pipeline/overrides/places_detail_z3a.json`; `merge.py` (läuft in `finish()`) und `apply_names.py` gelaufen.

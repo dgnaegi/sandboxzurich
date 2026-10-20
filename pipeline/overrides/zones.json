@@ -411,13 +411,15 @@
    "cams": [
     {
      "name": "Stauffacher",
-     "x": 991.0,
-     "y": -1182.2
+     "x": 957,
+     "y": -1196,
+     "yaw": 2.9
     },
     {
      "name": "Bullingerplatz (Brunnen)",
-     "x": -29.3,
-     "y": -518.1
+     "x": -41,
+     "y": -496,
+     "yaw": -0.76
     },
     {
      "name": "Bullingerhof",
@@ -431,13 +433,15 @@
     },
     {
      "name": "Albisriederplatz",
-     "x": -469.6,
-     "y": -659.1
+     "x": -471.8,
+     "y": -670.8,
+     "yaw": -1.99
     },
     {
      "name": "Lochergut",
-     "x": 76.2,
-     "y": -822.3
+     "x": 68.1,
+     "y": -970.9,
+     "yaw": 0.44
     },
     {
      "name": "Badenerstrasse/Kalkbreite-Seite",
@@ -471,8 +475,9 @@
     },
     {
      "name": "Erismannhof",
-     "x": 171.8,
-     "y": -555.0
+     "x": 200,
+     "y": -530,
+     "yaw": -2.4
     },
     {
      "name": "Brauerstrasse West",

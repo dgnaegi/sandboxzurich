@@ -1,0 +1,130 @@
+[
+ {
+  "id": "z3_stauffacher",
+  "name": "Stauffacher",
+  "kind": "place",
+  "lat": 47.373022,
+  "lon": 8.528765,
+  "radius": 45
+ },
+ {
+  "id": "z3_bullingerplatz_brunnen",
+  "name": "Bullingerplatz (Brunnen)",
+  "kind": "place",
+  "lat": 47.379647,
+  "lon": 8.516,
+  "radius": 45
+ },
+ {
+  "id": "z3_bullingerhof",
+  "name": "Bullingerhof",
+  "kind": "place",
+  "lat": 47.379351,
+  "lon": 8.51475,
+  "radius": 45
+ },
+ {
+  "id": "z3_hardplatz",
+  "name": "Hardplatz",
+  "kind": "place",
+  "lat": 47.382547,
+  "lon": 8.515102,
+  "radius": 45
+ },
+ {
+  "id": "z3_albisriederplatz",
+  "name": "Albisriederplatz",
+  "kind": "place",
+  "lat": 47.378128,
+  "lon": 8.510265,
+  "radius": 45
+ },
+ {
+  "id": "z3_lochergut",
+  "name": "Lochergut",
+  "kind": "place",
+  "lat": 47.375362,
+  "lon": 8.517359,
+  "radius": 45
+ },
+ {
+  "id": "z3_badenerstrasse_kalkbreite_seite",
+  "name": "Badenerstrasse/Kalkbreite-Seite",
+  "kind": "place",
+  "lat": 47.374453,
+  "lon": 8.52155,
+  "radius": 45
+ },
+ {
+  "id": "z3_badenerstrasse_zypressenstrasse",
+  "name": "Badenerstrasse/Zypressenstrasse",
+  "kind": "place",
+  "lat": 47.377244,
+  "lon": 8.512674,
+  "radius": 45
+ },
+ {
+  "id": "z3_hohlstrasse_hardstrasse",
+  "name": "Hohlstrasse/Hardstrasse",
+  "kind": "place",
+  "lat": 47.382798,
+  "lon": 8.514512,
+  "radius": 45
+ },
+ {
+  "id": "z3_hardstrasse_bullingerstrasse",
+  "name": "Hardstrasse/Bullingerstrasse",
+  "kind": "place",
+  "lat": 47.380545,
+  "lon": 8.512589,
+  "radius": 45
+ },
+ {
+  "id": "z3_sihlfeldstrasse",
+  "name": "Sihlfeldstrasse",
+  "kind": "place",
+  "lat": 47.378717,
+  "lon": 8.51611,
+  "radius": 45
+ },
+ {
+  "id": "z3_zypressenstrasse",
+  "name": "Zypressenstrasse",
+  "kind": "place",
+  "lat": 47.379317,
+  "lon": 8.515656,
+  "radius": 45
+ },
+ {
+  "id": "z3_erismannhof",
+  "name": "Erismannhof",
+  "kind": "place",
+  "lat": 47.379311,
+  "lon": 8.519185,
+  "radius": 45
+ },
+ {
+  "id": "z3_brauerstrasse_west",
+  "name": "Brauerstrasse West",
+  "kind": "place",
+  "lat": 47.379739,
+  "lon": 8.52153,
+  "radius": 45
+ },
+ {
+  "id": "z3_seebahnstrasse",
+  "name": "Seebahnstrasse",
+  "kind": "place",
+  "lat": 47.37809,
+  "lon": 8.51897,
+  "radius": 45
+ },
+ {
+  "id": "z3_ernastrasse",
+  "name": "Ernastrasse",
+  "kind": "place",
+  "lat": 47.380485,
+  "lon": 8.517257,
+  "radius": 45
+ }
+]

@@ -8,9 +8,13 @@
   "BR-246",
   "BR-401",
   "BR-188",
-  "BR-189"
+  "BR-189",
+  "BR-41"
  ],
  "rot": {},
  "_z4": "BR-269 (Idaplatz) excluded: places_detail_idaplatz.json draws the real Trinkbrunnen (dfount); the V2 trough was a second, wrong fountain",
- "_z2": "Zone 2: BR-1245/BR-1248 (Escher-Wyss-Platz, Betonkuebel 'bucket'), BR-246 (Josefwiese rfount), BR-401 (Limmatplatz tellerbrunnen), BR-188 (Limmatplatz dfount), BR-189 (Hardplatz dfount) are drawn by places_detail 'convert' at exactly the same WVZ position (<0.5 m): the catalog trough/figure was a second fountain on top"
+ "_z2": "Zone 2: BR-1245/BR-1248 (Escher-Wyss-Platz, Betonkuebel 'bucket'), BR-246 (Josefwiese rfount), BR-401 (Limmatplatz tellerbrunnen), BR-188 (Limmatplatz dfount), BR-189 (Hardplatz dfount) are drawn by places_detail 'convert' at exactly the same WVZ position (<0.5 m): the catalog trough/figure was a second fountain on top",
+ "_z3": {
+  "BR-41": "excluded: Bullingerplatz fountain is the hand-built landmark z3b_bullinger_brunnen (2026-10-20)"
+ }
 }

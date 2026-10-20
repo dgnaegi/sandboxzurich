@@ -1,0 +1,65 @@
+{
+ "places": [
+  {
+   "id": "seebahnstrasse_z3a",
+   "center": [
+    190,
+    -660
+   ],
+   "src": "Mapillary 816780163741394, 1187697202240081, 1084383452088715, 572601749197518 (2021-2025): dark green steel-bar fence 1.2 m along the top edge of the Seebahn cutting, east side of Seebahnstrasse; edge line from the terrain model (drop > 2 m); research/zones/z3/area_southeast.md",
+   "lines": [
+    {
+     "t": "rail",
+     "hgt": 1.2,
+     "col": "#3f4d45",
+     "pts": [
+      [
+       -30.8,
+       -100
+      ],
+      [
+       -24.8,
+       -80
+      ],
+      [
+       -21.8,
+       -70
+      ],
+      [
+       -9.8,
+       -40
+      ],
+      [
+       -0.8,
+       -20
+      ],
+      [
+       10.2,
+       0
+      ],
+      [
+       23.2,
+       20
+      ],
+      [
+       35.2,
+       40
+      ],
+      [
+       49.2,
+       60
+      ],
+      [
+       68.2,
+       90
+      ],
+      [
+       81.2,
+       110
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

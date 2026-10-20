@@ -1,0 +1,4 @@
+{
+ "_meta": "Zone 3 West/Nord (agent z3c, 2026-10-20). Format wie storefronts_z4.json; Schluessel = OSM-Id; src Pflicht.",
+ "1305672713": {"src": "Mapillary 1384253165978665 (2025, CC BY-SA 4.0) und 401225187576...: Nature First Apotheke, Albisriederplatz, graue Fassung, helle Schrift APOTHEKE auf dunklem Band, grosse Schaufenster", "v": {"b": "#43474a", "f": "#e9ece9", "s": "box", "w": "gross"}}
+}

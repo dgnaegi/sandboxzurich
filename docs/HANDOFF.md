@@ -2,6 +2,12 @@
 
 Wird am Ende jedes Arbeitsschritts überschrieben. Eine neue Session liest das zuerst.
 
+## Stand 2026-10-20 nachmittags: Nacht 5 / Zone 3 (Kreis 4 Mitte) – ZUERST LESEN
+- Kamerapunkte: 5 ersetzt (Stauffacher/Lochergut Wand, Albisriederplatz/Erismannhof Hecke); Stauffacher danach auf die Kreuzung (957,-1196). **Spawn Stauffacher lag im Innenhof** → `pipeline/spawns.py` auf die Kreuzung, `spawns.json` neu (--snap).
+- 3 Agents an den Kamerapunkten: 42 neue Haus-Landmarks (`z3a_*` 7: Stauffacher-Arkaden, Kalkbreite-Büros/Balkonblock, Lochergut-Eckhaus, Seebahnstrasse-Zeilen + Zaun; `z3b_*` 8: Bullingerplatz-Brunnen mit Wasser, ocker Reihe, Bullingerhof-Pavillons, Backstein-Eckhaus Zypressenstr., Sihlfeld, Erna; `z3c_*` 27: Badener/Zypressen, Hard/Bullinger, Albisriederplatz, Hardplatz, Hohl/Hard) + Rasengleis-Streifen Badenerstrasse + Apotheke. Doppelter Katalogbrunnen BR-41 am Bullingerplatz ausgeschlossen. Protokolle `research/zones/z3/area_{southeast,middle,west}.md` (Tickets Z3a-1…7, Z3b-1…8, Z3c-1…6).
+- Build `logs/build_z3.log` (34 Kacheln, 0 Fehler), publiziert; QA `logs/qa_z3.log` grün (traffic_legal 0.02 %, qa_spawn 26/26, qa_leak +27 MB, Texturen 157/145/100 MB, perf Handy 58 fps / 265 Calls / 4.3 s). **Beobachten:** qa_leak tex max 505 → 581 (viele kleine Landmark-GLBs) – bei weiteren Landmarks Texturen teilen/Atlas. Bögen `preview/zone3_before.jpg`, `zone3_after.jpg`; Note geschätzt Ø ~2.9 → 3.4. Bauzaun Albisriederplatz (Z3c-2) im aktuellen Stand nicht mehr vorhanden (war vermutlich ein erfundenes Gerüst, #62).
+**Wiederkehrende Tickets über alle Zonen (Kandidaten für eine Code-Runde):** Dachspitzen bei hip/gable auf Eckhaus-Grundrissen (T-S1/Z3a-2), Platanenstämme zu hell (Z3a-3), Brücken ohne Tramgleise/Markierung (Z3b-6), Hardbrücke-Trog (Z3c-1), Parasol-Objekt für Aussensitze (Z3b-7), «STOP»-Decal (T-N1), Pilzdach-Haltestelle Letzigrund (Z5c-1).
+
 ## Stand 2026-10-20: Nacht 4 / Zone 5 (Kreis 9 West) – ZUERST LESEN
 - Audit erfundener Objekte: nur die Gerüste waren falsch (`research/invented_audit.md`).
 - **PJZ war auf dem falschen Gebäude** (Neugasse 145, 400 m daneben) → `ID_3D89E8BB` Güterstrasse 33 (#63); danach Agent: Trakte nach 3D-Dachhöhen (Gefängnis NW dunkel 21 m, Mittelblock 31 m, Ring 23 m), Foyer SW (`research/pjz.md`).

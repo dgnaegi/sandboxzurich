@@ -1,0 +1,402 @@
+{
+ "landmarks": [
+  {
+   "name": "Zypressenstrasse hellblaues Eckhaus",
+   "model": "/models/landmarks/z3c_zy_endi.glb",
+   "x": -280.1,
+   "y": -737.7,
+   "z": 0.92,
+   "heading": 0,
+   "hide": [
+    [
+     -282.3,
+     -740.5
+    ]
+   ]
+  },
+  {
+   "name": "Zypressenstrasse rosa-weisses Haus",
+   "model": "/models/landmarks/z3c_zy_pink.glb",
+   "x": -294.3,
+   "y": -736.6,
+   "z": 1.12,
+   "heading": 0,
+   "hide": [
+    [
+     -294.5,
+     -736.9
+    ]
+   ]
+  },
+  {
+   "name": "Badenerstrasse Eckhaus grau (Zypressenstrasse Ost)",
+   "model": "/models/landmarks/z3c_zy_se.glb",
+   "x": -282.8,
+   "y": -790.4,
+   "z": 1.45,
+   "heading": 0,
+   "hide": [
+    [
+     -282.5,
+     -790.1
+    ]
+   ]
+  },
+  {
+   "name": "Badenerstrasse weisses Haus mit grauen Laeden",
+   "model": "/models/landmarks/z3c_zy_s1.glb",
+   "x": -266.6,
+   "y": -794.4,
+   "z": 1.63,
+   "heading": 0,
+   "hide": [
+    [
+     -266.8,
+     -794.3
+    ]
+   ]
+  },
+  {
+   "name": "Badenerstrasse weisses Haus 2",
+   "model": "/models/landmarks/z3c_zy_s2.glb",
+   "x": -250.6,
+   "y": -805.5,
+   "z": 1.63,
+   "heading": 0,
+   "hide": [
+    [
+     -250.7,
+     -805.6
+    ]
+   ]
+  },
+  {
+   "name": "Badenerstrasse ockerfarbenes Eckhaus",
+   "model": "/models/landmarks/z3c_zy_ne.glb",
+   "x": -257.7,
+   "y": -756.5,
+   "z": 0.93,
+   "heading": 0,
+   "hide": [
+    [
+     -258.5,
+     -756.0
+    ]
+   ]
+  },
+  {
+   "name": "Hardstrasse/Bullingerstrasse rotes Eckhaus",
+   "model": "/models/landmarks/z3c_hb_red.glb",
+   "x": -309.1,
+   "y": -370.5,
+   "z": -2.31,
+   "heading": 0,
+   "hide": [
+    [
+     -308.3,
+     -369.3
+    ],
+    [
+     -314.8,
+     -367.0
+    ]
+   ]
+  },
+  {
+   "name": "Hardstrasse weisses Haus",
+   "model": "/models/landmarks/z3c_hb_white.glb",
+   "x": -299.3,
+   "y": -360.6,
+   "z": -2.4,
+   "heading": 0,
+   "hide": [
+    [
+     -300.0,
+     -360.9
+    ]
+   ]
+  },
+  {
+   "name": "Bullingerstrasse cremeweisses Haus",
+   "model": "/models/landmarks/z3c_hb_cream.glb",
+   "x": -322.5,
+   "y": -364.6,
+   "z": -2.44,
+   "heading": 0,
+   "hide": [
+    [
+     -322.6,
+     -364.5
+    ]
+   ]
+  },
+  {
+   "name": "Hardstrasse hellgelbes Haus",
+   "model": "/models/landmarks/z3c_hb_pale.glb",
+   "x": -291.5,
+   "y": -349.0,
+   "z": -2.52,
+   "heading": 0,
+   "hide": [
+    [
+     -291.6,
+     -349.1
+    ]
+   ]
+  },
+  {
+   "name": "Hardstrasse gelbes Eckhaus mit Balkonen",
+   "model": "/models/landmarks/z3c_hb_yellow.glb",
+   "x": -265.8,
+   "y": -390.2,
+   "z": -2.03,
+   "heading": 0,
+   "hide": [
+    [
+     -266.6,
+     -388.7
+    ]
+   ]
+  },
+  {
+   "name": "Hardstrasse pfirsichfarbenes Haus",
+   "model": "/models/landmarks/z3c_hb_peach.glb",
+   "x": -253.0,
+   "y": -399.1,
+   "z": -1.79,
+   "heading": 0,
+   "hide": [
+    [
+     -253.0,
+     -399.1
+    ]
+   ]
+  },
+  {
+   "name": "Hardstrasse ockerfarbenes Haus",
+   "model": "/models/landmarks/z3c_hb_ochre.glb",
+   "x": -259.1,
+   "y": -376.5,
+   "z": -2.14,
+   "heading": 0,
+   "hide": [
+    [
+     -259.9,
+     -372.3
+    ]
+   ]
+  },
+  {
+   "name": "Hardstrasse cremegelbes Eckhaus SW",
+   "model": "/models/landmarks/z3c_hb_sw1.glb",
+   "x": -334.2,
+   "y": -407.4,
+   "z": -2.18,
+   "heading": 0,
+   "hide": [
+    [
+     -334.7,
+     -406.8
+    ]
+   ]
+  },
+  {
+   "name": "Bullingerstrasse cremegelbes Haus",
+   "model": "/models/landmarks/z3c_hb_sw2.glb",
+   "x": -347.7,
+   "y": -396.6,
+   "z": -1.88,
+   "heading": 0,
+   "hide": [
+    [
+     -347.7,
+     -396.6
+    ]
+   ]
+  },
+  {
+   "name": "Albisriederplatz graues Geschaeftshaus",
+   "model": "/models/landmarks/z3c_al_apo.glb",
+   "x": -505.8,
+   "y": -683.8,
+   "z": 0.44,
+   "heading": 0,
+   "hide": [
+    [
+     -505.0,
+     -685.6
+    ]
+   ]
+  },
+  {
+   "name": "Albisriederplatz blaugraues Haus",
+   "model": "/models/landmarks/z3c_al_nw_blue.glb",
+   "x": -486.4,
+   "y": -620.5,
+   "z": 0.01,
+   "heading": 0,
+   "hide": [
+    [
+     -492.5,
+     -627.9
+    ],
+    [
+     -493.3,
+     -626.9
+    ],
+    [
+     -486.2,
+     -620.2
+    ],
+    [
+     -496.3,
+     -623.2
+    ]
+   ]
+  },
+  {
+   "name": "Albisriederplatz gelbes Haus",
+   "model": "/models/landmarks/z3c_al_nw_yellow.glb",
+   "x": -501.4,
+   "y": -615.0,
+   "z": -0.18,
+   "heading": 0,
+   "hide": [
+    [
+     -501.4,
+     -615.0
+    ]
+   ]
+  },
+  {
+   "name": "Albisriederplatz lachsfarbenes Haus",
+   "model": "/models/landmarks/z3c_al_s_pink.glb",
+   "x": -472.4,
+   "y": -696.7,
+   "z": 0.56,
+   "heading": 0,
+   "hide": [
+    [
+     -473.1,
+     -696.6
+    ]
+   ]
+  },
+  {
+   "name": "Albisriederplatz ockergelbes Haus",
+   "model": "/models/landmarks/z3c_al_s_ochre.glb",
+   "x": -455.1,
+   "y": -694.0,
+   "z": 0.49,
+   "heading": 0,
+   "hide": [
+    [
+     -455.1,
+     -694.1
+    ]
+   ]
+  },
+  {
+   "name": "Albisriederplatz cremefarbenes Haus",
+   "model": "/models/landmarks/z3c_al_s_cream.glb",
+   "x": -485.2,
+   "y": -708.0,
+   "z": 0.57,
+   "heading": 0,
+   "hide": [
+    [
+     -485.2,
+     -707.9
+    ]
+   ]
+  },
+  {
+   "name": "Hardplatz Backsteinhaus West",
+   "model": "/models/landmarks/z3c_hp_brickw.glb",
+   "x": -152.9,
+   "y": -214.3,
+   "z": -3.96,
+   "heading": 0,
+   "hide": [
+    [
+     -152.8,
+     -213.4
+    ]
+   ]
+  },
+  {
+   "name": "Hardplatz fliederfarbenes Eckhaus",
+   "model": "/models/landmarks/z3c_hp_lilac.glb",
+   "x": -166.6,
+   "y": -231.0,
+   "z": -3.24,
+   "heading": 0,
+   "hide": [
+    [
+     -168.7,
+     -244.5
+    ],
+    [
+     -166.0,
+     -230.0
+    ]
+   ]
+  },
+  {
+   "name": "Hardplatz weisses Haus mit Walmdach",
+   "model": "/models/landmarks/z3c_hp_whitehip.glb",
+   "x": -136.5,
+   "y": -223.4,
+   "z": -3.48,
+   "heading": 0,
+   "hide": [
+    [
+     -136.5,
+     -223.4
+    ]
+   ]
+  },
+  {
+   "name": "Hohlstrasse grosses weisses Haus mit roten Daechern",
+   "model": "/models/landmarks/z3c_hohl_white.glb",
+   "x": -193.3,
+   "y": -187.7,
+   "z": -4.83,
+   "heading": 0,
+   "hide": [
+    [
+     -192.0,
+     -188.5
+    ]
+   ]
+  },
+  {
+   "name": "Hohlstrasse Backsteinhaus",
+   "model": "/models/landmarks/z3c_hohl_brick.glb",
+   "x": -206.3,
+   "y": -179.2,
+   "z": -4.32,
+   "heading": 0,
+   "hide": [
+    [
+     -206.3,
+     -179.2
+    ]
+   ]
+  },
+  {
+   "name": "Hohlstrasse cremeweisses Haus",
+   "model": "/models/landmarks/z3c_hohl_cream.glb",
+   "x": -214.5,
+   "y": -173.9,
+   "z": -4.34,
+   "heading": 0,
+   "hide": [
+    [
+     -214.2,
+     -173.4
+    ]
+   ]
+  }
+ ]
+}

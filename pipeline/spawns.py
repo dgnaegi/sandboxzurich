@@ -17,7 +17,7 @@ SEEDS = [
     ('Langstrasse Brauerstrasse', 755, -672, 740, -740),
     ('Idaplatz', -125, -1117, -163, -1113),
     ('Bullingerplatz', -41, -496, -96, -438),
-    ('Stauffacher', 951, -1221, 857, -1318),
+    ('Stauffacher', 957, -1196, 930, -1290),   # was in a courtyard (951,-1221), moved to the crossing 2026-10-20
     ('Escher-Wyss-Platz', 450, 750, 778, 625),
     ('Turbinenplatz', -4, 633, -3, 754),
     ('Josefwiese', 486, 201, 434, 292),

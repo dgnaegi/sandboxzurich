@@ -1,0 +1,147 @@
+{
+ "landmarks": [
+  {
+   "name": "Zypressenstrasse Eckhaus Backstein (Bullingerplatz)",
+   "model": "/models/landmarks/z3b_brick_corner.glb",
+   "x": -57.2,
+   "y": -546.7,
+   "z": -1.0,
+   "heading": 0,
+   "hide": [
+    [
+     -57.0,
+     -543.7
+    ]
+   ]
+  },
+  {
+   "name": "Bullingerplatz ockerfarbene Hausreihe",
+   "model": "/models/landmarks/z3b_ochre_row.glb",
+   "x": -8.4,
+   "y": -525.8,
+   "z": -0.99,
+   "heading": 0,
+   "hide": [
+    [
+     -5.9,
+     -519.6
+    ],
+    [
+     -11.3,
+     -532.3
+    ]
+   ]
+  },
+  {
+   "name": "Rundpavillon westlich Bullingerplatz",
+   "model": "/models/landmarks/z3b_pavilion.glb",
+   "x": -107.7,
+   "y": -511.1,
+   "z": -1.19,
+   "heading": 0,
+   "hide": [
+    [
+     -108.0,
+     -511.9
+    ]
+   ]
+  },
+  {
+   "name": "Sihlfeldstrasse rosa Wohnblock",
+   "model": "/models/landmarks/z3b_sihlfeld_pink.glb",
+   "x": -13.2,
+   "y": -585.2,
+   "z": -1.08,
+   "heading": 0,
+   "hide": [
+    [
+     -13.5,
+     -582.1
+    ],
+    [
+     -21.0,
+     -582.2
+    ],
+    [
+     -8.9,
+     -597.4
+    ],
+    [
+     -12.8,
+     -597.0
+    ]
+   ]
+  },
+  {
+   "name": "Flachbau westlich Bullingerplatz",
+   "model": "/models/landmarks/z3b_pavilion_low.glb",
+   "x": -145.7,
+   "y": -498.1,
+   "z": -1.18,
+   "heading": 0,
+   "hide": [
+    [
+     -144.6,
+     -498.2
+    ],
+    [
+     -135.1,
+     -498.9
+    ]
+   ]
+  },
+  {
+   "name": "Ernastrasse beiges Eckhaus",
+   "model": "/models/landmarks/z3b_erna_corner.glb",
+   "x": 75.7,
+   "y": -401.3,
+   "z": -3.33,
+   "heading": 0,
+   "hide": [
+    [
+     75.2,
+     -401.3
+    ],
+    [
+     80.9,
+     -398.5
+    ]
+   ]
+  },
+  {
+   "name": "Bullingerhof Hauptbau",
+   "model": "/models/landmarks/z3b_bhof_main.glb",
+   "x": -141.2,
+   "y": -539.0,
+   "z": -0.95,
+   "heading": 0,
+   "hide": [
+    [
+     -141.1,
+     -539.2
+    ],
+    [
+     -144.5,
+     -530.6
+    ],
+    [
+     -144.8,
+     -530.2
+    ],
+    [
+     -144.7,
+     -529.9
+    ]
+   ]
+  },
+  {
+   "name": "Bullingerplatz Brunnenbecken",
+   "model": "/models/landmarks/z3b_bullinger_brunnen.glb",
+   "x": -37.1,
+   "y": -497.2,
+   "z": -1.53,
+   "heading": 0,
+   "hide": []
+  }
+ ]
+}

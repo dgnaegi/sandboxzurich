@@ -1,0 +1,146 @@
+{
+ "landmarks": [
+  {
+   "name": "Stauffacherstrasse Arkadenhaeuser",
+   "model": "/models/landmarks/z3a_stf_west.glb",
+   "x": 944.2,
+   "y": -1215.3,
+   "z": -0.16,
+   "heading": 0,
+   "hide": [
+    [
+     937.9,
+     -1197.5
+    ],
+    [
+     936.1,
+     -1210.2
+    ],
+    [
+     945.1,
+     -1222.4
+    ],
+    [
+     950.8,
+     -1236.2
+    ]
+   ]
+  },
+  {
+   "name": "Stauffacher Buerohaus Bandfenster",
+   "model": "/models/landmarks/z3a_stf_glass.glb",
+   "x": 976.3,
+   "y": -1185.7,
+   "z": -0.27,
+   "heading": 0,
+   "hide": [
+    [
+     976.4,
+     -1186.0
+    ]
+   ]
+  },
+  {
+   "name": "Badenerstrasse Buerohaeuser Bandfenster",
+   "model": "/models/landmarks/z3a_kal_glass.glb",
+   "x": 380.3,
+   "y": -1023.4,
+   "z": -0.61,
+   "heading": 0,
+   "hide": [
+    [
+     374.6,
+     -1030.5
+    ],
+    [
+     374.1,
+     -1022.7
+    ],
+    [
+     389.9,
+     -1017.4
+    ]
+   ]
+  },
+  {
+   "name": "Seebahnstrasse Zeile cremefarben",
+   "model": "/models/landmarks/z3a_see_a.glb",
+   "x": 170.0,
+   "y": -660.7,
+   "z": -0.8,
+   "heading": 0,
+   "hide": [
+    [
+     153.5,
+     -692.6
+    ],
+    [
+     169.6,
+     -659.4
+    ],
+    [
+     187.4,
+     -629.9
+    ]
+   ]
+  },
+  {
+   "name": "Seebahnstrasse Zeile graubeige",
+   "model": "/models/landmarks/z3a_see_b.glb",
+   "x": 178.9,
+   "y": -644.5,
+   "z": -0.82,
+   "heading": 0,
+   "hide": [
+    [
+     160.5,
+     -677.1
+    ],
+    [
+     178.4,
+     -644.1
+    ],
+    [
+     196.4,
+     -616.1
+    ]
+   ]
+  },
+  {
+   "name": "Badenerstrasse beiger Balkonblock (Kalkbreite)",
+   "model": "/models/landmarks/z3a_kal_block.glb",
+   "x": 427.5,
+   "y": -1042.9,
+   "z": -1.28,
+   "heading": 0,
+   "hide": [
+    [
+     430.0,
+     -1039.9
+    ],
+    [
+     439.1,
+     -1058.4
+    ]
+   ]
+  },
+  {
+   "name": "Badenerstrasse rosa Eckhaus (Lochergut)",
+   "model": "/models/landmarks/z3a_loch_pink.glb",
+   "x": 105.0,
+   "y": -993.8,
+   "z": 1.28,
+   "heading": 0,
+   "hide": [
+    [
+     104.9,
+     -993.0
+    ],
+    [
+     103.4,
+     -985.1
+    ]
+   ]
+  }
+ ]
+}
