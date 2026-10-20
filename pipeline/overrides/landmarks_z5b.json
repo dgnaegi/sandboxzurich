@@ -1,6 +1,24 @@
 {
  "landmarks": [
   {
+   "name": "Badenerstrasse 681 Spirgarten/Coop",
+   "model": "/models/landmarks/z5b_spirgarten.glb",
+   "x": -2370.2,
+   "y": 355.4,
+   "z": -8.63,
+   "heading": 0,
+   "hide": [
+    [
+     -2374.0,
+     352.7
+    ],
+    [
+     -2388.8,
+     334.1
+    ]
+   ]
+  },
+  {
    "name": "Altstetterstrasse 150 beiges Ladenhaus",
    "model": "/models/landmarks/z5b_altst150.glb",
    "x": -2291.0,
@@ -79,6 +97,20 @@
    ]
   },
   {
+   "name": "Hohlstrasse Backsteinfabrik",
+   "model": "/models/landmarks/z5b_hohl_brick.glb",
+   "x": -1376.1,
+   "y": 449.3,
+   "z": -10.33,
+   "heading": 0,
+   "hide": [
+    [
+     -1373.6,
+     450.4
+    ]
+   ]
+  },
+  {
    "name": "Hohlstrasse 459 Buerohaus Letzipark",
    "model": "/models/landmarks/z5b_hohl_letzi.glb",
    "x": -1372.4,
@@ -103,38 +135,6 @@
     [
      -1507.5,
      418.3
-    ]
-   ]
-  },
-  {
-   "name": "Badenerstrasse 681 Spirgarten/Coop",
-   "model": "/models/landmarks/z5b_spirgarten.glb",
-   "x": -2370.2,
-   "y": 355.4,
-   "z": -8.63,
-   "heading": 0,
-   "hide": [
-    [
-     -2374.0,
-     352.7
-    ],
-    [
-     -2388.8,
-     334.1
-    ]
-   ]
-  },
-  {
-   "name": "Hohlstrasse Backsteinfabrik",
-   "model": "/models/landmarks/z5b_hohl_brick.glb",
-   "x": -1376.1,
-   "y": 449.3,
-   "z": -10.33,
-   "heading": 0,
-   "hide": [
-    [
-     -1373.6,
-     450.4
     ]
    ]
   }

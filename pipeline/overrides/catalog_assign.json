@@ -16,5 +16,14 @@
  "_z2": "Zone 2: BR-1245/BR-1248 (Escher-Wyss-Platz, Betonkuebel 'bucket'), BR-246 (Josefwiese rfount), BR-401 (Limmatplatz tellerbrunnen), BR-188 (Limmatplatz dfount), BR-189 (Hardplatz dfount) are drawn by places_detail 'convert' at exactly the same WVZ position (<0.5 m): the catalog trough/figure was a second fountain on top",
  "_z3": {
   "BR-41": "excluded: Bullingerplatz fountain is the hand-built landmark z3b_bullinger_brunnen (2026-10-20)"
- }
+ },
+ "stops": [
+  {
+   "x": -969.78,
+   "y": -328.05,
+   "r": 3.0,
+   "variant": "H8"
+  }
+ ],
+ "_stops": "stops: shelter record nearest (x,y) within r becomes one model instance (sx=1). H8 = Schirmdach Haltestelle Letzigrund (Z5c-1, Foto cm_Gem_serabatte_Letzigrund)"
 }

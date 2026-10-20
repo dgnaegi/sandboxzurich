@@ -1,6 +1,20 @@
 {
  "landmarks": [
   {
+   "name": "Monroe Brauerstrasse 26 dunkelblaues Eckhaus",
+   "model": "/models/landmarks/langC_monroe.glb",
+   "x": 864.9,
+   "y": -726.5,
+   "z": -1.63,
+   "heading": 0,
+   "hide": [
+    [
+     864.9,
+     -726.5
+    ]
+   ]
+  },
+  {
    "name": "Kir Royal Langstrasse 62",
    "model": "/models/landmarks/langC_kirroyal.glb",
    "x": 729.0,
@@ -115,6 +129,20 @@
    ]
   },
   {
+   "name": "Rasputin Bar gelbliche Fassade",
+   "model": "/models/landmarks/langC_rasputin.glb",
+   "x": 826.3,
+   "y": -795.2,
+   "z": -1.41,
+   "heading": 0,
+   "hide": [
+    [
+     825.7,
+     -794.9
+    ]
+   ]
+  },
+  {
    "name": "Tenz Momo Hohlstrasse 44 Bierhalle-Haus",
    "model": "/models/landmarks/langC_tenzmomo.glb",
    "x": 738.6,
@@ -203,34 +231,6 @@
     [
      797.6,
      -669.0
-    ]
-   ]
-  },
-  {
-   "name": "Monroe Brauerstrasse 26 dunkelblaues Eckhaus",
-   "model": "/models/landmarks/langC_monroe.glb",
-   "x": 864.9,
-   "y": -726.5,
-   "z": -1.63,
-   "heading": 0,
-   "hide": [
-    [
-     864.9,
-     -726.5
-    ]
-   ]
-  },
-  {
-   "name": "Rasputin Bar gelbliche Fassade",
-   "model": "/models/landmarks/langC_rasputin.glb",
-   "x": 826.3,
-   "y": -795.2,
-   "z": -1.41,
-   "heading": 0,
-   "hide": [
-    [
-     825.7,
-     -794.9
     ]
    ]
   },

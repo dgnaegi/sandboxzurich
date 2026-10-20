@@ -2,6 +2,13 @@
 
 Wird am Ende jedes Arbeitsschritts überschrieben. Eine neue Session liest das zuerst.
 
+## Stand 2026-10-20 abends: Code-Runde + Nacht 6 (Woche 1 abgeschlossen) – ZUERST LESEN
+- Code-Runde (#65): Walmdächer ohne Spitzen (`k4w4_kit.hip_roof`, alle Generatoren neu), Brücken mit Schienen/Zebras + Brüstung 1.1 m, «STOP»-Decal kind 12 (2 automatisch gesetzt), Platzobjekt `parasol` (noch nirgends gesetzt), Platanenstämme dunkel, Haltestelle Letzigrund H8.
+- **Komplett-Build 17** (`logs/build_full17.log`, 0 Fehler, 58 min), publiziert (`logs/publish17.log`). QA `logs/qa17.log` **alles grün** (gameplay, touch, drive, crash, knock, traffic_legal 0.02 %, move_quality, qa_spawn 26/26, qa_leak +28 MB, Texturen 157/145/100 MB, perf Handy 57 fps / 272 Calls / 604k Tris / 4.4 s).
+- Wochenbogen aller 79 Kamerapunkte: `preview/week1_cmp.jpg`. Rückblick und Vorschlag Woche 2: Ende von `docs/NIGHT_PLAN.md`.
+- **Frage an den User:** Goldbrunnenplatz-Baustelle kommt aus OSM (Weg 1460306610, um 2025 erfasst, ohne Datum) – vor Ort noch aktiv? Wenn nein: Ausschluss in `sites.py`.
+**Nächster Schritt:** Woche 2 laut Rückblick, zuerst Zone-2-Kamerapunkte von Hand.
+
 ## Stand 2026-10-20 nachmittags: Nacht 5 / Zone 3 (Kreis 4 Mitte) – ZUERST LESEN
 - Kamerapunkte: 5 ersetzt (Stauffacher/Lochergut Wand, Albisriederplatz/Erismannhof Hecke); Stauffacher danach auf die Kreuzung (957,-1196). **Spawn Stauffacher lag im Innenhof** → `pipeline/spawns.py` auf die Kreuzung, `spawns.json` neu (--snap).
 - 3 Agents an den Kamerapunkten: 42 neue Haus-Landmarks (`z3a_*` 7: Stauffacher-Arkaden, Kalkbreite-Büros/Balkonblock, Lochergut-Eckhaus, Seebahnstrasse-Zeilen + Zaun; `z3b_*` 8: Bullingerplatz-Brunnen mit Wasser, ocker Reihe, Bullingerhof-Pavillons, Backstein-Eckhaus Zypressenstr., Sihlfeld, Erna; `z3c_*` 27: Badener/Zypressen, Hard/Bullinger, Albisriederplatz, Hardplatz, Hohl/Hard) + Rasengleis-Streifen Badenerstrasse + Apotheke. Doppelter Katalogbrunnen BR-41 am Bullingerplatz ausgeschlossen. Protokolle `research/zones/z3/area_{southeast,middle,west}.md` (Tickets Z3a-1…7, Z3b-1…8, Z3c-1…6).

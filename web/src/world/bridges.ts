@@ -5,14 +5,14 @@ import * as THREE from 'three';
  *  w = driving width, kind = road | foot | tram | rail. Piers: [x, y, zBottom, zTop, widthAcross, heading, kind].
  *  Local -> Three: (x, z, -y). One draw call per tile (vertex-coloured, flat shaded). */
 /** pa / pb: the polyline vertices just before / after a row that was cut at a tile border (keeps the offset normals continuous across tiles). */
-export interface DeckRow { p: number[][]; g: number[]; b: number[]; w: number; kind: string; name: string; pa?: number[]; pb?: number[]; sub?: boolean }   // sub: deck below the terrain (hb3 underground levels)
+export interface DeckRow { p: number[][]; g: number[]; b: number[]; w: number; kind: string; name: string; pa?: number[]; pb?: number[]; sub?: boolean; zb?: number[][] }   // zb: zebra crossings on the deck [x, y, z, dirX, dirY]   // sub: deck below the terrain (hb3 underground levels)
 export type PierRow = [number, number, number, number, number, number, string];
 export interface BridgeRows { decks: DeckRow[]; piers: PierRow[] }
 
 const mat = new THREE.MeshLambertMaterial({ vertexColors: true, side: THREE.DoubleSide });
 const col = (hex: number) => new THREE.Color(hex);
 const TOP: Record<string, THREE.Color> = { road: col(0x3c3d40), tram: col(0x3c3d40), foot: col(0x8d8a84), rail: col(0x4b4640) };
-const CONC = col(0x9b988f), CONC_DARK = col(0x6f6d68), RAIL = col(0x5d6468), LINE = col(0xd8d4c4);
+const CONC = col(0x9b988f), CONC_DARK = col(0x6f6d68), RAIL = col(0x5d6468), LINE = col(0xd8d4c4), RAILHEAD = col(0xaeaeb2), ZEBRA = col(0xf0c81e);
 const PARAPET = 0.38, CURB = 0.3;
 /** Railings (mesh and collider) exist only where the deck is at least this high above the terrain; ramps stay open. */
 export const RAIL_EL = 1.0;
@@ -72,6 +72,26 @@ function deck(B: Builder, d: DeckRow) {
   }
   if (!rail) railings(B, d, nx, ny, hw + CURB * 0.5);   // open at the ramps (see RAIL_EL)
   if (d.kind === 'road' && d.w >= 6) centreLine(B, d, nx, ny);
+  if (d.kind === 'tram') trackRails(B, d, nx, ny);
+  if (d.zb) for (const z of d.zb) zebra(B, z, d.w);
+}
+
+/** Tram deck: two metre-gauge rail heads (as on the ground, tram_track.py) flush in the deck surface. */
+function trackRails(B: Builder, d: DeckRow, nx: number[], ny: number[]) {
+  const p = d.p, z = 0.03;
+  for (const o of [-0.5, 0.5]) for (let i = 0; i < p.length - 1; i++) {
+    const j = i + 1, a = (k: number, e: number) => [p[k][0] + nx[k] * (o + e), p[k][1] + ny[k] * (o + e), p[k][2] + z];
+    B.quad(a(i, -0.035), a(i, 0.035), a(j, 0.035), a(j, -0.035), RAILHEAD);
+  }
+}
+
+/** Yellow pedestrian crossing (Swiss zebra) across the deck: 0.5 m stripes every 1 m along the travel direction, 3.6 m deep. */
+function zebra(B: Builder, c: number[], w: number) {
+  const [x, y, z, dx, dy] = c, nx = -dy, ny = dx, hw = Math.max(w / 2 - 0.15, 1);
+  for (let k = -3; k <= 2; k++) {
+    const t0 = k * 0.6, t1 = t0 + 0.35, P = (t: number, o: number) => [x + dx * t + nx * o, y + dy * t + ny * o, z + 0.025];
+    B.quad(P(t0, -hw), P(t0, hw), P(t1, hw), P(t1, -hw), ZEBRA);
+  }
 }
 
 function railings(B: Builder, d: DeckRow, nx: number[], ny: number[], o: number) {
@@ -83,14 +103,14 @@ function railings(B: Builder, d: DeckRow, nx: number[], ny: number[], o: number)
       const j = i + 1, len = Math.hypot(p[j][0] - p[i][0], p[j][1] - p[i][1]);
       if (Math.min(p[i][2] - d.g[i], p[j][2] - d.g[j]) < RAIL_EL) { acc += len; while (nextPost <= acc) nextPost += 2.5; continue; }
       const at = (k: number, z: number) => [p[k][0] + nx[k] * o * s, p[k][1] + ny[k] * o * s, p[k][2] + z];
-      for (const h of [0.75, 1.05]) B.quad(at(i, PARAPET + h - 0.04), at(j, PARAPET + h - 0.04), at(j, PARAPET + h + 0.03), at(i, PARAPET + h + 0.03), RAIL);
+      for (const h of [0.40, 0.69]) B.quad(at(i, PARAPET + h - 0.04), at(j, PARAPET + h - 0.04), at(j, PARAPET + h + 0.03), at(i, PARAPET + h + 0.03), RAIL);   // top rail at 1.1 m above the deck (CH Gelaender)
       // posts every ~2.5 m: two crossed thin quads
       while (nextPost <= acc + len) {
         const t = (nextPost - acc) / len;
         const x = p[i][0] + (p[j][0] - p[i][0]) * t + nx[i] * o * s, y = p[i][1] + (p[j][1] - p[i][1]) * t + ny[i] * o * s;
         const z = p[i][2] + (p[j][2] - p[i][2]) * t + PARAPET;
         const tx = (p[j][0] - p[i][0]) / len * 0.04, ty = (p[j][1] - p[i][1]) / len * 0.04;
-        B.quad([x - tx, y - ty, z], [x + tx, y + ty, z], [x + tx, y + ty, z + 1.08], [x - tx, y - ty, z + 1.08], RAIL);
+        B.quad([x - tx, y - ty, z], [x + tx, y + ty, z], [x + tx, y + ty, z + 0.72], [x - tx, y - ty, z + 0.72], RAIL);
         nextPost += 2.5;
       }
       acc += len;

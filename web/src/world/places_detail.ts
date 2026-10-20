@@ -74,6 +74,11 @@ const T: Record<string, Fn> = {
   pilz: (a) => [Y(0.07, 0.05, k(a, 4), 0, 0, 0, 0x26292c, 7), Y(0.6, 0.12, 0.22, 0, k(a, 4) - 0.1, 0, 0x26292c, 12), Y(0.4, 0.4, 0.03, 0, k(a, 4) - 0.12, 0, GLOW, 10)],
   // garden table set: round table (colour) with 4 chairs
   gtable: (_a, _b, _c, _d, col) => { const c = col ?? 0xc8302a, p: THREE.BufferGeometry[] = [Y(0.4, 0.4, 0.03, 0, 0.72, 0, c, 10), Y(0.03, 0.03, 0.72, 0, 0, 0, 0x3a3d40, 5)]; for (const [x, z] of [[0.62, 0], [-0.62, 0], [0, 0.62], [0, -0.62]]) p.push(B(0.4, 0.04, 0.4, x, 0.44, z, c), B(0.4 * (x ? 0.1 : 1), 0.4, 0.4 * (x ? 1 : 0.1), x * 1.3, 0.46, z * 1.3, c)); return p; },
+  // parasol: terrace umbrella, a = canopy diameter (2.5-3 m, default 2.8), colour = canopy (default red); b = pole height (2.3)
+  parasol: (a, b, _c, _d, col) => {
+    const R = Math.min(3, Math.max(2.5, k(a, 2.8))) / 2, H = k(b, 2.3), c = col ?? 0xb8322c;
+    return [Y(0.03, 0.03, H, 0, 0, 0, 0x3a3d40, 5), Y(0.06, R, 0.42, 0, H - 0.1, 0, c, 10), Y(0.02, 0.02, 0.1, 0, H + 0.32, 0, 0x3a3d40, 4)];
+  },
   // Tisch-Bank-Kombi: table a=length (2.0) with two benches
   tbench: (a, b, _c, _d, col) => {
     const L = k(a, 2.0), W = k(b, 0.75), wood = col ?? 0x8f6a42, st = 0x4a5256;

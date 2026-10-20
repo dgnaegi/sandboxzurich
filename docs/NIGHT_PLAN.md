@@ -12,7 +12,7 @@ Start 2026-10-18. Ziel: mehr Details, mehr Realismus, alles so nah an der echten
 - [x] **Nacht 3 (Mi 21.10.)** – Zone 1 HB und Langstrasse (am 19.10. abends vorgezogen; Daten ja, Note nur 2.8 → 2.9)
 - [x] **Nacht 4 (Do 22.10.)** – Zone 5 Kreis 9 West (am 20.10. vorgezogen; 17 Landmarks, PJZ verschoben, Ø ~2.7 → 3.2)
 - [x] **Nacht 5 (Fr 23.10.)** – Zone 3 Kreis 4 Mitte (am 20.10. vorgezogen; 42 Landmarks, Ø ~2.9 → 3.4)
-- [ ] **Nacht 6 (Sa 24.10.)** – Komplett-Build, stadtweite Kontrolle, Deploy, Rückblick
+- [x] **Nacht 6 (Sa 24.10.)** – Komplett-Build, stadtweite Kontrolle, Deploy, Rückblick (am 20.10. abends; Build 17)
 
 Reihenfolge nach Bestandsaufnahme 2026-10-19 (`research/zones/baseline.md`, Ø gesamt 2.5): Zone 4 (2.7, eigenes Quartier) → 2 (2.2) → 1 (2.3) → 5 (2.7) → 3 (2.8). Die Abschnitte «Nacht 1–5» unten sind nach Zone benannt; massgeblich ist diese Reihenfolge.
 
@@ -178,9 +178,30 @@ Eine 8-h-Nacht überspannt zwei 5-h-Fenster. Die Nacht muss auch sauber enden, w
 
 ## Protokoll
 <!-- Eine Zeile pro Nacht: Datum – Nacht N – Ergebnis – Note vorher→nachher – offene Tickets – Textur-MB Handy -->
+- 2026-10-20 abends – Code-Runde + Nacht 6 – Walmdächer ohne Spitzen (alle Generatoren neu), Brücken mit Schienen/Zebras + Brüstung 1.1 m, STOP-Decal, Sonnenschirm-Typ, Platanenstämme, Haltestelle Letzigrund H8 (#65); Komplett-Build 17, alle Tests grün, publiziert – Wochenbogen preview/week1_cmp.jpg – 157/145/100 MB, 57 fps, 272 Calls
 - 2026-10-20 nachmittags – Nacht 5 Zone 3 – Kamerapunkte + Spawn Stauffacher, 3 Agents: 42 Haus-Landmarks, Bullingerplatz-Brunnen, Rasengleis, BR-41 raus; 34 Kacheln, publiziert – Ø ~2.9→3.4 – Z3a/b/c-Tickets – 157/145 MB, 58 fps, tex max 581
 - 2026-10-20 – Nacht 4 Zone 5 – Kamerapunkte von Hand, PJZ aufs richtige Gebäude (#63), 3 Agents an Kamerapunkten: 17 Landmarks + Lindenplatz-Pflaster, rote Flächen per Override (#64); 133 Kacheln, publiziert – Ø ~2.7→3.2 – Z5a/b/c-Tickets – 157/145 MB, 58 fps
 - 2026-10-19 nachts – Nacht 1 Rest (Zone 4) – Kamerapunkte, Ecken-Abgleich 77 Ecken (wenige sichere Fixes), Autofassade verworfen (#60), Mapillary-Schilder als Schalter (#61), braune Kugel-Sträucher grün, erfundene Gerüste raus (#62); Build 16 – Zone 4 ~3.0 unverändert – T-N1…5, T-S1…7 – 157/145 MB, 58 fps
 - 2026-10-19 abends – Nacht 3 Zone 1 – HB-Halle (Buden weg, Tore), Kamerapunkte neu, Foto|Spiel-Werkzeug, +142 Notizen (Geschosse 106→354), 15 Ladenfronten; 24 Kacheln, publiziert – Ø 2.8→2.9 – Z1-1…6 – Langstrasse 157 MB, HB 145 MB, 58 fps
 - 2026-10-19 Tag – Zone 2 (~70 %), Fassaden v4, Spawn, HB-Dächer, Schlachthof R4, Linien, Zebras 403, Unterführungen; Builds 14+15, Releases 3+4 – Zone 2 nicht neu benotet – T21, Brücken-Mulden – perf Handy 58 fps
 - 2026-10-19 – Sondernacht + Nacht 0 + Nacht 1 (Zone 4) – Schlachthof/Letzipark/FGG/Letzigrund, Katalog (21 Modelle), Fahren, Tram, Zebras, Bodenfehler; Builds 12+13 – Baseline Ø 2.5 (Zone 4 nachher nicht neu benotet) – Tickets T19–T23, knock-Test – perf Handy 58 fps
+
+## Rückblick Woche 1 (2026-10-20)
+**Was am meisten gebracht hat**
+1. **Fehler finden statt Details nachbauen.** Erfundene Baugerüste an Hauptstrassen (#62), PJZ auf dem falschen Gebäude (#63), braune Kugel-Sträucher, Spawn Stauffacher im Innenhof, HB-Halle mit Marktbuden und erfundenen Läden (#58), Dachspitzen auf allen L-Grundrissen (#65). Jeder Fund verbessert die Stadt an vielen Stellen auf einmal.
+2. **Prägende Häuser als Landmark an den Kamerapunkten** (Zonen 5 und 3, insgesamt ~60): Das Ergebnis ist im Vergleichsbild sofort sichtbar (Note +0.5).
+3. **Kamerapunkte von Hand prüfen:** In jeder Zone lag rund ein Drittel der automatischen Punkte in Wänden, Hecken oder Höfen.
+
+**Was wenig gebracht hat**
+- Flächig Fassadennotizen sammeln (Zone 1: +142 Notizen, Note +0.1): Höhe und Farbe stimmten schon.
+- Ecken-Abgleich über Mapillary-Fotoposen (Zone 4): GPS 10–30 m und Heading bis 90° daneben.
+- Automatische Fassadenfarbe (#60) und Mapillary-Verkehrsschilder (#61): Die Daten sind zu ungenau bzw. lückenhaft.
+
+**Ergebnis:** Ø-Note der Kamerapunkte etwa 2.5 → 3.2 (geschätzt, Zonen 2/4 kaum neu benotet). Ziel 4 nirgends erreicht. Handy stabil (57–58 fps, Texturen < 160 MB).
+
+**Vorschlag Woche 2 (zweiter Durchgang)**
+1. Zone 2 Kamerapunkte von Hand (Escher-Wyss, Hardbrücke-Perron, Schiffbau, Limmatplatz, Josefstrasse liegen falsch), dann Landmark-Runde wie in Zone 3/5.
+2. Zone 1 und 4: Landmark-Runde an den Kamerapunkten (bisher nur Notizen/Ecken).
+3. Weitere Fehlersuche stadtweit (Lehre: Fehlerfunde bringen am meisten): Landmarks gegen GWR-Adressen prüfen (steht jedes Modell auf seinem Gebäude?), Spawns, schwebende/versunkene Objekte.
+4. Texturen der vielen kleinen Landmarks in einen Atlas (qa_leak tex max 505 → 594).
+5. Rand-/Mittellinien auf Brückendecks, Hardbrücke-Trog, Rot-Flächen vermessen (Baslerstrasse, Westpark, Goldbrunnenplatz, Letzigrund).

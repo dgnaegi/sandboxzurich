@@ -325,7 +325,8 @@ def block_model(name, title, prefixes, *, wall="#d8cfae", wall_tex=None, frame="
                         for a, b in edges_of(p, 0.4): m.wall(mf, a, b, z1, z1 + parapet, (4, 4), hexl(cornice[0]) if cornice else WALL)
             else:
                 for p in polys_of(S):
-                    if roof[0] == "hip": hip_roof(m, mf, orient(p.buffer(0.3, join_style=2).simplify(0.4), 1.0), z1 + 0.1, roof[2] if len(roof) > 2 else 5.0, roof_d, hexl(roof[1]))
+                    if roof[0] == "hip" or p.area < 0.88 * p.minimum_rotated_rectangle.area:   # L/T/skew footprint: gable would grow wings, so hip
+                        hip_roof(m, mf, orient(p.buffer(0.3, join_style=2).simplify(0.4), 1.0), z1 + 0.1, (roof[2] if roof[0] == "hip" and len(roof) > 2 else min(5.0, roof_d * 0.55)), roof_d, hexl(roof[1]))
                     else:
                         (cx_, cy_), ux, uy, L_, W_ = rect_of(p)
                         gable_roof(m, mf, mw, ((cx_, cy_), ux, uy, L_, W_), z1 + 0.1, roof[2] if len(roof) > 2 else W_ * 0.3, hexl(roof[1]), WALL, eave=0.4)
@@ -353,8 +354,8 @@ def block_model(name, title, prefixes, *, wall="#d8cfae", wall_tex=None, frame="
     return m
 
 
-def hip_roof(m, mr, P, z0, rise, d, col, cap=True):
-    """Hip roof over a ring: vertex-paired frustum between P (z0) and its mitre-inset by d (z0+rise) when the vertex counts match
+def hip_roof_v1(m, mr, P, z0, rise, d, col, cap=True):
+    """(old, kept for regression comparison) Hip roof over a ring: vertex-paired frustum between P (z0) and its mitre-inset by d (z0+rise) when the vertex counts match
     (no 'fins' at concave corners); falls back to slope_roof otherwise."""
     P = orient(P, 1.0)
     for dd in (d, d * 0.8, d * 0.6, d * 0.4):
@@ -374,3 +375,42 @@ def hip_roof(m, mr, P, z0, rise, d, col, cap=True):
                 if cap: m.flat(mr, Q, z0 + rz, col)
                 return
     slope_roof(m, mr, P, z0, rise, d, col)
+
+
+def hip_roof(m, mr, P, z0, rise, d, col, cap=True):
+    """Hip roof over any ring (L, T, skew corners): eaves at P (z0), planar facets from the mitred inward offsets of P.
+    Height = rise/d * distance to the eave, capped at rise; when the footprint is narrower than 2d the ridge stays lower (pitch kept).
+    Each band between consecutive offsets is triangulated (constrained Delaunay) and vertex heights come from the distance field,
+    so reflex corners give clean valleys and no spikes (straight-skeleton approximation)."""
+    from shapely.geometry import Polygon, Point
+    from shapely.geometry.polygon import orient as _or
+    P = Polygon(_or(P, 1.0).exterior)
+    if P.is_empty: return
+    slope = rise / d
+    def ring(dd):
+        Q = P.buffer(-dd, join_style=2, mitre_limit=10.0)
+        return Q if (not Q.is_empty and Q.area > 0.05) else None
+    if ring(d) is not None: rmax = d
+    else:
+        lo, hi = 0.0, d
+        for _ in range(12):
+            mid = (lo + hi) / 2
+            if ring(mid) is not None: lo = mid
+            else: hi = mid
+        rmax = lo * 0.97
+    if rmax < 0.05: m.flat(mr, P, z0, col); return
+    nsteps = 1 if len(P.simplify(0.05).exterior.coords) <= 5 else 3
+    rings = [P] + [ring(rmax * k / nsteps) for k in range(1, nsteps + 1)]
+    bnd = P.exterior
+    def emit(poly):
+        for g in shapely.constrained_delaunay_triangles(_or(poly, 1.0)).geoms:
+            c = list(g.exterior.coords)[:3]; pts = [(x, y, z0 + min(rise, slope * bnd.distance(Point(x, y)))) for x, y in c]
+            if not Polygon(c).exterior.is_ccw: pts = pts[::-1]
+            m.tri(mr, pts, [(p[0] * 0.1, p[1] * 0.1) for p in pts], col)
+    for A, B in zip(rings[:-1], rings[1:]):
+        if A is None: continue
+        for g in polys_of(A.difference(B) if B is not None else A):
+            if g.area > 1e-3: emit(g)
+    if rings[-1] is not None:
+        for g in polys_of(rings[-1]):
+            if g.area > 1e-3: emit(g)

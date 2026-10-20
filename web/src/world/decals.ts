@@ -2,9 +2,9 @@ import * as THREE from 'three';
 
 /**
  * Road decals from the pipeline: rows [x, y, z, heading, kind]; kind 0 bike pictogram (yellow, Swiss lanes),
- * 1 manhole cover, 2 gully grate, 3 "30" zone entry marking, 11 "20" Begegnungszone entry marking, 4 straight arrow, 5 BUS, 6 painted 30 roundel, 7 left, 8 right, 9 straight+left, 10 straight+right arrow. One merged mesh per tile, atlas drawn at runtime.
+ * 1 manhole cover, 2 gully grate, 3 "30" zone entry marking, 11 "20" Begegnungszone entry marking, 4 straight arrow, 5 BUS, 6 painted 30 roundel, 7 left, 8 right, 9 straight+left, 10 straight+right arrow, 12 white STOP lettering (across the lane, read by the approaching driver; override kind 7 is taken by the left arrow). One merged mesh per tile, atlas drawn at runtime.
  */
-const SIZE: [number, number][] = [[1.0, 1.9], [0.72, 0.72], [0.55, 0.36], [2.0, 4.0], [1.4, 4.2], [1.7, 3.0], [1.8, 1.8], [1.7, 4.2], [1.7, 4.2], [2.2, 4.2], [2.2, 4.2], [2.0, 4.0]]; // width, length (m)
+const SIZE: [number, number][] = [[1.0, 1.9], [0.72, 0.72], [0.55, 0.36], [2.0, 4.0], [1.4, 4.2], [1.7, 3.0], [1.8, 1.8], [1.7, 4.2], [1.7, 4.2], [2.2, 4.2], [2.2, 4.2], [2.0, 4.0], [2.2, 3.4]]; // width, length (m)
 const COLS = 4, ROWS = 4;
 let atlas: THREE.Texture | null = null;
 
@@ -58,6 +58,8 @@ function makeAtlas(): THREE.Texture {
   // 6: "30" roundel painted (Tempo 30 on the road)
   g.save(); g.translate(640, 384); g.strokeStyle = '#f2f2ee'; g.lineWidth = 18; g.beginPath(); g.arc(0, 0, 96, 0, Math.PI * 2); g.stroke();
   g.fillStyle = '#f2f2ee'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.font = '110px Anton, sans-serif'; g.fillText('30', 0, 6); g.restore();
+  // 12: STOP (Swiss road marking: tall narrow letters, read from the approach; canvas top = far end, so the text reads upright for the driver)
+  g.save(); g.translate(128, 896); g.fillStyle = '#f2f2ee'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.font = '135px Anton, sans-serif'; g.fillText('STOP', 0, 4); g.restore();
   const t = new THREE.CanvasTexture(c);
   t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8;
   return t;

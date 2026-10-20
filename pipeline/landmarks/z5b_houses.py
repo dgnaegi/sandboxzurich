@@ -11,7 +11,7 @@ COMMON = dict(cols=2, rows=3, fh=3.0, bayw=2.5, win=(1.15, 1.75, 0.85), eg_h=4.2
 SPECS = {  # name: (title, ids, overrides)
     # Hotel/Restaurant Spirgarten + Coop (Badenerstrasse 681): salmon-orange 1950s block, strip windows, glazed ground floor (Commons Welti_Spirgarten, Mapillary 498123644871495)
     "spirgarten": ("Badenerstrasse 681 Spirgarten/Coop", ["ID_85DB372F"], dict(wall="#d4856a", seed=81, base_col="#8f8a82", frame="#f4f1ea", win=(2.0, 1.3, 0.95), bayw=2.9, fh=3.3, eg_h=4.4,
-                   roof=("flat", "#7c746e"), eave_rise=0.0, cornice=("#f1ece0", 0.6, 0.6), parapet=0.5)),   # SWISSIMAGE: low dark hip roof with skylight; flat used (hip builder leaves a spike on this footprint, ticket)
+                   roof=("hip", "#7c746e", 3.0), eave_rise=2.6, cornice=("#f1ece0", 0.6, 0.6))),   # SWISSIMAGE: low dark hip roof; hip works again (hip_roof rebuilt, T-S1 fixed)
     # Altstetterstrasse 150/152: tan plastered 5-storey row with shops (Mapillary 1157056783007138 / 687999557132870)
     "altst150": ("Altstetterstrasse 150 beiges Ladenhaus", ["ID_03A21443"], dict(wall="#e7d8b0", seed=82, base_col="#8a8478", roof=("hip", "#4b4440", 4.5))),
     "altst152": ("Altstetterstrasse 152 beiges Ladenhaus", ["ID_7E84243E"], dict(wall="#ebdcb4", seed=83, base_col="#8a8478", roof=("hip", "#4b4440", 4.5))),

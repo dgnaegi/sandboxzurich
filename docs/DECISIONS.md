@@ -228,3 +228,9 @@ Das PJZ-Landmark sass auf swissBUILDINGS3D `ID_FEBC2FA3` (Neugasse 145, Kreis 5)
 
 ## #64 – 2026-10-20 – Rote Flächen per Override
 Die automatische Rot-Erkennung aus SWISSIMAGE (`streets_ortho.red_surfaces`) verpasst Velostreifen im Schatten oder mit Belagswechsel. Neu: `add_red`-Polygone in `markings_z*.json` (auf die Fahrbahn geschnitten, `ground_paint.paint`) und Material `red` in `places_detail` für Wege und Plätze. Jede Fläche braucht einen Foto- oder Ortho-Beleg.
+
+## #65 – 2026-10-20 – Code-Runde für Tickets aus allen Zonen
+- Walm- und Satteldach (`k4w4_kit.hip_roof`): Bänder zwischen nach innen versetzten Traufkanten statt paarweiser Eckverbindung. Keine Spitzen mehr auf L-/T-/Schräg-Grundrissen, Dachfläche = Grundriss. Satteldach fällt bei weniger als 88 % Rechteckanteil auf Walm zurück. Alle Landmark-Generatoren mit hip/gable neu gelaufen; `hip_roof_v1` bleibt zum Vergleich.
+- Brücken: Tram-Decks zeigen Schienen, Strassendecks Zebras aus OSM-Crossings (`bridges.py` Feld `zb`, `bridges.ts`). Brüstung 1.1 m statt 1.46 m. Rand- und Mittellinien auf Decks fehlen noch.
+- Decal kind 12 = «STOP» (automatisch vor OSM-Stop-Zufahrten), Platzobjekt `parasol`, Platanenstämme dunkel gefleckt (nur Nahmodell).
+- Katalog H8: Schirmdach-Haltestelle Letzigrund (Override-Schlüssel `stops` in `catalog_assign.json`).

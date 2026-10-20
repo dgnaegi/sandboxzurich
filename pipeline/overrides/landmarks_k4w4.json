@@ -111,6 +111,50 @@
    ]
   },
   {
+   "name": "Zentralwaescherei (Kulturhaus Neue Hard)",
+   "model": "/models/landmarks/zentralwaescherei.glb",
+   "x": 294.1,
+   "y": 360.8,
+   "z": -7.54,
+   "heading": 0,
+   "hide": [
+    [
+     292.9,
+     358.2
+    ],
+    [
+     249.8,
+     321.4
+    ],
+    [
+     334.0,
+     276.7
+    ]
+   ]
+  },
+  {
+   "name": "Wasserkraftwerk Letten",
+   "model": "/models/landmarks/kw_letten.glb",
+   "x": 1214.7,
+   "y": 351.7,
+   "z": -4.31,
+   "heading": 0,
+   "hide": [
+    [
+     1201.4,
+     360.1
+    ],
+    [
+     1231.9,
+     339.1
+    ],
+    [
+     1248.1,
+     312.2
+    ]
+   ]
+  },
+  {
    "name": "Johanneskirche Limmatplatz",
    "model": "/models/landmarks/johanneskirche.glb",
    "x": 1269.2,
@@ -163,28 +207,6 @@
    ]
   },
   {
-   "name": "Wasserkraftwerk Letten",
-   "model": "/models/landmarks/kw_letten.glb",
-   "x": 1214.7,
-   "y": 351.7,
-   "z": -4.31,
-   "heading": 0,
-   "hide": [
-    [
-     1201.4,
-     360.1
-    ],
-    [
-     1231.9,
-     339.1
-    ],
-    [
-     1248.1,
-     312.2
-    ]
-   ]
-  },
-  {
    "name": "Swissmill Tower Silo",
    "model": "/models/landmarks/swissmill_turm.glb",
    "x": 778.4,
@@ -221,28 +243,6 @@
     [
      745.3,
      656.1
-    ]
-   ]
-  },
-  {
-   "name": "Zentralwaescherei (Kulturhaus Neue Hard)",
-   "model": "/models/landmarks/zentralwaescherei.glb",
-   "x": 294.1,
-   "y": 360.8,
-   "z": -7.54,
-   "heading": 0,
-   "hide": [
-    [
-     292.9,
-     358.2
-    ],
-    [
-     249.8,
-     321.4
-    ],
-    [
-     334.0,
-     276.7
     ]
    ]
   }

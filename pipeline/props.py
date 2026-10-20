@@ -326,6 +326,33 @@ def decals(S, tb, H, curb=0.12):
                 elif enter == "t30" and other not in ("z30", "t30") and w["hw"] in ("primary", "secondary", "tertiary"):
                     ss = min(max(s + sgn * 10, 5), L - 5)
                     add(ln.interpolate(ss), heading(ln, ss) + (0 if sgn > 0 else np.pi), 6)
+    # white 'STOP' (kind 12) on the approach of every OSM stop sign, ~4 m before the sign, only if the approach way is unambiguous
+    try:
+        import traffic_signs as TS
+        stops = [r for r in TS.sign_rows(tuple(tb.buffer(10).bounds), H) if r[4] == "stop"]
+    except Exception:
+        stops = []
+    for sx, sy, _sz, sh, _c in stops:
+        p = Point(sx, sy)
+        if not tb.contains(p):
+            continue
+        d = np.array([-np.cos(sh), -np.sin(sh)])  # travel direction (sign faces oncoming traffic)
+        cands = [(w["line"].distance(p), w) for w in S["ways"] if w["hw"] not in ("footway", "cycleway", "path", "steps", "pedestrian")
+                 and w["line"].length >= 8 and w["line"].distance(p) < w["w"] / 2 + 1.6]
+        if len(cands) != 1:
+            continue
+        w = cands[0][1]
+        ln = w["line"]
+        s0 = ln.project(p)
+        a, b = ln.interpolate(max(0, s0 - 1)), ln.interpolate(min(ln.length, s0 + 1))
+        t = np.array([b.x - a.x, b.y - a.y])
+        if np.hypot(*t) < 1e-6 or abs(np.dot(t / np.hypot(*t), d)) < 0.85:
+            continue  # sign not along the way (side street / angled)
+        r = np.array([d[1], -d[0]])
+        c = np.array([sx, sy]) - r * (w["w"] / 2 + 0.6 - w["w"] / 4) - d * 3.0
+        if any(g0 - 1 <= ln.project(Point(*c)) <= g1 + 1 for g0, g1 in w["gaps"]):
+            continue
+        add(Point(*c), np.arctan2(d[0], d[1]), 12)
     # lane arrows (left / straight / right / combined) before the stop line of signalised approaches
     import streets_arrows
     for x, y, h, k in streets_arrows.arrows(S, near):

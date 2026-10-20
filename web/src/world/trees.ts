@@ -23,7 +23,7 @@ export const treeGust = { value: 1 };
 
 const BARK_UV = [0.875, 0.625]; // centre of the opaque atlas tile (col 3, row 2)
 
-function prepare(root: THREE.Object3D): THREE.BufferGeometry | null {
+function prepare(root: THREE.Object3D, plane = false): THREE.BufferGeometry | null {
   const parts: THREE.BufferGeometry[] = [];
   root.traverse((o) => {
     const m = o as THREE.Mesh;
@@ -32,6 +32,14 @@ function prepare(root: THREE.Object3D): THREE.BufferGeometry | null {
     const n = g.getAttribute('position').count, leaf = parts.length === 1;
     const c4 = g.getAttribute('color'), c3 = new Float32Array(n * 3);
     for (let i = 0; i < n; i++) { c3[i * 3] = c4.getX(i); c3[i * 3 + 1] = c4.getY(i); c3[i * 3 + 2] = c4.getZ(i); }
+    if (plane && !leaf) { // Platanus: dark grey-brown bark with pale peeling patches (photos: Z3a-3); mottling from the vertex position
+      const P = g.getAttribute('position');
+      for (let i = 0; i < n; i++) {
+        const h = Math.sin(P.getX(i) * 91.7 + P.getY(i) * 37.1 + P.getZ(i) * 63.3) * 43758.5453, f = h - Math.floor(h);
+        const t = f < 0.22 ? 1.0 : 0.5 + f * 0.35; // ~1/5 of the vertices = light patch
+        c3[i * 3] = 0.22 * t; c3[i * 3 + 1] = 0.19 * t; c3[i * 3 + 2] = 0.16 * t;
+      }
+    }
     g.setAttribute('color', new THREE.BufferAttribute(c3, 3));
     if (!leaf) g.setAttribute('uv', new THREE.BufferAttribute(new Float32Array(n * 2).map((_, i) => BARK_UV[i & 1]), 2));
     g.setAttribute('aLeaf', new THREE.BufferAttribute(new Float32Array(n).fill(leaf ? 1 : 0), 1));
@@ -58,7 +66,7 @@ export async function loadTrees(base = '/models/trees', variants = 2) {
   const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
   await Promise.all(manifest.filter((e) => e.lod || e.variant < variants).map(async (e) => {
     const g = await loader.loadAsync(`${base}/${e.file}`);
-    const geo = prepare(g.scene);
+    const geo = prepare(g.scene, e.cls === 'plane');
     const ci = CLASSES.indexOf(e.cls);
     if (!geo || ci < 0) return;
     const model = { geo, zb: e.cls === 'conifer' ? -1 : e.zb };

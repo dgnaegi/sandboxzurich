@@ -1,6 +1,7 @@
 """Stop equipment H1-H7 plus masts. Local frame: shelter long axis = x, open side faces +z. Sizes: research/catalog/haltestellen.md + stops_equip.json."""
 import math
 from model_core import Mesh
+from model_pilz import pilz_dach
 
 
 def two_sided(m, cell, p):
@@ -91,6 +92,7 @@ def mast(kind):
 
 STOPS = {"H1": (lambda: shelter_new(7.0, 1.6), "VBZ-Glaswartehalle Standard 7 m"),
          "H2": (lambda: shelter_old(6.0, 1.5), "aeltere Wartehalle 6 m"),
+         "H8": (pilz_dach, "Schirmdach Haltestelle Letzigrund (12 m, nur Override)"),
          "H3": (ticket, "Ticketautomat Typ 20"), "H4": (screen_wall, "Anzeige Wand"), "H5": (screen_ceiling, "Anzeige Decke (Ursprung oben)"),
          "H6": (lambda: bench(1.8, "H6"), "Bank kurz 1.8 m"), "H7": (lambda: bench(3.6, "H7"), "Bank lang 3.6 m"),
          "mast_tram": (lambda: mast("tram"), "Haltestellenmast Tram"), "mast_bus": (lambda: mast("bus"), "Haltestellenmast Bus")}

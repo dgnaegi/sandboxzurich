@@ -12,7 +12,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 OUT = os.path.join(ROOT, "web", "public", "models", "catalog")
 LIMITS = {"V": 1500, "M": 800, "H": 1200}
 FILES = {"V1": "brunnen_v1", "V2": "brunnen_v2", "V3": "brunnen_v3", "V4": "brunnen_v4", "V5": "brunnen_v5", "V6": "brunnen_v6", "V7": "brunnen_v7", "V8": "brunnen_v8", "V9": "brunnen_v9",
-         "H1": "wartehalle_h1", "H2": "wartehalle_h2", "H3": "ticketautomat_h3", "H4": "anzeige_wand_h4", "H5": "anzeige_decke_h5", "H6": "bank_kurz_h6", "H7": "bank_lang_h7",
+         "H1": "wartehalle_h1", "H2": "wartehalle_h2", "H3": "ticketautomat_h3", "H4": "anzeige_wand_h4", "H5": "anzeige_decke_h5", "H6": "bank_kurz_h6", "H7": "bank_lang_h7", "H8": "pilzdach_h8",
          "mast_tram": "mast_tram", "mast_bus": "mast_bus", "M1": "leuchte_m1", "M1b": "seilleuchte_m1b", "M2": "kiosk_m2", "M3": "plakatstelle_m3"}
 FALLBACK = {"V10": "V2"}
 

@@ -105,6 +105,9 @@ def main():
         new = math.hypot(near[0] - x, near[1] - y) < 6 and near[2] == "2018"
         v, base = ("H1", 7.0) if new else ("H2", 6.0)
         n = 1 if ln <= 12 else round(ln / 7.0)
+        for so in ovr.get("stops", []):   # override: {"x","y","r","variant","base"}: this shelter is one special model (e.g. H8 Schirmdach Letzigrund)
+            if math.hypot(so["x"] - x, so["y"] - y) < so.get("r", 3.0):
+                v, base, n = so["variant"], ln, 1
         seg = ln / n
         yaw = yaw_of(az, s)
         ax, ay = math.sin(math.radians(az)), math.cos(math.radians(az))    # azimuth = clockwise from north

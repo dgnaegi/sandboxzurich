@@ -351,6 +351,7 @@ def bridge_ways(nodes, els, area, H=None, H_raw=None):
                     "piers": piers, "excl": excl, "max_el": float(el.max()), "max_slope": _maxslope(s, z),
                     "len": float(s[-1])})
     _snap_foot(out)
+    _zebras(out, nodes, els)
     if H_given and H_raw is not None:  # roads2: only the real build (it passes the unsmoothed grid) writes the chain cache; audits do not
         save_chains(out)
     # ground ways beneath must stay drawn: subtract them from the exclusion
@@ -365,6 +366,32 @@ def bridge_ways(nodes, els, area, H=None, H_raw=None):
         if under:
             b["excl"] = b["excl"].difference(shapely.union_all(under))
     return out
+
+
+def _zebras(out, nodes, els):
+    """Mapped pedestrian crossings (OSM highway=crossing nodes) on a road deck -> b["zb"] = [x, y, z, dirX, dirY] (drawn yellow by web/src/world/bridges.ts).
+    Only on the elevated part (>= 1 m above terrain); ground rails/markings are cut under the deck by the exclusion."""
+    cr = [(nodes[e["id"]], e) for e in els if e["type"] == "node" and e.get("tags", {}).get("highway") == "crossing"
+          and e["tags"].get("crossing") != "no" and e["id"] in nodes]
+    for b in out:
+        b["zb"] = []
+        if b["kind"] != "road" or not cr:
+            continue
+        P = np.array(b["p"])
+        ln = LineString(P[:, :2])
+        for (x, y), _ in cr:
+            pt = shapely.geometry.Point(x, y)
+            if ln.distance(pt) > 2.5:
+                continue
+            s = ln.project(pt)
+            q = ln.interpolate(s); q2 = ln.interpolate(min(s + 0.5, ln.length)); q0 = ln.interpolate(max(s - 0.5, 0))
+            d = np.array([q2.x - q0.x, q2.y - q0.y]); n = np.hypot(*d)
+            if n < 1e-6:
+                continue
+            cum = np.r_[0, np.cumsum(np.hypot(*np.diff(P[:, :2], axis=0).T))]
+            z = float(np.interp(s, cum, P[:, 2])); g = float(np.interp(s, cum, b["g"]))
+            if z - g >= 1.0:
+                b["zb"].append([round(q.x, 2), round(q.y, 2), round(z, 2), round(d[0] / n, 3), round(d[1] / n, 3)])
 
 
 FAIR_FILL = 35.0   # m: dips shorter than 2x this between higher parts of the deck are filled (a driveable, flat-topped deck)
@@ -483,6 +510,9 @@ def tile_rows(bridges, tile_box, with_excl=False):
         for r in runs:
             row = {"p": [p[i] for i in r], "g": [b["g"][i] for i in r], "b": [b["b"][i] for i in r],
                    "w": b["w"], "kind": b["kind"], "name": b["name"]}
+            zb = [z for z in b.get("zb", []) if x0 <= z[0] < x1 and y0 <= z[1] < y1]
+            if zb and any(abs(z[0] - p[i][0]) < 40 and abs(z[1] - p[i][1]) < 40 for z in zb for i in r):
+                row["zb"] = zb
             if r[0] > 0:   # context vertices of a row cut at the tile border: same offset normals on both sides
                 row["pa"] = p[r[0] - 1][:2]
             if r[-1] < len(p) - 1:

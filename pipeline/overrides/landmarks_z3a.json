@@ -63,6 +63,42 @@
    ]
   },
   {
+   "name": "Badenerstrasse beiger Balkonblock (Kalkbreite)",
+   "model": "/models/landmarks/z3a_kal_block.glb",
+   "x": 427.5,
+   "y": -1042.9,
+   "z": -1.28,
+   "heading": 0,
+   "hide": [
+    [
+     430.0,
+     -1039.9
+    ],
+    [
+     439.1,
+     -1058.4
+    ]
+   ]
+  },
+  {
+   "name": "Badenerstrasse rosa Eckhaus (Lochergut)",
+   "model": "/models/landmarks/z3a_loch_pink.glb",
+   "x": 105.0,
+   "y": -993.8,
+   "z": 1.28,
+   "heading": 0,
+   "hide": [
+    [
+     104.9,
+     -993.0
+    ],
+    [
+     103.4,
+     -985.1
+    ]
+   ]
+  },
+  {
    "name": "Seebahnstrasse Zeile cremefarben",
    "model": "/models/landmarks/z3a_see_a.glb",
    "x": 170.0,
@@ -103,42 +139,6 @@
     [
      196.4,
      -616.1
-    ]
-   ]
-  },
-  {
-   "name": "Badenerstrasse beiger Balkonblock (Kalkbreite)",
-   "model": "/models/landmarks/z3a_kal_block.glb",
-   "x": 427.5,
-   "y": -1042.9,
-   "z": -1.28,
-   "heading": 0,
-   "hide": [
-    [
-     430.0,
-     -1039.9
-    ],
-    [
-     439.1,
-     -1058.4
-    ]
-   ]
-  },
-  {
-   "name": "Badenerstrasse rosa Eckhaus (Lochergut)",
-   "model": "/models/landmarks/z3a_loch_pink.glb",
-   "x": 105.0,
-   "y": -993.8,
-   "z": 1.28,
-   "heading": 0,
-   "hide": [
-    [
-     104.9,
-     -993.0
-    ],
-    [
-     103.4,
-     -985.1
     ]
    ]
   }

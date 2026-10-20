@@ -267,6 +267,30 @@
    ],
    "bytes": 36536
   },
+  "H8": {
+   "file": "pilzdach_h8.glb",
+   "desc": "Schirmdach Haltestelle Letzigrund (12 m, nur Override)",
+   "tris": 170,
+   "radius": 7.16,
+   "size": [
+    12.0,
+    3.75,
+    7.5
+   ],
+   "bbox": [
+    [
+     -6.0,
+     0.0,
+     -3.9
+    ],
+    [
+     6.0,
+     3.75,
+     3.6
+    ]
+   ],
+   "bytes": 40608
+  },
   "H3": {
    "file": "ticketautomat_h3.glb",
    "desc": "Ticketautomat Typ 20",

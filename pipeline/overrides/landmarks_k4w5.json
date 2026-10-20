@@ -43,38 +43,6 @@
    ]
   },
   {
-   "name": "Albisriederplatz Eckhaus",
-   "model": "/models/landmarks/albis_ost.glb",
-   "x": -525.6,
-   "y": -694.8,
-   "z": 0.51,
-   "heading": 0,
-   "hide": [
-    [
-     -524.4,
-     -696.2
-    ],
-    [
-     -546.8,
-     -689.3
-    ]
-   ]
-  },
-  {
-   "name": "Langstrasse Eckhaus Cremegelb",
-   "model": "/models/landmarks/langstr_eck.glb",
-   "x": 713.0,
-   "y": -657.6,
-   "z": -2.0,
-   "heading": 0,
-   "hide": [
-    [
-     716.1,
-     -656.7
-    ]
-   ]
-  },
-  {
    "name": "Langstrasse Geschaeftsbau grau",
    "model": "/models/landmarks/langstr_grau.glb",
    "x": 696.5,
@@ -149,6 +117,38 @@
     [
      -2128.1,
      798.1
+    ]
+   ]
+  },
+  {
+   "name": "Albisriederplatz Eckhaus",
+   "model": "/models/landmarks/albis_ost.glb",
+   "x": -525.6,
+   "y": -694.8,
+   "z": 0.51,
+   "heading": 0,
+   "hide": [
+    [
+     -524.4,
+     -696.2
+    ],
+    [
+     -546.8,
+     -689.3
+    ]
+   ]
+  },
+  {
+   "name": "Langstrasse Eckhaus Cremegelb",
+   "model": "/models/landmarks/langstr_eck.glb",
+   "x": 713.0,
+   "y": -657.6,
+   "z": -2.0,
+   "heading": 0,
+   "hide": [
+    [
+     716.1,
+     -656.7
     ]
    ]
   }
