@@ -1,0 +1,6 @@
+{
+ "_doc": "Construction sites that are no longer active on site (pipeline/sites.py load()): ids t<baunr> / h<objectid> / o<osm way>.",
+ "exclude": {
+  "o1460306610": "Goldbrunnenplatz: OSM construction area (~2025, no date) - User 2026-10-21: not active any more"
+ }
+}

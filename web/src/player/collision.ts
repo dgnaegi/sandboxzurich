@@ -35,7 +35,9 @@ export class Colliders {
     for (const m of mine) this.knockFns.delete(m.row);
     const gone = new Set(mine.map((m) => m.row));
     for (const cell of new Set(mine.map((m) => m.cell))) {
-      const l = this.circles.get(cell)!.filter((r) => !gone.has(r));
+      const cur = this.circles.get(cell);
+      if (!cur) continue;   // already emptied by another key sharing these rows (tile solids + knockables)
+      const l = cur.filter((r) => !gone.has(r));
       if (l.length) this.circles.set(cell, l); else this.circles.delete(cell);
     }
     this.circleRows.delete(key);

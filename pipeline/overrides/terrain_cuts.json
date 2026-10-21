@@ -88,6 +88,79 @@
     "half": 12.6
    },
    "source": "OSM tunnel way 4592588 + footway tunnels 4803419/4803422; pipeline/landmarks/lu_geom.py; photos research/v3/langstr_unterf.md"
+  },
+  {
+   "name": "Velotunnel Stadttunnel: portal mouth at tube floor level (terrain rose over the floor)",
+   "axis": [
+    [
+     1468.24,
+     -728.1
+    ],
+    [
+     1472.2,
+     -722.32
+    ]
+   ],
+   "profile": [
+    [
+     0,
+     -4.95
+    ],
+    [
+     4,
+     -5.16
+    ],
+    [
+     6,
+     -5.32
+    ]
+   ],
+   "half": 3.0,
+   "blend": 0.8,
+   "mode": "min",
+   "lock": true,
+   "hole": {
+    "s": [
+     4.0,
+     6.0
+    ],
+    "half": 3.0
+   },
+   "source": "pipeline/landmarks/velotunnel.py (floor g0-0.15, 8 %); User 2026-10-21: Einfahrt kaputt"
+  },
+  {
+   "name": "Velotunnel Stadttunnel: under the Sihl bed (drape hole only, terrain unchanged)",
+   "axis": [
+    [
+     1470.5,
+     -724.8
+    ],
+    [
+     1489.2,
+     -697.5
+    ]
+   ],
+   "profile": [
+    [
+     0,
+     50
+    ],
+    [
+     33.1,
+     50
+    ]
+   ],
+   "half": 3.0,
+   "blend": 0.5,
+   "mode": "min",
+   "hole": {
+    "s": [
+     15.0,
+     25.0
+    ],
+    "half": 3.0
+   },
+   "source": "riverbed (game ground -4.1..-4.9) lies inside the tube (ceiling -4.0..-4.4); pipeline/landmarks/velotunnel.py"
   }
  ]
 }

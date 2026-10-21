@@ -2,11 +2,24 @@
 
 Wird am Ende jedes Arbeitsschritts überschrieben. Eine neue Session liest das zuerst.
 
+## Nacht 2026-10-21/22: LiDAR + alles bündeln + Release – ZUERST LESEN
+Auftrag User: «LiDAR über Nacht, mit QA, alles machen». Ablauf (Hauptsession, max 3 Agents):
+1. LiDAR-Pilot (Agent, `research/lidar/pilot.md`) → wenn gut: ganzes Spielgebiet laden + Pipeline-Integration (Decks/Rampen, Unterführungsböden, Gelände unter Brücken, Randsteine; Markierungen via Intensität nur wenn Pilot positiv). Schlechter als heute → dort nicht verwenden, Grund notieren.
+2. Parallel fertig: Unterführungen/Tramrampen (`bridges.py`), Markierungen Zonen 1–3, danach Zonen 4–5, fahrbare Leih-Trottinette (Laufzeit).
+3. Komplett-Build (kein Agent aktiv) → volle QA (PC+Handy) → Commit → Release nur bei grüner QA; sonst Befund hier.
+Bereits lokal fertig, noch nicht released: Bus/Tram fahrbar (#70), Tramdecks ohne Brüstung (#69), Velotunnel (#71), Rathaus Hard, Ladevideo (`pipeline/loading_video.py`), #FF1975, Name «ZÜRICH» statt Projektname, Menü Kontakt (daniel@gnaegi.me) statt «Stimmt etwas nicht?», GitHub-Link raus, DFI ohne Dach auf Mast, Möbel/Overlap-Filter (`pipeline/props_road.py`, erst 22 Kacheln), mehr Trottinette (`props.scooters`), Goldbrunnenplatz-Baustelle aus (`overrides/sites_excl.json`).
+Offen bekannt: Geländer quer über Velotunnel-Rampe (Quelle unbekannt), echte Veloparkplätze auf Parkfeldern werden aufs Trottoir geschoben.
+
+## Stand 2026-10-21 später: Busse und Trams fahrbar (#70) – ZUERST LESEN
+- E neben Tram/Bus = einsteigen (Hinweis «E = Tram fahren»). Tram nur Gas/Bremse (W/S, Shift = Notbremse, H = Glocke, Touch-Knopf 🔔), Bus frei lenkbar wie Auto. HUD oben: Linie → Ziel, nächste Haltestelle, km/h. Code: `world/transit.ts` (take/release/nearestVehicle/driven), `player/{drive_tram,bus_rig,transit_use}.ts`, Test `web/tests/transit_drive.mjs` (grün, Desktop + Touch), Bogen `preview/transit_drive.jpg`.
+- Bekannte Grenzen: fahrplanmässige Trams auf demselben Gleis fahren durch das eigene Tram (nur Fahrer-Tram stoppt vor ihnen); Bus-Anhänger ohne Gebäudekollision (folgt der Innenkurve); O-Leitungsstangen fahren nicht mit; kein Fahrgastwechsel/Fahrplanbindung; Bus-Einstieg auf der Strassenachse 1.6 m nach rechts versetzt.
+**Nächster Schritt:** User testet Gefühl (Tempo, Kamera), danach Woche 2 laut `docs/NIGHT_PLAN.md`.
+
 ## Stand 2026-10-21: Karte GTA-Stil, Tramdecks flach, Rathaus Hard – ZUERST LESEN
 - **Karte** (#66, #68): Sterne nur für 61 echte Wahrzeichen (`pipeline/overrides/map_pois.json`; «Hohlstrasse 283-305» = Nr. 291 nie auf der Karte, User-Wunsch). GTA-Theme + Blips + Legende (`web/src/ui/map_*.ts`, `map_blips.ts`), Kreis 3/4/5/9 dezent an `kreis_at`. Nach Änderungen: `pipeline/mapdata.py`, `pipeline/build_map.py`, dann `apply_names.py`. Bilder `preview/map_after.jpg`, `preview/map_kreise.jpg`. Offen: Handy-Übersicht klein, viele dunkle Punkte in der Nahansicht.
 - **Tramdecks** (#67): Tram 8 Hardbrücke/Sihlbrücke ohne Mauern, bündig mit der Fahrbahn; 40 Kacheln neu (`logs/tramdeck_build2.log`), Bilder `preview/tramdeck_cmp.jpg`. bridges_ride 53/95 mit Problemen (früher 75–90/95, meist Fusswege Europa-/Kornhausbrücke). Am Boden sind Gleise schon bündig (2.1 km an echter Randkante, verteilt).
 - **Rathaus Hard** (ehem. Bullingerkirche): Giebelfront mit Pilastern, Vorhalle, Backstein-Gitter, Betonlöwin Mickry 3 als 6 Teile (`pipeline/landmarks/rathaus_hard.py`, `FRAGMENTS`), Note 3 (`preview/rathaus_hard_cmp.jpg`). Offen: Löwenteile zu klein/glatt (Zehen, Kopf mit Auge), Gemeindehaus/Pfarrhäuser Kisten.
-- QA `logs/qa18.log`, Release siehe unten.
+- QA `logs/qa18.log` grün (knock 1× wackelnder Pfosten (679,-708), im 2. Lauf grün; perf Handy 58 fps / 263 Calls / 585k Tris / 4.4 s; qa_leak +28 MB, tex max 595). Welt publiziert (`logs/publish18.log`), Commit 384ad81 gepusht, Deploy grün (`logs/deploy18.log`). Diese HANDOFF-Zeile ist noch nicht committet.
 **Nächster Schritt (User 2026-10-21):** Busse und Trams fahrbar (ROADMAP M3: Bus frei lenkbar, Tram Gas/Bremse auf der Linie). Danach Woche 2 laut `docs/NIGHT_PLAN.md`.
 
 ## Stand 2026-10-20 abends: Code-Runde + Nacht 6 (Woche 1 abgeschlossen) – ZUERST LESEN

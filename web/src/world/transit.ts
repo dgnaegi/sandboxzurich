@@ -2,90 +2,31 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
+import { tramModule, busModule, tramType, labelMat } from './transit_geo';
+
+const RANGE = 450, DWELL = 20, ROAD_DROP = 0.12;
 
 /** Trams and buses on the real OSM lines (pipeline/transit.py). Positions are a pure function of game time. */
-interface Stop { name: string; s: number }
+export interface Stop { name: string; s: number }
 interface LineJson { ref: string; mode: 'tram' | 'bus' | 'trolleybus'; colour: string; dir: number; pts: number[][]; stops: Stop[]; z?: (number | null)[] }
 interface Seg { s0: number; s1: number; t0: number; T: number; es: boolean; ee: boolean }
-interface Line {
-  ref: string; tram: boolean; pts: number[][]; cum: number[]; segs: Seg[]; trip: number; offset: number; len: number;
+export interface Line {
+  ref: string; dest: string; stops: Stop[]; tram: boolean; pts: number[][]; cum: number[]; segs: Seg[]; trip: number; offset: number; len: number;
   pitch: number; mods: number; speed: number; label: THREE.Material; trolley: boolean;
   /** bridge deck height per point (null = terrain), from pipeline/transit.py */
   zs?: (number | null)[];
 }
 export interface TransitCollider { x: number; y: number; heading: number; len: number; width: number }
-
-const RANGE = 450, DWELL = 20, ROAD_DROP = 0.12;
-const WHITE = new THREE.Color(0xe9ecef), BLUE = new THREE.Color(0x1d4f9c), DARK = new THREE.Color(0x15191e);
-
-const box = (c: THREE.Color, w: number, h: number, d: number, x = 0, y = 0, z = 0) => {
-  const g = new THREE.BoxGeometry(w, h, d).translate(x, y, z).toNonIndexed();
-  const col = new Float32Array(g.attributes.position.count * 3);
-  for (let i = 0; i < col.length; i += 3) { col[i] = c.r; col[i + 1] = c.g; col[i + 2] = c.b; }
-  g.setAttribute('color', new THREE.BufferAttribute(col, 3));
-  g.deleteAttribute('uv');
-  return g;
-};
-const merge = (g: THREE.BufferGeometry[]) => mergeGeometries(g)!;
-
-/** Vehicle type per trip: Tram 2000 still runs on many lines (some in double traction), mixed with Cobra/Flexity. */
-const T2000_LINES = new Set(['3', '4', '5', '6', '7', '9', '10', '11', '13', '14', '15']);
-function tramType(ref: string, k: number): string {
-  const j = ((k % 6) + 6) % 6;
-  if (T2000_LINES.has(ref) && j < 4) return j === 3 ? 'tram_2000_doppel' : 'tram_2000';
-  return j % 2 ? 'tram_flexity' : 'tram_cobra';
-}
-
-/** Tram module (≈11.6 m long, front = -z). kind: 0 head, 1 mid, 2 tail. */
-function tramModule(kind: number): THREE.BufferGeometry {
-  const g = [
-    box(WHITE, 2.4, 2.1, 11.6, 0, 1.75), box(WHITE, 2.2, 0.25, 11.2, 0, 2.9), box(BLUE, 2.42, 0.5, 11.62, 0, 0.75),
-    box(DARK, 2.44, 0.95, 10.0, 0, 2.05), box(DARK, 2.0, 0.5, 2.6, 0, 0.35, -3.6), box(DARK, 2.0, 0.5, 2.6, 0, 0.35, 3.6),
-    box(DARK, 2.0, 2.0, 0.5, 0, 1.9, -5.9), box(DARK, 2.0, 2.0, 0.5, 0, 1.9, 5.9), // bellows
-  ];
-  if (kind === 0) g.push(box(WHITE, 2.3, 1.6, 1.3, 0, 1.9, -6.2), box(DARK, 2.0, 0.9, 0.1, 0, 2.3, -6.9), box(BLUE, 2.32, 0.5, 1.32, 0, 0.75, -6.2));
-  if (kind === 2) g.push(box(WHITE, 2.3, 1.6, 1.3, 0, 1.9, 6.2), box(DARK, 2.0, 0.9, 0.1, 0, 2.3, 6.9), box(BLUE, 2.32, 0.5, 1.32, 0, 0.75, 6.2));
-  if (kind === 1) g.push(box(DARK, 1.6, 0.12, 1.4, 0, 3.12, 0), box(DARK, 0.06, 0.5, 0.06, 0.5, 3.35, 0.4), box(DARK, 0.06, 0.5, 0.06, -0.5, 3.35, 0.4));
-  return merge(g);
-}
-
-/** Articulated trolleybus module (9 m, front = -z). kind: 0 front, 1 rear. */
-function busModule(kind: number): THREE.BufferGeometry {
-  const g = [
-    box(WHITE, 2.55, 2.5, 8.8, 0, 1.75), box(BLUE, 2.57, 0.6, 8.82, 0, 0.8), box(DARK, 2.58, 0.95, 8.0, 0, 2.15),
-    box(DARK, 0.3, 0.9, 0.9, 1.2, 0.45, -2.6), box(DARK, 0.3, 0.9, 0.9, -1.2, 0.45, -2.6),
-    box(DARK, 0.3, 0.9, 0.9, 1.2, 0.45, 2.6), box(DARK, 0.3, 0.9, 0.9, -1.2, 0.45, 2.6),
-  ];
-  if (kind === 0) g.push(box(DARK, 2.3, 1.1, 0.1, 0, 2.2, -4.4), box(BLUE, 2.57, 0.45, 0.1, 0, 0.45, -4.4));
-  else g.push(box(DARK, 0.04, 0.04, 6, 0.35, 3.15, 3).rotateX(-0.12), box(DARK, 0.04, 0.04, 6, -0.35, 3.15, 3).rotateX(-0.12),
-    box(DARK, 2.0, 1.4, 0.6, 0, 1.9, 4.5));
-  return merge(g);
-}
-
-const labelCache = new Map<string, THREE.Material>();
-function labelMat(ref: string, dest: string): THREE.Material {
-  const key = `${ref}|${dest}`;
-  let m = labelCache.get(key);
-  if (m) return m;
-  const c = document.createElement('canvas'); c.width = 256, c.height = 96;
-  const x = c.getContext('2d')!;
-  x.fillStyle = '#05070a'; x.fillRect(0, 0, 256, 96);
-  x.fillStyle = '#ffb347'; x.textBaseline = 'middle'; x.textAlign = 'left';
-  x.font = 'bold 54px monospace'; x.fillText(ref, 10, 32);   // LED orange: line number
-  x.fillStyle = '#f4f4ee'; x.font = 'bold 26px monospace';   // white: destination, squeezed to fit
-  const w = x.measureText(dest).width, fit = Math.min(1, 236 / Math.max(1, w));
-  x.save(); x.translate(10, 76); x.scale(fit, 1); x.fillText(dest, 0, 0); x.restore();
-  const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace;
-  m = new THREE.MeshBasicMaterial({ map: tex, side: THREE.FrontSide });
-  labelCache.set(key, m);
-  return m;
-}
+/** A scheduled vehicle the player can take (or the one left standing after leaving it). */
+export interface VehicleHandle { key: string; li: number; k: number; tram: boolean; sh: number; v: number; spec: string; d: number; parked: boolean }
+/** The vehicle driven by (or parked after) the player: drawn by Transit from line index + front-tip arc position. */
+export interface Driven { li: number; key: string; s: number; spec: string; doors: boolean; active: boolean }
 
 const tpl = new THREE.Object3D();
 tpl.rotation.order = 'YXZ';
 
-interface SeqItem { module: string; rotateY180: number; z_center_from_front: number }
-interface VehicleSpec { length: number; sequence: SeqItem[] }
+export interface SeqItem { module: string; rotateY180: number; z_center_from_front: number }
+export interface VehicleSpec { length: number; sequence: SeqItem[] }
 
 export class Transit {
   /** Blender-built VBZ modules (pipeline/transit_models); falls back to box modules until loaded. */
@@ -115,6 +56,12 @@ export class Transit {
   private nDisp = 0;
   private cols: TransitCollider[] = [];
   private vis = 0;
+  /** Trips taken out of the schedule (`li:k`), the driven/parked one, and vehicles near the player (pooled). */
+  private taken = new Set<string>();
+  driven: Driven | null = null;
+  private near: { li: number; k: number; sh: number }[] = [];
+  private nNear = 0;
+  private lastTime = 0;
 
   constructor(scene: THREE.Scene, private ground: (x: number, y: number) => number) {
     const mat = new THREE.MeshLambertMaterial({ vertexColors: true });
@@ -200,7 +147,7 @@ export class Transit {
     }
     let h = 0;
     for (const ch of l.ref + l.dir) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
-    return { ref: l.ref, tram, pts: l.pts, cum, segs, trip: t, offset: h % this.headway, len, pitch, mods, speed, label: labelMat(l.ref, l.stops.length ? l.stops[l.stops.length - 1].name : ''), trolley: l.mode === 'trolleybus', zs: l.z };
+    return { ref: l.ref, dest: l.stops.length ? l.stops[l.stops.length - 1].name : '', stops: l.stops, tram, pts: l.pts, cum, segs, trip: t, offset: h % this.headway, len, pitch, mods, speed, label: labelMat(l.ref, l.stops.length ? l.stops[l.stops.length - 1].name : ''), trolley: l.mode === 'trolleybus', zs: l.z };
   }
 
   /** Front-tip arc position at trip time tau (s), or -1 if not on the line. */
@@ -234,22 +181,28 @@ export class Transit {
 
   update(_dt: number, gameMinutes: number, px: number, py: number): void {
     const time = (gameMinutes * 60) / this.timeScale;
-    this.cols.length = 0; this.nDisp = 0; this.vis = 0; this.nDoor = 0; this.nPax = 0; this.bellT -= _dt;
+    this.cols.length = 0; this.nNear = 0; this.lastTime = time; this.nDisp = 0; this.vis = 0; this.nDoor = 0; this.nPax = 0; this.bellT -= _dt;
     const cn = { tram: [0, 0, 0], bus: [0, 0] };
     const modCount = new Map<string, number>();
     const p = [0, 0, NaN], q = [0, 0, NaN], r = [0, 0, NaN];
-    for (const L of this.lines) {
+    for (let li = 0; li < this.lines.length; li++) {
+      const L = this.lines[li];
       const k0 = Math.ceil((time - L.offset - L.trip) / this.headway), k1 = Math.floor((time - L.offset) / this.headway);
       for (let k = k0; k <= k1; k++) {
+        if (this.taken.size && this.taken.has(`${li}:${k}`)) continue;
         const sh = this.arc(L, time - L.offset - k * this.headway);
         if (sh < 0) continue;
         this.sample(L, sh - (L.pitch * L.mods) / 2, p);
         if (Math.hypot(p[0] - px, p[1] - py) > RANGE) continue;
         this.vis++;
+        if (Math.hypot(p[0] - px, p[1] - py) < 70 && this.nNear < 16) {
+          const nr = this.near[this.nNear] ?? (this.near[this.nNear] = { li: 0, k: 0, sh: 0 });
+          nr.li = li; nr.k = k; nr.sh = sh; this.nNear++;
+        }
         const kinds = L.tram ? cn.tram : cn.bus;
         const im = L.tram ? this.meshes.tram : this.meshes.bus;
         const half = L.tram ? 6.1 : 4.5;
-        const spec = this.modMesh.size ? this.vehicles[L.tram ? tramType(L.ref, k) : L.trolley ? 'trolleybus' : 'bus_gelenk'] : undefined;
+        const spec = this.modMesh.size ? this.vehicles[this.specName(L, k)] : undefined;
         if (spec) { this.placeModels(L, sh, spec, modCount, this.dwellU, px, py); continue; }
         for (let i = 0; i < L.mods; i++) {
           const sc = sh - (L.tram ? 7.0 : 5.0) - i * L.pitch + (L.tram ? 0.2 : 0.5);
@@ -271,6 +224,7 @@ export class Transit {
         }
       }
     }
+    this.updateDriven(modCount, px, py);
     this.doorMesh.count = this.nDoor; this.doorMesh.instanceMatrix.needsUpdate = true;
     this.paxBody.count = this.paxHead.count = this.nPax;
     this.paxBody.instanceMatrix.needsUpdate = this.paxHead.instanceMatrix.needsUpdate = true;
@@ -279,6 +233,71 @@ export class Transit {
     this.meshes.tram.forEach((m, i) => { m.count = cn.tram[i]; m.instanceMatrix.needsUpdate = true; });
     this.meshes.bus.forEach((m, i) => { m.count = cn.bus[i]; m.instanceMatrix.needsUpdate = true; });
     for (let i = this.nDisp; i < this.displays.length; i++) this.displays[i].visible = false;
+  }
+
+  specName(L: Line, k: number): string { return L.tram ? tramType(L.ref, k) : L.trolley ? 'trolleybus' : 'bus_gelenk'; }
+  spec(name: string): VehicleSpec | undefined { return this.vehicles[name]; }
+  line(li: number): Line { return this.lines[li]; }
+  /** Geometry of a Blender module (shared; do not dispose) for rigs that carry it around, e.g. the driven bus. */
+  moduleGeometry(name: string): THREE.BufferGeometry | undefined { return this.modMesh.get(name)?.geometry; }
+  moduleLength(name: string): number { return this.modLen.get(name) ?? 6; }
+  labelMaterial(li: number): THREE.Material { return this.lines[li].label; }
+
+  private static readonly PA = [0, 0, NaN];
+  private static readonly PB = [0, 0, NaN];
+  /** Pose at arc position s: out = [x, y, z (deck height or terrain), compass heading]. */
+  poseAt(li: number, s: number, out: number[]) {
+    const L = this.lines[li], a = Transit.PA, b = Transit.PB;
+    this.sample(L, s, a); this.sample(L, s + 1.5, b);
+    this.sample(L, s - 1.5, out);
+    out[3] = Math.atan2(b[0] - out[0], b[1] - out[1]);
+    out[0] = a[0]; out[1] = a[1]; out[2] = Number.isNaN(a[2]) ? this.ground(a[0], a[1]) - ROAD_DROP : a[2];
+  }
+
+  /** Nearest rendered vehicle whose body is within `reach` metres of (x, y), or the one parked by the player. */
+  nearestVehicle(x: number, y: number, reach: number): VehicleHandle | null {
+    let best: VehicleHandle | null = null, bd = reach + 1.3; // 1.3 = half vehicle width
+    const p = [0, 0, NaN];
+    const dist = (L: Line, sh: number, len: number) => {
+      let m = Infinity;
+      for (let o = 0.5; o < len; o += 3) { this.sample(L, sh - o, p); m = Math.min(m, Math.hypot(p[0] - x, p[1] - y)); }
+      return m;
+    };
+    for (let i = 0; i < this.nNear; i++) {
+      const r = this.near[i], L = this.lines[r.li], name = this.specName(L, r.k), len = this.vehicles[name]?.length ?? (L.tram ? 37 : 18.5);
+      const d = dist(L, r.sh, len);
+      if (d >= bd) continue;
+      bd = d;
+      const tau = this.lastTime - L.offset - r.k * this.headway, v = (this.arc(L, tau + 0.5) - this.arc(L, tau - 0.5));
+      best = { key: `${r.li}:${r.k}`, li: r.li, k: r.k, tram: L.tram, sh: r.sh, v: v > 0 && v < 20 ? v : 0, spec: name, d: d - 1.3, parked: false };
+    }
+    const dr = this.driven;
+    if (dr && !dr.active) {
+      const L = this.lines[dr.li], len = this.vehicles[dr.spec]?.length ?? 37, d = dist(L, dr.s, len);
+      if (d < bd) best = { key: dr.key, li: dr.li, k: 0, tram: L.tram, sh: dr.s, v: 0, spec: dr.spec, d: d - 1.3, parked: true };
+    }
+    return best;
+  }
+
+  /** Remove the trip from the schedule (the caller now draws and drives it). */
+  take(h: VehicleHandle) { if (!h.parked) this.taken.add(h.key); }
+  /** Give the trip back to the schedule once it is far away. */
+  release(key: string) { this.taken.delete(key); if (this.driven?.key === key) this.driven = null; }
+
+  private updateDriven(modCount: Map<string, number>, px: number, py: number) {
+    const d = this.driven;
+    if (!d) return;
+    const spec = this.vehicles[d.spec];
+    if (!spec || !this.modMesh.size) return;
+    if (!d.active) { // left standing: give the trip back once the player is far away
+      const q = [0, 0, NaN];
+      this.sample(this.lines[d.li], d.s - 10, q);
+      if (Math.hypot(q[0] - px, q[1] - py) > 300) { this.release(d.key); return; }
+    }
+    const n0 = this.cols.length;
+    this.vis++;
+    this.placeModels(this.lines[d.li], d.s, spec, modCount, d.doors ? 0.3 : -1, px, py);
+    if (d.active) this.cols.length = n0; // the player's own vehicle is no obstacle for itself
   }
 
   /** Place each module of a vehicle along the line; front tip at arc position sh. */

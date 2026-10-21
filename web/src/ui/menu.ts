@@ -1,7 +1,8 @@
-import { openReport } from './report';
 import { bindSettingsPage, settings } from './settings';
 
-/** Pause menu (Esc / P / ☰): continue, map, settings (sound, camera, joystick), credits, imprint. */
+const CONTACT = 'daniel@gnaegi.me';
+
+/** Pause menu (Esc / P / ☰): continue, map, settings (sound, camera, joystick), contact (mail), credits, imprint. */
 export class Menu {
   open = false;
   private el = document.getElementById('menu')!;
@@ -15,8 +16,8 @@ export class Menu {
     $('m-continue').addEventListener('click', () => this.toggle(false));
     $('m-map').addEventListener('click', () => { this.toggle(false); this.onMap(); });
     bindSettingsPage(this.el.querySelector<HTMLElement>('[data-page="settings"]')!, { onMute: (m) => this.onMute(m), onMusic: () => this.onMusic(settings.music, settings.musicVol) });
-    $('m-report').addEventListener('click', () => openReport());
     $('m-settings').addEventListener('click', () => this.page('settings'));
+    $('m-contact').addEventListener('click', () => { location.href = `mailto:${CONTACT}`; });
     for (const id of ['m-credits', 'm-imprint']) $(id).addEventListener('click', () => this.page(id === 'm-credits' ? 'credits' : 'imprint'));
     for (const b of document.querySelectorAll('.m-back')) b.addEventListener('click', () => this.page('main'));
     window.addEventListener('keydown', (e) => {

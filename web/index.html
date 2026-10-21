@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
-  <title>Sandbox Zürich</title>
+  <title>Zürich</title>
   <link rel="preload" href="/fonts/Anton-Regular.ttf" as="font" type="font/ttf" crossorigin />
   <link rel="stylesheet" href="/src/ui/hud.css" />
 </head>
@@ -19,14 +19,15 @@
   <div id="mission"></div>
   <div id="bigtext"><div id="bigtext-title"></div><div id="bigtext-text"></div></div>
   <div id="carhp"><span>Auto</span><div><i></i></div></div>
+  <div id="transithud"></div>
   <div id="prompt"></div>
   <div id="bubble"></div>
-  <div id="touchbtns"><button id="btn-run">⇧</button><button id="btn-use">E</button></div>
+  <div id="touchbtns"><button id="btn-bell">🔔</button><button id="btn-run">⇧</button><button id="btn-use">E</button></div>
   <button id="btn-menu">☰</button>
   <div id="menu">
     <div class="m-page" data-page="main">
-      <h1>SANDBOX <b>ZÜRICH</b></h1>
-      <button id="m-continue">Weiter</button><button id="m-map">Karte</button><button id="m-settings">Einstellungen</button><button id="m-report">Stimmt etwas nicht?</button>
+      <h1><b>ZÜRICH</b></h1>
+      <button id="m-continue">Weiter</button><button id="m-map">Karte</button><button id="m-settings">Einstellungen</button><button id="m-contact">Kontakt</button>
       <button id="m-credits">Credits</button><button id="m-imprint">Impressum</button>
     </div>
     <div class="m-page" data-page="settings"><h2>Einstellungen</h2>
@@ -47,7 +48,7 @@
         Baumhöhen: swisstopo swissSURFACE3D<br>
         Musik (CC BY): «Hip Hop 1 No Vocal» und «Pool» von Jason Shaw (audionautix.com, CC BY 3.0), «Boom bap instrumental» von Nfaom loor (CC BY 4.0), «Hip Hop In B Minor» und «Hop Hip Beat» von Antti Luode (CC BY 3.0), via Wikimedia Commons; gekürzt und normalisiert<br>
         Schriften: Anton, Barlow, Archivo (SIL OFL)<br>
-        Code: WTFPL, <a href="https://github.com/dgnaegi/sandboxzurich" target="_blank" rel="noopener">github.com/dgnaegi/sandboxzurich</a></p>
+        Code: WTFPL</p>
       <button class="m-back">Zurück</button></div>
     <div class="m-page" data-page="imprint"><h2>Impressum</h2>
       <p>Verantwortlich: Daniel Gnägi, <a href="mailto:daniel.gnaegi@protonmail.com">daniel.gnaegi@protonmail.com</a>. Alle Figuren, Firmen und Ereignisse im Spiel sind erfunden, ausser realen Orten und Läden als neutrale Kulisse. Kein Tracking.</p>
@@ -59,12 +60,12 @@
   <div id="stick"><div id="knob"></div></div>
   <div id="bigmap">
     <canvas id="bigmap-canvas"></canvas>
-    <div id="bigmap-title">SANDBOX ZÜRICH <span>· KARTE</span></div>
+    <div id="bigmap-title">ZÜRICH <span>· KARTE</span></div>
     <div id="bigmap-legend"><i class="dot y"></i> spielbar – hineinklicken zum Hinspringen</div>
     <button id="bigmap-close">✕</button>
     <div id="bigmap-zoom"><button id="bigmap-in">+</button><button id="bigmap-out">−</button></div>
   </div>
-  <div id="loading"><div id="ld-title">SANDBOX <b>ZÜRICH</b></div><div id="ld-bar"><i id="ld-fill"></i></div><div id="ld-msg"></div></div>
+  <div id="loading"><video id="ld-video" muted loop playsinline preload="none" disablepictureinpicture aria-hidden="true"></video><div id="ld-title"><b>ZÜRICH</b></div><div id="ld-bar"><i id="ld-fill"></i></div><div id="ld-msg"></div></div>
   <script type="module" src="/src/main.ts"></script>
 </body>
 </html>

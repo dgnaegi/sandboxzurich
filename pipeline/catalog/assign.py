@@ -85,6 +85,13 @@ def main():
             s = ln.project(Point(x, y))
             a, b = ln.interpolate(max(0, s - 1)), ln.interpolate(min(ln.length, s + 1))
             yaw = math.pi / 2 - math.atan2(b.x - a.x, b.y - a.y)   # model +x along the street
+        sys.path.insert(0, str(ROOT / "pipeline"))
+        import props_road   # fountains stand on the pavement, not the carriageway (cache: pipeline/props_road.py)
+        props_road.load_cached()
+        q = props_road.snap(x, y)
+        if q is None:
+            continue
+        x, y = q
         out_o.append([v, round(x, 2), round(y, 2), round(yaw, 3), 1, 0, 0])
         cnt[v] += 1
 

@@ -315,6 +315,8 @@ def build():
     # --- /water
     import road_exclude  # roads2
     OBJ_ZONE = road_exclude.object_zone(W, BR)  # roads2: no bikes/racks/scooters/bins/workers/parked cars in open water or on tracks
+    import props_road  # street furniture off the carriageway
+    props_road.set_zone(props_road.zone(S, BR))
     S["tram"] = [g for ln in S["tram"] for g in shapely.get_parts(ln.difference(EX)) if g.geom_type == "LineString" and g.length > 0.5]
     gastro.add_missing(S, box(*AREA).buffer(30))  # official licensed restaurants/bars (OGD) complete the OSM list
     # visible (above-ground) hydrants from the city water utility (OGD WVZ)
@@ -570,6 +572,10 @@ def build():
             "mask": {"x0": tb.bounds[0], "y0": tb.bounds[1], "n": mask_n, "res": 1.0, "depth": CURB, "bits": mask},
         }
         _rx = road_exclude.filter_meta(meta, OBJ_ZONE)  # roads2
+        _pr = props_road.fix_meta(meta)  # snap / drop remaining furniture rows on the carriageway
+        _po = props_road.fix_overlaps(meta, inside_any)  # nothing inside fountain basins / Velotunnel mouth / buildings
+        if _pr or _po:
+            print(f"{name}: props_road {_pr} overlaps {_po}", flush=True)
         raw = RAW_OUT / f"{name}.glb"
         glb.write(raw, {"ground": gm.arrays(), "buildings": bm.arrays(), "water": WM.arrays() if WM else None})
         pack(raw, OUT / f"{name}.glb")

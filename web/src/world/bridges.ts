@@ -63,6 +63,7 @@ function deck(B: Builder, d: DeckRow) {
   const at = (i: number, o: number, z: number) => [p[i][0] + nx[i] * o, p[i][1] + ny[i] * o, z];
   const top = TOP[d.kind] ?? TOP.road;
   const rail = d.kind === 'rail';
+  const ph = d.kind === 'tram' ? 0 : PARAPET;   // tram decks: flush edge, no parapet wall (User 2026-10-21)
   for (let i = 0; i < n - 1; i++) {
     const j = i + 1, zi = p[i][2], zj = p[j][2], bi = d.b[i], bj = d.b[j];
     B.quad(at(i, -hw, zi), at(i, hw, zi), at(j, hw, zj), at(j, -hw, zj), top); // surface (winding: up)
@@ -73,12 +74,12 @@ function deck(B: Builder, d: DeckRow) {
       const sw = s * hw, so = s * ow;
       const q = (a: number[], b: number[], c: number[], e: number[], k: THREE.Color) => (s > 0 ? B.quad(a, b, c, e, k) : B.quad(e, c, b, a, k));
       // curb / parapet: inner face, top, outer face down to the underside
-      q(at(i, sw, zi), at(j, sw, zj), at(j, sw, zj + PARAPET), at(i, sw, zi + PARAPET), CONC);
-      q(at(i, sw, zi + PARAPET), at(j, sw, zj + PARAPET), at(j, so, zj + PARAPET), at(i, so, zi + PARAPET), CONC);
-      q(at(i, so, zi + PARAPET), at(j, so, zj + PARAPET), at(j, so, bj), at(i, so, bi), CONC);
+      if (ph > 0) q(at(i, sw, zi), at(j, sw, zj), at(j, sw, zj + ph), at(i, sw, zi + ph), CONC);
+      q(at(i, sw, zi + ph), at(j, sw, zj + ph), at(j, so, zj + ph), at(i, so, zi + ph), ph > 0 ? CONC : top);
+      q(at(i, so, zi + ph), at(j, so, zj + ph), at(j, so, bj), at(i, so, bi), CONC);
     }
   }
-  if (!rail) railings(B, d, nx, ny, hw + CURB * 0.5);   // open at the ramps (see RAIL_EL)
+  if (!rail && d.kind !== 'tram') railings(B, d, nx, ny, hw + CURB * 0.5);   // open at the ramps (see RAIL_EL)
   if (d.kind === 'road' && d.w >= 6) centreLine(B, d, nx, ny);
   if (d.kind === 'tram') trackRails(B, d, nx, ny);
   if (d.zb) for (const z of d.zb) zebra(B, z, d.w);
@@ -251,6 +252,7 @@ export class BridgeIndex {
       const ex = Math.abs(lat) - lim;   // > 0: pressed into the parapet
       const of = lat > 0 ? d.ol : d.or;
       if (ex > 0 && of && of[i] && of[i + 1]) continue;   // side shared with a neighbouring deck: no wall
+      if (ex > 0 && d.kind === 'tram') continue;   // tram decks have no parapet wall
       if (ex >= bex) continue;   // keep the deck we are most inside of
       if (d.sub && ex > 0.3) continue;   // hb3: underground decks only keep the body that is on them (stair wells are open to the surface beside the deck)
       const el = d.sub ? 99 : zc - (d.g[i] + (d.g[i + 1] - d.g[i]) * t);   // hb3: tunnel walls always

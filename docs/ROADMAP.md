@@ -25,6 +25,21 @@ Jedes Milestone endet mit etwas, das der User im Browser (auch auf dem Handy) au
 - [x] Plätze/Parks v3: Bodenbelag, Möblierung, Brunnen/Kiosk/Fahnenmasten an 15 Plätzen (`places_detail`, `preview/plaza3_*.jpg`)
 - [x] Deploy (Testlink): https://sandboxzurich.sandboxzurich-web.workers.dev
 
+## M1b – Karte besser gestalten (aktueller Fokus, User 2026-10-21)
+**Ziel:** Wer in Zürich wohnt, erkennt seine Strasse auf den ersten Blick (Note 4 an allen Kamerapunkten, `docs/NIGHT_PLAN.md`).
+- [x] Stadtkarte im GTA-Stil: Theme, Blips, Legende, kuratierte Sterne, Kreis-Namen 3/4/5/9 (#66, #68)
+- [x] Tramgleise flach auf der Strasse, Brückendecks ohne Mauern (#67, #69)
+- [x] Velotunnel-Einfahrt geschlossen unter der Kasernenstrasse (#71)
+- [ ] Tramdeck-Rampen neben ebenen Strassen entfernen (Sihlpost/Kasernenstrasse)
+- [ ] Unterführungen ohne quer liegende Decks (Langstrassen-Unterführung u. a.)
+- [ ] Möbel/Tische nicht auf der Fahrbahn; Objekte nicht ineinander (Laterne im Brunnen Bullingerplatz, Velos im Velotunnel)
+- [ ] Strassenmarkierungen gegen Orthofoto plausibilisiert: Zonen 1–3, dann 4–5
+- [ ] Woche 2: Häuser nach Fotos an den Kamerapunkten der Zonen 2, 1, 4 (Zonen 3, 5 erledigt)
+- [ ] Stadtweite Fehlersuche: Modelle auf ihrem Gebäude, schwebende/versunkene Objekte
+- [ ] Texturen der kleinen Landmarks in Atlas (Speicher, qa_leak tex max ~595)
+- [ ] Stadtkarte: Handy-Übersicht grösser, weniger dunkle Punkte in der Nahansicht, Radar-Rand
+- [ ] Rathaus Hard: Betonlöwin detaillierter, Gemeindehaus/Pfarrhäuser
+
 ## M2 – Lebendige Stadt
 - [x] Trams und Busse auf echten Linien (Testgebiet)
 - [x] Autos, Velos, Fussgänger:innen (Testgebiet)
@@ -37,10 +52,12 @@ Jedes Milestone endet mit etwas, das der User im Browser (auch auf dem Handy) au
 - [x] Autos v3 (Loft, Scheiben, Kontrollschild, csuv/taxi, Ausweichen) – DECISIONS #31
 - [x] Auto klauen und fahren (parkiert + Verkehr, Physik, Kollision, Lichter), Auto-/Velo-Realismus v2 (DECISIONS #30)
 - [x] HUD wie im Reel, Menüs, Credits, Impressum (Impressum-Verantwortliche TODO)
-- [ ] Spawn nur auf Strasse/Trottoir (nie in Limmat/Sihl, Gleisen, Häusern): bevorzugt an einem guten Ort im Umkreis von ~100 m um eine Landmark, aber nicht auf Landmarks beschränkt
-- [ ] Busse und Trams fahren: einsteigen wie beim Auto; Bus frei lenkbar, Tram nur Gas und Bremse, fährt automatisch auf seiner Linie (Gleis)
+- [x] Spawn nur auf Strasse/Trottoir (nie in Limmat/Sihl, Gleisen, Häusern): bevorzugt an einem guten Ort im Umkreis von ~100 m um eine Landmark, aber nicht auf Landmarks beschränkt
+- [x] Busse und Trams fahren: einsteigen wie beim Auto; Bus frei lenkbar, Tram nur Gas und Bremse, fährt automatisch auf seiner Linie (Gleis)
+- [ ] Bus/Tram v2: Fahrplan-Trams halten hinter dem eigenen Tram, Fahrgäste an Haltestellen, Trolleybus-Stangen, Bus-Hinterwagen mit Kollision
+- [x] Ladebildschirm: Intro-Video im GTA-Stil (`pipeline/loading_video.py`), Menü mit Kontakt statt «Stimmt etwas nicht?»
 - [ ] Musik/Radio: Radio in Fahrzeugen (Sender wechseln), Musik ausbauen (Basis: `audio_music.ts`, Idee 33 «Quartier-Radio» in `IDEAS_GAMEPLAY.md`), nur Musik mit freier Lizenz
-- [ ] Helvetiaplatz in Ni-Una-Menos-Platz umbenennen (Platzname, Karte, Sprungpunkte, Anekdoten; Haltestelle laut ZVV prüfen; offizielle Quelle in `DATA_SOURCES.md`)
+- [x] Helvetiaplatz in Ni-Una-Menos-Platz umbenennen (Platzname, Karte, Sprungpunkte, Anekdoten; Haltestelle laut ZVV prüfen; offizielle Quelle in `DATA_SOURCES.md`)
 
 ## M4 – Quests
 - [ ] Q1–Q3 ausarbeiten und umsetzen, danach weitere

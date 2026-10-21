@@ -1,0 +1,5 @@
+{
+ "_doc": "Extra keep-out areas for furniture/lamps/trees (props_road.keepouts): discs [x, y, r, why] and polys. Fountain basins from places_detail and the catalog, and the Velotunnel mouth, are derived automatically.",
+ "discs": [[-37.1, -497.2, 6.8, "Bullingerplatz Brunnenbecken (landmark z3b_bullinger_brunnen, basin R 6.55)"]],
+ "polys": []
+}

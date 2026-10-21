@@ -29,6 +29,7 @@ import { updateSignals } from './world/trafficsigns';
 import { setSignNight } from './world/signs';
 import { updateSacks } from './world/streetlife';
 import { Transit } from './world/transit';
+import { TransitUse } from './player/transit_use';
 import { Railways } from './world/railways';
 import { Landmarks3D } from './world/landmarks3d';
 import { Traffic } from './world/traffic';
@@ -219,8 +220,10 @@ async function main() {
   const obb = (v: { x: number; y: number; heading: number; id?: number }, len: number, wid: number): Obb => ({ x: v.x, y: v.y, fx: Math.cos(v.heading), fy: Math.sin(v.heading), hl: len / 2, hw: wid / 2, id: v.id });
   const carUse = new CarUse(player, tiles, traffic, humans, audio, renderer, scene, () => [
     ...traffic.positions().map((v) => { const o = obb(v, v.kind === 'car' ? v.len : 1.8, v.kind === 'car' ? 1.8 : 0.6); if (v.kind !== 'car') o.id = undefined; return o; }),
-    ...transit.colliders().map((v) => obb(v, v.len, v.width)), ...rail.colliders().map((v) => obb(v, v.len, v.width)),
+    ...transit.colliders().map((v) => obb(v, v.len, v.width)), ...transitUse.obstacles(), ...rail.colliders().map((v) => obb(v, v.len, v.width)),
   ], () => daytime.night);
+  const transitUse = new TransitUse(player, tiles, transit, audio, scene);
+  carUse.transitExit = () => transitUse.exit();
   carUse.onTheft = onCarTheft;
   carUse.onHint = (text) => { // short hint line (no pop-up card)
     let el = document.getElementById('drivehint');
@@ -250,9 +253,11 @@ async function main() {
   // --- interaction: bikes -------------------------------------------------------------------------------
   // what E would do now: closest of bike and car
   const pickTarget = () => {
-    const slot = bikes.nearest(player.x, player.y), car = carUse.nearest();
-    if (car && (!slot || car.d < Math.hypot(slot.x - player.x, slot.y - player.y))) return { kind: 'car' as const, car, slot: null };
-    return slot ? { kind: 'bike' as const, slot, car: null } : null;
+    const slot = bikes.nearest(player.x, player.y), car = carUse.nearest(), tr = transitUse.nearest();
+    const dBike = slot ? Math.hypot(slot.x - player.x, slot.y - player.y) : Infinity, dCar = car ? car.d : Infinity;
+    if (tr && tr.d < dBike && tr.d < dCar) return { kind: 'transit' as const, tr, car: null, slot: null };
+    if (car && car.d < dBike) return { kind: 'car' as const, car, slot: null, tr: null };
+    return slot ? { kind: 'bike' as const, slot, car: null, tr: null } : null;
   };
   const use = () => {
     if (player.driving) { carUse.requestExit(); return; }
@@ -263,6 +268,7 @@ async function main() {
     }
     const pick = pickTarget();
     if (pick?.kind === 'car') { void carUse.enter(pick.car); return; }
+    if (pick?.kind === 'transit') { transitUse.enter(pick.tr); return; }
     const slot = pick?.slot;
     if (!slot) return;
     const own = slot.mesh === bikes.dropped;
@@ -369,6 +375,7 @@ async function main() {
     transit.night = daytime.night;
     transit.update(dt, transitMin, player.x, player.y);
     rail.update(dt, transitMin, player.x, player.y);
+    transitUse.update(dt);
     landmarks3d.update(player.x, player.y);
     carUse.update(dt);
     traffic.update(dt, player.x, player.y, player.driving ? player.driving.circlesWorld() : [{ x: player.x, y: player.y, r: 1.4 }]);
@@ -400,6 +407,7 @@ async function main() {
     map.drawRadar(player.x, player.y, player.yaw, player.heading, blips);
     const tgt = player.driving || player.riding ? null : pickTarget();
     const prompt = player.driving ? (player.driving.dead ? (mobile ? 'Auto kaputt – E = aussteigen' : 'Auto kaputt – E zum Aussteigen') : Math.abs(player.speed) < 3 ? (mobile ? 'E = aussteigen' : 'E drücken: aussteigen') : '')
+      : tgt?.kind === 'transit' ? (mobile ? `E = ${tgt.tr.kind === 'tram' ? 'Tram' : 'Bus'} fahren` : `E drücken: ${tgt.tr.kind === 'tram' ? 'Tram' : 'Bus'} fahren`)
       : tgt?.kind === 'car' ? (mobile ? 'E = Auto nehmen' : 'E drücken: Auto nehmen')
       : tgt?.kind === 'bike' ? (mobile ? 'E = Velo nehmen' : 'E drücken: Velo nehmen') : player.riding && player.speed < 0.5 ? 'E = absteigen' : '';
     $('prompt').style.display = prompt ? 'block' : 'none';
@@ -416,7 +424,7 @@ async function main() {
       lastStats = acc;
     }
   });
-  Object.assign(window, { sbxReady: true, sbxActions: sbxActionsHook, sbxFindSpot: (x: number, y: number) => findGoodSpot({ tiles, landmarks: landmarks3d }, x, y), sbxValidSpot: (x: number, y: number) => validSpot({ tiles, landmarks: landmarks3d }, x, y, true), sbxPlayer: player, sbxScene: scene, sbxState: state, sbxBikes: bikes, sbxCarUse: carUse, sbxParked: parkedCars, sbxTraffic: traffic, sbxEvents: events, sbxTransit: transit, sbxRail: rail, sbxRenderer: renderer, sbxCamera: camera, sbxTiles: tiles, sbxDaytime: daytime, sbxMap: map, sbxCrowd: crowd }); // hooks for Playwright tests
+  Object.assign(window, { sbxReady: true, sbxActions: sbxActionsHook, sbxFindSpot: (x: number, y: number) => findGoodSpot({ tiles, landmarks: landmarks3d }, x, y), sbxValidSpot: (x: number, y: number) => validSpot({ tiles, landmarks: landmarks3d }, x, y, true), sbxPlayer: player, sbxScene: scene, sbxState: state, sbxBikes: bikes, sbxCarUse: carUse, sbxTransitUse: transitUse, sbxParked: parkedCars, sbxTraffic: traffic, sbxEvents: events, sbxTransit: transit, sbxRail: rail, sbxRenderer: renderer, sbxCamera: camera, sbxTiles: tiles, sbxDaytime: daytime, sbxMap: map, sbxCrowd: crowd }); // hooks for Playwright tests
 }
 
 if (!hasWebGL2()) loading.fail('Dein Browser unterstützt WebGL 2 nicht oder hat es abgeschaltet. Bitte aktualisiere den Browser (Chrome, Firefox, Safari ab iOS 15) oder aktiviere die Hardwarebeschleunigung.', false);

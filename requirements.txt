@@ -8,3 +8,7 @@ tifffile
 imagecodecs
 lxml
 pyogrio
+laspy[lazrs]
+brotli
+scipy
+matplotlib

@@ -14,7 +14,7 @@ export const LIGHT: Theme = {
   cemetery: '#c9dfb4', play: '#e2eccb', allot: '#dfe6c4', rail: '#e4e0ea', plaza: '#efe9dc',
   roads: ['#f4a65b', '#f8d46c', '#fff0a6', '#ffffff', '#ffffff', '#fbfaf6', '#f1e6ef', '#c9b79a'],
   casing: ['#c97a2c', '#cfab3c', '#d3c27a', '#c9c2b4', '#cfc8ba', '#d6d0c4', '#cdb8c8', '#c9b79a'],
-  railLine: '#8d8a93', tram: '#b3262d', text: '#2f2a24', halo: '#fffdf6', kreis: '#8a5aa8', play_: '#e4007d',
+  railLine: '#8d8a93', tram: '#b3262d', text: '#2f2a24', halo: '#fffdf6', kreis: '#8a5aa8', play_: '#ff1975',
   veloLane: '#1d86d6', veloPath: '#12a25e', veloRoad: '#7a4cc4',
 };
 export const DARK: Theme = {
@@ -22,7 +22,7 @@ export const DARK: Theme = {
   cemetery: '#34523a', play: '#3b5e40', allot: '#3c5238', rail: '#30343a', plaza: '#363f44',
   roads: ['#e0a458', '#e6cf7a', '#d9d29a', '#a9b3b8', '#97a2a7', '#6d777c', '#7d8589', '#6d777c'],
   casing: ['#6e4a1d', '#6e5b22', '#625e3a', '#3a4348', '#394246', '#333b3f', '#394246', '#394246'],
-  railLine: '#7d838a', tram: '#ff6a6a', text: '#fff', halo: '#000', kreis: '#c9a7e0', play_: '#ff4fa0',
+  railLine: '#7d838a', tram: '#ff6a6a', text: '#fff', halo: '#000', kreis: '#c9a7e0', play_: '#ff1975',
   veloLane: '#3fd0ff', veloPath: '#4be39a', veloRoad: '#b88cff',
 };
 
@@ -43,7 +43,7 @@ export const CLASSIC: Theme = {
   cemetery: '#3a5a3c', play: '#3e6340', allot: '#3d5a3a', rail: '#3a3f44', plaza: '#3f474c',
   roads: ['#d6c478', '#d6c478', '#c9bd84', '#828a8e', '#7a8286', '#62696d', '#6f777b', '#5c6367'],
   casing: ['#6a5c2a', '#6a5c2a', '#5e5636', '#2c3337', '#2c3337', '#2a3034', '#2c3337', '#2c3337'],
-  railLine: '#5c6064', tram: '#ff6a6a', text: '#fff', halo: '#000', kreis: '#ececec', play_: '#ff4fa0',
+  railLine: '#5c6064', tram: '#ff6a6a', text: '#fff', halo: '#000', kreis: '#ececec', play_: '#ff1975',
   veloLane: '#3fd0ff', veloPath: '#4be39a', veloRoad: '#b88cff',
 };
 

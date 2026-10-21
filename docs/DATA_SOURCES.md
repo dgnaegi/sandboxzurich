@@ -56,3 +56,8 @@ Skripte: `pipeline/fetch_osm.py`, `fetch_swisstopo.py`, `fetch_stadtzh.py`; Abla
 
 ## Zentralwaescherei-Graffiti (2026-10-18, Details `research/zentralwaescherei_graffiti.md`)
 Fotos aus `research/v3/` (Commons/Mapillary/Panoramax, Lizenz je Bild) nur als Referenz; die Wandbilder im Spiel sind eigene prozedurale Nachzeichnungen (`pipeline/landmarks/zw_graffiti.py`), ohne Foto-Pixel, ohne Slogans.
+
+## LiDAR-Punktwolke Kanton Zürich 2021/22 (Pilot, 2026-10-21, Details `research/lidar/README.md`)
+| Quelle | Ablage | Lizenz |
+|---|---|---|
+| Kanton Zürich, Amt für Raumentwicklung (Geoinformation): LIDAR Laserscanning-Punktwolke 2021 bis 2022 (OGD, GIS-ZH Nr. 557, Stand 30.04.2022), ~16 bis 30 Pkt/m², LAZ, LV95/LN02, Klassen und Intensität. Bezug über die Bestellung auf stadt-zuerich.ch/geodaten (Kachel 500 m, ca. 36 MB) → `pipeline/lidar.py` | `data/raw/lidar/<E>_<N>.laz` | CC0 (`cc-zero`, geprüft 2026-10-21); Quellenangabe «Kanton Zürich, Geoinformation» höflich |

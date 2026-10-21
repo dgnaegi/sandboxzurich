@@ -24,6 +24,7 @@ from shapely.strtree import STRtree
 from config import POLYGON, ROOT
 
 CACHE = ROOT / "data" / "build" / "sites.json"
+EXCL = ROOT / "pipeline" / "overrides" / "sites_excl.json"   # sites no longer active (User feedback)
 RAW = ROOT / "data" / "raw" / "stadtzh_all"
 TIEF = RAW / "geo_aktuelle_tiefbauprojekte_im_oeffentlichen_grund__aer_baustellen_a.geojson"
 HOCH = RAW / "geo_ahb_hochbauprojekte_in_ausfuehrung_ogd__ahb_projekte_ogd.geojson"
@@ -50,8 +51,9 @@ def _geom(g):
 
 def load():
     """All sites inside the play area (+ margin) as dicts {kind, name, text, poly(shapely), osm}. Cached as WKT."""
+    excl = json.load(open(EXCL))["exclude"] if EXCL.exists() else {}
     if CACHE.exists():
-        return [{**s, "poly": __import__("shapely.wkt").wkt.loads(s["wkt"])} for s in json.load(open(CACHE))]
+        return [{**s, "poly": __import__("shapely.wkt").wkt.loads(s["wkt"])} for s in json.load(open(CACHE)) if s["id"] not in excl]
     import sources
     play = Polygon(POLYGON).buffer(260)
     out = []
@@ -95,7 +97,7 @@ def load():
     CACHE.parent.mkdir(parents=True, exist_ok=True)
     json.dump(out, open(CACHE, "w"), ensure_ascii=False, separators=(",", ":"))
     import shapely.wkt
-    return [{**s, "poly": shapely.wkt.loads(s["wkt"])} for s in out]
+    return [{**s, "poly": shapely.wkt.loads(s["wkt"])} for s in out if s["id"] not in excl]
 
 
 def _rect(poly, cx, cy, r):

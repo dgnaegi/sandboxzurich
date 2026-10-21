@@ -15,6 +15,9 @@ export interface Obb { x: number; y: number; fx: number; fy: number; hl: number;
 export interface Crash { strength: number; nx: number; ny: number; px: number; py: number; obb: Obb | null; damage: number }
 
 const ACC = 5.6, TURBO_ACC = 8.5, VMAX = 25, TURBO_VMAX = 33, VREV = 6, BRAKE = 10.5, ALAT = 9.5, GRIP = 9;
+/** Per-vehicle handling (cars: defaults; the articulated bus is slower, heavier, no damage model). */
+export interface Tune { acc: number; turboAcc: number; vmax: number; turboVmax: number; brake: number; steer: number; dmg: number; gear: number }
+export const CAR_TUNE: Tune = { acc: ACC, turboAcc: TURBO_ACC, vmax: VMAX, turboVmax: TURBO_VMAX, brake: BRAKE, steer: 0.62, dmg: 1, gear: 1 };
 const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
 
 export class DriveCar {
@@ -39,6 +42,10 @@ export class DriveCar {
   /** 0 = new, 1 = wrecked; engine dies at 1. yawKick = angular velocity from an off-centre hit (rad/s, compass sense). */
   damage = 0; dead = false; private yawKick = 0; private hitCool = 0;
   readonly half: { l: number; w: number };
+  /** Chase camera: distance behind and height of the look-at point. */
+  cam = { dist: 9, h: 1.25 };
+  tune: Tune = CAR_TUNE;
+  readonly isTram = false;
   private circles: { o: number; l: number }[] = [];
   readonly radius: number;
   private oldAcc = 0;
@@ -58,13 +65,15 @@ export class DriveCar {
   /** Collision circles in world coordinates (also fed to Traffic so other cars brake for us). */
   circlesWorld(): { x: number; y: number; r: number }[] {
     const fx = Math.sin(this.h), fy = Math.cos(this.h);
-    return this.circles.filter((c) => c.l > 0).map((c) => ({ x: this.x + fx * c.o, y: this.y + fy * c.o, r: this.half.w + 0.1 }));
+    const out = this.circles.filter((c) => c.l > 0).map((c) => ({ x: this.x + fx * c.o, y: this.y + fy * c.o, r: this.half.w + 0.1 }));
+    const tail = this.rig.tailCircles?.();
+    return tail ? out.concat(tail) : out;
   }
 
   /** Front-wheel angle limit: tight at walking pace, grip-limited when fast (turning circle grows with speed). */
   maxSteer(v: number) {
     const wb = this.rig.wheelbase, av = Math.abs(v);
-    return Math.min(0.62, Math.atan((wb * ALAT) / Math.max(av * av, 1e-3)));
+    return Math.min(this.tune.steer, Math.atan((wb * ALAT) / Math.max(av * av, 1e-3)));
   }
 
   update(dt: number, inp: DriveInput, obstacles: Obb[] | null, nearParked: (x: number, y: number, r: number) => Obb[]) {
@@ -79,15 +88,15 @@ export class DriveCar {
     const fx = Math.sin(this.h), fy = Math.cos(this.h);
     let vl = this.vx * fx + this.vy * fy;
     const pw = this.dead ? 0 : 1 - 0.45 * Math.max(0, this.damage - 0.5) * 2; // engine weakens past 50 % damage
-    const vmax = (inp.turbo ? TURBO_VMAX : VMAX) * (0.4 + 0.6 * pw), acc = (inp.turbo ? TURBO_ACC : ACC) * pw;
+    const tu = this.tune, vmax = (inp.turbo ? tu.turboVmax : tu.vmax) * (0.4 + 0.6 * pw), acc = (inp.turbo ? tu.turboAcc : tu.acc) * pw;
     const t = this.dead ? (inp.throttle < 0 && vl > 0.4 ? inp.throttle : 0) : inp.throttle; // dead engine: only the brake works
     this.braking = false; this.reversing = false;
     let a = 0;
     if (t > 0.05) {
-      if (vl < -0.4) { a = BRAKE * t; this.braking = true; }
+      if (vl < -0.4) { a = tu.brake * t; this.braking = true; }
       else a = acc * t * Math.max(0, 1 - Math.pow(Math.max(0, vl) / vmax, 1.6)) + (vl < 2 ? 0.8 * t : 0); // a bit of launch torque
     } else if (t < -0.05) {
-      if (vl > 0.4) { a = -BRAKE * -t; this.braking = true; }
+      if (vl > 0.4) { a = -tu.brake * -t; this.braking = true; }
       else { a = -3.0 * -t * Math.max(0, 1 - Math.abs(vl) / VREV); this.reversing = true; }
     } else a = -Math.sign(vl) * Math.min(Math.abs(vl) / dt, (this.dead ? 2.2 : 0.35) + 0.0015 * vl * vl); // engine braking + rolling resistance
     if (Math.abs(a) < 1e-6 && Math.abs(vl) < 0.05) vl = 0;
@@ -127,7 +136,7 @@ export class DriveCar {
     if (!this.tiles.inPlay(this.x, this.y)) { this.x = ox; this.y = oy; this.vx *= -0.3; this.vy *= -0.3; this.speed *= -0.3; }
 
     // engine model for sound and lights: simple 5-speed gearbox
-    const sp = Math.abs(this.speed), tops = [6, 11, 16, 22, 40];
+    const sp = Math.abs(this.speed) * this.tune.gear, tops = [6, 11, 16, 22, 40];
     let g = 0; while (g < 4 && sp > tops[g]) g++;
     const lo = g ? tops[g - 1] * 0.72 : 0, rpmT = clamp(0.18 + 0.82 * (sp - lo) / (tops[g] - lo), 0.15, 1);
     this.gear = g + 1; this.rpm += (rpmT + Math.abs(t) * 0.12 - this.rpm) * Math.min(1, dt * 7);
@@ -204,7 +213,7 @@ export class DriveCar {
       if (hit > 2 && this.hitCool <= 0) {
         this.hitCool = 0.18;
         this.impact = Math.max(this.impact, Math.min(1, hit / 12));
-        const dmg = hit > 2.5 ? Math.min(1, 0.012 * Math.pow(hit - 2, 1.25)) : 0;
+        const dmg = hit > 2.5 ? Math.min(1, 0.012 * Math.pow(hit - 2, 1.25)) * this.tune.dmg : 0;
         this.damage = Math.min(1, this.damage + dmg);
         if (this.damage >= 1) this.dead = true;
         this.onImpact?.(hit);
@@ -243,6 +252,7 @@ export class DriveCar {
     g.position.set(this.x, this.z, -this.y);
     g.rotation.set(this.pitch, -this.h, this.roll, 'YXZ');
     this.rig.setWheels(this.wheelAngle, -this.steer);
+    this.rig.follow?.(this.x, this.y, this.h);
   }
 
   /** Update the lights (needs the day/night value). */

@@ -9,9 +9,11 @@ export interface Actions {
   kb: { x: number; y: number };
   /** Edge-triggered action button (E / touch): get on/off bike, interact. */
   use: boolean;
+  /** Edge-triggered: tram bell / bus horn (H, touch bell button). */
+  bell: boolean;
 }
 
-export const actions: Actions = { move: { x: 0, y: 0 }, look: { yaw: 0, pitch: 0 }, run: false, use: false, kb: { x: 0, y: 0 } };
+export const actions: Actions = { move: { x: 0, y: 0 }, look: { yaw: 0, pitch: 0 }, run: false, use: false, bell: false, kb: { x: 0, y: 0 } };
 
 export function consumeUse() {
   const u = actions.use;
@@ -23,4 +25,10 @@ export function consumeLook() {
   const l = { ...actions.look };
   actions.look.yaw = actions.look.pitch = 0;
   return l;
+}
+
+export function consumeBell() {
+  const b = actions.bell;
+  actions.bell = false;
+  return b;
 }

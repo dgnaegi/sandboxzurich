@@ -7,6 +7,10 @@ import { BikeRig } from '../world/bikerig';
 import { rideBones, ridePose, type RideBones } from '../world/ridepose';
 import { driveStep, type DriveState } from './vehicle_player';
 import type { DriveCar } from './drive';
+import type { TramCar } from './drive_tram';
+
+/** What the player can be driving: a car/bus (physics) or a tram (on rails). */
+export type Driven = DriveCar | TramCar;
 
 /** Camera sweep ignores footprints smaller than this (site containers, toilets, kiosks): it passes through them instead of being trapped (T11). */
 const CAM_MIN_AREA = 20;
@@ -28,7 +32,7 @@ export class Player {
   fallT = 0;
   onBikeCrash: ((speed: number) => void) | null = null;
   /** Car the player is driving (see vehicle_player.ts); the player position follows the car. */
-  driving: DriveCar | null = null;
+  driving: Driven | null = null;
   drive: DriveState = { stopPending: false, camDist: 9, shake: 0, fov: 60, hooks: null };
   /** Speed factor on the bike (e.g. 1.2 on cycle lanes). */
   boost = 1;

@@ -15,6 +15,7 @@ export function initKeyboardMouse(canvas: HTMLCanvasElement) {
   };
   window.addEventListener('keydown', (e) => {
     if ((e.code === 'KeyE' || e.code === 'KeyF') && !e.repeat) actions.use = true;
+    if (e.code === 'KeyH' && !e.repeat) actions.bell = true;
     down.add(e.code); sync();
   });
   window.addEventListener('keyup', (e) => { down.delete(e.code); sync(); });

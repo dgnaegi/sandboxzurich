@@ -11,7 +11,7 @@ export function initTouch(stick: HTMLElement, knob: HTMLElement) {
   // on-screen buttons handle their own touches; run is a toggle so the right thumb stays free for the camera
   const runBtn = document.getElementById('btn-run');
   const setRun = (on: boolean) => { actions.run = on; runBtn?.classList.toggle('on', on); };
-  for (const [id, on] of [['btn-use', () => { actions.use = true; }], ['btn-run', () => setRun(!actions.run)]] as const) {
+  for (const [id, on] of [['btn-use', () => { actions.use = true; }], ['btn-bell', () => { actions.bell = true; }], ['btn-run', () => setRun(!actions.run)]] as const) {
     const b = document.getElementById(id);
     b?.addEventListener('touchstart', (e) => { e.stopPropagation(); e.preventDefault(); on(); }, { passive: false });
   }

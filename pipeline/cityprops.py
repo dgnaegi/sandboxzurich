@@ -9,6 +9,7 @@ from shapely.geometry import Point, Polygon
 from shapely.strtree import STRtree
 
 from styles import h32
+import props_road
 import trees_dims
 
 # tree classes for the renderer: 0 broadleaf, 1 cherry (pink blossom), 2 white blossom (apple, pear, hawthorn),
@@ -180,10 +181,18 @@ def city_props(C, S, tb, H, curb):
             out["cars"].append([x, y, zc, round(heading + flip, 3), key % 100000])
     for name, layer in (("benches", "benches"), ("fountains", "fountains"), ("bins", "bins")):
         for r in filter(inside, C.get(layer, [])):
+            q = props_road.snap(r[0], r[1])   # not on the carriageway (props_road.py)
+            if q is None:
+                continue
+            r = (q[0], q[1], *r[2:])
             heading, _, _ = _road_dir(S, lines, r[0], r[1])
             out[name].append([r[0], r[1], z(r[0], r[1]), round(heading, 3), *r[2:3]] if name != "fountains" else [r[0], r[1], z(r[0], r[1]), round(heading, 3)])
     out["racks"] = []
     for x, y, n, art in filter(inside, C.get("bikes", [])):
+        q = props_road.snap(x, y, max_shift=5.0)   # row centre onto the pavement; single slots still on the road are dropped below
+        if q is None:
+            continue
+        x, y = q
         heading, _, _ = _road_dir(S, lines, x, y)
         k = h32(f"b{x:.1f}{y:.1f}")
         d = np.array([np.sin(heading), np.cos(heading)])
@@ -192,12 +201,16 @@ def city_props(C, S, tb, H, curb):
             for i in range(n):
                 if h32(f"m{k}{i}") % 100 < 70:
                     px, py = np.array([x, y]) + d * (i - (n - 1) / 2) * 0.85
+                    if props_road.on_road(px, py):
+                        continue
                     out["mopeds"].append([round(px, 2), round(py, 2), z(px, py), round(heading + (np.pi if k % 2 else 0), 3), h32(f"mc{k}{i}") % 6])
             continue
         n = int(min(max(n, 2), 40))
         filled = int(round(n * (0.6 + (k % 31) / 100)))
         for i in range(n):  # a row of spaces along the street, bikes perpendicular to it
             px, py = np.array([x, y]) + d * (i - (n - 1) / 2) * 0.7
+            if props_road.on_road(px, py):
+                continue
             if i % 2 == 0:
                 out["racks"].append([round(px, 2), round(py, 2), z(px, py), round(heading + np.pi / 2, 3)])
             if h32(f"{k}{i}") % n < filled:

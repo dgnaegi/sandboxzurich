@@ -19,6 +19,9 @@ export interface Rig {
   /** Damage 0..1: cracked glass from ~0.3, head lamps out when `lampsOut`. Hood smoke position is `hood`. */
   setDamage(d: number, lampsOut: boolean): void;
   hood: THREE.Vector3;
+  /** Articulated vehicles: called with the body's world pose after every step to move the trailer; collision circles of the trailer. */
+  follow?(x: number, y: number, h: number): void;
+  tailCircles?(): { x: number; y: number; r: number }[];
   dispose(): void;
 }
 

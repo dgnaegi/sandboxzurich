@@ -9,9 +9,17 @@ common.OVR = ROOT / "pipeline" / "overrides" / "landmarks_velotunnel.json"
 AX = [(1470.5, -724.8), (1489.2, -697.5), (1523.0, -648.3), (1551.7, -578.6)]
 LEN, STEP, HW, H = 160.0, 2.0, 3.0, 3.8      # modelled length, sample step, half width (6 m), clear height
 GRADE, DEPTH = 0.08, 7.0
+OPEN_S, H_MIN, COVER = 2.0, 2.6, 0.25   # open portal length (m); tube clear height shrinks to H_MIN where the street above is close (keep COVER m)
 ORGV = (1500.0, -680.0)
 CONC, CONC_D, FLOOR = hx("#b4b6b4"), hx("#8a8d8e"), hx("#4a4b4f")
 LANE = hx("#d8d8d0")
+
+
+def game_ground(x, y):
+    """Ground as the game builds it (tile heightmaps of the last build, smoothed streets), DEM where no tile exists."""
+    import audit_float
+    g = audit_float.ground(x, y)
+    return common.ground(x, y) if g is None else g
 
 
 def axis(s):
@@ -48,45 +56,36 @@ def build():
     for i in range(n + 1):
         s = i * STEP; (x, y), (tx, ty) = axis(s); nx, ny = -ty, tx
         zf = g0 - 0.15 - min(s * GRADE, DEPTH)
-        gnd = common.ground(x, y)
-        prof.append((s, x - ORGV[0], y - ORGV[1], tx, ty, nx, ny, zf, gnd, x, y))
+        gnd = game_ground(x, y)
+        hc = min(H, max(H_MIN, gnd - zf - COVER))
+        prof.append((s, x - ORGV[0], y - ORGV[1], tx, ty, nx, ny, zf, gnd, x, y, hc))
     def at(p, k, z): return (p[1] + p[5] * k, p[2] + p[6] * k, z)
     open_ = []
     for a, b in zip(prof, prof[1:]):
-        isopen = max(a[7], b[7]) + H + 0.3 > min(a[8], b[8])
+        isopen = a[0] < OPEN_S   # only the portal is open: the tube passes under Kasernenstrasse (formerly a trench cut through the street)
         open_.append(isopen)
         q(m, P, [at(a, -HW, a[7]), at(b, -HW, b[7]), at(b, HW, b[7]), at(a, HW, a[7])], FLOOR, None, (0, 0, 1))
         for k, sg in ((-HW, 1), (HW, -1)):
-            ta = max(a[8], a[7] + 1.0) if isopen else a[7] + H; tb = max(b[8], b[7] + 1.0) if isopen else b[7] + H
+            ta = max(a[8], a[7] + 1.0) if isopen else a[7] + a[11]; tb = max(b[8], b[7] + 1.0) if isopen else b[7] + b[11]
             q(m, P, [at(a, k, a[7]), at(b, k, b[7]), at(b, k, tb), at(a, k, ta)], CONC, None, (sg * a[5], sg * a[6], 0))
             # lit wall band at 2.5 m (warm), on the lit material, slightly inside
             if not isopen or a[7] + 3.0 < a[8]:
                 kk = k + sg * 0.03
                 q(m, LIT, [at(a, kk, a[7] + 2.3), at(b, kk, b[7] + 2.3), at(b, kk, b[7] + 2.6), at(a, kk, a[7] + 2.6)], hx("#fff0c8"), PU, (sg * a[5], sg * a[6], 0))
         if not isopen:
-            q(m, P, [at(a, -HW, a[7] + H), at(b, -HW, b[7] + H), at(b, HW, b[7] + H), at(a, HW, a[7] + H)], CONC_D, None, (0, 0, -1))
+            q(m, P, [at(a, -HW, a[7] + a[11]), at(b, -HW, b[7] + b[11]), at(b, HW, b[7] + b[11]), at(a, HW, a[7] + a[11])], CONC_D, None, (0, 0, -1))
             if int(a[0] / STEP) % 4 == 0:   # ceiling light panel
-                q(m, LIT, [at(a, -0.3, a[7] + H - 0.03), at(b, -0.3, b[7] + H - 0.03), at(b, 0.3, b[7] + H - 0.03), at(a, 0.3, a[7] + H - 0.03)], hx("#fff6d8"), PU, (0, 0, -1))
+                q(m, LIT, [at(a, -0.3, a[7] + a[11] - 0.03), at(b, -0.3, b[7] + b[11] - 0.03), at(b, 0.3, b[7] + b[11] - 0.03), at(a, 0.3, a[7] + a[11] - 0.03)], hx("#fff6d8"), PU, (0, 0, -1))
         if int(a[0] / STEP) % 3 == 0:   # dashed centre line
             q(m, P, [at(a, -0.06, a[7] + 0.01), at(b, -0.06, b[7] + 0.01), at(b, 0.06, b[7] + 0.01), at(a, 0.06, a[7] + 0.01)], LANE, None, (0, 0, 1))
-        if int(a[0] / STEP) % 4 == 0:      # edge lines
-            for k in (-HW + 0.3, HW - 0.3):
-                q(m, P, [at(a, k - 0.05, a[7] + 0.01), at(b, k - 0.05, b[7] + 0.01), at(b, k + 0.05, b[7] + 0.01), at(a, k + 0.05, a[7] + 0.01)], LANE, None, (0, 0, 1))
-    # pictograms every 24 m, one per lane (cell x 64..127 of 256 wide, y 0..64 of 128)
-    for i in range(10, n - 4, 12):
-        p, p2 = prof[i], prof[i + 1]
-        for k in (-1.5, 1.5):
-            c0, c1 = (64 / 256, 64 / 128), (128 / 256, 0)
-            a_, b_ = at(p, k, p[7] + 0.02), at(p2, k, p2[7] + 0.02)
-            w = (-p[6] * 0.9, p[5] * 0.9)   # across-lane half width direction is tangent-normal swapped: use normal
-            nxv, nyv = p[5] * 0.9, p[6] * 0.9
-            L = 2.2
-            f = (p[3] * L, p[4] * L)
-            pts = [(a_[0] - nxv, a_[1] - nyv, a_[2]), (a_[0] + nxv, a_[1] + nyv, a_[2]), (a_[0] + nxv + f[0], a_[1] + nyv + f[1], a_[2]), (a_[0] - nxv + f[0], a_[1] - nyv + f[1], a_[2])]
-            q(m, LIT, pts, W, [(c0[0], c0[1]), (c1[0], c0[1]), (c1[0], c1[1]), (c0[0], c1[1])], (0, 0, 1))
+    # no edge lines and no floor pictograms: not confirmed by photos (research/markings_fix/velotunnel.md); the textured pictogram quads rendered as white rectangles
+    # portal lintel above the tube mouth (street level is higher than the tube ceiling there)
+    pt = prof[int(OPEN_S / STEP)]
+    if pt[8] > pt[7] + pt[11]:
+        q(m, P, [at(pt, HW, pt[7] + pt[11]), at(pt, -HW, pt[7] + pt[11]), at(pt, -HW, pt[8] + 0.05), at(pt, HW, pt[8] + 0.05)], CONC, None, (-pt[3], -pt[4], 0))
     # closed end wall
     e = prof[-1]
-    q(m, P, [at(e, -HW, e[7]), at(e, HW, e[7]), at(e, HW, e[7] + H), at(e, -HW, e[7] + H)], CONC_D, None, (-e[3], -e[4], 0))
+    q(m, P, [at(e, -HW, e[7]), at(e, HW, e[7]), at(e, HW, e[7] + e[11]), at(e, -HW, e[7] + e[11])], CONC_D, None, (-e[3], -e[4], 0))
     q(m, LIT, [at(e, -1.8, e[7] + 1.5), at(e, 1.8, e[7] + 1.5), at(e, 1.8, e[7] + 2.4), at(e, -1.8, e[7] + 2.4)], W, [(128 / 256, 64 / 128), (1, 64 / 128), (1, 0), (128 / 256, 0)], (-e[3] * 1.0, -e[4] * 1.0, 0))
     q(m, LIT, [at(e, -1.8, e[7] + 1.5), at(e, 1.8, e[7] + 1.5), at(e, 1.8, e[7] + 2.4), at(e, -1.8, e[7] + 2.4)], W, [(128 / 256, 64 / 128), (1, 64 / 128), (1, 0), (128 / 256, 0)], (-e[3], -e[4], 0))
     # stencil mask over the open trench (merged runs)
@@ -110,4 +109,4 @@ if __name__ == "__main__":
     title = "Velotunnel Stadttunnel"
     json.dump({"landmarks": [{"name": title, "model": "/models/landmarks/velotunnel.glb", "x": ORGV[0], "y": ORGV[1], "z": 0.0, "heading": 0.0, "hide": [], "walkable": True, "load_r": 250}]}, open(common.OVR, "w"), indent=1)
     json.dump(decks(prof), open(ROOT / "web/public/data/velotunnel_decks.json", "w"), separators=(",", ":"))
-    print("open runs:", sum(1 for p in prof if p[7] + H + 0.3 > p[8]), "of", len(prof), "end", prof[-1][9:], "z", prof[-1][7])
+    print("clear height min", round(min(p[11] for p in prof), 2), "end", prof[-1][9:11], "z", prof[-1][7])

@@ -23,6 +23,8 @@ export class CarUse {
   /** Hook for the wanted system (not active in the map phase): called with 'parked' or 'traffic' on every theft. */
   onHint: ((text: string) => void) | null = null;
   onTheft: ((kind: 'parked' | 'traffic') => void) | null = null;
+  /** Set by TransitUse: leaving a tram/bus is handled there. */
+  transitExit: (() => void) | null = null;
   private busy = false;
   private leavers: { h: Human; t: number; dx: number; dy: number; x: number; y: number; b?: THREE.Sprite }[] = [];
   /** Crashed cars standing around (shoved NPC/parked cars, abandoned wrecks); removed once far away. */
@@ -95,6 +97,7 @@ export class CarUse {
   exit() {
     const car = this.player.driving;
     if (!car) return;
+    if (car.isTram || car.type === 'bus') { this.transitExit?.(); return; }
     const left = exitDrive(this.player);
     if (left && car.damage > 0.08) { // damaged cars stay as they are (dents, smoke) instead of becoming a fresh parked car
       this.addWreck(new Wreck(this.tiles, car.rig, car.type, car.color, car.x, car.y, car.h, car.damage));
@@ -193,7 +196,7 @@ export class CarUse {
     const car = this.player.driving;
     if (car) this.audio.engine(car.rpm, Math.max(0, car.throttle), Math.abs(car.slip) + (car.braking ? Math.abs(car.speed) * 0.06 : 0), !car.dead, car.speed);
     // smoke from the bonnet: light from ~50 %, heavy from ~85 %
-    if (car) {
+    if (car && car.rig && car.type !== 'bus') {
       const lvl = car.damage < 0.5 ? 0 : car.damage < 0.85 ? 0.4 : 1, hz = -car.rig.hood.z, f = Math.sin(car.h), g = Math.cos(car.h);
       this.fx.smoke(car, car.x + f * hz, car.z + car.rig.hood.y, -(car.y + g * hz), lvl, dt);
       if (this.hpEl) {

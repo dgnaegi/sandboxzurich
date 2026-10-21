@@ -449,8 +449,9 @@ def construction(blds, segs, tb, main_dist, n_extra=6):
              round(s["ty"], 4), round(min(s["w"], 16), 1), 14.0] for s in out]
 
 
-def scooters(paths, tb, every=70.0):
-    """Shared e-scooters left on the sidewalk (no brand): [x, y, heading, colour]."""
+def scooters(paths, tb, every=40.0):
+    """Shared e-scooters left on the sidewalk (no logo): [x, y, heading, colour 0 green (Lime) | 1 blue | 2 white].
+    Denser since 2026-10-21 (User: more scooters); colour from its own hash bits so green is the most common (it never appeared before)."""
     out = []
     for path in paths:
         a = np.asarray(path)
@@ -461,7 +462,8 @@ def scooters(paths, tb, every=70.0):
             if acc > every and tb.contains(Point(*a[i])):
                 acc = 0.0
                 k = h32(f"sc{a[i][0]:.0f}{a[i][1]:.0f}")
-                if k % 3 == 0:
+                if k % 4 == 0:
                     continue
-                out.append([round(float(a[i][0]), 2), round(float(a[i][1]), 2), round((k % 628) / 100, 2), k % 3])
+                c = (k >> 10) % 4
+                out.append([round(float(a[i][0]), 2), round(float(a[i][1]), 2), round((k % 628) / 100, 2), 0 if c < 2 else c - 1])
     return out

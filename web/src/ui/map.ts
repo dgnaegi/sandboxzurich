@@ -45,7 +45,7 @@ export class CityMap {
 
   private buildUi() {
     const title = document.getElementById('bigmap-title');
-    if (title) title.innerHTML = 'SANDBOX ZÜRICH<small>Karte · tippen zum Hinspringen</small>';
+    if (title) title.innerHTML = 'ZÜRICH<small>Karte · tippen zum Hinspringen</small>';
     this.buildLegend();
     const tools = document.createElement('div');
     tools.id = 'bigmap-tools';

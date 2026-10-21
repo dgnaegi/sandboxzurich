@@ -207,7 +207,8 @@ export function buildStorefronts(signs: VenueSign[] | undefined): THREE.Object3D
     if (look.seat) terrace(b, p, s, look);
     if (look.plants) planters(b, p, s);
     if (isBar) {
-      if (!look.seat) for (const sx of [-1, 1]) if (h >> (4 + (sx > 0 ? 1 : 0)) & 1) standingTable(b, p, sx * Math.max(0.9, s.w / 2 - 0.9), 1.3);
+      // pd = measured free pavement (props.pavement_depth): nothing may reach the carriageway
+      if (!look.seat && s.pd !== undefined && s.pd >= 1.9) for (const sx of [-1, 1]) if (h >> (4 + (sx > 0 ? 1 : 0)) & 1) standingTable(b, p, sx * Math.max(0.9, s.w / 2 - 0.9), 1.3);
       const col = new THREE.Color(look.neon ?? NEON[(h >>> 2) % NEON.length]);
       const r = k === 'nightclub' ? 2.6 : 1.9;
       spill.quad(p(-r * 1.4, 0.1, 0.06), p(r * 1.4, 0.1, 0.06), p(r * 1.4, 0.1 + r * 2, 0.06), p(-r * 1.4, 0.1 + r * 2, 0.06), col, 0, [0, 0, 1, 1]);
@@ -217,11 +218,11 @@ export function buildStorefronts(signs: VenueSign[] | undefined): THREE.Object3D
       box(b, p, -u, 0.45, 0, 0.38, 0.32, 1.85, new THREE.Color(0xe8ecef));
       box(b, p, -u, 0.45, 0.25, 0.3, 0.33, 1.4, new THREE.Color(0x9cc8ea), 1, true);
     }
-    if (k === 'bicycle') {
+    if (k === 'bicycle' && s.pd !== undefined && s.pd >= 1.8) {
       const cols = [0xd22b1e, 0x1f5fb8, 0xf0aa1e, 0x2d8a5a, 0x222226];
       for (let i = 0; i < 3 && (i + 1) * 1.45 < s.w; i++) bike(b, p, (i - 1) * 1.45, 0.9 + (i % 2) * 0.12, new THREE.Color(cols[(h >> (i * 2)) % cols.length]));
     }
-    if (k === 'greengrocer' || (k === 'florist' && h % 2 === 0)) crates(b, p, 0, h >> 3);
+    if ((k === 'greengrocer' || (k === 'florist' && h % 2 === 0)) && (s.pd === undefined || s.pd >= 1.1)) crates(b, p, 0, h >> 3);
   }
   const out: THREE.Object3D[] = [];
   if (labels.length) {

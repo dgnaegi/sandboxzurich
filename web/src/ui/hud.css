@@ -21,7 +21,7 @@ body.debug #stats { display: block; }
 #knob { position: absolute; left: 35px; top: 35px; width: 50px; height: 50px; border-radius: 50%; background: #fffc; }
 @keyframes blink { 50% { opacity: .3; } }
 #controls { font: 700 14px/1.6 Barlow, sans-serif; margin-top: 28px; opacity: .75; text-shadow: none; }
-#byline { position: absolute; bottom: calc(18px + env(safe-area-inset-bottom)); left: 0; right: 0; font: 15px Anton, sans-serif; color: #ff4fa0; letter-spacing: 1px; }
+#byline { position: absolute; bottom: calc(18px + env(safe-area-inset-bottom)); left: 0; right: 0; font: 15px Anton, sans-serif; color: #ff1975; letter-spacing: 1px; }
 #bigmap { position: fixed; inset: 0; display: none; z-index: 10; }
 #bigmap-canvas { width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; }
 #bigmap-title { position: absolute; left: 50%; transform: translateX(-50%); top: calc(12px + env(safe-area-inset-top)); color: #fff; font: 30px Anton, sans-serif; text-shadow: 0 3px 0 #000; pointer-events: none; white-space: nowrap; }
@@ -56,12 +56,12 @@ body.touch #help { display: none; }
 #prompt { position: fixed; left: 50%; bottom: calc(80px + env(safe-area-inset-bottom)); transform: translateX(-50%); background: #000b; color: #fff; padding: 8px 14px; border-radius: 6px; font: 700 15px Barlow, sans-serif; display: none; pointer-events: none; }
 #touchbtns { position: fixed; right: calc(18px + env(safe-area-inset-right)); bottom: calc(40px + env(safe-area-inset-bottom)); display: none; gap: 14px; }
 body.touch #touchbtns { display: flex; }
-#touchbtns button.on { background: #e4007dcc; border-color: #fff; }
+#touchbtns button.on { background: #ff1975cc; border-color: #fff; }
 #touchbtns button { width: 66px; height: 66px; border-radius: 50%; border: 3px solid #fff9; background: #0007; color: #fff; font: 28px Anton, sans-serif; }
 #btn-menu { position: fixed; right: calc(16px + env(safe-area-inset-right)); top: calc(150px + env(safe-area-inset-top)); width: 42px; height: 42px; border-radius: 8px; border: 2px solid #fff6; background: #0008; color: #fff; font-size: 22px; cursor: pointer; }
 #menu { position: fixed; inset: 0; display: none; place-items: center; background: radial-gradient(#3a2a4acc, #120d18ee); z-index: 20; }
 .m-page { text-align: center; max-width: 560px; padding: 20px; color: #fff; font: 16px/1.5 Barlow, sans-serif; }
-.m-page h1 { font: 48px Anton, sans-serif; margin: 0 0 16px; } .m-page h1 b { color: #ff4fa0; font-weight: normal; }
+.m-page h1 { font: 48px Anton, sans-serif; margin: 0 0 16px; } .m-page h1 b { color: #ff1975; font-weight: normal; }
 .m-page h2 { font: 32px Anton, sans-serif; margin: 0 0 10px; }
 .m-page button { display: block; width: 260px; margin: 10px auto; padding: 12px; font: 22px Anton, sans-serif; color: #fff; background: #000a; border: 2px solid #fff5; border-radius: 8px; cursor: pointer; }
 .m-page button:hover { border-color: #f5c518; color: #f5c518; }
@@ -104,32 +104,39 @@ body.touch #touchbtns { display: flex; }
 #clockpanel .cp-head { display: flex; align-items: center; gap: 10px; font: 18px Anton, sans-serif; }
 #clockpanel #cp-time { margin-left: auto; font-size: 22px; color: #f5c518; }
 #clockpanel button { font: 700 15px Barlow, sans-serif; color: #fff; background: #ffffff1c; border: 2px solid #fff3; border-radius: 8px; min-height: 44px; padding: 0 6px; cursor: pointer; flex: 1; }
-#clockpanel button.on { background: #e4007d; border-color: #fff; }
+#clockpanel button.on { background: #ff1975; border-color: #fff; }
 #clockpanel button small { display: block; font-size: 11px; opacity: .75; line-height: 1; }
 #clockpanel .cp-head button { flex: none; min-height: 36px; width: 36px; }
 #clockpanel .cp-row { display: flex; gap: 6px; margin-top: 8px; }
-#clockpanel input[type=range] { width: 100%; height: 36px; margin: 10px 0 0; accent-color: #e4007d; touch-action: pan-x; }
+#clockpanel input[type=range] { width: 100%; height: 36px; margin: 10px 0 0; accent-color: #ff1975; touch-action: pan-x; }
 #clockpanel .cp-ticks { display: flex; justify-content: space-between; font: 700 11px Barlow, sans-serif; opacity: .6; padding: 0 4px; }
-.m-page a { color: #ff4fa0; }
+.m-page a { color: #ff1975; }
 
-/* loading screen */
-#loading { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; background: radial-gradient(#2a2036, #120d18); color: #fff; transition: opacity .6s ease; padding: 0 24px; box-sizing: border-box; text-align: center; }
+/* loading screen: GTA-style intro video (public/loading, see pipeline/loading_video.py) over a poster background */
+#loading { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 12px; background: #120d18 url(/loading/poster.jpg) 50% 100% / cover no-repeat; color: #fff; transition: opacity .6s ease; padding: 0 24px 30px; box-sizing: border-box; text-align: center; overflow: hidden; }
+@media (max-aspect-ratio: 6/5) { #loading { background-image: url(/loading/poster_p.jpg); justify-content: flex-start; padding: 34px 24px 0; } }
 #loading.out { opacity: 0; pointer-events: none; }
-#ld-title { font: 52px/1 Anton, sans-serif; letter-spacing: 1px; } #ld-title b { color: #ff4fa0; font-weight: normal; }
-#ld-bar { width: min(320px, 70vw); height: 8px; border-radius: 4px; background: #ffffff22; overflow: hidden; }
-#ld-fill { display: block; height: 100%; width: 0; background: #ff4fa0; border-radius: 4px; transition: width .25s ease; }
-#ld-msg { font: 700 17px/1.4 Barlow, system-ui, sans-serif; max-width: 420px; }
+#ld-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 100%; opacity: 0; transition: opacity .5s ease; z-index: 0; }
+#ld-video.on { opacity: 1; }
+#ld-title { display: none; font: 52px/1 Anton, sans-serif; letter-spacing: 1px; text-shadow: 0 3px 0 #000; } #ld-title b { color: #ff1975; font-weight: normal; }
+#loading.err #ld-title { display: block; }
+#loading.err #ld-video { display: none; }
+#loading.err { justify-content: center; background-image: none; }
+#loading > :not(#ld-video) { position: relative; z-index: 1; }
+#ld-bar { width: min(320px, 70vw); height: 10px; border-radius: 5px; background: #000a; border: 2px solid #000; overflow: hidden; box-sizing: content-box; }
+#ld-fill { display: block; height: 100%; width: 0; background: #ff1975; transition: width .25s ease; }
+#ld-msg { font: 700 17px/1.4 Barlow, system-ui, sans-serif; max-width: 420px; text-shadow: 0 1px 3px #000, 0 0 8px #000; }
 #loading.err #ld-bar { display: none; }
 #loading button { font: 22px Anton, sans-serif; color: #fff; background: #000a; border: 2px solid #fff5; border-radius: 8px; padding: 12px 28px; cursor: pointer; }
-@media (max-width: 900px), (max-height: 500px) { #ld-title { font-size: 34px; } #loading { gap: 14px; } }
+@media (min-aspect-ratio: 6/5) and (min-width: 700px) { #loading { align-items: flex-end; padding: 0 64px 40px; } #ld-bar { width: 260px; } }
 /* hint line */
 #help { transition: opacity 2s; } #help.gone { opacity: 0; }
 /* settings page */
 .s-row { margin: 14px 0; } .s-row label { display: block; font: 20px Anton, sans-serif; margin-bottom: 6px; }
 .s-seg { display: flex; gap: 6px; justify-content: center; }
 .m-page .s-seg button { width: auto; flex: 1; margin: 0; padding: 10px 6px; font-size: 17px; min-height: 44px; }
-.m-page button.on { background: #e4007d; border-color: #fff; color: #fff; }
-#s-sens { width: 260px; max-width: 100%; height: 36px; accent-color: #e4007d; touch-action: pan-x; }
+.m-page button.on { background: #ff1975; border-color: #fff; color: #fff; }
+#s-sens { width: 260px; max-width: 100%; height: 36px; accent-color: #ff1975; touch-action: pan-x; }
 .s-row:has(#s-sound) { display: flex; gap: 8px; justify-content: center; } .m-page .s-row button { width: 150px; margin: 0; font-size: 17px; min-height: 44px; }
 #menu { overflow-y: auto; }
 @media (max-height: 500px) { .m-page { padding: 8px 20px; } .m-page h1 { font-size: 34px; margin-bottom: 8px; } .m-page h2 { font-size: 24px; } .m-page button { margin: 6px auto; padding: 8px; font-size: 18px; } .s-row { margin: 8px 0; } .s-row label { font-size: 16px; margin-bottom: 2px; } }
@@ -141,7 +148,7 @@ body.stick-right #touchbtns { right: auto; left: calc(18px + env(safe-area-inset
 .hc-box h2 { font: 30px Anton, sans-serif; margin: 0 0 10px; text-align: center; }
 .hc-box ul { list-style: none; margin: 0; padding: 0; } .hc-box li { display: flex; gap: 12px; align-items: baseline; padding: 6px 0; border-top: 1px solid #fff2; }
 .hc-box li b { flex: 0 0 74px; font: 18px Anton, sans-serif; color: #f5c518; } .hc-box li span { flex: 1; }
-.hc-box button { display: block; margin: 14px auto 6px; padding: 10px 28px; font: 22px Anton, sans-serif; color: #fff; background: #e4007d; border: 2px solid #fff; border-radius: 8px; cursor: pointer; }
+.hc-box button { display: block; margin: 14px auto 6px; padding: 10px 28px; font: 22px Anton, sans-serif; color: #fff; background: #ff1975; border: 2px solid #fff; border-radius: 8px; cursor: pointer; }
 .hc-box small { display: block; text-align: center; opacity: .65; font-size: 12px; }
 @media (max-height: 500px) { .hc-box { padding: 10px 16px; } .hc-box h2 { font-size: 22px; margin-bottom: 4px; } .hc-box li { padding: 3px 0; font-size: 14px; } .hc-box button { margin: 8px auto 2px; padding: 6px 24px; font-size: 18px; } }
 .m-page { box-sizing: border-box; width: min(560px, 100vw); }
@@ -155,3 +162,10 @@ body.stick-right #touchbtns { right: auto; left: calc(18px + env(safe-area-inset
 #carhp i { display: block; height: 100%; width: 100%; background: #4caf50; transition: width .25s; }
 .m-page h3 { font: 20px Anton, sans-serif; margin: 14px 0 4px; }
 .m-page[data-page="imprint"], .m-page[data-page="credits"] { max-height: 100dvh; overflow-y: auto; }
+
+/* driving a tram / bus: line + next stop + speed; bell button only while driving one */
+#transithud { position: fixed; left: 50%; top: calc(14px + env(safe-area-inset-top)); transform: translateX(-50%); display: none; padding: 6px 14px; border-radius: 8px; background: #000b; border: 2px solid #fff6; color: #fff; font: 700 15px Barlow, sans-serif; white-space: nowrap; pointer-events: none; text-align: center; }
+#transithud b { color: #ffb347; font: 24px Anton, sans-serif; margin-right: 6px; }
+#transithud small { display: block; font-weight: 600; opacity: .85; font-size: 13px; }
+#btn-bell { display: none; }
+body.transit-drive #btn-bell { display: block; }

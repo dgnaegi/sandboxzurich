@@ -246,3 +246,17 @@ Die automatische Rot-Erkennung aus SWISSIMAGE (`streets_ortho.red_surfaces`) ver
 - Neues Theme `GTA` (`map_render.ts`) für grosse Karte und Radar: gedämpftes Land, Parks, tiefblaues Wasser mit Uferkante, Häuser mit Schatten, Vignette/Körnung nur im gecachten Kartenhintergrund. Blips in `map_blips.ts` (Wahrzeichen, Schule, Kirche, Spital, Kultur, Behörde, S-Bahn, Tram), Legende einklappbar. Tram dünn dunkelrot erst ab mittlerem Zoom.
 - Kreis-Namen 3/4/5/9 dezent (Alpha 0.72, 18–30 px) an `map.json` → `kreis_at` (Pol der Unzugänglichkeit des Kreisteils im Spielgebiet, `build_map.kreis_anchor`).
 - Rathaus Hard (Bullingerkirche) nach Fotos neu (`pipeline/landmarks/rathaus_hard.py`), mit Betonlöwin von Mickry 3 (2023, Kunst am Bau Kanton ZH; Quellen `research/rathaus_hard/notes.md`).
+
+## #69 – 2026-10-21 – Tramdecks ohne Brüstung (ergänzt #67)
+- User: «Trams sollen einfach auf normaler Strasse sein.» Alle 23 Tram-Decks liegen ≤ 1.8 m neben einem Strassendeck (keine eigene Tram-Brücke im Spielgebiet). Tram-Decks zeichnen darum nie Brüstung, Geländer oder Railing-Collider (`bridges.ts`: `ph = 0` für kind tram, Kantenoberseite in Asphaltfarbe). Wirkt zur Laufzeit, ohne Kachel-Build. Bilder `preview/tramdeck_flat.jpg`.
+
+## #70 – 2026-10-21 – Busse und Trams fahrbar
+- Fahrzeug-Fahrten bleiben eine reine Funktion der Zeit; `Transit.take(handle)` nimmt eine Fahrt (`linie:k`) aus dem Fahrplan, `release` gibt sie zurück (Spieler > 300 m weg). Gefahrenes/abgestelltes Tram wird weiter von `Transit` gezeichnet (`transit.driven`, gleiche Module, Brückendecks, Anzeigen), Bus als eigenes Rig.
+- Tram (`player/drive_tram.ts`): Zustand = Bogenlänge `s` der Spitze + Tempo, nur Gas/Bremse (14 m/s, 1.2 / 1.5 / 2.8 m/s²), Schiene fix; Hindernisse im Gleiskorridor stoppen hart (Stoss + Knall). Türen auf bei Stillstand ≤ 15 m vom Halt. Kamera hoch über dem Dach (15 m hinter der Spitze).
+- Bus (`player/bus_rig.ts`): `DriveCar` mit `Tune` (langsamer, kein Schaden); vorderes Modul = Karosserie, Gelenk + Heck = Anhänger an der Kupplung (Zugkinematik). Anhänger hat keine eigene Kollision (nur Ausweichkreise für den Verkehr). Spawn 1.6 m rechts der OSM-Achse.
+- Beide sind `player.driving` (Typ `Driven`), Steuerung wie Auto; H = Glocke (Tram) / Hupe (Bus), Touch-Knopf. Einstieg/Ausstieg in `player/transit_use.ts` (Ausstieg rechts bei den Türen). Ersetzt nichts.
+
+
+## #71 – 2026-10-21 – Velotunnel: geschlossen unter der Kasernenstrasse
+- Bisher war der Tunnel auf den ersten 40 m ein offener Graben (Sohle nur 3.3 m unter der Strasse, Regel «offen, wenn H + 0.3 > Deckung») → 6 m breites Loch quer durch die Kasernenstrasse, Spieler konnten «zwischen den Ebenen» landen. Jetzt: nur 2 m Portal offen (`OPEN_S`), danach Röhre mit lichter Höhe `min(3.8, Gelände − Sohle − 0.25)`, mindestens 2.6 m; Gelände = Spielboden der gebauten Kacheln (`audit_float.ground`) statt DEM. Portalsturz bis Strassenhöhe.
+- `terrain_cuts.json`: Portalmund auf Sohlenhöhe (+ Drape-Loch 2 m), Drape-Loch unter dem Sihlbett (Flussbett lag im Tunnelinneren). Keine Bodenpiktogramme/Randlinien mehr (ohne Fotobeleg, wurden als weisse Rechtecke gezeichnet). Kachel 7_-4 neu (`logs/velotunnel_fix.log`).

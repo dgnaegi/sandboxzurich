@@ -2,7 +2,7 @@
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 const tag = process.argv[2] ?? 'after', BASE = process.argv[3] ?? 'http://localhost:5173';
-const spots = [[61, 149, 0.35], [145, 320, -2.54], [1174, -1185, 1.92]];
+const spots = process.env.SPOTS ? JSON.parse(process.env.SPOTS) : [[61, 149, 0.35], [145, 320, -2.54], [1174, -1185, 1.92]];
 const views = [[800, 450], [360, 640]];
 const tmp = '/private/tmp/tramdeck/'; fs.mkdirSync(tmp, { recursive: true });
 const b = await chromium.launch({ args: ['--use-gl=angle'] });

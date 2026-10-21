@@ -114,7 +114,10 @@ export async function loadEquip(group: THREE.Group, defaults: StopDefault[], gro
     for (const d of defaults) { const e = Math.hypot(d.x - x, d.y - y); if (e < bd) { bd = e; best = d; } }
     return best ? best.lines.slice(0, 3).join(',') : '';
   };
-  for (const [x, y, az, ceil] of eq.df) {
+  // ceiling-hung displays need a roof: shelters / canopies within reach (VBZ flags some without one -> they floated); otherwise on a post
+  const roofed = (x: number, y: number) => [...eq.sh, ...eq.cov].some((r) => Math.hypot(r[0] - x, r[1] - y) < Math.max(4, (r[2] ?? 0) / 2 + 1.5));
+  for (const [x, y, az, ceil0] of eq.df) {
+    const ceil = ceil0 && roofed(x, y);
     const z = zAt(x, y), fr = frame(x, y, z, az, 1), k = lineKey(x, y);
     if (!cat) opaque.push(part(fr, 0, ceil ? 2.12 : 2.25, 0, 0.62, 0.32, 0.1), DARK);
     if (!ceil) opaque.push(part(fr, 0, 1.1, 0, 0.06, 2.2, 0.06), STEEL);
