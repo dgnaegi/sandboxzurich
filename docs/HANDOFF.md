@@ -2,6 +2,13 @@
 
 Wird am Ende jedes Arbeitsschritts überschrieben. Eine neue Session liest das zuerst.
 
+## Stand 2026-10-21: Karte GTA-Stil, Tramdecks flach, Rathaus Hard – ZUERST LESEN
+- **Karte** (#66, #68): Sterne nur für 61 echte Wahrzeichen (`pipeline/overrides/map_pois.json`; «Hohlstrasse 283-305» = Nr. 291 nie auf der Karte, User-Wunsch). GTA-Theme + Blips + Legende (`web/src/ui/map_*.ts`, `map_blips.ts`), Kreis 3/4/5/9 dezent an `kreis_at`. Nach Änderungen: `pipeline/mapdata.py`, `pipeline/build_map.py`, dann `apply_names.py`. Bilder `preview/map_after.jpg`, `preview/map_kreise.jpg`. Offen: Handy-Übersicht klein, viele dunkle Punkte in der Nahansicht.
+- **Tramdecks** (#67): Tram 8 Hardbrücke/Sihlbrücke ohne Mauern, bündig mit der Fahrbahn; 40 Kacheln neu (`logs/tramdeck_build2.log`), Bilder `preview/tramdeck_cmp.jpg`. bridges_ride 53/95 mit Problemen (früher 75–90/95, meist Fusswege Europa-/Kornhausbrücke). Am Boden sind Gleise schon bündig (2.1 km an echter Randkante, verteilt).
+- **Rathaus Hard** (ehem. Bullingerkirche): Giebelfront mit Pilastern, Vorhalle, Backstein-Gitter, Betonlöwin Mickry 3 als 6 Teile (`pipeline/landmarks/rathaus_hard.py`, `FRAGMENTS`), Note 3 (`preview/rathaus_hard_cmp.jpg`). Offen: Löwenteile zu klein/glatt (Zehen, Kopf mit Auge), Gemeindehaus/Pfarrhäuser Kisten.
+- QA `logs/qa18.log`, Release siehe unten.
+**Nächster Schritt (User 2026-10-21):** Busse und Trams fahrbar (ROADMAP M3: Bus frei lenkbar, Tram Gas/Bremse auf der Linie). Danach Woche 2 laut `docs/NIGHT_PLAN.md`.
+
 ## Stand 2026-10-20 abends: Code-Runde + Nacht 6 (Woche 1 abgeschlossen) – ZUERST LESEN
 - Code-Runde (#65): Walmdächer ohne Spitzen (`k4w4_kit.hip_roof`, alle Generatoren neu), Brücken mit Schienen/Zebras + Brüstung 1.1 m, «STOP»-Decal kind 12 (2 automatisch gesetzt), Platzobjekt `parasol` (noch nirgends gesetzt), Platanenstämme dunkel, Haltestelle Letzigrund H8.
 - **Komplett-Build 17** (`logs/build_full17.log`, 0 Fehler, 58 min), publiziert (`logs/publish17.log`). QA `logs/qa17.log` **alles grün** (gameplay, touch, drive, crash, knock, traffic_legal 0.02 %, move_quality, qa_spawn 26/26, qa_leak +28 MB, Texturen 157/145/100 MB, perf Handy 57 fps / 272 Calls / 604k Tris / 4.4 s).

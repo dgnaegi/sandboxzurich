@@ -1,9 +1,10 @@
-"""Bullingerkirche (Bullingerplatz): ochre-plaster church/parish hall block with hip roof + separate slender open concrete bell tower
-(corner piers, clock faces, bell chamber with bells, cross). research/v3/bullingerkirche.md."""
+"""Bullingerkirche = Rathaus Hard: church volume in rathaus_hard.py (pilaster gable front, porch, screens, lions hook);
+separate slender concrete bell tower here (corner piers, clock faces, bell chamber, cross). research/rathaus_hard/notes.md."""
 import math
 from common import *
 from lm import *
 import detail as D
+import rathaus_hard as RH
 from k45_volkshaus import plaster
 
 
@@ -14,33 +15,17 @@ def build():
     TP = outline(TW["fp"], 0.3); tcx, tcy = TP.centroid.x - ox, TP.centroid.y - oy
     (_, ux, uy, Lt, Wt) = rect_of(localize(TP, ox, oy)); tang = math.atan2(uy, ux); tz = ground(TP.centroid.x, TP.centroid.y) - oz
     rng = np.random.default_rng(9)
-    m = Model("bullingerkirche")
-    mw = m.mat("wall", plaster(hexc("#e0d19c"), seed=5, stains=0.03))
-    ga = D.glass_atlas_g(frame="#f0eee6", glass="#2b3844", sky="#8aa0b0", cols=2, rows=3, seed=3, bar=3, lit_p=0.35,
+    m = Model("bullingerkirche"); m.max_mats = 6
+    mw = m.mat("wall", plaster(hexc("#e2d6ae"), seed=5, stains=0.03))
+    ga = D.glass_atlas_g(frame="#f0eee6", glass="#2b3844", sky="#8aa0b0", cols=2, rows=3, seed=3, bar=3, lit_p=0.0,
                          curtain_cols=[(236, 228, 210), (225, 215, 190), (240, 238, 232), (200, 190, 170)])
     mg = m.mat("glass", *ga, rough=0.35); mf = m.mat("flat", solid((255, 255, 255, 255)))
-    W = (255, 255, 255, 255)
-    PL, FH, NF = 1.0, 4.5, 3; eave = PL + NF * FH
-    m.extrude(mf, mf, Pl, -3, PL, col=D.hexl("#a9a398"), roof=False)
+    ms = m.mat("screen", RH.screen_tex()); mc = m.mat("cobble", RH.cobble_tex(), rough=0.95); md = m.mat("dark", solid((118, 113, 105, 255)))
     li = max(range(ne), key=lambda i: math.dist(ring[i], ring[(i + 1) % ne]))
-    for i in range(ne):
-        a, b = ring[i], ring[(i + 1) % ne]; L, t, n = D.frame_of(a, b)
-        if L < 1.5: m.wall(mw, a, b, PL, eave, (4, 4), W); continue
-        nb = max(1, int(round(L / 2.8))); bw = L / nb
-        for f in range(NF):
-            fb = PL + f * FH
-            for k in range(nb):
-                u0, u1 = k * bw, (k + 1) * bw; uc = (u0 + u1) / 2
-                if i == li and f == 0 and k == nb // 2: hole = D.rect_pts(uc - 1.2, fb, uc + 1.2, fb + 3.3)
-                else: hole = D.rect_pts(uc - 0.65, fb + 0.9, uc + 0.65, fb + 3.4)
-                D.bay(m, mw, mg, mf, a, t, n, u0, u1, fb, fb + FH, hole, 0.25, int(rng.integers(0, D.NV)), W, hexc("#eee6c8"), (4, 4.5), None)
-                D.surround(m, mw, a, t, n, hole, 0.1, (255, 252, 238, 255), 0.03, sill=0.08 if not (i == li and f == 0 and k == nb // 2) else 0)
-        D.band(m, mw, a, b, eave - 0.4, eave + 0.1, 0.35, (255, 252, 238, 255))
-        if i == li:                    # entrance canopy
-            u = L / 2
-            D.band(m, mf, D.P3(a, t, n, u - 2.2, 0, 0)[:2], D.P3(a, t, n, u + 2.2, 0, 0)[:2], PL + 3.7, PL + 4.0, 2.0, D.hexl("#6d6a64"))
-    A = Pl.buffer(0.6, join_style=2)
-    q1 = taper(m, mf, A, eave + 0.1, eave + 4.8, 0.45, D.hexl("#8a5a3c"), cap=True)
+    RH.church(m, dict(wall=mw, glass=mg, flat=mf, screen=ms, dark=md, cobble=mc), Pl, ring, rng, li, gz=lambda x, y: ground(x + ox, y + oy) - oz,
+               others=[orient(localize(outline(b['fp'], 0.3), ox, oy), 1.0) for b in near(ox, oy, 70) if b['id'] not in (B['id'], TW['id'])])
+    A = Pl.buffer(1.1, join_style=2)
+    q1 = taper(m, mf, A, RH.EAVE + 0.1, RH.EAVE + 4.6, 0.5, D.hexl("#85817a"), cap=True)
     # ---- bell tower ----
     z0 = tz; H = 45.0; w = Wt * 0.5
     def tbox(cx, cy, bw, bd, za, zb, col, rot=tang):

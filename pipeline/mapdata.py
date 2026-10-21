@@ -43,6 +43,24 @@ def enc(pts, ox, oy):
     return out
 
 
+def landmark_stars():
+    """Landmarks worth a star on the map (rules: overrides/map_pois.json; schools get a school dot); stars closer than merge_m keep the first one."""
+    import re
+    cfg = json.load(open(ROOT / "pipeline" / "overrides" / "map_pois.json"))
+    rx = re.compile("|".join(cfg["hide_re"]))
+    out = []
+    for lm in json.load(open(ROOT / "web" / "public" / "data" / "landmarks.json"))["landmarks"]:
+        if lm["name"] in cfg["hide"]:
+            continue
+        nm = lm["name"].split(" + ")[0].replace("-Kamin Josefstrasse", "").replace("Westpark (Galaxus)", "Digitec Galaxus")
+        nm = re.sub(r"\s*\((Lighthouse|Bogen)\)", "", nm)
+        if rx.search(nm) or any(abs(o[1] - lm["x"]) + abs(o[2] - lm["y"]) < cfg["merge_m"] for o in out):
+            continue
+        nm = cfg["rename"].get(nm, nm)
+        out.append([nm, round(lm["x"]), round(lm["y"]), "school" if re.match(cfg["school_re"], lm["name"]) else "lm"])
+    return out
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     K = kreise()
@@ -193,8 +211,7 @@ def main():
                 places.append([nm, round(c.x), round(c.y), "k"]); seen.add((nm, kind))
             elif kind == "b" and g.area > 1800:
                 pois.append([nm, round(c.x), round(c.y), "bld"]); seen.add((nm, kind))
-    for lm in json.load(open(ROOT / "web" / "public" / "data" / "landmarks.json"))["landmarks"]:
-        pois.append([lm["name"].split(" + ")[0].replace("-Kamin Josefstrasse", "").replace("Westpark (Galaxus)", "Digitec Galaxus"), round(lm["x"]), round(lm["y"]), "lm"])
+    pois += landmark_stars()
     # dedupe by name
     dd = {}
     for p in places:

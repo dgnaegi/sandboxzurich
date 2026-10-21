@@ -351,6 +351,7 @@ def bridge_ways(nodes, els, area, H=None, H_raw=None):
                     "piers": piers, "excl": excl, "max_el": float(el.max()), "max_slope": _maxslope(s, z),
                     "len": float(s[-1])})
     _snap_foot(out)
+    _open_sides(out)
     _zebras(out, nodes, els)
     if H_given and H_raw is not None:  # roads2: only the real build (it passes the unsmoothed grid) writes the chain cache; audits do not
         save_chains(out)
@@ -465,6 +466,76 @@ def _snap_foot(out):
                 f["p"][i][2] = round(nz, 2)
 
 
+def _side_by_side(a, A, i, nrm, d, cand, lines, Ps, la, max_dz, max_gap, only=None):
+    """Other road/tram decks lying side by side with vertex i of deck a (near-parallel, gap <= max_gap, |dz| < max_dz):
+    list of (side, zOther, roadKind); side = +1 left of travel, -1 right, 0 = on top of each other."""
+    res = []
+    pt = Point(*A[i, :2])
+    for k, bb in enumerate(cand):
+        if bb is a or (only and bb["kind"] != only):
+            continue
+        lk = lines[k]
+        if lk.distance(pt) >= a["w"] / 2 + bb["w"] / 2 + max_gap + 0.3:
+            continue
+        B = Ps[k]
+        sj = lk.project(pt)
+        cum = np.concatenate([[0], np.cumsum(np.hypot(*np.diff(B[:, :2], axis=0).T))])
+        if sj <= 0.01 or sj >= cum[-1] - 0.01:
+            continue   # beyond the other deck's ends
+        zb = float(np.interp(sj, cum, B[:, 2]))
+        if abs(zb - A[i, 2]) >= max_dz:
+            continue
+        q = lk.interpolate(sj)
+        v = np.array([q.x - A[i, 0], q.y - A[i, 1]])
+        dist = float(np.hypot(*v))
+        if dist - a["w"] / 2 - bb["w"] / 2 > max_gap:
+            continue
+        m = min(int(np.searchsorted(cum, sj)), len(B) - 1)
+        t = B[m] - B[max(m - 1, 0)]
+        tl = float(np.hypot(*t[:2])) or 1.0
+        if abs(float(np.dot(t[:2] / tl, d))) < 0.9:   # a deck crossing at an angle is not side by side
+            continue
+        res.append((0 if dist < 0.3 else (1 if float(np.dot(v, nrm)) > 0 else -1), zb))
+    return res
+
+
+def _open_sides(out, max_dz=0.5, max_gap=1.5, snap_dz=1.5):
+    """Decks lying side by side form ONE deck (tram inside / next to a road deck, split carriageways).
+    1. A tram deck within a road deck's width (or <= max_gap beside it) takes the road deck's height (|dz| < snap_dz; every chain
+       is height-fitted on its own, so the tram strip would otherwise sit up to 1 m beside the carriageway).
+    2. Per vertex, b["ol"][i] / b["or"][i] = 1 when another road/tram deck at the same height (|dz| < max_dz) touches that
+       side (left / right of travel, gap <= max_gap). web/src/world/bridges.ts draws no curb / parapet / railing there."""
+    cand = [b for b in out if b["kind"] in ("road", "tram")]
+    if len(cand) < 2:
+        return
+    Ps = [np.array(b["p"]) for b in cand]
+    lines = [LineString(P[:, :2]) for P in Ps]
+    for snap in (True, False):
+        for a, A, la in zip(cand, Ps, lines):
+            if snap and a["kind"] != "tram":
+                continue
+            n = len(A)
+            ol, orr = [0] * n, [0] * n
+            for i in range(n):
+                j0, j1 = max(i - 1, 0), min(i + 1, n - 1)
+                d = (A[j1, :2] - A[j0, :2]); L = float(np.hypot(*d)) or 1.0; d = d / L
+                nrm = np.array([-d[1], d[0]])
+                if snap:
+                    hits = _side_by_side(a, A, i, nrm, d, cand, lines, Ps, la, snap_dz, max_gap, only="road")
+                    if hits:
+                        z0 = A[i, 2]; A[i, 2] = hits[0][1]
+                        a["b"][i] = round(a["b"][i] + A[i, 2] - z0, 2)
+                        a["p"][i][2] = round(float(A[i, 2]), 2)
+                    continue
+                for side, _ in _side_by_side(a, A, i, nrm, d, cand, lines, Ps, la, max_dz, max_gap):
+                    if side >= 0:
+                        ol[i] = 1
+                    if side <= 0:
+                        orr[i] = 1
+            if not snap and (any(ol) or any(orr)):
+                a["ol"], a["or"] = ol, orr
+
+
 def _maxslope(s, z):
     d = np.diff(s)
     return float(np.max(np.abs(np.diff(z)) / np.maximum(d, 0.01))) if len(d) else 0.0
@@ -513,6 +584,9 @@ def tile_rows(bridges, tile_box, with_excl=False):
             zb = [z for z in b.get("zb", []) if x0 <= z[0] < x1 and y0 <= z[1] < y1]
             if zb and any(abs(z[0] - p[i][0]) < 40 and abs(z[1] - p[i][1]) < 40 for z in zb for i in r):
                 row["zb"] = zb
+            if "ol" in b:
+                row["ol"] = [b["ol"][i] for i in r]
+                row["or"] = [b["or"][i] for i in r]
             if r[0] > 0:   # context vertices of a row cut at the tile border: same offset normals on both sides
                 row["pa"] = p[r[0] - 1][:2]
             if r[-1] < len(p) - 1:

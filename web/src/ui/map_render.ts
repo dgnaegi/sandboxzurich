@@ -6,6 +6,7 @@ export interface Theme {
   bg: string; land: string; dim: string; bld: string; bldLine: string; water: string; green: string; wood: string; sport: string;
   cemetery: string; play: string; allot: string; rail: string; plaza: string; roads: string[]; casing: string[]; railLine: string; tram: string;
   text: string; halo: string; kreis: string; play_: string; veloLane: string; veloPath: string; veloRoad: string;
+  shore?: string; shadow?: string; tramFrom?: number;
 }
 
 export const LIGHT: Theme = {
@@ -23,6 +24,17 @@ export const DARK: Theme = {
   casing: ['#6e4a1d', '#6e5b22', '#625e3a', '#3a4348', '#394246', '#333b3f', '#394246', '#394246'],
   railLine: '#7d838a', tram: '#ff6a6a', text: '#fff', halo: '#000', kreis: '#c9a7e0', play_: '#ff4fa0',
   veloLane: '#3fd0ff', veloPath: '#4be39a', veloRoad: '#b88cff',
+};
+
+/** GTA San Andreas / Vice City pause-map look: muted painted land, deep water, cream main roads with dark casing. Radar + big map. */
+export const GTA: Theme = {
+  bg: '#26343b', land: '#cdc9b0', dim: '#26343b', bld: '#b9b49b', bldLine: '#a8a38a', water: '#2c6e9f', green: '#86b06c', wood: '#6f9e5c', sport: '#98bb7c',
+  cemetery: '#7ea56d', play: '#a0c386', allot: '#abbd80', rail: '#bcb8a8', plaza: '#ddd8c2',
+  roads: ['#f3d98c', '#f6e4a6', '#f7ecc6', '#f5f0de', '#efead6', '#b9b5a2', '#c4bfa8', '#a9a592'],
+  casing: ['#2b2820', '#35322a', '#3f3b31', '#4c483d', '#6a6657', '#a29e8b', '#a8a38d', '#9c9885'],
+  railLine: '#7c7a78', tram: '#8e1f1f', text: '#2b2820', halo: '#efe8d2', kreis: '#f4ead0', play_: '#f2c230',
+  veloLane: '#1d86d6', veloPath: '#12a25e', veloRoad: '#7a4cc4',
+  shore: '#9ccbe3', shadow: '#4a4533', tramFrom: 0.3,
 };
 
 /** Big map: the palette of the original raster map (pipeline/build_map.py before 2026-10-15) – user preferred its look. */
@@ -55,7 +67,7 @@ export function worldBounds(v: View): [number, number, number, number] {
   return [x0, y0, x1, y1];
 }
 
-export interface DrawOpts { velo: boolean; boost?: number; kreise: number[][][]; playArea: number[][]; dpr: number }
+export interface DrawOpts { velo: boolean; shadow?: boolean; boost?: number; kreise: number[][][]; playArea: number[][]; dpr: number }
 
 function ring(g: CanvasRenderingContext2D, r: number[][]) {
   r.forEach(([x, y], i) => (i ? g.lineTo(x, y) : g.moveTo(x, y)));
@@ -78,11 +90,18 @@ export function drawWorld(g: CanvasRenderingContext2D, d: MapData, v: View, th: 
   fill('as', th.sport); fill('asq', th.plaza); fill('awater', th.water);
   g.strokeStyle = th.water;
   for (const [l, w, m] of [['w10', 16, 3], ['w11', 8, 2], ['w12', 2.5, 1]] as const) { g.lineWidth = Math.max(w, m * px); each(l, (p) => g.stroke(p)); }
+  if (th.shore) {
+    g.strokeStyle = th.shore; g.lineWidth = 2.2 * px; g.globalAlpha = 0.85; each('awater', (p) => g.stroke(p));
+    g.globalAlpha = 1;
+  }
   // underground (dashed, faint)
   if (eff > 0.25) {
     g.save(); g.globalAlpha = 0.7; g.strokeStyle = th.casing[3]; g.lineWidth = 1.2 * px; g.setLineDash([4 * px, 4 * px]);
     for (let c = 0; c < 5; c++) each('rt' + c, (p) => g.stroke(p));
     g.restore();
+  }
+  if (th.shadow && o.shadow && eff > 0.3) {
+    g.save(); g.translate(1.6 * px, -1.6 * px); g.globalAlpha = 0.28; g.fillStyle = th.shadow; each('ab', (p) => g.fill(p, 'evenodd')); g.restore();
   }
   if (eff > 0.8) { g.fillStyle = th.bld; g.strokeStyle = th.bldLine; g.lineWidth = 0.8 * px; each('ab', (p) => { g.fill(p, 'evenodd'); g.stroke(p); }); }
   else fill('ab', th.bld);
@@ -96,9 +115,9 @@ export function drawWorld(g: CanvasRenderingContext2D, d: MapData, v: View, th: 
   // railways
   g.strokeStyle = th.railLine; g.lineWidth = Math.max(3, 2 * px);
   each('lr', (p) => g.stroke(p));
-  if (eff > 0.3) { g.strokeStyle = th.land === LIGHT.land ? '#fff' : '#272f33'; g.lineWidth = Math.max(1.4, 1 * px); g.setLineDash([5 * px, 5 * px]); each('lr', (p) => g.stroke(p)); g.setLineDash([]); }
+  if (eff > 0.3) { g.strokeStyle = th.shore ? '#e6e2d0' : th.land === LIGHT.land ? '#fff' : '#272f33'; g.lineWidth = Math.max(1.4, 1 * px); g.setLineDash([5 * px, 5 * px]); each('lr', (p) => g.stroke(p)); g.setLineDash([]); }
   if (eff > 0.5) { g.strokeStyle = th.railLine; g.lineWidth = 1 * px; each('ly', (p) => g.stroke(p)); }
-  g.strokeStyle = th.tram; g.lineWidth = Math.max(2.2, 1.6 * px); each('lm', (p) => g.stroke(p));
+  if (eff >= (th.tramFrom ?? 0)) { g.strokeStyle = th.tram; g.lineWidth = th.tramFrom ? Math.max(1.5, 1.1 * px) : Math.max(2.2, 1.6 * px); each('lm', (p) => g.stroke(p)); }
   // bridges on top
   for (let c = 7; c >= 0; c--) {
     if (eff < RSHOW[c] || c > 5) continue;
@@ -120,11 +139,33 @@ export function drawWorld(g: CanvasRenderingContext2D, d: MapData, v: View, th: 
 
 /** Kreis borders and the playable area outline (world coordinates, call with the view transform active). */
 export function drawBorders(g: CanvasRenderingContext2D, v: View, th: Theme, o: DrawOpts) {
-  const px = 1 / v.s;
+  const px = 1 / v.s, gta = !!th.shore;
   g.lineJoin = 'round';
-  g.strokeStyle = th.kreis; g.lineWidth = 2.4 * px; g.globalAlpha = 0.85; g.setLineDash([14 * px, 7 * px]);
+  if (gta) { // outside the playable area: a bit hazier
+    const [x0, y0, x1, y1] = worldBounds(v);
+    g.beginPath(); g.rect(x0 - 5000, y0 - 5000, x1 - x0 + 10000, y1 - y0 + 10000); ring(g, o.playArea);
+    g.fillStyle = th.dim; g.globalAlpha = 0.22; g.fill('evenodd'); g.globalAlpha = 1;
+  }
+  g.strokeStyle = gta ? '#2b2820' : th.kreis; g.lineWidth = (gta ? 1.8 : 2.4) * px; g.globalAlpha = gta ? 0.55 : 0.85; g.setLineDash([14 * px, 7 * px]);
   g.beginPath(); for (const r of o.kreise) ring(g, r); g.stroke(); g.setLineDash([]); g.globalAlpha = 1;
   g.beginPath(); ring(g, o.playArea);
-  g.fillStyle = th.play_; g.globalAlpha = 0.035; g.fill(); g.globalAlpha = 1;
-  g.strokeStyle = th.play_; g.lineWidth = 2.8 * px; g.stroke();
+  if (!gta) { g.fillStyle = th.play_; g.globalAlpha = 0.035; g.fill(); g.globalAlpha = 1; }
+  if (gta) { g.strokeStyle = '#15110c'; g.lineWidth = 6 * px; g.stroke(); g.setLineDash([16 * px, 8 * px]); }
+  g.strokeStyle = th.play_; g.lineWidth = (gta ? 3 : 2.8) * px; g.stroke(); g.setLineDash([]);
+}
+
+let grain: HTMLCanvasElement | null = null;
+/** Vignette + faint paper grain over the finished big map (call once per cached base, identity transform). */
+export function drawFinish(g: CanvasRenderingContext2D, w: number, h: number) {
+  g.setTransform(1, 0, 0, 1, 0, 0);
+  if (!grain) {
+    grain = document.createElement('canvas'); grain.width = grain.height = 160;
+    const gg = grain.getContext('2d')!, im = gg.createImageData(160, 160);
+    for (let i = 0; i < im.data.length; i += 4) { const n = (Math.random() * 255) | 0; im.data[i] = im.data[i + 1] = im.data[i + 2] = n; im.data[i + 3] = 22; }
+    gg.putImageData(im, 0, 0);
+  }
+  g.fillStyle = g.createPattern(grain, 'repeat')!; g.globalCompositeOperation = 'overlay'; g.fillRect(0, 0, w, h); g.globalCompositeOperation = 'source-over';
+  const r = Math.hypot(w, h) / 2, vg = g.createRadialGradient(w / 2, h / 2, r * 0.55, w / 2, h / 2, r);
+  vg.addColorStop(0, 'rgba(20,14,6,0)'); vg.addColorStop(1, 'rgba(20,14,6,0.42)');
+  g.fillStyle = vg; g.fillRect(0, 0, w, h);
 }

@@ -5,7 +5,7 @@ import * as THREE from 'three';
  *  w = driving width, kind = road | foot | tram | rail. Piers: [x, y, zBottom, zTop, widthAcross, heading, kind].
  *  Local -> Three: (x, z, -y). One draw call per tile (vertex-coloured, flat shaded). */
 /** pa / pb: the polyline vertices just before / after a row that was cut at a tile border (keeps the offset normals continuous across tiles). */
-export interface DeckRow { p: number[][]; g: number[]; b: number[]; w: number; kind: string; name: string; pa?: number[]; pb?: number[]; sub?: boolean; zb?: number[][] }   // zb: zebra crossings on the deck [x, y, z, dirX, dirY]   // sub: deck below the terrain (hb3 underground levels)
+export interface DeckRow { p: number[][]; g: number[]; b: number[]; w: number; kind: string; name: string; pa?: number[]; pb?: number[]; sub?: boolean; zb?: number[][]; ol?: number[]; or?: number[] }   // ol / or: per vertex 1 = another road/tram deck at the same height touches the left / right side -> no curb, parapet or railing there (one flush deck)   // zb: zebra crossings on the deck [x, y, z, dirX, dirY]   // sub: deck below the terrain (hb3 underground levels)
 export type PierRow = [number, number, number, number, number, number, string];
 export interface BridgeRows { decks: DeckRow[]; piers: PierRow[] }
 
@@ -49,6 +49,12 @@ function offsets(p: number[][], pa?: number[], pb?: number[]): { nx: number[]; n
   return { nx, ny };
 }
 
+/** True when side s (+1 left, -1 right) of segment i-j is shared with a neighbouring deck (both vertices flagged). */
+function s0(d: DeckRow, i: number, j: number, s: number): boolean {
+  const f = s > 0 ? d.ol : d.or;
+  return !!f && !!f[i] && !!f[j];
+}
+
 function deck(B: Builder, d: DeckRow) {
   const p = d.p, n = p.length;
   if (n < 2) return;
@@ -60,7 +66,10 @@ function deck(B: Builder, d: DeckRow) {
   for (let i = 0; i < n - 1; i++) {
     const j = i + 1, zi = p[i][2], zj = p[j][2], bi = d.b[i], bj = d.b[j];
     B.quad(at(i, -hw, zi), at(i, hw, zi), at(j, hw, zj), at(j, -hw, zj), top); // surface (winding: up)
+    const lo = s0(d, i, j, 1), ro = s0(d, i, j, -1);   // open (shared) sides
+    B.quad(at(i, lo ? hw : ow, bi), at(i, ro ? -hw : -ow, bi), at(j, ro ? -hw : -ow, bj), at(j, lo ? hw : ow, bj), CONC_DARK); // underside
     for (const s of [-1, 1]) {
+      if (s > 0 ? lo : ro) continue;
       const sw = s * hw, so = s * ow;
       const q = (a: number[], b: number[], c: number[], e: number[], k: THREE.Color) => (s > 0 ? B.quad(a, b, c, e, k) : B.quad(e, c, b, a, k));
       // curb / parapet: inner face, top, outer face down to the underside
@@ -68,7 +77,6 @@ function deck(B: Builder, d: DeckRow) {
       q(at(i, sw, zi + PARAPET), at(j, sw, zj + PARAPET), at(j, so, zj + PARAPET), at(i, so, zi + PARAPET), CONC);
       q(at(i, so, zi + PARAPET), at(j, so, zj + PARAPET), at(j, so, bj), at(i, so, bi), CONC);
     }
-    B.quad(at(i, ow, bi), at(i, -ow, bi), at(j, -ow, bj), at(j, ow, bj), CONC_DARK); // underside
   }
   if (!rail) railings(B, d, nx, ny, hw + CURB * 0.5);   // open at the ramps (see RAIL_EL)
   if (d.kind === 'road' && d.w >= 6) centreLine(B, d, nx, ny);
@@ -101,7 +109,7 @@ function railings(B: Builder, d: DeckRow, nx: number[], ny: number[], o: number)
     let acc = 0, nextPost = 0;
     for (let i = 0; i < p.length - 1; i++) {
       const j = i + 1, len = Math.hypot(p[j][0] - p[i][0], p[j][1] - p[i][1]);
-      if (Math.min(p[i][2] - d.g[i], p[j][2] - d.g[j]) < RAIL_EL) { acc += len; while (nextPost <= acc) nextPost += 2.5; continue; }
+      if (s0(d, i, j, s) || Math.min(p[i][2] - d.g[i], p[j][2] - d.g[j]) < RAIL_EL) { acc += len; while (nextPost <= acc) nextPost += 2.5; continue; }
       const at = (k: number, z: number) => [p[k][0] + nx[k] * o * s, p[k][1] + ny[k] * o * s, p[k][2] + z];
       for (const h of [0.40, 0.69]) B.quad(at(i, PARAPET + h - 0.04), at(j, PARAPET + h - 0.04), at(j, PARAPET + h + 0.03), at(i, PARAPET + h + 0.03), RAIL);   // top rail at 1.1 m above the deck (CH Gelaender)
       // posts every ~2.5 m: two crossed thin quads
@@ -241,6 +249,8 @@ export class BridgeIndex {
       const lat = (x - (a[0] + dx * t)) * nx + (y - (a[1] + dy * t)) * ny;
       const lim = d.w / 2 + 0.05 - rad;
       const ex = Math.abs(lat) - lim;   // > 0: pressed into the parapet
+      const of = lat > 0 ? d.ol : d.or;
+      if (ex > 0 && of && of[i] && of[i + 1]) continue;   // side shared with a neighbouring deck: no wall
       if (ex >= bex) continue;   // keep the deck we are most inside of
       if (d.sub && ex > 0.3) continue;   // hb3: underground decks only keep the body that is on them (stair wells are open to the surface beside the deck)
       const el = d.sub ? 99 : zc - (d.g[i] + (d.g[i + 1] - d.g[i]) * t);   // hb3: tunnel walls always

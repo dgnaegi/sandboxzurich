@@ -68,18 +68,35 @@ body.touch #touchbtns { display: flex; }
 @media (max-width: 900px), (max-height: 500px) { #bigtext-title { font-size: 38px; } #mission { font-size: 16px; } #btn-menu { top: calc(100px + env(safe-area-inset-top)); } }
 #bubble { position: fixed; display: none; transform: translate(-50%, -100%); background: #fff; color: #111; font: 700 14px Barlow, sans-serif; padding: 5px 10px; border-radius: 12px; pointer-events: none; box-shadow: 0 2px 6px #0006; white-space: nowrap; }
 #bubble::after { content: ''; position: absolute; left: 50%; bottom: -6px; border: 6px solid transparent; border-top-color: #fff; border-bottom: 0; transform: translateX(-50%); }
-/* city map v2 */
-#bigmap { background: #e6e2d9; }
-#bigmap-title span { color: #ff4fa0; }  /* classic dark map: white title (line 28), pink accent */
-#bigmap-legend { color: #2f2a24; background: #fffe; box-shadow: 0 2px 8px #0003; }
-#bigmap-legend .dot.p { background: #e4007d; border-color: #fff; }
-#bigmap-legend .ln { display: inline-block; width: 18px; height: 3px; background: #b3262d; vertical-align: 3px; }
-#bigmap button { color: #2f2a24; background: #fffe; border: 2px solid #0003; box-shadow: 0 2px 6px #0003; }
-#bigmap-tools { position: absolute; left: calc(14px + env(safe-area-inset-left)); top: calc(12px + env(safe-area-inset-top)); display: flex; gap: 8px; }
+/* city map v3: GTA pause-map look */
+#bigmap { background: #26343b; --ink: #15110c; --cream: #ecdfb4; }
+#bigmap::after { content: ''; position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 0 5px var(--ink), inset 0 0 0 7px var(--cream), inset 0 0 0 10px var(--ink); }
+#bigmap-title { display: block; top: calc(14px + env(safe-area-inset-top)); color: #f4ead0; font: 34px/1 Anton, sans-serif; letter-spacing: 1px; text-align: center; text-shadow: -2px -2px 0 #0d0b08, 2px -2px 0 #0d0b08, -2px 2px 0 #0d0b08, 2px 3px 0 #0d0b08, 0 5px 0 #0d0b08; }
+#bigmap-title small { display: block; margin-top: 5px; font: 700 13px Barlow, sans-serif; letter-spacing: .5px; color: #f2c230; text-shadow: 0 1px 0 #0d0b08, 0 0 4px #0d0b08; }
+#bigmap button { font: 26px Anton, sans-serif; color: var(--cream); background: var(--ink); border: 2px solid var(--cream); border-radius: 6px; box-shadow: 0 3px 0 #000a; }
+#bigmap button:active { transform: translateY(2px); box-shadow: 0 1px 0 #000a; }
+#bigmap-tools { position: absolute; left: calc(18px + env(safe-area-inset-left)); top: calc(18px + env(safe-area-inset-top)); display: flex; gap: 8px; }
 #bigmap-tools button { font: 700 18px Barlow, sans-serif; width: auto; min-width: 48px; padding: 0 12px; }
 #bigmap-tools button.on { background: #1d86d6; color: #fff; }
-#bigmap-lic { position: absolute; left: calc(8px + env(safe-area-inset-left)); bottom: calc(4px + env(safe-area-inset-bottom)); font: 11px Barlow, sans-serif; color: #2f2a24b0; pointer-events: none; }
-@media (max-width: 900px), (max-height: 500px) { #bigmap-legend { white-space: normal; width: 74vw; text-align: center; bottom: calc(66px + env(safe-area-inset-bottom)); } #bigmap-title { display: none; } }
+#bigmap-close { right: calc(18px + env(safe-area-inset-right)); top: calc(18px + env(safe-area-inset-top)); }
+#bigmap-zoom { right: calc(18px + env(safe-area-inset-right)); bottom: calc(22px + env(safe-area-inset-bottom)); }
+#bigmap-lic { position: absolute; left: 50%; transform: translateX(-50%); bottom: calc(13px + env(safe-area-inset-bottom)); font: 11px Barlow, sans-serif; color: #f4ead0cc; text-shadow: 0 1px 2px #000; pointer-events: none; white-space: nowrap; }
+#bigmap-legend { left: calc(22px + env(safe-area-inset-left)); bottom: calc(30px + env(safe-area-inset-bottom)); transform: none; padding: 0; width: 176px; background: #15110ce6; border: 2px solid var(--cream); border-radius: 6px; color: #f4ead0; font: 700 14px Barlow, sans-serif; white-space: nowrap; pointer-events: auto; box-shadow: 0 3px 0 #000a; }
+#bigmap #legend-toggle { width: 100%; height: 34px; border: 0; box-shadow: none; background: transparent; font: 17px Anton, sans-serif; letter-spacing: 1px; text-align: left; padding: 0 12px; color: #f2c230; }
+#legend-list { display: none; padding: 2px 10px 8px; }
+#bigmap-legend.open #legend-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 8px; }
+@media (min-width: 901px) { #bigmap-legend.open { width: 390px; } #legend-list .lg-row { font-size: 13px; } }
+#legend-list .lg-row { display: flex; align-items: center; gap: 8px; min-height: 26px; }
+#legend-list canvas { flex: none; }
+#legend-list .ln { flex: none; display: inline-block; width: 26px; height: 0; border-top: 3px solid #8e1f1f; margin: 0; }
+#legend-list .ln.play { border-top: 3px dashed #f2c230; }
+#legend-list .ln.rail { border-top: 3px dashed #aaa; }
+@media (max-width: 900px), (max-height: 500px) {
+  #bigmap-title { font-size: 24px; top: calc(76px + env(safe-area-inset-top)); }
+  #bigmap-title small { font-size: 12px; }
+  #bigmap-legend { white-space: nowrap; width: 176px; text-align: left; bottom: calc(26px + env(safe-area-inset-bottom)); }
+  #bigmap-lic { display: none; }
+}
 /* clock panel */
 #clock { pointer-events: auto; cursor: pointer; display: inline-block; padding: 4px 8px; margin: -4px -8px; border-radius: 8px; }
 #clock:hover, #clock:focus-visible { background: #0006; outline: none; }

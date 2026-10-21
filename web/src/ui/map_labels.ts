@@ -1,10 +1,11 @@
 /** Label pass of the city map: Kreis/quarter names, squares, parks, landmarks, stops and street names along the roads, collision free. */
 import type { MapData, Named } from './map_data';
 import type { Theme, View } from './map_render';
+import { drawBlip, type BlipKind } from './map_blips';
 
 export interface Jump { name: string; sub: string; x: number; y: number; yaw: number; built: boolean }
 export interface PinHit { x: number; y: number; place: Jump }
-export interface LabelOpts { dpr: number; kreise: Record<string, number[][]>; jumps: Jump[]; pins: PinHit[] }
+export interface LabelOpts { dpr: number; kreise: Record<string, number[][]>; kreisAt?: Record<string, number[]>; jumps: Jump[]; pins: PinHit[] }
 
 type Rect = [number, number, number, number];
 const FONT = 'Barlow, system-ui, sans-serif';
@@ -15,9 +16,9 @@ class Placer {
   take(r: Rect) { this.rects.push(r); }
 }
 
-function txt(g: CanvasRenderingContext2D, th: Theme, s: string, x: number, y: number, font: string, col: string, halo = 3) {
+function txt(g: CanvasRenderingContext2D, th: Theme, s: string, x: number, y: number, font: string, col: string, halo = 3, haloCol = th.halo) {
   g.font = font; g.textAlign = 'center'; g.textBaseline = 'middle'; g.lineJoin = 'round';
-  g.strokeStyle = th.halo; g.lineWidth = halo; g.globalAlpha = 0.9; g.strokeText(s, x, y); g.globalAlpha = 1;
+  g.strokeStyle = haloCol; g.lineWidth = halo; g.globalAlpha = 0.9; g.strokeText(s, x, y); g.globalAlpha = 1;
   g.fillStyle = col; g.fillText(s, x, y);
 }
 
@@ -41,24 +42,30 @@ export function drawLabels(g: CanvasRenderingContext2D, d: MapData, v: View, th:
     P.take(r); txt(g, th, str, x, y + dy, font, col); return true;
   };
 
-  // Kreis names (large, faint) when zoomed out
-  if (s < 0.45) {
-    g.globalAlpha = 0.55;
+  // Kreis names: chunky GTA district titles with a heavy black outline
+  if (s < 0.6) {
     for (const [name, ringPts] of Object.entries(o.kreise)) {
       let cx = 0, cy = 0; for (const [x, y] of ringPts) { cx += x; cy += y; }
-      const [x, y] = sc(cx / ringPts.length, cy / ringPts.length);
-      const size = Math.round(Math.min(28, Math.max(14, s * 110)));
-      const f = `${size}px Anton, ${FONT}`;
-      if (on(x, y, 0)) { const str = name.toUpperCase(); const w = tw(str, f); P.take(rectAt(x, y, w, size + 4)); txt(g, th, str, x, y, f, th.kreis, 3.5); }
+      const at = o.kreisAt?.[name] ?? [cx / ringPts.length, cy / ringPts.length];   // anchor inside the play area (build_map.kreis_anchor)
+      const [x, y] = sc(at[0], at[1]);
+      const [num, nm = ''] = name.split(' · ');
+      const size = Math.round(Math.min(30, Math.max(18, s * 130))), sub = Math.round(size * 0.5);
+      const f1 = `${size}px Anton, ${FONT}`, f2 = `${sub}px Anton, ${FONT}`;
+      if (!on(x, y, 0)) continue;
+      const w = Math.max(tw(num, f1), tw(nm.toUpperCase(), f2));
+      P.take(rectAt(x, y, w + 8, size + sub + 8));
+      g.globalAlpha = 0.72 * (s > 0.4 ? Math.max(0.35, (0.6 - s) / 0.2) : 1);   // background titles, calmer than streets/blips
+      txt(g, th, num, x, y - sub * 0.55, f1, th.kreis, size * 0.28, '#0d0b08');
+      if (nm) txt(g, th, nm.toUpperCase(), x, y + size * 0.5, f2, th.kreis, sub * 0.3, '#0d0b08');
+      g.globalAlpha = 1;
     }
-    g.globalAlpha = 1;
   }
   // jump points (pins)
   for (const p of o.jumps) {
     if (!p.built) continue;
     const [x, y] = sc(p.x, p.y);
     if (!on(x, y)) continue;
-    g.fillStyle = th.play_; g.strokeStyle = '#fff'; g.lineWidth = 2;
+    g.fillStyle = th.play_; g.strokeStyle = '#15110c'; g.lineWidth = 2;
     g.beginPath(); g.arc(x, y, 6, 0, 7); g.fill(); g.stroke();
     o.pins.push({ x, y, place: p });
     P.take(rectAt(x, y, 16, 16));
@@ -69,46 +76,38 @@ export function drawLabels(g: CanvasRenderingContext2D, d: MapData, v: View, th:
     if (q.kind !== 's' && q.kind !== 'u') continue;
     if (!(s > 0.12 && s < 0.7)) continue;
     const [x, y] = sc(q.x, q.y);
-    if (on(x, y)) label(x, y, q.name.toUpperCase(), `700 ${q.kind === 's' ? 13 : 11}px ${FONT}`, dark ? '#c9d2d6' : '#7a7466', 0, 6);
+    if (on(x, y)) label(x, y, q.name.toUpperCase(), `700 ${q.kind === 's' ? 13 : 11}px ${FONT}`, dark ? '#c9d2d6' : '#6f6a56', 0, 6);
   }
   // squares, parks
-  const green = dark ? '#8fd69a' : '#3e7a3c';
+  const green = dark ? '#8fd69a' : '#2f6a31';
   for (const q of d.places) {
     if (q.kind !== 'q' && q.kind !== 'k') continue;
     if (s < (q.kind === 'q' ? 0.28 : 0.4)) continue;
     const [x, y] = sc(q.x, q.y);
     if (on(x, y)) label(x, y, q.name, `${q.kind === 'q' ? 700 : 600} ${q.kind === 'q' ? 12 : 11}px ${FONT}`, q.kind === 'q' ? th.text : green);
   }
-  // landmarks, notable buildings
-  const pk: Record<string, string> = { lm: '#e4007d', church: '#7a5a9a', hospital: '#d33', culture: '#c46a1a', civic: '#3a6fa8', school: '#3a8f6a', bld: '#8a8272' };
+  // landmarks, notable buildings: round blips
   const poiOrder = (a: Named, b: Named) => (a.kind === 'lm' ? 0 : 1) - (b.kind === 'lm' ? 0 : 1);
   for (const q of [...d.pois].sort(poiOrder)) {
-    if (s < (q.kind === 'lm' ? 0.3 : q.kind === 'bld' ? 1.2 : 0.8)) continue;
+    const lm = q.kind === 'lm';
+    if (s < (lm ? 0.2 : q.kind === 'bld' ? 1.2 : 0.8)) continue;
     const [x, y] = sc(q.x, q.y);
     if (!on(x, y)) continue;
-    const r = rectAt(x, y, 8, 8);
+    const br = lm ? (s > 0.5 ? 10.5 : 8.5) : q.kind === 'bld' ? 3.5 : 7;
+    const r = rectAt(x, y, br * 2 + 2, br * 2 + 2);
     if (!P.free(r)) continue;
-    P.take(r); g.fillStyle = pk[q.kind] ?? '#888'; g.strokeStyle = '#fff'; g.lineWidth = 1.5;
-    g.beginPath();
-    if (q.kind === 'lm') { for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? 3.5 : 7; g.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr); } g.closePath(); } else g.arc(x, y, 3.5, 0, 7);
-    g.fill(); g.stroke();
-    if (q.kind === 'lm' || s > 1) label(x, y, q.name, `600 ${q.kind === 'lm' ? 12 : 10}px ${FONT}`, q.kind === 'lm' ? pk.lm : th.text, 12, 1);
+    P.take(r); drawBlip(g, q.kind as BlipKind, x, y, br);
+    if (lm || s > 1) label(x, y, q.name, `${lm ? 700 : 600} ${lm ? 12.5 : 10.5}px ${FONT}`, th.text, br + 8, 1);
   }
   // tram stops and stations
   for (const q of d.stops) {
-    if (s < (q.kind === 's' ? 0.12 : 0.35)) continue;
+    if (s < (q.kind === 's' ? 0.12 : 0.5)) continue;
     const [x, y] = sc(q.x, q.y);
     if (!on(x, y)) continue;
-    if (q.kind === 's') {
-      g.fillStyle = '#e4002b'; g.strokeStyle = '#fff'; g.lineWidth = 2; g.beginPath(); g.roundRect(x - 7, y - 7, 14, 14, 3); g.fill(); g.stroke();
-      g.fillStyle = '#fff'; g.font = `800 10px ${FONT}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('S', x, y + 0.5);
-      P.take(rectAt(x, y, 16, 16));
-      label(x, y, q.name.replace(/^Zürich /, ''), `800 12px ${FONT}`, th.tram, 17, 3);
-    } else {
-      g.fillStyle = '#fff'; g.strokeStyle = th.tram; g.lineWidth = 2.2; g.beginPath(); g.arc(x, y, 4.2, 0, 7); g.fill(); g.stroke();
-      P.take(rectAt(x, y, 10, 10));
-      if (s > 0.8) label(x, y, q.name, `600 10px ${FONT}`, th.tram, 11, 1);
-    }
+    const st = q.kind === 's', br = st ? 8.5 : 5.5;
+    P.take(rectAt(x, y, br * 2 + 2, br * 2 + 2)); drawBlip(g, st ? 'station' : 'stop', x, y, br);
+    if (st) label(x, y, q.name.replace(/^Zürich /, ''), `800 12px ${FONT}`, th.tram, br + 8, 3);
+    else if (s > 0.9) label(x, y, q.name, `600 10px ${FONT}`, th.tram, br + 7, 1);
   }
   // street names along the roads
   const minCls = s >= 0.4 ? 6 : s >= 0.22 ? 3 : s >= 0.12 ? 2 : -1;
@@ -117,7 +116,7 @@ export function drawLabels(g: CanvasRenderingContext2D, d: MapData, v: View, th:
   for (const l of lines) {
     const water = l.cls === 10;
     const size = water ? 13 : l.cls <= 1 ? 12 : l.cls <= 2 ? 11.5 : 10.5;
-    const font = `${water ? 'italic ' : ''}${l.cls <= 3 || water ? 700 : 600} ${size}px ${FONT}`;
+    const font = `${water ? 'italic ' : ''}${l.cls <= 1 || water ? 700 : 600} ${size}px ${FONT}`;
     const w = tw(l.name, font) + 6;
     // project and collect lengths
     const n = l.pts.length / 2, X = new Float32Array(n), Y = new Float32Array(n), Lc = new Float32Array(n);
@@ -145,7 +144,7 @@ export function drawLabels(g: CanvasRenderingContext2D, d: MapData, v: View, th:
       if (!P.free(r)) continue;
       P.take(r);
       g.save(); g.translate(mx, my); g.rotate(ang);
-      txt(g, th, l.name, 0, 0, font, water ? (dark ? '#9fd2f5' : '#2b6a9a') : th.text, 3);
+      txt(g, th, l.name, 0, 0, font, water ? (dark ? '#9fd2f5' : '#d6ecfa') : dark ? th.text : '#4f4a3c', water && !dark ? 2.5 : 3, water && !dark ? '#1e5680' : th.halo);
       g.restore();
       placed++;
       while (i < n - 2 && Lc[i] < Lc[j] + 260) i++;

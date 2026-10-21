@@ -24,6 +24,18 @@ ROADW = {"motorway": 16, "trunk": 14, "primary": 12, "secondary": 10, "tertiary"
 MAIN = {"motorway", "trunk", "primary", "secondary"}
 
 
+def kreis_anchor(k):
+    """Map label point of a Kreis: pole of inaccessibility of its part inside the play area (whole Kreis if that part is tiny)."""
+    from shapely.ops import polylabel
+    g = k.intersection(Polygon(POLYGON))
+    if g.geom_type == "MultiPolygon":
+        g = max(g.geoms, key=lambda q: q.area)
+    if g.is_empty or g.area < 150_000:
+        g = k
+    c = polylabel(g, tolerance=5)
+    return [round(c.x, 1), round(c.y, 1)]
+
+
 def kreise():
     d = json.load(open(ROOT / "research" / "kreise_poly_simplified.json"))
     out = {}
@@ -124,7 +136,8 @@ def main():
         places.append({"name": p["name"], "sub": p["sub"], "x": round(g.x, 1), "y": round(g.y, 1), "yaw": p["yaw"],
                        "built": built, "src": src})
     meta = {"mpp": MPP, "x0": x0, "y1": y1, "w": W, "h": H, "built": list(AREA), "polygon": POLYGON, "places": places,
-            "kreise": {KREIS_LABEL[n]: np.round(np.asarray(p.exterior.coords), 1).tolist() for n, p in K.items()}}
+            "kreise": {KREIS_LABEL[n]: np.round(np.asarray(p.exterior.coords), 1).tolist() for n, p in K.items()},
+            "kreis_at": {KREIS_LABEL[n]: kreis_anchor(p) for n, p in K.items()}}
     json.dump(meta, open(OUT / "map.json", "w"), separators=(",", ":"))
     print(f"map meta {W}x{H};",
           ", ".join(f"{p['name']}({p['src']}{',built' if p['built'] else ''})" for p in places))

@@ -5,7 +5,7 @@ def L(n): return Image.open(f"{d}/{n}.png").convert("RGB")
 H = 520
 def fit(im, h=H): return im.resize((int(im.width * h / im.height), h))
 row1 = [fit(L("desktop_map")), fit(L("desktop_zoom"))]
-row2 = [fit(L("phone_map")), fit(L("phone_zoom")), fit(L("phone_clock")), fit(L("desktop_clock"), 360), fit(L("desktop_radar"), 200), fit(L("phone_radar"), 140)]
+row2 = [fit(L("phone_map")), fit(L("phone_zoom")), fit(L("desktop_radar"), 260), fit(L("phone_radar"), 200)]
 W = 1600
 def strip(ims):
     w = sum(i.width for i in ims); s = min(1, W / w)

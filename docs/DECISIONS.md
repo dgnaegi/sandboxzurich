@@ -234,3 +234,15 @@ Die automatische Rot-Erkennung aus SWISSIMAGE (`streets_ortho.red_surfaces`) ver
 - Brücken: Tram-Decks zeigen Schienen, Strassendecks Zebras aus OSM-Crossings (`bridges.py` Feld `zb`, `bridges.ts`). Brüstung 1.1 m statt 1.46 m. Rand- und Mittellinien auf Decks fehlen noch.
 - Decal kind 12 = «STOP» (automatisch vor OSM-Stop-Zufahrten), Platzobjekt `parasol`, Platanenstämme dunkel gefleckt (nur Nahmodell).
 - Katalog H8: Schirmdach-Haltestelle Letzigrund (Override-Schlüssel `stops` in `catalog_assign.json`).
+
+## #66 – 2026-10-21 – Kartensterne nur für echte Wahrzeichen
+- Bisher bekam jedes Landmark-Modell einen Stern (135, darunter Hausnummern, Bars, Eckhäuser, HB-Teilmodelle). Jetzt filtert `pipeline/mapdata.landmark_stars()` nach `pipeline/overrides/map_pois.json`: `hide` (exakte Namen), `hide_re` (Ziffern, Farben, Haustypen, Bars …), `merge_m` (Sterne < 60 m zusammenfassen), `rename` (kurze Anzeigenamen mit Umlauten), Schulhäuser als Schul-Punkt. Ergebnis 61 Sterne.
+- «Hohlstrasse 283-305» (inkl. Nr. 291) erscheint nie auf der Karte (User 2026-10-21).
+
+## #67 – 2026-10-21 – Nebeneinanderliegende Brückendecks verschmelzen
+- Tram-Decks innerhalb oder ≤ 1.5 m neben einem Strassendeck übernehmen dessen Höhe (Δ < 1.5 m). Jede Deckseite, an der ein anderes Strassen-/Tramdeck auf gleicher Höhe (< 0.5 m) anliegt, bekommt pro Vertex ein Flag `ol`/`or` (`bridges._open_sides`); dort keine Brüstung, kein Geländer, kein Collider (`bridges.ts`, `railPush`). Grund: Tram 8 auf der Hardbrücke lief zwischen Mauern wie auf einer eigenen Brücke. 40 Kacheln neu gebaut (`logs/tramdeck_build2.log`).
+
+## #68 – 2026-10-21 – Karte im GTA-Pausenkarten-Stil
+- Neues Theme `GTA` (`map_render.ts`) für grosse Karte und Radar: gedämpftes Land, Parks, tiefblaues Wasser mit Uferkante, Häuser mit Schatten, Vignette/Körnung nur im gecachten Kartenhintergrund. Blips in `map_blips.ts` (Wahrzeichen, Schule, Kirche, Spital, Kultur, Behörde, S-Bahn, Tram), Legende einklappbar. Tram dünn dunkelrot erst ab mittlerem Zoom.
+- Kreis-Namen 3/4/5/9 dezent (Alpha 0.72, 18–30 px) an `map.json` → `kreis_at` (Pol der Unzugänglichkeit des Kreisteils im Spielgebiet, `build_map.kreis_anchor`).
+- Rathaus Hard (Bullingerkirche) nach Fotos neu (`pipeline/landmarks/rathaus_hard.py`), mit Betonlöwin von Mickry 3 (2023, Kunst am Bau Kanton ZH; Quellen `research/rathaus_hard/notes.md`).

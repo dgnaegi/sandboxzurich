@@ -1,10 +1,11 @@
 /** Arcade radar (top left) and full-screen city map (M / tap on the radar). Vector data from pipeline/mapdata.py. */
 import { MapData } from './map_data';
-import { CLASSIC, DARK, applyView, drawBorders, drawWorld, type DrawOpts, type View } from './map_render';
+import { GTA, applyView, drawBorders, drawFinish, drawWorld, type DrawOpts, type View } from './map_render';
+import { BLIP_NAMES, blipIcon, drawArrow } from './map_blips';
 import { drawLabels, type Jump, type PinHit } from './map_labels';
 
 export type MapPlace = Jump;
-interface MapMeta { x0?: number; y1?: number; built: number[]; polygon?: number[][]; places: MapPlace[]; kreise: Record<string, number[][]> }
+interface MapMeta { x0?: number; y1?: number; built: number[]; polygon?: number[][]; places: MapPlace[]; kreise: Record<string, number[][]>; kreis_at?: Record<string, number[]> }
 
 export class CityMap {
   private meta!: MapMeta;
@@ -43,8 +44,9 @@ export class CityMap {
   private rect(): number[][] { const [a, b, c, d] = this.meta.built; return [[a, b], [c, b], [c, d], [a, d]]; }
 
   private buildUi() {
-    const legend = document.getElementById('bigmap-legend')!;
-    legend.innerHTML = 'Irgendwo im Spielgebiet hintippen, um hinzuspringen &nbsp;·&nbsp; <i class="ln"></i> Tram';
+    const title = document.getElementById('bigmap-title');
+    if (title) title.innerHTML = 'SANDBOX ZÜRICH<small>Karte · tippen zum Hinspringen</small>';
+    this.buildLegend();
     const tools = document.createElement('div');
     tools.id = 'bigmap-tools';
     const mk = (id: string, label: string, title: string, fn: () => void) => {
@@ -59,6 +61,28 @@ export class CityMap {
     const lic = document.createElement('div');
     lic.id = 'bigmap-lic'; lic.textContent = '© OpenStreetMap-Mitwirkende · Stadt Zürich OGD';
     this.big.appendChild(lic);
+  }
+
+  /** Collapsible blip legend (open on desktop, closed on phones). */
+  private buildLegend() {
+    const legend = document.getElementById('bigmap-legend')!;
+    legend.innerHTML = '';
+    const head = document.createElement('button');
+    head.id = 'legend-toggle'; head.textContent = 'LEGENDE';
+    const list = document.createElement('div'); list.id = 'legend-list';
+    const row = (icon: HTMLElement | null, text: string) => {
+      const r = document.createElement('div'); r.className = 'lg-row';
+      if (icon) r.appendChild(icon);
+      r.appendChild(document.createTextNode(text)); list.appendChild(r);
+    };
+    row(blipIcon('arrow'), 'Du');
+    for (const [k, name] of BLIP_NAMES) row(blipIcon(k), name);
+    const ln = (cls: string) => { const i = document.createElement('i'); i.className = 'ln ' + cls; return i; };
+    row(ln('play'), 'Spielgebiet'); row(ln('tram'), 'Tram'); row(ln('rail'), 'Bahn');
+    legend.append(head, list);
+    const set = (open: boolean) => { legend.classList.toggle('open', open); head.textContent = open ? 'LEGENDE \u25BE' : 'LEGENDE \u25B8'; };
+    head.addEventListener('click', () => set(!legend.classList.contains('open')));
+    set(!matchMedia('(max-width: 900px), (max-height: 500px)').matches);
   }
 
   kreisAt(x: number, y: number): string {
@@ -89,9 +113,11 @@ export class CityMap {
     this.open = on;
     this.big.style.display = on ? 'block' : 'none';
     if (on) {
-      const [x0, y0, x1, y1] = this.meta.built;
-      this.view.cx = (x0 + x1) / 2; this.view.cy = (y0 + y1) / 2;
-      this.view.s = Math.min(innerWidth / ((x1 - x0) * 1.05), innerHeight / ((y1 - y0) * 1.2));
+      let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+      for (const [x, y] of this.opts.playArea) { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); }
+      const top = innerWidth < 900 ? 120 : 90, bot = innerWidth < 900 ? 70 : 60; // room for title / tools
+      this.view.s = Math.min((innerWidth - 24) / (x1 - x0), (innerHeight - top - bot) / (y1 - y0));
+      this.view.cx = (x0 + x1) / 2; this.view.cy = (y0 + y1) / 2 + (top - bot) / 2 / this.view.s;
       this.baseKey = '';
       document.exitPointerLock?.();
     }
@@ -103,15 +129,15 @@ export class CityMap {
     const c = this.radar, g = c.getContext('2d')!, dpr = Math.min(2, devicePixelRatio);
     const S = Math.round(c.clientWidth * dpr);
     if (c.width !== S) c.width = c.height = S;
-    if (!this.data.ready || ((this.frame++ & 1) && matchMedia('(pointer: coarse)').matches)) { if (!this.data.ready) { g.fillStyle = DARK.bg; g.fillRect(0, 0, S, S); } else return; }
+    if (!this.data.ready || ((this.frame++ & 1) && matchMedia('(pointer: coarse)').matches)) { if (!this.data.ready) { g.fillStyle = GTA.bg; g.fillRect(0, 0, S, S); } else return; }
     const r = S / 2, css = c.clientWidth, s = css / (css < 140 ? 250 : 330);
     g.save();
     g.beginPath(); g.arc(r, r, Math.max(1, r - 2), 0, Math.PI * 2); g.clip();
     const v: View = { cx: px, cy: py, s, rot: -yaw, w: css, h: css };
-    drawWorld(g, this.data, v, DARK, { ...this.opts, velo: false, boost: 1.7, dpr });
+    drawWorld(g, this.data, v, GTA, { ...this.opts, velo: false, boost: 1.7, dpr });
     if (this.overlay.length) {
       applyView(g, v, dpr);
-      g.strokeStyle = DARK.veloLane; g.lineWidth = 3.5 / s; g.lineCap = 'round'; g.lineJoin = 'round';
+      g.strokeStyle = GTA.veloLane; g.lineWidth = 3.5 / s; g.lineCap = 'round'; g.lineJoin = 'round';
       for (const l of this.overlay) { g.beginPath(); l.forEach(([x, y], i) => (i ? g.lineTo(x, y) : g.moveTo(x, y))); g.stroke(); }
     }
     g.restore();
@@ -130,18 +156,13 @@ export class CityMap {
     // north marker rotates with the map
     const na = yaw, nr = r - 13 * dpr;
     const nx = r + Math.sin(na) * nr, ny = r - Math.cos(na) * nr;
-    g.fillStyle = '#e4007d'; g.beginPath(); g.arc(nx, ny, 8.5 * dpr, 0, 7); g.fill();
+    g.fillStyle = '#15110c'; g.strokeStyle = '#fff'; g.lineWidth = 2 * dpr; g.beginPath(); g.arc(nx, ny, 8.5 * dpr, 0, 7); g.fill(); g.stroke();
     g.fillStyle = '#fff'; g.font = `700 ${12 * dpr}px Anton, sans-serif`; g.textAlign = 'center'; g.textBaseline = 'middle';
     g.fillText('N', nx, ny + 0.5 * dpr);
     g.lineWidth = 4 * dpr; g.strokeStyle = '#111c'; g.beginPath(); g.arc(r, r, Math.max(1, r - 2), 0, Math.PI * 2); g.stroke();
   }
 
-  private arrow(g: CanvasRenderingContext2D, x: number, y: number, ang: number, a: number, dpr: number) {
-    g.save(); g.translate(x, y); g.rotate(ang);
-    g.fillStyle = '#fff'; g.strokeStyle = '#000'; g.lineWidth = 2 * dpr; g.lineJoin = 'round';
-    g.beginPath(); g.moveTo(0, -a); g.lineTo(a * 0.7, a * 0.8); g.lineTo(0, a * 0.4); g.lineTo(-a * 0.7, a * 0.8); g.closePath(); g.fill(); g.stroke();
-    g.restore();
-  }
+  private arrow(g: CanvasRenderingContext2D, x: number, y: number, ang: number, a: number, dpr: number) { drawArrow(g, x, y, ang, a, 2 * dpr); }
 
   /** Full map (call every frame while open). */
   drawBig(px: number, py: number, heading = 0) {
@@ -154,18 +175,19 @@ export class CityMap {
     if (key !== this.baseKey) {
       this.baseKey = key;
       const bg = this.base.getContext('2d')!;
-      const o = { ...this.opts, velo: this.showVelo, dpr };
-      drawWorld(bg, this.data, v, CLASSIC, o);
-      drawBorders(bg, v, CLASSIC, o);
-      drawLabels(bg, this.data, v, CLASSIC, { dpr, kreise: this.meta.kreise, jumps: [], pins: this.pins });
+      const o = { ...this.opts, velo: this.showVelo, dpr, shadow: true };
+      drawWorld(bg, this.data, v, GTA, o);
+      drawBorders(bg, v, GTA, o);
+      drawLabels(bg, this.data, v, GTA, { dpr, kreise: this.meta.kreise, kreisAt: this.meta.kreis_at, jumps: [], pins: this.pins });
+      drawFinish(bg, c.width, c.height);
     }
     g.setTransform(1, 0, 0, 1, 0, 0);
     g.drawImage(this.base, 0, 0);
     g.setTransform(dpr, 0, 0, dpr, 0, 0);
     const [sx, sy] = this.toScreen(px, py);
     const pulse = 1 + 0.25 * Math.sin(performance.now() / 300);
-    g.fillStyle = 'rgba(228,0,125,0.22)'; g.beginPath(); g.arc(sx, sy, 17 * pulse, 0, 7); g.fill();
-    this.arrow(g, sx, sy, heading, 11, 1);
+    g.fillStyle = 'rgba(255,255,255,0.28)'; g.beginPath(); g.arc(sx, sy, 17 * pulse, 0, 7); g.fill();
+    this.arrow(g, sx, sy, heading, 12, 1);
   }
 
   private toScreen(x: number, y: number): [number, number] {

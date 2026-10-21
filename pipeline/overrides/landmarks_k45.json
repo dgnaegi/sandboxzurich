@@ -47,24 +47,6 @@
    ]
   },
   {
-   "name": "Bullingerkirche",
-   "model": "/models/landmarks/bullingerkirche.glb",
-   "x": -96.4,
-   "y": -437.8,
-   "z": -1.92,
-   "heading": 0,
-   "hide": [
-    [
-     -97.6,
-     -439.8
-    ],
-    [
-     -96.8,
-     -469.1
-    ]
-   ]
-  },
-  {
    "name": "Prime Tower + Platform",
    "model": "/models/landmarks/prime_tower.glb",
    "x": 45.0,
@@ -465,6 +447,24 @@
     [
      -535.9,
      -352.6
+    ]
+   ]
+  },
+  {
+   "name": "Bullingerkirche",
+   "model": "/models/landmarks/bullingerkirche.glb",
+   "x": -96.4,
+   "y": -437.8,
+   "z": -1.92,
+   "heading": 0,
+   "hide": [
+    [
+     -97.6,
+     -439.8
+    ],
+    [
+     -96.8,
+     -469.1
     ]
    ]
   }
