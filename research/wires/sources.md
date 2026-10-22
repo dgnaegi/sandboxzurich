@@ -1,0 +1,4 @@
+# Fahrleitungen: Quellen (2026-10-22)
+- Websuche «Stadt Zürich Open Data Fahrleitung VBZ Masten»: kein OGD-Datensatz für Fahrleitungen oder Masten gefunden (opendata.swiss, Organisation stadt-zurich). VBZ-OGD vorhanden: Baustellen, Verkaufsstellen, Fahrgastzahlen. Noch offen: Geodatenkatalog Stadt ZH (geo.stadt-zuerich.ch) gezielt nach «Fahrleitung» durchsuchen.
+- Vorhanden: LiDAR Kanton ZH Klasse 15 (Leitungen/Masten, `research/lidar/pilot.md`), Raster `poles` in `data/build/lidar/`; OSM (Masten teils als `power=catenary_mast`, Linien `electrified`); ewz-Beleuchtung (Lampen hängen oft an Querdrähten).
+- Heute im Spiel: `pipeline/props.tram_wires` erzeugt synthetisch einen Fahrdraht pro Gleis, an der Kachelgrenze abgeschnitten, und alle 30 m einen 14 m breiten Querdraht ohne Mast oder Wandbefestigung → Drähte enden in der Luft. Keine Trolleybus-Fahrleitungen.

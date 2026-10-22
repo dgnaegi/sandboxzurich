@@ -48,6 +48,7 @@ import cityprops
 import yards  # YARDS: courtyards/front gardens (pipeline/yards.py)
 import details_osm  # street details from OSM tags (pipeline/details_osm.py)
 import props
+import wires
 import sources
 import streets
 from config import AREA, HGRID, OUT, POLYGON, TILE, is_backdrop, tiles
@@ -423,6 +424,12 @@ def build():
     fps = [(b["id"], footprint(b)) for b in sources.buildings(margin=60)]
     fps = [(i, f) for i, f in fps if f is not None and not f.is_empty]
     fp_tree = STRtree([f for _, f in fps])
+    import lidar as _lidar
+    _tr = json.load(open(OUT.parent / "data" / "transit.json"))["lines"]
+    WN = wires.build(S["tram"], [(l["ref"], l["dir"], l["pts"]) for l in _tr if l["mode"] == "trolleybus"], _lidar.masts(BIG),
+                     [(x, y) for x, y, _ in C.get("lights", []) if not S["roads"].contains(Point(x, y))],
+                     wires.footprints(blds), S["roads"], lambda x, y: float(H.at(x, y)), tiles())  # global, cut per tile
+    print(f"wires: {len(WN.wires)} polylines, {len(WN.poles)} poles, {WN.spans} spans, {WN.fail} anchor fails", flush=True)
     # YARDS: shrub areas + private nDSM trees missing in the register (before tiles are built)
     yards.prepare(els, nodes, [(r[0], r[1]) for r in PG])
     yards.add_private_trees(C, [f for _, f in fps], AREA)
@@ -535,6 +542,7 @@ def build():
         YD = yards.tile_meta(tb, H, S, C, P, [fps[j][1] for j in fp_tree.query(tb.buffer(20))])  # YARDS
         SM = sites.tile_meta(tb, H)  # real construction sites (Stadt Zürich OGD), research/sites.md
         colliders += SM.pop("colliders")
+        WT = wires.tile(WN, tb)
         meta = {
             **SM,
             **DT,
@@ -547,7 +555,8 @@ def build():
             "fence": fz,
             "roofs": rooftops.pack(roof_rows),
             **P,
-            "wires": props.tram_wires(S["tram"], tb, H),
+            "wires": WT[0],  # tram + trolleybus overhead wires (pipeline/wires.py)
+            "wmasts": WT[1],
             "posters": (al := props.posters([s for s in segs if s.get("blank")], tb)),
             "lawn": props.lawn_spots(S["parks"], tb, H) + (tr := props.terraces(sg, S["roads"], OUTDOOR, H, inside_any))[1],
             "terraces": tr[0],
@@ -572,6 +581,9 @@ def build():
             "mask": {"x0": tb.bounds[0], "y0": tb.bounds[1], "n": mask_n, "res": 1.0, "depth": CURB, "bits": mask},
         }
         _rx = road_exclude.filter_meta(meta, OBJ_ZONE)  # roads2
+        _dp = bridges.drop_deck_props(meta, BR)  # bridgeramp: no furniture through / inside decks
+        if _dp:
+            print(f"{name}: {_dp} props dropped on/through decks", flush=True)
         _pr = props_road.fix_meta(meta)  # snap / drop remaining furniture rows on the carriageway
         _po = props_road.fix_overlaps(meta, inside_any)  # nothing inside fountain basins / Velotunnel mouth / buildings
         if _pr or _po:

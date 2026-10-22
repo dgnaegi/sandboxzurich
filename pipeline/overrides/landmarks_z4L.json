@@ -1,0 +1,224 @@
+{
+ "landmarks": [
+  {
+   "name": "Bertastrasse Eckhaus Erkerturm aprikose",
+   "model": "/models/landmarks/z4L_berta_corner.glb",
+   "x": -136.1,
+   "y": -1045.0,
+   "z": 2.45,
+   "heading": 0,
+   "hide": [
+    [
+     -139.9,
+     -1043.4
+    ],
+    [
+     -130.4,
+     -1044.1
+    ]
+   ]
+  },
+  {
+   "name": "Steinstrasse geschwungener Wohnblock",
+   "model": "/models/landmarks/z4L_curved_stein.glb",
+   "x": 280.0,
+   "y": -1695.7,
+   "z": 3.2,
+   "heading": 0,
+   "hide": [
+    [
+     269.2,
+     -1694.3
+    ],
+    [
+     279.7,
+     -1708.2
+    ],
+    [
+     295.9,
+     -1705.0
+    ],
+    [
+     294.3,
+     -1699.5
+    ],
+    [
+     276.5,
+     -1678.8
+    ]
+   ]
+  },
+  {
+   "name": "Kalkbreite weisses Haus mit Fensterlaeden",
+   "model": "/models/landmarks/z4L_kalk_house.glb",
+   "x": 356.9,
+   "y": -1074.0,
+   "z": 0.83,
+   "heading": 0,
+   "hide": [
+    [
+     356.9,
+     -1074.2
+    ]
+   ]
+  },
+  {
+   "name": "Birmensdorferstrasse grauweisser Balkonblock",
+   "model": "/models/landmarks/z4L_migros_block.glb",
+   "x": 261.8,
+   "y": -1599.7,
+   "z": 2.49,
+   "heading": 0,
+   "hide": [
+    [
+     248.2,
+     -1587.1
+    ],
+    [
+     261.7,
+     -1593.6
+    ],
+    [
+     272.4,
+     -1611.5
+    ]
+   ]
+  },
+  {
+   "name": "Zurlindenstrasse cremefarbenes Eckhaus Mansarde",
+   "model": "/models/landmarks/z4L_zurl_cream.glb",
+   "x": -45.7,
+   "y": -1127.3,
+   "z": 2.69,
+   "heading": 0,
+   "hide": [
+    [
+     -49.1,
+     -1129.3
+    ],
+    [
+     -39.7,
+     -1124.8
+    ]
+   ]
+  },
+  {
+   "name": "Thomasweg lachsrosa Zeile",
+   "model": "/models/landmarks/z4L_thomas_pink.glb",
+   "x": -118.2,
+   "y": -925.9,
+   "z": 1.59,
+   "heading": 0,
+   "hide": [
+    [
+     -126.5,
+     -920.6
+    ],
+    [
+     -120.9,
+     -909.4
+    ],
+    [
+     -109.3,
+     -937.6
+    ]
+   ]
+  },
+  {
+   "name": "Thomasweg hellrosa Zeile",
+   "model": "/models/landmarks/z4L_thomas_pink2.glb",
+   "x": -98.7,
+   "y": -951.5,
+   "z": 1.67,
+   "heading": 0,
+   "hide": [
+    [
+     -101.4,
+     -946.2
+    ],
+    [
+     -95.9,
+     -957.9
+    ]
+   ]
+  },
+  {
+   "name": "Thomasweg cremegrauer Balkonblock",
+   "model": "/models/landmarks/z4L_thomas_slab.glb",
+   "x": -148.6,
+   "y": -951.5,
+   "z": 1.77,
+   "heading": 0,
+   "hide": [
+    [
+     -149.2,
+     -951.7
+    ],
+    [
+     -161.2,
+     -937.8
+    ],
+    [
+     -146.6,
+     -935.1
+    ],
+    [
+     -133.6,
+     -950.3
+    ],
+    [
+     -140.1,
+     -942.7
+    ]
+   ]
+  },
+  {
+   "name": "Steinstrasse geschwungener Wohnblock West",
+   "model": "/models/landmarks/z4L_curved_stein_w.glb",
+   "x": 196.9,
+   "y": -1689.5,
+   "z": 2.7,
+   "heading": 0,
+   "hide": [
+    [
+     215.1,
+     -1685.1
+    ],
+    [
+     201.8,
+     -1690.3
+    ],
+    [
+     188.5,
+     -1695.8
+    ],
+    [
+     192.9,
+     -1692.3
+    ],
+    [
+     179.1,
+     -1688.8
+    ],
+    [
+     186.0,
+     -1692.1
+    ]
+   ]
+  },
+  {
+   "name": "Zurlindenstrasse langer Putzbau creme",
+   "model": "/models/landmarks/z4L_zurl_hall.glb",
+   "x": 12.5,
+   "y": -1152.2,
+   "z": 2.45,
+   "heading": 0,
+   "hide": [
+    [
+     17.6,
+     -1154.1
+    ]
+   ]
+  }
+ ]
+}

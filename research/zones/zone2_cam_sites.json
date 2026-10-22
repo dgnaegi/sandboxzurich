@@ -1,0 +1,130 @@
+[
+ {
+  "id": "z2_escher_wyss_platz",
+  "name": "Escher-Wyss-Platz",
+  "kind": "place",
+  "lat": 47.390791,
+  "lon": 8.522756,
+  "radius": 45
+ },
+ {
+  "id": "z2_bahnhof_hardbruecke_perron",
+  "name": "Bahnhof Hardbrücke Perron",
+  "kind": "place",
+  "lat": 47.384822,
+  "lon": 8.518635,
+  "radius": 45
+ },
+ {
+  "id": "z2_hardbruecke_fahrbahn",
+  "name": "Hardbrücke Fahrbahn",
+  "kind": "place",
+  "lat": 47.385097,
+  "lon": 8.517077,
+  "radius": 45
+ },
+ {
+  "id": "z2_turbinenplatz",
+  "name": "Turbinenplatz",
+  "kind": "place",
+  "lat": 47.389807,
+  "lon": 8.516707,
+  "radius": 45
+ },
+ {
+  "id": "z2_schiffbau",
+  "name": "Schiffbau",
+  "kind": "place",
+  "lat": 47.387941,
+  "lon": 8.519771,
+  "radius": 45
+ },
+ {
+  "id": "z2_prime_tower_fuss",
+  "name": "Prime Tower Fuss",
+  "kind": "place",
+  "lat": 47.385491,
+  "lon": 8.517218,
+  "radius": 45
+ },
+ {
+  "id": "z2_josefwiese",
+  "name": "Josefwiese",
+  "kind": "place",
+  "lat": 47.385718,
+  "lon": 8.523363,
+  "radius": 45
+ },
+ {
+  "id": "z2_viadukt_markthalle",
+  "name": "Viadukt (Markthalle)",
+  "kind": "place",
+  "lat": 47.387604,
+  "lon": 8.526032,
+  "radius": 45
+ },
+ {
+  "id": "z2_limmatplatz",
+  "name": "Limmatplatz",
+  "kind": "place",
+  "lat": 47.384627,
+  "lon": 8.531623,
+  "radius": 45
+ },
+ {
+  "id": "z2_roentgenplatz",
+  "name": "Röntgenplatz",
+  "kind": "place",
+  "lat": 47.385141,
+  "lon": 8.526707,
+  "radius": 45
+ },
+ {
+  "id": "z2_limmatstrasse_konradstrasse",
+  "name": "Limmatstrasse/Konradstrasse",
+  "kind": "place",
+  "lat": 47.381883,
+  "lon": 8.53362,
+  "radius": 45
+ },
+ {
+  "id": "z2_josefstrasse",
+  "name": "Josefstrasse",
+  "kind": "place",
+  "lat": 47.384334,
+  "lon": 8.528346,
+  "radius": 45
+ },
+ {
+  "id": "z2_heinrichstrasse",
+  "name": "Heinrichstrasse",
+  "kind": "place",
+  "lat": 47.387605,
+  "lon": 8.525213,
+  "radius": 45
+ },
+ {
+  "id": "z2_fabrikstrasse",
+  "name": "Fabrikstrasse",
+  "kind": "place",
+  "lat": 47.384789,
+  "lon": 8.52605,
+  "radius": 45
+ },
+ {
+  "id": "z2_sihlquai",
+  "name": "Sihlquai",
+  "kind": "place",
+  "lat": 47.383081,
+  "lon": 8.537141,
+  "radius": 45
+ },
+ {
+  "id": "z2_limmatufer",
+  "name": "Limmatufer",
+  "kind": "place",
+  "lat": 47.385749,
+  "lon": 8.532825,
+  "radius": 45
+ }
+]

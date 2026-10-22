@@ -271,3 +271,21 @@ Die automatische Rot-Erkennung aus SWISSIMAGE (`streets_ortho.red_surfaces`) ver
 - Brückendecks: gemessener Offset auf die Regelhöhe (`bridges._lidar_decks`, Standard an, `SBZ_LIDAR_DECKS=0` aus); Median-Fehler pro Kette 1.19 → 0.16 m. Bahnketten ausgenommen. Strassenoberfläche aus LiDAR (`SBZ_LIDAR_ROAD`) bringt < 5 cm → aus.
 - Audits `pipeline/audit_lidar.py` (Boden, Decks, terrain_cuts, Bäume, Masten), `audit_float.py` Teil 2b.
 - Offene Seiten nebeneinanderliegender Decks werden nach `_trim_tram` neu berechnet, und die Fläche reicht 0.75 m in die Lücke (`bridges.ts` GAP_FILL, auch in `heightAt`): Auto fiel an der Gessnerbrücke durch eine 1-m-Lücke in die Sihl.
+
+## #74 – 2026-10-22 – Ladevideo ohne Titelkarte, Kamerapunkte mit Höhe
+- Das Intro-Video beginnt direkt mit dem ersten Ort (Hardbrücke), die «ZÜRICH»-Titelkarte entfällt (User 2026-10-22). Das Poster ist das erste Ortsbild ohne Untertitel (`pipeline/loading_video.py`, Poster 6 → 56 kB).
+- `?at=x,y,yaw,z`: Ein vierter Wert ist ein Höhenhinweis. Damit wählt der Start das Deck nahe z (Hardbrücke +4.0 m, Perron −5 m), und die Startprüfung schiebt einen auf einem erhöhten Deck nicht mehr wegen der Bahn darunter weg. Kamerapunkte in `zones.py` nehmen den Wert als 4. Tupelelement, `zone_shots.mjs` gibt ihn weiter (`ONLY=1,3` für einzelne Punkte).
+
+## #75 – 2026-10-22 – Tram-/Fussstreifen folgen der Rampe daneben, keine Möbel durch Decks
+- `bridges._follow_parallel`: Ein Tramstreifen (≤ 4.6 m) oder Fussweg (≤ 3 m) parallel neben einem Strassendeck übernimmt die Höhe des nächsten parallelen Strassendecks, wenn er mehr als 1.5 m davon abweicht. Grund: Bei übereinanderliegenden Decks sieht LiDAR nur die oberste Fläche. Die Hardbrücke-Rampe an der Pfingstweidstrasse bekam so die Höhe des Hauptdecks, das Tram tauchte mit 28 % ab.
+- `bridges.drop_deck_props` entfernt Möblierung, die unter einem Deck steht und es durchstösst (Kalkbreite, 14-m-Lampe). Werkzeug `pipeline/audit_decks.py`, Protokoll `research/bridges/ramp_fix.md`.
+
+## #76 – 2026-10-22 – Fahrleitungen v2 (ersetzt `props.tram_wires`)
+- Fahr- und Querdrähte werden global aus Gleisen und Trolleybuslinien (31, 32, 33, 72; Doppeldraht 0.6 m) erzeugt und pro Kachel mit exakten Randpunkten geschnitten (`pipeline/wires.py`). Masten kommen aus LiDAR-Klasse 15, aus OSM-Lichtpunkten oder werden neu am Randstein gesetzt. Fassaden ab 7.5 m tragen Wandanker auf 6.5 m. Ein Querdraht entsteht nur mit zwei Ankern.
+- Open Data Zürich hat keinen Fahrleitungsdatensatz (`research/wires/sources.md`). Prüfung: `pipeline/audit_wires.py` (offene Enden, Querdrähte durch Gebäude, Kachelnähte = 0).
+
+## #77 – 2026-10-22 – Boden: swissALTI3D-Löcher per LiDAR glätten, Grün vom Fahrbahnrand
+- `terrain.despike`: Eine Zelle wird durch den 5×5-Median ersetzt, nur wenn das LiDAR-DTM ihr widerspricht, den Median stützt und dort weder ein Gebäude noch eine Brücke steht. Der Cache bleibt roh.
+- `streets._drop_pinholes`: Innenringe unter 0.5 m² entfallen; vorher wurden um sie schwebende Randsteinwände gebaut.
+- `props_road`: Sträucher mit dem Mittelpunkt auf der Fahrbahn entfallen. Büsche am Rand werden verschoben oder verkleinert (Abstand ≥ 0.3 m), nie gelöscht. Echte Bäume werden höchstens 2 m verschoben.
+- Werkzeug `pipeline/audit_ground_city.py`, Protokolle `research/ground_audit/{audit,greens}.md`.

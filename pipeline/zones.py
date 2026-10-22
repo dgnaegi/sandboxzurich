@@ -146,10 +146,12 @@ CAMS = {
         ("Hohlstrasse/Hardstrasse", "X:Hohlstrasse|Hardstrasse"), ("Hardstrasse/Bullingerstrasse", "X:Hardstrasse|Bullingerstrasse"), ("Sihlfeldstrasse", "S:Sihlfeldstrasse"),
         ("Zypressenstrasse", "S:Zypressenstrasse"), ("Erismannhof", (200, -530, -2.4)), ("Brauerstrasse West", "S:Brauerstrasse"),
         ("Seebahnstrasse", "S:Seebahnstrasse"), ("Ernastrasse", "S:Ernastrasse")],
-    2: [("Escher-Wyss-Platz", (448, 696)), ("Bahnhof Hardbrücke Perron", (28, 111)), ("Hardbrücke Fahrbahn", (28, 40)),
+    # Zone 2: Markthalle (inside the z2b arcade landmark) -> Ottostrasse; Escher-Wyss (wall), Hardbrücke perron (on the tracks) and deck (beside the bridge), Josefstrasse (post) by hand 2026-10-22;
+    # 4th value = height hint for decks (perron ~-5.4 m, Hardbrücke deck +4.0 m)
+    2: [("Escher-Wyss-Platz", (452, 750, 1.94)), ("Bahnhof Hardbrücke Perron", (150, 82.1, -1.21, -5)), ("Hardbrücke Fahrbahn", (32, 111, 0.57, 4)),
         ("Turbinenplatz", "Turbinenplatz"), ("Schiffbau", (231, 430)), ("Prime Tower Fuss", (42, 155)), ("Josefwiese", "Josefwiese"),
-        ("Viadukt (Markthalle)", "Markthalle"), ("Limmatplatz", (1131, 74)), ("Röntgenplatz", (759, 126)),
-        ("Limmatstrasse/Konradstrasse", (1286, -229)), ("Josefstrasse", "S:Josefstrasse"), ("Heinrichstrasse", "S:Heinrichstrasse"),
+        ("Viadukt (Markthalle)", (700, 370, 0.3)), ("Limmatplatz", (1131, 74)), ("Röntgenplatz", (759, 126)),
+        ("Limmatstrasse/Konradstrasse", (1286, -229)), ("Josefstrasse", (884, 38, -0.95)), ("Heinrichstrasse", "S:Heinrichstrasse"),
         ("Fabrikstrasse", "S:Fabrikstrasse"), ("Sihlquai", (1550, -92)), ("Limmatufer", (1220, 200))],
     # Zone 5: stadium/stop/PJZ/Lindenplatz/Hohl-Flur by hand 2026-10-20 (PJZ was on the wrong building, Rautistrasse point outside the map)
     5: [("Letzigrund Stadion", (-1060, -240, 0.86)), ("Haltestelle Letzigrund", (-970, -330, 1.2)), ("Badenerstrasse West", (-1934, 441, 5.15)),
@@ -187,7 +189,7 @@ def build():
             if p is None:
                 miss.append(label)
             else:
-                cams.append(dict(name=label, x=round(p[0], 1), y=round(p[1], 1), **({"yaw": p[2]} if len(p) > 2 else {})))
+                cams.append(dict(name=label, x=round(p[0], 1), y=round(p[1], 1), **({"yaw": p[2]} if len(p) > 2 else {}), **({"z": p[3]} if len(p) > 3 else {})))
         zones.append(dict(id=z["id"], name=z["name"], polys=z["polys"], tiles=[f"t_{ix}_{iy}" for ix, iy in ts],
                           n_tiles=len(ts), cams=cams, unresolved=miss))
     zones.sort(key=lambda z: z["id"])

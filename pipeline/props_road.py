@@ -105,7 +105,86 @@ def fix_meta(meta):
                 meta[par][k] = out
             else:
                 meta[k] = out
+    _yard_greens(meta, stat)
+    _trees(meta, stat)
     return stat
+
+
+BUSH_GAP = 0.3   # bush edge stays this far off the carriageway polygon
+
+
+def _bush_edge(r):
+    """yards.bushes row [x,y,z,r,...] (centre already off the zone): keep the foliage edge >= BUSH_GAP from the carriageway.
+    Shift away from the kerb by up to max(0.6 r, 0.8 m) first (keeps the size), then shrink the radius (min 0.25 m). Unchanged row object when fine."""
+    g = _Z["g"]
+    if g is None:
+        return r
+    p = Point(r[0], r[1])
+    d = g.distance(p)
+    rad = r[3]
+    if d - rad >= BUSH_GAP:
+        return r
+    from shapely.ops import nearest_points
+    q = nearest_points(_Z["edge"], p)[0]
+    x, y = r[0], r[1]
+    if d > 1e-6:
+        sh = min(rad + BUSH_GAP - d, max(0.6 * rad, 0.8))
+        ux, uy = (x - q.x) / d, (y - q.y) / d
+        nx, ny = x + ux * sh, y + uy * sh
+        if not g.contains(Point(nx, ny)):
+            x, y, d = nx, ny, g.distance(Point(nx, ny))
+    r = list(r)
+    r[0], r[1] = round(x, 2), round(y, 2)
+    r[3] = round(min(rad, max(0.25, d - BUSH_GAP) - 0.01), 2)
+    return r
+
+
+TREE_SHIFT = 2.0   # AV/OSM georeferencing error: a trunk on the zone moves to the kerb + 0.4 m when it is that close, else it stays
+
+
+def _trees(meta, stat):
+    """meta['trees'] rows [x,y,z,...]: city_props.lane_fix already moved the tree-register trees off S['roads']; this only catches trunks the
+    zone (roads minus plazas/decks) still contains by a sliver. Moves within TREE_SHIFT, never deletes (a real tree stays)."""
+    rows = meta.get("trees")
+    if not rows or _Z["g"] is None:
+        return
+    mv, out = 0, []
+    for r in rows:
+        if on_road(r[0], r[1]):
+            q = snap(r[0], r[1], max_shift=TREE_SHIFT, gap=0.4)
+            if q is not None:
+                r = list(r); r[0], r[1] = q; mv += 1
+        out.append(r)
+    if mv:
+        meta["trees"] = out
+        stat["trees"] = (mv, 0)
+
+
+def _yard_greens(meta, stat):
+    """yards.bushes [x,y,z,r,h,c] / yards.hedges [x,y,z,heading,len,w,h,c] stand on the carriageway when the AV green polygon and the OSM road
+    polygon disagree (audit_ground_city: 12 bushes city-wide centre-on-road). Bushes with centre on the zone are dropped (a clump stays a clump
+    instead of being squeezed to the kerb), hedges when both ends and the middle are on it."""
+    import math
+    y = meta.get("yards") or {}
+    b = y.get("bushes")
+    if b:
+        keep = [r for r in b if not on_road(r[0], r[1])]
+        if len(keep) != len(b):
+            stat["yards.bushes"] = (0, len(b) - len(keep))
+        fixed = [_bush_edge(r) for r in keep]
+        n_fix = sum(1 for a, c in zip(keep, fixed) if a is not c)
+        if n_fix:
+            stat["yards.bushes_edge"] = (n_fix, 0)
+        if n_fix or len(keep) != len(b):
+            y["bushes"] = fixed
+    h = y.get("hedges")
+    if h:
+        def road(r):
+            c, s_ = math.cos(r[3]), math.sin(r[3])
+            return all(on_road(r[0] + k * r[4] * c, r[1] + k * r[4] * s_) for k in (-.5, 0, .5))
+        keep = [r for r in h if not road(r)]
+        if len(keep) != len(h):
+            stat["yards.hedges"] = (0, len(h) - len(keep)); y["hedges"] = keep
 
 
 # ---- object-object overlaps: nothing stands inside a fountain basin or the Velotunnel mouth, nor furniture inside a building ----

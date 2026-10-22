@@ -2,6 +2,24 @@
 
 Wird am Ende jedes Arbeitsschritts überschrieben. Eine neue Session liest das zuerst.
 
+## Nacht 2026-10-22/23: 9 h Verbesserungen, danach Release (Auftrag User)
+Auftrag: «9 h non stop verbessern, automatisch mit Korrekturen, falls Kapazität weitere Zonen; danach Commit, Deploy, Release». Plan (max 3 Agents gleichzeitig):
+1. Laufend: bridgeramp (Brücken/Rampen, Sweep), wires (Fahrleitungen v2, `research/wires/v2.md`), z1L (Landmarks Zone 1).
+2. Wenn bridgeramp und wires fertig sind: **Komplett-Build** (keine Agents bauen parallel) → `audit_ground_city.py`, `audit_wires.py`, Deck-Sweep erneut → `zone_shots 2 after` + Vergleich → Korrekturrunde.
+3. Wenn Kapazität bleibt: Zone 4 Landmark-Runde, Tickets T-G1/T-G2 (Bäume/Büsche auf der Fahrbahn), Kacheln nachbauen.
+4. Ende: volle QA (PC+Handy), `deploy/publish_world.sh`, Commit, Deploy, HANDOFF.
+- Fertig (nur im Komplett-Build wirksam): wires (`pipeline/wires.py`, `audit_wires.py`, `research/wires/v2.md`; 1762 Masten, davon 1485 neue am Randstein → nach Build prüfen), z1L (1 Landmark Bahnhofplatz), z4L (10 Landmarks, `research/zones/z4/area_landmarks.md`), roadgreen (`research/ground_audit/greens.md`: Büsche vom Fahrbahnrand, Audit-Polygon-Test).
+- Ladebildschirm «schwarz» (User): lokal in Chromium ok. Safari-Verdacht → mp4 zuerst auf Apple, Video erst einblenden, wenn Bilder laufen (`ui/loading.ts`). Auf echtem iPhone prüfen.
+
+## Stand 2026-10-22 abends: Ladevideo ohne Titel, Zone 2 Woche 2 läuft – ZUERST LESEN
+- **Ladebildschirm** (#74): Das Intro-Video beginnt direkt mit dem ersten Ort, ohne «ZÜRICH»-Titelkarte. Das Poster ist das erste Ortsbild (`preview/loading_poster_v2.jpg`). Neu gerendert mit `pipeline/loading_video.py` (`logs/loading_video2.log`). Wirkt live erst nach dem nächsten Deploy.
+- **Zone 2 Kamerapunkte von Hand** (`pipeline/zones.py`): Escher-Wyss-Platz (vorher vor einer Wand) → Spawn-Punkt; Perron Hardbrücke (vorher auf den Gleisen) → Perron 2/3 (150, 82); Hardbrücke Fahrbahn (vorher 65 m neben der Brücke) → Deck (32, 111, z 4); Josefstrasse (vorher vor einem Pfosten) → (884, 38). Neu ist `?at=x,y,yaw,z` mit Höhenhinweis (#74, `main.ts`). Vorher-Bogen `preview/zone2_before.jpg` (Punkte 1–3 und 12 sind darin noch alt). Fotos `research/zones/zone2_cam_photos.json` (`logs/photos_z2_cams.log`).
+- **Läuft:** 3 Sonnet-Agents für die Landmark-Runde. z2a: Punkte 1–6 (Hardbrücke/Escher-Wyss). z2b: 7, 8, 10, 12–14 (Josefwiese/Viadukt). z2c: 9, 11, 15, 16 (Limmatplatz/Sihlquai). Dateien `pipeline/landmarks/z2{a,b,c}_*.py`, `overrides/landmarks_z2{a,b,c}.json`, Protokolle `research/zones/z2/area_{hardbruecke,josef,limmat}.md`.
+- **Läuft auch:** Agent «bridgeramp» behebt die Hardbrücke-Auffahrt an der Pfingstweidstrasse (graue Platte auf Kopfhöhe, Bäume im Deck, Knick) und die Brücke Kalkbreite (abgeschnittene Deckplatte, Grube daneben, Strauch auf der Fahrbahn). Danach sucht er stadtweit ähnliche Stellen (`research/bridges/ramp_fix.md`). **User: Solche Fehler sind der nächste Fokus.**
+- **Zone-2-Agents fertig** (14 Landmarks: z2a 3, z2b 5, z2c 6; Protokolle `research/zones/z2/area_*.md`). Neu zu bauende Kacheln: t_-1_2, t_-1_3, t_1_4, t_2_0, t_2_1, t_2_2, t_3_0, t_3_1, t_3_2, t_5_0, t_6_-2, t_6_-1, t_7_-1; danach `apply_names.py`. Offen: Bücherkiosk Limmatplatz doppelt (Z2c-1), Schachbrett-Kreisel prüfen (Z2c-3), Ids prüfen (Z2c-5, z2a Escher-Wyss-Reihe).
+- **Boden-Audit fertig** (`research/ground_audit/audit.md`, Skript `pipeline/audit_ground_city.py`). Fixes nur im Trockenlauf, nicht gebaut: `terrain.despike` (325 Löcher/Spitzen im Spielgebiet, nur wo LiDAR widerspricht), `props_road._yard_greens` (93 Sträucher auf der Fahrbahn), `streets._drop_pinholes` (13 schwebende Randstein-Ringe). → **Komplett-Build nötig** (deckt die 13 Zone-2-Kacheln mit ab), danach Audit erneut: hmap_pit, hmap_spike und shrub_on_road sollen 0 sein. Tickets T-G1 (62 Bäume auf der Fahrbahn), T-G2 (125 Büsche am Fahrbahnrand).
+**Nächster Schritt:** Wenn die Agents fertig sind: Kacheln aus den Protokollen bauen (Hintergrund), `zone_shots.mjs 2 after`, Vergleichsbogen, QA, Commit, Deploy. Danach Zone 1 und 4 gleich.
+
 ## Markierungen plausibilisiert Z1-3 (21.10., Agent «markings123»)
 Velostreifen-Linien unterbrochen (SSV 6.09), Innenseiten getrennter Fahrbahnen weg, Zebra-Versatz (25 % der Scan-Zebras ~4 m daneben) behoben; Z1-3 gebaut, Rest der Stadt wirkt erst im Komplett-Build. Zahlen/Ursachen/Werkzeuge `research/markings_plaus/lines.md` + `z123.tsv`, Bogen `preview/markings_plaus_z123.jpg`, DECISIONS #72. Offen: Radstreifen liegt bei Kerbparkplätzen 3-4 m zu nah am Kerb, rote Velostreifen pixelig/lückenhaft. Zonen 4/5: dieselben Werkzeuge mit `--zone 4|5`.
 

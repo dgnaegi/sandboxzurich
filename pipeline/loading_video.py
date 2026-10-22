@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Render the loading-screen intro video (GTA-style slideshow: Ken-Burns stills, hard cuts with flash,
-chunky captions, vignette, grain, title card) from research/loading_stills/ (made by web/tests/loading_shots.mjs).
+chunky captions, vignette, grain; starts straight on the first location, no title card, User 2026-10-22) from research/loading_stills/ (made by web/tests/loading_shots.mjs).
 Outputs in web/public/loading/: intro.mp4/.webm (landscape 1280x720), intro_p.mp4/.webm (portrait 576x1024),
 poster.jpg, poster_p.jpg.  Needs ffmpeg + Pillow + numpy.  Usage: python3 pipeline/loading_video.py"""
 import json, subprocess, sys
@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / 'research/loading_stills'
 OUT = ROOT / 'web/public/loading'
 FONT = str(ROOT / 'web/public/fonts/Anton-Regular.ttf')
-FPS, T_TITLE, T_SHOT = 24, 2.4, 3.0
+FPS, T_SHOT = 24, 3.0
 PINK = (255, 25, 117)   # #FF1975 (User 2026-10-21)
 FFMPEG = '/opt/homebrew/bin/ffmpeg'
 
@@ -38,41 +38,10 @@ def text_layer(W, H, lines, portrait):
     return im
 
 
-# title card words (colour per word); the internal project name is never shown (User 2026-10-21), the public name comes later
-TITLE = [('ZÜRICH', PINK)]
-
-
-def title_layer(W, H, portrait):
-    im = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
-    sc = W / (576 if portrait else 1280)
-    f = ImageFont.truetype(FONT, int((120 if portrait else 150) * sc))
-    parts = TITLE
-    if portrait:
-        ys = [H * 0.36 + i * 130 * sc for i in range(len(parts))]
-        for (t, c), y in zip(parts, ys):
-            w = d.textlength(t, font=f)
-            d.text(((W - w) / 2 + 5, y + 6), t, font=f, fill=(0, 0, 0, 255), stroke_width=int(10 * sc), stroke_fill=(0, 0, 0, 255))
-            d.text(((W - w) / 2, y), t, font=f, fill=c, stroke_width=int(7 * sc), stroke_fill=(0, 0, 0, 255))
-    else:
-        ws = [d.textlength(t + ' ', font=f) for t, _ in parts]
-        x, y = (W - sum(ws) + d.textlength(' ', font=f)) / 2, H * 0.38
-        for (t, c), w in zip(parts, ws):
-            d.text((x + 5, y + 6), t, font=f, fill=(0, 0, 0, 255), stroke_width=10, stroke_fill=(0, 0, 0, 255))
-            d.text((x, y), t, font=f, fill=c, stroke_width=7, stroke_fill=(0, 0, 0, 255))
-            x += w
-    return im
-
-
 def vignette(W, H):
     yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
     r = np.sqrt(((xx - W / 2) / (W / 2)) ** 2 + ((yy - H / 2) / (H / 2)) ** 2)
     return (1 - 0.38 * np.clip((r - 0.55) / 0.9, 0, 1) ** 1.6)[..., None]
-
-
-def gradient_bg(W, H):
-    yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
-    r = np.clip(np.sqrt(((xx - W / 2) / W) ** 2 + ((yy - H / 2) / H) ** 2) * 1.6, 0, 1)[..., None]
-    return (np.array([42, 32, 54], np.float32) * (1 - r) + np.array([18, 13, 24], np.float32) * r)
 
 
 def paste(frame, layer, dx=0, alpha=1.0):
@@ -96,13 +65,6 @@ def render(portrait, shots):
         nonlocal n
         fr = fr * vig + grain[n % 6]
         enc.stdin.write(fr.clip(0, 255).astype(np.uint8).tobytes()); n += 1
-    # title card
-    bg, tl = gradient_bg(W, H), title_layer(W, H, portrait)
-    for i in range(int(T_TITLE * FPS)):
-        u = i / (T_TITLE * FPS)
-        fr = paste(bg, tl, alpha=min(1, i / 6))
-        if poster is None: poster = fr.copy()
-        emit(fr * min(1, 0.4 + i / 8) if i < 8 else fr)
     for k, s in enumerate(shots):
         im = Image.open(SRC / f"{s['file']}.jpg").convert('RGB')
         sw, sh = im.size
@@ -123,7 +85,8 @@ def render(portrait, shots):
             fr = np.asarray(im.resize((W, H), Image.BICUBIC, box=(l, t, l + w, t + h))).astype(np.float32)
             ci = (i - 8) / 6  # caption pops in after 8 frames
             if ci > 0: fr = paste(fr, lay, dx=-40 * (1 - ease(min(1, ci))), alpha=min(1, ci))
-            if i < 3: fr = fr + (255 - fr) * (0.7, 0.4, 0.15)[i]  # cut flash
+            if poster is None: poster = fr.copy()  # first location frame, no caption
+            if k and i < 3: fr = fr + (255 - fr) * (0.7, 0.4, 0.15)[i]  # cut flash (not before the first shot)
             emit(fr)
     enc.stdin.close(); enc.wait()
     Image.fromarray(poster.clip(0, 255).astype(np.uint8)).save(OUT / f'poster{sfx}.jpg', quality=70, optimize=True)

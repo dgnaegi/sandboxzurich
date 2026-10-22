@@ -1,0 +1,22 @@
+{
+ "landmarks": [
+  {
+   "name": "Bahnhofplatz graugruener Geschaeftsbau",
+   "model": "/models/landmarks/z1L_bahnhofplatz_teal.glb",
+   "x": 1684.5,
+   "y": -763.8,
+   "z": -3.18,
+   "heading": 0,
+   "hide": [
+    [
+     1692.9,
+     -764.9
+    ],
+    [
+     1673.9,
+     -772.7
+    ]
+   ]
+  }
+ ]
+}

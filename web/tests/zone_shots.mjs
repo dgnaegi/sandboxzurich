@@ -1,5 +1,5 @@
 // Zone camera points (pipeline/overrides/zones.json): PC + phone shots and one contact sheet.
-// Usage: node tests/zone_shots.mjs <zone 1-5> [before|after] [baseUrl]   (LIMIT=n for a quick test)
+// Usage: node tests/zone_shots.mjs <zone 1-5> [before|after] [baseUrl]   (LIMIT=n for a quick test, ONLY=1,3 for some points)
 // -> preview/zone<N>_<tag>/<nn>_<pc|phone>.jpg and preview/zone<N>_<tag>.jpg. Yaw = nearest street direction (cam.yaw overrides).
 import { chromium, devices } from 'playwright';
 import { mkdirSync, readFileSync } from 'node:fs';
@@ -11,7 +11,8 @@ const ROOT = new URL('../../', import.meta.url).pathname;
 const zone = JSON.parse(readFileSync(`${ROOT}pipeline/overrides/zones.json`, 'utf8')).zones.find((z) => z.id === zoneId);
 if (!zone) throw new Error('unknown zone');
 const streets = JSON.parse(readFileSync(`${ROOT}web/public/data/districts.json`, 'utf8')).streets;
-const cams = zone.cams.slice(0, Number(process.env.LIMIT ?? 99));
+const only = process.env.ONLY?.split(',').map(Number);   // ONLY=1,3 = just these points (1-based)
+const cams = zone.cams.filter((_, i) => !only || only.includes(i + 1)).slice(0, Number(process.env.LIMIT ?? 99));
 
 function streetYaw(x, y) {
   let best = 40, yaw = 0;
@@ -38,7 +39,7 @@ for (const [vp, opts] of Object.entries(VP)) {
   page.on('pageerror', (e) => console.log('pageerror', e.message));
   for (const [i, c] of cams.entries()) {
     const yaw = c.yaw ?? streetYaw(c.x, c.y);
-    await page.goto(`${BASE}/?at=${c.x},${c.y},${yaw.toFixed(2)}&t=13:00&nopost`);
+    await page.goto(`${BASE}/?at=${c.x},${c.y},${yaw.toFixed(2)}${c.z != null ? `,${c.z}` : ''}&t=13:00&nopost`);
     await page.waitForFunction(() => window.sbxReady, null, { timeout: 90000 });
     await page.waitForTimeout(3000);
     const f = `${DIR}${String(i + 1).padStart(2, '0')}_${vp}.jpg`;

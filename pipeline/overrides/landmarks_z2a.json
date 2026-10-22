@@ -1,0 +1,46 @@
+{
+ "landmarks": [
+  {
+   "name": "Technopark Westfluegel (Turbinenplatz)",
+   "model": "/models/landmarks/z2a_technopark_wing.glb",
+   "x": -86.8,
+   "y": 637.2,
+   "z": -8.53,
+   "heading": 0,
+   "hide": [
+    [
+     -63.3,
+     636.5
+    ]
+   ]
+  },
+  {
+   "name": "Hotel am Turbinenplatz (Sued)",
+   "model": "/models/landmarks/z2a_novotel.glb",
+   "x": -10.4,
+   "y": 557.7,
+   "z": -8.32,
+   "heading": 0,
+   "hide": [
+    [
+     -20.2,
+     569.1
+    ]
+   ]
+  },
+  {
+   "name": "Escher-Wyss-Platz Nordwest Zeile",
+   "model": "/models/landmarks/z2a_ewp_nw_row.glb",
+   "x": 362.6,
+   "y": 815.0,
+   "z": -7.88,
+   "heading": 0,
+   "hide": [
+    [
+     362.6,
+     815.0
+    ]
+   ]
+  }
+ ]
+}

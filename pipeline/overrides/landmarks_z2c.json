@@ -1,0 +1,88 @@
+{
+ "landmarks": [
+  {
+   "name": "Limmatplatz Rundkiosk (Tramhaltestelle)",
+   "model": "/models/landmarks/z2c_rundkiosk.glb",
+   "x": 1127.8,
+   "y": 65.6,
+   "z": -5.69,
+   "heading": 0,
+   "hide": [
+    [
+     1122.9,
+     66.8
+    ]
+   ]
+  },
+  {
+   "name": "Konradstrasse Eckhaus hellgelb mit Restaurant-EG",
+   "model": "/models/landmarks/z2c_konrad_n.glb",
+   "x": 1289.3,
+   "y": -207.8,
+   "z": -5.05,
+   "heading": 0,
+   "hide": [
+    [
+     1288.6,
+     -208.4
+    ]
+   ]
+  },
+  {
+   "name": "Limmatquai Buerohaus grauweiss",
+   "model": "/models/landmarks/z2c_ufer_white.glb",
+   "x": 1186.0,
+   "y": 167.8,
+   "z": -3.7,
+   "heading": 0,
+   "hide": [
+    [
+     1186.2,
+     165.6
+    ]
+   ]
+  },
+  {
+   "name": "Limmatquai Buerohaus beigegrau",
+   "model": "/models/landmarks/z2c_ufer_beige.glb",
+   "x": 1170.0,
+   "y": 151.5,
+   "z": -4.17,
+   "heading": 0,
+   "hide": [
+    [
+     1169.7,
+     152.0
+    ]
+   ]
+  },
+  {
+   "name": "Konradstrasse Eckhaus cremeweiss mit terrakottafarbenem EG",
+   "model": "/models/landmarks/z2c_konrad_w.glb",
+   "x": 1268.7,
+   "y": -227.2,
+   "z": -5.14,
+   "heading": 0,
+   "hide": [
+    [
+     1268.5,
+     -226.6
+    ]
+   ]
+  },
+  {
+   "name": "Sihlquai Gewerbeschule Ostfluegel (graugruener Kratzputz)",
+   "model": "/models/landmarks/z2c_gewerbeschule.glb",
+   "x": 1495.8,
+   "y": -94.6,
+   "z": -6.77,
+   "heading": 0,
+   "hide": [
+    [
+     1457.7,
+     -96.7
+    ]
+   ]
+  }
+ ]
+}

@@ -253,18 +253,23 @@
    "cams": [
     {
      "name": "Escher-Wyss-Platz",
-     "x": 448,
-     "y": 696
+     "x": 452,
+     "y": 750,
+     "yaw": 1.94
     },
     {
      "name": "Bahnhof Hardbrücke Perron",
-     "x": 28,
-     "y": 111
+     "x": 150,
+     "y": 82.1,
+     "yaw": -1.21,
+     "z": -5
     },
     {
      "name": "Hardbrücke Fahrbahn",
-     "x": 28,
-     "y": 40
+     "x": 32,
+     "y": 111,
+     "yaw": 0.57,
+     "z": 4
     },
     {
      "name": "Turbinenplatz",
@@ -288,8 +293,9 @@
     },
     {
      "name": "Viadukt (Markthalle)",
-     "x": 704.2,
-     "y": 399.1
+     "x": 700,
+     "y": 370,
+     "yaw": 0.3
     },
     {
      "name": "Limmatplatz",
@@ -308,8 +314,9 @@
     },
     {
      "name": "Josefstrasse",
-     "x": 519.9,
-     "y": 278.8
+     "x": 884,
+     "y": 38,
+     "yaw": -0.95
     },
     {
      "name": "Heinrichstrasse",

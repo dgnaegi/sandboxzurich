@@ -58,7 +58,19 @@ def tidy_roads(g, r=4.0, max_fill=45.0):
     if add:
         g = shapely.union_all([g, *add])
     g = g.buffer(-0.3, quad_segs=4).buffer(0.3, quad_segs=4)  # opening: drops spikes thinner than 0.6 m
-    return shapely.set_precision(g.simplify(0.03), 0.01).buffer(0)
+    g = shapely.set_precision(g.simplify(0.03), 0.01).buffer(0)
+    return _drop_pinholes(g)
+
+
+def _drop_pinholes(g, min_area=0.5):
+    """simplify/set_precision leave ~13 zero-area interior rings in the carriageway; curb_faces() turned each into a ring of floating kerb
+    walls (research/ground_audit/audit.md). Interior rings < min_area m2 are removed."""
+    parts = []
+    for p in shapely.get_parts(g):
+        if p.geom_type == "Polygon" and any(shapely.Polygon(r).area < min_area for r in p.interiors):
+            p = shapely.Polygon(p.exterior, [r for r in p.interiors if shapely.Polygon(r).area >= min_area])
+        parts.append(p)
+    return shapely.union_all(parts) if len(parts) > 1 else (parts[0] if parts else g)
 
 
 def parse(nodes, els):

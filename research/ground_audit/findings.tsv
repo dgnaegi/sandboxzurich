@@ -1,0 +1,269 @@
+x	y	class	magnitude	source	street	score
+-1390.0	390.0	lidar_dz	-6.48	terrain(swissALTI/park)	Mürtschenstrasse	36.0
+910.0	-350.0	lidar_dz	-4.77	terrain_cuts	Lagerstrasse	36.0
+890.0	-350.0	lidar_dz	-4.03	terrain_cuts	Lagerstrasse	36.0
+1322.0	-632.0	hmap_step	2.85	road_height	Freischützgasse	34.2
+-130.0	-150.0	lidar_dz	-3.37	terrain(swissALTI/park)	1	30.3
+1230.0	170.0	lidar_dz	-3.34	terrain(swissALTI/park)	Kornhausbrücke	30.1
+-150.0	-150.0	lidar_dz	-3.17	terrain(swissALTI/park)	Hardstrasse	28.5
+1322.0	-632.0	hmap_step	2.35	road_height	Freischützgasse	28.2
+350.0	-130.0	lidar_dz	-7.7	terrain(swissALTI/park)		24.0
+-1390.0	370.0	lidar_dz	-6.51	terrain(swissALTI/park)	Mürtschenstrasse	24.0
+910.0	-330.0	lidar_dz	-6.02	terrain_cuts	Lagerstrasse	24.0
+930.0	-290.0	lidar_dz	-6.02	terrain_cuts	Zollstrasse	24.0
+-1350.0	350.0	lidar_dz	-5.7	terrain(swissALTI/park)	Mürtschenstrasse	24.0
+910.0	-310.0	lidar_dz	-4.53	terrain_cuts	Zollstrasse	24.0
+290.0	-1530.0	lidar_dz	-4.26	terrain(swissALTI/park)	Zurlindenstrasse	24.0
+90.0	-910.0	lidar_dz	-4.14	terrain(swissALTI/park)	0	24.0
+-60.0	-284.0	hmap_pit	-2.3	terrain	Hirzelstrasse	23.0
+930.0	-310.0	lidar_dz	-3.78	terrain_cuts	Zollstrasse	22.7
+70.0	-910.0	lidar_dz	-3.57	terrain(swissALTI/park)	Hildastrasse	21.4
+1622.0	66.0	hmap_step	3.37	road_height	Gallusstrasse	20.2
+1624.0	64.0	hmap_step	3.35	road_height	Gallusstrasse	20.1
+-1032.0	-90.0	hmap_pit	-4.19	terrain	1	20.0
+706.0	434.0	hmap_pit	-1.31	terrain	Roggenstrasse	19.7
+1624.0	64.0	hmap_step	3.28	road_height	Gallusstrasse	19.7
+1626.0	62.0	hmap_step	3.25	road_height	Gallusstrasse	19.5
+-1506.0	150.0	hmap_pit	-1.9	terrain	Rudenzweg	19.0
+-1030.0	-88.0	hmap_pit	-3.78	terrain	1	18.9
+418.0	-1398.0	hmap_pit	-1.84	terrain	Zweierstrasse	18.4
+1210.0	170.0	lidar_dz	-1.96	terrain(swissALTI/park)	Kornhausbrücke	17.6
+-548.0	1236.0	hmap_step	2.89	road_height		17.3
+1212.0	298.0	hmap_pit	-1.7	terrain	Sihlquai	17.0
+902.0	802.0	hmap_pit	-3.28	terrain	Burgstrasse	16.4
+250.0	-170.0	lidar_dz	-2.7	terrain(swissALTI/park)		16.2
+-26.0	-1698.0	hmap_pit	-3.19	terrain	Zweierstrasse	15.9
+350.0	-150.0	lidar_dz	-2.63	terrain(swissALTI/park)		15.8
+450.0	310.0	lidar_dz	2.58	terrain(swissALTI/park)	Josefstrasse	15.5
+538.0	-592.0	hmap_pit	-1.54	terrain	Hohlstrasse	15.4
+-1510.0	152.0	hmap_pit	-1.53	terrain	Rudenzweg	15.3
+894.0	-474.0	hmap_pit	-1.51	terrain	Militärstrasse	15.1
+190.0	210.0	lidar_dz	-2.48	road_height	Geroldstrasse	14.9
+786.0	-100.0	hmap_pit	-2.89	terrain	Quellenstrasse	14.5
+330.0	-450.0	lidar_dz	-2.41	terrain(swissALTI/park)	1	14.5
+-150.0	-130.0	lidar_dz	-1.61	terrain(swissALTI/park)	Hardbrücke	14.5
+-390.0	-438.0	hmap_pit	-1.44	terrain	Bullingerstrasse	14.4
+-262.0	356.0	hmap_pit	-2.87	terrain		14.4
+910.0	-370.0	lidar_dz	-1.59	terrain_cuts	Lagerstrasse	14.3
+230.0	-150.0	lidar_dz	-2.27	terrain(swissALTI/park)		13.6
+530.0	750.0	lidar_dz	-2.25	terrain(swissALTI/park)	Hardbrücke	13.5
+1528.0	136.0	hmap_step	2.18	road_height	Gallusstrasse	13.1
+1530.0	134.0	hmap_step	2.13	road_height	Gallusstrasse	12.8
+310.0	-1530.0	lidar_dz	-2.13	terrain(swissALTI/park)	Zentralstrasse	12.8
+-498.0	-98.0	hmap_pit	-2.53	terrain	Eichbühlstrasse	12.6
+526.0	-324.0	hmap_spike	2.51	terrain		12.5
+1208.0	300.0	hmap_spike	1.25	terrain	Sihlquai	12.5
+1628.0	-728.0	hmap_pit	-1.25	terrain	Löwenstrasse	12.5
+902.0	798.0	hmap_pit	-2.48	terrain	Burgstrasse	12.4
+910.0	-290.0	lidar_dz	-2.05	terrain_cuts	0	12.3
+390.0	-790.0	lidar_dz	5.95	terrain(swissALTI/park)	Feldstrasse	12.0
+370.0	-790.0	lidar_dz	4.69	terrain(swissALTI/park)	Feldstrasse	12.0
+370.0	-810.0	lidar_dz	4.35	terrain(swissALTI/park)	Feldstrasse	12.0
+665.9	-979.4	road_hole	0.0	streets.roads	Langstrasse	12.0
+-100.2	-1107.3	road_hole	0.0	streets.roads	Zurlindenstrasse	12.0
+-992.1	-359.0	road_hole	0.0	streets.roads	Badenerstrasse	12.0
+30.0	-50.0	lidar_dz	-3.85	terrain(swissALTI/park)		11.6
+-1430.0	490.0	lidar_dz	1.9	terrain(swissALTI/park)	0	11.4
+370.0	-470.0	lidar_dz	-1.26	terrain(swissALTI/park)	Brauerstrasse	11.3
+-2512.0	430.0	hmap_pit	-2.23	terrain	Feldblumenstrasse	11.2
+-550.0	1236.0	hmap_step	1.83	road_height		11.0
+550.0	750.0	lidar_dz	-1.76	road_height	Hardbrücke	10.6
+1888.0	-632.0	hmap_pit	-2.1	terrain	Bahnhofquai	10.5
+-2180.0	668.0	hmap_pit	-1.04	terrain	Altstetterstrasse	10.4
+1564.0	-442.0	hmap_step	1.74	road_height	Konradstrasse	10.4
+-1772.0	862.0	hmap_step	1.72	road_height	Bernerstrasse Süd	10.3
+930.0	-270.0	lidar_dz	-1.71	terrain_cuts	Zollstrasse	10.3
+-170.0	-150.0	lidar_dz	-1.15	terrain(swissALTI/park)	Hardbrücke	10.3
+38.0	-666.0	hmap_pit	-1.01	terrain	Kanzleistrasse	10.1
+1214.0	296.0	hmap_pit	-1.01	terrain	Sihlquai	10.1
+210.0	870.0	lidar_dz	3.38	terrain(swissALTI/park)	Förrlibuckstrasse	10.1
+-394.0	-448.0	hmap_spike	1.0	terrain	Hardstrasse	10.0
+210.0	890.0	lidar_dz	3.34	terrain(swissALTI/park)	Förrlibuckstrasse	10.0
+760.0	-62.0	hmap_pit	-1.99	terrain	Quellenstrasse	9.9
+424.0	496.0	hmap_pit	-1.97	terrain	Heinrichstrasse	9.8
+-2602.0	508.0	hmap_pit	-1.93	terrain	Badenerstrasse	9.7
+-1598.0	2.0	hmap_pit	-1.91	terrain	Flurstrasse	9.5
+-1774.0	862.0	hmap_step	1.57	road_height	Bernerstrasse Süd	9.4
+1676.0	10.0	hmap_step	1.57	road_height		9.4
+802.0	-60.0	hmap_pit	-1.85	terrain	Röntgenstrasse	9.2
+1678.0	8.0	hmap_step	1.54	road_height		9.2
+-1514.0	-212.0	hmap_pit	-1.81	terrain	Fuchsiastrasse	9.1
+-1330.0	310.0	lidar_dz	-1.52	terrain(swissALTI/park)		9.1
+-224.0	268.0	hmap_pit	-1.79	terrain		8.9
+350.0	-790.0	lidar_dz	2.97	terrain(swissALTI/park)	Kanzleistrasse	8.9
+-2170.0	710.0	lidar_dz	-1.47	terrain(swissALTI/park)	Altstetterstrasse	8.8
+-1984.0	1214.0	hmap_pit	-1.74	terrain	Bändlistrasse	8.7
+-1508.0	-216.0	hmap_pit	-1.71	terrain	Fuchsiastrasse	8.6
+842.0	-1890.0	hmap_pit	-1.72	terrain		8.6
+230.0	870.0	lidar_dz	2.86	terrain(swissALTI/park)	Hardturmstrasse	8.6
+-1510.0	-214.0	hmap_pit	-1.7	terrain	Fuchsiastrasse	8.5
+630.0	-350.0	lidar_dz	-2.84	terrain(swissALTI/park)	Neufrankengasse	8.5
+-390.0	-450.0	lidar_dz	-1.4	terrain(swissALTI/park)	Hardstrasse	8.4
+930.0	-330.0	lidar_dz	-1.4	terrain_cuts	Zollstrasse	8.4
+-2374.0	1088.0	hmap_pit	-1.66	terrain		8.3
+882.0	-722.0	hmap_pit	-1.67	terrain	Kurzgasse	8.3
+890.0	-330.0	lidar_dz	-1.38	terrain_cuts	Lagerstrasse	8.3
+804.0	-1134.0	hmap_pit	-1.65	terrain	Kanzleistrasse	8.2
+-1265.8	-396.8	shrub_on_road	1.46	yards.bushes	Edelweissstrasse	8.0
+-1257.2	-387.8	shrub_on_road	1.35	yards.bushes	Edelweissstrasse	8.0
+-1315.5	-381.0	shrub_on_road	1.52	yards.bushes	Gladiolenweg	8.0
+-1270.5	-370.0	shrub_on_road	1.42	yards.bushes	Edelweissstrasse	8.0
+-2784.0	160.0	hmap_pit	-1.59	terrain		8.0
+1610.0	-130.0	lidar_dz	-1.33	terrain(swissALTI/park)	Sihlquai	8.0
+1218.6	-147.0	road_hole	0.0	streets.roads	Konradstrasse	8.0
+1088.4	-955.6	road_hole	0.0	streets.roads	Zeughausstrasse	8.0
+-1450.0	510.0	lidar_dz	1.31	terrain(swissALTI/park)	0	7.9
+44.0	-806.0	hmap_pit	-1.55	terrain	Karl-Bürkli-Strasse	7.8
+1220.0	294.0	hmap_pit	-0.78	terrain	Sihlquai	7.8
+-1516.0	-210.0	hmap_pit	-1.54	terrain	Fuchsiastrasse	7.7
+1224.0	290.0	hmap_pit	-0.77	terrain	Sihlquai	7.7
+230.0	850.0	lidar_dz	2.58	terrain(swissALTI/park)	Hardturmstrasse	7.7
+270.0	-190.0	lidar_dz	-1.29	terrain(swissALTI/park)		7.7
+-1530.0	510.0	lidar_dz	1.28	terrain(swissALTI/park)	0	7.7
+-2778.0	156.0	hmap_pit	-1.52	terrain		7.6
+-390.0	-470.0	lidar_dz	-1.27	terrain(swissALTI/park)	Hardstrasse	7.6
+-2152.0	908.0	hmap_pit	-1.5	terrain	Max-Högger-Strasse	7.5
+-852.0	1384.0	hmap_pit	-1.48	terrain		7.4
+-1502.0	-220.0	hmap_pit	-1.48	terrain	Fuchsiastrasse	7.4
+-2452.0	394.0	hmap_pit	-0.73	terrain	Badenerstrasse	7.3
+-218.0	264.0	hmap_pit	-1.47	terrain		7.3
+-836.0	636.0	hmap_pit	-1.47	terrain		7.3
+-410.0	-510.0	lidar_dz	-2.43	terrain(swissALTI/park)	Hardstrasse	7.3
+-2148.0	914.0	hmap_pit	-1.45	terrain	Max-Högger-Strasse	7.2
+-1166.0	-92.0	hmap_pit	-1.45	terrain	Hardgutstrasse	7.2
+30.0	-70.0	lidar_dz	-2.39	terrain(swissALTI/park)		7.2
+-502.0	-98.0	hmap_pit	-1.42	terrain	Eichbühlstrasse	7.1
+-1530.0	-202.0	hmap_pit	-1.42	terrain	Fuchsiastrasse	7.1
+1604.0	-442.0	hmap_pit	-1.42	terrain	Sihlquai	7.1
+-2762.0	546.0	hmap_pit	-1.39	terrain		6.9
+-950.0	-1294.0	hmap_pit	-1.38	terrain	Gutstrasse	6.9
+-1512.0	-292.0	hmap_pit	-1.38	terrain	Edelweissstrasse	6.9
+1022.0	608.0	hmap_pit	-1.38	terrain		6.9
+1630.0	-510.0	lidar_dz	-2.28	terrain(swissALTI/park)	1	6.8
+-502.0	-1466.0	hmap_pit	-1.33	terrain	Haldenstrasse	6.7
+230.0	890.0	lidar_dz	2.22	terrain(swissALTI/park)		6.7
+-250.0	90.0	lidar_dz	-2.2	terrain(swissALTI/park)		6.6
+1410.0	-870.0	lidar_dz	-1.1	terrain(swissALTI/park)	1	6.6
+-2432.0	590.0	hmap_pit	-1.29	terrain	Jakob-Fügli-Strasse	6.5
+914.0	-1846.0	hmap_pit	-1.29	terrain	Ulmbergtunnel	6.5
+-390.0	-490.0	lidar_dz	-2.17	terrain(swissALTI/park)	Hardstrasse	6.5
+70.0	-70.0	lidar_dz	-2.16	terrain(swissALTI/park)		6.5
+1610.0	-490.0	lidar_dz	-2.16	terrain(swissALTI/park)	Sihlquai	6.5
+-360.0	-608.0	hmap_pit	-1.28	terrain	Albisriederplatz	6.4
+-1170.0	30.0	lidar_dz	-2.14	terrain(swissALTI/park)	Grundstrasse	6.4
+1370.0	-910.0	lidar_dz	-1.06	terrain(swissALTI/park)	Kasernenstrasse	6.4
+-1918.0	796.0	hmap_pit	-1.26	terrain	0	6.3
+-2506.0	382.0	hmap_pit	-1.27	terrain	Im Struppen	6.3
+-348.0	864.0	hmap_pit	-1.27	terrain		6.3
+-1372.0	964.0	hmap_pit	-1.26	terrain	Pfingstweidstrasse	6.3
+-1250.0	-678.0	hmap_pit	-1.25	terrain	Letzigraben	6.2
+1630.0	-170.0	lidar_dz	-1.04	terrain(swissALTI/park)	Sihlquai	6.2
+1390.0	-890.0	lidar_dz	-1.03	terrain(swissALTI/park)	1	6.2
+70.0	-890.0	lidar_dz	-1.01	terrain(swissALTI/park)	Hildastrasse	6.1
+1350.0	-930.0	lidar_dz	-1.01	terrain(swissALTI/park)	Kasernenstrasse	6.1
+-422.0	-1552.0	hmap_pit	-1.2	terrain	Birmensdorferstrasse	6.0
+210.0	210.0	lidar_dz	-1.0	terrain(swissALTI/park)	Geroldrampe	6.0
+360.9	-464.6	road_sliver	1.5	streets.roads	1	6.0
+447.9	780.4	road_sliver	1.9	streets.roads	1	6.0
+-144.7	-174.7	road_sliver	3.6	streets.roads	1	6.0
+-136.0	-129.5	road_sliver	0.2	streets.roads	1	6.0
+-2518.0	802.0	hmap_pit	-1.19	terrain		5.9
+-512.0	-284.0	hmap_spike	1.19	terrain	Bullingerstrasse	5.9
+900.0	794.0	hmap_pit	-1.19	terrain	Burgstrasse	5.9
+50.0	-70.0	lidar_dz	-1.97	terrain(swissALTI/park)		5.9
+1610.0	-510.0	lidar_dz	-1.96	terrain(swissALTI/park)	Sihlquai	5.9
+390.0	-810.0	lidar_dz	1.92	terrain(swissALTI/park)	Feldstrasse	5.8
+1612.0	-420.0	hmap_pit	-1.09	terrain	Limmatstrasse	5.5
+-410.0	-490.0	lidar_dz	-1.84	terrain(swissALTI/park)	Hardstrasse	5.5
+-322.0	-148.0	hmap_pit	-1.08	terrain	Gugolzstrasse	5.4
+872.0	-1670.0	hmap_pit	-1.08	terrain	Stauffacherquai	5.4
+1206.0	-1320.0	hmap_pit	-1.08	terrain	Sihlstrasse	5.4
+1698.0	-62.0	hmap_pit	-1.08	terrain	Wasserwerkstrasse	5.4
+-54.0	-1880.0	hmap_pit	-1.02	terrain		5.1
+190.0	890.0	lidar_dz	1.67	terrain(swissALTI/park)	Förrlibuckstrasse	5.0
+-430.0	-510.0	lidar_dz	-1.65	terrain(swissALTI/park)	Agnesstrasse	4.9
+190.0	870.0	lidar_dz	1.65	terrain(swissALTI/park)	Förrlibuckstrasse	4.9
+-1684.0	-250.0	hmap_spike	0.96	terrain		4.8
+-370.0	850.0	lidar_dz	-1.6	terrain(swissALTI/park)		4.8
+390.0	-770.0	lidar_dz	1.6	road_height	Feldstrasse	4.8
+350.0	-810.0	lidar_dz	1.54	terrain(swissALTI/park)	Kanzleistrasse	4.6
+190.0	-110.0	lidar_dz	-1.53	terrain(swissALTI/park)		4.6
+-210.0	70.0	lidar_dz	-1.52	terrain(swissALTI/park)		4.6
+-430.0	-490.0	lidar_dz	-1.5	terrain(swissALTI/park)	Agnesstrasse	4.5
+210.0	-130.0	lidar_dz	-1.5	terrain(swissALTI/park)		4.5
+50.0	-50.0	lidar_dz	-1.46	road_height		4.4
+-1184.0	-1260.0	hmap_pit	-0.86	terrain	Langgrütstrasse	4.3
+584.0	1104.0	hmap_pit	-0.87	terrain		4.3
+-1684.0	464.0	hmap_pit	-0.85	terrain		4.2
+-230.0	90.0	lidar_dz	-1.4	terrain(swissALTI/park)		4.2
+-494.0	-1228.0	hmap_pit	-0.79	terrain	Bertastrasse	4.0
+390.0	-1230.0	lidar_dz	-1.33	terrain(swissALTI/park)	Seebahnstrasse	4.0
+177.5	-307.0	road_hole	0.0	streets.roads	Hohlstrasse	4.0
+-1215.0	-1154.7	road_hole	0.0	streets.roads	Langgrütstrasse	4.0
+-1791.2	-577.5	road_hole	0.0	streets.roads		4.0
+79.5	290.0	road_hole	0.0	streets.roads	Geroldrampe	4.0
+-213.2	839.9	road_hole	0.0	streets.roads	Förrlibuckstrasse	4.0
+1782.1	369.3	road_hole	0.0	streets.roads		4.0
+159.7	282.2	road_hole	0.0	streets.roads	Hardbrücke	4.0
+424.6	711.8	road_sliver	0.0	streets.roads	1	4.0
+196.2	-737.7	road_sliver	3.1	streets.roads	Kanzleistrasse	4.0
+-73.6	-76.6	road_sliver	0.9	streets.roads		4.0
+-94.0	-59.6	road_sliver	2.7	streets.roads	Hohlstrasse	4.0
+149.9	215.8	road_sliver	0.4	streets.roads	Hardbrücke	4.0
+114.2	244.7	road_sliver	1.9	streets.roads	Geroldrampe	4.0
+1650.0	-510.0	lidar_dz	-1.3	terrain(swissALTI/park)	Museumstrasse	3.9
+226.0	-1862.0	hmap_pit	-0.75	terrain	Steinstrasse	3.8
+-370.0	830.0	lidar_dz	-1.27	terrain(swissALTI/park)		3.8
+690.0	-330.0	lidar_dz	-1.23	terrain(swissALTI/park)	Schöneggstrasse	3.7
+670.0	-330.0	lidar_dz	-1.22	terrain(swissALTI/park)	Schöneggstrasse	3.7
+892.0	784.0	hmap_spike	0.7	terrain	Burgstrasse	3.5
+1142.0	-1404.0	hmap_pit	-0.71	terrain	Selnaustrasse	3.5
+210.0	850.0	lidar_dz	1.16	terrain(swissALTI/park)	Hardturmstrasse	3.5
+-350.0	870.0	lidar_dz	-1.15	terrain(swissALTI/park)		3.4
+-190.0	70.0	lidar_dz	-1.14	terrain(swissALTI/park)		3.4
+650.0	-330.0	lidar_dz	-1.13	terrain(swissALTI/park)	Schöneggstrasse	3.4
+-390.0	-50.0	lidar_dz	1.12	terrain(swissALTI/park)	Hohlstrasse	3.4
+390.0	290.0	lidar_dz	-1.05	terrain(swissALTI/park)	Viaduktstrasse	3.2
+1398.0	-834.0	shrub_edge_road	1.22	yards.bushes	1	3.0
+-1880.3	707.5	road_sliver	1.0	streets.roads	Luggwegstrasse	2.0
+-1758.4	1094.2	road_sliver	2.9	streets.roads		2.0
+1906.8	-591.8	road_sliver	1.6	streets.roads	1	2.0
+1802.7	-1046.0	road_sliver	3.9	streets.roads	Werdmühleplatz	2.0
+1839.0	-988.7	road_sliver	0.2	streets.roads	Werdmühlestrasse	2.0
+1540.9	-1729.2	road_sliver	0.3	streets.roads		2.0
+-451.6	567.7	road_sliver	0.1	streets.roads	1	2.0
+-547.2	407.2	road_sliver	3.9	streets.roads		2.0
+-549.8	394.2	road_sliver	3.8	streets.roads		2.0
+-552.8	379.7	road_sliver	3.5	streets.roads		2.0
+-561.1	338.7	road_sliver	3.1	streets.roads		2.0
+-498.2	556.0	road_sliver	2.6	streets.roads	1	2.0
+-507.1	548.1	road_sliver	3.8	streets.roads	1	2.0
+-568.5	302.1	road_sliver	3.6	streets.roads		2.0
+-533.5	503.4	road_sliver	3.3	streets.roads		2.0
+-574.9	270.2	road_sliver	3.2	streets.roads		2.0
+-1787.4	1114.2	road_sliver	0.3	streets.roads		2.0
+-1788.3	1094.3	road_sliver	0.7	streets.roads		2.0
+1678.2	-896.4	road_sliver	0.1	streets.roads	Schweizergasse	2.0
+941.6	964.5	road_sliver	1.7	streets.roads		2.0
+1931.4	-1488.3	road_sliver	0.1	streets.roads		2.0
+690.8	936.3	road_sliver	0.3	streets.roads	Wipkingerplatz	2.0
+322.7	-1390.6	road_sliver	0.8	streets.roads	Erikastrasse	2.0
+-1882.1	699.1	road_sliver	0.0	streets.roads	Luggwegstrasse	2.0
+-1764.0	1091.5	road_sliver	3.6	streets.roads		2.0
+1862.6	-1068.9	road_sliver	0.2	streets.roads	Werdmühleplatz	2.0
+-2552.5	863.2	shrub_edge_road	1.4	yards.bushes		1.0
+-1265.8	-398.8	shrub_edge_road	1.49	yards.bushes	Edelweissstrasse	1.0
+-1264.5	-399.0	shrub_edge_road	1.55	yards.bushes	Edelweissstrasse	1.0
+-1264.5	-397.0	shrub_edge_road	1.54	yards.bushes	Edelweissstrasse	1.0
+-1263.0	-396.5	shrub_edge_road	1.54	yards.bushes	Edelweissstrasse	1.0
+-1261.5	-395.0	shrub_edge_road	1.35	yards.bushes	Edelweissstrasse	1.0
+-1286.2	-394.8	shrub_edge_road	1.5	yards.bushes	Campanellaweg	1.0
+-1254.2	-380.8	shrub_edge_road	1.28	yards.bushes	Edelweissstrasse	1.0
+-1282.5	-388.0	shrub_edge_road	1.49	yards.bushes	Campanellaweg	1.0
+-1281.2	-386.2	shrub_edge_road	1.38	yards.bushes	Campanellaweg	1.0
+-1268.5	-366.0	shrub_edge_road	1.25	yards.bushes	Edelweissstrasse	1.0
+581.9	-262.4	shrub_edge_road	1.43	yards.bushes		1.0
+537.0	877.5	shrub_edge_road	1.62	yards.bushes	Wipkingerplatz	1.0
+535.5	879.0	shrub_edge_road	1.54	yards.bushes	Wipkingerplatz	1.0
+923.5	-1446.3	shrub_edge_road	1.29	yards.bushes	Weberstrasse	1.0
+1954.0	-760.5	shrub_edge_road	1.46	yards.bushes	Bahnhofquai	1.0

@@ -40,6 +40,7 @@ const merge = (g: THREE.BufferGeometry[]) => mergeGeometries(g)!;
 const T: Record<string, THREE.BufferGeometry> = {
   lamp: merge([box(0.7, 0.18, 0.45, 0, 7.4, 0, COL.metal), box(0.5, 0.04, 0.3, 0, 7.3, 0, COL.glow)]),
   cable: box(1, 0.025, 0.025, 0, 7.6, 0, COL.cable),
+  cmast: merge([cyl(0.08, 0.12, 7, 0, 3.5, 0, COL.pole), box(0.3, 0.05, 0.05, 0, 6.45, 0, COL.pole)]),  // catenary mast (pipeline/wires.py)
   mast: merge([cyl(0.07, 0.1, 7, 0, 3.5, 0, COL.pole), box(0.06, 0.06, 1.4, 0, 6.95, -0.7, COL.pole),
     box(0.35, 0.12, 0.6, 0, 6.9, -1.4, COL.pole), box(0.28, 0.03, 0.5, 0, 6.83, -1.4, COL.glow)]),
   bench: merge([box(1.8, 0.06, 0.45, 0, 0.45, 0, COL.wood), box(1.8, 0.4, 0.06, 0, 0.72, 0.22, COL.wood),
@@ -128,6 +129,7 @@ export function buildProps(meta: PropMeta, shadows: boolean): THREE.Object3D[] {
     parts.push(tpl.clone().applyMatrix4(m4.compose(p.set(x, z, -y), q.setFromAxisAngle(Y, rot), s.set(sx, 1, 1))));
   for (const r of lamps) { place(T.lamp, r[0], r[1], r[2], -r[3]); place(T.cable, r[0], r[1], r[2], -r[3], r[4]); }
   for (const r of masts) place(T.mast, r[0], r[1], r[2], -r[3]);
+  for (const r of (meta as unknown as { wmasts?: number[][] }).wmasts ?? []) place(T.cmast, r[0], r[1], r[2], 0);
   // bench type from Sitzbankkataster (r[4]): 0 back-rest, 1 none, 2 table-bench, 3 "046" modern, 4 table, 5 other; old tiles: no r[4]
   for (const r of benches) {
     const t = r[4], h = Math.abs(r[0] * 13 + r[1]) % 3 < 1;

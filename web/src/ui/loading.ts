@@ -13,11 +13,16 @@ function startVideo() {
   const conn = (navigator as unknown as { connection?: { saveData?: boolean } }).connection;
   if (conn?.saveData || matchMedia('(prefers-reduced-motion: reduce)').matches) return; // poster only
   const sfx = matchMedia('(max-aspect-ratio: 6/5)').matches ? '_p' : '';
-  for (const [ext, type] of [['webm', 'video/webm; codecs="vp9"'], ['mp4', 'video/mp4']] as const) {
+  // Safari/iOS: H.264 first (VP9 webm can "play" there without drawing frames -> black screen)
+  const apple = /Apple/.test(navigator.vendor);
+  const srcs = [['webm', 'video/webm; codecs="vp9"'], ['mp4', 'video/mp4']] as const;
+  for (const [ext, type] of apple ? [...srcs].reverse() : srcs) {
     const s = document.createElement('source');
     s.src = `/loading/intro${sfx}.${ext}`; s.type = type; v.appendChild(s);
   }
-  v.addEventListener('playing', () => v.classList.add('on'), { once: true });
+  // show the video only once frames really advance; until then the poster (first location frame) stays visible
+  const show = () => { if (v.currentTime > 0.15) { v.classList.add('on'); v.removeEventListener('timeupdate', show); } };
+  v.addEventListener('timeupdate', show);
   v.load();
   v.play().catch(() => {});
 }

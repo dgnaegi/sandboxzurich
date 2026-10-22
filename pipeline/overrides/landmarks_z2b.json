@@ -1,0 +1,98 @@
+{
+ "landmarks": [
+  {
+   "name": "Markthalle Im Viadukt (Bogenreihe Ost)",
+   "model": "/models/landmarks/z2b_markthalle.glb",
+   "x": 719.4,
+   "y": 412.7,
+   "z": -7.1,
+   "heading": 0,
+   "hide": [
+    [
+     730.2,
+     415.4
+    ],
+    [
+     731.0,
+     415.0
+    ]
+   ]
+  },
+  {
+   "name": "Josefwiese blaugrauer Plattenbau",
+   "model": "/models/landmarks/z2b_josef_slab.glb",
+   "x": 466.9,
+   "y": 140.9,
+   "z": -5.72,
+   "heading": 0,
+   "hide": [
+    [
+     452.1,
+     149.1
+    ],
+    [
+     479.0,
+     134.2
+    ],
+    [
+     466.1,
+     149.2
+    ]
+   ]
+  },
+  {
+   "name": "Josefwiese Pavillon",
+   "model": "/models/landmarks/z2b_josef_pavilion.glb",
+   "x": 482.1,
+   "y": 231.8,
+   "z": -7.31,
+   "heading": 0,
+   "hide": [
+    [
+     482.3,
+     232.1
+    ]
+   ]
+  },
+  {
+   "name": "Roentgenplatz Westseite ocker",
+   "model": "/models/landmarks/z2b_roent_west.glb",
+   "x": 717.5,
+   "y": 125.6,
+   "z": -7.0,
+   "heading": 0,
+   "hide": [
+    [
+     721.2,
+     111.5
+    ],
+    [
+     720.7,
+     119.5
+    ],
+    [
+     723.1,
+     124.6
+    ],
+    [
+     707.8,
+     136.2
+    ]
+   ]
+  },
+  {
+   "name": "Heinrichstrasse cremefarbener Grossblock",
+   "model": "/models/landmarks/z2b_heinrich_cream.glb",
+   "x": 604.4,
+   "y": 384.9,
+   "z": -7.29,
+   "heading": 0,
+   "hide": [
+    [
+     606.7,
+     383.7
+    ]
+   ]
+  }
+ ]
+}

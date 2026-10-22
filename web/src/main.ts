@@ -118,6 +118,7 @@ async function main() {
   const [sx, sy, syaw] = at && at.length >= 2 ? at : saved?.x ? [saved.x, saved.y!, 0] : pick ? [pick.x, pick.y, pick.yaw] : [SPAWN.x, SPAWN.y, SPAWN.yaw];
   await L(tiles.update(sx, sy));
   const player = new Player(sx, sy, tiles, humans.instance(humans.player));
+  if (at && at.length >= 4) player.z = at[3];   // ?at=x,y,yaw,z: height hint picks the deck/bridge near z instead of the ground
   player.teleport(sx, sy, syaw ?? 0);
   scene.add(player.mesh);
 
@@ -160,7 +161,9 @@ async function main() {
   await Promise.all([landmarks3d.load(), rail.load(), transit.load(), transit.loadModels(), traffic.load(), scenes.load(), events.load(), velo.load(), anecdotes.load(), locator.load()].map(L));
   if (!params.has('exact')) { // never start in a building / landmark / on rail land, water or tram tracks (?exact keeps the raw ?at= for screenshot tests)
     const env = { tiles, landmarks: landmarks3d };
-    if (at && at.length >= 2) {   // explicit ?at=: only get out of walls / water / rails
+    if (at && at.length >= 4 && tiles.onElevatedDeck(player.x, player.y, player.z)) {
+      // ?at= with a height hint on a bridge deck: the rail land / water below does not count
+    } else if (at && at.length >= 2) {   // explicit ?at=: only get out of walls / water / rails
       const [fx, fy] = await findSpot(env, player.x, player.y);
       if (Math.hypot(fx - player.x, fy - player.y) > 0.01) player.teleport(fx, fy, player.yaw);
     } else {

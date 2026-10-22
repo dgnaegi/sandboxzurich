@@ -185,6 +185,60 @@ def _lidar_decks(prep, bridge_nodes):
     print(f"bridges: LiDAR decks applied to {n_ok} chains ({n_ch} measured vertices)")
 
 
+FOLLOW_DIST = 4.6   # m: a tram/foot strip this close and parallel to a road chain is on the same structure (ramp)
+FOLLOW_DIST_FOOT = 3.0  # m: footways must hug the road (a footway 4 m away may run on the ground below a bridge, e.g. Europabruecke)
+FOLLOW_DZ = 1.5     # m: ... and takes its height when the rule/LiDAR height disagrees by more than this
+FOLLOW_FADE = 25.0  # m: height offset above ground carried past the last followed vertex fades out over this length
+
+
+def _follow_parallel(prep):
+    """Tram/foot chains that run parallel (<= FOLLOW_DIST, angle < 25 deg) beside a road chain share its structure and height.
+    Without this a tram next to the Pfingstweidstrasse ramp (Hardbruecke) took the LiDAR height of the main deck passing above the
+    ramp (7 m too high) and dived 28 % down onto the ramp: grey wedge slab, kinked ramp. Past the last followed vertex the offset above
+    ground fades out."""
+    from shapely.geometry import LineString as LS, Point as Pt
+    roads = [(c, LS(c["P"])) for c in prep if c["kind"] == "road"]
+    n_fix = 0
+    for ch in prep:
+        if ch["kind"] not in ("tram", "foot"):
+            continue
+        P, z, g, s = ch["P"], ch["z"].copy(), ch["g"], ch["s"]
+        fol = np.zeros(len(P), bool)
+        for i in range(len(P)):
+            pt = Pt(P[i])
+            d = P[min(i + 1, len(P) - 1)] - P[max(i - 1, 0)]
+            best = None   # nearest parallel road chain wins (a tram crossing a main deck at a shallow angle belongs to the ramp beside it)
+            for c, ln in roads:
+                dist = ln.distance(pt)
+                if c is ch or dist > (FOLLOW_DIST if ch["kind"] == "tram" else FOLLOW_DIST_FOOT) or (best and dist >= best[0]):
+                    continue
+                t = ln.project(pt)
+                a, b = ln.interpolate(max(t - 2, 0)), ln.interpolate(min(t + 2, ln.length))
+                e = np.array([b.x - a.x, b.y - a.y])
+                if abs(float(d @ e)) / (np.hypot(*d) * np.hypot(*e) + 1e-9) < 0.906:
+                    continue
+                best = (dist, float(np.interp(t, c["s"], c["z"])))
+            if best and abs(best[1] - z[i]) > FOLLOW_DZ:
+                z[i] = best[1]
+                fol[i] = True
+        if not fol.any():
+            continue
+        idx = np.where(fol)[0]
+        # carry the above-ground offset of the nearest followed vertex over the unfollowed rest, faded out
+        for i in range(len(P)):
+            if fol[i]:
+                continue
+            j = idx[np.argmin(np.abs(s[idx] - s[i]))]
+            if abs(z[i] - ch["z"][i]) < 1e-9 and np.abs(s[idx] - s[i]).min() < 1e9:
+                dist = abs(s[j] - s[i])
+                off = z[j] - g[j]
+                z[i] = g[i] + off * max(0.0, 1 - dist / FOLLOW_FADE) if abs(ch["z"][i] - z[j]) > FOLLOW_DZ else ch["z"][i]
+        ch["z"] = np.maximum(z, g)
+        n_fix += 1
+    if n_fix:
+        print(f"bridges: {n_fix} tram/foot chains follow a parallel road ramp")
+
+
 def bridge_ways(nodes, els, area, H=None, H_raw=None):
     H_given = H is not None
     if H is None:
@@ -369,6 +423,7 @@ def bridge_ways(nodes, els, area, H=None, H_raw=None):
 
     if LIDAR_DECKS:
         _lidar_decks(prep, bridge_nodes)
+    _follow_parallel(prep)
 
     out = []
     for ch in prep:
@@ -766,3 +821,54 @@ if __name__ == "__main__":
     for b in sorted(BR, key=lambda b: -b["max_el"])[:40]:
         print(f"  {b['kind']:5} {b['name'][:28]:28} len {b['len']:6.0f} w {b['w']:4.1f} lay {b['layer']} "
               f"el {b['max_el']:4.1f} slope {b['max_slope'] * 100:4.1f}% piers {len(b['piers'])}")
+
+
+DECK_PROP_KEYS = {"lamps": 14.0, "bins": 1.2, "benches": 1.0, "trafficsigns": 3.0, "hydrants": 1.0, "bollards": 1.0, "bikes": 1.2,
+                  "racks": 1.2, "mopeds": 1.2, "signals": 4.0}
+
+
+def drop_deck_props(meta, BR):
+    """Street furniture standing on the ground UNDER a deck (z at ground, not at deck height) must not stick through / sit inside it:
+    lamps in the Kalkbreite rail cutting pierced the road deck. A row inside a deck footprint (+0.2 m) is dropped when its base is below
+    the deck and its top reaches the underside (lamps: row[4] is the height), or when the deck is solid to the ground (skirt). Rows on
+    the deck (z ~ deck top) stay. Returns the number dropped; audit: pipeline/audit_decks.py (buried / pierce)."""
+    from shapely.strtree import STRtree
+    segs, info = [], []
+    for b in BR or []:
+        if b["kind"] == "rail":
+            continue
+        p = b["p"]
+        for i in range(len(p) - 1):
+            if min(p[i][2] - b["g"][i], p[i + 1][2] - b["g"][i + 1]) < 0.3:
+                continue
+            segs.append(LineString([q[:2] for q in p[i:i + 2]]).buffer(b["w"] / 2 + 0.2, cap_style="flat"))
+            info.append((min(b["b"][i], b["b"][i + 1]), (p[i][2] + p[i + 1][2]) / 2))
+    if not segs:
+        return 0
+    st = STRtree(segs)
+    n = 0
+    for k, h0 in DECK_PROP_KEYS.items():
+        rows = meta.get(k)
+        if not rows:
+            continue
+        keep = []
+        for r in rows:
+            pt = Point(r[0], r[1])
+            drop = False
+            for j in st.query(pt):
+                if not segs[j].contains(pt):
+                    continue
+                under, top = info[j]
+                z = r[2]
+                if z > top - 0.6:      # stands on the deck
+                    continue
+                h = float(r[4]) if k == "lamps" and len(r) > 4 else h0
+                if z + h > under - 0.1:
+                    drop = True
+                    break
+            if drop:
+                n += 1
+            else:
+                keep.append(r)
+        meta[k] = keep
+    return n
