@@ -18,6 +18,7 @@ from shapely.strtree import STRtree
 R = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import bridges as B  # noqa: E402
+import lidar  # noqa: E402  (LiDAR ground reference, pipeline/lidar_grid.py)
 import sources  # noqa: E402
 from config import AREA  # noqa: E402
 
@@ -210,7 +211,7 @@ def part2(out):
         metas[f] = m
         dk += (m.get("bridges") or {}).get("decks", [])
     ap.build_grid(dk)
-    issues, tot = [], Counter()
+    issues, tot, lissues, ltot = [], Counter(), [], Counter()
     for f, m in metas.items():
         if not m.get("hmap"):
             continue
@@ -230,9 +231,17 @@ def part2(out):
                 dz = ap.deck_z(dk, x, y)
                 ref = [g] + ([dz] if dz is not None else [])
                 d = min((z - q for q in ref), key=abs)
+                if dz is None:   # LiDAR ground (class 2) where no deck: independent of the game's own terrain
+                    lg = float(lidar.dtm(x, y)[0])
+                    if not math.isnan(lg) and math.isnan(float(lidar.bld(x, y)[0])) and math.isnan(float(lidar.bridge(x, y)[0])):
+                        ltot[k] += 1
+                        dl = z - lg
+                        if dl > 0.6 or dl < -0.9:
+                            lissues.append({"kind": k, "x": round(x, 1), "y": round(y, 1), "dz": round(dl, 2), "tile": Path(f).stem[2:]})
                 if d > 0.6 or d < -0.9:
                     issues.append({"kind": k, "x": round(x, 1), "y": round(y, 1), "dz": round(d, 2), "deck": dz is not None, "tile": Path(f).stem[2:]})
     out["prop_issues"] = issues
+    out["lidar_issues"], out["lidar_total"] = lissues, dict(ltot)
     out["prop_total"] = dict(tot)
     # landmarks
     lm = json.load(open(R / "web/public/data/landmarks.json"))["landmarks"]
@@ -284,6 +293,10 @@ def write(out):
     L += ["", "Landmarks:"]
     for r in sorted(out["landmark_issues"], key=lambda r: -abs(r["dz"]))[:10]:
         L.append("- %s (%d,%d) dz %+.1f [%s]" % (r["name"], r["x"], r["y"], r["dz"], r["tile"]))
+    li = out.get("lidar_issues", [])
+    L += ["", "## 2b. Props gegen LiDAR-Boden (Klasse 2, ohne Deck/Gebaeude; Toleranz +0.6 / -0.9 m)",
+          "- Props mit LiDAR-Messung: %d, auffällig: %d (%s)" % (sum(out.get("lidar_total", {}).values()), len(li), ", ".join("%s %d" % kv for kv in Counter(i["kind"] for i in li).most_common(6))),
+          "- schlechteste 8 (Art x,y dz Kachel): " + "; ".join("%s (%d,%d) %+.2f [%s]" % (i["kind"], i["x"], i["y"], i["dz"], i["tile"]) for i in sorted(li, key=lambda i: -abs(i["dz"]))[:8])]
     L += ["", "## Einordnung",
           "- Props: praktisch sauber (nur Stichproben-Ausreisser, siehe oben); Vegetation `wild` wird nicht geprüft (z hat dort andere Bedeutung).",
           "- Landmarks mit dz > 0: Bahnhöfe Hardbrücke/Wiedikon und Velotunnel liegen gewollt auf Viadukt bzw. im Tunnel (Gelände ist darunter); Hardau II -2 m: Gebäudesockel-Konvention (-3.06 m DTM).",

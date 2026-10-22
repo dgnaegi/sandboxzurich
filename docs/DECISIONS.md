@@ -260,3 +260,14 @@ Die automatische Rot-Erkennung aus SWISSIMAGE (`streets_ortho.red_surfaces`) ver
 ## #71 – 2026-10-21 – Velotunnel: geschlossen unter der Kasernenstrasse
 - Bisher war der Tunnel auf den ersten 40 m ein offener Graben (Sohle nur 3.3 m unter der Strasse, Regel «offen, wenn H + 0.3 > Deckung») → 6 m breites Loch quer durch die Kasernenstrasse, Spieler konnten «zwischen den Ebenen» landen. Jetzt: nur 2 m Portal offen (`OPEN_S`), danach Röhre mit lichter Höhe `min(3.8, Gelände − Sohle − 0.25)`, mindestens 2.6 m; Gelände = Spielboden der gebauten Kacheln (`audit_float.ground`) statt DEM. Portalsturz bis Strassenhöhe.
 - `terrain_cuts.json`: Portalmund auf Sohlenhöhe (+ Drape-Loch 2 m), Drape-Loch unter dem Sihlbett (Flussbett lag im Tunnelinneren). Keine Bodenpiktogramme/Randlinien mehr (ohne Fotobeleg, wurden als weisse Rechtecke gezeichnet). Kachel 7_-4 neu (`logs/velotunnel_fix.log`).
+
+## #72 – 2026-10-21 – Strassenmarkierungen gegen SWISSIMAGE plausibilisiert (Zonen 1–3)
+- Velostreifen-Linien jetzt **unterbrochen** (Strich 2.5 m / Lücke 3.5 m; SSV Art. 74a Abs. 5, Markierung 6.09; Ortho: Strichanteil 0.2–0.5 bei 96 % von 105 Stücken). Ersetzt die Annahme «durchgezogen» aus Auftrag L (research/lines.md). `pipeline/markings_bike.py`.
+- Amtliches Velonetz `BOTH` auf einem Einrichtungs-Way (getrennte Fahrbahnen) wird von explizitem OSM `cycleway:<seite>=no` übersteuert (`markings_bike.prune_lanes`).
+- `crossings._scan25`: gerettete Zebras behalten den Blob-Mittelpunkt (0.25 m), die 0.5-m-Verschiebung entfällt (versetzte 25 % der Scan-Zebras um ~4 m). Zonen 1–3 neu gebaut (`logs/markings_plaus_z{1,2,3}.log`), Komplett-Build steht aus. Details `research/markings_plaus/lines.md`, Werkzeuge `pipeline/markings_plaus*.py` (`--zone N`).
+
+## #73 – 2026-10-22 – LiDAR Kanton Zürich 2021/22 für Brückendecks und als Höhenreferenz
+- 53 Kacheln (2.1 GB, CC0) über `pipeline/lidar_fetch.py` (OGD-Geoportal-Bestellung), Raster 0.5 m `pipeline/lidar_grid.py` → `data/build/lidar/` (dtm, bridge, top, bld, veg, poles). Loader `pipeline/lidar.py`.
+- Brückendecks: gemessener Offset auf die Regelhöhe (`bridges._lidar_decks`, Standard an, `SBZ_LIDAR_DECKS=0` aus); Median-Fehler pro Kette 1.19 → 0.16 m. Bahnketten ausgenommen. Strassenoberfläche aus LiDAR (`SBZ_LIDAR_ROAD`) bringt < 5 cm → aus.
+- Audits `pipeline/audit_lidar.py` (Boden, Decks, terrain_cuts, Bäume, Masten), `audit_float.py` Teil 2b.
+- Offene Seiten nebeneinanderliegender Decks werden nach `_trim_tram` neu berechnet, und die Fläche reicht 0.75 m in die Lücke (`bridges.ts` GAP_FILL, auch in `heightAt`): Auto fiel an der Gessnerbrücke durch eine 1-m-Lücke in die Sihl.

@@ -2,12 +2,24 @@
 
 Wird am Ende jedes Arbeitsschritts überschrieben. Eine neue Session liest das zuerst.
 
-## Nacht 2026-10-21/22: LiDAR + alles bündeln + Release – ZUERST LESEN
+## Markierungen plausibilisiert Z1-3 (21.10., Agent «markings123»)
+Velostreifen-Linien unterbrochen (SSV 6.09), Innenseiten getrennter Fahrbahnen weg, Zebra-Versatz (25 % der Scan-Zebras ~4 m daneben) behoben; Z1-3 gebaut, Rest der Stadt wirkt erst im Komplett-Build. Zahlen/Ursachen/Werkzeuge `research/markings_plaus/lines.md` + `z123.tsv`, Bogen `preview/markings_plaus_z123.jpg`, DECISIONS #72. Offen: Radstreifen liegt bei Kerbparkplätzen 3-4 m zu nah am Kerb, rote Velostreifen pixelig/lückenhaft. Zonen 4/5: dieselben Werkzeuge mit `--zone 4|5`.
+
+## Stand 2026-10-22 früh: Nacht erledigt, Release 20 – ZUERST LESEN
+- **Komplett-Build 18** (`logs/build_full18.log`, 0 Fehler, 87 min, danach `transit.py` + `apply_names.py`). QA `logs/qa20.log` + Wiederholungen: alles grün (knock und qa_leak im 2. Lauf grün = bekannt wackelig; scooter_ride-Bremsprüfung robuster gemacht). perf Handy **58 fps / 262 Calls / 606k Tris / 4.5 s**, qa_leak +28 MB, traffic_legal 0.01 %, qa_spawn 26/26. bridges_ride 51/97 mit Problemen (vorher 53/95; stuck 63 → 18).
+- Neu im Release: LiDAR-Deckhöhen (#73, Median-Fehler 1.19 → 0.16 m), Tram fährt auf der Strasse (`_trim_tram`), Unterführungs-Decks (Langstrasse), offene Deckseiten ohne Lücke (Gessnerbrücke: Auto fiel in die Sihl), Markierungen stadtweit (#72: Velostreifen unterbrochen, Zebras auf Streifen, keine doppelten Velostreifen), Möbel/Overlap-Filter stadtweit, fahrbare Leih-Trottinette (grün/blau/weiss, 20 km/h), mehr Trottinette, Goldbrunnenplatz-Baustelle weg.
+- Bild Problemstellen: `preview/night_final.jpg`.
+**Offen:** dunkles erhöhtes Deckstück an der Sihlpost-Ecke (~1400,-830, Gessnerbrücke-Rampe?), Geländer quer über Velotunnel-Rampe (Quelle unbekannt, nicht aus props-Generatoren), Gessnerbrücke Velo/Fuss bleiben an Stufe hängen (vorbestehend), Bullingerplatz-Brunnen ohne Wasser sichtbar?, echte Veloparkplätze auf Parkfeldern werden aufs Trottoir geschoben, LiDAR für Bäume/Masten erst als Audit (`research/lidar/audit_lidar.md`), Markierungen via LiDAR-Intensität nur als Kontrolle.
+**Nächster Schritt:** ROADMAP M1b – Woche 2 Häuser nach Fotos (Zonen 2, 1, 4), LiDAR-Audit-Funde abarbeiten (schwebende Objekte 1037, Bäume ohne Krone).
+
+## Nacht 2026-10-21/22: LiDAR + alles bündeln + Release (Plan, erledigt)
 Auftrag User: «LiDAR über Nacht, mit QA, alles machen». Ablauf (Hauptsession, max 3 Agents):
 1. LiDAR-Pilot (Agent, `research/lidar/pilot.md`) → wenn gut: ganzes Spielgebiet laden + Pipeline-Integration (Decks/Rampen, Unterführungsböden, Gelände unter Brücken, Randsteine; Markierungen via Intensität nur wenn Pilot positiv). Schlechter als heute → dort nicht verwenden, Grund notieren.
 2. Parallel fertig: Unterführungen/Tramrampen (`bridges.py`), Markierungen Zonen 1–3, danach Zonen 4–5, fahrbare Leih-Trottinette (Laufzeit).
 3. Komplett-Build (kein Agent aktiv) → volle QA (PC+Handy) → Commit → Release nur bei grüner QA; sonst Befund hier.
-Bereits lokal fertig, noch nicht released: Bus/Tram fahrbar (#70), Tramdecks ohne Brüstung (#69), Velotunnel (#71), Rathaus Hard, Ladevideo (`pipeline/loading_video.py`), #FF1975, Name «ZÜRICH» statt Projektname, Menü Kontakt (daniel@gnaegi.me) statt «Stimmt etwas nicht?», GitHub-Link raus, DFI ohne Dach auf Mast, Möbel/Overlap-Filter (`pipeline/props_road.py`, erst 22 Kacheln), mehr Trottinette (`props.scooters`), Goldbrunnenplatz-Baustelle aus (`overrides/sites_excl.json`).
+**Zwischen-Release 2026-10-22 ~00:30 live:** Commit 9171486, Welt `logs/publish19.log`, Deploy grün (`logs/deploy19.log`). QA `logs/qa19.log`: alles grün nach 2 Fixes (Collider-Entfernen-Crash in `collision.ts`, gameplay-Test nach Velosturz), perf unter Build-Last gemessen (28–37 fps, Calls/Tris normal 264/595k) → im Leerlauf nachmessen.
+Seit dem Zwischen-Release lokal: fahrbare Leih-Trottinette (`world/scooters.ts`, `scooterrig.ts`, Test `scooter_ride.mjs`), Unterführungs-Decks + `_trim_tram` in `bridges.py` (Kacheln erst mit Komplett-Build), Markierungen Zonen 1–3 gebaut (#72, Velostreifen unterbrochen, Zebras auf Streifen; wirkt stadtweit erst nach Komplett-Build), LiDAR-Integration läuft (Agent).
+Im Zwischen-Release enthalten: Bus/Tram fahrbar (#70), Tramdecks ohne Brüstung (#69), Velotunnel (#71), Rathaus Hard, Ladevideo (`pipeline/loading_video.py`), #FF1975, Name «ZÜRICH» statt Projektname, Menü Kontakt (daniel@gnaegi.me) statt «Stimmt etwas nicht?», GitHub-Link raus, DFI ohne Dach auf Mast, Möbel/Overlap-Filter (`pipeline/props_road.py`, erst 22 Kacheln), mehr Trottinette (`props.scooters`), Goldbrunnenplatz-Baustelle aus (`overrides/sites_excl.json`).
 Offen bekannt: Geländer quer über Velotunnel-Rampe (Quelle unbekannt), echte Veloparkplätze auf Parkfeldern werden aufs Trottoir geschoben.
 
 ## Stand 2026-10-21 später: Busse und Trams fahrbar (#70) – ZUERST LESEN

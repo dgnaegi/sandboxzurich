@@ -14,6 +14,8 @@ const col = (hex: number) => new THREE.Color(hex);
 const TOP: Record<string, THREE.Color> = { road: col(0x3c3d40), tram: col(0x3c3d40), foot: col(0x8d8a84), rail: col(0x4b4640) };
 const CONC = col(0x9b988f), CONC_DARK = col(0x6f6d68), RAIL = col(0x5d6468), LINE = col(0xd8d4c4), RAILHEAD = col(0xaeaeb2), ZEBRA = col(0xf0c81e);
 const PARAPET = 0.38, CURB = 0.3;
+/** Open (shared) sides reach this far into the gap to the neighbouring deck (pipeline allows gaps up to 1.5 m): no hole between them. */
+const GAP_FILL = 0.75;
 /** Railings (mesh and collider) exist only where the deck is at least this high above the terrain; ramps stay open. */
 export const RAIL_EL = 1.0;
 
@@ -66,8 +68,9 @@ function deck(B: Builder, d: DeckRow) {
   const ph = d.kind === 'tram' ? 0 : PARAPET;   // tram decks: flush edge, no parapet wall (User 2026-10-21)
   for (let i = 0; i < n - 1; i++) {
     const j = i + 1, zi = p[i][2], zj = p[j][2], bi = d.b[i], bj = d.b[j];
-    B.quad(at(i, -hw, zi), at(i, hw, zi), at(j, hw, zj), at(j, -hw, zj), top); // surface (winding: up)
     const lo = s0(d, i, j, 1), ro = s0(d, i, j, -1);   // open (shared) sides
+    const hl = lo ? hw + GAP_FILL : hw, hr = ro ? hw + GAP_FILL : hw;
+    B.quad(at(i, -hr, zi), at(i, hl, zi), at(j, hl, zj), at(j, -hr, zj), top); // surface (winding: up), open sides bridge the gap
     B.quad(at(i, lo ? hw : ow, bi), at(i, ro ? -hw : -ow, bi), at(j, ro ? -hw : -ow, bj), at(j, lo ? hw : ow, bj), CONC_DARK); // underside
     for (const s of [-1, 1]) {
       if (s > 0 ? lo : ro) continue;
@@ -221,7 +224,9 @@ export class BridgeIndex {
       const dx = b[0] - a[0], dy = b[1] - a[1], len2 = dx * dx + dy * dy || 1;
       const t = Math.max(0, Math.min(1, ((x - a[0]) * dx + (y - a[1]) * dy) / len2));
       const px = a[0] + dx * t - x, py = a[1] + dy * t - y;
-      if (px * px + py * py > (d.w / 2 + 0.3) ** 2) continue;
+      const left = dx * -py - dy * -px > 0, f = left ? d.ol : d.or;   // which side of the deck axis the point is on
+      const reach = d.w / 2 + 0.3 + (f && f[i] && f[i + 1] ? GAP_FILL : 0);
+      if (px * px + py * py > reach * reach) continue;
       const z = a[2] + (b[2] - a[2]) * t, dz = z - zPlayer;
       if (dz > up || dz < -down) continue;
       const rank = d.kind === 'foot' ? 1 : 0;

@@ -5,6 +5,8 @@ The raw swissALTI3D grid is noisy along streets (bridge/building remnants, under
 sidewalk) by a smoothed longitudinal profile along the OSM axis, with a 2 % crown. H is modified in place, so the
 carriageway, curbs, sidewalks, hmap (walking / driving height) and every H.at() consumer share the same surface.
 """
+import os
+
 import numpy as np
 import shapely
 
@@ -23,6 +25,9 @@ MAX_FILL = 1.2  # roads2: a cell is never raised by more than this (the blend us
 MAX_FILL_IN = 3.0  # T23: cells INSIDE the carriageway may be filled more (a street edge next to a hollow / cutting stayed 20-40 cm below the road: the asphalt mesh has vertices on the polygon edge -> 10-20 cm dents)
 MAX_SHAVE = 2.0  # roads2: ... nor lowered by more than this (embankment/quay walls next to a street stay)
 JOIN_MAXDZ = 1.0  # shared vertices at very different heights are different levels (underpass vs bridge): not harmonised
+LIDAR_ROAD = os.environ.get("SBZ_LIDAR_ROAD", "")  # "1": axis heights measured from the LiDAR DTM replace the swissALTI3D sample before smoothing; "2": + smoothed profile clamped to LiDAR +- LIDAR_CLAMP
+LIDAR_GUARD = 1.5  # m: LiDAR "ground" further from the grid than this is a deck / embankment seen from above (class 2 on rail bridges), not the road
+LIDAR_CLAMP = 0.2
 SKIP_BRIDGE = ("yes", "viaduct", "movable", "boardwalk", "cantilever", "aqueduct")
 
 
@@ -50,6 +55,21 @@ def _limit_slope(z, ds, m):
     return z
 
 
+def _lidar_axis(xy, hw):
+    """Median LiDAR ground (class 2) across the carriageway (+-0.6 half width, 5 offsets) at each axis point; NaN where unmeasured
+    (under decks / buildings / tunnels). Vehicles are not in class 2, so parked cars leave holes, not bumps."""
+    import lidar
+    d = np.gradient(xy, axis=0)
+    nr = np.stack([-d[:, 1], d[:, 0]], 1)
+    nr /= np.maximum(np.hypot(*nr.T), 1e-9)[:, None]
+    offs = np.linspace(-0.6 * hw, 0.6 * hw, 5)
+    Z = np.stack([lidar.dtm(*(xy + o * nr).T) for o in offs])
+    ok = np.isfinite(Z).sum(0) >= 2
+    out = np.full(len(xy), np.nan)
+    out[ok] = np.nanmedian(Z[:, ok], axis=0)
+    return out
+
+
 def profiles(H, ways):
     """[(way, s (m), xy (n,2), z_smooth)] with junction heights harmonised between ways."""
     out = []
@@ -64,8 +84,14 @@ def profiles(H, ways):
         s = np.linspace(0, ln.length, n)
         xy = np.array([(p.x, p.y) for p in shapely.line_interpolate_point(ln, s)])
         raw = H.at(xy[:, 0], xy[:, 1]).astype(np.float64)
-        zs = _runavg(_runmed(raw, MED), AVG)
-        out.append({"w": w, "s": s, "xy": xy, "raw": raw, "z": zs})
+        use, lid = raw, None
+        if LIDAR_ROAD:
+            lid = _lidar_axis(xy, w["w"] / 2)
+            ok = np.isfinite(lid) & (np.abs(lid - raw) <= LIDAR_GUARD)
+            lid = np.where(ok, lid, np.nan)
+            use = np.where(ok, lid, raw)
+        zs = _runavg(_runmed(use, MED), AVG)
+        out.append({"w": w, "s": s, "xy": xy, "raw": raw, "z": zs, "lid": lid})
     # junctions: shared line vertices (rounded to 5 cm)
     nodes = {}
     for i, p in enumerate(out):
@@ -86,6 +112,10 @@ def profiles(H, ways):
             p["z"] = p["z"] + d * np.clip(1 - np.abs(p["s"] - si) / JOIN_R, 0, 1)
     for p in out:
         p["z"] = np.clip(_limit_slope(p["z"], STEP, MAXSLOPE), p["raw"] - MAXDEV, p["raw"] + MAXDEV)
+        if LIDAR_ROAD == "2" and p["lid"] is not None and np.isfinite(p["lid"]).any():
+            ls = np.where(np.isfinite(p["lid"]), _runmed(np.nan_to_num(p["lid"], nan=0.0), 5), np.nan)
+            ls = np.where(np.isfinite(p["lid"]), ls, p["z"])
+            p["z"] = np.clip(p["z"], ls - LIDAR_CLAMP, ls + LIDAR_CLAMP)
     return out
 
 

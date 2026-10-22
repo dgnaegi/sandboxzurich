@@ -211,7 +211,9 @@ def _scan25(S, cand, ls):
         if best is None or best[0] < STRONG:
             continue
         sc, t, du, dv, w = best
-        x, y = z["x"] + du * t[0] - dv * t[1], z["y"] + du * t[1] + dv * t[0]
+        # the blob centre (0.25 m ortho) IS the zebra; the 0.5 m window search (shift +-4 m, first-best tie break) displaced 25 % of the scan zebras by ~4 m
+        # along the road (research/markings_plaus/lines.md): only the score decides, not the shift
+        x, y = z["x"], z["y"]
         res.append((0.9, x, y, t, {"w": 0.8 * min(w["w"], 12.0), "off": 0.0, "tags": w["tags"], "hw": w["hw"]}))
         n_resc += 1
     print(f"crossings: scan25 {len(res) - n_resc} stripe-measured + {n_resc} rescued by the 0.5 m stripe test", flush=True)

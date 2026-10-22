@@ -28,6 +28,11 @@ const b = await page.evaluate(() => [window.sbxPlayer.x, window.sbxPlayer.y, win
 const dist = Math.hypot(b[0] - a[0], b[1] - a[1]);
 ok(dist > 4 || vmax > 2.5, `rode ${dist.toFixed(1)} m, top speed ${vmax.toFixed(1)} m/s`);
 await page.waitForTimeout(2500);
+if (!(await page.evaluate(() => !!window.sbxPlayer.riding))) {   // crashed into something ahead and fell off (intended): get on again first
+  console.log('INFO fell off after a crash, mounting again');
+  await page.keyboard.press('KeyE');
+  await page.waitForTimeout(300);
+}
 await page.keyboard.press('KeyE');
 await page.waitForTimeout(300);
 ok(await page.evaluate(() => !window.sbxPlayer.riding), 'dismounted with E');

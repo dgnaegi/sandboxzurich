@@ -215,3 +215,102 @@ def intensity_raster(P, res=0.10, classes=(2, 1, 17), bbox=None):
     with np.errstate(invalid="ignore", divide="ignore"):
         g = np.where(n > 0, s / n, np.nan).reshape(H, W)
     return {"img": g.astype(np.float32), "x0": x0, "y0": y0, "res": res, "W": W, "H": H}
+
+
+# ---- cached 0.5 m rasters (pipeline/lidar_grid.py) ---------------------------------------------------------------
+# API:  dtm(x, y) / bridge(x, y) / top(x, y) / bld(x, y) / veg(x, y) / chm(x, y)  -> float array (game metres), NaN = no data
+#       masts(bbox=None) -> Nx5 [x, y, z_top, z_base, n_pts] of detected poles (game metres)
+#       dtm_filled(x, y, maxd=6) nearest-valid fill (cells with no ground class: under buildings/bridges stay NaN beyond maxd)
+# x, y are scalars or arrays in game metres; 500 m source tiles are cached (LRU, ~8 MB each).
+GRID = ROOT / "data" / "build" / "lidar"
+_GCACHE: dict = {}
+_ND = -32768
+
+
+def _gtile(e, n):
+    k = (e, n)
+    if k not in _GCACHE:
+        f = GRID / f"g_{e}_{n}.npz"
+        if f.exists():
+            z = np.load(f)
+            _GCACHE[k] = {q: z[q] for q in ("dtm", "bridge", "top", "bld", "veg")}
+        else:
+            _GCACHE[k] = None
+        while len(_GCACHE) > 12:
+            _GCACHE.pop(next(iter(_GCACHE)))
+    return _GCACHE[k]
+
+
+def _gsample(key, x, y):
+    x = np.atleast_1d(np.asarray(x, float)); y = np.atleast_1d(np.asarray(y, float))
+    X, Y = x + OX, y + OY
+    e = np.floor(X / TILE).astype(int) * TILE
+    n = np.floor(Y / TILE).astype(int) * TILE
+    out = np.full(x.shape, np.nan)
+    for te, tn in set(zip(e.tolist(), n.tolist())):
+        m = (e == te) & (n == tn)
+        t = _gtile(te, tn)
+        if t is None:
+            continue
+        ix = np.clip(((X[m] - te) / 0.5).astype(int), 0, 999)
+        iy = np.clip(((Y[m] - tn) / 0.5).astype(int), 0, 999)
+        v = t[key][iy, ix].astype(float)
+        v[v == _ND] = np.nan
+        out[m] = v / 100.0
+    return out
+
+
+def dtm(x, y): return _gsample("dtm", x, y)
+def bridge(x, y): return _gsample("bridge", x, y)
+def top(x, y): return _gsample("top", x, y)
+def bld(x, y): return _gsample("bld", x, y)
+def veg(x, y): return _gsample("veg", x, y)
+
+
+def chm(x, y):
+    """Canopy height above ground (m): veg top minus dtm (dtm filled within 4 m); NaN where no vegetation return."""
+    v = veg(x, y)
+    g = dtm_filled(x, y, 4.0)
+    return v - g
+
+
+def dtm_filled(x, y, maxd=6.0):
+    """DTM with holes filled from the nearest ground cell within maxd metres (8 ring samples, coarse)."""
+    g = dtm(x, y)
+    if not np.isnan(g).any():
+        return g
+    x = np.atleast_1d(np.asarray(x, float)); y = np.atleast_1d(np.asarray(y, float))
+    bad = np.isnan(g)
+    best = np.full(g.shape, np.nan)
+    for r in np.arange(0.5, maxd + 0.01, 0.5):
+        todo = bad & np.isnan(best)
+        if not todo.any():
+            break
+        acc = np.full((8, int(todo.sum())), np.nan)
+        for k in range(8):
+            a = k * math.pi / 4
+            acc[k] = dtm(x[todo] + r * math.cos(a), y[todo] + r * math.sin(a))
+        with np.errstate(all="ignore"):
+            v = np.nanmean(acc, axis=0)
+        best[np.where(todo)[0]] = v
+    g[bad] = best[bad]
+    return g
+
+
+_MASTS = None
+
+
+def masts(bbox=None):
+    global _MASTS
+    if _MASTS is None:
+        rows = []
+        for f in sorted(GRID.glob("g_*.npz")):
+            m = np.load(f)["mast"]
+            if len(m):
+                rows.append(m)
+        _MASTS = np.concatenate(rows) if rows else np.zeros((0, 5), np.float32)
+    if bbox is None:
+        return _MASTS
+    x0, y0, x1, y1 = bbox
+    m = _MASTS
+    return m[(m[:, 0] >= x0) & (m[:, 0] <= x1) & (m[:, 1] >= y0) & (m[:, 1] <= y1)]

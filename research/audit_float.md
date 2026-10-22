@@ -2,11 +2,11 @@
 
 Erzeugt von `pipeline/audit_float.py` (read-only). Kachel = floor(x/200)_floor(y/200).
 
-## 1. Brücken-Decks (OSM bridge=yes), 507 geprüft, 287 Chains im Build
+## 1. Brücken-Decks (OSM bridge=yes), 507 geprüft, 289 Chains im Build
 - dangling: 78
 - dup: 95
 - no_obstacle: 105
-- dup_sidewalk mit Höhen-Versatz (>=50% der Deckpunkte >1.2 m neben der Strassenbrücke): 5
+- dup_sidewalk mit Höhen-Versatz (>=50% der Deckpunkte >1.2 m neben der Strassenbrücke): 6
 
 Top 20 (id kind name x,y len Kachel Ursache):
 - 622318251 foot «» (-1714,1331) 449m [-9_6] 1 end(s) connect to no way; 100% inside road bridge 74071551 Europabrücke
@@ -23,29 +23,33 @@ Top 20 (id kind name x,y len Kachel Ursache):
 - 622318259 foot «» (-1836,1123) 90m [-10_5] nothing underneath (no lower way/water, terrain depression 1.2 m); 100% inside road bridge 9386299 Bändlistrasse
 - 47122092 foot «» (88,178) 88m [0_0] nothing underneath (no lower way/water, terrain depression 0.3 m); 76% inside road bridge 550657243 Hardbrücke
 - 424736273 foot «» (-169,-145) 42m [-1_-1] nothing underneath (no lower way/water, terrain depression 1.0 m); 100% inside road bridge 4310918 Hardbrücke
-- 552831829 foot «» (-432,571) 42m [-3_2] nothing underneath (no lower way/water, terrain depression 1.4 m); 100% inside road bridge 965690041 Duttweilerbrücke
-- 601078972 foot «» (-1810,994) 33m [-10_4] nothing underneath (no lower way/water, terrain depression 0.1 m); 92% inside road bridge 60795696 Europabrücke
-- 424736279 foot «» (-154,-154) 30m [-1_-1] nothing underneath (no lower way/water, terrain depression 1.3 m); 100% inside road bridge 32391477 Hardbrücke
+- 552831829 foot «» (-432,571) 42m [-3_2] nothing underneath (no lower way/water, terrain depression 1.5 m); 100% inside road bridge 965690041 Duttweilerbrücke
+- 601078972 foot «» (-1810,994) 33m [-10_4] nothing underneath (no lower way/water, terrain depression 0.2 m); 92% inside road bridge 60795696 Europabrücke
+- 424736279 foot «» (-154,-154) 30m [-1_-1] nothing underneath (no lower way/water, terrain depression 1.4 m); 100% inside road bridge 32391477 Hardbrücke
 - 860007449 foot «» (-358,837) 27m [-2_4] nothing underneath (no lower way/water, terrain depression 0.9 m); 82% inside road bridge 306670709 
 - 623552332 foot «» (657,1130) 20m [3_5] nothing underneath (no lower way/water, terrain depression 0.3 m); 80% inside road bridge 572299173 Rosengartenbrücke
-- 601078975 foot «» (-1813,997) 18m [-10_4] nothing underneath (no lower way/water, terrain depression 0.0 m); 100% inside road bridge 60795696 Europabrücke
+- 601078975 foot «» (-1813,997) 18m [-10_4] nothing underneath (no lower way/water, terrain depression 0.1 m); 100% inside road bridge 60795696 Europabrücke
 
 Unrealistisch hohe Decks (Chains, Freiraum > 22/14 m): 0
 
 ## 2. Props / Landmarks gegen Gelände (Toleranz +0.6 / -0.9 m)
-- Props geprüft: 104956, auffällig: 2
-- je Art: bikes 1/27425, racks 1/9338
-- Landmarks: 145 geprüft, 4 mit |dz|>1.5 m
+- Props geprüft: 104633, auffällig: 2
+- je Art: bikes 1/27241, racks 1/8898
+- Landmarks: 221 geprüft, 4 mit |dz|>1.5 m
 
 Top 20 Props (Kachel-Cluster):
-- bikes x1 [-1_3] schlimmster (-41,597) dz -1.32
-- racks x1 [-1_3] schlimmster (-41,597) dz -1.32
+- bikes x1 [-1_3] schlimmster (-41,597) dz -1.38
+- racks x1 [-1_3] schlimmster (-41,597) dz -1.38
 
 Landmarks:
 - Bahnhof Wiedikon (Reiterbahnhof) (544,-1403) dz +7.9 [2_-8]
 - Bahnhof Hardbruecke (28,112) dz +7.4 [0_0]
 - Velotunnel Stadttunnel (1500,-680) dz +2.3 [7_-4]
 - Hardau II (4 Wohntuerme) (-516,-321) dz -2.0 [-3_-2]
+
+## 2b. Props gegen LiDAR-Boden (Klasse 2, ohne Deck/Gebaeude; Toleranz +0.6 / -0.9 m)
+- Props mit LiDAR-Messung: 70897, auffällig: 1037 (trees 434, bikes 208, racks 111, decals 77, masts 74, scooters 47)
+- schlechteste 8 (Art x,y dz Kachel): trees (-866,1500) -9.66 [-5_7]; trees (-861,1497) -7.87 [-5_7]; trees (1604,83) -6.80 [8_0]; scooters (-1435,360) -6.71 [-8_1]; trees (-1393,342) -6.66 [-7_1]; decals (1504,169) -6.63 [7_0]; trees (-1386,339) -6.57 [-7_1]; trees (1578,248) +6.48 [7_1]
 
 ## Einordnung
 - Props: praktisch sauber (nur Stichproben-Ausreisser, siehe oben); Vegetation `wild` wird nicht geprüft (z hat dort andere Bedeutung).

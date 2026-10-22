@@ -24,6 +24,7 @@ import { loadRailZone } from './world/railzone';
 import { Events } from './world/events';
 import { GameClock, bindClockPanel } from './ui/clock';
 import { Bikes, loadBikes } from './world/bikes';
+import { Scooters } from './world/scooters';
 import { loadFurniture } from './world/props';
 import { updateSignals } from './world/trafficsigns';
 import { setSignNight } from './world/signs';
@@ -87,6 +88,7 @@ async function main() {
   ]);
   const ground = (x: number, y: number) => tiles.ground(x, y);
   const bikes = new Bikes(scene);
+  const scooters = new Scooters(scene);
   tiles.bikes = bikes;
   tiles.treeRadius = mobile ? 110 : 170;
   tiles.bikeRadius = mobile ? 110 : 150;
@@ -233,7 +235,7 @@ async function main() {
   };
   player.onBikeCrash = () => { // hard impact on the bike: rider falls, bike stays behind
     const left = player.dismount();
-    if (left) bikes.drop(left.x, left.y, left.z, left.h, left.color);
+    if (left) (left.type === 'scooter' ? scooters : bikes).drop(left.x, left.y, left.z, left.h, left.color);
     audio.carCrash(0.35);
   };
 
@@ -253,17 +255,19 @@ async function main() {
   // --- interaction: bikes -------------------------------------------------------------------------------
   // what E would do now: closest of bike and car
   const pickTarget = () => {
-    const slot = bikes.nearest(player.x, player.y), car = carUse.nearest(), tr = transitUse.nearest();
-    const dBike = slot ? Math.hypot(slot.x - player.x, slot.y - player.y) : Infinity, dCar = car ? car.d : Infinity;
+    const bslot = bikes.nearest(player.x, player.y), sslot = scooters.nearest(player.x, player.y), car = carUse.nearest(), tr = transitUse.nearest();
+    const dist = (s: typeof bslot) => s ? Math.hypot(s.x - player.x, s.y - player.y) : Infinity;
+    const scoot = dist(sslot) < dist(bslot), slot = scoot ? sslot : bslot;
+    const dBike = dist(slot), dCar = car ? car.d : Infinity;
     if (tr && tr.d < dBike && tr.d < dCar) return { kind: 'transit' as const, tr, car: null, slot: null };
     if (car && car.d < dBike) return { kind: 'car' as const, car, slot: null, tr: null };
-    return slot ? { kind: 'bike' as const, slot, car: null, tr: null } : null;
+    return slot ? { kind: scoot ? 'scooter' as const : 'bike' as const, slot, car: null, tr: null } : null;
   };
   const use = () => {
     if (player.driving) { carUse.requestExit(); return; }
     if (player.riding) {
       const left = player.dismount();
-      if (left) bikes.drop(left.x, left.y, left.z, left.h, left.color);
+      if (left) (left.type === 'scooter' ? scooters : bikes).drop(left.x, left.y, left.z, left.h, left.color);
       return;
     }
     const pick = pickTarget();
@@ -271,6 +275,7 @@ async function main() {
     if (pick?.kind === 'transit') { transitUse.enter(pick.tr); return; }
     const slot = pick?.slot;
     if (!slot) return;
+    if (pick.kind === 'scooter') { scooters.take(slot); player.mount(slot); audio.carDoor(); return; }   // rental scooter: unlock, no theft
     const own = slot.mesh === bikes.dropped;
     bikes.take(slot);
     player.mount(slot);
@@ -338,6 +343,8 @@ async function main() {
     map.overlay = player.riding ? velo.lines.map((l) => l.p) : [];
     if (lane && !laneTipShown) { laneTipShown = true; toast('VELO-INFRASTRUKTUR', '+20 % Tempo', 'Auf Velowegen und Velostreifen kommst du schneller und sicherer voran.'); }
     player.update(dt, camera);
+    audio.hum(Math.abs(player.speed), player.onScooter && !player.fallT);
+    if ((frames & 255) === 0) scooters.prune();
     crowd.max = Math.round(quality.peds * density(clk.min, clk.day));
     crowd.clock(clk.min, clk.day);
     // school run Mon–Fri: 07:30–08:15, 11:45–12:15, 15:30–16:30
@@ -409,6 +416,7 @@ async function main() {
     const prompt = player.driving ? (player.driving.dead ? (mobile ? 'Auto kaputt – E = aussteigen' : 'Auto kaputt – E zum Aussteigen') : Math.abs(player.speed) < 3 ? (mobile ? 'E = aussteigen' : 'E drücken: aussteigen') : '')
       : tgt?.kind === 'transit' ? (mobile ? `E = ${tgt.tr.kind === 'tram' ? 'Tram' : 'Bus'} fahren` : `E drücken: ${tgt.tr.kind === 'tram' ? 'Tram' : 'Bus'} fahren`)
       : tgt?.kind === 'car' ? (mobile ? 'E = Auto nehmen' : 'E drücken: Auto nehmen')
+      : tgt?.kind === 'scooter' ? (mobile ? 'E = Trottinett fahren' : 'E drücken: Trottinett fahren')
       : tgt?.kind === 'bike' ? (mobile ? 'E = Velo nehmen' : 'E drücken: Velo nehmen') : player.riding && player.speed < 0.5 ? 'E = absteigen' : '';
     $('prompt').style.display = prompt ? 'block' : 'none';
     $('prompt').textContent = prompt;
@@ -424,7 +432,7 @@ async function main() {
       lastStats = acc;
     }
   });
-  Object.assign(window, { sbxReady: true, sbxActions: sbxActionsHook, sbxFindSpot: (x: number, y: number) => findGoodSpot({ tiles, landmarks: landmarks3d }, x, y), sbxValidSpot: (x: number, y: number) => validSpot({ tiles, landmarks: landmarks3d }, x, y, true), sbxPlayer: player, sbxScene: scene, sbxState: state, sbxBikes: bikes, sbxCarUse: carUse, sbxTransitUse: transitUse, sbxParked: parkedCars, sbxTraffic: traffic, sbxEvents: events, sbxTransit: transit, sbxRail: rail, sbxRenderer: renderer, sbxCamera: camera, sbxTiles: tiles, sbxDaytime: daytime, sbxMap: map, sbxCrowd: crowd }); // hooks for Playwright tests
+  Object.assign(window, { sbxReady: true, sbxActions: sbxActionsHook, sbxFindSpot: (x: number, y: number) => findGoodSpot({ tiles, landmarks: landmarks3d }, x, y), sbxValidSpot: (x: number, y: number) => validSpot({ tiles, landmarks: landmarks3d }, x, y, true), sbxPlayer: player, sbxScene: scene, sbxState: state, sbxBikes: bikes, sbxScooters: scooters, sbxCarUse: carUse, sbxTransitUse: transitUse, sbxParked: parkedCars, sbxTraffic: traffic, sbxEvents: events, sbxTransit: transit, sbxRail: rail, sbxRenderer: renderer, sbxCamera: camera, sbxTiles: tiles, sbxDaytime: daytime, sbxMap: map, sbxCrowd: crowd }); // hooks for Playwright tests
 }
 
 if (!hasWebGL2()) loading.fail('Dein Browser unterstützt WebGL 2 nicht oder hat es abgeschaltet. Bitte aktualisiere den Browser (Chrome, Firefox, Safari ab iOS 15) oder aktiviere die Hardwarebeschleunigung.', false);

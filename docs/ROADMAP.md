@@ -30,15 +30,17 @@ Jedes Milestone endet mit etwas, das der User im Browser (auch auf dem Handy) au
 - [x] Stadtkarte im GTA-Stil: Theme, Blips, Legende, kuratierte Sterne, Kreis-Namen 3/4/5/9 (#66, #68)
 - [x] Tramgleise flach auf der Strasse, Brückendecks ohne Mauern (#67, #69)
 - [x] Velotunnel-Einfahrt geschlossen unter der Kasernenstrasse (#71)
-- [ ] Tramdeck-Rampen neben ebenen Strassen entfernen (Sihlpost/Kasernenstrasse)
-- [ ] Unterführungen ohne quer liegende Decks (Langstrassen-Unterführung u. a.)
-- [ ] Möbel/Tische nicht auf der Fahrbahn; Objekte nicht ineinander (Laterne im Brunnen Bullingerplatz, Velos im Velotunnel)
-- [ ] Strassenmarkierungen gegen Orthofoto plausibilisiert: Zonen 1–3, dann 4–5
+- [x] Tramdeck-Rampen neben ebenen Strassen entfernen (Sihlpost/Kasernenstrasse)
+- [x] Unterführungen ohne quer liegende Decks (Langstrassen-Unterführung u. a.)
+- [x] Möbel/Tische nicht auf der Fahrbahn; Objekte nicht ineinander (Laterne im Brunnen Bullingerplatz, Velos im Velotunnel)
+- [x] Strassenmarkierungen gegen Orthofoto plausibilisiert: Zonen 1–3, dann 4–5
 - [ ] Woche 2: Häuser nach Fotos an den Kamerapunkten der Zonen 2, 1, 4 (Zonen 3, 5 erledigt)
 - [ ] Stadtweite Fehlersuche: Modelle auf ihrem Gebäude, schwebende/versunkene Objekte
 - [ ] Texturen der kleinen Landmarks in Atlas (Speicher, qa_leak tex max ~595)
 - [ ] Stadtkarte: Handy-Übersicht grösser, weniger dunkle Punkte in der Nahansicht, Radar-Rand
 - [ ] Rathaus Hard: Betonlöwin detaillierter, Gemeindehaus/Pfarrhäuser
+- [x] LiDAR Kanton ZH für Brückendecks (#73); [ ] LiDAR-Audits abarbeiten (schwebende Objekte, Bäume, Masten)
+- [x] Leih-Trottinette fahrbar
 
 ## M2 – Lebendige Stadt
 - [x] Trams und Busse auf echten Linien (Testgebiet)

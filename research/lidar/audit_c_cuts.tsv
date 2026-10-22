@@ -1,0 +1,145 @@
+cut	s	x	y	profile_z	lidar_z	dz
+Zuerich HB: Haupthalle/Querhalle/Suedtra	poly			-2.9	-3.15	0.25
+Langstrassen-Unterfuehrung: sunken road 	-75.0	863.9	-432.6	-3.0	-3.41	0.42
+Langstrassen-Unterfuehrung: sunken road 	-73.0	864.7	-430.8	-3.13	-3.47	0.34
+Langstrassen-Unterfuehrung: sunken road 	-71.0	865.5	-428.9	-3.27	-3.54	0.27
+Langstrassen-Unterfuehrung: sunken road 	-69.0	866.3	-427.1	-3.41	-3.61	0.2
+Langstrassen-Unterfuehrung: sunken road 	-67.0	867.1	-425.3	-3.55	-3.71	0.16
+Langstrassen-Unterfuehrung: sunken road 	-65.0	867.9	-423.4	-3.69	-3.82	0.13
+Langstrassen-Unterfuehrung: sunken road 	-63.0	868.7	-421.6	-3.83	-3.91	0.08
+Langstrassen-Unterfuehrung: sunken road 	-61.0	869.5	-419.8	-3.97	-4.04	0.07
+Langstrassen-Unterfuehrung: sunken road 	-59.0	870.3	-418.0	-4.11	-4.16	0.05
+Langstrassen-Unterfuehrung: sunken road 	-57.0	871.1	-416.1	-4.24	-4.28	0.04
+Langstrassen-Unterfuehrung: sunken road 	-55.0	871.9	-414.3	-4.38	-4.43	0.05
+Langstrassen-Unterfuehrung: sunken road 	-53.0	872.7	-412.5	-4.52	-4.58	0.06
+Langstrassen-Unterfuehrung: sunken road 	-51.0	873.5	-410.6	-4.66	-4.72	0.06
+Langstrassen-Unterfuehrung: sunken road 	-49.0	874.3	-408.8	-4.8	-4.88	0.08
+Langstrassen-Unterfuehrung: sunken road 	-47.0	875.1	-407.0	-4.94	-5.02	0.08
+Langstrassen-Unterfuehrung: sunken road 	-45.0	875.9	-405.1	-5.08	-5.16	0.08
+Langstrassen-Unterfuehrung: sunken road 	-43.0	876.7	-403.3	-5.22	-5.3	0.08
+Langstrassen-Unterfuehrung: sunken road 	-41.0	877.5	-401.5	-5.35	-5.45	0.1
+Langstrassen-Unterfuehrung: sunken road 	-39.0	878.4	-399.6	-5.49	-5.6	0.11
+Langstrassen-Unterfuehrung: sunken road 	-37.0	879.2	-397.8	-5.63	-5.73	0.1
+Langstrassen-Unterfuehrung: sunken road 	-35.0	880.0	-396.0	-5.77	-5.89	0.12
+Langstrassen-Unterfuehrung: sunken road 	-33.0	880.8	-394.2	-5.91	-6.02	0.11
+Langstrassen-Unterfuehrung: sunken road 	-31.0	881.6	-392.3	-6.05	-6.15	0.1
+Langstrassen-Unterfuehrung: sunken road 	-29.0	882.4	-390.5	-6.19	-6.31	0.12
+Langstrassen-Unterfuehrung: sunken road 	-27.0	883.2	-388.7	-6.33	-6.44	0.11
+Langstrassen-Unterfuehrung: sunken road 	-25.0	884.0	-386.8	-6.46	-6.57	0.11
+Langstrassen-Unterfuehrung: sunken road 	-23.0	884.8	-385.0	-6.6	-6.72	0.12
+Langstrassen-Unterfuehrung: sunken road 	-21.0	885.6	-383.2	-6.74	-6.85	0.11
+Langstrassen-Unterfuehrung: sunken road 	-19.0	886.4	-381.3	-6.88	-7.01	0.13
+Langstrassen-Unterfuehrung: sunken road 	-17.0	887.2	-379.5	-7.02	-7.14	0.12
+Langstrassen-Unterfuehrung: sunken road 	-15.0	888.0	-377.7	-7.16	-7.28	0.12
+Langstrassen-Unterfuehrung: sunken road 	-13.0	888.8	-375.8	-7.3	-7.43	0.13
+Langstrassen-Unterfuehrung: sunken road 	-11.0	889.6	-374.0	-7.44	-7.55	0.11
+Langstrassen-Unterfuehrung: sunken road 	-9.0	890.4	-372.2	-7.58	-7.71	0.13
+Langstrassen-Unterfuehrung: sunken road 	-7.0	891.2	-370.3	-7.71	-7.84	0.13
+Langstrassen-Unterfuehrung: sunken road 	-5.0	892.0	-368.5	-7.85	-7.97	0.12
+Langstrassen-Unterfuehrung: sunken road 	-3.0	892.8	-366.7	-7.99	-8.13	0.14
+Langstrassen-Unterfuehrung: sunken road 	-1.0	893.6	-364.9	-8.13	-8.26	0.13
+Langstrassen-Unterfuehrung: sunken road 	1.0	894.4	-363.0	-8.21	-8.35	0.14
+Langstrassen-Unterfuehrung: sunken road 	3.0	895.2	-361.2	-8.22	-2.16	-6.06
+Langstrassen-Unterfuehrung: sunken road 	5.0	896.1	-359.4	-8.23	-2.19	-6.04
+Langstrassen-Unterfuehrung: sunken road 	7.0	896.9	-357.5	-8.24	-2.11	-6.13
+Langstrassen-Unterfuehrung: sunken road 	9.0	897.7	-355.7	-8.26	-2.22	-6.04
+Langstrassen-Unterfuehrung: sunken road 	11.0	898.5	-353.9	-8.27	-2.16	-6.11
+Langstrassen-Unterfuehrung: sunken road 	13.0	899.3	-352.0	-8.28	-2.21	-6.07
+Langstrassen-Unterfuehrung: sunken road 	15.0	900.1	-350.2	-8.3	-2.2	-6.1
+Langstrassen-Unterfuehrung: sunken road 	17.0	900.9	-348.4	-8.31	-2.15	-6.16
+Langstrassen-Unterfuehrung: sunken road 	19.0	901.7	-346.5	-8.32	-2.15	-6.17
+Langstrassen-Unterfuehrung: sunken road 	21.0	902.5	-344.7	-8.33	-2.18	-6.15
+Langstrassen-Unterfuehrung: sunken road 	23.0	903.3	-342.9	-8.35	-2.21	-6.14
+Langstrassen-Unterfuehrung: sunken road 	25.0	904.1	-341.1	-8.36	-2.18	-6.18
+Langstrassen-Unterfuehrung: sunken road 	27.0	904.9	-339.2	-8.37	-2.16	-6.21
+Langstrassen-Unterfuehrung: sunken road 	29.0	905.7	-337.4	-8.39	-2.17	-6.22
+Langstrassen-Unterfuehrung: sunken road 	31.0	906.5	-335.6	-8.4	-2.22	-6.18
+Langstrassen-Unterfuehrung: sunken road 	33.0	907.3	-333.7	-8.41	-2.35	-6.06
+Langstrassen-Unterfuehrung: sunken road 	35.0	908.1	-331.9	-8.42	-2.34	-6.08
+Langstrassen-Unterfuehrung: sunken road 	37.0	908.9	-330.1	-8.44	-2.56	-5.88
+Langstrassen-Unterfuehrung: sunken road 	39.0	909.7	-328.2	-8.45	-2.55	-5.9
+Langstrassen-Unterfuehrung: sunken road 	41.0	910.5	-326.4	-8.46	-2.56	-5.9
+Langstrassen-Unterfuehrung: sunken road 	43.0	911.3	-324.6	-8.48	-2.65	-5.83
+Langstrassen-Unterfuehrung: sunken road 	45.0	912.1	-322.7	-8.49	-2.61	-5.88
+Langstrassen-Unterfuehrung: sunken road 	47.0	912.9	-320.9	-8.5	-2.63	-5.87
+Langstrassen-Unterfuehrung: sunken road 	49.0	913.8	-319.1	-8.51	-2.62	-5.89
+Langstrassen-Unterfuehrung: sunken road 	51.0	914.6	-317.2	-8.53	-2.6	-5.93
+Langstrassen-Unterfuehrung: sunken road 	53.0	915.4	-315.4	-8.54	-2.56	-5.98
+Langstrassen-Unterfuehrung: sunken road 	55.0	916.2	-313.6	-8.55	-2.71	-5.84
+Langstrassen-Unterfuehrung: sunken road 	57.0	917.0	-311.8	-8.57	-2.73	-5.84
+Langstrassen-Unterfuehrung: sunken road 	59.0	917.8	-309.9	-8.58	-2.81	-5.77
+Langstrassen-Unterfuehrung: sunken road 	61.0	918.6	-308.1	-8.59	-2.89	-5.7
+Langstrassen-Unterfuehrung: sunken road 	63.0	919.4	-306.3	-8.6	-2.89	-5.71
+Langstrassen-Unterfuehrung: sunken road 	65.0	920.2	-304.4	-8.62	-2.92	-5.7
+Langstrassen-Unterfuehrung: sunken road 	67.0	921.0	-302.6	-8.63	-2.86	-5.77
+Langstrassen-Unterfuehrung: sunken road 	69.0	921.8	-300.8	-8.64	-2.84	-5.8
+Langstrassen-Unterfuehrung: sunken road 	71.0	922.6	-298.9	-8.66	-2.84	-5.82
+Langstrassen-Unterfuehrung: sunken road 	73.0	923.4	-297.1	-8.67	-2.58	-6.09
+Langstrassen-Unterfuehrung: sunken road 	75.0	924.2	-295.3	-8.68	-2.69	-5.99
+Langstrassen-Unterfuehrung: sunken road 	77.0	925.0	-293.4	-8.69	-2.65	-6.04
+Langstrassen-Unterfuehrung: sunken road 	79.0	925.8	-291.6	-8.71	-2.67	-6.04
+Langstrassen-Unterfuehrung: sunken road 	81.0	926.6	-289.8	-8.72	-2.66	-6.06
+Langstrassen-Unterfuehrung: sunken road 	83.0	927.4	-288.0	-8.73	-2.65	-6.08
+Langstrassen-Unterfuehrung: sunken road 	85.0	928.2	-286.1	-8.75	-2.68	-6.07
+Langstrassen-Unterfuehrung: sunken road 	87.0	929.0	-284.3	-8.76	-2.68	-6.08
+Langstrassen-Unterfuehrung: sunken road 	89.0	929.8	-282.5	-8.77	-2.57	-6.2
+Langstrassen-Unterfuehrung: sunken road 	91.0	930.6	-280.6	-8.78	-2.49	-6.29
+Langstrassen-Unterfuehrung: sunken road 	93.0	931.5	-278.8	-8.8	-2.35	-6.45
+Langstrassen-Unterfuehrung: sunken road 	95.0	932.3	-277.0	-8.7	-8.7	-0.0
+Langstrassen-Unterfuehrung: sunken road 	97.0	933.1	-275.1	-8.56	-8.57	0.01
+Langstrassen-Unterfuehrung: sunken road 	99.0	933.9	-273.3	-8.42	-8.43	0.01
+Langstrassen-Unterfuehrung: sunken road 	101.0	934.7	-271.5	-8.28	-8.29	0.01
+Langstrassen-Unterfuehrung: sunken road 	103.0	935.5	-269.6	-8.15	-8.16	0.01
+Langstrassen-Unterfuehrung: sunken road 	105.0	936.3	-267.8	-8.01	-8.02	0.01
+Langstrassen-Unterfuehrung: sunken road 	107.0	937.1	-266.0	-7.87	-7.88	0.01
+Langstrassen-Unterfuehrung: sunken road 	109.0	937.9	-264.1	-7.73	-7.72	-0.01
+Langstrassen-Unterfuehrung: sunken road 	111.0	938.7	-262.3	-7.59	-7.58	-0.01
+Langstrassen-Unterfuehrung: sunken road 	113.0	939.5	-260.5	-7.45	-7.43	-0.02
+Langstrassen-Unterfuehrung: sunken road 	115.0	940.3	-258.7	-7.31	-7.29	-0.02
+Langstrassen-Unterfuehrung: sunken road 	117.0	941.1	-256.8	-7.17	-7.15	-0.02
+Langstrassen-Unterfuehrung: sunken road 	119.0	941.9	-255.0	-7.04	-7.0	-0.04
+Langstrassen-Unterfuehrung: sunken road 	121.0	942.7	-253.2	-6.9	-6.87	-0.03
+Langstrassen-Unterfuehrung: sunken road 	123.0	943.5	-251.3	-6.76	-6.74	-0.02
+Langstrassen-Unterfuehrung: sunken road 	125.0	944.3	-249.5	-6.62	-6.6	-0.02
+Langstrassen-Unterfuehrung: sunken road 	127.0	945.1	-247.7	-6.48	-6.45	-0.03
+Langstrassen-Unterfuehrung: sunken road 	129.0	945.9	-245.8	-6.34	-6.32	-0.02
+Langstrassen-Unterfuehrung: sunken road 	131.0	946.7	-244.0	-6.2	-6.18	-0.02
+Langstrassen-Unterfuehrung: sunken road 	133.0	947.5	-242.2	-6.06	-6.04	-0.03
+Langstrassen-Unterfuehrung: sunken road 	135.0	948.3	-240.3	-5.93	-5.92	-0.01
+Langstrassen-Unterfuehrung: sunken road 	137.0	949.2	-238.5	-5.79	-5.78	-0.01
+Langstrassen-Unterfuehrung: sunken road 	139.0	950.0	-236.7	-5.65	-5.67	0.02
+Langstrassen-Unterfuehrung: sunken road 	141.0	950.8	-234.9	-5.51	-5.55	0.04
+Langstrassen-Unterfuehrung: sunken road 	143.0	951.6	-233.0	-5.37	-5.47	0.1
+Langstrassen-Unterfuehrung: sunken road 	145.0	952.4	-231.2	-5.23	-5.41	0.18
+Langstrassen-Unterfuehrung: sunken road 	147.0	953.2	-229.4	-5.09	-5.33	0.24
+Langstrassen-Unterfuehrung: sunken road 	149.0	954.0	-227.5	-4.95	-5.27	0.32
+Langstrassen-Unterfuehrung: sunken road 	151.0	954.8	-225.7	-4.82	-5.23	0.41
+Langstrassen-Unterfuehrung: sunken road 	153.0	955.6	-223.9	-4.68	-5.2	0.52
+Langstrassen-Unterfuehrung: sunken road 	155.0	956.4	-222.0	-4.54	-5.19	0.65
+Langstrassen-Unterfuehrung: sunken road 	157.0	957.2	-220.2	-4.4	-5.18	0.78
+Langstrassen-Unterfuehrung: sunken road 	159.0	958.0	-218.4	-4.26	-5.17	0.91
+Langstrassen-Unterfuehrung: sunken road 	161.0	958.8	-216.5	-4.12	-5.19	1.06
+Langstrassen-Unterfuehrung: sunken road 	163.0	959.6	-214.7	-3.98	-5.19	1.21
+Langstrassen-Unterfuehrung: sunken road 	165.0	960.4	-212.9	-3.84	-5.18	1.34
+Langstrassen-Unterfuehrung: sunken road 	167.0	961.2	-211.0	-3.71	-5.18	1.47
+Velotunnel Stadttunnel: portal mouth at 	0.0	1468.2	-728.1	-4.95	-5.87	0.92
+Velotunnel Stadttunnel: portal mouth at 	2.0	1469.4	-726.5	-5.06	-6.0	0.95
+Velotunnel Stadttunnel: portal mouth at 	4.0	1470.5	-724.8	-5.16	-6.14	0.98
+Velotunnel Stadttunnel: portal mouth at 	6.0	1471.6	-723.2	-5.32	-1.99	-3.33
+Velotunnel Stadttunnel: under the Sihl b	0.0	1470.5	-724.8	50.0	-6.14	56.14
+Velotunnel Stadttunnel: under the Sihl b	2.0	1471.6	-723.1	50.0	-1.99	51.99
+Velotunnel Stadttunnel: under the Sihl b	4.0	1472.8	-721.5	50.0	-2.05	52.05
+Velotunnel Stadttunnel: under the Sihl b	6.0	1473.9	-719.8	50.0	-2.21	52.21
+Velotunnel Stadttunnel: under the Sihl b	8.0	1475.0	-718.2	50.0	-2.36	52.36
+Velotunnel Stadttunnel: under the Sihl b	10.0	1476.2	-716.5	50.0	-2.46	52.46
+Velotunnel Stadttunnel: under the Sihl b	12.0	1477.3	-714.9	50.0	-2.5	52.5
+Velotunnel Stadttunnel: under the Sihl b	14.0	1478.4	-713.2	50.0	-2.5	52.5
+Velotunnel Stadttunnel: under the Sihl b	16.0	1479.5	-711.6	50.0	-2.49	52.49
+Velotunnel Stadttunnel: under the Sihl b	18.0	1480.7	-709.9	50.0	-2.49	52.49
+Velotunnel Stadttunnel: under the Sihl b	20.0	1481.8	-708.3	50.0	-2.49	52.49
+Velotunnel Stadttunnel: under the Sihl b	22.0	1482.9	-706.6	50.0	-2.47	52.47
+Velotunnel Stadttunnel: under the Sihl b	24.0	1484.1	-705.0	50.0	-2.48	52.48
+Velotunnel Stadttunnel: under the Sihl b	26.0	1485.2	-703.3	50.0	-2.46	52.46
+Velotunnel Stadttunnel: under the Sihl b	28.0	1486.3	-701.7	50.0	-2.47	52.47
+Velotunnel Stadttunnel: under the Sihl b	30.0	1487.5	-700.0	50.0	-2.46	52.46
+Velotunnel Stadttunnel: under the Sihl b	32.0	1488.6	-698.4	50.0	-2.47	52.47

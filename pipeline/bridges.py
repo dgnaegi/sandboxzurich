@@ -11,6 +11,7 @@ ground height at both chain ends. Ends are extended along the continuing non-bri
 deck meets the ground there. See research/bridges.md.
 """
 import json
+import os
 import math
 from collections import defaultdict
 from pathlib import Path
@@ -111,6 +112,69 @@ def _load_excl():  # bridges_excl
 
 
 _BRIDGES_EXCL = _load_excl()  # bridges_excl
+
+
+def _roof():
+    import terrain_cuts
+    h = terrain_cuts.holes()
+    return shapely.buffer(h, 1.5) if h is not None else None
+
+
+_ROOF = _roof()
+
+
+LIDAR_DECKS = "" if os.environ.get("SBZ_LIDAR_DECKS") == "0" else os.environ.get("SBZ_LIDAR_DECKS", "1")  # default on, "0" off; "1": measured LiDAR deck heights (road/tram/foot) replace the rule-based z; "rail": rails too
+LIDAR_MAXOFF = 4.0   # m: measured - rule offsets beyond this are layer confusions (road above / below), not corrections
+LIDAR_JOIN = 1.5     # m: chain ends closer than this share one height
+
+
+def _lidar_decks(prep, bridge_nodes):
+    """Phase B (research/lidar): z of each chain = LiDAR deck surface (class 17 top, ground where at grade; lidar_deck.deck_profile).
+    Applied as an offset field on the rule-based z so unmeasured stretches keep the rule shape: offset is interpolated between
+    measured vertices (held constant beyond the last one, faded out to 0 at the chain end if that end is at grade). z never goes
+    below the ground g. Chain ends that meet another chain are then averaged."""
+    try:
+        import lidar_deck
+        if not lidar_deck.lidar.GRID.exists():
+            return
+    except Exception as e:  # no LiDAR cache (CI / fresh checkout): keep the rule-based decks
+        print("bridges: lidar decks skipped:", e)
+        return
+    n_ok = n_ch = 0
+    for ch in prep:
+        if ch["kind"] == "rail" and LIDAR_DECKS != "rail":
+            continue
+        P, z, g, s = ch["P"], ch["z"], ch["g"], ch["s"]
+        prof = lidar_deck.deck_profile({"p": np.column_stack([P, z]), "w": ch["wd"]})
+        m = prof["z"]
+        ok = np.isfinite(m) & (np.abs(m - z) <= LIDAR_MAXOFF)
+        if ok.sum() < max(3, 0.3 * len(z)):
+            continue
+        off = np.interp(s, s[ok], (m - z)[ok])   # constant beyond the first / last measured vertex
+        # a rule-deck end that is at grade (z ~ g) stays at grade: fade the offset out over 25 m towards that end
+        fade = np.ones(len(z))
+        for end in (0, -1):
+            if z[end] - g[end] < 0.3:
+                fade = np.minimum(fade, np.clip(np.abs(s - s[end]) / 25.0, 0, 1))
+        off = off * fade
+        zn = np.maximum(z + off, g)
+        ch["z"] = zn
+        n_ok += 1
+        n_ch += int(ok.sum())
+    # joints: ends meeting another chain share one height
+    ends = [(i, k, ch["P"][k]) for i, ch in enumerate(prep) for k in (0, -1)]
+    for a in range(len(ends)):
+        for b in range(a + 1, len(ends)):
+            (i, k, p), (j, l, q) = ends[a], ends[b]
+            if i != j and np.hypot(*(p - q)) < LIDAR_JOIN and (prep[i]["z"] is not prep[j]["z"]):
+                zm = 0.5 * (prep[i]["z"][k] + prep[j]["z"][l])
+                if abs(prep[i]["z"][k] - prep[j]["z"][l]) < 2.0:
+                    for c, kk in ((i, k), (j, l)):
+                        zz = prep[c]["z"].copy(); old = zz[kk]; zz[kk] = zm
+                        nb = 1 if kk == 0 else len(zz) - 2
+                        zz[nb] += 0.5 * (zm - old)
+                        prep[c]["z"] = zz
+    print(f"bridges: LiDAR decks applied to {n_ok} chains ({n_ch} measured vertices)")
 
 
 def bridge_ways(nodes, els, area, H=None, H_raw=None):
@@ -241,6 +305,10 @@ def bridge_ways(nodes, els, area, H=None, H_raw=None):
         if H_raw is not None:  # roads2: a trench (rail cutting) the smoothing partly filled is still the real ground below the deck: clearance counts from it
             gr = np.array([float(H_raw.at(x, y)) for x, y in P])
             g = np.where(g - gr > 1.0, gr, g)
+        if _ROOF is not None:  # covered underpass (terrain_cuts "hole"): the lowered floor is not the ground under a deck above it, the roof is: interpolate from outside
+            inside = shapely.contains_xy(_ROOF, P[:, 0], P[:, 1])
+            if inside.any() and not inside.all():
+                g = np.where(inside, np.interp(s, s[~inside], g[~inside]), g)
         chain_nodes = set(nid)
         # obstacle requirements along the core
         req = np.full(len(P), -np.inf)
@@ -290,6 +358,9 @@ def bridge_ways(nodes, els, area, H=None, H_raw=None):
                 n = ch["nid"][k]
                 new_z[n] = max(new_z.get(n, -1e9), float(ch["z"][k]))
         node_z = new_z
+
+    if LIDAR_DECKS:
+        _lidar_decks(prep, bridge_nodes)
 
     out = []
     for ch in prep:
@@ -351,6 +422,10 @@ def bridge_ways(nodes, els, area, H=None, H_raw=None):
                     "piers": piers, "excl": excl, "max_el": float(el.max()), "max_slope": _maxslope(s, z),
                     "len": float(s[-1])})
     _snap_foot(out)
+    _open_sides(out)
+    out = _trim_tram(out)
+    for b in out:   # open sides again on the trimmed set: a road deck must not stay open towards a dropped tram strip (car fell into the Sihl at Gessnerbrücke)
+        b.pop("ol", None); b.pop("or", None)
     _open_sides(out)
     _zebras(out, nodes, els)
     if H_given and H_raw is not None:  # roads2: only the real build (it passes the unsmoothed grid) writes the chain cache; audits do not
@@ -534,6 +609,73 @@ def _open_sides(out, max_dz=0.5, max_gap=1.5, snap_dz=1.5):
                         orr[i] = 1
             if not snap and (any(ol) or any(orr)):
                 a["ol"], a["or"] = ol, orr
+
+
+def _trim_tram(out, el_min=2.5, near=0.5):
+    """Trams run on the normal street (User 2026-10-21): a tram deck part stays only next to a road deck at the same height
+    (after _open_sides it took the road deck's height) or where it is really elevated (a ramp group whose peak is >= el_min above
+    the ground: water/rail/road below). Ramps alongside at-grade streets are dropped, the tram then follows the terrain
+    (decktrack/transit fall back to the ground height there). Chains are split at the dropped parts."""
+    roads = [b for b in out if b["kind"] == "road"]
+    rl = [LineString(np.array(b["p"])[:, :2]) for b in roads]
+    rP = [np.array(b["p"]) for b in roads]
+    rc = [np.concatenate([[0], np.cumsum(np.hypot(*np.diff(P[:, :2], axis=0).T))]) for P in rP]
+    tree = STRtree(rl) if rl else None
+    res = []
+    for b in out:
+        if b["kind"] != "tram":
+            res.append(b)
+            continue
+        P = np.array(b["p"]); g = np.array(b["g"]); n = len(P); el = P[:, 2] - g
+        road = np.zeros(n, bool)
+        if tree is not None:
+            for i in range(n):
+                pt = Point(P[i, :2])
+                for j in tree.query(pt.buffer(14)):
+                    if rl[j].distance(pt) <= roads[j]["w"] / 2 + b["w"] / 2 + 1.5:
+                        sj = rl[j].project(pt)
+                        if abs(float(np.interp(sj, rc[j], rP[j][:, 2])) - P[i, 2]) < near:
+                            road[i] = True
+                            break
+        keep = road.copy()
+        i = 0
+        while i < n:  # ramp groups: contiguous elevated vertices not beside a road deck
+            if el[i] > 0.15 and not road[i]:
+                j = i
+                while j + 1 < n and el[j + 1] > 0.15 and not road[j + 1]:
+                    j += 1
+                if el[i:j + 1].max() >= el_min:
+                    keep[i:j + 1] = True
+                i = j + 1
+            else:
+                i += 1
+        if keep.all():
+            res.append(b)
+            continue
+        i = 0
+        while i < n:
+            if not keep[i]:
+                i += 1
+                continue
+            j = i
+            while j + 1 < n and keep[j + 1]:
+                j += 1
+            if j - i >= 1:
+                sl = slice(i, j + 1)
+                nb = dict(b)
+                nb["p"] = b["p"][sl]; nb["g"] = b["g"][sl]; nb["b"] = b["b"][sl]
+                if "ol" in b:
+                    nb["ol"] = b["ol"][sl]; nb["or"] = b["or"][sl]
+                Q = P[sl]
+                sq = np.concatenate([[0], np.cumsum(np.hypot(*np.diff(Q[:, :2], axis=0).T))])
+                nb["len"] = float(sq[-1]); nb["max_el"] = float(el[sl].max()); nb["max_slope"] = _maxslope(sq, Q[:, 2])
+                nb["piers"] = [q for q in b["piers"] if np.min(np.hypot(Q[:, 0] - q[0], Q[:, 1] - q[1])) < 8.0]
+                segs = [LineString(Q[k:k + 2, :2]).buffer(b["w"] / 2 + 0.5, cap_style="flat")
+                        for k in range(len(Q) - 1) if min(el[i + k], el[i + k + 1]) > 0.3]
+                nb["excl"] = shapely.union_all(segs) if segs else shapely.Polygon()
+                res.append(nb)
+            i = j + 1
+    return res
 
 
 def _maxslope(s, z):

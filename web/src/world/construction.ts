@@ -147,29 +147,7 @@ export function buildCranes(rows: number[][]): THREE.Object3D[] {
   return out;
 }
 
-const scooterGeo = mergeGeometries([
-  part(new THREE.BoxGeometry(0.16, 0.05, 0.85).translate(0, 0.1, 0), C(0x222426)),
-  part(new THREE.CylinderGeometry(0.02, 0.02, 1.05, 5).translate(0, 0.62, -0.4), C(0x2a2c2e)),
-  part(new THREE.BoxGeometry(0.45, 0.03, 0.03).translate(0, 1.14, -0.4), C(0x2a2c2e)),
-  part(new THREE.CylinderGeometry(0.1, 0.1, 0.05, 10).rotateZ(Math.PI / 2).translate(0, 0.1, -0.45), C(0x111111)),
-  part(new THREE.CylinderGeometry(0.1, 0.1, 0.05, 10).rotateZ(Math.PI / 2).translate(0, 0.1, 0.42), C(0x111111)),
-])!;
-const SCOOTER_COLS = [0x1fae5a, 0x2f6fd6, 0xe8e8e2].map((c) => new THREE.Color(c));
-const scooterMat = new THREE.MeshLambertMaterial({ vertexColors: true });
-
-export function buildScooters(rows: number[][]): THREE.Object3D[] {
-  if (!rows.length) return [];
-  const im = new THREE.InstancedMesh(scooterGeo, scooterMat, rows.length);
-  const m = new THREE.Matrix4(), q = new THREE.Quaternion(), p = new THREE.Vector3(), s = new THREE.Vector3(1, 1, 1);
-  const lean = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), 0.18); // on the kickstand
-  rows.forEach(([x, y, z, h, c], i) => {
-    q.setFromAxisAngle(new THREE.Vector3(0, 1, 0), -h).multiply(lean);
-    im.setMatrixAt(i, m.compose(p.set(x, z, -y), q, s));
-    im.setColorAt(i, SCOOTER_COLS[c % SCOOTER_COLS.length]);
-  });
-  im.computeBoundingSphere();
-  return [im];
-}
+export { buildScooters } from './scooters';   // rideable shared e-scooters live in scooters.ts
 
 /** Construction fence closing the playable map: panels along polylines [[x, y, z], ...] with banners and blinkers. */
 let fenceBanner: THREE.Texture | null = null;

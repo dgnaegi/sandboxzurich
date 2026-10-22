@@ -27,14 +27,14 @@ const sp = new THREE.Vector3(), ss = new THREE.Vector3(), UP = new THREE.Vector3
 const q1 = new THREE.Quaternion(), q2 = new THREE.Quaternion(), q3 = new THREE.Quaternion(), qs = new THREE.Quaternion(), inv = new THREE.Matrix4();
 
 /** Position / orientation of a bone relative to the character root. */
-function posIn(root: THREE.Object3D, o: THREE.Object3D, out: THREE.Vector3) { return out.setFromMatrixPosition(o.matrixWorld).applyMatrix4(inv.copy(root.matrixWorld).invert()); }
+export function posIn(root: THREE.Object3D, o: THREE.Object3D, out: THREE.Vector3) { return out.setFromMatrixPosition(o.matrixWorld).applyMatrix4(inv.copy(root.matrixWorld).invert()); }
 function quatIn(root: THREE.Object3D, o: THREE.Object3D, out: THREE.Quaternion) {
   o.matrixWorld.decompose(sp, out, ss); root.matrixWorld.decompose(sp, qs, ss);
   return out.premultiply(qs.invert());
 }
 
 /** Rotate `bone` (swing only) so that its Y axis points along `dir` (root space). */
-function aim(root: THREE.Object3D, bone: THREE.Object3D, dir: THREE.Vector3) {
+export function aim(root: THREE.Object3D, bone: THREE.Object3D, dir: THREE.Vector3) {
   const cur = quatIn(root, bone, q1), axis = v1.set(0, 1, 0).applyQuaternion(cur);
   const swing = q2.setFromUnitVectors(axis, v2.copy(dir).normalize());
   const want = swing.multiply(cur);                       // new root-space orientation
@@ -44,7 +44,7 @@ function aim(root: THREE.Object3D, bone: THREE.Object3D, dir: THREE.Vector3) {
 }
 
 /** Two-bone IK: root bone `a` (upper), `b` (lower), end `c`; end reaches `target`, middle joint bends toward `pole`. */
-function ik(root: THREE.Object3D, a: THREE.Object3D, b: THREE.Object3D, c: THREE.Object3D, target: THREE.Vector3, pole: THREE.Vector3) {
+export function ik(root: THREE.Object3D, a: THREE.Object3D, b: THREE.Object3D, c: THREE.Object3D, target: THREE.Vector3, pole: THREE.Vector3) {
   const A = posIn(root, a, new THREE.Vector3()), B = posIn(root, b, new THREE.Vector3()), C = posIn(root, c, new THREE.Vector3());
   const l1 = A.distanceTo(B), l2 = B.distanceTo(C);
   const T = target.clone().sub(A), d = Math.min(Math.max(T.length(), Math.abs(l1 - l2) + 1e-3), l1 + l2 - 1e-3);

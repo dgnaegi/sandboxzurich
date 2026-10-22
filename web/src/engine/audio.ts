@@ -125,6 +125,21 @@ export class Audio {
     e.g.gain.setTargetAtTime(on ? 0.035 + 0.05 * load + 0.02 * rpm : 0, t, 0.1);
     e.tyre.gain.setTargetAtTime(on ? Math.min(0.1, Math.abs(speed) * 0.0022 + Math.min(1, slip) * 0.06) : 0, t, 0.1);
   }
+  private humN: { o: OscillatorNode; g: GainNode } | null = null;
+  /** Very quiet electric-motor whine of the e-scooter (speed in m/s); call each frame while riding and once with on = false. */
+  hum(speed: number, on: boolean) {
+    if (!this.ctx) return;
+    const ctx = this.ctx, t = ctx.currentTime;
+    if (!this.humN) {
+      if (!on) return;
+      const o = ctx.createOscillator(), g = ctx.createGain(), lp = ctx.createBiquadFilter();
+      o.type = 'triangle'; lp.type = 'lowpass'; lp.frequency.value = 1400; g.gain.value = 0;
+      o.connect(lp).connect(g).connect(this.master); o.start();
+      this.humN = { o, g };
+    }
+    this.humN.o.frequency.setTargetAtTime(210 + speed * 75, t, 0.06);
+    this.humN.g.gain.setTargetAtTime(on ? Math.min(0.022, speed * 0.005) : 0, t, 0.12);
+  }
   jingle(ok: boolean) {
     if (!this.ctx) return; const t = this.ctx.currentTime;
     (ok ? [523, 659, 784, 1047] : [392, 330, 262]).forEach((f, i) => this.tone(f, t + i * 0.13, 0.35, 'square', 0.08));

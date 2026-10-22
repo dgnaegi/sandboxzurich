@@ -19,3 +19,8 @@ Datensatz: https://data.stadt-zuerich.ch/dataset/ktzh_lidar_laserscanning_punktw
 
 ## Tools
 `pipeline/lidar.py` (load / grids / profile / intensity_raster, Crop-Cache in `data/raw/lidar/crops/`). Reader: `laspy[lazrs]`, `brotli`, `scipy`, `matplotlib` in `requirements.txt`.
+
+## Raster-Cache und Audits (Phase A, 2026-10-21)
+- `pipeline/lidar_grid.py` (ein Durchlauf, 78 s mit 2 Prozessen, ~130 MB): pro Quellkachel `data/build/lidar/g_<E>_<N>.npz` mit 0.5-m-Rastern (int16 cm, Spielhöhe, -32768 = keine Daten): `dtm` (Klasse 2, Mittel), `bridge` (Klasse 17, max), `top` (Klassen 1/2/6/17, max), `bld` (Klasse 6), `veg` (Klassen 3-5, max) und `mast` (Nx5: x, y, z_top, z_base, n; vertikale Cluster aus Klasse 15 und 1, > 3.5 m über Boden, ohne Gebäude/Kronen).
+- Loader in `pipeline/lidar.py`: `dtm/bridge/top/bld/veg/chm(x, y)`, `dtm_filled`, `masts(bbox)`. `pipeline/lidar_deck.py`: `deck_profile(chain)` (gemessene Deckhöhe je Chain-Punkt, noch nicht in bridges.py verwendet).
+- `pipeline/audit_lidar.py [a b c d e]` -> `research/lidar/audit_*.tsv` + `audit_lidar.md`; `pipeline/audit_float.py` hat neu Abschnitt 2b (Props gegen LiDAR-Boden).

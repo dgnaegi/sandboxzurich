@@ -4,6 +4,7 @@ import type { Tiles } from '../engine/tiles';
 import type { Human } from '../world/humans';
 import type { BikeSlot } from '../world/bikes';
 import { BikeRig } from '../world/bikerig';
+import { ScooterRig, SCOOTER_MAX } from '../world/scooterrig';
 import { rideBones, ridePose, type RideBones } from '../world/ridepose';
 import { driveStep, type DriveState } from './vehicle_player';
 import type { DriveCar } from './drive';
@@ -41,6 +42,8 @@ export class Player {
   z = 0;
   /** The ridden bike (spinning wheels, cranks, lean); see world/bikerig.ts. */
   readonly rig = new BikeRig();
+  /** The ridden e-scooter (riding.type === 'scooter'): standing pose, 20 km/h limit. */
+  readonly scooter = new ScooterRig();
   lastLook = 0;
   /** Smoothed walking velocity (m/s, world x/y). */
   private vx = 0; private vy = 0;
@@ -53,6 +56,7 @@ export class Player {
     this.z = tiles.ground(x, y);
     this.mesh.add(body.root);
     this.mesh.add(this.rig.group);
+    this.mesh.add(this.scooter.group);
     this.bones = rideBones(body.root);
   }
 
@@ -64,15 +68,17 @@ export class Player {
   mount(slot: BikeSlot) {
     this.riding = slot;
     this.x = slot.x; this.y = slot.y; this.heading = slot.h; this.speed = 0; this.vx = this.vy = 0;
-    this.rig.set(slot.type, slot.color);
+    if (slot.type === 'scooter') { this.scooter.set(slot.color); this.rig.hide(); } else { this.rig.set(slot.type, slot.color); this.scooter.hide(); }
   }
 
+  get onScooter() { return this.riding?.type === 'scooter'; }
+
   /** Get off; returns where the bike was left. */
-  dismount(): { x: number; y: number; z: number; h: number; color: THREE.Color } | null {
+  dismount(): { x: number; y: number; z: number; h: number; color: THREE.Color; type: string } | null {
     if (!this.riding) return null;
-    const left = { x: this.x, y: this.y, z: this.z, h: this.heading, color: this.riding.color };
+    const left = { x: this.x, y: this.y, z: this.z, h: this.heading, color: this.riding.color, type: this.riding.type };
     this.riding = null;
-    this.rig.hide();
+    this.rig.hide(); this.scooter.hide();
     // step off to the right
     const nx = this.x + Math.cos(this.heading) * 0.8, ny = this.y - Math.sin(this.heading) * 0.8;
     if (!this.tiles.colliders.inside(nx, ny)) { this.x = nx; this.y = ny; }
@@ -101,8 +107,9 @@ export class Player {
     }
 
     if (this.riding) {
-      const max = (actions.run ? BIKE_SPRINT : BIKE_MAX) * this.boost;
-      const r = this.rig.dynamics(dt, this.speed, mx, my, max);  // power-limited, soft start, smoothed steering, lean
+      const sc = this.onScooter;
+      const max = sc ? SCOOTER_MAX : (actions.run ? BIKE_SPRINT : BIKE_MAX) * this.boost;   // scooter: legal 20 km/h, no boost or sprint
+      const r = (sc ? this.scooter : this.rig).dynamics(dt, this.speed, mx, my, max);  // power-limited, soft start, smoothed steering, lean
       this.speed = r.speed;
       if (Math.abs(this.speed) > 0.3) this.heading += r.turn;
       const nx = this.x + Math.sin(this.heading) * this.speed * dt, ny = this.y + Math.cos(this.heading) * this.speed * dt;
@@ -113,7 +120,7 @@ export class Player {
       if (hitSolid) { // bumped into something: head-on hard hit = fall off; glancing (move2) = slide along it, steer away a little
         const px = this.x - nx, py = this.y - ny, pl = Math.hypot(px, py) || 1;
         const vn = Math.max(0, -(px / pl * Math.sin(this.heading) + py / pl * Math.cos(this.heading))) * Math.abs(this.speed);   // speed into the obstacle
-        if (vn > 4.5 && this.speed > 5.5) { const sp = this.speed; this.fallT = 1.8; this.onBikeCrash?.(sp); this.speed = 0; }
+        if (vn > 4.5 && this.speed > (sc ? 5.55 : 5.5)) { const sp = this.speed; this.fallT = 1.8; this.onBikeCrash?.(sp); this.speed = 0; }
         else {
           const [qx, qy] = this.tiles.colliders.resolveCircles(nx, ny, 0.45), thin = Math.hypot(qx - nx, qy - ny) > 1e-3;   // pole/sign (not a wall)?
           const frac = vn / Math.max(1, Math.abs(this.speed));
@@ -176,7 +183,7 @@ export class Player {
     // animation: walking/running, or pedalling (walk clip, raised onto the saddle)
     if (this.riding) {
       this.body.setSpeed(0); // idle base pose, legs/arms overridden below
-      this.body.root.position.set(0, 0.12, 0.1);
+      this.body.root.position.set(0, this.onScooter ? 0 : 0.12, 0.1);
       this.body.root.rotation.x = 0;
     } else {
       this.body.setSpeed(this.speed);
@@ -184,11 +191,12 @@ export class Player {
       this.body.root.rotation.x = 0;
     }
     this.body.mixer.update(dt);
-    if (this.riding) { this.rig.animate(dt, this.speed, my > 0.1); ridePose(this.bones, this.body.root, this.rig.crank, this.riding.type, this.rig.geo); }
+    if (this.onScooter) { this.scooter.animate(dt, this.speed); this.scooter.pose(this.bones, this.body.root); }
+    else if (this.riding) { this.rig.animate(dt, this.speed, my > 0.1); ridePose(this.bones, this.body.root, this.rig.crank, this.riding.type, this.rig.geo); }
     this.z += (this.tiles.groundAt(this.x, this.y, this.z) - this.z) * Math.min(1, dt * 15);
     this.mesh.position.set(this.x, this.z, -this.y);
     this.mesh.rotation.y = -this.heading;
-    this.mesh.rotation.z = this.riding ? this.rig.lean : this.lean;
+    this.mesh.rotation.z = this.riding ? (this.onScooter ? this.scooter.lean : this.rig.lean) : this.lean;
 
     // camera: behind, pulled in front of walls
     const want = this.riding ? 6.5 : 5.5, cp0 = Math.cos(this.pitch) * want;

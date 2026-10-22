@@ -1,4 +1,5 @@
 """OSM street layer: road/plaza/park/sidewalk areas, curbs, tram, markings, POIs."""
+import sys
 import numpy as np
 import shapely
 from shapely.geometry import LineString, Point, Polygon, box
@@ -328,6 +329,8 @@ def markings(S):
     signalised speed and bike-lane inventory of Stadt Zürich via streets_rules, OSM tags for lanes)."""
     import streets_rules
     streets_rules.annotate(S)
+    import markings_bike
+    markings_bike.prune_lanes(S)  # explicit OSM cycleway=no on one-way carriageways beats the official 'BOTH'
     junction_gaps(S)
     import markings_lines as ML
     white, yellow = [], []
@@ -373,20 +376,8 @@ def markings(S):
         return (n, (w["w"] - 2.5) / n) if n >= 4 and w["hw"] in MAIN and w["zone"] is None and w["zone"] not in ("beg", "fuss") else None
     white += ML.centre_lines(S, centre_ok, zg, tram)
     white += ML.lane_lines(S, lane_fn, zg, tram)
-    # painted bike lanes: continuous yellow line, broken (1 m / 1 m) before junctions
-    for w in S["ways"]:
-        if w["hw"] == "service" or w["zone"] in ("beg", "fuss"):
-            continue
-        ln, L = ML.way_line(S, w), w["line"].length
-        for side, solid, broken in bike_lane_pieces(w):
-            sgn = 1 if side == "left" else -1
-            off = ln.offset_curve(sgn * (w["w"] / 2 - 1.5))
-            if off.is_empty or off.geom_type != "LineString":
-                continue
-            for a, b in _minus(solid, zg.get(id(w), [])):
-                yellow.append(_sub(off, a, b, L).buffer(0.06, cap_style="flat"))
-            for a, b in broken:
-                yellow += [_sub(off, d0, d1, L).buffer(0.06, cap_style="flat") for d0, d1 in ML.fit_dashes(a, b, 1.0, 1.0)]
+    # painted bike lanes: broken yellow line (SSV 6.09; markings_bike.py), 1 m / 1 m before junctions
+    yellow += markings_bike.lines(S, ML, sys.modules[__name__], zg)
     # bus lanes: yellow line 3.2 m from the kerb, broken at side streets
     for w in S["ways"]:
         for side in bus_sides(w):
