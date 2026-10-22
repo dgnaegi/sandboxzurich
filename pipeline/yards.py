@@ -186,7 +186,42 @@ def add_private_trees(C, fps, area, step=400):
         C["trees"].append((float(x), float(y), "", float(cd), "ndsm"))
         kept += 1
     print(f"yards: {kept} private nDSM trees added (of {len(new)} canopy maxima)", flush=True)
+    drop_unsupported_trees(C)
     return kept
+
+
+def drop_unsupported_trees(C, radius=3, min_h=2.5):
+    """LiDAR check (audit_lidar d): private trees (OSM natural=tree, nDSM maxima) without any canopy > 2.5 m within 3 m are
+    roofs / platforms / vehicles / felled trees from the older DSM. Register trees (Baumkataster) stay: young plantings after the
+    2021/22 flight have no crown yet. A tree class not in veg (3-5) still counts when a non-building return stands > min_h above ground."""
+    try:
+        import lidar
+    except Exception:
+        return 0
+    if not (lidar.GRID.exists() and any(lidar.GRID.glob("g_*.npz"))):
+        return 0
+    idx = [i for i, t in enumerate(C.get("trees", [])) if t[4] in ("osm", "ndsm")]
+    if not idx:
+        return 0
+    off = np.array([(dx, dy) for dx in range(-radius, radius + 1) for dy in range(-radius, radius + 1) if dx * dx + dy * dy <= radius * radius], float)
+    drop = set()
+    for a in range(0, len(idx), 500):
+        part = idx[a:a + 500]
+        P = np.array([C["trees"][i][:2] for i in part], float)
+        X = (P[:, None, 0] + off[None, :, 0]).ravel(); Y = (P[:, None, 1] + off[None, :, 1]).ravel()
+        if np.isnan(lidar.dtm(X, Y)).all():   # no LiDAR here (outside the loaded tiles): keep
+            continue
+        g = lidar.dtm_filled(X, Y, 4.0)
+        v = lidar.veg(X, Y) - g
+        t = lidar.top(X, Y) - g
+        nb = (np.isnan(lidar.bld(X, Y)) & np.isnan(lidar.bridge(X, Y))).reshape(len(part), -1).all(axis=1)   # nothing built within the disc
+        sup = ((v > min_h) & (v < 80)).reshape(len(part), -1).any(axis=1) | (nb & (((t > min_h) & (t < 80)).reshape(len(part), -1).sum(axis=1) >= 4))
+        nodata = np.isnan(g).reshape(len(part), -1).all(axis=1)
+        drop |= {part[k] for k in range(len(part)) if not sup[k] and not nodata[k]}
+    if drop:
+        C["trees"] = [t for i, t in enumerate(C["trees"]) if i not in drop]
+    print(f"yards: {len(drop)} private trees dropped (no LiDAR canopy within {radius} m)", flush=True)
+    return len(drop)
 
 
 # ----------------------------------------------------------------------------------------------- tile rows

@@ -151,13 +151,21 @@ def _lidar_decks(prep, bridge_nodes):
         if ok.sum() < max(3, 0.3 * len(z)):
             continue
         off = np.interp(s, s[ok], (m - z)[ok])   # constant beyond the first / last measured vertex
-        # a rule-deck end that is at grade (z ~ g) stays at grade: fade the offset out over 25 m towards that end
+        # a rule-deck end that is at grade (z ~ g) stays at grade: fade the offset out over 25 m towards that end. A LiDAR bridge
+        # surface (src 1) measured well above the terrain at that end means the rule end is wrong (terrain carved below a deck that
+        # really continues): no fade there. Measured vertices are never faded towards the (wrong) rule z: they blend to the ground.
         fade = np.ones(len(z))
         for end in (0, -1):
-            if z[end] - g[end] < 0.3:
+            if z[end] - g[end] < 0.3 and not (prof["src"][end] == 1 and ok[end] and m[end] - g[end] > 0.8):
                 fade = np.minimum(fade, np.clip(np.abs(s - s[end]) / 25.0, 0, 1))
-        off = off * fade
-        zn = np.maximum(z + off, g)
+        zn = np.maximum(z + off * fade, g)
+        meas = np.where(ok & (fade < 1.0))[0]
+        if len(meas):   # at-grade end: measured deck/street surface, lowered towards the ground only by the (<= 0.5 m) gap to it
+            f8 = np.clip(fade[meas] * 25.0 / 10.0, 0, 1)   # reaches the full measured height 10 m from the end
+            zn[meas] = np.maximum(m[meas] - (1 - f8) * np.clip(m[meas] - g[meas], 0, 0.5), g[meas])
+            gap = np.where((fade < 1.0) & ~ok)[0]
+            if len(gap) and len(meas) >= 2:
+                zn[gap] = np.maximum(np.interp(s[gap], s[meas], zn[meas]), g[gap])
         ch["z"] = zn
         n_ok += 1
         n_ch += int(ok.sum())

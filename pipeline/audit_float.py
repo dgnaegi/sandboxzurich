@@ -237,7 +237,7 @@ def part2(out):
                         ltot[k] += 1
                         dl = z - lg
                         if dl > 0.6 or dl < -0.9:
-                            lissues.append({"kind": k, "x": round(x, 1), "y": round(y, 1), "dz": round(dl, 2), "tile": Path(f).stem[2:]})
+                            lissues.append({"kind": k, "x": round(x, 1), "y": round(y, 1), "dz": round(dl, 2), "pg": round(z - g, 2), "tile": Path(f).stem[2:]})
                 if d > 0.6 or d < -0.9:
                     issues.append({"kind": k, "x": round(x, 1), "y": round(y, 1), "dz": round(d, 2), "deck": dz is not None, "tile": Path(f).stem[2:]})
     out["prop_issues"] = issues
@@ -296,6 +296,7 @@ def write(out):
     li = out.get("lidar_issues", [])
     L += ["", "## 2b. Props gegen LiDAR-Boden (Klasse 2, ohne Deck/Gebaeude; Toleranz +0.6 / -0.9 m)",
           "- Props mit LiDAR-Messung: %d, auffällig: %d (%s)" % (sum(out.get("lidar_total", {}).values()), len(li), ", ".join("%s %d" % kv for kv in Counter(i["kind"] for i in li).most_common(6))),
+          "- davon steht das Prop auf dem Spielboden (|z - hmap| < 0.35 m, also Gelaende weicht von LiDAR ab, Prop ist korrekt): %d; Prop selbst daneben: %d" % (sum(abs(i.get("pg", 9)) < 0.35 for i in li), sum(abs(i.get("pg", 9)) >= 0.35 for i in li)),
           "- schlechteste 8 (Art x,y dz Kachel): " + "; ".join("%s (%d,%d) %+.2f [%s]" % (i["kind"], i["x"], i["y"], i["dz"], i["tile"]) for i in sorted(li, key=lambda i: -abs(i["dz"]))[:8])]
     L += ["", "## Einordnung",
           "- Props: praktisch sauber (nur Stichproben-Ausreisser, siehe oben); Vegetation `wild` wird nicht geprüft (z hat dort andere Bedeutung).",

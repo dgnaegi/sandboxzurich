@@ -1,0 +1,11 @@
+import { chromium } from 'playwright';
+const out = process.argv[2];
+const b = await chromium.launch({ args: ['--use-gl=angle'] });
+const page = await (await b.newContext({ viewport: { width: 800, height: 450 } })).newPage();
+await page.goto(`http://localhost:5173/?at=1402,-828,0&t=13:00&nopost`);
+await page.waitForFunction(() => window.sbxReady, null, { timeout: 90000 });
+await page.waitForTimeout(3000);
+await page.evaluate(() => { const p = window.sbxPlayer; p.x = 1402; p.y = -828; p.yaw = -1.29; p.heading = -1.29; window.sbxScene.traverse(o=>{ if(o.name==='bridges') o.visible=false; }); });
+await page.waitForTimeout(2500);
+await page.screenshot({ path: `${out}_nobridges.png` });
+await b.close();

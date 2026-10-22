@@ -2,11 +2,11 @@
 
 Erzeugt von `pipeline/audit_float.py` (read-only). Kachel = floor(x/200)_floor(y/200).
 
-## 1. Brücken-Decks (OSM bridge=yes), 507 geprüft, 289 Chains im Build
+## 1. Brücken-Decks (OSM bridge=yes), 507 geprüft, 263 Chains im Build
 - dangling: 78
 - dup: 95
 - no_obstacle: 105
-- dup_sidewalk mit Höhen-Versatz (>=50% der Deckpunkte >1.2 m neben der Strassenbrücke): 6
+- dup_sidewalk mit Höhen-Versatz (>=50% der Deckpunkte >1.2 m neben der Strassenbrücke): 5
 
 Top 20 (id kind name x,y len Kachel Ursache):
 - 622318251 foot «» (-1714,1331) 449m [-9_6] 1 end(s) connect to no way; 100% inside road bridge 74071551 Europabrücke
@@ -30,11 +30,12 @@ Top 20 (id kind name x,y len Kachel Ursache):
 - 623552332 foot «» (657,1130) 20m [3_5] nothing underneath (no lower way/water, terrain depression 0.3 m); 80% inside road bridge 572299173 Rosengartenbrücke
 - 601078975 foot «» (-1813,997) 18m [-10_4] nothing underneath (no lower way/water, terrain depression 0.1 m); 100% inside road bridge 60795696 Europabrücke
 
-Unrealistisch hohe Decks (Chains, Freiraum > 22/14 m): 0
+Unrealistisch hohe Decks (Chains, Freiraum > 22/14 m): 1
+- foot «Negrellisteg» 16.4 m bei (1136,-448) [5_-3] ids=[39429386]
 
 ## 2. Props / Landmarks gegen Gelände (Toleranz +0.6 / -0.9 m)
-- Props geprüft: 104633, auffällig: 2
-- je Art: bikes 1/27241, racks 1/8898
+- Props geprüft: 105312, auffällig: 2
+- je Art: bikes 1/27153, racks 1/8408
 - Landmarks: 221 geprüft, 4 mit |dz|>1.5 m
 
 Top 20 Props (Kachel-Cluster):
@@ -48,7 +49,8 @@ Landmarks:
 - Hardau II (4 Wohntuerme) (-516,-321) dz -2.0 [-3_-2]
 
 ## 2b. Props gegen LiDAR-Boden (Klasse 2, ohne Deck/Gebaeude; Toleranz +0.6 / -0.9 m)
-- Props mit LiDAR-Messung: 70897, auffällig: 1037 (trees 434, bikes 208, racks 111, decals 77, masts 74, scooters 47)
+- Props mit LiDAR-Messung: 72838, auffällig: 1089 (trees 435, bikes 207, racks 104, decals 94, masts 79, scooters 79)
+- davon steht das Prop auf dem Spielboden (|z - hmap| < 0.35 m, also Gelaende weicht von LiDAR ab, Prop ist korrekt): 1078; Prop selbst daneben: 11
 - schlechteste 8 (Art x,y dz Kachel): trees (-866,1500) -9.66 [-5_7]; trees (-861,1497) -7.87 [-5_7]; trees (1604,83) -6.80 [8_0]; scooters (-1435,360) -6.71 [-8_1]; trees (-1393,342) -6.66 [-7_1]; decals (1504,169) -6.63 [7_0]; trees (-1386,339) -6.57 [-7_1]; trees (1578,248) +6.48 [7_1]
 
 ## Einordnung

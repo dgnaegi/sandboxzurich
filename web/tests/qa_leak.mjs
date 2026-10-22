@@ -13,14 +13,20 @@ const stat = () => page.evaluate(async () => {
 await page.waitForTimeout(2500);
 const s0 = await stat(); console.log(vp, 'start', JSON.stringify(s0));
 let last = s0, maxTex = 0, maxGeo = 0;
+const seen = new Map(), lastAt = new Map();   // place index -> heap at its first / last visit
 for (let i = 0; i < 9; i++) {
   const [x, y] = [A, B, C][i % 3];
   await page.evaluate(async ([x, y]) => { await window.sbxTiles.update(x, y); window.sbxPlayer.teleport(x, y, 0); }, [x, y]);
   await page.waitForTimeout(3500);
-  last = await stat(); maxTex = Math.max(maxTex, last.tex); maxGeo = Math.max(maxGeo, last.geo);
+  last = await stat();   // min of 3 samples 1 s apart: tile decoding still in flight shows as a transient heap spike, not a leak
+  for (let k = 0; k < 2; k++) { await page.waitForTimeout(1000); const s2 = await stat(); if (s2.heap < last.heap) last = s2; }
+  maxTex = Math.max(maxTex, last.tex); maxGeo = Math.max(maxGeo, last.geo);
+  if (!seen.has(i % 3)) seen.set(i % 3, last.heap);
+  lastAt.set(i % 3, last.heap);
   console.log(vp, i, [x, y], JSON.stringify(last));
 }
-const grow = last.heap - s0.heap;
+// growth per place (last vs first visit of the SAME place): the places differ in base memory, start-vs-end compared different scenes
+const grow = Math.max(...[...seen.keys()].map((k) => lastAt.get(k) - seen.get(k)));
 // textures/geometries after the 9th jump must stay within 1.6x of the first revisit (second visit of the same place)
 const ok = grow <= LIMIT;
 console.log(ok ? 'PASS' : 'FAIL', `heap growth ${grow} MB (limit ${LIMIT}), tex max ${maxTex}, geo max ${maxGeo}`);
