@@ -117,7 +117,7 @@ export class CityMap {
       for (const [x, y] of this.opts.playArea) { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); }
       // phone landscape: one-line title, map gets nearly the whole height; portrait: title below the tool row; PC unchanged
       const land = innerHeight < 500, phone = innerWidth < 900;
-      const top = land ? 46 : phone ? 112 : 90, bot = land ? 16 : phone ? 64 : 60, side = phone ? 12 : 24;
+      const top = land ? 46 : phone ? 112 : 90, bot = land ? 16 : phone ? 64 : 60, side = land ? 12 : phone ? 36 : 24;   // portrait: room so the Kreis-9 tip is not cut at the screen edge
       this.view.s = Math.min((innerWidth - side) / (x1 - x0), (innerHeight - top - bot) / (y1 - y0));
       this.view.cx = (x0 + x1) / 2; this.view.cy = (y0 + y1) / 2 + (top - bot) / 2 / this.view.s;
       this.baseKey = '';

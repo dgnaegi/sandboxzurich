@@ -34,6 +34,23 @@
     400
    ],
    "why": "User 2026-10-18: Idaplatz (OSM centre -125,-1115, NOT the 237/-1465 of places.json) lay ~197 m outside the edge; 800x800 m rect gives >=400 m around the square (Zurlindenstr., Bertastr., Zweierstr., Aemtlerstr., Gertrudstr.)"
+  },
+  {
+   "name": "Goldbrunnenplatz (ganzer Platz mit Haltestelle)",
+   "center": [
+    -191,
+    -1516
+   ],
+   "angle_deg": 0,
+   "d": [
+    -80,
+    80
+   ],
+   "c": [
+    -80,
+    80
+   ],
+   "why": "2026-10-23: Spielgebietsgrenze lief mitten über den Platz, Kamerapunkt Zone 4 stand zwischen Bauzäunen (research/sweep/glitches.md #19)"
   }
  ]
 }

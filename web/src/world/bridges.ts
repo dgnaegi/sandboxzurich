@@ -65,10 +65,12 @@ function deck(B: Builder, d: DeckRow) {
   const at = (i: number, o: number, z: number) => [p[i][0] + nx[i] * o, p[i][1] + ny[i] * o, z];
   const top = TOP[d.kind] ?? TOP.road;
   const rail = d.kind === 'rail';
-  const ph = d.kind === 'tram' ? 0 : PARAPET;   // tram decks: flush edge, no parapet wall (User 2026-10-21)
+  // tram decks: flush edge, no parapet wall (User 2026-10-21). Road/foot: the parapet grows with the height above the terrain (ramps near the ground only keep a low kerb, no loose-slab trough walls)
+  const phAt = (i: number) => d.kind === 'tram' ? 0 : 0.12 + (PARAPET - 0.12) * Math.min(1, Math.max(0, (p[i][2] - d.g[i] - 0.3) / 0.7));
   for (let i = 0; i < n - 1; i++) {
     const j = i + 1, zi = p[i][2], zj = p[j][2], bi = d.b[i], bj = d.b[j];
     const lo = s0(d, i, j, 1), ro = s0(d, i, j, -1);   // open (shared) sides
+    const phi = phAt(i), phj = phAt(j), ph = Math.max(phi, phj);
     const hl = lo ? hw + GAP_FILL : hw, hr = ro ? hw + GAP_FILL : hw;
     if (d.st) stairs(B, at, i, j, hl, hr, zi, zj, top);   // bridge2: flight of stairs = treads + risers (walking uses the smooth slope)
     else B.quad(at(i, -hr, zi), at(i, hl, zi), at(j, hl, zj), at(j, -hr, zj), top); // surface (winding: up), open sides bridge the gap
@@ -78,9 +80,9 @@ function deck(B: Builder, d: DeckRow) {
       const sw = s * hw, so = s * ow;
       const q = (a: number[], b: number[], c: number[], e: number[], k: THREE.Color) => (s > 0 ? B.quad(a, b, c, e, k) : B.quad(e, c, b, a, k));
       // curb / parapet: inner face, top, outer face down to the underside
-      if (ph > 0) q(at(i, sw, zi), at(j, sw, zj), at(j, sw, zj + ph), at(i, sw, zi + ph), CONC);
-      q(at(i, sw, zi + ph), at(j, sw, zj + ph), at(j, so, zj + ph), at(i, so, zi + ph), ph > 0 ? CONC : top);
-      q(at(i, so, zi + ph), at(j, so, zj + ph), at(j, so, bj), at(i, so, bi), CONC);
+      if (ph > 0) q(at(i, sw, zi), at(j, sw, zj), at(j, sw, zj + phj), at(i, sw, zi + phi), CONC);
+      q(at(i, sw, zi + phi), at(j, sw, zj + phj), at(j, so, zj + phj), at(i, so, zi + phi), ph > 0 ? CONC : top);
+      q(at(i, so, zi + phi), at(j, so, zj + phj), at(j, so, bj), at(i, so, bi), CONC);
     }
   }
   if (!rail && d.kind !== 'tram') railings(B, d, nx, ny, hw + CURB * 0.5);   // open at the ramps (see RAIL_EL)

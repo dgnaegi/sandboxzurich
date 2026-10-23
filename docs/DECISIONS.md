@@ -289,3 +289,13 @@ Die automatische Rot-Erkennung aus SWISSIMAGE (`streets_ortho.red_surfaces`) ver
 - `streets._drop_pinholes`: Innenringe unter 0.5 m² entfallen; vorher wurden um sie schwebende Randsteinwände gebaut.
 - `props_road`: Sträucher mit dem Mittelpunkt auf der Fahrbahn entfallen. Büsche am Rand werden verschoben oder verkleinert (Abstand ≥ 0.3 m), nie gelöscht. Echte Bäume werden höchstens 2 m verschoben.
 - Werkzeug `pipeline/audit_ground_city.py`, Protokolle `research/ground_audit/{audit,greens}.md`.
+
+## #78 – 2026-10-23 – Treppen an hohen Fusswegenden, Deckfarbe wie Boden (bridge2)
+- `bridges._stairs`: Ein Fussweg-Deck, das mehr als 0.8 m über Grund endet, bekommt ein Treppen-Deck (`st:1`, im Client gestuft); es folgt einer OSM-Treppe, sonst führt es geradeaus mit Gefälle 0.45. Steht ein Gebäude im Weg, gibt es keine Treppe. `_limit_foot_drop` begrenzt das Fussweg-Gefälle auf 0.45 (Hardbrücke-Station: 3.8-m-Klippe → Rampe).
+- `_follow_parallel` nimmt nur Decks nahe der Regelhöhe (`FOLLOW_RULE_DZ` 4.5 m): Das Tram auf der Wipkingerbrücke folgte sonst dem Hardbrücke-Hauptdeck darüber.
+- Strassen- und Tramdecks haben die Bodenfarbe `0x544e47` (Kalkbreite-Naht). Protokoll `research/bridges/round2.md`.
+
+## #79 – 2026-10-23 – Daten-Cache 10 min statt 1 Tag, Poster im Weltdaten-Paket
+- `web/public/_headers`: `tiles`, `models`, `tex`, `data`, `map` mit `max-age=600, stale-while-revalidate=86400` (vorher 1 Tag + 7 Tage SWR). Nach einem Release sahen Besucher bis zu einen Tag lang alte Daten, gemischt mit neuen Dateien.
+- Ladebildschirm-Poster (`loading/poster*.jpg`) kommen über `deploy/publish_world.sh` ins Deploy, weil Bilder nicht ins Git gehören (`.gitignore`). Live war der Ladebildschirm deshalb schwarz.
+- Spielgebiet um den Goldbrunnenplatz erweitert (`overrides/playarea_extra.json`): Die Grenze mit Bauzaun lief mitten über den Platz.

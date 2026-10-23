@@ -153,11 +153,11 @@ CAMS = {
         ("Viadukt (Markthalle)", (700, 370, 0.3)), ("Limmatplatz", (1131, 74)), ("Röntgenplatz", (759, 126)),
         ("Limmatstrasse/Konradstrasse", (1286, -229)), ("Josefstrasse", (884, 38, -0.95)), ("Heinrichstrasse", "S:Heinrichstrasse"),
         ("Fabrikstrasse", "S:Fabrikstrasse"), ("Sihlquai", (1550, -92)), ("Limmatufer", (1220, 200))],
-    # Zone 5: stadium/stop/PJZ/Lindenplatz/Hohl-Flur by hand 2026-10-20 (PJZ was on the wrong building, Rautistrasse point outside the map)
+    # Zone 5: stadium/stop/PJZ/Lindenplatz/Hohl-Flur by hand 2026-10-20; Westpark (camera glued on the lawn) 2026-10-23 (PJZ was on the wrong building, Rautistrasse point outside the map)
     5: [("Letzigrund Stadion", (-1060, -240, 0.86)), ("Haltestelle Letzigrund", (-970, -330, 1.2)), ("Badenerstrasse West", (-1934, 441, 5.15)),
         ("Hohlstrasse Letzipark", (-1366.9, 411.2)), ("PJZ Ost", (330, -200, -2.3)), ("Bahnhof Altstetten Vorplatz", (-2183, 764, 4.6)),
         ("Bahnhof Altstetten Aufnahmegebäude", (-2040, 747, 6.1)), ("Lindenplatz", (-2344.8, 352.3, 0.53)), ("Altstetterstrasse", "S:Altstetterstrasse"),
-        ("Hohlstrasse/Flurstrasse", (-1450, 440, -2.6)), ("Herdernstrasse", "S:Herdernstrasse"), ("Westpark", "L:Westpark"),
+        ("Hohlstrasse/Flurstrasse", (-1450, 440, -2.6)), ("Herdernstrasse", "S:Herdernstrasse"), ("Westpark", (-200, 730, 3.0)),
         ("Vulkanplatz", (-1972, 925, 4.9)), ("Baslerstrasse", "S:Baslerstrasse")],
 }
 

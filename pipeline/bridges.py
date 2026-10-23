@@ -435,6 +435,7 @@ def bridge_ways(nodes, els, area, H=None, H_raw=None):
         _lidar_decks(prep, bridge_nodes)
     _follow_parallel(prep)
     _limit_foot_drop(prep)
+    prep = _split_flat(prep)
 
     out = []
     for ch in prep:
@@ -517,6 +518,50 @@ def bridge_ways(nodes, els, area, H=None, H_raw=None):
         if under:
             b["excl"] = b["excl"].difference(shapely.union_all(under))
     return out
+
+
+FLAT_SPLIT = 10.0  # m: a stretch this long lying on the ground (el <= 0.12) between two elevated parts is no deck (slab_flat, 2026-10-23)
+
+
+def _split_flat(prep):
+    """Two bridges joined by a ground-level path / road (one OSM chain): the flat middle must not become a deck slab with kerbs
+    (Seebahnstrasse (186,-666): 60 m grey strip along the bike lane). Cut the chain at interior flat runs > FLAT_SPLIT."""
+    res = []
+    for ch in prep:
+        P, z, g, s = ch["P"], ch["z"], ch["g"], ch["s"]
+        hi = (z - g) > 0.12
+        idx = np.where(hi)[0]
+        if not len(idx):
+            res.append(ch)
+            continue
+        a, b = idx[0], idx[-1]
+        cuts, i = [], a
+        while i <= b:
+            if hi[i]:
+                i += 1
+                continue
+            j = i
+            while not hi[j]:
+                j += 1                     # j <= b because hi[b]
+            if s[j] - s[i - 1] > FLAT_SPLIT:
+                cuts.append((i - 1, j))   # keep one flat vertex on each side as the deck end
+            i = j
+        if not cuts:
+            res.append(ch)
+            continue
+        bounds, st = [], 0
+        for c0, c1 in cuts:
+            bounds.append((st, c0)); st = c1
+        bounds.append((st, len(P) - 1))
+        for u, v in bounds:
+            if v <= u or (z[u:v + 1] - g[u:v + 1]).max() < 1.2 or s[v] - s[u] < 6:
+                continue
+            q = dict(ch)
+            for k in ("P", "C", "g", "z"):
+                q[k] = ch[k][u:v + 1]
+            q["s"] = s[u:v + 1] - s[u]
+            res.append(q)
+    return res
 
 
 FOOT_DROP = 0.45   # max descent of a footway measured per metre (stairs): LiDAR plateaus next to a ramp must not become cliffs

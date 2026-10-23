@@ -105,20 +105,6 @@
      502.0
     ]
    ]
-  },
-  {
-   "name": "Westpark grauer B\u00fcrobau",
-   "model": "/models/landmarks/z5R2_westpark_office.glb",
-   "x": -179.8,
-   "y": 665.7,
-   "z": -8.8,
-   "heading": 0,
-   "hide": [
-    [
-     -169.1,
-     656.0
-    ]
-   ]
   }
  ]
 }

@@ -271,6 +271,10 @@ def decals(S, tb, H, curb=0.12):
         return np.arctan2(b.x - a.x, b.y - a.y)
     near = box(*tb.bounds).buffer(30)
     R = SR.rules()
+    try:
+        kerbzone = S["roads"].boundary.buffer(1.1) if S.get("roads") is not None and not S["roads"].is_empty else None
+    except Exception:
+        kerbzone = None
     for wi, w in enumerate(S["ways"]):
         ln = w["line"]
         if ln.length < 8 or not ln.intersects(near):
@@ -307,7 +311,10 @@ def decals(S, tb, H, curb=0.12):
                 if kerb.is_empty or kerb.geom_type != "LineString":
                     continue
                 for s in np.arange(8, kerb.length - 4, 22):
-                    add(kerb.interpolate(s), heading(kerb, s), 2)
+                    gp = kerb.interpolate(s)
+                    if kerbzone is not None and not kerbzone.contains(gp):  # facades #12: grate only where the real carriageway edge is (not mid-lane)
+                        continue
+                    add(gp, heading(kerb, s), 2)
         # 'ZONE 30' painted where traffic enters an official T30 zone; '30' roundel on signalised 30 stretches
         if w["hw"] in ("service", "primary_link", "secondary_link", "tertiary_link") or L < 20:
             continue

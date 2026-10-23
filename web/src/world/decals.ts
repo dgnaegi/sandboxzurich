@@ -4,7 +4,7 @@ import * as THREE from 'three';
  * Road decals from the pipeline: rows [x, y, z, heading, kind]; kind 0 bike pictogram (yellow, Swiss lanes),
  * 1 manhole cover, 2 gully grate, 3 "30" zone entry marking, 11 "20" Begegnungszone entry marking, 4 straight arrow, 5 BUS, 6 painted 30 roundel, 7 left, 8 right, 9 straight+left, 10 straight+right arrow, 12 white STOP lettering (across the lane, read by the approaching driver; override kind 7 is taken by the left arrow). One merged mesh per tile, atlas drawn at runtime.
  */
-const SIZE: [number, number][] = [[1.0, 1.9], [0.72, 0.72], [0.55, 0.36], [2.0, 4.0], [1.4, 4.2], [1.7, 3.0], [1.8, 1.8], [1.7, 4.2], [1.7, 4.2], [2.2, 4.2], [2.2, 4.2], [2.0, 4.0], [2.2, 3.4]]; // width, length (m)
+const SIZE: [number, number][] = [[1.0, 1.9], [0.72, 0.72], [0.46, 0.3], [2.0, 4.0], [1.4, 4.2], [1.7, 3.0], [1.8, 1.8], [1.7, 4.2], [1.7, 4.2], [2.2, 4.2], [2.2, 4.2], [2.0, 4.0], [2.2, 3.4]]; // width, length (m)
 const COLS = 4, ROWS = 4;
 let atlas: THREE.Texture | null = null;
 
@@ -31,8 +31,10 @@ function makeAtlas(): THREE.Texture {
   g.restore();
   // 2: gully grate
   g.save(); g.translate(640, 128);
-  g.fillStyle = '#2f3134'; g.fillRect(-120, -80, 240, 160);
-  g.fillStyle = '#121314'; for (let i = -100; i <= 90; i += 24) g.fillRect(i, -64, 12, 128);
+  // facades #12: lighter cast-iron frame + thin slots (was near-black plate that read as a loose black tile on the asphalt)
+  g.fillStyle = '#6a6d70'; g.fillRect(-120, -80, 240, 160);
+  g.fillStyle = '#4f5256'; g.fillRect(-106, -66, 212, 132);
+  g.fillStyle = '#2c2d30'; for (let i = -94; i <= 86; i += 26) g.fillRect(i, -58, 9, 116);
   g.restore();
   // 3 / 11: zone entry markings painted as the big number only ("30" Zone 30, "20" Begegnungszone), like on the real streets (fidelity S11)
   for (const [cx, txt] of [[896, '30'], [896, '20']] as const) {

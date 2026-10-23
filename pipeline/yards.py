@@ -255,6 +255,7 @@ def _shrubs(tb, H, S, C, bld, z, out):
         cand &= ~(d < T[j, 2] * .8).reshape(X.shape)
     cand = ndimage.binary_opening(cand, iterations=1)
     lab, n = ndimage.label(cand)
+    edt = ndimage.distance_transform_edt(cand)  # facades: a bush must not spill over the pavement/carriageway edge of its bed
     bushes, hedges = [], []
     for i, sl in enumerate(ndimage.find_objects(lab), 1):
         m = lab[sl] == i
@@ -288,6 +289,8 @@ def _shrubs(tb, H, S, C, bld, z, out):
                     continue
                 v = np.array(v).mean(0)
                 r = float(np.clip(.7 + .22 * hh + .3 * _rnd(gx, gy), .7, 1.7))
+                ei, ej = min(max(int(v[1] - y0), 0), edt.shape[0] - 1), min(max(int(v[0] - x0), 0), edt.shape[1] - 1)
+                r = max(.55, min(r, float(edt[ei, ej]) + .15))
                 bushes.append([round(v[0], 2), round(v[1], 2), z(v[0], v[1]), round(r, 2), round(float(np.clip(hh * (.75 + .3 * _rnd(gy, gx)), .6, 2.6)), 2),
                                (col + gx) % 8])
     out["bushes"] = bushes[:900]
@@ -306,6 +309,9 @@ def _courtyards(tb, S, bld):
 def _front_walls(tb, H, S, side, yard, bld, z, out):
     """Mäuerchen / Zaun / low hedge where a front garden meets the pavement (not where OSM already has a barrier)."""
     walls = []
+    plaza = S.get("plaza") if hasattr(S, "get") else None
+    if plaza is not None and plaza.is_empty:
+        plaza = None
     near = bld.buffer(14)
     if side.boundary is None:  # GeometryCollection after the differences: keep only the polygonal parts
         side = unary_union([g for g in getattr(side, "geoms", []) if g.geom_type in ("Polygon", "MultiPolygon")]) or Polygon()
@@ -328,6 +334,8 @@ def _front_walls(tb, H, S, side, yard, bld, z, out):
             p0, p1 = ln.interpolate(a), ln.interpolate(b)
             mx, my = (p0.x + p1.x) / 2, (p0.y + p1.y) / 2
             if bld.distance(Point(mx, my)) > 12:
+                continue
+            if plaza is not None and plaza.distance(Point(mx, my)) < 2.5:   # squares are open to the pavement (Idaplatz, Vulkanplatz: glitch sweep #5/#13)
                 continue
             ty = 0 if r < .6 else 1 if r < .8 else 2
             walls.append([ty, round(mx, 2), round(my, 2), z(mx, my), round(math.atan2(p1.y - p0.y, p1.x - p0.x), 3), round(p0.distance(p1) - .1, 2)])

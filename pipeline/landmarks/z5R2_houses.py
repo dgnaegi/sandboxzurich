@@ -8,6 +8,7 @@ from k4w4_kit import *   # noqa: F401,F403
 
 OVRZ = ROOT / "pipeline" / "overrides" / "landmarks_z5R2.json"
 COMMON = dict(cols=2, rows=3, fh=3.0, bayw=2.5, win=(1.15, 1.75, 0.85), eg_h=3.8, eg_kind="plain", cornice=("#e4ddcc", 0.3, 0.45), roof=("flat", "#8a8780"), eave_rise=0.0, frame="#f1ede2", lit=0.3)
+DISABLED = {"westpark_office"}  # facades #4: duplicate of k5w3_westpark ("Westpark (Galaxus)") - both models z-fought over y 601..739; the older one hides both footprints
 SPECS = {  # name: (title, ids, overrides)
     # Letzi towers (cm_Letziturm_2022, cm_Wohnsiedlung_Letzi_2025, Mapillary 703328115763013/1692658461620446): 17-storey point towers behind the yellow-brick hall.
     # White/grey tower: grid of white balconies, nearer to the viewer (photo 17, left tower in photo 3).
@@ -38,6 +39,7 @@ def build(only=None):
     _k4.OVR4 = OVRZ
     for k, (title, ids, kw) in SPECS.items():
         if only and k not in only: continue
+        if k in DISABLED: continue
         _k4.block_model("z5R2_" + k, title, ids, **{**COMMON, **kw})
 
 
