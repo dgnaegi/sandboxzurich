@@ -34,12 +34,13 @@ Jedes Milestone endet mit etwas, das der User im Browser (auch auf dem Handy) au
 - [x] Unterführungen ohne quer liegende Decks (Langstrassen-Unterführung u. a.)
 - [x] Möbel/Tische nicht auf der Fahrbahn; Objekte nicht ineinander (Laterne im Brunnen Bullingerplatz, Velos im Velotunnel)
 - [x] Strassenmarkierungen gegen Orthofoto plausibilisiert: Zonen 1–3, dann 4–5
-- [ ] Woche 2: Häuser nach Fotos an den Kamerapunkten der Zonen 2, 1, 4 (Zonen 3, 5 erledigt; Zone 2 Kamerapunkte korrigiert, Landmarks laufen)
+- [x] Woche 2: Häuser nach Fotos an den Kamerapunkten der Zonen 2, 1, 4, dazu Runde 2 in Zonen 3 und 5 (Release 22)
+- [x] Fahrleitungen v2: Masten aus LiDAR, Querdrähte nur mit Anker, Trolleybus (#76)
 - [x] Ladebildschirm ohne «ZÜRICH»-Titelkarte, direkt Orte (#74)
 - [ ] **Nächster Fokus (User 2026-10-22):** Brücken-, Rampen- und Geländefehler stadtweit (Hardbrücke-Auffahrt Pfingstweidstrasse, Brücke Kalkbreite; Sweep `pipeline/audit_decks.py`, Protokoll `research/bridges/ramp_fix.md`)
 - [ ] Stadtweite Fehlersuche: Modelle auf ihrem Gebäude, schwebende/versunkene Objekte
 - [ ] Texturen der kleinen Landmarks in Atlas (Speicher, qa_leak tex max ~595)
-- [ ] Stadtkarte: Handy-Übersicht grösser, weniger dunkle Punkte in der Nahansicht, Radar-Rand
+- [x] Stadtkarte: Handy-Übersicht grösser, weniger dunkle Punkte in der Nahansicht, Radar-Rand (offen: Hochformat schneidet Kreis 9 ab)
 - [ ] Rathaus Hard: Betonlöwin detaillierter, Gemeindehaus/Pfarrhäuser
 - [x] LiDAR Kanton ZH für Brückendecks (#73); [ ] LiDAR-Audits abarbeiten (schwebende Objekte, Bäume, Masten)
 - [x] Leih-Trottinette fahrbar
