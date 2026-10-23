@@ -115,8 +115,10 @@ export class CityMap {
     if (on) {
       let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
       for (const [x, y] of this.opts.playArea) { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); }
-      const top = innerWidth < 900 ? 120 : 90, bot = innerWidth < 900 ? 70 : 60; // room for title / tools
-      this.view.s = Math.min((innerWidth - 24) / (x1 - x0), (innerHeight - top - bot) / (y1 - y0));
+      // phone landscape: one-line title, map gets nearly the whole height; portrait: title below the tool row; PC unchanged
+      const land = innerHeight < 500, phone = innerWidth < 900;
+      const top = land ? 46 : phone ? 112 : 90, bot = land ? 16 : phone ? 64 : 60, side = phone ? 12 : 24;
+      this.view.s = Math.min((innerWidth - side) / (x1 - x0), (innerHeight - top - bot) / (y1 - y0));
       this.view.cx = (x0 + x1) / 2; this.view.cy = (y0 + y1) / 2 + (top - bot) / 2 / this.view.s;
       this.baseKey = '';
       document.exitPointerLock?.();
@@ -147,10 +149,17 @@ export class CityMap {
       const dx = (b.x - px) * s * dpr, dy = -(b.y - py) * s * dpr;
       const cs = Math.cos(-yaw), sn = Math.sin(-yaw);
       let bx = dx * cs - dy * sn, by = dx * sn + dy * cs;
-      const len = Math.hypot(bx, by), maxR = r - 10 * dpr;
-      if (len > maxR) { bx *= maxR / len; by *= maxR / len; }
-      g.beginPath(); g.arc(r + bx, r + by, 5 * dpr, 0, Math.PI * 2);
-      g.fillStyle = b.color; g.fill(); g.lineWidth = 1.5 * dpr; g.strokeStyle = '#000'; g.stroke();
+      const len = Math.hypot(bx, by), maxR = r - 12 * dpr, edge = len > maxR;
+      if (edge) { bx *= maxR / len; by *= maxR / len; }
+      const rr = (edge ? 4.5 : 5.5) * dpr;
+      g.beginPath(); g.arc(r + bx, r + by, rr, 0, Math.PI * 2);
+      g.fillStyle = b.color; g.fill(); g.lineWidth = 1.6 * dpr; g.strokeStyle = '#000'; g.stroke();
+      if (edge) {   // small pointer outwards: target is beyond the radar range
+        const a = Math.atan2(by, bx), tx = r + bx + Math.cos(a) * (rr + 1.5 * dpr), ty = r + by + Math.sin(a) * (rr + 1.5 * dpr), k = 3.5 * dpr;
+        g.beginPath(); g.moveTo(tx + Math.cos(a) * k, ty + Math.sin(a) * k);
+        g.lineTo(tx + Math.cos(a + 2.2) * k, ty + Math.sin(a + 2.2) * k); g.lineTo(tx + Math.cos(a - 2.2) * k, ty + Math.sin(a - 2.2) * k);
+        g.closePath(); g.fillStyle = b.color; g.fill(); g.stroke();
+      }
     }
     this.arrow(g, r, r, heading - yaw, 9 * dpr, dpr);
     // north marker rotates with the map
@@ -159,7 +168,9 @@ export class CityMap {
     g.fillStyle = '#15110c'; g.strokeStyle = '#fff'; g.lineWidth = 2 * dpr; g.beginPath(); g.arc(nx, ny, 8.5 * dpr, 0, 7); g.fill(); g.stroke();
     g.fillStyle = '#fff'; g.font = `700 ${12 * dpr}px Anton, sans-serif`; g.textAlign = 'center'; g.textBaseline = 'middle';
     g.fillText('N', nx, ny + 0.5 * dpr);
-    g.lineWidth = 4 * dpr; g.strokeStyle = '#111c'; g.beginPath(); g.arc(r, r, Math.max(1, r - 2), 0, Math.PI * 2); g.stroke();
+    const rim = Math.max(1, r - 2 * dpr);
+    g.lineWidth = 4 * dpr; g.strokeStyle = '#15110c'; g.beginPath(); g.arc(r, r, rim, 0, Math.PI * 2); g.stroke();
+    g.lineWidth = 1.4 * dpr; g.strokeStyle = '#ecdfb4'; g.beginPath(); g.arc(r, r, Math.max(0.5, rim - 2.2 * dpr), 0, Math.PI * 2); g.stroke();   // tiny/hidden radar: radius never < 0
   }
 
   private arrow(g: CanvasRenderingContext2D, x: number, y: number, ang: number, a: number, dpr: number) { drawArrow(g, x, y, ang, a, 2 * dpr); }

@@ -1,0 +1,22 @@
+rank	sev	class	x	y	sheet	description	cause_guess	note
+1	3	slab_on_road	376	-480	sweep_36 (#37)	Brauerstrasse West: wide grey concrete ramp/trough slabs with sloped side walls lying in the open area next to carriageway, look like loose slabs	ramp/Unterfuehrung geometry from bridges.py (guess)	check with Langstrassen-Unterfuehrung ramp
+2	3	slab_on_road	186	-666	sweep_36 (#38)	Seebahnstrasse: tilted grey slab/wall runs diagonally across bike lane and median, wall top at kerb height	railway cutting wall/embankment mesh (guess)	
+3	3	bridge_deck_low	498	834	sweep_54 (#56)	Hardbruecke Nord: deck underside very low over pavement, construction hoarding walls around pillars, large grey slabs hanging	bridge2 laeuft	also 515,863
+4	2	facade_texture	-177	705	sweep_81 (#86)	Westpark office landmark z5R2_westpark_office: facade pale blue-grey with irregular light patches, no windows over a whole wall	landmark texture/UV in z5R2_houses.py (guess)	
+5	2	floating_bar	-1972	925	sweep_54 (#54), sweep_81 (#85)	Vulkanplatz: thin white plank/ramp slanted at ~1 m height without support, near tree pit	furniture or kerb/ramp prop (guess)	dir 90..270 deg from -1960,934
+6	2	facade_texture	-206	-287	sweep_63..81 (#71)	Hardstrasse: yellow house with red wedge-shaped shutters/panels cut at odd angles (UV or polygon error)	facade shutter decals (guess)	
+7	2	door_tilt	1208	-78	sweep_69 (#70)	Limmatstrasse N: brown door quad stands tilted/sticks out from facade; other door and window frames skewed	facade door placement on non-axis-aligned wall (guess)	
+8	2	hedge_on_pavement	86	-502	sweep_69 (#73)	Seebahnstrasse: huge hedge blobs on the pavement, player can stand inside; hedge arch with hole	hedge props with wrong scale (guess)	also -460,-662 Albisriederplatz (#82)
+9	2	facade_texture	-828	-178	sweep_57 (#61)	Brick wall facade strongly stretched/blurred, giant green shutters, UV scale wrong	facade UV on long wall (guess)	also -1097,117 (#62) metal wall
+10	2	floating_bar	-1097	117	sweep_57 (#62)	Thin white horizontal bar floating in front of grey wall at head height / above	unknown sign or banner mesh (guess)	
+11	2	loading_void	-108	-195	sweep_12 (#16)	Hardplatz spawn: first frames show white featureless ground and sky (tiles not loaded yet); fine after ~3 s. Also white band at Albisriederplatz (#17)	tile streaming at spawn, no ground placeholder (guess)	not reproducible after load
+12	1	ground_decal	-288	-766	sweep_30 (#34,#35)	Small black flat quads scattered on carriageway (Badenerstr/Zypressenstr, Hardstr/Bullingerstr, Gertrudstr, Baslerstr). Look like loose black tiles	manhole/drain decals oversized or untextured (guess)	very common, citywide
+13	1	slab_ground	-125	-1117	sweep_00 (#3)	Idaplatz (-125,-1117): thick white wedge bands standing on plaza like raised kerb ridges;	kerb/marking mesh with height (guess)	
+14	1	ground_texture	-4	633	sweep_06 (#7)	Turbinenplatz: pale triangular patch on ground next to bed, looks like floating wedge	ground decal or shadow quad (guess)	
+15	1	canopy	1130	60	sweep_12 (#15), sweep_81 (#84)	Limmatplatz canopy: huge pale disk roof with oval sky hole, looks like a UFO from below	canopy mesh simplification (guess)	
+16	1	vehicle_detail	-405	-939	sweep_42 (#45)	Bus articulation joint rendered as black box	bus model (guess)	
+17	1	texture_bright	203	135	sweep_18 (#21)	Freitag-Turm plaza: snow-white terrazzo patches very bright vs surroundings	ground material tint (guess)	
+18	1	sign_big	1735	-700	sweep_18 (#22)	HB Bahnhofplatz: shop sign (Sora Sushi) huge and low, player walks through it	sign scale/placement (guess)	
+19	1	blocked_by_hoarding	-191	-1516	sweep_42 (#44)	Goldbrunnenplatz: white Baustelle hoardings fully block spawn view; intended? also 498,834	construction hoarding props	
+20	1	inside_vehicle	32	111	sweep_24 (#26)	Spawn Hardbruecke station platform: camera glued to S-Bahn body (dir 0 fills screen)	spawn point too close to rail vehicle (guess)	
+21	1	code_error	-	-	run log	pageerror: CanvasRenderingContext2D.arc radius negative (-1.2) repeatedly at 400x225 viewport	hud/map radar draw with tiny viewport (guess)	check web/src/ui/map*.ts

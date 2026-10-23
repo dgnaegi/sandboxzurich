@@ -1,0 +1,328 @@
+score	kind	tile	name	x	y	detail
+70.17	stack	2_4	Hardbrücke	515	863	tram(tram) beside, dz 8.0 over 11 vertices
+48.29	stack	0_1	Hardbrücke	179	354	tram(tram) beside, dz 7.2 over 11 vertices
+47.35	stack	0_1	Hardbrücke	166	334	tram(tram) beside, dz 7.0 over 5 vertices
+46.9	stack	2_4	Hardbrücke	509	871	tram(tram) beside, dz 8.0 over 13 vertices
+46.59	stack	2_4	Hardbrücke	479	822	tram(tram) beside, dz 7.9 over 5 vertices
+42.73	stack	-10_4	Europabrücke	-1810	977	foot(foot) beside, dz 7.0 over 4 vertices
+36.16	stack	0_1	Hardbrücke	188	352	tram(tram) beside, dz 7.2 over 5 vertices
+36.04	stack	2_4	Wipkingerbrücke	480	800	Hardbrücke(road) beside, dz 7.2 over 3 vertices
+26.6	stack	2_4	Wipkingerbrücke	540	890	Hardbrücke(road) beside, dz 7.4 over 23 vertices
+26.43	openend	2_4	Hardbrücke	583	999	end 1.1 m above ground
+26.15	stack	-1_-1	Hardbrücke	-58	-30	Hardbrücke(road) beside, dz 3.9 over 5 vertices
+25.03	stack	2_4	Wipkingerbrücke	516	890	Hardbrücke(road) beside, dz 7.3 over 22 vertices
+21.52	openend	-1_-1	road	-67	-48	end 9.7 m above ground
+20.37	kink	-1_-1	foot	-64	-149	dslope 0.42
+19.69	stack	-1_-1	foot	-45	-25	tram(tram) beside, dz 6.8 over 3 vertices
+18.74	kink	0_0	foot	24	130	dslope 0.59
+18.53	kink	-1_-1	foot	-63	-153	dslope 0.35
+18.23	openend	-10_5	Bändlistrasse	-1801	1103	end 5.6 m above ground
+18.11	stack	-1_-1	road	-71	-58	tram(tram) beside, dz 7.6 over 3 vertices
+17.75	openend	2_4	Hardbrücke	574	999	end 1.2 m above ground
+17.7	kink	0_0	foot	23	128	dslope 0.54
+16.6	stack	-1_-1	Hardbrücke	-74	-51	Hardbrücke(road) beside, dz 1.3 over 4 vertices
+14.92	stack	5_-8	Stauffacherbrücke	1113	-1435	foot(foot) beside, dz 4.6 over 9 vertices
+14.66	kink	0_0	foot	53	128	dslope 0.42
+14.12	kink	-1_-1	foot	-53	-172	dslope 0.19
+13.55	kink	1_0	Lettenviadukt	336	114	dslope 1.09
+13.31	steep	-1_-1	foot	-63	-153	slope 0.48
+13.27	kink	-1_-1	foot	-55	-167	dslope 0.16
+12.7	stack	2_3	Wipkingerbrücke	471	794	Hardbrücke(road) beside, dz 7.3 over 4 vertices
+12.54	kink	-10_5	foot	-1829	1003	dslope 1.35
+12.19	kink	4_2	Lettenviadukt	969	480	dslope 0.12
+12.09	kink	0_0	foot	48	121	dslope 0.29
+12.02	kink	-10_4	foot	-1816	973	dslope 0.39
+11.78	stack	-1_-1	Hardbrücke	-52	-20	tram(tram) beside, dz 7.8 over 3 vertices
+11.68	kink	-10_4	foot	-1820	955	dslope 0.37
+11.66	kink	-1_-1	Hardbrücke	-144	-135	dslope 0.27
+11.59	kink	-1_-1	Hardbrücke	-144	-134	dslope 0.27
+11.56	kink	8_-1	Drahtschmidlisteg	1756	-134	dslope 0.36
+11.17	kink	1_-3	tram	316	-451	dslope 0.30
+10.79	kink	-1_-1	foot	-63	-53	dslope 0.27
+10.73	kink	-1_-1	foot	-60	-49	dslope 0.26
+10.65	kink	1_-3	tram	314	-450	dslope 0.27
+10.61	steep	0_0	foot	23	128	slope 0.58
+10.52	kink	-1_-1	foot	-110	-81	dslope 0.37
+10.42	openend	-10_5	foot	-1801	1111	end 5.5 m above ground
+9.66	kink	3_1	Lettenviadukt	631	354	dslope 0.12
+9.51	steep	-1_-1	Hardbrücke	-156	-169	slope -0.10
+9.5	buried	1_-3	Hohlstrasse	365	-484	trafficsigns at ground inside solid deck (367,-481) deck 0.8 m above
+9.36	steep	0_0	foot	48	121	slope -0.45
+9.36	steep	0_0	foot	49	122	slope -0.45
+9.25	kink	0_0	foot	39	106	dslope 0.14
+9.19	steep	0_0	foot	51	125	slope -0.42
+9.09	kink	-10_5	foot	-1826	1003	dslope 0.88
+8.47	steep	-1_-1	Hardbrücke	-144	-134	slope -0.31
+8.37	kink	0_1	foot	127	297	dslope 0.31
+8.17	openend	7_-5	foot	1405	-828	end 2.5 m above ground
+8.15	kink	-1_-1	foot	-88	-87	dslope 0.51
+8.02	kink	-3_2	foot	-456	565	dslope 0.33
+8.02	kink	2_1	Lettenviadukt	544	309	dslope 0.11
+7.88	steep	-10_4	foot	-1816	973	slope 0.42
+7.88	kink	-1_-1	foot	-107	-76	dslope 0.20
+7.87	steep	-10_4	foot	-1818	967	slope 0.42
+7.86	kink	2_1	Lettenviadukt	464	269	dslope 0.10
+7.71	steep	-10_4	foot	-1819	961	slope 0.39
+7.7	openend	-6_4	Pfingstweidbrücke	-1125	998	end 3.3 m above ground
+7.68	kink	-1_-1	foot	-97	-101	dslope 0.46
+7.57	steep	-1_-1	foot	-63	-53	slope -0.26
+7.49	steep	0_0	foot	43	113	slope -0.16
+7.49	steep	0_0	foot	45	116	slope -0.16
+7.37	kink	-2_5	foot	-282	1121	dslope 0.17
+7.26	steep	8_-1	Drahtschmidlisteg	1756	-134	slope 0.31
+7.24	steep	1_-3	tram	314	-450	slope -0.24
+7.2	kink	-10_5	foot	-1891	1016	dslope 0.63
+7.13	kink	-1_-1	foot	-86	-42	dslope 0.15
+7.01	kink	0_0	foot	15	134	dslope 0.30
+6.79	kink	0_1	foot	130	302	dslope 0.19
+6.74	kink	-2_5	foot	-264	1174	dslope 0.13
+6.73	steep	6_-6	Schanzengrabenpromenade	1293	-1150	slope -0.16
+6.72	openend	1_-6	Kalkbreitestrasse	263	-1155	end 1.6 m above ground
+6.72	steep	1_0	Lettenviadukt	331	116	slope 1.12
+6.66	openend	1_-3	foot	328	-436	end 1.0 m above ground
+6.61	steep	-1_-1	foot	-110	-81	slope -0.33
+6.6	kink	0_0	foot	58	117	dslope 0.26
+6.36	openend	9_-4	Bahnhofbrücke	1998	-769	end 3.1 m above ground
+6.35	steep	1_-3	tram	321	-454	slope 0.08
+6.28	openend	-9_4	foot	-1780	1000	end 5.9 m above ground
+6.1	steep	-5_3	road	-874	669	slope 0.12
+6.1	steep	-5_3	road	-868	671	slope 0.12
+6.1	steep	-5_3	road	-818	747	slope -0.12
+6.1	steep	-5_3	road	-818	739	slope -0.12
+6.09	steep	-5_3	road	-863	679	slope 0.12
+6.09	steep	-5_3	road	-862	684	slope 0.12
+6.09	steep	-5_3	road	-863	689	slope 0.12
+6.09	steep	-5_3	road	-862	699	slope 0.12
+6.09	steep	-5_3	road	-828	755	slope -0.12
+6.09	steep	-5_3	road	-824	753	slope -0.12
+6.09	steep	-5_3	road	-821	751	slope -0.12
+6.09	steep	-5_3	road	-817	743	slope -0.12
+6.09	steep	-5_3	road	-820	735	slope -0.12
+6.09	steep	-5_3	road	-822	731	slope -0.12
+6.09	steep	-5_3	road	-825	722	slope -0.12
+6.09	steep	-5_3	road	-827	718	slope -0.12
+6.08	steep	-5_3	road	-871	670	slope 0.12
+6.08	steep	-5_3	road	-865	675	slope 0.12
+6.08	steep	-5_3	road	-864	694	slope 0.12
+6.08	steep	-5_3	road	-824	727	slope -0.12
+6.07	buried	1_-3	foot	362	-493	trafficsigns at ground inside solid deck (365,-495) deck 0.6 m above
+6.05	kink	-5_3	road	-972	700	dslope 0.15
+5.98	kink	-10_5	foot	-1896	1017	dslope 0.47
+5.85	kink	5_2	Lettenviadukt	1063	469	dslope 0.11
+5.84	kink	5_-3	Negrellisteg	1134	-454	dslope 0.53
+5.81	kink	0_0	foot	53	121	dslope 0.19
+5.75	steep	-10_5	foot	-1826	1003	slope 1.31
+5.73	kink	-10_5	foot	-1822	1003	dslope 0.43
+5.6	kink	0_0	foot	51	117	dslope 0.17
+5.53	kink	-3_2	foot	-476	572	dslope 0.13
+5.42	steep	0_1	foot	127	297	slope -0.24
+5.34	kink	0_0	foot	55	116	dslope 0.15
+5.25	kink	-11_5	foot	-2039	1113	dslope 0.23
+5.25	buried	0_-4	foot	165	-728	trafficsigns at ground inside solid deck (166,-728) deck 0.6 m above
+5.2	kink	-11_5	foot	-2041	1101	dslope 0.23
+5.11	kink	7_-5	Schanzengrabenpromenade	1448	-933	dslope 0.13
+5.1	openend	0_1	foot	141	321	end 0.5 m above ground
+5.1	openend	2_-9	Sihlhochstrasse	563	-1798	end 2.0 m above ground
+5.06	steep	-3_2	foot	-456	565	slope 0.27
+5.03	kink	-11_5	foot	-2040	1107	dslope 0.21
+5.03	openend	5_-8	foot	1031	-1601	end 1.9 m above ground
+5.02	kink	2_3	Wipkingerbrücke	473	796	dslope 0.12
+5.01	kink	-11_5	foot	-2053	1038	dslope 0.21
+4.99	kink	-11_5	foot	-2056	1020	dslope 0.21
+4.96	kink	-11_5	foot	-2055	1026	dslope 0.20
+4.94	kink	-11_5	foot	-2054	1032	dslope 0.20
+4.87	steep	-1_-1	foot	-91	-92	slope -0.52
+4.84	kink	0_0	foot	57	120	dslope 0.10
+4.83	openend	9_-4	foot	2002	-787	end 3.3 m above ground
+4.73	steep	-5_3	road	-891	667	slope -0.12
+4.72	steep	-5_3	road	-998	710	slope 0.12
+4.72	steep	-5_3	road	-993	708	slope 0.12
+4.72	steep	-5_3	road	-988	706	slope 0.12
+4.72	steep	-5_3	road	-982	704	slope 0.12
+4.72	steep	-5_3	road	-977	702	slope 0.12
+4.72	steep	-5_3	road	-896	667	slope -0.12
+4.72	steep	-5_3	road	-890	667	slope -0.12
+4.72	openend	9_-4	Bahnhofbrücke	1988	-779	end 3.0 m above ground
+4.67	steep	0_0	foot	53	121	slope 0.26
+4.65	steep	-1_-1	foot	-97	-101	slope -0.45
+4.65	steep	-1_-1	foot	-94	-96	slope -0.45
+4.63	steep	0_0	foot	55	116	slope -0.25
+4.57	kink	6_-5	tram	1395	-831	dslope 0.10
+4.55	steep	-11_5	foot	-2039	1113	slope 0.47
+4.55	openend	6_1	foot	1400	267	end 6.2 m above ground
+4.52	steep	-11_0	road	-1999	7	slope 0.12
+4.52	steep	-11_0	road	-2002	9	slope 0.12
+4.52	steep	-11_0	road	-2005	11	slope 0.12
+4.52	steep	-11_0	road	-2010	10	slope 0.12
+4.52	steep	-11_0	road	-2016	10	slope 0.12
+4.5	kink	7_-5	tram	1445	-865	dslope 0.14
+4.47	steep	-11_5	foot	-2054	1032	slope -0.45
+4.3	kink	-10_4	foot	-1831	994	dslope 0.70
+4.26	steep	0_0	foot	23	128	slope 0.16
+4.26	steep	0_0	foot	17	130	slope 0.16
+4.26	steep	0_0	foot	18	135	slope -0.16
+4.26	steep	0_0	foot	22	133	slope -0.16
+4.21	kink	6_-7	Schanzengrabenpromenade	1297	-1247	dslope 0.22
+4.16	steep	-10_5	foot	-1891	1016	slope -0.67
+4.14	steep	2_3	Wipkingerbrücke	471	794	slope 0.12
+4.14	openend	9_-4	Bahnhofbrücke	1951	-775	end 2.3 m above ground
+3.9	steep	-11_5	foot	-2040	1107	slope 0.26
+3.85	steep	-11_5	foot	-2053	1038	slope -0.25
+3.85	openend	2_4	foot	514	898	end 0.7 m above ground
+3.84	steep	-11_5	foot	-2055	1026	slope -0.25
+3.83	steep	-11_5	foot	-2043	1113	slope 0.24
+3.73	kink	-1_-1	tram	-56	-33	dslope 0.31
+3.7	openend	-10_5	Europabrücke	-1801	1017	end 6.3 m above ground
+3.65	kink	-10_4	foot	-1825	993	dslope 0.54
+3.65	stack	-10_5	Europabrücke	-1802	1012	foot(foot) beside, dz 6.1 over 3 vertices
+3.59	kink	6_-7	Schanzengrabenpromenade	1295	-1278	dslope 0.14
+3.58	steep	5_-3	Negrellisteg	1132	-459	slope -0.59
+3.55	steep	-10_5	foot	-1822	1003	slope 0.43
+3.52	steep	5_-3	Negrellisteg	1130	-464	slope -0.56
+3.47	steep	5_-3	Negrellisteg	1134	-454	slope -0.54
+3.45	openend	-2_4	foot	-356	846	end 2.9 m above ground
+3.41	kink	-1_-1	tram	-64	-44	dslope 0.26
+3.4	kink	-10_4	foot	-1828	994	dslope 0.48
+3.4	steep	7_-5	tram	1445	-865	slope 0.08
+3.26	kink	5_-2	Negrellisteg	1174	-357	dslope 0.23
+3.14	openend	9_-5	Mühlesteg	2000	-922	end 2.4 m above ground
+3.02	steep	6_-7	Schanzengrabenpromenade	1297	-1253	slope 0.19
+2.99	steep	-10_5	foot	-1896	1017	slope -0.20
+2.99	steep	6_-7	Schanzengrabenpromenade	1295	-1273	slope 0.18
+2.99	steep	6_-7	Schanzengrabenpromenade	1295	-1268	slope 0.18
+2.99	steep	6_-7	Schanzengrabenpromenade	1295	-1262	slope 0.18
+2.99	steep	6_-7	Schanzengrabenpromenade	1297	-1259	slope 0.18
+2.98	steep	6_-7	Schanzengrabenpromenade	1295	-1263	slope 0.17
+2.98	steep	6_-7	Schanzengrabenpromenade	1295	-1261	slope 0.18
+2.96	kink	9_-4	tram	1956	-771	dslope 0.13
+2.93	kink	5_-8	tram	1118	-1439	dslope 0.16
+2.87	openend	9_-4	foot	2001	-763	end 3.1 m above ground
+2.81	kink	5_-2	Negrellisteg	1176	-352	dslope 0.15
+2.77	openend	6_1	foot	1400	258	end 6.2 m above ground
+2.76	kink	8_-2	Mattensteg	1691	-292	dslope 0.17
+2.75	steep	-10_4	foot	-1831	994	slope -0.97
+2.72	kink	-10_4	foot	-1836	995	dslope 0.32
+2.72	openend	-4_0	Duttweilerbrücke	-603	149	end 4.3 m above ground
+2.71	openend	-1_-1	tram	-45	-17	end 1.2 m above ground
+2.7	kink	5_-2	Negrellisteg	1180	-341	dslope 0.13
+2.69	kink	5_-8	tram	1122	-1440	dslope 0.12
+2.67	openend	-10_5	foot	-1800	1038	end 6.2 m above ground
+2.58	kink	5_-2	Negrellisteg	1178	-347	dslope 0.11
+2.56	kink	-10_5	foot	-1802	1033	dslope 0.65
+2.56	kink	5_-2	Negrellisteg	1163	-384	dslope 0.11
+2.54	openend	6_1	foot	1402	233	end 5.4 m above ground
+2.51	kink	5_-8	tram	1116	-1435	dslope 0.17
+2.5	steep	-1_-1	tram	-56	-33	slope -0.30
+2.5	steep	-1_-1	tram	-53	-30	slope -0.30
+2.5	kink	5_0	road	1064	179	dslope 0.24
+2.49	kink	5_0	road	1064	179	dslope 0.24
+2.45	steep	-1_-1	tram	-51	-26	slope -0.27
+2.44	steep	-1_-1	tram	-74	-58	slope 0.26
+2.44	steep	-1_-1	tram	-72	-55	slope 0.26
+2.43	steep	-1_-1	tram	-69	-51	slope 0.26
+2.42	steep	-1_-1	tram	-67	-48	slope 0.26
+2.42	steep	5_-2	Negrellisteg	1180	-341	slope 0.25
+2.41	steep	-1_-1	tram	-77	-63	slope 0.25
+2.4	steep	-1_-1	tram	-48	-21	slope -0.25
+2.36	steep	5_-2	Negrellisteg	1174	-357	slope 0.22
+2.36	steep	5_-2	Negrellisteg	1172	-363	slope 0.21
+2.36	steep	5_-2	Negrellisteg	1169	-368	slope 0.22
+2.36	steep	5_-2	Negrellisteg	1167	-373	slope 0.21
+2.36	steep	5_-2	Negrellisteg	1165	-379	slope 0.22
+2.2	openend	-9_4	Würzgrabenstrasse	-1777	995	end 5.8 m above ground
+2.2	kink	5_-8	tram	1119	-1436	dslope 0.11
+2.2	steep	5_-8	tram	1118	-1439	slope 0.10
+2.17	openend	-9_4	foot	-1793	999	end 6.1 m above ground
+2.12	steep	8_-2	Mattensteg	1691	-292	slope -0.16
+2.08	steep	-10_4	foot	-1828	994	slope -0.49
+2.06	kink	-11_5	foot	-2012	1033	dslope 0.27
+2.0	kink	-10_5	foot	-1803	1027	dslope 0.43
+1.98	openend	-1_-1	Hardbrücke	-58	-30	end 6.4 m above ground
+1.95	openend	-9_4	Europabrücke	-1797	997	end 6.2 m above ground
+1.87	openend	-1_-1	Hardbrücke	-67	-48	end 5.9 m above ground
+1.84	steep	-10_0	road	-1966	30	slope -0.12
+1.83	steep	-10_0	road	-1981	13	slope -0.12
+1.83	steep	-10_0	road	-1977	11	slope -0.12
+1.83	steep	-10_0	road	-1974	14	slope -0.12
+1.83	steep	-10_0	road	-1970	18	slope -0.12
+1.83	steep	-10_0	road	-1969	22	slope -0.12
+1.83	steep	-10_0	road	-1967	26	slope -0.12
+1.83	steep	5_-8	tram	1119	-1436	slope -0.10
+1.78	steep	-10_4	foot	-1836	995	slope -0.28
+1.78	kink	-11_5	foot	-2011	1036	dslope 0.19
+1.64	steep	5_0	road	1076	172	slope 0.12
+1.64	steep	5_0	road	1075	177	slope 0.12
+1.64	steep	5_0	road	1069	181	slope 0.12
+1.64	steep	5_0	road	1062	175	slope -0.12
+1.64	steep	5_0	road	1063	170	slope -0.12
+1.64	steep	5_0	road	1069	166	slope -0.12
+1.64	steep	5_0	road	1072	167	slope 0.12
+1.64	steep	5_0	road	1065	168	slope 0.12
+1.64	steep	5_0	road	1062	174	slope 0.12
+1.64	steep	5_0	road	1067	180	slope -0.12
+1.64	steep	5_0	road	1072	180	slope -0.12
+1.64	steep	5_0	road	1076	175	slope -0.12
+1.63	steep	5_0	road	1074	168	slope 0.12
+1.63	steep	5_0	road	1075	170	slope 0.12
+1.63	steep	5_0	road	1076	175	slope 0.12
+1.63	steep	5_0	road	1074	179	slope 0.12
+1.63	steep	5_0	road	1071	180	slope 0.12
+1.63	steep	5_0	road	1066	180	slope 0.12
+1.63	steep	5_0	road	1064	179	slope -0.12
+1.63	steep	5_0	road	1063	177	slope -0.12
+1.63	steep	5_0	road	1062	172	slope -0.12
+1.63	steep	5_0	road	1064	168	slope -0.12
+1.63	steep	5_0	road	1067	167	slope -0.12
+1.63	steep	5_0	road	1072	167	slope -0.12
+1.63	steep	5_0	road	1074	168	slope 0.12
+1.63	steep	5_0	road	1069	166	slope 0.12
+1.63	steep	5_0	road	1067	166	slope 0.12
+1.63	steep	5_0	road	1063	170	slope 0.12
+1.63	steep	5_0	road	1062	172	slope 0.12
+1.63	steep	5_0	road	1063	177	slope 0.12
+1.63	steep	5_0	road	1064	179	slope -0.12
+1.63	steep	5_0	road	1069	181	slope -0.12
+1.63	steep	5_0	road	1074	179	slope -0.12
+1.63	steep	5_0	road	1075	177	slope -0.12
+1.63	steep	5_0	road	1076	172	slope -0.12
+1.63	steep	5_0	road	1076	170	slope -0.12
+1.58	kink	-4_0	foot	-603	182	dslope 0.82
+1.55	openend	1_-6	foot	287	-1131	end 0.5 m above ground
+1.51	kink	-10_5	foot	-1806	1016	dslope 0.24
+1.48	kink	2_-8	foot	556	-1409	dslope 0.28
+1.42	steep	-10_5	foot	-1802	1033	slope -0.63
+1.36	steep	-11_5	foot	-2012	1033	slope -0.20
+1.32	openend	6_-6	Nüschelersteg	1306	-1104	end 0.8 m above ground
+1.29	kink	2_-8	foot	552	-1413	dslope 0.20
+1.24	kink	-4_0	foot	-604	176	dslope 0.58
+1.15	openend	6_-7	foot	1303	-1335	end 1.3 m above ground
+1.14	kink	6_-7	Badweg	1294	-1341	dslope 0.32
+1.1	openend	5_-7	foot	1196	-1206	end 3.2 m above ground
+1.07	openend	5_-7	foot	1191	-1218	end 3.0 m above ground
+1.04	steep	-10_5	foot	-1803	1027	slope -0.19
+1.04	steep	-10_5	foot	-1805	1021	slope -0.19
+0.97	steep	2_-8	foot	556	-1409	slope 0.20
+0.94	steep	2_-8	foot	563	-1402	slope -0.16
+0.85	steep	-4_0	foot	-603	182	slope -0.87
+0.74	steep	6_-7	Badweg	1296	-1341	slope -0.29
+0.69	openend	5_-7	foot	1196	-1206	end 7.1 m above ground
+0.68	openend	-9_4	Würzgrabenstrasse	-1777	995	end 2.2 m above ground
+0.59	steep	-4_0	foot	-604	176	slope -0.29
+0.56	openend	5_0	foot	1189	123	end 0.5 m above ground
+0.55	kink	-3_2	foot	-457	566	dslope 0.29
+0.5	openend	-5_5	Hardeggsteg	-975	1200	end 3.9 m above ground
+0.47	openend	-9_4	Würzgrabenstrasse	-1788	1000	end 0.6 m above ground
+0.44	steep	-9_4	Würzgrabenstrasse	-1777	995	slope -0.12
+0.44	steep	-9_4	Würzgrabenstrasse	-1780	995	slope -0.12
+0.44	steep	-9_4	Würzgrabenstrasse	-1782	996	slope -0.12
+0.44	steep	-9_4	Würzgrabenstrasse	-1784	997	slope -0.12
+0.44	steep	-9_4	Würzgrabenstrasse	-1785	997	slope -0.12
+0.44	steep	-9_4	Würzgrabenstrasse	-1787	999	slope -0.12
+0.41	steep	5_-7	foot	1196	-1206	slope -1.02
+0.41	steep	5_-7	foot	1198	-1207	slope -1.01
+0.37	steep	-3_2	foot	-457	566	slope 0.22
+0.35	steep	6_-7	Schanzengrabenpromenade	1279	-1332	slope -0.31
+0.33	steep	6_-7	Schanzengrabenpromenade	1282	-1328	slope -0.23
+0.27	openend	-10_0	road	-1999	1	end 1.3 m above ground
+0.21	steep	-10_0	road	-1999	1	slope 0.12
+0.21	steep	-10_0	road	-1999	4	slope 0.12

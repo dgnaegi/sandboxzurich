@@ -188,6 +188,7 @@ def _lidar_decks(prep, bridge_nodes):
 FOLLOW_DIST = 4.6   # m: a tram/foot strip this close and parallel to a road chain is on the same structure (ramp)
 FOLLOW_DIST_FOOT = 3.0  # m: footways must hug the road (a footway 4 m away may run on the ground below a bridge, e.g. Europabruecke)
 FOLLOW_DZ = 1.5     # m: ... and takes its height when the rule/LiDAR height disagrees by more than this
+FOLLOW_RULE_DZ = 4.5  # m: ... but only a road whose height is within this of the rule height of the strip (else it is a deck above / below)
 FOLLOW_FADE = 25.0  # m: height offset above ground carried past the last followed vertex fades out over this length
 
 
@@ -213,6 +214,8 @@ def _follow_parallel(prep):
                 if c is ch or dist > (FOLLOW_DIST if ch["kind"] == "tram" else FOLLOW_DIST_FOOT) or (best and dist >= best[0]):
                     continue
                 t = ln.project(pt)
+                if abs(float(np.interp(t, c["s"], c["z"])) - ch["z_rule"][i]) > FOLLOW_RULE_DZ:
+                    continue   # a deck on another level (Hardbruecke main deck above the Wipkingerbruecke tram)
                 a, b = ln.interpolate(max(t - 2, 0)), ln.interpolate(min(t + 2, ln.length))
                 e = np.array([b.x - a.x, b.y - a.y])
                 if abs(float(d @ e)) / (np.hypot(*d) * np.hypot(*e) + 1e-9) < 0.906:
@@ -246,7 +249,7 @@ def bridge_ways(nodes, els, area, H=None, H_raw=None):
         H = heights(tuple(area), 2.0, z_shift=-3.06)
     ab = box(*area).buffer(60)
     ways = []  # eligible ways + obstacles
-    water_lines, water_polys = [], []
+    water_lines, water_polys, steps_ways = [], [], []
     for e in els:
         if e["type"] != "way" or len(e.get("nodes", [])) < 2:
             continue
@@ -264,8 +267,13 @@ def bridge_ways(nodes, els, area, H=None, H_raw=None):
             continue
         if e["id"] in _BRIDGES_EXCL:  # bridges_excl
             continue
+        if t.get("highway") == "steps" and t.get("tunnel") not in ("yes", "building_passage") and _layer(t, False) >= 0:
+            sp = [nodes[n] for n in e["nodes"] if n in nodes]   # bridge2: stairs only join deck ends to the ground (see _stairs)
+            if len(sp) >= 2 and LineString(sp).intersects(ab):
+                steps_ways.append({"id": e["id"], "pts": sp, "w": _num(t.get("width"), 2.0)})
+            continue
         k = _kind(t)
-        if k is None or t.get("area") == "yes" or t.get("highway") == "steps" or t.get("service") in ("driveway",) and False:
+        if k is None or t.get("area") == "yes" or t.get("service") in ("driveway",) and False:
             continue
         tunnel = t.get("tunnel") in ("yes", "building_passage", "culvert") or _layer(t, False) < 0
         line = LineString(pts)
@@ -421,9 +429,12 @@ def bridge_ways(nodes, els, area, H=None, H_raw=None):
                 new_z[n] = max(new_z.get(n, -1e9), float(ch["z"][k]))
         node_z = new_z
 
+    for ch in prep:
+        ch["z_rule"] = ch["z"].copy()   # bridge2: _follow_parallel only joins a road at about the level the rules gave
     if LIDAR_DECKS:
         _lidar_decks(prep, bridge_nodes)
     _follow_parallel(prep)
+    _limit_foot_drop(prep)
 
     out = []
     for ch in prep:
@@ -490,6 +501,7 @@ def bridge_ways(nodes, els, area, H=None, H_raw=None):
     for b in out:   # open sides again on the trimmed set: a road deck must not stay open towards a dropped tram strip (car fell into the Sihl at Gessnerbrücke)
         b.pop("ol", None); b.pop("or", None)
     _open_sides(out)
+    _stairs(out, steps_ways, H, els, nodes)
     _zebras(out, nodes, els)
     if H_given and H_raw is not None:  # roads2: only the real build (it passes the unsmoothed grid) writes the chain cache; audits do not
         save_chains(out)
@@ -505,6 +517,117 @@ def bridge_ways(nodes, els, area, H=None, H_raw=None):
         if under:
             b["excl"] = b["excl"].difference(shapely.union_all(under))
     return out
+
+
+FOOT_DROP = 0.45   # max descent of a footway measured per metre (stairs): LiDAR plateaus next to a ramp must not become cliffs
+STAIR_W = 2.2
+
+
+def _limit_foot_drop(prep):
+    """bridge2: a footway chain may not fall faster than FOOT_DROP from any higher vertex (before or behind it). The lower side is
+    raised towards the high one (never lowered: clearance below stays): turns the 3.8 m cliffs at the Hardbruecke station
+    (LiDAR plateau after a rule ramp) into a staircase-steep ramp."""
+    n = 0
+    for ch in prep:
+        if ch["kind"] != "foot":
+            continue
+        s, z = ch["s"], ch["z"].copy()
+        for i in range(1, len(z)):
+            z[i] = max(z[i], z[i - 1] - FOOT_DROP * (s[i] - s[i - 1]))
+        for i in range(len(z) - 2, -1, -1):
+            z[i] = max(z[i], z[i + 1] - FOOT_DROP * (s[i + 1] - s[i]))
+        if np.abs(z - ch["z"]).max() > 0.05:
+            n += 1
+            ch["z"] = z
+    print(f"bridges: foot drop limited on {n} chains")
+
+
+def _stairs(out, steps, H, els, nodes):
+    """bridge2: a footway deck that ends clearly above the ground gets stairs down to it: along the OSM highway=steps way that starts
+    at the deck end (<= 4 m) or, without one, straight on (FOOT_DROP). Stair rows are ordinary foot decks (st = 1: the client draws
+    treads); solid to the ground. Skipped when the corridor runs into a building or another deck end is near the end."""
+    if not out:
+        return
+    ends = [(np.array(b["p"][k][:2]), b["p"][k][2]) for b in out for k in (0, -1)]
+    blds = []
+    for e in els:
+        t = e.get("tags", {})
+        if e["type"] == "way" and t.get("building") and len(e.get("nodes", [])) >= 4:
+            q = [nodes[n] for n in e["nodes"] if n in nodes]
+            if len(q) >= 4:
+                try:
+                    blds.append(shapely.Polygon(q).buffer(0))
+                except Exception:
+                    pass
+    btree = STRtree(blds) if blds else None
+    sl = [(LineString(w["pts"]), w) for w in steps]
+    stree = STRtree([l for l, _ in sl]) if sl else None
+    new, nst, nsyn = [], 0, 0
+    for b in out:
+        if b["kind"] != "foot":
+            continue
+        for end in (0, -1):
+            P = np.array(b["p"])
+            q = P[end]
+            gz = float(H.at(q[0], q[1]))
+            el = q[2] - gz
+            if el < 0.8:
+                continue
+            if sum(1 for e, ez in ends if np.hypot(*(e - q[:2])) < 4.0 and abs(ez - q[2]) < 0.8) > 1:
+                continue   # another deck end is here (the end itself counts once)
+            nb = P[1] if end == 0 else P[-2]
+            d = q[:2] - nb[:2]
+            d = d / (np.hypot(*d) or 1.0)
+            path, w, kind = None, STAIR_W, "syn"
+            if stree is not None:
+                best = None
+                for j in stree.query(Point(q[:2]).buffer(4.0)):
+                    ln, sw = sl[j]
+                    pts = np.array(sw["pts"])
+                    for k2, o in ((0, pts), (-1, pts[::-1])):
+                        dd = np.hypot(*(pts[k2] - q[:2]))
+                        if dd < 4.0 and (best is None or dd < best[0]):
+                            best = (dd, o, sw["w"])
+                if best:
+                    path, w, kind = np.vstack([q[:2], best[1]]), max(best[2], 1.6), "osm"
+            if path is None:
+                Ls = min(el / FOOT_DROP + 2.0, 40.0)
+                path = np.vstack([q[:2], q[:2] + d * Ls])
+            ps = [path[0]]
+            for a, c in zip(path[:-1], path[1:]):
+                nn = max(1, int(math.ceil(np.hypot(*(c - a)) / 2.0)))
+                ps += [a + (c - a) * k / nn for k in range(1, nn + 1)]
+            ps = np.array(ps)
+            s = np.concatenate([[0], np.cumsum(np.hypot(*np.diff(ps, axis=0).T))])
+            if s[-1] < 2.0:
+                continue
+            g = np.array([float(H.at(x, y)) for x, y in ps])
+            if kind == "osm":   # linear from the deck end to the ground at the far end, never steeper than needed
+                z = np.maximum(q[2] + (g[-1] - q[2]) * s / s[-1], g)
+            else:
+                z = np.maximum(q[2] - FOOT_DROP * s, g)
+            low = np.where(z - g < 0.12)[0]
+            cut = int(low[0]) if len(low) else None
+            if cut is None:
+                if kind == "osm":
+                    cut = len(ps) - 1
+                else:
+                    continue
+            if cut < 1:
+                continue
+            ps, z, g, s = ps[:cut + 1], z[:cut + 1], g[:cut + 1], s[:cut + 1]
+            if btree is not None:
+                corridor = LineString(ps).buffer(w / 2 + 0.2)
+                if any(blds[j].intersects(corridor) and blds[j].intersection(corridor).area > 0.5 for j in btree.query(corridor)):
+                    continue
+            nst += kind == "osm"; nsyn += kind == "syn"
+            z[0] = q[2]
+            new.append({"ids": [], "name": "", "kind": "foot", "layer": 0, "w": round(float(w), 2), "st": 1,
+                        "p": np.column_stack([ps, z]).round(2).tolist(), "g": g.round(2).tolist(),
+                        "b": (g - 0.25).round(2).tolist(), "piers": [], "excl": shapely.Polygon(),
+                        "max_el": float((z - g).max()), "max_slope": _maxslope(s, z), "len": float(s[-1])})
+    out.extend(new)
+    print(f"bridges: stairs {nst} along OSM steps, {nsyn} straight on, {len(new)} total")
 
 
 def _zebras(out, nodes, els):
@@ -786,6 +909,8 @@ def tile_rows(bridges, tile_box, with_excl=False):
         for r in runs:
             row = {"p": [p[i] for i in r], "g": [b["g"][i] for i in r], "b": [b["b"][i] for i in r],
                    "w": b["w"], "kind": b["kind"], "name": b["name"]}
+            if b.get("st"):
+                row["st"] = 1
             zb = [z for z in b.get("zb", []) if x0 <= z[0] < x1 and y0 <= z[1] < y1]
             if zb and any(abs(z[0] - p[i][0]) < 40 and abs(z[1] - p[i][1]) < 40 for z in zb for i in r):
                 row["zb"] = zb

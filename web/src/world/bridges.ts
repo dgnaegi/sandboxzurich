@@ -5,13 +5,13 @@ import * as THREE from 'three';
  *  w = driving width, kind = road | foot | tram | rail. Piers: [x, y, zBottom, zTop, widthAcross, heading, kind].
  *  Local -> Three: (x, z, -y). One draw call per tile (vertex-coloured, flat shaded). */
 /** pa / pb: the polyline vertices just before / after a row that was cut at a tile border (keeps the offset normals continuous across tiles). */
-export interface DeckRow { p: number[][]; g: number[]; b: number[]; w: number; kind: string; name: string; pa?: number[]; pb?: number[]; sub?: boolean; zb?: number[][]; ol?: number[]; or?: number[] }   // ol / or: per vertex 1 = another road/tram deck at the same height touches the left / right side -> no curb, parapet or railing there (one flush deck)   // zb: zebra crossings on the deck [x, y, z, dirX, dirY]   // sub: deck below the terrain (hb3 underground levels)
+export interface DeckRow { p: number[][]; g: number[]; b: number[]; w: number; kind: string; name: string; pa?: number[]; pb?: number[]; sub?: boolean; st?: number; zb?: number[][]; ol?: number[]; or?: number[] }   // ol / or: per vertex 1 = another road/tram deck at the same height touches the left / right side -> no curb, parapet or railing there (one flush deck)   // zb: zebra crossings on the deck [x, y, z, dirX, dirY]   // sub: deck below the terrain (hb3 underground levels)
 export type PierRow = [number, number, number, number, number, number, string];
 export interface BridgeRows { decks: DeckRow[]; piers: PierRow[] }
 
 const mat = new THREE.MeshLambertMaterial({ vertexColors: true, side: THREE.DoubleSide });
 const col = (hex: number) => new THREE.Color(hex);
-const TOP: Record<string, THREE.Color> = { road: col(0x3c3d40), tram: col(0x3c3d40), foot: col(0x8d8a84), rail: col(0x4b4640) };
+const TOP: Record<string, THREE.Color> = { road: col(0x544e47), tram: col(0x544e47), foot: col(0x8d8a84), rail: col(0x4b4640) };
 const CONC = col(0x9b988f), CONC_DARK = col(0x6f6d68), RAIL = col(0x5d6468), LINE = col(0xd8d4c4), RAILHEAD = col(0xaeaeb2), ZEBRA = col(0xf0c81e);
 const PARAPET = 0.38, CURB = 0.3;
 /** Open (shared) sides reach this far into the gap to the neighbouring deck (pipeline allows gaps up to 1.5 m): no hole between them. */
@@ -70,7 +70,8 @@ function deck(B: Builder, d: DeckRow) {
     const j = i + 1, zi = p[i][2], zj = p[j][2], bi = d.b[i], bj = d.b[j];
     const lo = s0(d, i, j, 1), ro = s0(d, i, j, -1);   // open (shared) sides
     const hl = lo ? hw + GAP_FILL : hw, hr = ro ? hw + GAP_FILL : hw;
-    B.quad(at(i, -hr, zi), at(i, hl, zi), at(j, hl, zj), at(j, -hr, zj), top); // surface (winding: up), open sides bridge the gap
+    if (d.st) stairs(B, at, i, j, hl, hr, zi, zj, top);   // bridge2: flight of stairs = treads + risers (walking uses the smooth slope)
+    else B.quad(at(i, -hr, zi), at(i, hl, zi), at(j, hl, zj), at(j, -hr, zj), top); // surface (winding: up), open sides bridge the gap
     B.quad(at(i, lo ? hw : ow, bi), at(i, ro ? -hw : -ow, bi), at(j, ro ? -hw : -ow, bj), at(j, lo ? hw : ow, bj), CONC_DARK); // underside
     for (const s of [-1, 1]) {
       if (s > 0 ? lo : ro) continue;
@@ -86,6 +87,21 @@ function deck(B: Builder, d: DeckRow) {
   if (d.kind === 'road' && d.w >= 6) centreLine(B, d, nx, ny);
   if (d.kind === 'tram') trackRails(B, d, nx, ny);
   if (d.zb) for (const z of d.zb) zebra(B, z, d.w);
+}
+
+const RISER = 0.17, TREAD_LIGHT = col(0xa6a39c), RISER_DARK = col(0x7c7a74);
+/** Stairs between vertices i and j: n = |dz| / 0.17 m treads, each at the slope height of its middle, risers between them. */
+function stairs(B: Builder, at: (i: number, o: number, z: number) => number[], i: number, j: number, hl: number, hr: number, zi: number, zj: number, top: THREE.Color) {
+  const dz = zj - zi, n = Math.max(1, Math.round(Math.abs(dz) / RISER));
+  const P = (t: number, o: number, z: number) => { const a = at(i, o, 0), b = at(j, o, 0); return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, z]; };
+  for (let k = 0; k < n; k++) {
+    const t0 = k / n, t1 = (k + 1) / n, z = zi + dz * (k + 0.5) / n;
+    B.quad(P(t0, -hr, z), P(t0, hl, z), P(t1, hl, z), P(t1, -hr, z), k % 2 ? top : TREAD_LIGHT);
+    if (k < n - 1) {
+      const z2 = zi + dz * (k + 1.5) / n;
+      B.quad(P(t1, -hr, Math.min(z, z2)), P(t1, hl, Math.min(z, z2)), P(t1, hl, Math.max(z, z2)), P(t1, -hr, Math.max(z, z2)), RISER_DARK);
+    }
+  }
 }
 
 /** Tram deck: two metre-gauge rail heads (as on the ground, tram_track.py) flush in the deck surface. */

@@ -1,0 +1,124 @@
+{
+ "landmarks": [
+  {
+   "name": "Letzit\u00fcrme weisser Wohnturm",
+   "model": "/models/landmarks/z5R2_tower_white.glb",
+   "x": -1608.9,
+   "y": 486.9,
+   "z": -11.05,
+   "heading": 0,
+   "hide": [
+    [
+     -1608.9,
+     486.9
+    ]
+   ]
+  },
+  {
+   "name": "Letzit\u00fcrme roter Wohnturm A",
+   "model": "/models/landmarks/z5R2_tower_red_a.glb",
+   "x": -1609.1,
+   "y": 540.4,
+   "z": -11.53,
+   "heading": 0,
+   "hide": [
+    [
+     -1609.9,
+     538.6
+    ]
+   ]
+  },
+  {
+   "name": "Letzit\u00fcrme roter Wohnturm B",
+   "model": "/models/landmarks/z5R2_tower_red_b.glb",
+   "x": -1600.9,
+   "y": 560.0,
+   "z": -11.51,
+   "heading": 0,
+   "hide": [
+    [
+     -1593.0,
+     556.7
+    ],
+    [
+     -1604.9,
+     562.8
+    ]
+   ]
+  },
+  {
+   "name": "Badenerstrasse SW-Zeile beige",
+   "model": "/models/landmarks/z5R2_baden_sw_beige.glb",
+   "x": -1992.5,
+   "y": 444.4,
+   "z": -11.32,
+   "heading": 0,
+   "hide": [
+    [
+     -1992.4,
+     444.2
+    ]
+   ]
+  },
+  {
+   "name": "Badenerstrasse SW-Zeile orange",
+   "model": "/models/landmarks/z5R2_baden_sw_orange.glb",
+   "x": -1975.3,
+   "y": 435.6,
+   "z": -10.09,
+   "heading": 0,
+   "hide": [
+    [
+     -1975.1,
+     435.8
+    ]
+   ]
+  },
+  {
+   "name": "Badenerstrasse SW-Zeile Eckhaus blaugrau",
+   "model": "/models/landmarks/z5R2_baden_sw_blue.glb",
+   "x": -1959.0,
+   "y": 427.3,
+   "z": -9.71,
+   "heading": 0,
+   "hide": [
+    [
+     -1959.7,
+     428.3
+    ]
+   ]
+  },
+  {
+   "name": "Badenerstrasse Neubau cremefarben",
+   "model": "/models/landmarks/z5R2_baden_n_cream.glb",
+   "x": -1950.5,
+   "y": 488.7,
+   "z": -10.33,
+   "heading": 0,
+   "hide": [
+    [
+     -1955.4,
+     477.1
+    ],
+    [
+     -1946.4,
+     502.0
+    ]
+   ]
+  },
+  {
+   "name": "Westpark grauer B\u00fcrobau",
+   "model": "/models/landmarks/z5R2_westpark_office.glb",
+   "x": -179.8,
+   "y": 665.7,
+   "z": -8.8,
+   "heading": 0,
+   "hide": [
+    [
+     -169.1,
+     656.0
+    ]
+   ]
+  }
+ ]
+}

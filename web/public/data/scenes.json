@@ -1142,9 +1142,9 @@
 "«Pfnüsel»",
 "= Schnupfen"
 ],
-"x": 1117.1,
-"y": 69.7,
-"dir": -1.61,
+"x": 42.5,
+"y": 737.0,
+"dir": -1.14,
 "egg": {
 "id": "slang3",
 "title": "Wort des Tages: Pfnüsel",
@@ -1158,9 +1158,9 @@
 "«Plausch»",
 "= Spass, Vergnügen"
 ],
-"x": 42.5,
-"y": 737.0,
-"dir": -1.14,
+"x": 1646.4,
+"y": -691.6,
+"dir": -2.79,
 "egg": {
 "id": "slang4",
 "title": "Wort des Tages: Plausch",
@@ -1174,9 +1174,9 @@
 "«Ghüder»",
 "= Abfall, Kram"
 ],
-"x": 1646.4,
-"y": -691.6,
-"dir": -2.79,
+"x": 948.1,
+"y": -1194.2,
+"dir": 1.33,
 "egg": {
 "id": "slang5",
 "title": "Wort des Tages: Ghüder",
@@ -1190,9 +1190,9 @@
 "«Zvieri»",
 "= Imbiss am Nachmittag"
 ],
-"x": 948.1,
-"y": -1194.2,
-"dir": 1.33,
+"x": 563.7,
+"y": -491.9,
+"dir": 2.24,
 "egg": {
 "id": "slang6",
 "title": "Wort des Tages: Zvieri",
@@ -1223,9 +1223,9 @@
 },
 {
 "type": "cargo",
-"x": -1578.1,
-"y": 49.6,
-"dir": 2.02,
+"x": 1070.0,
+"y": -35.4,
+"dir": 0.51,
 "egg": {
 "id": "lastenvelo1",
 "title": "Lastenvelo mit Hund",
@@ -1234,9 +1234,9 @@
 },
 {
 "type": "cargo",
-"x": 998.6,
-"y": -142.8,
-"dir": 0.51,
+"x": -1578.1,
+"y": 49.6,
+"dir": 2.02,
 "egg": {
 "id": "lastenvelo2",
 "title": "Carvelo-Moment",
@@ -1524,9 +1524,9 @@
 "Kafi Luz",
 "CHF 7.50"
 ],
-"x": 1228.1,
-"y": -93.0,
-"dir": -0.76,
+"x": 552.9,
+"y": -1204.9,
+"dir": -2.41,
 "egg": {
 "id": "menu2",
 "title": "Tageskarte",
@@ -1540,9 +1540,9 @@
 "Suppe + Hauptgang",
 "CHF 24.–"
 ],
-"x": 552.9,
-"y": -1204.9,
-"dir": -2.41,
+"x": 344.0,
+"y": 523.7,
+"dir": -1.0,
 "egg": {
 "id": "menu3",
 "title": "Mittagsmenü",
@@ -1556,9 +1556,9 @@
 "Rösti mit Spiegelei",
 "CHF 19.–"
 ],
-"x": 344.0,
-"y": 523.7,
-"dir": -1.0,
+"x": 72.0,
+"y": -1519.2,
+"dir": 2.19,
 "egg": {
 "id": "menu4",
 "title": "Wochenhit",
@@ -1567,9 +1567,9 @@
 },
 {
 "type": "umzug",
-"x": 514.0,
-"y": -393.1,
-"dir": 1.19,
+"x": -669.4,
+"y": -1346.4,
+"dir": -2.52,
 "egg": {
 "id": "umzug1",
 "title": "Umzug",
@@ -1578,9 +1578,9 @@
 },
 {
 "type": "umzug",
-"x": -669.4,
-"y": -1346.4,
-"dir": -2.52,
+"x": -358.1,
+"y": -38.2,
+"dir": 0.55,
 "egg": {
 "id": "umzug2",
 "title": "Kisten-Chaos",
@@ -1589,9 +1589,9 @@
 },
 {
 "type": "umzug",
-"x": -358.1,
-"y": -38.2,
-"dir": 0.55,
+"x": -1080.7,
+"y": 42.1,
+"dir": 0.39,
 "egg": {
 "id": "umzug3",
 "title": "Neue Wohnung, altes Sofa",
@@ -2507,22 +2507,6 @@
 {
 "type": "sign",
 "sign": [
-"WG-ZIMMER",
-"12 m² · CHF 980",
-"47 Bewerbungen"
-],
-"x": 261,
-"y": 808,
-"dir": 0.38,
-"egg": {
-"id": "z_miete2",
-"title": "WG-Casting",
-"text": "Beim Casting gewinnt, wer am wenigsten Hausrat hat und am meisten Humor."
-}
-},
-{
-"type": "sign",
-"sign": [
 "ZU VERMIETEN",
 "Atelier 40 m²",
 "nur an Firmen"
@@ -2534,22 +2518,6 @@
 "id": "z_miete3",
 "title": "Atelier nur für Firmen",
 "text": "Ein Atelier, das nie ein Künstler bewohnt, weil schon die Miete eine Kunstform ist."
-}
-},
-{
-"type": "sign",
-"sign": [
-"WOHNUNG GESUCHT",
-"Familie, 4 Kinder",
-"Wir sind nett"
-],
-"x": 1049,
-"y": -1402,
-"dir": -2.36,
-"egg": {
-"id": "z_miete4",
-"title": "Suchinserat im Laden",
-"text": "Familie sucht Wohnung. Kann kochen, gärtnern, Velos flicken. Hat nur leider keinen Anwalt."
 }
 },
 {

@@ -761,7 +761,8 @@
    "pick": {
     "tags": {
      "shop": "kiosk"
-    }
+    },
+    "exclude_near": [[1120, 72, 15]]
    },
    "entries": [
     {

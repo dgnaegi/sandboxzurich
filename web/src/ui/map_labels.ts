@@ -86,18 +86,23 @@ export function drawLabels(g: CanvasRenderingContext2D, d: MapData, v: View, th:
     const [x, y] = sc(q.x, q.y);
     if (on(x, y)) label(x, y, q.name, `${q.kind === 'q' ? 700 : 600} ${q.kind === 'q' ? 12 : 11}px ${FONT}`, q.kind === 'q' ? th.text : green);
   }
-  // landmarks, notable buildings: round blips
+  // landmarks (always blip + label), minor POIs only when blip and label both fit (no anonymous dark dots), big buildings as plain text
   const poiOrder = (a: Named, b: Named) => (a.kind === 'lm' ? 0 : 1) - (b.kind === 'lm' ? 0 : 1);
   for (const q of [...d.pois].sort(poiOrder)) {
-    const lm = q.kind === 'lm';
-    if (s < (lm ? 0.2 : q.kind === 'bld' ? 1.2 : 0.8)) continue;
+    const lm = q.kind === 'lm', bld = q.kind === 'bld';
+    if (s < (lm ? 0.2 : bld ? 1.5 : 0.9)) continue;
     const [x, y] = sc(q.x, q.y);
     if (!on(x, y)) continue;
-    const br = lm ? (s > 0.5 ? 10.5 : 8.5) : q.kind === 'bld' ? 3.5 : 7;
-    const r = rectAt(x, y, br * 2 + 2, br * 2 + 2);
+    if (bld) { label(x, y, q.name, `italic 600 10.5px ${FONT}`, dark ? '#c9d2d6' : '#6f6a56', 0, 1); continue; }
+    const br = lm ? (s > 0.5 ? 10.5 : 8.5) : 6.5;
+    const font = `${lm ? 700 : 600} ${lm ? 12.5 : 10.5}px ${FONT}`, ly = br + (lm ? 8 : 7);
+    const w = tw(q.name, font) + 2, r = rectAt(x, y, br * 2 + 2, br * 2 + 2);
+    const lr = rectAt(x, y + ly, w, 14);
     if (!P.free(r)) continue;
+    const lrFree = P.free(lr);
+    if (!lm && !lrFree) continue;   // minor blip without a readable name is dropped
     P.take(r); drawBlip(g, q.kind as BlipKind, x, y, br);
-    if (lm || s > 1) label(x, y, q.name, `${lm ? 700 : 600} ${lm ? 12.5 : 10.5}px ${FONT}`, th.text, br + 8, 1);
+    if (lrFree) { P.take(lr); txt(g, th, q.name, x, y + ly, font, th.text); }
   }
   // tram stops and stations
   for (const q of d.stops) {

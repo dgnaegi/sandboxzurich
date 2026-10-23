@@ -2,7 +2,7 @@
 
 Source format (see research/scenes.md):
   fixed:  scenes copied verbatim (hand placed).
-  groups: {id, type, pick, n, entries[], street, off, min_sep, params}
+  groups: {id, type, pick, n, entries[], street, off, min_sep, params}; pick.exclude_near: [[x, y, r], ...] keeps scenes off real objects modelled as landmarks
     pick = {tags:{k:v|"*"}, name_re, no_name, no_tags:[k..], unique_name}  -> OSM objects inside the play area
          | {way:{highway:[..], min_len, skip_footway:[..]}}                  -> walking paths (type walker/stilts)
          | {name:"exact OSM name"} per entry (entry.name) or {at:[x,y]}
@@ -232,7 +232,7 @@ def main():
                         continue
                     seen.add(t.get("name"))
                 r = place(w, p, grp, i)
-                if r:
+                if r and not any(math.hypot(r[0] - ex, r[1] - ey) < er for ex, ey, er in pick.get("exclude_near", [])):
                     cands.append((*r, None, t))
         chosen = []
         if named:

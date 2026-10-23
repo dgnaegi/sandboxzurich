@@ -23,6 +23,9 @@ A_WALL, A_MAST = 6.5, 6.4  # span anchor height above ground
 STEP, SPACING, REACH = 10.0, 32.0, 13.0
 SIDE_OFF = 0.0  # the game buses drive on the route line itself (transit.ts): wires hang right over it
 MIN_WALL_H = 7.5
+MIN_WALK = 1.7  # a kerb mast keeps >= 1.5 m of footway between it and a facade
+TRACK_CLEAR = 1.6  # kerb masts keep this far from a tram centre line
+MAST_AL = 9.0  # window along the track for snapping to a real mast (was 5)
 
 
 class Net:
@@ -34,6 +37,7 @@ class Net:
         self.spans = 0
         self.fail = 0
         self.n_kerb = 0
+        self.kerb = []  # (x, y) of invented kerb masts
         self.n_lidar = 0
 
 
@@ -59,6 +63,7 @@ class _Ctx:
         self.tree = STRtree(self.polys)
         self.core = STRtree([f.buffer(-0.3) if f.buffer(-0.3).area > 1 else f for f in self.polys])
         self.newp = np.zeros((0, 2))
+        self.trk = None  # buffered tram lines (kerb masts keep off)
         self.spans = []  # (a, b) xy arrays
 
     def clear(self, p, a):
@@ -68,14 +73,23 @@ class _Ctx:
     def anchor_z(self, kind, x, y, h=7.0):
         return float(self.zf(x, y)) + (A_WALL if kind == "wall" else min(A_MAST, h - 0.3))
 
-    def options(self, p, d, t, free=False):
+    def kerb_ok(self, q, walk=MIN_WALK):
+        """A new mast must not stand on road/track, inside or hard against a building (doorway, sidewalk < 1.5 m left)."""
+        pt = Point(q)
+        if self.roads is not None and self.roads.intersects(pt.buffer(0.4)):
+            return False
+        if self.trk is not None and self.trk.intersects(pt):
+            return False
+        return len(self.tree.query(pt.buffer(walk), predicate="intersects")) == 0
+
+    def options(self, p, d, t, free=False, kerb=True):
         """Anchor options on the side d (unit) from p; t = axis along which the mast window is measured. Best first."""
         out = []
         if self.kd is not None:
             for i in self.kd.query_ball_point(p, REACH + 5):
                 v = self.c[i, :2] - p
                 al, lat = float(v @ t), float(v @ d)
-                if abs(al) <= 5 and 1.2 <= lat <= REACH and self.c[i, 2] >= 6.3:
+                if abs(al) <= MAST_AL and 1.2 <= lat <= REACH and self.c[i, 2] >= 6.3:
                     out.append((lat + 0.1 * abs(al), "mast", i, self.c[i, :2]))
         for j, q in enumerate(self.newp):
             v = q - p
@@ -94,22 +108,22 @@ class _Ctx:
                 hit = (dist, k)
         if hit and hit[0] >= 0.8 and self.hts[hit[1]] >= MIN_WALL_H:
             res.append((hit[0], "wall", hit[1], p + d * hit[0]))
-        for dist in np.arange(1.0, REACH, 0.5):  # kerb: first point outside the carriageway, +1.2 m
+        for dist in np.arange(1.0, REACH, 0.5) if kerb else ():  # kerb: first point outside the carriageway, +1.2 m
             q = p + d * dist
             if self.roads is None or not self.roads.contains(Point(q)):
                 q = p + d * (dist + 1.2)
-                if len(self.tree.query(Point(q), predicate="within")) == 0 and dist + 1.2 <= REACH:
+                if dist + 1.2 <= REACH and self.kerb_ok(q):
                     res.append((dist + 1.2, "kerb", -1, q))
                 break
         if free:  # last resort (track end in a plaza/yard): a pole right beside the track end
             for dist in (2.2, 3.2, 4.5):
                 q = p + d * dist
-                if len(self.tree.query(Point(q), predicate="within")) == 0:
+                if self.kerb_ok(q, 0.7):  # track end: tensioning pole, a tighter footway is acceptable
                     res.append((dist, "kerb", -1, q))
         return res
 
-    def pick(self, p, d, t, free=False):
-        for _, kind, i, q in self.options(p, d, t, free):
+    def pick(self, p, d, t, free=False, kerb=True):
+        for _, kind, i, q in self.options(p, d, t, free, kerb):
             if self.clear(p, q):
                 return kind, i, q
         return None
@@ -128,6 +142,7 @@ class _Ctx:
         elif kind == "kerb":
             self.newp = np.vstack([self.newp, [x, y]])
             self.net.n_kerb += 1
+            self.net.kerb.append((x, y))
             self.net.poles.append([round(x, 2), round(y, 2), round(float(self.zf(x, y)), 2)])
             z = self.anchor_z("mast", x, y)
             self.net.anchors.append((x, y, z, "mast"))
@@ -179,7 +194,13 @@ def _run(ctx, L, dz, g, kind, ends, pair=False):
         if any(sp[0].distance(Point(p)) < 1.0 for sp in ctx.spans_ls):
             spans[s] = None  # an existing span (parallel track / opposite lane) already crosses here
             continue
-        la, ra = ctx.pick(p, n, t), ctx.pick(p, -n, t)
+        la, ra = ctx.pick(p, n, t, kerb=False), ctx.pick(p, -n, t, kerb=False)
+        if la is None and ra is None:  # no evidence on either side: never invent two masts, drop the span
+            net.fail += 1
+            spans[s] = None
+            continue
+        la = la or ctx.pick(p, n, t)
+        ra = ra or ctx.pick(p, -n, t)
         if la is None or ra is None:
             net.fail += 1
             spans[s] = None
@@ -214,8 +235,17 @@ def _run(ctx, L, dz, g, kind, ends, pair=False):
                 if a is not None:
                     stub[end] = ctx.commit(a)
                     break
-            else:
-                net.fail += 1
+            else:  # last resort: tensioning pole beside the track end even on a paved area, only never inside a building or on the track
+                for dist in (2.0, 2.8, 3.6, 5.0):
+                    for d in (n, -n, t):
+                        q = p + d * dist
+                        if len(ctx.tree.query(Point(q).buffer(0.5), predicate="intersects")) == 0 and not (ctx.trk is not None and ctx.trk.intersects(Point(q))):
+                            stub[end] = ctx.commit(("kerb", -1, q))
+                            break
+                    if end in stub:
+                        break
+                else:
+                    net.fail += 1
     offs = (-0.3, 0.3) if pair else (0.0,)
     for off in offs:
         pts = []
@@ -293,6 +323,8 @@ def build(tram_lines, routes, masts, lights, fps, roads, zf, tiles, tile=200.0):
     cands = np.array(rows, float).reshape(-1, 4)
     ctx = _Ctx(net, cands, fps, roads, zf)
     ctx.spans_ls = []
+    ctx.trk = shapely.union_all([ln.buffer(TRACK_CLEAR) for ln in tram_lines]) if len(tram_lines) else None
+    shapely.prepare(ctx.trk) if ctx.trk is not None else None
     g = 0
     tall = shapely.union_all([f for f, h in fps if h >= MIN_WALL_H])
     parts = _merge([ln.difference(tall) if ln.intersects(tall) else ln for ln in tram_lines], area)  # tracks under buildings: wire ends at the facade

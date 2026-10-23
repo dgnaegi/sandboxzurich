@@ -97,6 +97,14 @@ body.touch #touchbtns { display: flex; }
   #bigmap-legend { white-space: nowrap; width: 176px; text-align: left; bottom: calc(26px + env(safe-area-inset-bottom)); }
   #bigmap-lic { display: none; }
 }
+@media (max-height: 500px) {
+  #bigmap-title { top: calc(14px + env(safe-area-inset-top)); font-size: 22px; line-height: 1.1; }
+  #bigmap-title small { display: none; }
+  #bigmap-legend { bottom: calc(10px + env(safe-area-inset-bottom)); left: calc(14px + env(safe-area-inset-left)); }
+  #bigmap-tools { top: calc(8px + env(safe-area-inset-top)); left: calc(14px + env(safe-area-inset-left)); }
+  #bigmap-close { top: calc(8px + env(safe-area-inset-top)); right: calc(14px + env(safe-area-inset-right)); }
+  #bigmap-zoom { bottom: calc(10px + env(safe-area-inset-bottom)); right: calc(14px + env(safe-area-inset-right)); }
+}
 /* clock panel */
 #clock { pointer-events: auto; cursor: pointer; display: inline-block; padding: 4px 8px; margin: -4px -8px; border-radius: 8px; }
 #clock:hover, #clock:focus-visible { background: #0006; outline: none; }

@@ -77,6 +77,8 @@ def run():
             continue
         dz, ds = np.diff(Z), np.maximum(np.diff(s), 1e-3)
         sl = dz / ds
+        if d.get("st"):   # stairs (bridges._stairs) are steep by design; their end points are still checked (openend / stack)
+            sl = sl * 0
         for i in np.where(np.abs(sl) > LIM[d["kind"]])[0]:
             add("steep", d, i, f"slope {sl[i]:.2f}", 1.0 + abs(sl[i]))
         for i in np.where(np.abs(np.diff(sl)) > 0.10)[0]:
