@@ -2,6 +2,12 @@
 
 Wird am Ende jedes Arbeitsschritts überschrieben. Eine neue Session liest das zuerst.
 
+## Stand 2026-10-24 morgens: Release 23 – ZUERST LESEN
+- Fehlerliste der visuellen Suche abgearbeitet (`research/sweep/fix_slabs.md`, `fix_facades.md`): Seebahnstrasse-Platte weg (`bridges._split_flat`), Brüstung wächst mit Deckhöhe, keine Vorgartenmauern an Plätzen (Vulkanplatz), Sträucher im Beet, Gullys nur am Rand und heller, doppeltes Westpark-Landmark aus, Goldbrunnenplatz ganz im Spielgebiet, Daten-Cache 10 min (#79), Karte Hochformat mit Rand. Bogen `preview/sweepfix_check.jpg`.
+- **Komplett-Build 22** (`logs/build_full22.log`, 0 Fehler; dauerte 14 h, weil der Mac auf Akku immer wieder schlief → Builds nur am Netzteil oder mit `caffeinate -dis`). QA `logs/qa24.log` grün: perf Handy 58 fps / 262 Calls / 604k Tris / 4.8 s, traffic_legal 0.02 %, qa_spawn 26/26, qa_leak +50 MB (tex max 620), bridges_ride 48/97. Audits: Drähte 0/0/0, Decks 312 (vorher 335).
+- **Offen:** Brauerstrasse-Rampe (376,-480) braucht Böschung; Idaplatz heller Streifen; Strauch-Blobs gross/rund (Seebahn-, Albisriederplatz); Fassaden-Keile #6/#7/#9 (koplanare Dreiecke, Patch im Scratchpad gescheitert); Ladenschild HB zu tief (#18, z0 unter Terrain); Hardbrücke West (-67,-48) Deck schwebt (Regelhöhe req/_envelope); Texturen-Atlas.
+**Nächster Schritt:** Texturen-Atlas für Landmarks (tex max steigt), danach offene Punkte oben.
+
 ## Stand 2026-10-23 morgens: Release 22 – ZUERST LESEN
 - **Komplett-Build 21** (`logs/build_full21.log`, 0 Fehler, 57 min, danach transit + apply_names). QA `logs/qa23.log` **alles grün**: perf Handy 58 fps / 274 Calls / 612k Tris / 4.4 s, traffic_legal 0.01 %, qa_spawn 26/26, qa_leak +50 MB (tex max 627, steigt mit jedem Landmark-Satz → Atlas fällig), bridges_ride 48/97 (stuck 14). `qa_ui` ok (nur CORS cloudflareinsights lokal und abgebrochenes Ladevideo).
 - **Live (Release 22, 2026-10-23 ~08:50):** Welt `logs/publish22b.log`, Deploy grün (`logs/deploy22b.log`). **Schwarzer Ladebildschirm live gefunden:** `poster*.jpg` fehlten im Deploy, weil `.gitignore` `*.jpg` ausschliesst → jetzt im Weltdaten-Paket (`deploy/publish_world.sh`). Achtung Cache: `data/*` hat `max-age=86400` + SWR 7 Tage (`web/public/_headers`), Besucher sehen neue Daten bis zu 1 Tag später (Ticket: Daten versionieren oder kürzer cachen).
