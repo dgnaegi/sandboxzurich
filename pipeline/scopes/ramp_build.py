@@ -19,7 +19,9 @@ Replaces pipeline/ramp_lidar.py's band tracker as the primary path (research/bri
            terrain (Duttweiler south: the walled abutment); a fork end takes the main chain's height
   piers    cadastre «Pfeiler» polygons under elevated deck sections become pier rows at their real position and width; the
            rule-spaced piers of the live rows under the new footprint are dropped
-  props    footway rows inside the new footprint and street furniture under elevated decks are dropped (as the pilot)
+  props    footway rows inside the new footprint, street furniture and static collision polygons under elevated decks are dropped
+  joins    pipeline/scopes/join.py: ramp vertices on another deck are flushed, the other deck's parapet is opened over the
+           ramp's mouth (vertices inserted at the mouth boundaries), so the join is one surface and drivable
 Usage:  python3 pipeline/scopes/ramp_build.py <site>[,<site>] [--tiles web/public/tiles] [--write] [--report file.md]
 With --write the tiles are rewritten from web/public/tiles_orig/<tile>.json (kept once, as the pilot), so a re-run replaces.
 """
@@ -41,15 +43,19 @@ import ramp_lidar as RL  # noqa: E402
 import scope_av  # noqa: E402
 from ramp_sites import site as site_cfg  # noqa: E402
 from rows import Rows, Chain  # noqa: E402
+import join as J  # noqa: E402
 
 STEP = 2.0
 EXT = 80.0          # m: longest continuation beyond an air end
+GRADE_EXT = 20.0    # m: a grade end follows the cadastre structure (edge polygons, walls) this far at most
 SIDE_MAX = 12.0     # m: a cadastre edge further than this from the axis belongs to the main deck
 SIDE_MIN = 1.2
-W_STEP = 1.0        # m per station: width rate limit
+W_STEP = 2.0        # m per station: width rate limit (the cadastre edges are exact; this only tames slice toggling)
 MAX_SLOPE = 0.12
 AT_GRADE = 0.3
 BLEND = 10.0        # m: height blend at junction / fork ends
+END_FLUSH = 6.0     # m: within this of a fork / junction end both sides are flush (no railing piece at the nose)
+COPLANAR = 8.0      # m: a branch this close to the main chain's axis takes its height (one surface where a car changes lanes)
 PIER_MIN_EL = 2.2
 THICK = {"road": 1.0, "tram": 1.0, "foot": 0.5}
 
@@ -91,11 +97,33 @@ class Build:
         xy, z0, g, wl0, wr0, s = st["xy"], st["z"], st["g"], st["wl"], st["wr"], st["s"]
         ends = dict(c.ends)
         for end in (0, -1):
-            if ends[end] != "air":
+            if ends[end] not in ("air", "grade"):
                 continue
-            C = self.R.extend(c, end, EXT)
+            C = self.R.extend(c, end, EXT if ends[end] == "air" else GRADE_EXT)
             C, t = RL.resample(C, STEP); C, t = C[1:], t[1:]
             if not len(C):
+                continue
+            if ends[end] == "grade":   # at grade already: follow the cadastre structure (edge polygons, walls) to its end, at most GRADE_EXT
+                keep = 0
+                for i in range(len(C)):
+                    nv = self._nrm(C, i)
+                    sv = M.structure(M.deck_slices(C[i], nv, self.decks_av))
+                    gl, gr = M.nearest_side(M.intervals(C[i], nv, self.wall_u), wl0[end], wr0[end])
+                    if sv or (gl is not None and abs(gl) <= M.WALL_NEAR) or (gr is not None and abs(gr) <= M.WALL_NEAR):
+                        keep = i + 1
+                    else:
+                        break
+                if keep == 0:
+                    continue
+                C, t = C[:keep], t[:keep]
+                gc = RL.fill_nan(self.R.ground(C[:, 0], C[:, 1]), t)
+                if end == -1:
+                    xy = np.vstack([xy, C]); z0 = np.concatenate([z0, np.full(keep, np.nan)]); g = np.concatenate([g, gc])
+                    wl0 = np.concatenate([wl0, np.full(keep, wl0[-1])]); wr0 = np.concatenate([wr0, np.full(keep, wr0[-1])]); s = np.concatenate([s, s[-1] + t])
+                else:
+                    xy = np.vstack([C[::-1], xy]); z0 = np.concatenate([np.full(keep, np.nan), z0]); g = np.concatenate([gc[::-1], g])
+                    wl0 = np.concatenate([np.full(keep, wl0[0]), wl0]); wr0 = np.concatenate([np.full(keep, wr0[0]), wr0]); s = np.concatenate([s[0] - t[::-1], s])
+                self.lines.append(f"  - grade {'end' if end == -1 else 'start'} extended {t[keep - 1]:.0f} m to the end of the cadastre structure")
                 continue
             gc = RL.fill_nan(self.R.ground(C[:, 0], C[:, 1]), t)
             zp = float(z0[end]); zc = np.full(len(C), np.nan)
@@ -126,9 +154,10 @@ class Build:
         a = C[max(i - 1, 0)]; b = C[min(i + 1, len(C) - 1)]; t = b - a; t = t / (np.hypot(t[0], t[1]) or 1.0)
         return np.array([-t[1], t[0]])
 
-    def widths(self, st, c, other_axes):
+    def widths(self, st, c, other_axes, ends=None):
         n = len(st["s"]); wl = st["wl0"].copy(); wr = st["wr0"].copy()
         mode = np.zeros(n, int); fl = np.zeros(n, int); fr = np.zeros(n, int); gl = np.full(n, np.nan); gr = np.full(n, np.nan)
+        split = np.zeros(n, bool); cap_l = np.full(n, np.inf); cap_r = np.full(n, np.inf)
         for i in range(n):
             p, nv = st["xy"][i], st["nrm"][i]
             sv = M.structure(M.deck_slices(p, nv, self.decks_av))
@@ -136,13 +165,13 @@ class Build:
                 lo, hi, mode[i] = sv; L, Rr = hi, -lo
                 for o in axis_offsets(p, nv, other_axes):     # another site chain in the same slice: split halfway, flush
                     if 0.5 < o < 2 * L:
-                        L = min(L, o / 2); fl[i] = 1
+                        L = min(L, o / 2); fl[i] = 1; split[i] = abs(o) < COPLANAR; cap_l[i] = min(cap_l[i], o / 2)
                     elif -2 * Rr < o < -0.5:
-                        Rr = min(Rr, -o / 2); fr[i] = 1
+                        Rr = min(Rr, -o / 2); fr[i] = 1; split[i] = abs(o) < COPLANAR; cap_r[i] = min(cap_r[i], -o / 2)
                 if L > SIDE_MAX:                               # the main deck, not this ramp's edge
-                    L = st["wl0"][i] + 1.5; fl[i] = 1
+                    L = st["wl0"][i] + 1.5; fl[i] = 1; cap_l[i] = min(cap_l[i], L)
                 if Rr > SIDE_MAX:
-                    Rr = st["wr0"][i] + 1.5; fr[i] = 1
+                    Rr = st["wr0"][i] + 1.5; fr[i] = 1; cap_r[i] = min(cap_r[i], Rr)
                 wl[i], wr[i] = L, Rr
             gl[i], gr[i] = [np.nan if v is None else v for v in M.nearest_side(M.intervals(p, nv, self.wall_u), wl[i], wr[i])]
             if not sv:                                                 # no bridge object: flanking walls are the structure's edges
@@ -151,6 +180,13 @@ class Build:
                 if np.isfinite(gr[i]) and SIDE_MIN < gr[i] + wr[i] <= SIDE_MAX:
                     wr[i] = gr[i] + wr[i]; gr[i] = 0.0
         wl = rate_limit(RL.smooth(np.clip(wl, SIDE_MIN, SIDE_MAX), 3), W_STEP); wr = rate_limit(RL.smooth(np.clip(wr, SIDE_MIN, SIDE_MAX), 3), W_STEP)
+        wl = np.maximum(np.minimum(wl, cap_l), SIDE_MIN); wr = np.maximum(np.minimum(wr, cap_r), SIDE_MIN)   # a split or a lock is a hard edge, not smoothed
+        for end, kind in (ends or {}).items():                 # the nose of a fork and the mouth on a main deck carry no railing
+            if kind in ("fork", "junction"):
+                j = 0 if end == 0 else n - 1
+                near = np.abs(st["s"] - st["s"][j]) <= END_FLUSH
+                fl[near] = 1; fr[near] = 1
+        self.split = split
         return wl, wr, mode, fl, fr, gl, gr
 
     def heights(self, st, wl, wr, ends, c):
@@ -168,6 +204,27 @@ class Build:
                 if 0 < e <= 1.5:
                     k = np.clip(1 - np.abs(s - s[j]) / BLEND, 0, 1); z = np.maximum(z - e * k, g)
         return z, flag
+
+    def coplanar(self, z, st, c):
+        """Where this chain shares its slice with an already built site chain (fork, parallel branch) it takes that chain's
+        height, so the two decks meet without a step where a car changes from one to the other."""
+        from shapely.geometry import LineString, Point
+        done = [self.built[o] for o in self.chains if o is not c and o in self.built]
+        if not done:
+            return z
+        axes = []
+        for d in done:
+            Q = np.array(d["p"], float); cum = np.concatenate([[0.0], np.cumsum(np.hypot(*np.diff(Q[:, :2], axis=0).T))])
+            axes.append((LineString(Q[:, :2]), cum, Q[:, 2]))
+        for i in range(len(z)):                   # every station near an already built chain's axis (fork nose, overlap, split)
+            pt = Point(*st["xy"][i]); best = None
+            for ax, cum, zz in axes:
+                dist = ax.distance(pt)
+                if dist < COPLANAR and (best is None or dist < best[0]):
+                    best = (dist, float(np.interp(ax.project(pt), cum, zz)))
+            if best:
+                z[i] = best[1]
+        return z
 
     def fork_z(self, p, c):
         """Height of the longest other site chain at the fork point (built first, so its z is final)."""
@@ -196,8 +253,9 @@ class Build:
             thick = float(np.median(c.P[:, 2] - c.B)); thick = thick if 0.2 < thick < 3 else THICK.get(c.kind, 1.0)
             self.lines.append(f"- chain {c}")
             st, ends = self.stations(c)
-            wl, wr, mode, fl, fr, gl, gr = self.widths(st, c, [a for o, a in axes.items() if o is not c])
+            wl, wr, mode, fl, fr, gl, gr = self.widths(st, c, [a for o, a in axes.items() if o is not c], ends)
             z, flag = self.heights(st, wl, wr, ends, c)
+            z = self.coplanar(z, st, c)
             kind, b = self.kinds(z, st["g"], mode, flag, gl, gr, thick)
             d = {"p": [[round(float(x), 2), round(float(y), 2), round(float(v), 2)] for (x, y), v in zip(st["xy"], z)],
                  "g": [round(float(v), 2) for v in st["g"]], "b": [round(float(v), 2) for v in b], "w": round(float(np.median(wl + wr)), 1),
@@ -214,6 +272,8 @@ class Build:
         drop = self.footways(decks)
         if drop:
             self.lines.append(f"- footway rows inside the new footprint dropped: {len(drop)}")
+        self.modified, jl = J.join(decks, self.R, self.sel)
+        self.lines += jl
         return decks, piers, drop
 
     def piers(self, decks):
@@ -256,6 +316,25 @@ class Build:
                 drop.add((t, k))
         self.sel = sel
         return drop
+
+
+def drop_colliders(meta, decks):
+    """Static collision polygons (tile key `colliders`: posts, kiosks, pillars) under an elevated new deck are removed like the
+    props: the car collision is two-dimensional, a post under the deck would stop a car on the deck (Geroldrampe fork nose)."""
+    rows = meta.get("colliders")
+    if not isinstance(rows, list) or not rows:
+        return 0
+    keep, n = [], 0
+    for poly in rows:
+        try:
+            cx = sum(q[0] for q in poly) / len(poly); cy = sum(q[1] for q in poly) / len(poly)
+        except Exception:  # noqa: BLE001
+            keep.append(poly); continue
+        if any(RL.lateral_inside(dk, cx, cy, -1.0) and RL.deck_el(dk, cx, cy) >= 2.2 for dk in decks):
+            n += 1; continue
+        keep.append(poly)
+    meta["colliders"] = keep
+    return n
 
 
 def cut_rows(deck, tiles):
@@ -302,6 +381,8 @@ def run(tiles_dir, sites, write=False, report=None):
                 ch["add"] += rs; ch["decks"].append(d)
         for q in piers:
             changed.setdefault(T.name_at(q[0], q[1]), {"drop": set(), "add": [], "decks": [], "piers": []})["piers"].append(q)
+        for (t, k), row in B.modified.items():
+            changed.setdefault(t, {"drop": set(), "add": [], "decks": [], "piers": []}).setdefault("mod", {})[k] = row
         for t, ch in changed.items():
             ch.setdefault("dropped_piers", set()).update(B.dropped_piers)
     if write:
@@ -318,12 +399,14 @@ def run(tiles_dir, sites, write=False, report=None):
                 os.rename(f, orig)
             m = json.load(open(orig))
             br = m.setdefault("bridges", {"decks": [], "piers": []})
-            br["decks"] = [d for k, d in enumerate(br.get("decks", [])) if k not in ch["drop"]] + ch["add"]
+            mod = ch.get("mod", {})
+            br["decks"] = [mod.get(k, d) for k, d in enumerate(br.get("decks", [])) if k not in ch["drop"]] + ch["add"]
             dp = ch.get("dropped_piers", set())
             br["piers"] = [q for q in br.get("piers", []) if (round(q[0], 2), round(q[1], 2)) not in dp] + ch["piers"]
             np_ = RL.drop_props(m, ch["decks"])
+            nc = drop_colliders(m, ch["decks"])
             json.dump(m, open(f, "w"), separators=(",", ":"))
-            lines.append(f"- wrote {t}: dropped {len(ch['drop'])} rows, added {len(ch['add'])}, piers +{len(ch['piers'])}, props removed under the new decks {np_}")
+            lines.append(f"- wrote {t}: dropped {len(ch['drop'])} rows, added {len(ch['add'])}, opened {len(mod)}, piers +{len(ch['piers'])}, props removed under the new decks {np_}, static colliders {nc}")
     text = "\n".join(lines)
     print(text)
     if report:

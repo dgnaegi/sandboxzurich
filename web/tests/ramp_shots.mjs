@@ -14,6 +14,12 @@ const SITES = {
     { x: 112, y: 241, yaw: 1.9, pitch: 0.4, z: 0.3, label: 'from the Hardbruecke deck at the upper branch, looking over the fork' },
     { x: 105, y: 222, yaw: 1.5, pitch: 0.45, z: 0.6, label: 'from the Hardbruecke deck, looking down the ramp' },
   ],
+  brauer: [   // Hohlstrasse bridge over the Sihl line tracks and the Brauerstrasse approach
+    { x: 392, y: -503, yaw: -0.85, pitch: 0.15, label: 'from Brauerstrasse, looking up the south-east approach' },
+    { x: 344, y: -466, yaw: -0.9, pitch: 0.3, z: 6.5, label: 'on the deck, looking north-west' },
+    { x: 320, y: -500, yaw: 0.35, pitch: 0.35, label: 'from the tracks south-west, side view of the bridge' },
+    { x: 300, y: -430, yaw: 2.3, pitch: 0.15, label: 'from the north-west approach, looking at the bridge' },
+  ],
   duttweiler: [   // Duttweilerbruecke south ramp
     { x: -612, y: 95, yaw: -0.15, pitch: 0.2, label: 'from the south, ramp end' },
     { x: -582, y: 128, yaw: -0.75, pitch: 0.2, label: 'from the south-east' },

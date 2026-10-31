@@ -17,11 +17,11 @@ SITES = {
         "fetch": (-720, 40, -360, 640),
         "view": (-700, 60, -480, 340), "legend": "lower right",
     },
-    # transfer sites (phase 4), boxes still to be checked
+    # transfer sites (phase 4); pfingstweid / wipkingen boxes still to be checked (python3 pipeline/scopes/overlay.py <site> --rows)
     "pfingstweid": {"title": "Hardbrücke ramp at Pfingstweidstrasse", "match": "Hardbrücke", "kinds": ("road",),
                     "fetch": (60, 230, 320, 480), "view": (80, 250, 300, 460)},
-    "brauer": {"title": "Brauerstrasse ramp", "match": "Brauerstrasse", "kinds": ("road",),
-               "fetch": (280, -580, 480, -380), "view": (300, -560, 460, -400)},
+    "brauer": {"title": "Hohlstrasse bridge and Brauerstrasse ramp (over the Sihl line tracks)", "match": "Hohlstrasse", "kinds": ("road",),
+               "fetch": (280, -580, 480, -380), "view": (285, -530, 425, -405), "legend": "lower right"},
 }
 
 

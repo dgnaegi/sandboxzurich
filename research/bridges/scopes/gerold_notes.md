@@ -6,10 +6,16 @@ What the scopes say (phase 1 diagnosis, phase 2 builder v2; 2026-10-31):
   the fill, and that fill surface lies up to 4.2 m above the game terrain (s 90–140). v2 models the fill part as a 66 m solid section
   (skirts to the terrain) and the upper part as a deck with 13 cadastre piers at their real positions.
 - **Width and outline.** The structure is 13.9 m wide (p50) along the ramp; the live rows model a 3.2 m lane, the pilot 7.5 m, v2 the
-  full width on the main chain (13.9 m) and never leaves the cadastre outline (edge overshoot p95 +0.0 m); outline IoU 0.31 → 0.64 →
-  0.75. The remaining uncovered width (p95 13.7 m) is at the branch stations inside the Hardbrücke polygon, where the ramp lanes run
-  flush beside the main deck and the width is locked to the lane (flagged `ol`/`or`, no parapet): a junction exclusion in the scorer
-  is the next step, not a builder change.
+  full width on the main chain (13.9 m) and never leaves the cadastre outline (edge overshoot p95 +0.4 m); station-wise outline IoU
+  0.35 → 0.64 → 0.91 against the slice available to each chain (the Hardbrücke's carriageway subtracted, halved towards the sibling
+  branch). What stays uncovered (p95 4.2 m, the one REVIEW) is the fork gore: the deck area between the two diverging branches is
+  covered by neither row.
+- **Joins (2026-11-01).** The pipeline only joins near-parallel decks, so the Hardbrücke's parapet and railing collider ran across
+  the ramp mouths. `join.py` now opens the Hardbrücke rows exactly over the mouths (vertices inserted at the mouth edges, five rows,
+  openings up to 21 m), opens the main chain where a branch leaves it, flushes both sides within 6 m of the fork, makes the branches
+  coplanar with the main chain within 8 m, and removes the static collision posts under the fork nose that stopped the car. Both
+  uphill car routes (local `logs/bridge_routes.json`) reach the Hardbrücke with 0 crashes; 0.4 m raw-height steps remain where the
+  car changes between overlapping rows.
 - **Axis.** The OSM axis stays (v2 does not track); its offset to the structure's centre line is a steady 1–3 m lane offset and
   peaks only at the fork (s 50–70) and where the north branch runs inside the Hardbrücke polygon.
 - **Piers.** 18 cadastre piers within 12 m of the axes, 13 under the v2 deck, 5 are Hardbrücke piers off the branch axes. All 13

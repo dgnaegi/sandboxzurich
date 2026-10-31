@@ -129,7 +129,35 @@ def lidar_track(xy, nrm, wl, wr, i0, z0):
     return z, flag
 
 
-def measure(chain, av, rows, step=2.0, box=None, ext=()):
+def other_axes(rows, cfg):
+    """Axes of the road / tram deck rows that are not the site's own (junction partners such as the Hardbrücke)."""
+    from shapely.geometry import LineString
+    out = []
+    for t, k, d in rows.decks():
+        if d["kind"] in ("road", "tram") and not (cfg["match"] in (d.get("name") or "") and d["kind"] in cfg["kinds"]):
+            out.append(LineString(np.array(d["p"], float)[:, :2]))
+    return out
+
+
+def deck_cover(rows, box, margin=60.0, kinds=("road", "tram", "foot"), exclude=None):
+    """Union of the footprints of the deck rows of `kinds` near the box (minus the site's own rows when `exclude` is given):
+    what the cadastre structure is covered by, or what other decks occupy of a shared structure."""
+    import shapely
+    from join import footprint
+    polys = []
+    x0, y0, x1, y1 = box[0] - margin, box[1] - margin, box[2] + margin, box[3] + margin
+    for t, k, d in rows.decks():
+        if d["kind"] not in kinds or (exclude and exclude(t, k, d)):
+            continue
+        P = np.array(d["p"], float)
+        if not ((P[:, 0] >= x0) & (P[:, 0] <= x1) & (P[:, 1] >= y0) & (P[:, 1] <= y1)).any():
+            continue
+        hw = d["w"] / 2
+        polys.append(footprint(P[:, :2], np.array(d.get("wl") or [hw] * len(P), float), np.array(d.get("wr") or [hw] * len(P), float)))
+    return shapely.union_all(polys) if polys else shapely.Polygon()
+
+
+def measure(chain, av, rows, step=2.0, box=None, ext=(), others=(), cover=None, taken=None, site_axes=()):
     """Station table for one chain: dict of equal-length arrays (NaN / -1 where not measured). `ext` = chain ends (0 / -1) that
     get an axis continuation of EXT m beyond the end (model columns NaN there) for the landing analysis."""
     st = chain.stations(step)
@@ -170,6 +198,55 @@ def measure(chain, av, rows, step=2.0, box=None, ext=()):
         cols["lg"][i] = float(lidar.dtm(np.array([p[0]]), np.array([p[1]]))[0])
     i0 = int(np.flatnonzero(is_model)[0])
     cols["lz"], cols["lflag"] = lidar_track(xy, nrm, wl, wr, i0, float(z[i0]))
+    shared = np.zeros(n, bool)
+    if len(others):
+        from shapely.geometry import LineString
+        for i in range(n):
+            if np.isfinite(cols["av_lo"][i]):
+                seg = LineString([xy[i] + nrm[i] * cols["av_lo"][i], xy[i] + nrm[i] * cols["av_hi"][i]])
+                shared[i] = any(seg.intersects(a) for a in others)
+    cols["shared"] = shared
+    # the part of the slice available to this ramp: the piece around the axis not occupied by other road deck rows (the
+    # Hardbrücke's carriageway beside a merge lane); footway rows do not count, the ramp rows carry the footways
+    cols["av_lo_raw"], cols["av_hi_raw"] = cols["av_lo"].copy(), cols["av_hi"].copy()
+    if taken is not None and not taken.is_empty:
+        for i in range(n):
+            lo, hi = cols["av_lo"][i], cols["av_hi"][i]
+            if not np.isfinite(lo):
+                continue
+            for tl, th in intervals(xy[i], nrm[i], taken):
+                if th <= 0.3 and th > lo:
+                    lo = th
+                elif tl >= -0.3 and tl < hi:
+                    hi = tl
+            cols["av_lo"][i], cols["av_hi"][i] = lo, hi
+    if len(site_axes):                       # other chains of the same site in the slice (fork, split carriageways): halfway is theirs
+        from shapely.geometry import LineString
+        for i in range(n):
+            lo, hi = cols["av_lo"][i], cols["av_hi"][i]
+            if not np.isfinite(lo):
+                continue
+            L = LineString([xy[i] + nrm[i] * lo, xy[i] + nrm[i] * hi])
+            for a in site_axes:
+                q = L.intersection(a)
+                for piece in getattr(q, "geoms", [q]):
+                    if piece.is_empty:
+                        continue
+                    c = np.asarray(piece.coords)[0] if piece.geom_type != "Point" else np.array([piece.x, piece.y])
+                    o = float((c - xy[i]) @ nrm[i])
+                    if o > 0.5:
+                        hi = min(hi, o / 2)
+                    elif o < -0.5:
+                        lo = max(lo, o / 2)
+            cols["av_lo"][i], cols["av_hi"][i] = lo, hi
+    unc = np.full(n, np.nan)                 # metres of the AV slice covered by no deck row at all
+    if cover is not None and not cover.is_empty:
+        for i in range(n):
+            lo, hi = cols["av_lo_raw"][i], cols["av_hi_raw"][i]
+            if np.isfinite(lo):
+                cov = sum(max(0.0, min(h, hi) - max(l, lo)) for l, h in intervals(xy[i], nrm[i], cover))
+                unc[i] = max(0.0, (hi - lo) - cov)
+    cols["uncov"] = unc
     e = z - g
     kind = np.where(~is_model, -1, np.where(e < AT_GRADE, 0, np.where(b - g < SOLID, 1, 2)))   # -1 none, 0 grade, 1 solid, 2 deck
     inbox = np.ones(n, bool) if box is None else (xy[:, 0] >= box[0]) & (xy[:, 0] <= box[2]) & (xy[:, 1] >= box[1]) & (xy[:, 1] <= box[3])
@@ -178,7 +255,7 @@ def measure(chain, av, rows, step=2.0, box=None, ext=()):
     out["av_w"] = out["av_hi"] - out["av_lo"]
     out["av_off"] = 0.5 * (out["av_hi"] + out["av_lo"])        # + : the AV structure's centre lies left of the modelled axis
     out["road_w"] = out["road_hi"] - out["road_lo"]
-    out["ramp"] = np.isfinite(out["av_w"]) & (out["av_w"] <= MAIN_DECK)
+    out["ramp"] = np.isfinite(out["av_w"]) & (out["av_w"] <= MAIN_DECK) & (out["av_w"] >= 2.0)   # the slice available to this ramp
     out["excess_l"] = wl - out["av_hi"]                         # + : modelled left edge beyond the AV edge
     out["excess_r"] = wr + out["av_lo"]
     out["wall_l"] = np.abs(out["wall_gl"]) <= WALL_NEAR
@@ -256,5 +333,12 @@ def areas(chains, tables, av, box, corridor=25.0):
     out = {"model_area": model.area, "av_area": ref.area, "iou": inter / (model.union(ref).area or 1), "precision": inter / (model.area or 1), "recall": inter / (ref.area or 1)}
     outline = shapely.union_all([av_outline(T) for T in tables]).intersection(B)
     i2 = model.intersection(outline).area
-    out.update({"outline_area": outline.area, "outline_iou": i2 / (model.union(outline).area or 1), "outline_recall": i2 / (outline.area or 1)})
+    # station-wise IoU: per ramp station the modelled cross-section [-wr, wl] against the available slice [lo, hi]; summed overlaps
+    # over summed unions, so a cadastre structure shorter than the modelled rows (walled approaches) does not drag the value down
+    inter = union = 0.0
+    for T in tables:
+        for i in np.flatnonzero(T["is_model"] & T["inbox"] & T["ramp"]):
+            a0, a1 = -T["wr"][i], T["wl"][i]; b0, b1 = T["av_lo"][i], T["av_hi"][i]
+            inter += max(0.0, min(a1, b1) - max(a0, b0)); union += max(a1, b1) - min(a0, b0)
+    out.update({"outline_area": outline.area, "outline_iou": inter / (union or 1), "outline_recall": i2 / (outline.area or 1), "outline_area_iou": i2 / (model.union(outline).area or 1)})
     return out

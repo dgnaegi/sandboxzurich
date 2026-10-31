@@ -5,8 +5,8 @@ What the scopes say (phase 1 diagnosis, phase 2 builder v2; 2026-10-31):
   (abutment); v2 continues 30 m along the road graph to grade, takes its width from the wing walls (about 10 m) where the cadastre has
   no bridge object, and models the abutment as a 22 m solid section: deck → walled abutment → grade. The game terrain at the landing
   is 3.0 m below the LiDAR ground over the last 12 m: terrain pass.
-- **Width and outline.** Live 6.4 m vs 14.1 m; v2 14.2 m with edge overshoot p95 +0.0 m and nothing uncovered; outline IoU
-  0.43 → 0.77 → 0.88. The pilot's overshoot at the rail flyover crossing (LiDAR bands merging) is gone: v2 casts the normal against
+- **Width and outline.** Live 6.4 m vs 14.1 m; v2 14.2 m with edge overshoot p95 +0.0 m and nothing uncovered; station-wise outline IoU
+  0.43 → 0.77 → 0.99, verdict PASS. The pilot's overshoot at the rail flyover crossing (LiDAR bands merging) is gone: v2 casts the normal against
   each cadastre polygon separately and keeps the narrowest one containing the axis.
 - **Heights.** Where the ramp passes under the rail flyover the LiDAR bridge class reads the flyover 6 m above; the first v2 run
   inherited a 1.4 m hump behind the crossing. The builder and the scorer now track the running height along the axis and reject

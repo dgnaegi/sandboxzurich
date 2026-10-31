@@ -58,7 +58,7 @@ def run_end(T, mask, j_end, step_dir, gap=1, look=50):
 
 def landing(T, end):
     j = np.flatnonzero(T["is_model"])[end]; d = 1 if end == -1 else -1
-    return {"model_end": run_end(T, T["kind"] > 0, j, d, gap=0), "av_deck_end": run_end(T, np.isfinite(T["av_w"]), j, d),
+    return {"model_end": run_end(T, T["kind"] > 0, j, d, gap=0), "av_deck_end": run_end(T, np.isfinite(T["av_w"]), j, d), "row_end": 0.0,
             "wall_end": run_end(T, T["wall_flank"], j, d, gap=3), "end_el_game": float(T["z"][j] - T["g"][j]),
             "end_el_lidar": float(T["z"][j] - T["lg"][j]), "end_terr": float(T["terr"][j])}
 
@@ -66,7 +66,7 @@ def landing(T, end):
 def summarize(chains, tables, av, rows, box):
     S = {k: [] for k in ("av_w", "model_w", "w_err", "off", "excess", "uncovered", "road_w", "res_b", "res_g", "terr")}
     L = {k: 0.0 for k in ("model_struct", "av_deck", "both", "model_only", "av_only", "wall_l", "wall_r", "solid", "solid_wall", "deck_wall", "edges")}
-    L.update({k: 0 for k in ("stations", "ramp_stations", "road_stations", "bridge_cls", "ground_cls", "terr_n")})
+    L.update({k: 0 for k in ("stations", "ramp_stations", "road_stations", "bridge_cls", "ground_cls", "terr_n", "shared")})
     for T in tables:
         m = T["is_model"] & T["inbox"]
         L["stations"] += int(m.sum())
@@ -74,11 +74,11 @@ def summarize(chains, tables, av, rows, box):
         L["model_struct"] += struct.sum() * STEP; L["av_deck"] += deck.sum() * STEP; L["edges"] += (m & (T["av_mode"] == 2)).sum() * STEP
         L["both"] += (struct & deck).sum() * STEP; L["model_only"] += (struct & ~deck).sum() * STEP; L["av_only"] += (deck & ~struct).sum() * STEP
         r = m & T["ramp"]
-        L["ramp_stations"] += int(r.sum())
+        L["ramp_stations"] += int(r.sum()); L["shared"] += int((m & T["shared"]).sum())
         S["av_w"] += T["av_w"][r].tolist(); mw = (T["wl"] + T["wr"]); S["model_w"] += mw[r].tolist()
         S["w_err"] += (mw - T["av_w"])[r].tolist(); S["off"] += T["av_off"][r].tolist()
         S["excess"] += np.maximum(T["excess_l"], T["excess_r"])[r].tolist()
-        S["uncovered"] += np.maximum(-T["excess_l"], -T["excess_r"])[r].tolist()
+        S["uncovered"] += T["uncov"][r].tolist()
         rd = m & np.isfinite(T["road_w"]); L["road_stations"] += int(rd.sum()); S["road_w"] += T["road_w"][rd].tolist()
         L["wall_l"] += (m & T["wall_l"]).sum() * STEP; L["wall_r"] += (m & T["wall_r"]).sum() * STEP
         solid = m & (T["kind"] == 1); L["solid"] += solid.sum() * STEP
@@ -95,6 +95,24 @@ def summarize(chains, tables, av, rows, box):
     out["piers"] = M.piers(chains, tables, av, rows)
     out["areas"] = M.areas(chains, tables, av, box)
     return out
+
+
+THRESH = {"outline_iou": 0.80, "overshoot_p95": 0.5, "uncovered_p95": 2.0, "res_p95": 0.3, "landing": 5.0}
+
+
+def verdict(S, landings):
+    """PASS / REVIEW of the current rows against the README thresholds; returns (ok, list of (measure, value, limit, ok))."""
+    checks = [("outline IoU", f"{S['areas']['outline_iou']:.2f}", f">= {THRESH['outline_iou']}", S["areas"]["outline_iou"] >= THRESH["outline_iou"]),
+              ("edge overshoot p95 (m)", S["excess"]["p95"], f"<= {THRESH['overshoot_p95']}", not np.isfinite(S["excess"]["p95"]) or S["excess"]["p95"] <= THRESH["overshoot_p95"]),
+              ("uncovered width p95 (m, any deck row counts)", S["uncovered"]["p95"], f"<= {THRESH['uncovered_p95']}", not np.isfinite(S["uncovered"]["p95"]) or S["uncovered"]["p95"] <= THRESH["uncovered_p95"]),
+              ("height residual p95 (m, bridge class)", S["res_b"]["abs95"], f"<= {THRESH['res_p95']}", not np.isfinite(S["res_b"]["abs95"]) or S["res_b"]["abs95"] <= THRESH["res_p95"]),
+              ("cadastre piers under the deck with a modelled pier", f"{S['piers']['av_matched']}/{S['piers']['under_deck']}", "all", S["piers"]["av_matched"] >= S["piers"]["under_deck"])]
+    for crep, kind, ld in landings:
+        ref = max(v for v in (ld["av_deck_end"], ld["wall_end"]) if v is not None) if any(v is not None for v in (ld["av_deck_end"], ld["wall_end"])) else None
+        if ref is not None:
+            short = ref - max(ld["row_end"], ld["model_end"] if ld["model_end"] is not None else -1e9)   # structure not reached
+            checks.append((f"landing {crep[:28]} ({kind}): cadastre / wall end beyond the modelled structure (m)", max(0.0, short), f"<= {THRESH['landing']}", short <= THRESH["landing"]))
+    return all(c[3] for c in checks), checks
 
 
 def terrain_runs(T, thr=-1.0):
@@ -116,10 +134,15 @@ def score_site(name, tiles_dir, label="current", override=None):
     res = {"label": label}
     for variant in ("live", "current"):
         R = Rows(tiles_dir, variant, override if variant == "current" else None); chains = R.site_chains(cfg)
+        others = M.other_axes(R, cfg); cover = M.deck_cover(R, cfg["view"])
+        is_site = lambda t, k, d: cfg["match"] in (d.get("name") or "") and d["kind"] in cfg["kinds"]
+        taken = M.deck_cover(R, cfg["view"], kinds=("road",), exclude=is_site)   # other road decks sharing the structure
+        from shapely.geometry import LineString
+        axes = {c: LineString(c.P[:, :2]) for c in chains}
         tables, lands = [], []
         for c in chains:
             ext = tuple(e for e in (0, -1) if c.ends[e] in ("grade", "air"))
-            T = M.measure(c, av, R, box=cfg["view"], ext=ext)
+            T = M.measure(c, av, R, box=cfg["view"], ext=ext, others=others, cover=cover, taken=taken, site_axes=[a for o, a in axes.items() if o is not c])
             tables.append(T)
             for e in ext:
                 if cfg["view"][0] <= c.P[e, 0] <= cfg["view"][2] and cfg["view"][1] <= c.P[e, 1] <= cfg["view"][3]:
@@ -154,18 +177,18 @@ def report(name, cfg, av, res, out_dir):
         lines.append(f"| {label} | {lv} | {pv} | {how} |")
     la, pa = L["areas"], P["areas"]
     row("Chains / stations in window", f"{len(res['live']['chains'])} / {L['len']['stations']}", f"{len(res['current']['chains'])} / {P['len']['stations']}", "2 m stations of the modelled axes inside the window")
-    row("Footprint IoU vs AV ramp outline", f"{la['outline_iou']:.2f}", f"{pa['outline_iou']:.2f}", "AV structure cross-sections along the modelled axes (ramp stations); 1 = identical outline")
+    row("Footprint IoU vs AV ramp outline", f"{la['outline_iou']:.2f}", f"{pa['outline_iou']:.2f}", "per ramp station the modelled cross-section against the slice available to this ramp, overlaps over unions; 1 = identical outline")
     row("Footprint IoU / precision / recall vs all AV bridge polygons", f"{la['iou']:.2f} / {la['precision']:.2f} / {la['recall']:.2f}", f"{pa['iou']:.2f} / {pa['precision']:.2f} / {pa['recall']:.2f}", "polygons within 25 m of the modelled axes, main deck included; precision = share of the modelled footprint over a real deck")
     row("Footprint area model / AV outline / AV polygons (m²)", f"{la['model_area']:.0f} / {la['outline_area']:.0f} / {la['av_area']:.0f}", f"{pa['model_area']:.0f} / {pa['outline_area']:.0f} / {pa['av_area']:.0f}", "")
     row("Structure length model / AV (m)", f"{L['len']['model_struct']:.0f} / {L['len']['av_deck']:.0f}", f"{P['len']['model_struct']:.0f} / {P['len']['av_deck']:.0f}", "along the axis; model = elevated or solid stations, AV = axis inside a bridge polygon or between two thin bridge edge polygons")
     row("of which both / model only / AV only (m)", f"{L['len']['both']:.0f} / {L['len']['model_only']:.0f} / {L['len']['av_only']:.0f}", f"{P['len']['both']:.0f} / {P['len']['model_only']:.0f} / {P['len']['av_only']:.0f}", "model only = modelled structure where AV has no bridge object (embankment, or an error); AV only = real structure modelled at grade")
     row("AV structure as edge polygons only (m)", f"{L['len']['edges']:.0f}", f"{P['len']['edges']:.0f}", "axis between two thin «Brücke» polygons (< 1.5 m): ramp on fill between edge structures")
-    row("AV structure width p50 (m, ramp stations)", f1(L["av_w"]["p50"], " m"), f1(P["av_w"]["p50"], " m"), f"stations where the AV structure is narrower than {M.MAIN_DECK:.0f} m (live {L['len']['ramp_stations']}, {lab} {P['len']['ramp_stations']})")
+    row("AV structure width p50 (m, ramp stations)", f1(L["av_w"]["p50"], " m"), f1(P["av_w"]["p50"], " m"), f"stations where the slice available to this ramp (cadastre slice minus other road / foot rows) is 2–{M.MAIN_DECK:.0f} m wide (live {L['len']['ramp_stations']}, {lab} {P['len']['ramp_stations']}); slices crossed by another deck's axis: live {L['len']['shared']}, {lab} {P['len']['shared']}")
     row("Modelled width p50 (m, same stations)", f1(L["model_w"]["p50"], " m"), f1(P["model_w"]["p50"], " m"), "wl + wr (live rows: w)")
     row("Width error p50 / p95 |err| (m)", f"{f1(L['w_err']['p50'], ' m', True)} / {f1(L['w_err']['abs95'], ' m')}", f"{f1(P['w_err']['p50'], ' m', True)} / {f1(P['w_err']['abs95'], ' m')}", "model minus AV structure width")
     row("Axis offset to AV centre line p50 / p95 (m)", f"{f1(L['off']['abs50'], ' m')} / {f1(L['off']['abs95'], ' m')}", f"{f1(P['off']['abs50'], ' m')} / {f1(P['off']['abs95'], ' m')}", "distance between the modelled axis and the middle of the AV structure at the station")
     row("Edge overshoot p50 / p95 (m)", f"{f1(L['excess']['p50'], ' m', True)} / {f1(L['excess']['p95'], ' m', True)}", f"{f1(P['excess']['p50'], ' m', True)} / {f1(P['excess']['p95'], ' m', True)}", "how far the wider modelled edge reaches beyond the AV edge (negative = inside)")
-    row("Uncovered AV width p50 / p95 (m)", f"{f1(L['uncovered']['p50'], ' m', True)} / {f1(L['uncovered']['p95'], ' m', True)}", f"{f1(P['uncovered']['p50'], ' m', True)} / {f1(P['uncovered']['p95'], ' m', True)}", "AV structure left uncovered on the worse side (negative = model wider)")
+    row("Uncovered AV width p50 / p95 (m)", f"{f1(L['uncovered']['p50'], ' m')} / {f1(L['uncovered']['p95'], ' m')}", f"{f1(P['uncovered']['p50'], ' m')} / {f1(P['uncovered']['p95'], ' m')}", "metres of the AV structure across the station covered by no deck row at all (this ramp or any other deck)")
     row("AV carriageway width p50 (m)", f"{f1(L['road_w']['p50'], ' m')} ({L['len']['road_stations']} st.)", f"{f1(P['road_w']['p50'], ' m')} ({P['len']['road_stations']} st.)", "Bodenbedeckung «Strasse, Weg» under the axis; only where present (not on decks)")
     row("Walls at the modelled edge left / right (m)", f"{L['len']['wall_l']:.0f} / {L['len']['wall_r']:.0f}", f"{P['len']['wall_l']:.0f} / {P['len']['wall_r']:.0f}", f"AV «Mauer» within {M.WALL_NEAR} m of the modelled edge")
     row("Modelled solid length / with a wall (m)", f"{L['len']['solid']:.0f} / {L['len']['solid_wall']:.0f}", f"{P['len']['solid']:.0f} / {P['len']['solid_wall']:.0f}", "solid = underside on the ground (embankment / skirt); a flanking wall confirms it")
@@ -175,7 +198,7 @@ def report(name, cfg, av, res, out_dir):
     row("Tile pier rows near the axes / at an AV pier", f"{pl['tile_total']} / {pl['tile_matched']}", f"{pp['tile_total']} / {pp['tile_matched']}", "modelled piers within 2 m of a cadastre pier polygon")
     row("AV piers with a modelled pier within 2 m", f"{pl['av_matched']} / {pl['av_total']}", f"{pp['av_matched']} / {pp['av_total']}", "")
     lines += ["", "### Landings (chain ends at grade or in the air, inside the window)", "",
-              "| rows | chain | end | modelled structure ends | AV structure ends | flanking walls end | end above game ground | end above LiDAR ground | terrain game − LiDAR at end |", "|---|---|---|---|---|---|---|---|---|"]
+              "| rows | chain | end | modelled structure ends | AV structure ends | flanking walls end | end above game ground | end above LiDAR ground | terrain game − LiDAR at end |", "|---|---|---|---|---|---|---|---|---|"]   # the row itself ends at 0
     for v in ("live", "current"):
         for crep, kind, ld in res[v]["landings"]:
             lines.append(f"| {v if v == 'live' else lab} | {crep} | {kind} | {f1(ld['model_end'], ' m', True)} | {f1(ld['av_deck_end'], ' m', True)} | {f1(ld['wall_end'], ' m', True)} | {f1(ld['end_el_game'], ' m', True)} | {f1(ld['end_el_lidar'], ' m', True)} | {f1(ld['end_terr'], ' m', True)} |")
@@ -190,10 +213,16 @@ def report(name, cfg, av, res, out_dir):
         for c, T in zip(res[v]["chains"], res[v]["tables"]):
             m = T["is_model"] & T["inbox"]; r = m & T["ramp"]
             tr = "; ".join(f"terrain {d:.1f} m low at s {a:.0f}–{b:.0f}" for a, b, d in terrain_runs(T))
-            lines.append(f"- {v if v == 'live' else lab}: {c}; in window {int(m.sum()) * 2} m; AV ramp width p50 {f1(M.pct(T['av_w'][r], 50), ' m')}, modelled {f1(M.pct((T['wl'] + T['wr'])[r], 50), ' m')}; "
+            ol = M.av_outline(T); fp = c.footprint(); ciou = fp.intersection(ol).area / (fp.union(ol).area or 1)
+            lines.append(f"- {v if v == 'live' else lab}: {c}; in window {int(m.sum()) * 2} m; outline IoU {ciou:.2f}; uncovered p95 {f1(M.pct(T['uncov'][r], 95), ' m')}; AV ramp width p50 {f1(M.pct(T['av_w'][r], 50), ' m')}, modelled {f1(M.pct((T['wl'] + T['wr'])[r], 50), ' m')}; "
                          f"axis offset p50 {f1(M.pct(np.abs(T['av_off'][r]), 50), ' m')}, max {f1(M.pct(np.abs(T['av_off'][r]), 100), ' m')}; "
                          f"kinds grade/solid/deck {int((m & (T['kind'] == 0)).sum()) * 2}/{int((m & (T['kind'] == 1)).sum()) * 2}/{int((m & (T['kind'] == 2)).sum()) * 2} m" + (f"; {tr}" if tr else ""))
-    lines += ["", "## Scope C, imagery + vision helper", "", "Not run yet (phase 3).", ""]
+    ok, checks = verdict(P, [(c, k, ld) for c, k, ld in res["current"]["landings"]])
+    lines += ["", f"## Verdict for the {lab} rows: {'PASS' if ok else 'REVIEW'}", "", "| Check | value | limit | ok |", "|---|---|---|---|"]
+    for name_, val, lim, good in checks:
+        lines.append(f"| {name_} | {val if isinstance(val, str) else f1(val)} | {lim} | {'yes' if good else 'NO'} |")
+    lines += ["", "Thresholds from `README.md`; the ride gate is run separately. REVIEW names the measures to look at, nothing more.", "",
+              "## Scope C, imagery + vision helper", "", "Not run yet (phase 3).", ""]
     notes = os.path.join(out_dir, f"{name}_notes.md")
     if os.path.exists(notes):
         lines += ["## Reading", "", open(notes).read().strip(), ""]

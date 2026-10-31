@@ -4,6 +4,7 @@ Two panels, live rows (left) and the current rows (right, `--label` names them),
 preview/scopes/<site>_overlay.png (images stay out of git). The orthophoto comes from the swisstopo WMS
 (ch.swisstopo.images-swissimage, free use with source credit) and is cached under data/build/scopes/.
 Usage:  python3 pipeline/scopes/overlay.py <site>[,<site>] [--tiles web/public/tiles] [--res 0.2] [--box x0,y0,x1,y1] [--label v2] [--override dir]
+        python3 pipeline/scopes/overlay.py <site> --rows [--box ...]      debug map of all deck rows for defining a site
 """
 from __future__ import annotations
 
@@ -139,6 +140,36 @@ def _halo():
     return [pe.withStroke(linewidth=1.5, foreground="black")]
 
 
+def rows_map(name, tiles_dir, box=None, res=0.25):
+    """Debug map for defining a site: every deck row (live originals) with name, kind, width, max elevation and end points over
+    the orthophoto and the cadastre -> preview/scopes/<name>_rows.png."""
+    import glob, json
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    cfg = site_cfg(name); box = tuple(box or cfg["fetch"])
+    img, ext = ortho(name, box, res); av = scope_av.load(name)
+    fig, ax = plt.subplots(figsize=(10, 10 * (box[3] - box[1]) / (box[2] - box[0]) + 0.4), dpi=140)
+    ax.imshow(img, extent=ext, origin="upper")
+    for grp, (edge, face, lw, z, lab) in STYLE.items():
+        for g in av.geoms(grp):
+            draw_geom(ax, g, edge, face, lw, z)
+    cols = {"road": "#ff3b30", "tram": "#ffd60a", "foot": "#4cff4c", "rail": "#aaaaaa"}
+    R = Rows(tiles_dir, "live")
+    for t, k, d in R.decks():
+        P = np.asarray(d["p"], float)
+        if not clip_box(P[:, :2], box).any():
+            continue
+        ax.plot(P[:, 0], P[:, 1], color=cols.get(d["kind"], "w"), lw=1.2 if d["kind"] == "road" else 0.8)
+        mid = P[len(P) // 2]; el = float((P[:, 2] - np.asarray(d["g"])).max())
+        ax.text(mid[0], mid[1], f"{(d.get('name') or '?')[:12]} {d['kind'][0]} w{d['w']} el{el:.0f} ({P[0,0]:.0f},{P[0,1]:.0f})→({P[-1,0]:.0f},{P[-1,1]:.0f})",
+                fontsize=4.5, color=cols.get(d["kind"], "w"), path_effects=_halo(), clip_on=True)
+    ax.set_xlim(box[0], box[2]); ax.set_ylim(box[1], box[3]); ax.set_title(f"{name}: deck rows (live) over cadastre", fontsize=9)
+    os.makedirs(OUT, exist_ok=True); out = os.path.join(OUT, f"{name}_rows.png")
+    fig.tight_layout(); fig.savefig(out); plt.close(fig)
+    return out
+
+
 def render(name, tiles_dir, res=0.2, out=None, box=None, label="current", override=None):
     import matplotlib
     matplotlib.use("Agg")
@@ -172,4 +203,6 @@ if __name__ == "__main__":
     label = sys.argv[sys.argv.index("--label") + 1] if "--label" in sys.argv else "current"
     override = sys.argv[sys.argv.index("--override") + 1] if "--override" in sys.argv else None
     for n in (args[0].split(",") if args else ["gerold", "duttweiler"]):
+        if "--rows" in sys.argv:
+            print(rows_map(n, tiles, box)); continue
         print(render(n, tiles, res, out=(os.path.join(OUT, f"{n}_zoom.png") if box else None), box=box, label=label, override=override))
