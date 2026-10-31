@@ -53,6 +53,8 @@ async function run(touch) {
       const h = Math.atan2(Math.cos(a), Math.sin(a)), sx = Math.sin(h), sy = Math.cos(h), rx = sy, ry = -sx;
       let free = true;
       for (const l of [-0.9, 0, 0.9]) free &&= t.colliders.freeFraction(x - sx * d + rx * l, y - sy * d + ry * l, x - sx * 0.7 + rx * l, y - sy * 0.7 + ry * l, 40) === 1 && !t.colliders.inside(x - sx * d + rx * l, y - sy * d + ry * l);
+      // the whole body must be clear at the start spot too (its corners reach 2.3 m beyond the centre; a corner already inside a footprint there is not a tunnelling failure)
+      for (const a2 of [-1, 1]) for (const b2 of [-1, 1]) free &&= !t.colliders.inside(x - sx * d + sx * a2 * c.half.l + rx * b2 * c.half.w, y - sy * d + sy * a2 * c.half.l + ry * b2 * c.half.w);
       if (free) { wall = { x, y, a }; hx = h; }
     }
     if (!wall) return null;

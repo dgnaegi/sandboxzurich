@@ -230,6 +230,8 @@ async function main() {
   const transitUse = new TransitUse(player, tiles, transit, audio, scene);
   carUse.transitExit = () => transitUse.exit();
   carUse.onTheft = onCarTheft;
+  carUse.onDismount = (left) => (left.type === 'scooter' ? scooters : bikes).drop(left.x, left.y, left.z, left.h, left.color);   // bike/scooter left behind when the car got ready
+  carUse.legal = (x, y) => validSpot({ tiles, landmarks: landmarks3d }, x, y);   // stuck failsafe: where a freed car may stand
   carUse.onHint = (text) => { // short hint line (no pop-up card)
     let el = document.getElementById('drivehint');
     if (!el) { el = document.createElement('div'); el.id = 'drivehint'; el.style.cssText = 'position:fixed;left:50%;top:18%;transform:translateX(-50%);padding:8px 14px;border-radius:10px;background:#000b;color:#fff;font:600 15px system-ui,sans-serif;z-index:30;pointer-events:none;transition:opacity .4s'; document.body.appendChild(el); }
@@ -416,7 +418,7 @@ async function main() {
     const blips = [...(QUESTS ? missions.blips() : []), ...(state.stars ? police.positions().map((p) => ({ ...p, color: frames % 20 < 10 ? '#3060ff' : '#ff3030' })) : [])];
     map.drawRadar(player.x, player.y, player.yaw, player.heading, blips);
     const tgt = player.driving || player.riding ? null : pickTarget();
-    const prompt = player.driving ? (player.driving.dead ? (mobile ? 'Auto kaputt – E = aussteigen' : 'Auto kaputt – E zum Aussteigen') : Math.abs(player.speed) < 3 ? (mobile ? 'E = aussteigen' : 'E drücken: aussteigen') : '')
+    const prompt = carUse.loading ? 'Auto wird geladen …' : player.driving ? (player.driving.dead ? (mobile ? 'Auto kaputt – E = aussteigen' : 'Auto kaputt – E zum Aussteigen') : Math.abs(player.speed) < 3 ? (mobile ? 'E = aussteigen' : 'E drücken: aussteigen') : '')
       : tgt?.kind === 'transit' ? (mobile ? `E = ${tgt.tr.kind === 'tram' ? 'Tram' : 'Bus'} fahren` : `E drücken: ${tgt.tr.kind === 'tram' ? 'Tram' : 'Bus'} fahren`)
       : tgt?.kind === 'car' ? (mobile ? 'E = Auto nehmen' : 'E drücken: Auto nehmen')
       : tgt?.kind === 'scooter' ? (mobile ? 'E = Trottinett fahren' : 'E drücken: Trottinett fahren')
