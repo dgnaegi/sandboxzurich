@@ -46,7 +46,8 @@ All three row sets are measured with the same code.
 
 Remaining blemishes, by eye: a one-station step in the Geroldrampe's north edge near x ≈ 130 (the slice toggles between the
 ramp and the Hardbrücke polygon), the junction strips of the branches lying flush on the Hardbrücke deck, the Duttweiler
-landing wedge where the deck polygon ends and the wall-based width begins. The game terrain under the Geroldrampe fill (−4.2 m)
+landing wedge where the deck polygon ends and the wall-based width begins, and a 1 m step for pedestrians at (−595, 131) where the
+OSM footway passes 17 m east of the axis beyond the east wing wall, outside the tail (a footway row or a wider wedge is needed). The game terrain under the Geroldrampe fill (−4.2 m)
 and at the Duttweiler landing (−3.0 m) is a terrain-pass item, hidden by the solid skirts.
 
 ## Where this stands on the spectrum «handles every ramp» … «promising on the sample»
