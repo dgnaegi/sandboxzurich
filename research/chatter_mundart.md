@@ -5,6 +5,17 @@ Swisscore-/Züricore-Satire (liebevolle Klischees über Zürich und seine Typen)
 Hochdeutsch redet. UI-Texte bleiben Hochdeutsch (CLAUDE.md). Der Entscheid liegt beim Maintainer; bis dahin ist die
 Kopfzeile in `chatter.ts` entsprechend markiert.
 
+## Stand der Freigabe (2026-10-31)
+- **Aktiv** (`chatLine()` benutzt sie): die vom Fork-Owner genannten Zeilen (`OWNER`: «So en Lappe!», «Bisch scho imne
+  Verein?», «Angst und Geld hani kei.», «Hey, gömmer Bulle go schlah?», «Multipli hundert.», «Chatsy.», die
+  California-Zeile; dazu «Hesch Termin?» auf dem Trottinett und «Voll wüests Auto.» im Auto) und die Originalzeilen des
+  Maintainers eins zu eins übersetzt (Begrüssungen, Morgen, Mittag, Feierabend, Nacht, Wochenende, Orte).
+- **Reserve** (`RESERVE` in `chatter.ts`, nicht in Gebrauch): alles Recherchierte und Komponierte aus den Abschnitten
+  unten. Tester:innen sollen zuerst über die Insider lachen; was gefällt, wird von Hand aus `RESERVE` in den
+  passenden Pool verschoben. Schreibweise der Owner-Zeilen wie geliefert (z. B. «Geld», nicht «Gäld»).
+- Hinweis zu «Hey, gömmer Bulle go schlah?»: Berührt `CONTENT_GUIDELINES` («keine Gewalt gegen Menschen, Polizei
+  comichaft»). Es ist eine Sprechblase ohne Folgen im Spiel; der Maintainer entscheidet, ob sie bleibt.
+
 ## Regeln (CONTENT_GUIDELINES)
 - Keine echten Politiker:innen, Parteien oder Privatpersonen. Echte Läden/Firmen höchstens neutral erwähnt
   (Migros/Coop als Kulturfrage, Xenix als Kino, Volkshaus als Treffpunkt), nie als Ziel des Spotts.
