@@ -117,6 +117,14 @@ def panel(ax, name, cfg, av, R, chains, img, ext, mask, mext, colour, label):
             if clip_box(c.P[[end], :2], cfg["view"])[0]:
                 ax.text(c.P[end, 0], c.P[end, 1], c.ends[end], color=colour, fontsize=6, zorder=11, ha="left", va="bottom", path_effects=_halo(), clip_on=True)
     handles.append(Patch(facecolor=(*_rgb(colour), 0.22), edgecolor=colour, label=f"{label} rows (footprint, 20 m stations)"))
+    uf = os.path.join(CACHE, f"{name}_uncovered.json")
+    if label != "live" and os.path.exists(uf):
+        import json as _json
+        from shapely.geometry import shape
+        u = shape(_json.load(open(uf)))
+        if not u.is_empty:
+            draw_geom(ax, u, "#ff2d55", (1, 0.18, 0.33, 0.45), 1.0, 13)
+            handles.append(Patch(facecolor=(1, 0.18, 0.33, 0.45), edgecolor="#ff2d55", label="cadastre share covered by no deck row"))
     pq = R.site_piers(chains)
     if pq:
         ax.scatter([q[0] for q in pq], [q[1] for q in pq], s=14, marker="s", facecolor="none", edgecolor=colour, lw=0.9, zorder=12)

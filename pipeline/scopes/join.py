@@ -16,18 +16,22 @@ DZ = 0.6     # m: height difference up to which two decks are one surface
 NEAR = 60.0  # m: other rows considered around a new deck
 
 
-def normals(P):
+def normals(P, pa=None, pb=None):
+    """Left normals per vertex; at the ends the neighbouring vertices of the adjacent row (`pa`, `pb`) make the normals continuous
+    across a tile boundary, as the client's offsets() does."""
     n = len(P); N = np.zeros((n, 2))
     for i in range(n):
-        a = P[max(i - 1, 0)]; b = P[min(i + 1, n - 1)]; t = b - a; t = t / (np.hypot(t[0], t[1]) or 1.0)
+        a = P[i - 1] if i > 0 else (np.asarray(pa[:2], float) if pa is not None else P[0])
+        b = P[i + 1] if i < n - 1 else (np.asarray(pb[:2], float) if pb is not None else P[n - 1])
+        t = b - a; t = t / (np.hypot(t[0], t[1]) or 1.0)
         N[i] = (-t[1], t[0])
     return N
 
 
-def footprint(P, wl, wr):
+def footprint(P, wl, wr, pa=None, pb=None):
     import shapely
     from shapely.geometry import Polygon
-    N = normals(P); quads = []
+    N = normals(P, pa, pb); quads = []
     for i in range(len(P) - 1):
         q = Polygon([P[i] + N[i] * wl[i], P[i + 1] + N[i + 1] * wl[i + 1], P[i + 1] - N[i + 1] * wr[i + 1], P[i] - N[i] * wr[i]])
         q = q if q.is_valid else q.buffer(0)

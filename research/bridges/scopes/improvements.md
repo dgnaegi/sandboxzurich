@@ -3,6 +3,18 @@
 Kept for the PR text. Ride lines come from `python3 pipeline/scopes/ride_delta.py` (gate log against the committed baseline);
 scope numbers from the site reports. Newest first.
 
+## 2026-11-01 · five sites PASS, fork gore closed, Pfingstweid ramp and Hardbrücke Nord added
+- Geroldrampe: sibling chains split the shared slice at the Voronoi boundary, merge lanes reach the carriageway edge, the fork
+  gore is gone (3 m² uncovered left at the nose); both uphill car routes 0 crashes, raw steps 0.45 → 0.24 m; verdict PASS.
+- Pfingstweid ramp (transfer, builder unchanged): 3.5 → 10.0 m on the cadastre outline, fill between edge polygons solid,
+  outline IoU 0.84, PASS.
+- Hardbrücke Nord (transfer, two builder rules): three ramps 3.2 → 6.3–6.8 m, outline IoU 0.89–0.92, PASS; the first run had
+  dragged the climbing Nordrampe to the descending Südrampe (24 % step), fixed by adopting a sibling's height only where the
+  LiDAR agrees.
+- Scorer: uncovered measured on the chain's own share, flush sides have no edge, junction stations on another deck excluded,
+  footprints continuous across tile boundaries; uncovered strips drawn red in the overlays.
+- Gate (99 rides): PASS: stuck 14 → 12, fell 2 → 1, crashes 1 → 1 city-wide (99 rides, 50 with problems).
+
 ## 2026-11-01 · joins, verdicts, first transfer site (commit 3d5128e)
 - Geroldrampe: the Hardbrücke's parapet is opened over the two ramp mouths, the fork branches are flush and coplanar, a
   collision post under the fork nose is gone; two uphill car routes (new, local) reach the Hardbrücke with 0 crashes.
@@ -29,13 +41,14 @@ scope numbers from the site reports. Newest first.
   graph), kept: central-strip heights, solid skirts, per-vertex `wl`/`wr`, the ride gate and the shot tooling.
 
 ## Rides vs the gate baseline, current run
-Rides vs baseline base (2026-10-31): 4 better, 0 worse, 2 new
+Rides vs baseline base (2026-10-31): 5 better, 0 worse, 2 new
 
 Better:
 - Duttweilerbrücke (car): raw → raw, progress 183 → 632 of 638 m
 - Hohlstrasse (bike): stuck → jump, progress 96 → 125 of 130 m
 - Hohlstrasse (car): stuck → raw, progress 133 → 293 of 298 m
 - Stauffacherstrasse (car): fell → raw, progress 218 → 173 of 249 m
+- Wipkingerbrücke (bike): crash → jump, progress 41 → 119 of 124 m
 
 New:
 - Geroldrampe up via the north branch (car): raw, progress 257 of 262 m (new route)

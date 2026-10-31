@@ -23,50 +23,53 @@ acceptance style, and this follows it: numbers per ramp, overlays for the eye, a
 | Builder v2: rows from cadastre edges + LiDAR heights + cadastre piers, on the built tiles | implemented on three sites | `pipeline/scopes/ramp_build.py` |
 | Joins: ramp mouths opened on the main deck and between sibling chains, flush sides, coplanar heights | implemented (the pipeline only joined side-by-side decks) | `pipeline/scopes/join.py` |
 | Acceptance thresholds (PASS / REVIEW per ramp) | implemented in the scorer's verdict | `pipeline/scopes/score.py` |
-| Transfer to more ramps unchanged (phase 4) | one of three done: Hohlstrasse / Brauerstrasse PASS without a builder change; Pfingstweid and Hardbrücke Nord have their LiDAR tiles, sites not yet defined | `pipeline/scopes/ramp_sites.py`, `lidar_for_sites.py` |
+| Transfer to more ramps (phase 4) | three done: Hohlstrasse / Brauerstrasse and the Pfingstweid ramp without a builder change, Hardbrücke Nord with two rules; all PASS | `pipeline/scopes/ramp_sites.py`, `lidar_for_sites.py`, `overlay.py --rows` |
+| Improvements log and ride delta against the gate baseline | implemented | `improvements.md`, `pipeline/scopes/ride_delta.py` |
+| Pull requests: gate + proxy (#4), scopes as draft (#5) | open on the maintainer's repository | `research/bridges/pr_drafts.md` |
 | Scope C: imagery + vision helper for the lane / footway split and semantics | documented proposal (`scopes_plan.md` §2); not needed for the two sites | — |
 | Site discovery (every elevated road chain instead of a hand list) | vision | — |
 | Maintainer integration as a pipeline stage after `bridges.py` | vision | — |
 
-## Results on three sites (2026-11-01)
+## Results on five sites (2026-11-01)
 
-Numbers from `score.py` (full reports `gerold.md`, `duttweiler.md`, `brauer.md`; the pilot column from the snapshot in
-`pilot/`). All row sets are measured with the same code; the outline IoU is station-wise against the slice available to the chain.
+Numbers from `score.py` (full reports `<site>.md`, pilot snapshot scores in `pilot/`); every row set is measured with the
+same code. Outline IoU is station-wise against the chain's own share of the cadastre slice (other road decks and sibling chains
+removed at the Voronoi boundary); "uncovered" is that share covered by no deck row at all. Gate line: PASS: stuck 14 → 12, fell 2 → 1, crashes 1 → 1 city-wide (99 rides, 50 with problems).
 
-| Measure | Geroldrampe live → pilot → v2 | Duttweiler south ramp live → pilot → v2 | Hohlstrasse / Brauerstrasse live → v2 |
-|---|---|---|---|
-| Verdict (v2) | REVIEW (fork gore uncovered) | PASS | PASS |
-| Outline IoU at ramp stations | 0.35 → 0.64 → 0.91 | 0.43 → 0.77 → 0.99 | 0.53 → 0.99 |
-| Cadastre width, median (available slice) | 9.0 m → 13.9 m → 9.1 m | 14.1 m → 14.2 m → 14.1 m | 9.1 m → 9.1 m |
-| Modelled width, median | 3.2 m → 7.5 m → 8.2 m | 6.4 m → 14.5 m → 14.2 m | 6.4 m → 9.1 m |
-| Edge overshoot p50 / p95 | -1.6 m / +1.0 m → -1.1 m / +0.5 m → +0.0 m / +0.4 m | -3.3 m / -3.2 m → +0.3 m / +1.3 m → +0.0 m / +0.0 m | -1.1 m / +0.4 m → +0.0 m / +0.4 m |
-| Uncovered cadastre width p50 / p95 (any deck row) | 6.8 m / 10.8 m → +3.5 m / +13.7 m → 0.0 m / 4.2 m | 3.8 m / 9.7 m → +0.3 m / +4.4 m → 0.0 m / 0.0 m | 7.1 m / 7.2 m → 0.0 m / 0.1 m |
-| Cadastre piers near the axes: under deck / solid / grade / outside | 18: 10 / 0 / 0 / 8 → 18: 10 / 0 / 0 / 8 → 18: 13 / 0 / 0 / 5 | 30: 14 / 0 / 0 / 16 → 30: 26 / 0 / 0 / 4 → 30: 28 / 0 / 0 / 2 | 0: 0 / 0 / 0 / 0 → 0: 0 / 0 / 0 / 0 |
-| Tile piers / standing at a real pier | 10 / 2 → 10 / 2 → 13 / 13 | 68 / 8 → 68 / 8 → 34 / 30 | 16 / 0 → 5 / 0 |
-| Height residual vs LiDAR deck top p50 / p95 | -0.0 m / 0.1 m → +0.0 m / 0.2 m → -0.0 m / 0.2 m | -0.0 m / 1.0 m → -0.0 m / 0.1 m → -0.0 m / 0.0 m | -0.0 m / 0.1 m → +0.0 m / 0.1 m |
-| Ride gate (97 + Geroldrampe routes) | PASS: stuck 14 → 12, fell 2 → 1 city-wide; Geroldrampe routes 0 crashes | car 632 of 638 m (live 183 m) | car and bike no longer stuck |
-| Geroldrampe car rides (2 uphill routes) | 0 crashes, reach the Hardbrücke (was: crash at the fork nose) | | |
+| Measure (live → v2) | Geroldrampe | Duttweiler south ramp | Hohlstrasse / Brauerstrasse | Pfingstweid ramp | Hardbrücke Nord (3 ramps) |
+|---|---|---|---|---|---|
+| Verdict (v2) | PASS | PASS | PASS | PASS | PASS |
+| Outline IoU at ramp stations | 0.37 → 0.98 | 0.43 → 0.99 | 0.54 → 0.99 | 0.33 → 1.00 | 0.45 → 0.98 |
+| Modelled width, median | 3.2 m → 8.1 m | 6.4 m → 14.2 m | 6.4 m → 8.8 m | 3.5 m → 10.0 m | 3.2 m → 6.5 m |
+| Cadastre share width, median | 8.0 m → 8.1 m | 14.1 m → 14.1 m | 8.7 m → 8.7 m | 10.0 m → 10.0 m | 6.5 m → 6.5 m |
+| Edge overshoot p50 / p95 | -1.5 m / +1.1 m → +0.0 m / +0.0 m | -3.3 m / -3.2 m → +0.0 m / +0.0 m | -0.8 m / -0.8 m → -0.0 m / +0.0 m | -1.7 m / -1.6 m → +0.0 m / +0.0 m | -1.5 m / -1.2 m → +0.0 m / +0.1 m |
+| Uncovered share p50 / p95 | 4.4 m / 10.7 m → 0.0 m / 0.5 m | 3.8 m / 9.7 m → 0.0 m / 0.0 m | 2.5 m / 3.3 m → 0.0 m / 0.0 m | 3.5 m / 5.0 m → 0.0 m / 0.0 m | 3.3 m / 6.6 m → 0.0 m / 0.1 m |
+| Tile piers / at a real pier | 10 / 2 → 11 / 11 | 68 / 8 → 34 / 30 | 16 / 0 → 5 / 0 | 11 / 0 → 6 / 1 | 23 / 8 → 17 / 15 |
+| Height residual vs LiDAR p50 / p95 | -0.0 m / 0.1 m → -0.0 m / 0.2 m | -0.0 m / 1.0 m → -0.0 m / 0.0 m | -0.0 m / 0.1 m → +0.0 m / 0.1 m | -0.0 m / 0.0 m → -0.0 m / 0.0 m | -0.0 m / 0.0 m → -0.0 m / 0.0 m |
+| Ride gate, rides on the site | 2 uphill routes: 0 crashes, raw steps ≤ 0.24 m | car 183 → 632 of 638 m | car and bike stuck → cross | (no route in the gate) | (routes in the gate: bike Sihlquai-Nordrampe: ok, bike Sihlquai-Nordrampe: ok, foot Sihlquai-Nordrampe: with findings, foot Sihlquai-Nordrampe: with findings) |
 
-Remaining blemishes, by eye and by the scorer: the fork gore of the Geroldrampe (the deck area between the two diverging
-branches is covered by neither; uncovered p95 4.2 m, the one REVIEW), 0.4 m raw-height steps where a car changes between
-overlapping rows at the fork and the Hardbrücke junction (no car jumps), the Duttweiler landing wedge, a 1 m pedestrian step at
-(−595, 131), and the walled approaches of the Hohlstrasse bridge modelled as solid blocks down to a game terrain that is up to
-6.6 m too low (terrain pass, as at the Geroldrampe fill and the Duttweiler landing).
+Remaining blemishes: 0.24 m raw-height steps where a car changes between overlapping rows at the Geroldrampe fork, the
+Duttweiler landing wedge and its 1 m pedestrian step at (−595, 131), the walled approaches of three sites modelled as solid
+blocks down to a game terrain that is 3 to 6.6 m too low (terrain pass), and the strip between the two Sihlquai ramps that is one
+cadastre structure but air in reality (left empty, correctly).
 
 ## Where this stands on the spectrum «handles every ramp» … «promising on the sample»
 
-Position after three sites: between the two, closer to «promising», and the direction is right.
+Position after five sites: past the middle. Every site passes the thresholds; three of the five were run as transfer sites
+with the builder otherwise untouched.
 
-- Rules added while looking at results: eight on the two pilot sites (per-polygon slices at a deck crossing, running-height
-  tracking, tail width from wing walls, replaced footway piers, hard caps at splits, coplanar branches, mouth opening on the
-  main deck and between sibling chains, static colliders under decks), none for the first transfer site. Two scorer rules
-  changed on the transfer site (available slice, station-wise IoU). The builder stopped growing on the third ramp; one site is
-  not a trend.
-- Two of three sites PASS the thresholds unseen; the Geroldrampe is a REVIEW for one named reason (fork gore), which is what
-  the verdict is for. The ride gate improved city-wide (stuck 14 → 12, fell 2 → 1; the Hohlstrasse rides that were stuck cross).
-- Two transfer sites remain (Pfingstweid ramp, Hardbrücke Nord), both junction-heavy; their LiDAR tiles are on disk. Site
-  definition is still a hand list (`ramp_sites.py` with a name match and two boxes; `overlay.py <site> --rows` draws the map to
-  pick from). Data coverage: all three sites have complete cadastre objects; a ramp with none falls back to the live width.
+- Rules added while looking at results: eight on the two pilot sites, none on the Hohlstrasse bridge, none on the Pfingstweid
+  ramp, two on Hardbrücke Nord (a sibling's height is adopted only where the LiDAR on the own axis agrees; other road decks cut a
+  ramp's slice at their edge, which also closed the Geroldrampe's fork gore). Five scorer rules changed on transfer sites
+  (available slice, station-wise IoU, flush sides without an edge, uncovered on the own share, junction stations excluded).
+  The scorer, not the builder, is where the transfer sites cost rules.
+- Five of five PASS; the ride gate improved city-wide at every step and never regressed (see `improvements.md`). Two uphill
+  routes over the Geroldrampe reach the Hardbrücke without a crash.
+- Still a hand list: `ramp_sites.py` holds five sites (name match or a seed point for unnamed rows); `overlay.py <site> --rows`
+  draws the map to define the next one. Data coverage: all five sites have complete cadastre objects; a ramp without any falls
+  back to the live width plus LiDAR heights.
+- Not proven: ramps whose cadastre polygon merges with a neighbour at a different level, tram ramps, stairs, the terrain under
+  fills and landings (reported, not fixed).
 
 ## Deterministic vs interpreted
 
@@ -94,8 +97,9 @@ hour of agent time plus a rerun; the ride gate adds ten minutes per round.
 python3 pipeline/scopes/scope_av.py gerold,duttweiler            # fetch and cache the cadastre (once)
 python3 pipeline/scopes/lidar_for_sites.py <site>                # LiDAR tiles + grids a new site needs (ordered from the OGD geoportal)
 python3 pipeline/scopes/overlay.py <site> --rows                 # map of all deck rows to define a site in ramp_sites.py
-python3 pipeline/scopes/ramp_build.py gerold,duttweiler,brauer --write   # rows into web/public/tiles (originals kept in tiles_orig; always all sites)
-python3 pipeline/scopes/score.py gerold,duttweiler,brauer --label v2     # reports with verdicts, station tables, overlays
+python3 pipeline/scopes/ramp_build.py gerold,duttweiler,brauer,pfingstweid,wipkingen --write   # rows into web/public/tiles (always all sites)
+python3 pipeline/scopes/score.py gerold,duttweiler,brauer,pfingstweid,wipkingen --label v2     # reports with verdicts, station tables, overlays
+python3 pipeline/scopes/ride_delta.py logs/bridges_ride_<label>.log      # rides that changed status against the gate baseline
 cd web && VITE_WORLD_PROXY=https://sandboxzurich.sandboxzurich-web.workers.dev npx vite --port 5190   # dev server
 cd web && node tests/ramp_shots.mjs v2 "" http://localhost:5190  # before/after viewpoints
 cd web && node tests/bridges_ride.mjs v2 "" car,bike,foot http://localhost:5190 --gate
@@ -104,11 +108,11 @@ Python is the anaconda `python3` (3.8); images stay out of git.
 
 ## How to continue, in order
 
-1. Fork gore: cover the deck area between diverging branches (a filler row or the main chain keeping the full width until the
-   branch has left its slice), then the Geroldrampe passes.
-2. Transfer sites 2 and 3: Pfingstweid ramp (182, 352) and Hardbrücke Nord / Wipkingerbrücke (480, 800), tiles are on disk;
-   define the sites from the rows map, run everything unchanged, count the rules.
-3. Site discovery: every road / tram deck chain with an elevated end or a cadastre bridge object under it, instead of the list.
+1. Site discovery: every road / tram deck chain with an elevated end or a cadastre bridge object under it, instead of the list;
+   run the whole city, count PASS / REVIEW.
+2. Integration as a pipeline stage after `bridges.py` in the maintainer's full build (both scopes are there), the reports as
+   `research/bridges/scopes/<site>.md`, the gate baseline accepted with the new rows.
+3. Terrain pass for fills and landings (the residuals are in every report).
 4. Scope C only if the transfer shows that the lane / footway split or structure semantics decide a ramp's look.
 5. Pitch to the maintainer (see below), then integration as a pipeline stage after `bridges.py` (both scopes are in his build).
 

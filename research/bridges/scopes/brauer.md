@@ -9,18 +9,18 @@ Objects in the fetch box: carriageway 10, deck 6, footway 14, island 7, path 1, 
 | Measure | live rows | v2 rows | reading |
 |---|---|---|---|
 | Chains / stations in window | 3 / 110 | 3 / 110 | 2 m stations of the modelled axes inside the window |
-| Footprint IoU vs AV ramp outline | 0.53 | 0.99 | per ramp station the modelled cross-section against the slice available to this ramp, overlaps over unions; 1 = identical outline |
-| Footprint IoU / precision / recall vs all AV bridge polygons | 0.28 / 0.37 / 0.53 | 0.45 / 0.45 / 0.97 | polygons within 25 m of the modelled axes, main deck included; precision = share of the modelled footprint over a real deck |
-| Footprint area model / AV outline / AV polygons (m²) | 1099 / 678 / 764 | 1628 / 677 / 764 |  |
+| Footprint IoU vs AV ramp outline | 0.54 | 0.99 | per ramp station the modelled cross-section against the slice available to this ramp, overlaps over unions; 1 = identical outline |
+| Footprint IoU / precision / recall vs all AV bridge polygons | 0.28 / 0.37 / 0.53 | 0.43 / 0.44 / 0.93 | polygons within 25 m of the modelled axes, main deck included; precision = share of the modelled footprint over a real deck |
+| Footprint area model / AV outline / AV polygons (m²) | 1099 / 648 / 764 | 1596 / 648 / 764 |  |
 | Structure length model / AV (m) | 202 / 76 | 206 / 76 | along the axis; model = elevated or solid stations, AV = axis inside a bridge polygon or between two thin bridge edge polygons |
 | of which both / model only / AV only (m) | 76 / 126 / 0 | 76 / 130 / 0 | model only = modelled structure where AV has no bridge object (embankment, or an error); AV only = real structure modelled at grade |
 | AV structure as edge polygons only (m) | 0 | 0 | axis between two thin «Brücke» polygons (< 1.5 m): ramp on fill between edge structures |
-| AV structure width p50 (m, ramp stations) | 9.1 m | 9.1 m | stations where the slice available to this ramp (cadastre slice minus other road / foot rows) is 2–24 m wide (live 38, v2 38); slices crossed by another deck's axis: live 38, v2 38 |
-| Modelled width p50 (m, same stations) | 6.4 m | 9.1 m | wl + wr (live rows: w) |
-| Width error p50 / p95 |err| (m) | -5.9 m / 6.6 m | -0.0 m / 0.4 m | model minus AV structure width |
-| Axis offset to AV centre line p50 / p95 (m) | 1.7 m / 2.2 m | 1.7 m / 2.2 m | distance between the modelled axis and the middle of the AV structure at the station |
-| Edge overshoot p50 / p95 (m) | -1.1 m / +0.4 m | +0.0 m / +0.4 m | how far the wider modelled edge reaches beyond the AV edge (negative = inside) |
-| Uncovered AV width p50 / p95 (m) | 7.1 m / 7.2 m | 0.0 m / 0.1 m | metres of the AV structure across the station covered by no deck row at all (this ramp or any other deck) |
+| AV structure width p50 (m, ramp stations) | 8.7 m | 8.7 m | stations where the slice available to this ramp (cadastre slice minus other road / foot rows) is 2–24 m wide (live 38, v2 38); slices crossed by another deck's axis: live 38, v2 38 |
+| Modelled width p50 (m, same stations) | 6.4 m | 8.8 m | wl + wr (live rows: w) |
+| Width error p50 / p95 |err| (m) | -5.5 m / 6.3 m | +0.0 m / 0.4 m | model minus AV structure width |
+| Axis offset to AV centre line p50 / p95 (m) | 1.9 m / 2.4 m | 1.9 m / 2.4 m | distance between the modelled axis and the middle of the AV structure at the station |
+| Edge overshoot p50 / p95 (m) | -0.8 m / -0.8 m | -0.0 m / +0.0 m | how far the wider modelled edge reaches beyond the AV edge (negative = inside) |
+| Uncovered AV width p50 / p95 (m) | 2.5 m / 3.3 m | 0.0 m / 0.0 m | metres of the AV structure across the station covered by no deck row at all (this ramp or any other deck) |
 | AV carriageway width p50 (m) | 20.4 m (110 st.) | 20.4 m (110 st.) | Bodenbedeckung «Strasse, Weg» under the axis; only where present (not on decks) |
 | Walls at the modelled edge left / right (m) | 0 / 0 | 8 / 30 | AV «Mauer» within 2.5 m of the modelled edge |
 | Modelled solid length / with a wall (m) | 78 / 0 | 128 / 36 | solid = underside on the ground (embankment / skirt); a flanking wall confirms it |
@@ -51,20 +51,20 @@ Metres past the chain end along the road graph (negative = before the end; conti
 
 ## Chains
 
-- live: road (369,-487)->(306,-444) 77 m [junction/junction]; in window 78 m; outline IoU 0.28; uncovered p95 7.2 m; AV ramp width p50 7.1 m, modelled 6.4 m; axis offset p50 0.8 m, max 2.0 m; kinds grade/solid/deck 8/26/44 m; terrain -6.2 m low at s 10–22; terrain -5.0 m low at s 51–61
-- live: road (369,-487)->(318,-441) 71 m [junction/grade]; in window 74 m; outline IoU 0.25; uncovered p95 7.2 m; AV ramp width p50 13.0 m, modelled 6.4 m; axis offset p50 2.2 m, max 2.2 m; kinds grade/solid/deck 4/30/40 m; terrain -6.6 m low at s 14–26; terrain -6.2 m low at s 53–65
-- live: road (313,-454)->(369,-487) 66 m [grade/junction]; in window 68 m; outline IoU 0.21; uncovered p95 7.2 m; AV ramp width p50 9.1 m, modelled 3.2 m; axis offset p50 1.7 m, max 1.9 m; kinds grade/solid/deck 6/22/40 m; terrain -5.7 m low at s 6–16; terrain -5.3 m low at s 44–56
-- v2: road (369,-487)->(306,-444) 77 m [junction/junction]; in window 78 m; outline IoU 0.29; uncovered p95 0.4 m; AV ramp width p50 7.1 m, modelled 7.1 m; axis offset p50 0.8 m, max 2.0 m; kinds grade/solid/deck 8/44/26 m; terrain -6.2 m low at s 10–22; terrain -5.0 m low at s 51–61
-- v2: road (369,-487)->(318,-441) 71 m [junction/grade]; in window 74 m; outline IoU 0.42; uncovered p95 0.1 m; AV ramp width p50 13.0 m, modelled 13.0 m; axis offset p50 2.2 m, max 2.2 m; kinds grade/solid/deck 4/42/28 m; terrain -6.6 m low at s 14–26; terrain -6.2 m low at s 53–65
-- v2: road (313,-454)->(369,-487) 66 m [grade/junction]; in window 68 m; outline IoU 0.45; uncovered p95 0.1 m; AV ramp width p50 9.1 m, modelled 9.1 m; axis offset p50 1.7 m, max 1.9 m; kinds grade/solid/deck 2/42/24 m; terrain -5.7 m low at s 6–16; terrain -5.3 m low at s 44–56
+- live: road (369,-487)->(306,-444) 77 m [junction/junction]; in window 78 m; outline IoU 0.27; uncovered p95 0.7 m; AV ramp width p50 6.5 m, modelled 6.4 m; axis offset p50 0.8 m, max 1.8 m; kinds grade/solid/deck 8/26/44 m; terrain -6.2 m low at s 10–22; terrain -5.0 m low at s 51–61
+- live: road (369,-487)->(318,-441) 71 m [junction/grade]; in window 74 m; outline IoU 0.25; uncovered p95 3.3 m; AV ramp width p50 12.7 m, modelled 6.4 m; axis offset p50 2.3 m, max 2.4 m; kinds grade/solid/deck 4/30/40 m; terrain -6.6 m low at s 14–26; terrain -6.2 m low at s 53–65
+- live: road (313,-454)->(369,-487) 66 m [grade/junction]; in window 68 m; outline IoU 0.21; uncovered p95 2.6 m; AV ramp width p50 8.7 m, modelled 3.2 m; axis offset p50 1.9 m, max 2.0 m; kinds grade/solid/deck 6/22/40 m; terrain -5.7 m low at s 6–16; terrain -5.3 m low at s 44–56
+- v2: road (369,-487)->(306,-444) 77 m [junction/junction]; in window 78 m; outline IoU 0.27; uncovered p95 0.0 m; AV ramp width p50 6.5 m, modelled 6.5 m; axis offset p50 0.8 m, max 1.8 m; kinds grade/solid/deck 8/44/26 m; terrain -6.2 m low at s 10–22; terrain -5.0 m low at s 51–61
+- v2: road (369,-487)->(318,-441) 71 m [junction/grade]; in window 74 m; outline IoU 0.42; uncovered p95 0.0 m; AV ramp width p50 12.7 m, modelled 12.7 m; axis offset p50 2.3 m, max 2.4 m; kinds grade/solid/deck 4/42/28 m; terrain -6.6 m low at s 14–26; terrain -6.2 m low at s 53–65
+- v2: road (313,-454)->(369,-487) 66 m [grade/junction]; in window 68 m; outline IoU 0.44; uncovered p95 0.0 m; AV ramp width p50 8.7 m, modelled 8.8 m; axis offset p50 1.9 m, max 2.0 m; kinds grade/solid/deck 2/42/24 m; terrain -5.7 m low at s 6–16; terrain -5.3 m low at s 44–56
 
 ## Verdict for the v2 rows: PASS
 
 | Check | value | limit | ok |
 |---|---|---|---|
 | outline IoU | 0.99 | >= 0.8 | yes |
-| edge overshoot p95 (m) | 0.4 | <= 0.5 | yes |
-| uncovered width p95 (m, any deck row counts) | 0.1 | <= 2.0 | yes |
+| edge overshoot p95 (m) | 0.0 | <= 0.5 | yes |
+| uncovered width p95 (m, any deck row counts) | 0.0 | <= 2.0 | yes |
 | height residual p95 (m, bridge class) | 0.1 | <= 0.3 | yes |
 | cadastre piers under the deck with a modelled pier | 0/0 | all | yes |
 | landing road (369,-487)->(318,-441)  (grade): cadastre / wall end beyond the modelled structure (m) | 0.0 | <= 5.0 | yes |

@@ -56,6 +56,7 @@ AT_GRADE = 0.3
 BLEND = 10.0        # m: height blend at junction / fork ends
 END_FLUSH = 6.0     # m: within this of a fork / junction end both sides are flush (no railing piece at the nose)
 COPLANAR = 8.0      # m: a branch this close to the main chain's axis takes its height (one surface where a car changes lanes)
+# sibling chains split their shared cadastre slice at the Voronoi boundary (metrics.voronoi_cap): no gore, no overlap
 PIER_MIN_EL = 2.2
 THICK = {"road": 1.0, "tram": 1.0, "foot": 0.5}
 
@@ -89,6 +90,7 @@ class Build:
         self.R = Rows(tiles_dir, "live"); self.chains = self.R.site_chains(self.cfg)
         self.site_keys = {(t, k) for c in self.chains for t, k, _ in c.rows}
         self.decks_av, self.wall_u = self.av.geoms("deck"), self.av.union("wall")
+        self.taken = M.deck_cover(self.R, self.cfg["fetch"], kinds=("road",), exclude=lambda t, k, d: (t, k) in self.site_keys)
         self.lines = []
 
     def stations(self, c):
@@ -156,6 +158,8 @@ class Build:
         return np.array([-t[1], t[0]])
 
     def widths(self, st, c, other_axes, ends=None):
+        from shapely.geometry import LineString
+        own_axis = LineString(st["xy"])
         n = len(st["s"]); wl = st["wl0"].copy(); wr = st["wr0"].copy()
         mode = np.zeros(n, int); fl = np.zeros(n, int); fr = np.zeros(n, int); gl = np.full(n, np.nan); gr = np.full(n, np.nan)
         split = np.zeros(n, bool); cap_l = np.full(n, np.inf); cap_r = np.full(n, np.inf)
@@ -163,13 +167,20 @@ class Build:
             p, nv = st["xy"][i], st["nrm"][i]
             sv = M.structure(M.deck_slices(p, nv, self.decks_av))
             if sv:
-                lo, hi, mode[i] = sv; L, Rr = hi, -lo
-                for o in axis_offsets(p, nv, other_axes):     # another site chain in the same slice: split halfway, flush
-                    if 0.5 < o < 2 * L:
-                        L = min(L, o / 2); fl[i] = 1; split[i] = abs(o) < COPLANAR; cap_l[i] = min(cap_l[i], o / 2)
-                    elif -2 * Rr < o < -0.5:
-                        Rr = min(Rr, -o / 2); fr[i] = 1; split[i] = abs(o) < COPLANAR; cap_r[i] = min(cap_r[i], -o / 2)
-                if L > SIDE_MAX:                               # the main deck, not this ramp's edge
+                lo, hi, mode[i] = sv
+                lo, hi, on_other = M.cut_by_taken(p, nv, lo, hi, self.taken)     # other road decks: the slice ends at their edge
+                L, Rr = hi, -lo
+                if on_other:                                                      # on the main deck itself: a lane, flush both sides
+                    L = min(L, st["wl0"][i] + 1.5); Rr = min(Rr, st["wr0"][i] + 1.5); fl[i] = fr[i] = 1
+                    cap_l[i] = min(cap_l[i], L); cap_r[i] = min(cap_r[i], Rr)
+                if other_axes:                                 # another site chain in the slice: the side ends at the Voronoi boundary
+                    cl = M.voronoi_cap(p, nv, own_axis, other_axes, L)
+                    if cl is not None:
+                        L = min(L, cl); fl[i] = 1; split[i] = True; cap_l[i] = min(cap_l[i], cl)
+                    cr = M.voronoi_cap(p, -nv, own_axis, other_axes, Rr)
+                    if cr is not None:
+                        Rr = min(Rr, cr); fr[i] = 1; split[i] = True; cap_r[i] = min(cap_r[i], cr)
+                if L > SIDE_MAX:                               # still reaching far after the sibling split: the main deck, not this ramp's edge
                     L = st["wl0"][i] + 1.5; fl[i] = 1; cap_l[i] = min(cap_l[i], L)
                 if Rr > SIDE_MAX:
                     Rr = st["wr0"][i] + 1.5; fr[i] = 1; cap_r[i] = min(cap_r[i], Rr)
@@ -194,6 +205,7 @@ class Build:
         n = len(st["s"]); s, g = st["s"], st["g"]
         i0 = int(np.flatnonzero(np.isfinite(st["z0"]))[0])          # first live station: its height is a grade or junction height
         z, flag = M.lidar_track(st["xy"], st["nrm"], wl, wr, i0, float(st["z0"][i0]))
+        self.z_raw = z.copy()
         z = RL.fill_nan(z, s); z = RL.smooth(z, 5); z = np.maximum(z, g); z = RL.rate_limit(z, s, MAX_SLOPE); z = np.maximum(z, g)
         for end, kind in ends.items():
             j = 0 if end == 0 else n - 1
@@ -206,7 +218,7 @@ class Build:
                     k = np.clip(1 - np.abs(s - s[j]) / BLEND, 0, 1); z = np.maximum(z - e * k, g)
         return z, flag
 
-    def coplanar(self, z, st, c):
+    def coplanar(self, z, st, c, z_raw):
         """Where this chain shares its slice with an already built site chain (fork, parallel branch) it takes that chain's
         height, so the two decks meet without a step where a car changes from one to the other."""
         from shapely.geometry import LineString, Point
@@ -217,14 +229,30 @@ class Build:
         for d in done:
             Q = np.array(d["p"], float); cum = np.concatenate([[0.0], np.cumsum(np.hypot(*np.diff(Q[:, :2], axis=0).T))])
             axes.append((LineString(Q[:, :2]), cum, Q[:, 2]))
+        z = z.copy(); z_own = z.copy(); taken_ = np.zeros(len(z), bool)
         for i in range(len(z)):                   # every station near an already built chain's axis (fork nose, overlap, split)
             pt = Point(*st["xy"][i]); best = None
             for ax, cum, zz in axes:
                 dist = ax.distance(pt)
                 if dist < COPLANAR and (best is None or dist < best[0]):
-                    best = (dist, float(np.interp(ax.project(pt), cum, zz)))
+                    zs = float(np.interp(ax.project(pt), cum, zz))
+                    ref = z_raw[i] if np.isfinite(z_raw[i]) else z[i]
+                    if abs(zs - ref) < 0.35:                     # one surface only where the LiDAR itself agrees (not two ramps side by side at different grades)
+                        best = (dist, zs)
             if best:
-                z[i] = best[1]
+                z[i] = best[1]; taken_[i] = True
+        # ease the step where a station leaves the sibling's level: carry the offset into the own stations, decaying over BLEND
+        s_ = st["s"]
+        for i in range(len(z)):
+            if not taken_[i]:
+                continue
+            for d_ in (1, -1):
+                j = i + d_
+                if 0 <= j < len(z) and not taken_[j]:
+                    off = z[i] - z_own[i]
+                    k = j
+                    while 0 <= k < len(z) and not taken_[k] and abs(s_[k] - s_[i]) < BLEND:
+                        z[k] = z_own[k] + off * (1 - abs(s_[k] - s_[i]) / BLEND); k += d_
         return z
 
     def fork_z(self, p, c):
@@ -256,7 +284,7 @@ class Build:
             st, ends = self.stations(c)
             wl, wr, mode, fl, fr, gl, gr = self.widths(st, c, [a for o, a in axes.items() if o is not c], ends)
             z, flag = self.heights(st, wl, wr, ends, c)
-            z = self.coplanar(z, st, c)
+            z = self.coplanar(z, st, c, self.z_raw)
             kind, b = self.kinds(z, st["g"], mode, flag, gl, gr, thick)
             d = {"p": [[round(float(x), 2), round(float(y), 2), round(float(v), 2)] for (x, y), v in zip(st["xy"], z)],
                  "g": [round(float(v), 2) for v in st["g"]], "b": [round(float(v), 2) for v in b], "w": round(float(np.median(wl + wr)), 1),
@@ -267,7 +295,7 @@ class Build:
             self.lines.append(f"  - {L:.0f} m, width {w.min():.1f}/{np.median(w):.1f}/{w.max():.1f} m (min/med/max; live {c.P.shape[0]} vertices, {np.median(c.WL + c.WR):.1f} m); "
                               f"cadastre edges at {int((mode > 0).sum()) * STEP:.0f} m (edge pairs {int((mode == 2).sum()) * STEP:.0f} m); flush left/right {int(fl.sum()) * STEP:.0f}/{int(fr.sum()) * STEP:.0f} m; "
                               f"grade/solid/deck {int((kind == 0).sum()) * STEP:.0f}/{int((kind == 1).sum()) * STEP:.0f}/{int((kind == 2).sum()) * STEP:.0f} m; "
-                              f"ends {ends[0]}/{ends[-1]} at {z[0] - st['g'][0]:+.1f}/{z[-1] - st['g'][-1]:+.1f} m above ground; max slope {np.max(np.abs(np.diff(z)) / STEP) * 100:.0f} %")
+                              f"ends {ends[0]}/{ends[-1]} at {z[0] - st['g'][0]:+.1f}/{z[-1] - st['g'][-1]:+.1f} m above ground; max slope {np.max(np.abs(np.diff(z)) / STEP) * 100:.0f} % at s {st['s'][int(np.argmax(np.abs(np.diff(z))))]:.0f}")
         piers, dropped = self.piers(decks)
         self.lines.append(f"- piers: {len(piers)} from the cadastre under elevated deck sections, {dropped} live rule-spaced piers dropped")
         drop = self.footways(decks)

@@ -20,6 +20,18 @@ const SITES = {
     { x: 320, y: -500, yaw: 0.35, pitch: 0.35, label: 'from the tracks south-west, side view of the bridge' },
     { x: 300, y: -430, yaw: 2.3, pitch: 0.15, label: 'from the north-west approach, looking at the bridge' },
   ],
+  pfingstweid: [   // Hardbruecke access ramp from Pfingstweidstrasse (west side of the viaduct)
+    { x: 152, y: 322, yaw: -2.5, pitch: 0.2, label: 'from the ramp foot at Pfingstweidstrasse, looking up the ramp' },
+    { x: 100, y: 250, yaw: 0.6, pitch: 0.25, z: 6, label: 'on the ramp, looking back down to the north-east' },
+    { x: 55, y: 262, yaw: 1.9, pitch: 0.3, label: 'from the west, side view of the ramp against the viaduct' },
+    { x: 70, y: 196, yaw: 0.65, pitch: 0.4, z: 0.5, label: 'from the Hardbruecke deck at the top, looking down the ramp' },
+  ],
+  wipkingen: [   // Hardbruecke Nord: Hardturmrampe and the Sihlquai ramps at the Wipkingerbruecke
+    { x: 600, y: 728, yaw: -1.5, pitch: 0.2, label: 'Sihlquai-Nordrampe from the east, ramp foot' },
+    { x: 290, y: 793, yaw: 1.5, pitch: 0.2, label: 'Hardturmrampe from the west, ramp foot' },
+    { x: 470, y: 760, yaw: 0.2, pitch: 0.35, z: 6, label: 'on the Suedrampe below the junction, looking north' },
+    { x: 520, y: 690, yaw: -0.6, pitch: 0.3, label: 'from the south, the two Sihlquai ramps side by side' },
+  ],
   duttweiler: [   // Duttweilerbruecke south ramp
     { x: -612, y: 95, yaw: -0.15, pitch: 0.2, label: 'from the south, ramp end' },
     { x: -582, y: 128, yaw: -0.75, pitch: 0.2, label: 'from the south-east' },

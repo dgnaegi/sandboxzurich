@@ -61,6 +61,20 @@ def containing(ivs, off=0.0, tol=0.2):
 THIN = 1.5   # m: a bridge polygon narrower than this crossing the normal is an edge structure (parapet / edge beam), not a deck
 
 
+def voronoi_cap(p, n, own, others, limit, step=0.5):
+    """Largest offset t along the normal n from p (up to `limit`) at which the point is still closer to the own axis than to
+    any other site axis: the Voronoi boundary between sibling chains (no gore, no overlap). None when no other axis is nearer."""
+    from shapely.geometry import Point
+    t = step
+    while t <= limit:
+        q = Point(p[0] + n[0] * t, p[1] + n[1] * t)
+        d_own = own.distance(q)
+        if any(o.distance(q) < d_own for o in others):
+            return max(0.0, t - step)
+        t += step
+    return None
+
+
 def deck_slices(p, n, polys, half=HALF):
     """Intervals of the normal through p inside each bridge polygon separately (pieces of one polygon merged, polygons never),
     so that where two structures cross (Duttweilerbrücke over the rail flyover) each keeps its own width."""
@@ -140,6 +154,19 @@ def other_axes(rows, cfg):
     return out
 
 
+def cut_by_taken(p, n, lo, hi, taken):
+    """Cut the slice [lo, hi] at the near edges of other road decks crossing the normal; (lo, hi, on_other)."""
+    on = False
+    for tl, th in intervals(p, n, taken):
+        if tl < -0.3 and th > 0.3:
+            on = True
+        elif th <= 0.3 and th > lo:
+            lo = th
+        elif tl >= -0.3 and tl < hi:
+            hi = tl
+    return lo, hi, on
+
+
 def deck_cover(rows, box, margin=60.0, kinds=("road", "tram", "foot"), exclude=None):
     """Union of the footprints of the deck rows of `kinds` near the box (minus the site's own rows when `exclude` is given):
     what the cadastre structure is covered by, or what other decks occupy of a shared structure."""
@@ -154,7 +181,7 @@ def deck_cover(rows, box, margin=60.0, kinds=("road", "tram", "foot"), exclude=N
         if not ((P[:, 0] >= x0) & (P[:, 0] <= x1) & (P[:, 1] >= y0) & (P[:, 1] <= y1)).any():
             continue
         hw = d["w"] / 2
-        polys.append(footprint(P[:, :2], np.array(d.get("wl") or [hw] * len(P), float), np.array(d.get("wr") or [hw] * len(P), float)))
+        polys.append(footprint(P[:, :2], np.array(d.get("wl") or [hw] * len(P), float), np.array(d.get("wr") or [hw] * len(P), float), d.get("pa"), d.get("pb")))
     return shapely.union_all(polys) if polys else shapely.Polygon()
 
 
@@ -163,6 +190,7 @@ def measure(chain, av, rows, step=2.0, box=None, ext=(), others=(), cover=None, 
     get an axis continuation of EXT m beyond the end (model columns NaN there) for the landing analysis."""
     st = chain.stations(step)
     xy, z, g, b, wl, wr, s, nrm = st["xy"], st["z"], st["g"], st["b"], st["wl"], st["wr"], st["s"], st["nrm"]
+    ol, orr = st["ol"].astype(bool), st["or"].astype(bool)
     is_model = np.ones(len(s), bool)
     for end in ext:
         C = rows.extend(chain, end, EXT)
@@ -174,12 +202,14 @@ def measure(chain, av, rows, step=2.0, box=None, ext=(), others=(), cover=None, 
             xy = np.vstack([xy, C]); nrm = np.vstack([nrm, N]); s = np.concatenate([s, s[-1] + t])
             z = np.concatenate([z, nan]); g = np.concatenate([g, rows.ground(C[:, 0], C[:, 1])]); b = np.concatenate([b, nan])
             wl = np.concatenate([wl, np.full(m, wl[-1])]); wr = np.concatenate([wr, np.full(m, wr[-1])])
+            ol = np.concatenate([ol, np.zeros(m, bool)]); orr = np.concatenate([orr, np.zeros(m, bool)])
             is_model = np.concatenate([is_model, np.zeros(m, bool)])
         else:
             N, _ = chain.normals(np.vstack([C[::-1], xy[:2]])); N = N[:m]
             xy = np.vstack([C[::-1], xy]); nrm = np.vstack([N, nrm]); s = np.concatenate([s[0] - t[::-1], s])
             z = np.concatenate([nan, z]); g = np.concatenate([rows.ground(C[::-1, 0], C[::-1, 1]), g]); b = np.concatenate([nan, b])
             wl = np.concatenate([np.full(m, wl[0]), wl]); wr = np.concatenate([np.full(m, wr[0]), wr])
+            ol = np.concatenate([np.zeros(m, bool), ol]); orr = np.concatenate([np.zeros(m, bool), orr])
             is_model = np.concatenate([np.zeros(m, bool), is_model])
     n = len(s)
     decks, road_u, wall_u = av.geoms("deck"), av.union("carriageway"), av.union("wall")
@@ -210,44 +240,57 @@ def measure(chain, av, rows, step=2.0, box=None, ext=(), others=(), cover=None, 
     # the part of the slice available to this ramp: the piece around the axis not occupied by other road deck rows (the
     # Hardbrücke's carriageway beside a merge lane); footway rows do not count, the ramp rows carry the footways
     cols["av_lo_raw"], cols["av_hi_raw"] = cols["av_lo"].copy(), cols["av_hi"].copy()
+    on_other = np.zeros(n, bool)             # the station itself lies inside another road deck (junction on the main deck)
     if taken is not None and not taken.is_empty:
         for i in range(n):
             lo, hi = cols["av_lo"][i], cols["av_hi"][i]
             if not np.isfinite(lo):
                 continue
             for tl, th in intervals(xy[i], nrm[i], taken):
-                if th <= 0.3 and th > lo:
+                if tl < -0.3 and th > 0.3:
+                    on_other[i] = True
+                elif th <= 0.3 and th > lo:
                     lo = th
                 elif tl >= -0.3 and tl < hi:
                     hi = tl
             cols["av_lo"][i], cols["av_hi"][i] = lo, hi
-    if len(site_axes):                       # other chains of the same site in the slice (fork, split carriageways): halfway is theirs
+    cols["on_other"] = on_other
+    if len(site_axes):                       # other chains of the same site in the slice (fork, split carriageways): Voronoi boundary
         from shapely.geometry import LineString
+        own = LineString(xy[is_model])
         for i in range(n):
             lo, hi = cols["av_lo"][i], cols["av_hi"][i]
             if not np.isfinite(lo):
                 continue
-            L = LineString([xy[i] + nrm[i] * lo, xy[i] + nrm[i] * hi])
-            for a in site_axes:
-                q = L.intersection(a)
-                for piece in getattr(q, "geoms", [q]):
-                    if piece.is_empty:
-                        continue
-                    c = np.asarray(piece.coords)[0] if piece.geom_type != "Point" else np.array([piece.x, piece.y])
-                    o = float((c - xy[i]) @ nrm[i])
-                    if o > 0.5:
-                        hi = min(hi, o / 2)
-                    elif o < -0.5:
-                        lo = max(lo, o / 2)
+            c = voronoi_cap(xy[i], nrm[i], own, site_axes, hi)
+            if c is not None:
+                hi = min(hi, c)
+            c = voronoi_cap(xy[i], -nrm[i], own, site_axes, -lo)
+            if c is not None:
+                lo = max(lo, -c)
             cols["av_lo"][i], cols["av_hi"][i] = lo, hi
-    unc = np.full(n, np.nan)                 # metres of the AV slice covered by no deck row at all
+    unc = np.full(n, np.nan)                 # metres of the chain's share of the AV slice covered by no deck row at all
+    uncov_iv = [[] for _ in range(n)]
     if cover is not None and not cover.is_empty:
+        mi = np.flatnonzero(is_model); i_first, i_last = int(mi[0]), int(mi[-1])
+        tan = np.column_stack([nrm[:, 1], -nrm[:, 0]])
         for i in range(n):
-            lo, hi = cols["av_lo_raw"][i], cols["av_hi_raw"][i]
+            lo, hi = cols["av_lo"][i], cols["av_hi"][i]      # the chain's own share of the slice (other road rows and siblings removed)
             if np.isfinite(lo):
-                cov = sum(max(0.0, min(h, hi) - max(l, lo)) for l, h in intervals(xy[i], nrm[i], cover))
+                q = xy[i] + (tan[i] * 0.2 if i == i_first else -tan[i] * 0.2 if i == i_last else 0)   # end stations: sample just inside the row
+                pieces = [(max(l, lo), min(h, hi)) for l, h in intervals(q, nrm[i], cover)]
+                pieces = sorted((l, h) for l, h in pieces if h > l)
+                cov = sum(h - l for l, h in pieces)
                 unc[i] = max(0.0, (hi - lo) - cov)
-    cols["uncov"] = unc
+                gaps = []; cur = lo                                 # the uncovered sub-intervals, for the overlay
+                for l, h in pieces:
+                    if l > cur + 0.2:
+                        gaps.append((cur, l))
+                    cur = max(cur, h)
+                if hi > cur + 0.2:
+                    gaps.append((cur, hi))
+                uncov_iv[i] = gaps
+    cols["uncov"] = unc; cols["uncov_iv"] = uncov_iv
     e = z - g
     kind = np.where(~is_model, -1, np.where(e < AT_GRADE, 0, np.where(b - g < SOLID, 1, 2)))   # -1 none, 0 grade, 1 solid, 2 deck
     inbox = np.ones(n, bool) if box is None else (xy[:, 0] >= box[0]) & (xy[:, 0] <= box[2]) & (xy[:, 1] >= box[1]) & (xy[:, 1] <= box[3])
@@ -256,9 +299,10 @@ def measure(chain, av, rows, step=2.0, box=None, ext=(), others=(), cover=None, 
     out["av_w"] = out["av_hi"] - out["av_lo"]
     out["av_off"] = 0.5 * (out["av_hi"] + out["av_lo"])        # + : the AV structure's centre lies left of the modelled axis
     out["road_w"] = out["road_hi"] - out["road_lo"]
-    out["ramp"] = np.isfinite(out["av_w"]) & (out["av_w"] <= MAIN_DECK) & (out["av_w"] >= 2.0)   # the slice available to this ramp
-    out["excess_l"] = wl - out["av_hi"]                         # + : modelled left edge beyond the AV edge
-    out["excess_r"] = wr + out["av_lo"]
+    out["ramp"] = np.isfinite(out["av_w"]) & (out["av_w"] <= MAIN_DECK) & (out["av_w"] >= 2.0) & ~out["on_other"]   # the slice available to this ramp; not on another deck
+    out["excess_l"] = np.where(ol, np.nan, wl - out["av_hi"])   # + : modelled left edge beyond the AV edge; a flush side has no edge
+    out["excess_r"] = np.where(orr, np.nan, wr + out["av_lo"])
+    out["ol"], out["or"] = ol, orr
     out["wall_l"] = np.abs(out["wall_gl"]) <= WALL_NEAR
     out["wall_r"] = np.abs(out["wall_gr"]) <= WALL_NEAR
     out["wall_flank"] = (np.nan_to_num(out["wall_gl"] + wl, nan=99) <= WALL_SIDE) | (np.nan_to_num(out["wall_gr"] + wr, nan=99) <= WALL_SIDE)
@@ -301,6 +345,25 @@ def piers(chains, tables, av, rows, corridor=12.0):
         if any(g.distance(Point(q[0], q[1])) <= 2.0 for g in avp):
             out["tile_matched"] += 1
     return out
+
+
+def uncovered_polys(T):
+    """Polygons of the uncovered stretches (ramp stations, consecutive) for the overlay."""
+    import shapely
+    from shapely.geometry import Polygon
+    out = []
+    idx = np.flatnonzero(T["is_model"] & T["ramp"])
+    for i, j in zip(idx[:-1], idx[1:]):
+        if j != i + 1:
+            continue
+        for a0, a1 in T["uncov_iv"][i]:
+            for b0, b1 in T["uncov_iv"][j]:
+                if min(a1, b1) - max(a0, b0) > -1.0:
+                    q = Polygon([T["xy"][i] + T["nrm"][i] * a0, T["xy"][i] + T["nrm"][i] * a1, T["xy"][j] + T["nrm"][j] * b1, T["xy"][j] + T["nrm"][j] * b0])
+                    q = q if q.is_valid else q.buffer(0)
+                    if not q.is_empty:
+                        out.append(q)
+    return shapely.union_all(out) if out else Polygon()
 
 
 def av_outline(T):

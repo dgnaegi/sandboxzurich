@@ -26,15 +26,16 @@ AT_GRADE = 0.3   # m above the game terrain counts as at grade
 class Chain:
     def __init__(self, rows, kind, name):
         self.rows, self.kind, self.name = rows, kind, name
-        P, G, B, WL, WR = [], [], [], [], []
+        P, G, B, WL, WR, OL, OR = [], [], [], [], [], [], []
         for _, _, d in rows:
             wl = d.get("wl") or [d["w"] / 2] * len(d["p"]); wr = d.get("wr") or [d["w"] / 2] * len(d["p"])
+            ol = d.get("ol") or [0] * len(d["p"]); orr = d.get("or") or [0] * len(d["p"])
             for i, p in enumerate(d["p"]):
                 if P and abs(P[-1][0] - p[0]) < 0.05 and abs(P[-1][1] - p[1]) < 0.05:
                     continue
-                P.append(p); G.append(d["g"][i]); B.append(d["b"][i]); WL.append(wl[i]); WR.append(wr[i])
+                P.append(p); G.append(d["g"][i]); B.append(d["b"][i]); WL.append(wl[i]); WR.append(wr[i]); OL.append(ol[i]); OR.append(orr[i])
         self.P = np.array(P, float); self.G = np.array(G, float); self.B = np.array(B, float)
-        self.WL = np.array(WL, float); self.WR = np.array(WR, float)
+        self.WL = np.array(WL, float); self.WR = np.array(WR, float); self.OL = np.array(OL, int); self.OR = np.array(OR, int)
         seg = np.hypot(np.diff(self.P[:, 0]), np.diff(self.P[:, 1]))
         self.S = np.concatenate([[0.0], np.cumsum(seg)])
         self.length = float(self.S[-1])
@@ -73,7 +74,10 @@ class Chain:
         t = np.linspace(0, self.length, n)
         R = np.column_stack([np.interp(t, self.S, A[:, k]) for k in range(A.shape[1])])
         nrm, tan = self.normals(R[:, :2])
-        return {"xy": R[:, :2], "z": R[:, 2], "g": R[:, 3], "b": R[:, 4], "wl": R[:, 5], "wr": R[:, 6], "s": t, "nrm": nrm, "tan": tan}
+        j = np.clip(np.searchsorted(self.S, t) - 1, 0, len(self.S) - 1)   # flags: a station's side is open when both vertices of its segment are
+        j2 = np.clip(j + 1, 0, len(self.S) - 1)
+        ol = (self.OL[j] & self.OL[j2]).astype(int); orr = (self.OR[j] & self.OR[j2]).astype(int)
+        return {"xy": R[:, :2], "z": R[:, 2], "g": R[:, 3], "b": R[:, 4], "wl": R[:, 5], "wr": R[:, 6], "s": t, "nrm": nrm, "tan": tan, "ol": ol, "or": orr}
 
 
 class Rows:

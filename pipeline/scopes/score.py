@@ -11,6 +11,7 @@ Numbers are metres and ratios per scope (research/bridges/scopes_plan.md §3), n
 from __future__ import annotations
 
 import datetime as dt
+import json
 import os
 import sys
 
@@ -77,7 +78,7 @@ def summarize(chains, tables, av, rows, box):
         L["ramp_stations"] += int(r.sum()); L["shared"] += int((m & T["shared"]).sum())
         S["av_w"] += T["av_w"][r].tolist(); mw = (T["wl"] + T["wr"]); S["model_w"] += mw[r].tolist()
         S["w_err"] += (mw - T["av_w"])[r].tolist(); S["off"] += T["av_off"][r].tolist()
-        S["excess"] += np.maximum(T["excess_l"], T["excess_r"])[r].tolist()
+        S["excess"] += np.fmax(T["excess_l"], T["excess_r"])[r].tolist()   # fmax: a flush side (NaN) does not count
         S["uncovered"] += T["uncov"][r].tolist()
         rd = m & np.isfinite(T["road_w"]); L["road_stations"] += int(rd.sum()); S["road_w"] += T["road_w"][rd].tolist()
         L["wall_l"] += (m & T["wall_l"]).sum() * STEP; L["wall_r"] += (m & T["wall_r"]).sum() * STEP
@@ -231,6 +232,11 @@ def report(name, cfg, av, res, out_dir):
     open(f, "w").write("\n".join(lines))
     for v in ("live", "current"):
         write_tsv(os.path.join(out_dir, f"{name}_{v if v == 'live' else lab}_stations.tsv"), res[v]["chains"], res[v]["tables"])
+    import shapely
+    from shapely.geometry import mapping
+    os.makedirs(os.path.join(ROOT, "data", "build", "scopes"), exist_ok=True)
+    unc = shapely.union_all([M.uncovered_polys(T) for T in res["current"]["tables"]])
+    json.dump(mapping(unc), open(os.path.join(ROOT, "data", "build", "scopes", f"{name}_uncovered.json"), "w"))
     return f
 
 
