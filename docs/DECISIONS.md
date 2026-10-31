@@ -299,3 +299,8 @@ Die automatische Rot-Erkennung aus SWISSIMAGE (`streets_ortho.red_surfaces`) ver
 - `web/public/_headers`: `tiles`, `models`, `tex`, `data`, `map` mit `max-age=600, stale-while-revalidate=86400` (vorher 1 Tag + 7 Tage SWR). Nach einem Release sahen Besucher bis zu einen Tag lang alte Daten, gemischt mit neuen Dateien.
 - Ladebildschirm-Poster (`loading/poster*.jpg`) kommen über `deploy/publish_world.sh` ins Deploy, weil Bilder nicht ins Git gehören (`.gitignore`). Live war der Ladebildschirm deshalb schwarz.
 - Spielgebiet um den Goldbrunnenplatz erweitert (`overrides/playarea_extra.json`): Die Grenze mit Bauzaun lief mitten über den Platz.
+
+## #80 – 2026-10-31 – bridges_ride als Release-Gate gegen eine committete Baseline
+- `web/tests/bridges_ride.mjs --gate` vergleicht den Lauf fahrtweise mit `web/tests/fixtures/bridges_ride_baseline.json` (Status je Fahrt: ok, raw, jump, crash, fell, stuck, error) und schlägt nur bei Regression fehl: mehr Fahrten, die nicht ankommen (stuck/fell/crash/error), mehr stuck, mehr Fahrten mit Problemen, oder eine vorher saubere Fahrt kommt nicht mehr an. Vorher war der Exit-Code immer 1 (48 von 97 Fahrten haben bekannte Probleme), also ohne Aussage.
+- `--accept` schreibt den aktuellen Lauf als neue Baseline; sie wird zusammen mit dem Fix committet, der sie verbessert hat. `qa_all.sh` ruft das Gate auf und gibt den Exit-Code aus.
+- `web/vite.config.ts`: Mit `VITE_WORLD_PROXY=<Deploy-URL>` liefert der Dev-Server Kacheln, Texturen, Karte und Ladebilder der Live-Seite aus (Checkouts ohne gebaute Weltdaten, z. B. Forks). Ohne die Variable unverändert.
