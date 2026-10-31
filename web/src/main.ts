@@ -300,20 +300,24 @@ async function main() {
     jump(STATION.x, STATION.y);
   };
 
-  // speech bubbles: passers-by greet now and then
+  // speech bubbles: after a short pause the next passer-by within reach speaks up (from farther away when you pass on wheels);
+  // the same person does not talk twice in a row
   let honkT = 0, laneTipShown = false;
-  let bubbleT = 4, bubbleObj: THREE.Object3D | null = null, bubbleLeft = 0;
+  let bubbleT = 3, bubbleObj: THREE.Object3D | null = null, bubbleLeft = 0, bubbleScan = 0;
+  const spoke: THREE.Object3D[] = [];
   const bubble = $('bubble');
   const vproj = new THREE.Vector3();
   const updateBubble = (dt: number) => {
-    bubbleT -= dt; bubbleLeft -= dt;
-    if (bubbleT <= 0) {
-      bubbleT = 6 + Math.random() * 8;
+    bubbleT -= dt; bubbleLeft -= dt; bubbleScan -= dt;
+    if (bubbleT <= 0 && bubbleScan <= 0) {
+      bubbleScan = 0.25;
+      const mode = player.driving ? (player.driving.isTram || player.driving.type === 'bus' ? 'transit' : 'car') : player.riding ? (player.onScooter ? 'scooter' : 'bike') : Math.abs(player.speed) > 3 ? 'run' : 'foot';
+      const reach = mode === 'car' || mode === 'transit' ? 14 : mode === 'foot' ? 7 : 10;
       const n = crowd.nearest(player.x, player.y);
-      if (n && n.d < 5) {
-        const mode = player.driving ? (player.driving.isTram || player.driving.type === 'bus' ? 'transit' : 'car') : player.riding ? (player.onScooter ? 'scooter' : 'bike') : Math.abs(player.speed) > 3 ? 'run' : 'foot';
+      if (n && n.d < reach && !spoke.includes(n.obj)) {
         bubble.textContent = chatLine({ place: locator.square(player.x, player.y) ?? locator.street(player.x, player.y) ?? '', min: clk.min, day: clk.day, night: daytime.night > 0.5, mode });
-        bubbleObj = n.obj; bubbleLeft = 2.5;
+        bubbleObj = n.obj; bubbleLeft = 3.5; bubbleT = 5 + Math.random() * 5;
+        spoke.push(n.obj); if (spoke.length > 4) spoke.shift();
       }
     }
     if (bubbleObj && bubbleLeft > 0) {
