@@ -1,6 +1,8 @@
 """Modelled deck rows of a ramp site from the built tile metadata (web/public/tiles/t_*.json), in two variants:
   live   the deployed rows: web/public/tiles_orig/<tile>.json where pipeline/ramp_lidar.py rewrote a tile, else the tile itself
-  pilot  the tiles as they are now (the LiDAR pilot output where it was written)
+  current  the tiles as they are now (what the last builder wrote: the LiDAR pilot, then builder v2); `pilot` is an alias.
+           An `override` directory (e.g. data/build/tiles_pilot) replaces tiles of the same name, so an older builder output can
+           be scored after the tiles were rewritten.
 A chain is a run of rows joined at shared end vertices (pipeline/ramp_lidar.chains_of); it carries per-vertex left / right half
 widths (`wl` / `wr`, falling back to w / 2), heights, game ground and underside, and builds its footprint polygon and 2 m stations.
 """
@@ -75,11 +77,16 @@ class Chain:
 
 
 class Rows:
-    def __init__(self, tiles_dir, variant="live"):
+    def __init__(self, tiles_dir, variant="live", override=None):
         self.variant = variant
         self.tiles = ramp_lidar.Tiles(tiles_dir)          # live metadata (originals) + terrain
-        if variant == "pilot":
-            self.meta = {name: json.load(open(f"{tiles_dir}/{name}.json")) for name in self.tiles.meta}
+        if variant in ("current", "pilot"):
+            self.meta = {}
+            for name in self.tiles.meta:
+                f = f"{tiles_dir}/{name}.json"
+                if override and os.path.exists(f"{override}/{name}.json"):
+                    f = f"{override}/{name}.json"
+                self.meta[name] = json.load(open(f))
         elif variant == "live":
             self.meta = self.tiles.meta
         else:
@@ -147,7 +154,7 @@ if __name__ == "__main__":
     d = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(os.path.dirname(HERE)), "web", "public", "tiles")
     for name in (sys.argv[2].split(",") if len(sys.argv) > 2 else ["gerold", "duttweiler"]):
         cfg = site(name)
-        for v in ("live", "pilot"):
+        for v in ("live", "current"):
             R = Rows(d, v)
             ch = R.site_chains(cfg)
             print(f"{name} {v}: {len(ch)} chains, {len(R.site_piers(ch))} tile piers near")

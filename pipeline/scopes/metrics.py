@@ -60,12 +60,22 @@ def containing(ivs, off=0.0, tol=0.2):
 THIN = 1.5   # m: a bridge polygon narrower than this crossing the normal is an edge structure (parapet / edge beam), not a deck
 
 
+def deck_slices(p, n, polys, half=HALF):
+    """Intervals of the normal through p inside each bridge polygon separately (pieces of one polygon merged, polygons never),
+    so that where two structures cross (Duttweilerbrücke over the rail flyover) each keeps its own width."""
+    out = []
+    for g in polys:
+        out += intervals(p, n, g, half)
+    return sorted(out)
+
+
 def structure(ivs, reach=12.0):
-    """The AV structure across the axis: the bridge polygon containing the axis, else the span between a thin bridge polygon on
-    each side (ramp on fill between its edge structures, Geroldrampe below x = 176). (lo, hi, mode) or None."""
-    c = containing(ivs)
-    if c and c[1] - c[0] >= THIN:
-        return c[0], c[1], 1
+    """The AV structure across the axis: the narrowest bridge polygon containing the axis, else the span between a thin bridge
+    polygon on each side (ramp on fill between its edge structures, Geroldrampe below x = 176). (lo, hi, mode) or None."""
+    cands = [(hi - lo, lo, hi) for lo, hi in ivs if lo - 0.2 <= 0 <= hi + 0.2 and hi - lo >= THIN]
+    if cands:
+        w, lo, hi = min(cands)
+        return lo, hi, 1
     left = [(lo, hi) for lo, hi in ivs if lo > -0.5 and hi - lo < THIN and lo < reach]
     right = [(lo, hi) for lo, hi in ivs if hi < 0.5 and hi - lo < THIN and -hi < reach]
     if left and right:
@@ -82,18 +92,41 @@ def nearest_side(ivs, wl, wr):
     return gl, gr
 
 
-def lidar_strip(p, n, wl, wr):
-    """(z, flag) from the LiDAR central strip: flag 1 bridge class, 2 ground, 0 nothing."""
+TOL = 1.0   # m: class-17 samples further than this (+ slope allowance) from the running height belong to another deck
+
+
+def lidar_strip(p, n, wl, wr, z_prev=None):
+    """(z, flag) from the LiDAR central strip: flag 1 bridge class, 2 ground, 0 nothing. With `z_prev` (running height along
+    the axis) bridge-class samples of a crossing deck (Duttweilerbrücke under the rail flyover, 6 m higher) are rejected;
+    a bridge station whose samples are all rejected returns (NaN, 1) and is interpolated by the caller."""
     hw = max(0.5, 0.3 * min(wl, wr))
     offs = np.arange(-hw, hw + 1e-9, 0.5)
     X = p[0] + n[0] * offs; Y = p[1] + n[1] * offs
     b = lidar.bridge(X, Y)
-    if np.isfinite(b).sum() >= max(2, 0.5 * len(offs)):
+    has_bridge = np.isfinite(b).sum() >= max(2, 0.5 * len(offs))
+    if has_bridge and z_prev is not None and np.isfinite(z_prev):
+        b = np.where(np.abs(b - z_prev) <= TOL + 0.3, b, np.nan)
+        if np.isfinite(b).sum() < 2:
+            return np.nan, 1
+    if has_bridge:
         return ramp_lidar.robust_low(b), 1
     g = lidar.dtm(X, Y)
     if np.isfinite(g).sum() >= 2:
         return ramp_lidar.robust_low(g), 2
     return np.nan, 0
+
+
+def lidar_track(xy, nrm, wl, wr, i0, z0):
+    """Running-height LiDAR surface along stations: forward from i0 and backward from i0, seeded with z0 (a chain start at
+    grade or at a junction, the same for every row set). Returns (z, flag) arrays, NaN where occluded by another deck."""
+    n = len(xy); z = np.full(n, np.nan); flag = np.zeros(n, int)
+    for rng in (range(i0, n), range(i0 - 1, -1, -1)):
+        zp = z0
+        for i in rng:
+            z[i], flag[i] = lidar_strip(xy[i], nrm[i], wl[i], wr[i], zp)
+            if np.isfinite(z[i]):
+                zp = z[i]
+    return z, flag
 
 
 def measure(chain, av, rows, step=2.0, box=None, ext=()):
@@ -120,12 +153,12 @@ def measure(chain, av, rows, step=2.0, box=None, ext=()):
             wl = np.concatenate([np.full(m, wl[0]), wl]); wr = np.concatenate([np.full(m, wr[0]), wr])
             is_model = np.concatenate([np.zeros(m, bool), is_model])
     n = len(s)
-    deck_u, road_u, wall_u = av.union("deck"), av.union("carriageway"), av.union("wall")
+    decks, road_u, wall_u = av.geoms("deck"), av.union("carriageway"), av.union("wall")
     cols = {k: np.full(n, np.nan) for k in ("av_lo", "av_hi", "road_lo", "road_hi", "wall_gl", "wall_gr", "lz", "lg")}
     cols["lflag"] = np.zeros(n, int); cols["av_mode"] = np.zeros(n, int)   # 0 none, 1 inside a bridge polygon, 2 between edge structures
     for i in range(n):
         p = xy[i]; nv = nrm[i]
-        c = structure(intervals(p, nv, deck_u))
+        c = structure(deck_slices(p, nv, decks))
         if c:
             cols["av_lo"][i], cols["av_hi"][i], cols["av_mode"][i] = c
         c = containing(intervals(p, nv, road_u))
@@ -134,9 +167,9 @@ def measure(chain, av, rows, step=2.0, box=None, ext=()):
         gl, gr = nearest_side(intervals(p, nv, wall_u), wl[i], wr[i])
         cols["wall_gl"][i] = np.nan if gl is None else gl
         cols["wall_gr"][i] = np.nan if gr is None else gr
-        lz, fl = lidar_strip(p, nv, wl[i], wr[i])
-        cols["lz"][i] = lz; cols["lflag"][i] = fl
         cols["lg"][i] = float(lidar.dtm(np.array([p[0]]), np.array([p[1]]))[0])
+    i0 = int(np.flatnonzero(is_model)[0])
+    cols["lz"], cols["lflag"] = lidar_track(xy, nrm, wl, wr, i0, float(z[i0]))
     e = z - g
     kind = np.where(~is_model, -1, np.where(e < AT_GRADE, 0, np.where(b - g < SOLID, 1, 2)))   # -1 none, 0 grade, 1 solid, 2 deck
     inbox = np.ones(n, bool) if box is None else (xy[:, 0] >= box[0]) & (xy[:, 0] <= box[2]) & (xy[:, 1] >= box[1]) & (xy[:, 1] <= box[3])

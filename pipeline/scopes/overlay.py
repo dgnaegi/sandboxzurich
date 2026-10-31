@@ -1,9 +1,9 @@
 """Top-down overlay of a ramp site: SWISSIMAGE crop, cadastre (Scope B), LiDAR bridge-class mask (Scope A), modelled rows.
 
-Two panels, live rows (left) and pilot rows (right), same extent (site `view` box, game metres), written to
+Two panels, live rows (left) and the current rows (right, `--label` names them), same extent (site `view` box, game metres), written to
 preview/scopes/<site>_overlay.png (images stay out of git). The orthophoto comes from the swisstopo WMS
 (ch.swisstopo.images-swissimage, free use with source credit) and is cached under data/build/scopes/.
-Usage:  python3 pipeline/scopes/overlay.py <site>[,<site>] [--tiles web/public/tiles] [--res 0.2]
+Usage:  python3 pipeline/scopes/overlay.py <site>[,<site>] [--tiles web/public/tiles] [--res 0.2] [--box x0,y0,x1,y1] [--label v2] [--override dir]
 """
 from __future__ import annotations
 
@@ -139,7 +139,7 @@ def _halo():
     return [pe.withStroke(linewidth=1.5, foreground="black")]
 
 
-def render(name, tiles_dir, res=0.2, out=None, box=None):
+def render(name, tiles_dir, res=0.2, out=None, box=None, label="current", override=None):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -152,9 +152,9 @@ def render(name, tiles_dir, res=0.2, out=None, box=None):
     x0, y0, x1, y1 = cfg["view"]
     w_in = 7.5; h_in = w_in * (y1 - y0) / (x1 - x0) + 0.6
     fig, axes = plt.subplots(1, 2, figsize=(2 * w_in + 0.6, h_in), dpi=160)
-    for ax, (variant, colour) in zip(axes, (("live", "#ff3b30"), ("pilot", "#4cff4c"))):
-        R = Rows(tiles_dir, variant)
-        panel(ax, name, cfg, av, R, R.site_chains(cfg), img, ext, mask, mext, colour, variant)
+    for ax, (variant, colour) in zip(axes, (("live", "#ff3b30"), ("current", "#4cff4c"))):
+        R = Rows(tiles_dir, variant, override if variant == "current" else None)
+        panel(ax, name, cfg, av, R, R.site_chains(cfg), img, ext, mask, mext, colour, variant if variant == "live" else label)
     fig.text(0.01, 0.005, "Orthophoto: SWISSIMAGE © swisstopo. Cadastre: Amtliche Vermessung, Kanton Zürich (OGD). LiDAR: Kanton Zürich 2021/22 (OGD).", fontsize=5.5)
     os.makedirs(OUT, exist_ok=True)
     out = out or os.path.join(OUT, f"{name}_overlay.png")
@@ -169,5 +169,7 @@ if __name__ == "__main__":
     tiles = sys.argv[sys.argv.index("--tiles") + 1] if "--tiles" in sys.argv else os.path.join(ROOT, "web", "public", "tiles")
     res = float(sys.argv[sys.argv.index("--res") + 1]) if "--res" in sys.argv else 0.2
     box = [float(v) for v in sys.argv[sys.argv.index("--box") + 1].split(",")] if "--box" in sys.argv else None
+    label = sys.argv[sys.argv.index("--label") + 1] if "--label" in sys.argv else "current"
+    override = sys.argv[sys.argv.index("--override") + 1] if "--override" in sys.argv else None
     for n in (args[0].split(",") if args else ["gerold", "duttweiler"]):
-        print(render(n, tiles, res, out=(os.path.join(OUT, f"{n}_zoom.png") if box else None), box=box))
+        print(render(n, tiles, res, out=(os.path.join(OUT, f"{n}_zoom.png") if box else None), box=box, label=label, override=override))

@@ -37,10 +37,8 @@ Kanton Zürich OGD-WFS `https://maps.zh.ch/wfs/OGDZHWFS` (already used by `groun
 `ms:ogd-0402_arv_basis_avzh_einzelobjekte_f` / `_l` (Brücke, Passerelle; Pfeiler; Mauer; wichtige Treppe; Tunnel, Unterführung,
 Galerie; Unterstand) and `ms:ogd-0401_arv_basis_avzh_bodenbedeckung_f` (Strasse, Weg; Trottoir; Verkehrsinsel; befestigte Fläche).
 Checked today for both pilot sites: Geroldrampe bbox has 11 bridge polygons, 22 piers, 5 walls, 8 road polygons, 3 footway
-polygons; Duttweiler bbox has 10 bridge polygons, 55 piers, 16 walls, 5 stair polygons, 2 underpasses. This is the "DWG" the
-baurecht-browser pipeline turns into DXF context packs; here we consume the GeoJSON directly, cached under `data/raw/av/<site>.json`.
-2D only: heights still come from Scope A. The DXF writer in `brb_code/modules/m_cadfiles` is worth reusing only for a human
-check in a CAD viewer; `ezdxf` or the project's `dxf_min_writer.py` can emit the overlay (AV polygons, LiDAR mask, modelled rows).
+polygons; Duttweiler bbox has 10 bridge polygons, 55 piers, 16 walls, 5 stair polygons, 2 underpasses. We consume the GeoJSON directly, cached under `data/raw/av/<site>.json`.
+2D only: heights still come from Scope A. A DXF export (`ezdxf`) is worth adding only for a human check in a CAD viewer; the PNG overlay carries the review (AV polygons, LiDAR mask, modelled rows).
 
 ### Scope C, imagery plus vision helper (new, `pipeline/scopes/scope_vision.py`)
 Inputs: SWISSIMAGE crops from the swisstopo WMS (`pipeline/ortho.py` pattern, 0.1 to 0.25 m/px; the WMS also serves older
