@@ -259,7 +259,7 @@ export class BridgeIndex {
   railPush(x: number, y: number, z: number, rad: number): [number, number] {
     const l = this.grid.get(Math.floor(x / this.cell) + ',' + Math.floor(y / this.cell));
     if (!l) return [x, y];
-    let bx = 0, by = 0, bex = 1e9, bel = 0;
+    let bx = 0, by = 0, bex = 1e9, bel = 0, bopen = false;
     for (const { d, i } of l) {
       if (d.kind === 'rail') continue;
       const a = d.p[i], b = d.p[i + 1];
@@ -274,14 +274,14 @@ export class BridgeIndex {
       const lim = d.w / 2 + 0.05 - rad;
       const ex = Math.abs(lat) - lim;   // > 0: pressed into the parapet
       const of = lat > 0 ? d.ol : d.or;
-      if (ex > 0 && of && of[i] && of[i + 1]) continue;   // side shared with a neighbouring deck: no wall
-      if (ex > 0 && d.kind === 'tram') continue;   // tram decks have no parapet wall
       if (ex >= bex) continue;   // keep the deck we are most inside of
       if (d.sub && ex > 0.3) continue;   // hb3: underground decks only keep the body that is on them (stair wells are open to the surface beside the deck)
       const el = d.sub ? 99 : zc - (d.g[i] + (d.g[i + 1] - d.g[i]) * t);   // hb3: tunnel walls always
-      bex = ex; bel = el; bx = -Math.sign(lat) * nx; by = -Math.sign(lat) * ny;
+      // a side shared with a neighbouring deck and a tram deck's edge have no wall, but they still count as the nearest deck:
+      // a body in the joint between two flush decks must not be pushed toward the parapet of a third deck farther away
+      bex = ex; bel = el; bopen = !!(of && of[i] && of[i + 1]) || d.kind === 'tram'; bx = -Math.sign(lat) * nx; by = -Math.sign(lat) * ny;
     }
-    if (bex > 0 && bel >= RAIL_EL) return [x + bx * bex, y + by * bex];
+    if (bex > 0 && !bopen && bel >= RAIL_EL) return [x + bx * bex, y + by * bex];
     return [x, y];
   }
 }
