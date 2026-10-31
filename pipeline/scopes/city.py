@@ -27,6 +27,7 @@ from ramp_sites import SITES, auto_sites, site as site_cfg  # noqa: E402
 
 OX, OY, T = 2681400, 1248700, 500
 CITY = os.path.join(ROOT, "data", "build", "scopes", "city")
+KEEP = "## Ride gate with all"   # sections from here on are written by hand and kept
 
 
 def scratch(src):
@@ -123,7 +124,11 @@ def write_summary(out):
     if fnd:
         lines += ["", "## Findings for other decks (not the ramp's error)", ""] + [f"- `{s_}`: {x}" for s_, x in fnd]
     f = os.path.join(ROOT, "research", "bridges", "scopes", "city.md")
-    open(f, "w").write("\n".join(lines) + "\n")
+    keep = ""
+    if os.path.exists(f):                          # hand-written sections after the marker survive a rerun
+        old = open(f).read(); m = old.find(KEEP)
+        keep = old[m:] if m >= 0 else ""
+    open(f, "w").write("\n".join(lines) + "\n\n" + keep)
     print(f)
 
 

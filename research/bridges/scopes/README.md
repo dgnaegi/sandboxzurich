@@ -27,7 +27,9 @@ acceptance style, and this follows it: numbers per ramp, overlays for the eye, a
 | Improvements log and ride delta against the gate baseline | implemented | `improvements.md`, `pipeline/scopes/ride_delta.py` |
 | Pull requests: gate + proxy (#4), scopes as draft (#5) | open on the maintainer's repository | `research/bridges/pr_drafts.md` |
 | Site discovery and city-wide run | implemented: 25 automatic sites plus 5 hand sites, all 66 elevated road chains covered; 28 PASS, 2 REVIEW (both parking-garage helices) | `discover.py`, `city.py`, `city.md` |
-| Footway decks along rebuilt bridges | open: the builder rebuilds road rows only; a live footway beside the Kornhausbrücke ends 2.4 m in the air (the gate's one regression) | — |
+| Footway decks beside rebuilt decks | implemented: trimmed where the new deck carries them, solid on embankments, air ends continued along the LiDAR ground | `footways.py` |
+| Approaches over terrain holes | implemented: from each grade end, road-graph edges the new decks do not cover are followed on the LiDAR ground where the game terrain lies below it; width from the cadastre carriageway; no parapet | `ramp_build.Build.approaches` |
+| Ride harness: clipped routes spawn on their deck | implemented (also in PR #4) | `web/tests/bridges_ride.mjs` |
 | Scope C: imagery + vision helper for the lane / footway split and semantics | documented proposal (`scopes_plan.md` §2); not needed for the two sites | — |
 | Site discovery (every elevated road chain instead of a hand list) | vision | — |
 | Maintainer integration as a pipeline stage after `bridges.py` | vision | — |
@@ -68,10 +70,11 @@ Position after the city-wide run: near the «handles every ramp» end for road r
   second: the last full run changed no verdict on any site that had passed.
 - One finding for another deck: the «Hardbrücke West» connector at (−58, −30) lies 4.3 m below the LiDAR deck (an open item in
   the maintainer's handoff); the ramp beside it stays on LiDAR and the report names the connector.
-- Ride gate with all 30 sites in one tile set: 14 rides better, 2 worse; rides with problems 42 → 37, stuck 14 → 11. The worse
-  rides are on the Kornhausbrücke, where the car now gets far enough to reach a live footway deck that ends in the air over a
-  terrain hole: outside the builder's scope (footways, terrain), not hidden by a new baseline.
-- Not covered: footway and tram decks, stairs, the terrain under fills and landings (reported, not fixed), helices.
+- Ride gate with all 30 sites, footways and approaches in one tile set: PASS; 25 rides better, 2 worse (bike steps of 0.36 and
+  0.1 m at terrain-hole edges); stuck 14 → 8, fell 2 → 0, rides not across 17 → 10.
+- Approaches patch terrain holes with solid street decks on the LiDAR ground where a road meets a bridge; that is a stopgap: the
+  terrain itself is still wrong around them (reported per site, the terrain pass owns it).
+- Not covered: tram decks, stairs, the terrain itself, helices.
 
 ## Deterministic vs interpreted
 
@@ -113,8 +116,7 @@ Python is the anaconda `python3` (3.8); images stay out of git.
 
 ## How to continue, in order
 
-1. Footway decks beside rebuilt road decks: trim the part inside the new footprint, continue air ends to grade like road chains
-   (fixes the Kornhausbrücke regression).
+1. Terrain pass from LiDAR around bridge heads (the approaches only bridge the holes along roads).
 2. Integration as a pipeline stage after `bridges.py` in the maintainer's full build (both scopes are there), the reports as
    `research/bridges/scopes/<site>.md`, the gate baseline accepted with the new rows.
 3. Terrain pass for fills and landings (the residuals are in every report).

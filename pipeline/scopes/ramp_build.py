@@ -95,6 +95,7 @@ class Build:
         self.R = Rows(tiles_dir, "live"); self.chains = self.R.site_chains(self.cfg)
         self.site_keys = {(t, k) for c in self.chains for t, k, _ in c.rows}
         self.decks_av, self.wall_u = self.av.geoms("deck"), self.av.union("wall")
+        self.road_av = self.av.union("carriageway")
         self.taken = M.deck_cover(self.R, self.cfg["fetch"], kinds=("road",), exclude=lambda t, k, d: (t, k) in self.site_keys)
         self.lines = []; self.findings = []
 
@@ -220,11 +221,17 @@ class Build:
                             continue                                    # the hole does not close within GRADE_EXT: terrain pass
                         C, t = C[k0:k1 + 1], t[k0:k1 + 1] - t[k0]; zs, gs = zs[k0:k1 + 1], gs[k0:k1 + 1]
                         n = len(zs); Q = C[:n]; gg = np.array(gs)
+                        # width from the cadastre carriageway («Strasse, Weg») around the axis, else 3 m each side
+                        wls, wrs = [], []
+                        for k in range(n):
+                            nv = self._nrm(Q, k); iv = M.containing(M.intervals(Q[k], nv, self.road_av), 0.0, 0.5)
+                            wls.append(float(np.clip(iv[1], 1.6, 8.0)) if iv else 3.0); wrs.append(float(np.clip(-iv[0], 1.6, 8.0)) if iv else 3.0)
+                        wls = RL.smooth(np.array(wls), 3); wrs = RL.smooth(np.array(wrs), 3)
                         zz = np.maximum(np.array(zs), gg)
-                        flush = [1 if t[k] <= END_FLUSH else 0 for k in range(n)]
+                        flush = [1] * n                                  # a street on the embankment: no kerb, parapet or railing
                         out.append({"p": [[round(float(x), 2), round(float(y), 2), round(float(z), 2)] for (x, y), z in zip(Q, zz)],
-                                    "g": [round(float(v), 2) for v in gg], "b": [round(float(v), 2) for v in gg], "w": round(2 * w, 1),
-                                    "wl": [round(w, 2)] * n, "wr": [round(w, 2)] * n, "ol": flush, "or": list(flush), "kind": "road",
+                                    "g": [round(float(v), 2) for v in gg], "b": [round(float(v), 2) for v in gg], "w": round(float(np.median(wls + wrs)), 1),
+                                    "wl": [round(float(v), 2) for v in wls], "wr": [round(float(v), 2) for v in wrs], "ol": flush, "or": list(flush), "kind": "road", "role": "approach",
                                     "name": d["name"], "site": self.cfg["name"], "_kind": np.ones(n, int), "_mode": np.zeros(n, int),
                                     "_flag": np.full(n, 2), "_thick": 1.0, "_ends": {0: "joint", -1: "grade"}, "_s": t[:n], "_tan": self._tans(Q)})
                         poly = __import__("shapely.geometry", fromlist=["LineString"]).LineString(Q)
@@ -505,8 +512,9 @@ def cut_rows(deck, tiles):
     for t, r in runs:
         row = {k: [deck[k][i] for i in r] for k in ("p", "g", "b", "wl", "wr", "ol", "or")}
         row.update({"w": deck["w"], "kind": deck["kind"], "name": deck["name"]})
-        if deck.get("site"):
-            row["site"] = deck["site"]
+        for key in ("site", "role"):
+            if deck.get(key):
+                row[key] = deck[key]
         if r[0] > 0:
             row["pa"] = p[r[0] - 1][:2]
         if r[-1] < len(p) - 1:

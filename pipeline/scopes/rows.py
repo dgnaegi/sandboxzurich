@@ -176,7 +176,7 @@ def row_sig(d):
 def is_site_row(cfg, d):
     """Does deck row d belong to the site? Rows written by the builder carry `site`; live rows match by signature (automatic
     sites, pipeline/scopes/discover.py) or by name (substring or tuple of substrings; "" = any) and kind."""
-    if d["kind"] not in cfg["kinds"]:
+    if d["kind"] not in cfg["kinds"] or d.get("role") == "approach":   # approaches are streets on the ground: cover, not ramp
         return False
     if d.get("site"):
         return d["site"] == cfg.get("name")
