@@ -549,6 +549,12 @@ def run(tiles_dir, sites, write=False, report=None):
         B.foot = {}
     for (t, k), rs in foot_new.items():
         built[0][1].foot[(t, k)] = rs
+    # pass 4: close the strips beside the new rows (holes between side-by-side decks, pipeline/scopes/topcheck.py)
+    import gaps as G
+    ours = [d for _, B, _ in built for d in B.decks] + [d for rs in foot_new.values() for d in rs]
+    gone = skip | set(foot_new)
+    mods = {k: v for _, B, _ in built for k, v in getattr(B, "modified", {}).items()}
+    fl += G.close(ours, [mods.get((t, k), d) for t, k, d in R0.decks() if (t, k) not in gone] + ours)
     for name, B, (decks, piers, drop) in built:
         lines.append(f"## {name} ('{B.cfg['match']}')")
         lines += B.lines + [""]

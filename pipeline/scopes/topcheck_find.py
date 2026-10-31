@@ -10,7 +10,8 @@ polygons and traffic areas (Scope B) and the LiDAR ground / bridge grids (Scope 
              (max of ground and bridge returns): a missing ramp, approach or deck piece where the AV outline says nothing
              ("no deck"), or a deck drawn too low; rail decks too low are reported, not gating
   above      the drawn surface >= REAL m above the LiDAR surface (reported, not gating)
-  step       neighbouring deck cells STEP m apart (overlapping or misjoined slabs; more = a deck above another)
+  step       neighbouring deck cells STEP m apart (overlapping or misjoined slabs; more = a deck above another), not next
+             to a parapet top (a level change behind a parapet is wanted)
   blocked    a 0.35 m body is pushed on the deck surface >= 1 m inside its outline: invisible wall
   sink       elevated deck cells where drawn and walkable / stand height differ by > SINK m (or nothing is walkable)
   covered    the tile mesh lies above the drawn deck surface
@@ -130,7 +131,8 @@ def analyse(name, P, box, res, av):
         dz = np.where((dz >= STEP[0]) & (dz <= STEP[1]), dz, 0)
         sl = (slice(1, None), slice(None)) if ax == 0 else (slice(None), slice(1, None))
         mag[sl] = np.maximum(mag[sl], dz)
-    st = mag > 0
+    wall = ndimage.binary_dilation(~np.isnan(P["wall"]), iterations=1)   # across a parapet: a level change, not a step
+    st = (mag > 0) & ~wall
     steps = comps(st, res, box, lambda rr, cc: {"dz": round(float(mag[rr, cc].max()), 2), "len": round(len(rr) * res, 1)})
 
     # invisible walls and sinking, inside the deck outline only (railings and ramp feet are wanted)

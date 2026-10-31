@@ -39,7 +39,7 @@ ORTHO = os.path.join(ROOT, "data", "raw", "ortho_sites")
 REPORT = os.path.join(ROOT, "research", "bridges", "scopes", "topcheck.md")
 CHUNK = 300.0          # m, render box per page load (tiles load 450 m around the player)
 MARGIN = 30.0          # m around the site's view box: bridge heads and approaches sit at its edge
-PLANES = ["deck", "rail", "glb", "walk", "feet", "ground", "push"]
+PLANES = ["deck", "rail", "wall", "glb", "walk", "feet", "ground", "push"]
 # findings panel colours (legend below the sheet)
 COL = {"covered": (60, 170, 60), "above": (0, 170, 150), "sink": (255, 255, 255), "blocked": (255, 220, 0), "step": (255, 0, 255),
        "below": (220, 0, 110), "rail_low": (105, 50, 85), "rhole": (160, 110, 60), "edge": (255, 150, 40), "interior": (255, 40, 40)}

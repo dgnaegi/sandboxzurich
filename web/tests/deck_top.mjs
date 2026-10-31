@@ -3,6 +3,7 @@
 //   <out>/<id>.bin        Float32 planes, W x H each, row 0 = north, NaN = nothing there:
 //     deck   height of the drawn road / tram / foot deck surface (bridge rows rebuilt without piers, parapets, undersides, railings)
 //     rail   the same for rail decks (not walkable)
+//     wall   height of the parapet tops (a step next to one is a level change, not a step to drive over)
 //     glb    height of the tile mesh (terrain, buildings, streets) seen from above
 //     walk   walkable deck height at the drawn (or the nearest drawn, <= 4 m) deck height: BridgeIndex.heightAt, what the body uses
 //     feet   height the body stands at there (Tiles.groundAt: deck, terrain or the blend at ramp feet)
@@ -73,7 +74,7 @@ for (const job of jobs) {
       return h;
     };
     const proxy = (src, geo) => { const m = new THREE.Mesh(geo ?? src.geometry, hmat); m.applyMatrix4(src.matrixWorld); m.frustumCulled = false; return m; };
-    const glbMeshes = [], deckMeshes = [], railMeshes = [];
+    const glbMeshes = [], deckMeshes = [], railMeshes = [], wallMeshes = [];
     const SKIP = [0x9b988f, 0x6f6d68, 0x5d6468].map((h) => new THREE.Color(h));   // parapet/curb, underside/piers, railings
     for (const [name, g] of T.loaded) {
       if (!g) continue;   // tile still loading (placeholder)
@@ -85,18 +86,20 @@ for (const job of jobs) {
       for (const [list, decks] of [[deckMeshes, rows.decks.filter((d) => d.kind !== 'rail')], [railMeshes, rows.decks.filter((d) => d.kind === 'rail')]]) {
         const built = decks.length ? BR.buildBridges({ decks, piers: [] })[0] : null;
         if (!built) continue;
-        const src = built.geometry, P3 = src.attributes.position, Nn = src.attributes.normal, C = src.attributes.color, keep = [];
+        const src = built.geometry, P3 = src.attributes.position, Nn = src.attributes.normal, C = src.attributes.color, keep = [], top = [];
         for (let t = 0; t < P3.count; t += 3) {
           if (Math.abs(Nn.getY(t)) < 0.5) continue;   // walls, parapet faces, railing strips
-          const c = [C.getX(t), C.getY(t), C.getZ(t)];
-          if (SKIP.some((k) => Math.abs(k.r - c[0]) + Math.abs(k.g - c[1]) + Math.abs(k.b - c[2]) < 2e-3)) continue;
-          for (let v = t; v < t + 3; v++) keep.push(P3.getX(v), P3.getY(v), P3.getZ(v));
+          const c = [C.getX(t), C.getY(t), C.getZ(t)], is = (k) => Math.abs(k.r - c[0]) + Math.abs(k.g - c[1]) + Math.abs(k.b - c[2]) < 2e-3;
+          const to = is(SKIP[0]) && Nn.getY(t) > 0 ? top : SKIP.some(is) ? null : keep;   // parapet tops -> wall pass
+          if (to) for (let v = t; v < t + 3; v++) to.push(P3.getX(v), P3.getY(v), P3.getZ(v));
         }
-        const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.Float32BufferAttribute(keep, 3));
-        list.push(proxy(host ?? new THREE.Object3D(), geo));
+        for (const [arr, dst] of [[keep, list], [top, wallMeshes]]) {
+          const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.Float32BufferAttribute(arr, 3));
+          dst.push(proxy(host ?? new THREE.Object3D(), geo));
+        }
       }
     }
-    const deck = pass(deckMeshes), rail = pass(railMeshes), glb = pass(glbMeshes);
+    const deck = pass(deckMeshes), rail = pass(railMeshes), wall = pass(wallMeshes), glb = pass(glbMeshes);
     R.setPixelRatio(pr); R.setSize(size.x, size.y, false);
 
     // physics at every cell: walkable deck at the drawn height (holes: nearest drawn height within 4 m as the hint)
@@ -131,11 +134,11 @@ for (const job of jobs) {
       let s = ''; for (let k = 0; k < all.length; k += 0x8000) s += String.fromCharCode.apply(null, all.subarray(k, k + 0x8000));
       return btoa(s);
     };
-    return { W, H, photo, bin: b64([deck, rail, glb, walk, feet, ground, push]), nDeck: deckMeshes.length, nGlb: glbMeshes.length };
+    return { W, H, photo, bin: b64([deck, rail, wall, glb, walk, feet, ground, push]), nDeck: deckMeshes.length, nGlb: glbMeshes.length };
   }, [x0, y0, x1, y1, res]);
   fs.writeFileSync(path.join(out, `${job.id}_photo.png`), Buffer.from(r.photo.split(',')[1], 'base64'));
   fs.writeFileSync(path.join(out, `${job.id}.bin`), Buffer.from(r.bin, 'base64'));
-  fs.writeFileSync(path.join(out, `${job.id}.json`), JSON.stringify({ W: r.W, H: r.H, res, box: job.box, planes: ['deck', 'rail', 'glb', 'walk', 'feet', 'ground', 'push'], missing, nDeck: r.nDeck, nGlb: r.nGlb }));
+  fs.writeFileSync(path.join(out, `${job.id}.json`), JSON.stringify({ W: r.W, H: r.H, res, box: job.box, planes: ['deck', 'rail', 'wall', 'glb', 'walk', 'feet', 'ground', 'push'], missing, nDeck: r.nDeck, nGlb: r.nGlb }));
   console.log(`${job.id}: ${r.W}x${r.H}, ${r.nDeck} deck tiles, ${r.nGlb} tile meshes${missing.length ? `, MISSING ${missing.join(' ')}` : ''}`);
   await p.context().close();
 }
