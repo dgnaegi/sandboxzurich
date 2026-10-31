@@ -128,6 +128,7 @@ async function main() {
   const rail = new Railways(scene, tiles.mat, mobile ? 0.62 : 1); // phone: tracks within ~260 m
   const WHITE = new THREE.Color(0xf4f4f2);
   const traffic = new Traffic(scene, ground, CAR_GEO, carMaterial, (k) => (k % 23 === 0 && CAR_GEO.police && GAMEPLAY ? { type: 'police', color: WHITE } : k % 13 === 0 && CAR_GEO.taxi ? { type: 'taxi', color: k % 2 ? WHITE : new THREE.Color(0x1a1c20) } : carPick(k)));
+  traffic.deckAt = (x, y, z) => tiles.bridges.heightAt(x, y, z, 1.5, 5);   // stale roads.json deck heights: snap to the drawn deck (up to 5 m above)
   traffic.solidAhead = (x, y, hx, hy, d, w) => tiles.colliders.circleAhead(x, y, hx, hy, d, w);   // move2: NPC cars/bikes stop for posts in their lane
   const trafficLights = new TrafficLights(scene);
   const scenes = new Scenes(humans, ground);

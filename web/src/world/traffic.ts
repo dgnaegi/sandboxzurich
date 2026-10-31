@@ -207,9 +207,14 @@ export class Traffic {
       const z0 = e.z[i], z1 = e.z[i + 1], n0 = Number.isNaN(z0), n1 = Number.isNaN(z1);
       this._z = n0 && n1 ? NaN : n0 ? z1 : n1 ? z0 : z0 + (z1 - z0) * t;
     } else this._z = NaN;
-    return [x0 + (x1 - x0) * t, y0 + (y1 - y0) * t];
+    const x = x0 + (x1 - x0) * t, y = y0 + (y1 - y0) * t;
+    if (this.deckAt && !Number.isNaN(this._z)) this._z = this.deckAt(x, y, this._z) ?? this._z;
+    return [x, y];
   }
   private _z = NaN;
+  /** Drawn deck surface near a path height (main.ts: BridgeIndex.heightAt). The deck heights in roads.json come from an earlier
+   *  build and lie up to 4 m below today's decks (Hardbrücke south approach): cars on a deck edge ride on the drawn deck instead. */
+  deckAt: ((x: number, y: number, z: number) => number | null) | null = null;
   private _hx = 1; private _hy = 0;
 
   private turnOf(e: Edge, ne: Edge | null) {
