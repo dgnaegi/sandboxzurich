@@ -16,6 +16,24 @@ Kopfzeile in `chatter.ts` entsprechend markiert.
 - Hinweis zu «Hey, gömmer Bulle go schlah?»: Berührt `CONTENT_GUIDELINES` («keine Gewalt gegen Menschen, Polizei
   comichaft»). Es ist eine Sprechblase ohne Folgen im Spiel; der Maintainer entscheidet, ob sie bleibt.
 
+## Meme-Klassiker (Liste vom Fork-Owner, 2026-10-31, aktiv in `MEMES`)
+50 Schweizer Meme-Sätze aus Trash-TV und Social Media, Wortlaut wie in der Liste (darum teils Hochdeutsch, teils mit
+Apostroph). Quellen der Liste: 20min «Richi kein Einzelfall: Diese Memes haben Kultstatus», Galaxus «Weisch no? Eine
+nostalgische Reise … Schweizer Internetklassiker», SRF «Zwei am Morge: Legendäre Schweizer Memes als TV-Story»,
+Swissmeme (Instagram, TikTok, YouTube, Facebook «Best of Schweizer Memes» 1 und 2), Zeki (TikTok @zekisworld).
+- Nach Funktion verteilt: Auto («Dä mitem Smart isch nid so smart gsi.», «Aargauer chönd eifach kein Autofahre.»),
+  Tram/Bus und Bahnhof («Immer halb am Einschlafen.», «SBB hat wieder Verspätung – wegemne Blüemli uf de Schiene.»,
+  «Olten isch de schönsti Bahnhof.»), der Rest allgemein.
+- «Angst und Geld han ich keis.» (belegte Form) ist in der Liste; aktiv bleibt die Owner-Version «Angst und Geld hani kei.»,
+  kein Duplikat. «Z'Züri isch halt alles chlitürer» als «chli tüürer» geschrieben.
+- Akzent-Humor: «Ich bi gewese Stube sitze.» und «Es hat gemacht wie Maschine, Traktor, Pz …» zitieren einen
+  Augenzeugen mit Migrationshintergrund (ohne Namen). Aktiv, weil als Klassiker gewünscht; bewusst erwähnt.
+- **Geparkt in `FLAGGED`** (mit Grund, zum Umlegen): «Hoi, ich bin Bruno und ich bi de Kameramann.» und
+  «Jo Richiiii! I ho gseit du sollsch de Gurt häbbä!» (echte Privatpersonen mit Namen), «Ich bins, de Vujo.» (echte
+  Person), «Habe gespritzt.» (sexuelle Anspielung, Schulthemen im Spiel), «Möseflutscher.» (vulgär),
+  «Sali, du alte Schafseckel!» und «Halt d'Fresse.» (derb), «Du wirsch grad usgeschafft!» (Ausschaffungs-Witz, liest
+  sich im Kreis 4/5 schlecht).
+
 ## Regeln (CONTENT_GUIDELINES)
 - Keine echten Politiker:innen, Parteien oder Privatpersonen. Echte Läden/Firmen höchstens neutral erwähnt
   (Migros/Coop als Kulturfrage, Xenix als Kino, Volkshaus als Treffpunkt), nie als Ziel des Spotts.

@@ -27,7 +27,7 @@ const { sample, reserve } = await page.evaluate(async () => {
     out[k] = Object.entries(n).sort((a, b) => b[1] - a[1]);
   }
   const r = m.RESERVE, flat = [...r.generic, ...r.cliche, ...r.morning, ...r.noon, ...r.evening, ...r.night, ...r.weekend, ...r.sunday, ...Object.values(r.mode).flat(), ...Object.values(r.place).flat()];
-  return { sample: out, reserve: flat };
+  return { sample: out, reserve: [...flat, ...m.FLAGGED.map(([l]) => l)] };
 });
 const all = new Set(Object.values(sample).flat().map(([l]) => l));
 const longest = [...all].sort((a, b) => b.length - a.length)[0];
@@ -35,9 +35,12 @@ const OWNER = ['So en Lappe!', 'Bisch scho imne Verein?', 'Angst und Geld hani k
 const plain = new Map(sample.plain);
 check('owner lines all appear in a plain context', OWNER.every((l) => (plain.get(l) ?? 0) > 50), OWNER.map((l) => `${l.slice(0, 14)}… ${plain.get(l) ?? 0}`).join(' · '));
 check('scooter says "Hesch Termin?" often', (sample.scooter.find(([l]) => l === 'Hesch Termin?')?.[1] ?? 0) > 200, `${sample.scooter[0][0]} ×${sample.scooter[0][1]} of 3000`);
-check('car says "Voll wüests Auto." often', (sample.car.find(([l]) => l === 'Voll wüests Auto.')?.[1] ?? 0) > 200, sample.car.slice(0, 3).map(([l]) => l).join(' | '));
+check('car says "Voll wüests Auto." often', (sample.car.find(([l]) => l === 'Voll wüests Auto.')?.[1] ?? 0) > 150, sample.car.slice(0, 3).map(([l, n]) => `${l} (${n})`).join(' | '));
+const MEMES_SAMPLE = ['Wotsch Föteli?', 'Scho chli bünzli, aber geil.', 'Kein Schmouker!', 'Bisch krass wege Bändeli?', 'Chääs druf und guet isch.'];
+check('meme classics appear in a plain context', MEMES_SAMPLE.every((l) => (plain.get(l) ?? 0) > 20), MEMES_SAMPLE.map((l) => `${l.slice(0, 12)}… ${plain.get(l) ?? 0}`).join(' · '));
+check('station/rail memes only at the station or in transit', !plain.has('Olten isch de schönsti Bahnhof.') && sample.transit.some(([l]) => /Einschlafen|Blüemli/.test(l)));
 const leaked = reserve.filter((l) => all.has(l));
-check('no RESERVE line is active', leaked.length === 0, leaked.slice(0, 3).join(' | '));
+check('no RESERVE or FLAGGED line is active', leaked.length === 0, leaked.slice(0, 3).join(' | '));
 check('night lines appear', sample.night.some(([l]) => /Füür|Nacht|Abig/.test(l)));
 check('no line longer than 72 chars', longest.length <= 72, `${longest.length}: ${longest}`);
 const hochdeutsch = [...all].filter((l) => /\b(Guten|Schönen|ich muss|nicht|noch mal|heute|Entschuldigung)\b/i.test(l));

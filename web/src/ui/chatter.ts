@@ -4,10 +4,10 @@
  * parties or shops (docs/CONTENT_GUIDELINES.md). Sources, spelling notes and rejected lines: research/chatter_mundart.md.
  * UI text elsewhere stays Hochdeutsch; the bubbles are what people on the street actually say.
  *
- * Vetting state (2026-10-31): ACTIVE are only the lines the fork owner named (OWNER, the Swisscore insiders testers
- * should meet first) and the maintainer's original Hochdeutsch lines in dialect. Everything researched or composed
- * beyond that sits in RESERVE, which chatLine() never reads, until testers have vetted it; to activate a line, move
- * it from RESERVE into the matching pool.
+ * Vetting state (2026-10-31): ACTIVE are the lines the fork owner named (OWNER, the Swisscore insiders testers should
+ * meet first), the Swiss meme classics the owner curated (MEMES) and the maintainer's original Hochdeutsch lines in
+ * dialect. Everything researched or composed beyond that sits in RESERVE, which chatLine() never reads, until testers
+ * have vetted it; a few meme lines sit in FLAGGED with the reason. To activate a line, move it into the matching pool.
  */
 export type ChatMode = 'foot' | 'run' | 'bike' | 'scooter' | 'car' | 'transit';
 export interface ChatCtx { place: string; min: number; day: number; night: boolean; mode: ChatMode }
@@ -18,6 +18,19 @@ const OWNER = [
   'So en Lappe!', 'Bisch scho imne Verein?', 'Angst und Geld hani kei.', 'Hey, gömmer Bulle go schlah?', 'Multipli hundert.', 'Chatsy.',
   'Hey, I just moved here from California, can I join your inner circle?',
 ];
+/** Swiss meme classics curated by the fork owner (TeleZüri / Fohrler Live, Bachelor, Swissmeme, Zeki, TikTok; list and
+ *  sources in research/chatter_mundart.md). Wording as in the list; a few are Hochdeutsch on purpose (they are quotes). */
+const MEMES = [
+  'Bisch krass wege Bändeli?', 'Chötteli, Chötteli, Chötteli …', 'Ich bi gewese Stube sitze.', 'Es hat gemacht wie Maschine, Traktor, Pz …',
+  'Ja guet, ich bin ebe scho en chline Erfinder.', 'Wönder luege? Pistoleschuss, Bombesplitter, ich ha alles erlebt!', 'Söll emal cho!',
+  'Ich esse wieder Gurken, mein Lieblingsgemüse.', 'Unter der Gürtellinie.', 'Kein Schmouker!', 'Ade Messi!', 'Dä stinkt!',
+  "Lass mal über d'Büecher goh.", 'Chum, mir mached chli Schischa-Talk.', 'Getrocknete Bananen!', 'Wer het au gern Gugeli?',
+  'Gugeli gsi, Gugeli gewesen, Gugeli gebliben.', "Vieli Lüt sind eifach chli z'frech.", 'Ausland-Schnee isch zu kalt!',
+  'Mehrwertsstüür zrugghole!', 'Das isch kein Prank …', 'Ganz normal in der Schweiz.', 'Scho chli bünzli, aber geil.',
+  'Hopp Schwiiz, de Pokal stoht im Regal!', 'Weili Luscht gha han.', 'Wotsch Föteli?', 'Mir hend alli sonen Kolleg …', 'Nüme luschtig.',
+  'Ich ha eifach nur Gluscht gha.', 'Reda Bündner würkli so?', "Z'Züri isch halt alles chli tüürer.", 'Putzed eui Luftfritööse!',
+  'Isch das jetzt True oder Safe?', "Ich bin z'früe!", 'Chääs druf und guet isch.', "Merci vielmal für d'Underhaltig.",
+];
 /** The maintainer's original lines (Hochdeutsch until now), translated one to one. */
 const ANY_DAY = ['Hoi!', 'Grüezi.', 'Schöne Tag no!', 'Au underwägs?', 'Exgüsi, dörf i schnäll verbii?'];
 const MORNING = ['Guete Morge!', 'Ich bruuche zerscht en Kafi.', 'S Tram isch scho wider z spaat.', 'Zwei Gipfeli, bitte, und e Zytig.'];
@@ -25,23 +38,28 @@ const NOON = ['Zmittag! Chunsch mit?', 'Ich hol mer schnäll öppis z ässe.', '
 const EVENING = ['Schöne Fiirabig!', 'Chunsch no uf es Bier mit?', 'Ich muess no i d Wöschchuchi.', 'Wo bliibt s Tram?'];
 const NIGHT = ['Schöne Abig no!', 'Hesch Füür?', 'No eis, und dänn gang i hei.', 'Scho so spaat? Ich muess morn früeh use.', 'Guet Nacht, bis morn!'];
 const WEEKEND = ['Chunsch nach em Flohmi uf en Kafi?', 'Hüt isch ändlich frei.', 'Hesch scho öppis vor am Wuchenänd?'];
-/** What people shout at you depending on how you move (owner lines only so far; more in RESERVE.mode). */
-const BY_MODE: Record<ChatMode, string[]> = { foot: [], run: [], bike: [], scooter: ['Hesch Termin?'], car: ['Voll wüests Auto.'], transit: [] };
+/** What people shout at you depending on how you move (owner and meme lines only so far; more in RESERVE.mode). */
+const BY_MODE: Record<ChatMode, string[]> = {
+  foot: [], run: [], bike: [], scooter: ['Hesch Termin?'],
+  car: ['Voll wüests Auto.', 'Voll wüests Auto.', 'Dä mitem Smart isch nid so smart gsi.', 'Aargauer chönd eifach kein Autofahre.'],
+  transit: ['Immer halb am Einschlafen.', 'SBB hat wieder Verspätung – wegemne Blüemli uf de Schiene.'],
+};
 const BY_PLACE: [RegExp, string[]][] = [
   [/langstrasse/i, ['Da isch immer öppis los.', 'Ein Falafel bitte, scharf.', 'D Miete da sind komplett verruckt.']],
   [/helvetiaplatz|kanzlei/i, ['De Märt hät hüt schöns Gmües.', 'Träffe mer eus bim Volkshuus?', 'Im Xenix lauft hüt en guete Film.']],
   [/limmatplatz|escher|hardbrücke|hardplatz/i, ['De Zug fahrt grad, ich muess renne!', 'Da isch alles Bauschtell.', 'Vo de Hardbrugg gsehsch s ganz Quartier.']],
   [/stauffacher|werd/i, ['Ich nimm s Tram bis Bahnhofstrass.', 'Träffpunkt isch bim Stauffacher.']],
-  [/bahnhof|hb\b/i, ['Weles Gleis isch es scho wider?', 'Min Zug hät wider Verspötig.', 'Ich muess de Aschluss verwütsche!']],
+  [/bahnhof|hb\b/i, ['Weles Gleis isch es scho wider?', 'Min Zug hät wider Verspötig.', 'Ich muess de Aschluss verwütsche!', 'Olten isch de schönsti Bahnhof.', 'SBB hat wieder Verspätung – wegemne Blüemli uf de Schiene.', 'Immer halb am Einschlafen.']],
   [/bäckeranlage|josefwiese|park|wiese/i, ['D Chind sind scho wider im Planschbecki.', 'Da isch de Hund immer glücklich.']],
 ];
 
 export function chatLine(c: ChatCtx): string {
   const pick = (a: string[]) => a[Math.floor(Math.random() * a.length)];
-  const pool: string[] = [...OWNER, ...OWNER, ...ANY_DAY];
+  const pool: string[] = [...OWNER, ...OWNER, ...MEMES, ...ANY_DAY];
   for (const [re, lines] of BY_PLACE) if (re.test(c.place)) pool.push(...lines, ...lines);
   const mode = BY_MODE[c.mode] ?? [];
-  pool.push(...mode, ...mode, ...mode);   // what you ride is the first thing people comment on
+  const reps = mode.length ? Math.max(3, Math.round(9 / mode.length)) : 0;   // what you ride is the first thing people comment on: ~10 % of all bubbles, however small the pool
+  for (let i = 0; i < reps; i++) pool.push(...mode);
   const h = c.min / 60;
   if (c.night) pool.push(...NIGHT, ...NIGHT);
   else if (h < 10) pool.push(...MORNING, ...MORNING);
@@ -50,6 +68,18 @@ export function chatLine(c: ChatCtx): string {
   if (c.day >= 5 && !c.night) pool.push(...WEEKEND);
   return pick(pool);
 }
+
+// --- flagged: from the owner's meme list, parked with the reason; the maintainer's CONTENT_GUIDELINES decide. Move a line into MEMES to activate it.
+export const FLAGGED: [string, string][] = [
+  ['Hoi, ich bin Bruno und ich bi de Kameramann.', 'names a real private person'],
+  ['Jo Richiiii! I ho gseit du sollsch de Gurt häbbä!', 'names a real private person'],
+  ['Ich bins, de Vujo.', 'names a real person (TV)'],
+  ['Habe gespritzt.', 'sexual innuendo; school themes in the game'],
+  ['Möseflutscher.', 'vulgar'],
+  ['Sali, du alte Schafseckel!', 'crude insult'],
+  ["Halt d'Fresse.", 'crude'],
+  ['Du wirsch grad usgeschafft!', 'deportation joke; reads badly in Kreis 4/5'],
+];
 
 // --- reserve: researched / composed, NOT in use until vetted (research/chatter_mundart.md lists the sources) --------
 export const RESERVE = {
