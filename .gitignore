@@ -20,6 +20,11 @@ __pycache__/
 .env.*
 .DS_Store
 
+# wrangler local secrets for the bug-report Worker (docs/DEPLOY.md «Fehler melden»)
+web/.dev.vars
+web/.dev.vars.*
+!web/.dev.vars.example
+
 # generated tiles (pipeline output)
 web/public/tiles/
 

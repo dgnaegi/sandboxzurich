@@ -1,10 +1,23 @@
 {
-  // Static site on Cloudflare Workers (static assets). Build first: npm run build. Deploy: npm run deploy
+  // Static site on Cloudflare Workers (static assets) plus one Worker route: POST /api/report creates a GitHub issue from
+  // the in-game bug report (worker/index.ts). Build first: npm run build. Deploy: npm run deploy
+  // Secret, set once (docs/DEPLOY.md «Fehler melden»): npx wrangler secret put REPORT_GITHUB_TOKEN
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "sandboxzurich",
   "compatibility_date": "2026-10-12",
+  "main": "worker/index.ts",
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "none"
-  }
+    "not_found_handling": "none",
+    "run_worker_first": ["/api/*"]
+  },
+  "vars": {
+    // Repository that receives the issues (owner/name); override locally in .dev.vars to test against a fork
+    "REPORT_REPO": "dgnaegi/sandboxzurich"
+  },
+  // Abuse guard for /api/report, counted per Cloudflare location: per client (cf-connecting-ip) and for everyone
+  "ratelimits": [
+    { "name": "REPORT_LIMIT_IP", "namespace_id": "8001", "simple": { "limit": 3, "period": 60 } },
+    { "name": "REPORT_LIMIT_ALL", "namespace_id": "8002", "simple": { "limit": 20, "period": 60 } }
+  ]
 }

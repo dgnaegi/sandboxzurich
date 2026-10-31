@@ -1,0 +1,5 @@
+# Local secrets for `npx wrangler dev` (copy to .dev.vars, which is gitignored). Setup: docs/DEPLOY.md «Fehler melden».
+# Fine-grained GitHub token with «Issues: Read and write» on the repository below.
+REPORT_GITHUB_TOKEN=
+# Send test reports to your own fork instead of the main repository (default in wrangler.jsonc)
+# REPORT_REPO=you/sandboxzurich

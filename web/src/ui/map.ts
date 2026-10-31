@@ -3,6 +3,7 @@ import { MapData } from './map_data';
 import { GTA, applyView, drawBorders, drawFinish, drawWorld, type DrawOpts, type View } from './map_render';
 import { BLIP_NAMES, blipIcon, drawArrow } from './map_blips';
 import { drawLabels, type Jump, type PinHit } from './map_labels';
+import { typing } from '../input/keyboard';
 
 export type MapPlace = Jump;
 interface MapMeta { x0?: number; y1?: number; built: number[]; polygon?: number[][]; places: MapPlace[]; kreise: Record<string, number[][]>; kreis_at?: Record<string, number[]> }
@@ -32,6 +33,7 @@ export class CityMap {
     this.radar.addEventListener('click', () => this.toggle(true));
     document.getElementById('bigmap-close')!.addEventListener('click', () => this.toggle(false));
     window.addEventListener('keydown', (e) => {
+      if (typing(e)) return;   // text field (bug report) has the keyboard
       if (e.code === 'KeyM') this.toggle(!this.open);
       if (e.code === 'Escape') this.toggle(false);
       if (this.open && (e.key === '+' || e.key === '=')) this.zoomAt(1.4, innerWidth / 2, innerHeight / 2);
