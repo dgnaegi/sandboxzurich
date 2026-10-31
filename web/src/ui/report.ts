@@ -1,12 +1,14 @@
 import { BUILD } from '../engine/assetver';
 
 /**
- * «Fehler melden»: a pre-filled GitHub issue with what the player saw, where they stood and what the device was.
- * Nothing leaves the browser until the player submits the issue on GitHub: static site, no server, no token
- * (docs/DECISIONS.md #80). The issue tracker is https://github.com/<REPO>/issues.
+ * «Fehler melden»: what the player saw, where they stood and what the device was, filed as a GitHub issue.
+ * «Absenden» posts the report to `/api/report` (web/worker/index.ts), where the maintainer's token creates the issue,
+ * so players need no GitHub account. The pre-filled GitHub link stays as a fallback for people with an account and
+ * for when the Worker is down (docs/DECISIONS.md #80). The player sees the whole report before anything is sent.
  * The module also keeps the last console errors so a report can include them (installed at import time).
  */
 export const REPO = 'dgnaegi/sandboxzurich';
+const ENDPOINT = '/api/report';
 const TEMPLATE = 'bug_report.md';   // .github/ISSUE_TEMPLATE/bug_report.md; title and body from the query replace its text
 const MAX_ERRORS = 5, MAX_TEXT = 1500;
 const WEEKDAYS = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
@@ -27,6 +29,8 @@ export interface ReportInfo {
 }
 
 export interface Report { title: string; body: string }
+/** The issue the Worker created. */
+export interface Sent { url: string; number: number }
 
 // --- recent errors (ring buffer, never sent anywhere by itself) -----------------------------------------
 const errors: string[] = [];
@@ -79,22 +83,75 @@ export function report(i: ReportInfo, what: string): Report {
 }
 
 const enc = encodeURIComponent;
-/** GitHub pre-fills title and body from the query; the template supplies the label and the headings for issues opened by hand. */
+/** Fallback for players with a GitHub account: GitHub pre-fills title and body from the query; the template supplies the label and headings for issues opened by hand. */
 export const issueUrl = (r: Report) => `https://github.com/${REPO}/issues/new?template=${TEMPLATE}&labels=bug&title=${enc(r.title)}&body=${enc(r.body)}`;
+
+// --- sending -----------------------------------------------------------------------------------------------
+/** The Worker's stable error codes (worker/index.ts), in the player's words. */
+const REASONS: Record<string, string> = {
+  ratelimit: 'zu viele Meldungen, bitte in einer Minute nochmals',
+  unavailable: 'der Meldedienst ist nicht eingerichtet',
+  github: 'GitHub hat die Meldung nicht angenommen',
+  origin: 'Anfrage nicht von dieser Seite',
+  invalid: 'der Bericht ist ungültig',
+};
+
+/** POST the report to the Worker, which creates the issue with the maintainer's token. Throws with a short reason. */
+export async function send(r: Report): Promise<Sent> {
+  let res: Response;
+  try {
+    res = await fetch(ENDPOINT, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(r) });
+  } catch {
+    throw new Error('keine Verbindung');
+  }
+  const data = await res.json().catch(() => ({})) as Partial<Sent> & { error?: string };
+  if (!res.ok) throw new Error(REASONS[data.error ?? ''] ?? `Fehler ${res.status}`);
+  if (typeof data.url !== 'string' || typeof data.number !== 'number') throw new Error('unerwartete Antwort');
+  return { url: data.url, number: data.number };
+}
 
 // --- menu page ---------------------------------------------------------------------------------------------
 /** Fills the «Fehler melden» page of the menu; call `refresh()` when the page opens. */
 export function bindReportPage(page: HTMLElement, info: () => ReportInfo | null) {
   const q = <T extends HTMLElement>(s: string) => page.querySelector<T>(s)!;
   const what = q<HTMLTextAreaElement>('#r-text'), pre = q<HTMLPreElement>('#r-info'), github = q<HTMLAnchorElement>('#r-github');
-  let snap: ReportInfo | null = null;
-  const link = () => { if (snap) github.href = issueUrl(report(snap, what.value)); };
+  const sendBtn = q<HTMLButtonElement>('#r-send'), status = q<HTMLElement>('#r-status');
+  let snap: ReportInfo | null = null, busy = false;
+  const current = () => (snap ? report(snap, what.value) : null);
+  const link = () => { const r = current(); if (r) github.href = issueUrl(r); };
+  /** Status line under the button; an optional link (issue or GitHub fallback) is appended as an element, never as HTML. */
+  const say = (msg: string, kind: '' | 'ok' | 'err', a?: { href: string; text: string }) => {
+    status.className = kind;
+    status.textContent = msg;
+    if (a) {
+      const el = document.createElement('a');
+      el.href = a.href; el.target = '_blank'; el.rel = 'noopener'; el.textContent = a.text;
+      status.append(' ', el);
+    }
+  };
   const refresh = () => {
     snap = info();
     pre.textContent = snap ? context(snap).replace(/\*\*/g, '') : 'Das Spiel ist noch nicht geladen.';
+    sendBtn.disabled = !snap || busy;
     link();
   };
   what.maxLength = MAX_TEXT;
-  what.addEventListener('input', link);
+  what.addEventListener('input', () => { link(); if (status.className) say('', ''); });
+  sendBtn.addEventListener('click', async () => {
+    const r = current();
+    if (!r || busy) return;
+    if (!what.value.trim()) { say('Bitte zuerst kurz beschreiben, was passiert ist.', 'err'); what.focus(); return; }
+    busy = true; sendBtn.disabled = true;
+    say('Wird gesendet …', '');
+    try {
+      const s = await send(r);
+      what.value = ''; link();
+      say(`Danke! Dein Bericht ist jetzt Fehler #${s.number}.`, 'ok', { href: s.url, text: 'Ansehen' });
+    } catch (e) {
+      say(`Senden hat nicht geklappt (${(e as Error).message}). Du kannst den Bericht stattdessen`, 'err', { href: issueUrl(r), text: 'selbst auf GitHub einreichen.' });
+    } finally {
+      busy = false; sendBtn.disabled = !snap;
+    }
+  });
   return { refresh };
 }

@@ -31,11 +31,12 @@
       <button id="m-report">Fehler melden</button><button id="m-credits">Credits</button><button id="m-imprint">Impressum</button>
     </div>
     <div class="m-page" data-page="report"><h2>Fehler melden</h2>
-      <p class="r-lead">Was hast du gesehen? Ort, Gerät und Build hängen wir automatisch an. Du kannst vor dem Absenden alles noch ändern.</p>
+      <p class="r-lead">Was hast du gesehen? Ort, Gerät und Build hängen wir automatisch an; unten siehst du, was mitgeschickt wird.</p>
       <textarea id="r-text" rows="4" placeholder="Was ist passiert? Was hast du erwartet?" autocomplete="off" spellcheck="true"></textarea>
       <pre id="r-info"></pre>
-      <a id="r-github" class="m-btn" href="https://github.com/dgnaegi/sandboxzurich/issues/new" target="_blank" rel="noopener">Auf GitHub melden</a>
-      <small class="r-note">GitHub öffnet sich in einem neuen Tab (GitHub-Konto nötig). Gesendet wird erst, wenn du es dort abschickst. Ohne Konto: Menü → Kontakt.</small>
+      <button id="r-send">Absenden</button>
+      <div id="r-status" role="status"></div>
+      <small class="r-note">Der Bericht wird als öffentliches Issue im <a href="https://github.com/dgnaegi/sandboxzurich/issues" target="_blank" rel="noopener">GitHub-Projekt</a> gespeichert; ein Konto brauchst du dafür nicht. Mit GitHub-Konto kannst du ihn auch <a id="r-github" href="https://github.com/dgnaegi/sandboxzurich/issues/new" target="_blank" rel="noopener">selbst auf GitHub einreichen</a>.</small>
       <button class="m-back">Zurück</button></div>
     <div class="m-page" data-page="settings"><h2>Einstellungen</h2>
       <div class="s-row"><label for="s-sens">Kamera-Empfindlichkeit</label><input id="s-sens" type="range" min="0.4" max="2.5" step="0.1" value="1" /></div>
@@ -60,7 +61,7 @@
     <div class="m-page" data-page="imprint"><h2>Impressum</h2>
       <p>Verantwortlich: Daniel Gnägi, <a href="mailto:daniel.gnaegi@protonmail.com">daniel.gnaegi@protonmail.com</a>. Alle Figuren, Firmen und Ereignisse im Spiel sind erfunden, ausser realen Orten und Läden als neutrale Kulisse. Kein Tracking.</p>
       <h3>Datenschutz</h3>
-      <p>Keine Cookies, keine Werbung, kein Konto. Einstellungen und Spielstand bleiben nur in deinem Browser (localStorage). Die Seite wird über Cloudflare ausgeliefert; dabei fallen technisch nötige Server-Logs an (z.&nbsp;B. IP-Adresse, Zeitpunkt), die wir nicht auswerten. Für eine anonyme Besucherstatistik nutzen wir Cloudflare Web Analytics: ohne Cookies, ohne Fingerprinting und ohne Profilbildung über Websites hinweg. Erfasst werden nur aggregierte Angaben wie aufgerufene Seite, Herkunftsseite, Land, Browser und Ladezeiten. Wenn du uns per E-Mail schreibst, nutzen wir die Angaben nur für die Antwort. «Fehler melden» öffnet ein vorausgefülltes Formular auf GitHub (dort gelten die Bedingungen von GitHub); das Spiel sendet nichts von selbst, und du siehst vorher, was drinsteht. Fragen: siehe E-Mail oben.</p>
+      <p>Keine Cookies, keine Werbung, kein Konto. Einstellungen und Spielstand bleiben nur in deinem Browser (localStorage). Die Seite wird über Cloudflare ausgeliefert; dabei fallen technisch nötige Server-Logs an (z.&nbsp;B. IP-Adresse, Zeitpunkt), die wir nicht auswerten. Für eine anonyme Besucherstatistik nutzen wir Cloudflare Web Analytics: ohne Cookies, ohne Fingerprinting und ohne Profilbildung über Websites hinweg. Erfasst werden nur aggregierte Angaben wie aufgerufene Seite, Herkunftsseite, Land, Browser und Ladezeiten. Wenn du uns per E-Mail schreibst, nutzen wir die Angaben nur für die Antwort. «Fehler melden» schickt deine Beschreibung und den angezeigten Kontextblock (Ort im Spiel, Fahrzeug, Gerät, Browser, Grafikstufe, letzte Fehlermeldungen) an unseren Dienst bei Cloudflare, der daraus ein öffentliches Issue auf GitHub erstellt (dort gelten die Bedingungen von GitHub); der Bericht ist für alle lesbar, schreib also nichts Persönliches hinein. Deine IP-Adresse dient dabei nur kurz der Begrenzung der Meldungen pro Minute und wird nicht gespeichert. Das Spiel sendet nichts von selbst, und du siehst vorher, was drinsteht. Fragen: siehe E-Mail oben.</p>
       <button class="m-back">Zurück</button></div>
   </div>
   <div id="toast"><div id="toast-kicker"></div><div id="toast-title"></div><div id="toast-text"></div></div>

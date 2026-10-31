@@ -1,6 +1,6 @@
 # Deploy (Cloudflare Pages)
 
-Das Spiel ist eine rein statische Website (HTML, JavaScript, Kacheln, Modelle). Kein Server, keine Datenbank, kein Login. Cloudflare Pages liefert alles über sein CDN aus; Scalingo wird nicht gebraucht.
+Das Spiel ist eine rein statische Website (HTML, JavaScript, Kacheln, Modelle). Kein Server, keine Datenbank, kein Login; einzige Ausnahme ist die winzige Worker-Route `/api/report` für «Fehler melden» (Abschnitt unten). Cloudflare liefert alles über sein CDN aus; Scalingo wird nicht gebraucht.
 
 Stand 2026-10-16: `web/dist/` = 141 MB, 961 Dateien, keine Datei über 5 MB (Cloudflare-Limits: 20'000 Dateien, 25 MB pro Datei). Download bis spielbar ca. 21 MB (14 MB komprimiert).
 
@@ -68,3 +68,16 @@ Dashboard → Projekt → Custom domains → Domain eintragen und den angezeigte
 - `wrangler: not logged in` → `npx wrangler login` wiederholen.
 - Seite lädt, Welt bleibt leer → wurde `web/public/tiles/` gebaut? (`ls web/public/tiles | wc -l` sollte ~600 zeigen).
 - Alte Version sichtbar → Browser hart neu laden (Cmd+Shift+R); `index.html` ist nicht gecacht.
+
+## Fehler melden: GitHub-Token für den Worker
+Menü → «Fehler melden» → «Absenden» schickt den Bericht an `POST /api/report`. Das ist ein kleines Worker-Script (`web/worker/index.ts`), das `wrangler deploy` automatisch neben den statischen Dateien mitnimmt (`web/wrangler.jsonc`: `main`, `assets.run_worker_first`). Es legt das Issue mit einem GitHub-Token an, das nur auf dem Worker liegt, nie im Browser. Ohne Token antwortet die Route 503 und das Spiel zeigt stattdessen den vorausgefüllten GitHub-Link; sonst ändert sich nichts.
+
+1. **Token erstellen:** https://github.com/settings/personal-access-tokens/new → Fine-grained token, Resource owner `dgnaegi`, **Only select repositories → sandboxzurich**, Repository permissions → **Issues: Read and write** (sonst nichts). Ablaufdatum merken und rechtzeitig erneuern (Schritt 2 wiederholen). Die Issues erscheinen unter diesem Konto; die erste Zeile («Aus dem Spiel gemeldet») und das Label `bug` kennzeichnen sie. Wer das nicht will, nimmt ein eigenes Bot-Konto mit Schreibrecht auf das Repo.
+2. **Token hinterlegen,** eine der beiden Varianten:
+   - GitHub Actions: Repo → Settings → Secrets and variables → Actions → New repository secret `REPORT_GITHUB_TOKEN`. Der Deploy-Workflow schreibt es nach jedem Deploy mit `wrangler secret put` in den Worker (Schritt «Report token»; ohne Secret wird er übersprungen). Nächster Push auf `main` oder «Run workflow» aktiviert es.
+   - Lokal: `cd web && npx wrangler secret put REPORT_GITHUB_TOKEN` (Token einfügen). Secrets überleben spätere Deploys.
+3. **Prüfen:** Spiel öffnen → Menü → Fehler melden → kurzer Text → Absenden. Es erscheint «Danke! Dein Bericht ist jetzt Fehler #N» mit Link; das Issue steht unter https://github.com/dgnaegi/sandboxzurich/issues.
+
+Missbrauchsschutz: nur Anfragen von der eigenen Seite (Origin), höchstens 16 KB, 3 Meldungen pro Minute und IP, 20 pro Minute insgesamt (Rate-Limit-Bindings in `wrangler.jsonc`, pro Cloudflare-Standort gezählt). Reicht das nicht, Cloudflare Turnstile vor den Knopf setzen oder das Secret löschen (`npx wrangler secret delete REPORT_GITHUB_TOKEN`): Dann gilt sofort wieder nur der GitHub-Link.
+
+Lokal testen (Wrangler braucht Node ≥ 22): `cp web/.dev.vars.example web/.dev.vars`, Token eintragen (für Tests besser `REPORT_REPO=<eigener Fork>` dazu), dann `cd web && npm run build && npx wrangler dev` → http://localhost:8787. Der Vite-Dev-Server (`npm run dev`) hat die Route nicht; dort zeigt «Absenden» den Fehler und den GitHub-Link. Tests: `node tests/report_api.mjs` (Worker mit gestubbter GitHub-API, ohne Cloudflare) und `node tests/report_ui.mjs` (Seite im Spiel, Route gemockt).
