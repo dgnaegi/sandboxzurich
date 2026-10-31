@@ -22,7 +22,7 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 import metrics as M  # noqa: E402
 import scope_av  # noqa: E402
 from ramp_sites import site as site_cfg  # noqa: E402
-from rows import Rows  # noqa: E402
+from rows import Rows, is_site_row  # noqa: E402
 
 STEP = 2.0
 TSV_COLS = ("s", "x", "y", "model", "kind", "z", "g", "b", "wl", "wr", "lz", "lflag", "lg", "av_mode", "av_lo", "av_hi", "road_lo", "road_hi", "wall_gl", "wall_gr")
@@ -135,7 +135,7 @@ def score_site(name, tiles_dir, label="current", override=None):
     for variant in ("live", "current"):
         R = Rows(tiles_dir, variant, override if variant == "current" else None); chains = R.site_chains(cfg)
         others = M.other_axes(R, cfg); cover = M.deck_cover(R, cfg["view"])
-        is_site = lambda t, k, d: cfg["match"] in (d.get("name") or "") and d["kind"] in cfg["kinds"]
+        is_site = lambda t, k, d: is_site_row(cfg, d)
         taken = M.deck_cover(R, cfg["view"], kinds=("road",), exclude=is_site)   # other road decks sharing the structure
         from shapely.geometry import LineString
         axes = {c: LineString(c.P[:, :2]) for c in chains}

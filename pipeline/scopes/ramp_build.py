@@ -42,7 +42,7 @@ import metrics as M  # noqa: E402
 import ramp_lidar as RL  # noqa: E402
 import scope_av  # noqa: E402
 from ramp_sites import site as site_cfg  # noqa: E402
-from rows import Rows, Chain  # noqa: E402
+from rows import Rows, Chain, is_site_row  # noqa: E402
 import join as J  # noqa: E402
 
 STEP = 2.0
@@ -87,6 +87,7 @@ class Build:
     def __init__(self, name, tiles_dir):
         self.cfg = site_cfg(name); self.av = scope_av.load(name)
         self.R = Rows(tiles_dir, "live"); self.chains = self.R.site_chains(self.cfg)
+        self.site_keys = {(t, k) for c in self.chains for t, k, _ in c.rows}
         self.decks_av, self.wall_u = self.av.geoms("deck"), self.av.union("wall")
         self.lines = []
 
@@ -305,7 +306,7 @@ class Build:
         return out, len(dropped)
 
     def footways(self, decks):
-        sel = {(t, k) for t, k, d in self.R.decks() if self.cfg["match"] in (d.get("name") or "") and d["kind"] in self.cfg["kinds"]}
+        sel = {(t, k) for t, k, d in self.R.decks() if (t, k) in self.site_keys}
         drop = set()
         for t, k, d in self.R.decks():
             if d["kind"] != "foot" or (t, k) in sel:

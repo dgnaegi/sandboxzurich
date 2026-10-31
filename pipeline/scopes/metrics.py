@@ -17,6 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE)); sys.path.insert(0, HERE)
 import lidar  # noqa: E402
 import ramp_lidar  # noqa: E402
+from rows import is_site_row  # noqa: E402
 
 HALF = 30.0      # m: half length of the cast normal
 EXT = 60.0       # m: axis continuation beyond grade / air chain ends for the landing analysis
@@ -134,7 +135,7 @@ def other_axes(rows, cfg):
     from shapely.geometry import LineString
     out = []
     for t, k, d in rows.decks():
-        if d["kind"] in ("road", "tram") and not (cfg["match"] in (d.get("name") or "") and d["kind"] in cfg["kinds"]):
+        if d["kind"] in ("road", "tram") and not is_site_row(cfg, d):
             out.append(LineString(np.array(d["p"], float)[:, :2]))
     return out
 

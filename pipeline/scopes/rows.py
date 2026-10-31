@@ -107,7 +107,16 @@ class Rows:
                 yield q
 
     def site_chains(self, cfg):
-        rows = [(t, k, d) for t, k, d in self.decks() if cfg["match"] in (d.get("name") or "") and d["kind"] in cfg["kinds"]]
+        rows = [(t, k, d) for t, k, d in self.decks() if is_site_row(cfg, d)]
+        if cfg.get("seed"):                       # unnamed rows: the chains passing within r of the seed, among the rows in the fetch box
+            sx, sy, sr = cfg["seed"]; fb = cfg["fetch"]
+            rows = [(t, k, d) for t, k, d in rows if clip_box(np.array(d["p"], float)[:, :2], fb).any()]
+            from shapely.geometry import LineString, Point
+            keep = []
+            for ch in ramp_lidar.chains_of(rows):
+                if any(LineString(np.array(d["p"], float)[:, :2]).distance(Point(sx, sy)) <= sr for _, _, d in ch):
+                    keep += ch
+            rows = keep
         sel = {(t, k) for t, k, _ in rows}
         others = np.array([p[:2] for t, k, d in self.decks() if (t, k) not in sel and d["kind"] != "rail" for p in d["p"]], float)
         chains = []
@@ -142,6 +151,14 @@ class Rows:
         from shapely.geometry import LineString, Point
         axes = [LineString(c.P[:, :2]) for c in chains]
         return [q for q in self.piers() if any(ax.distance(Point(q[0], q[1])) < dist for ax in axes)]
+
+
+def is_site_row(cfg, d):
+    """Does deck row d belong to the site? name match (substring or tuple of substrings; "" = any) and kind."""
+    if d["kind"] not in cfg["kinds"]:
+        return False
+    m = cfg["match"]; name = d.get("name") or ""
+    return any(x in name for x in m) if isinstance(m, tuple) else (m in name)
 
 
 def clip_box(xy, box):
