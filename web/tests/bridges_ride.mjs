@@ -34,12 +34,13 @@ await page.evaluate(() => { window.sbxMap.open = true; });
 const SIM = async ({ route, mode }) => {
   const P = window.sbxPlayer, T = window.sbxTiles, cam = window.sbxCamera;
   const actions = window.sbxActions;
-  let pts = route.pts;
+  let pts = route.pts, clipped = false;
   { // keep the longest run inside the playable area (fence at the map border)
     const dense = []; for (let i = 0; i + 1 < pts.length; i++) { const n = Math.ceil(Math.hypot(pts[i + 1][0] - pts[i][0], pts[i + 1][1] - pts[i][1]) / 2); for (let k = 0; k < n; k++) dense.push([pts[i][0] + (pts[i + 1][0] - pts[i][0]) * k / n, pts[i][1] + (pts[i + 1][1] - pts[i][1]) * k / n]); }
     dense.push(pts[pts.length - 1]);
     let best = [0, 0], st = -1;
     dense.forEach((q, i) => { const ok = P.tiles.inPlay(q[0], q[1]); if (ok && st < 0) st = i; if ((!ok || i === dense.length - 1) && st >= 0) { const en = ok ? i : i - 1; if (en - st > best[1] - best[0]) best = [st, en]; st = -1; } });
+    clipped = best[0] > 0;
     pts = dense.slice(best[0] + 3, Math.max(best[0] + 5, best[1] - 3));
   }
   const cum = [0];
@@ -61,8 +62,15 @@ const SIM = async ({ route, mode }) => {
     if (mode === 'foot' && P.riding) { P.riding = null; P.rig.hide(); }
   }
   await T.update(x0, y0);
-  if (mode !== 'car') { P.teleport(x0, y0, h0); P.heading = h0; P.z = T.groundAt(x0, y0, T.ground(x0, y0)); }
-  else { car.z = T.groundAt(x0, y0, T.ground(x0, y0)); P.x = x0; P.y = y0; }
+  // a route clipped at the play-area fence can start mid-bridge: spawn on the deck when the first 12 m of the route lie on one
+  // continuous deck (otherwise the rider starts on the terrain under it, Kornhausbrücke); unclipped routes start at grade
+  let zHint = T.ground(x0, y0);
+  if (clipped) {
+    const hs = [0, 6, 12].map((s) => { const q = at(s); return T.bridges.heightAt(q[0], q[1], 1e4, 2e4, 0); });
+    if (hs.every((h) => h !== null) && Math.abs(hs[0] - hs[2]) < 12 * 0.15 && hs[0] > zHint + 1) zHint = hs[0];
+  }
+  if (mode !== 'car') { P.teleport(x0, y0, h0); P.heading = h0; P.z = T.groundAt(x0, y0, zHint); }
+  else { car.z = T.groundAt(x0, y0, zHint); P.x = x0; P.y = y0; }
   let crashes = 0; if (car) car.onCrash = (c) => {
     // diagnostic: which collider class acted (same frame state): elevated deck?, railing push and footprint push at the body circles
     const fx = Math.sin(car.h), fy = Math.cos(car.h), rx = fy, ry = -fx, rad = car.radius;

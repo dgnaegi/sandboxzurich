@@ -51,8 +51,13 @@ def rebuild(new_decks, rows, skip_keys, ground):
         return {}, []
     fp = shapely.union_all([footprint(np.array(d["p"], float)[:, :2], np.array(d["wl"], float), np.array(d["wr"], float)) for d in roads])
     near = fp.buffer(NEAR)
-    allpts = np.array([q[:2] for t, k, d in rows.decks() if d["kind"] != "rail" for q in d["p"]] +
-                      [q[:2] for d in new_decks for q in d["p"]], float)
+    pts, ids = [], []
+    for t, k, d in rows.decks():
+        if d["kind"] != "rail":
+            pts += [q[:2] for q in d["p"]]; ids += [(t, k)] * len(d["p"])
+    for d in new_decks:
+        pts += [q[:2] for q in d["p"]]; ids += [("new", id(d))] * len(d["p"])
+    allpts = np.array(pts, float); allids = ids
     out, lines, n_ext, n_trim = {}, [], 0, 0
     for t, k, d in rows.decks():
         if d["kind"] != "foot" or (t, k) in skip_keys or len(d["p"]) < 2:
@@ -92,7 +97,7 @@ def rebuild(new_decks, rows, skip_keys, ground):
                 if e[2] - ground(e[0], e[1]) <= AT_GRADE:
                     continue
                 dd = np.hypot(allpts[:, 0] - e[0], allpts[:, 1] - e[1])
-                if (dd < JUNCTION).sum() > 2:        # other decks meet this end (its own two neighbouring vertices aside)
+                if any(allids[q] != (t, k) for q in np.flatnonzero(dd < JUNCTION)):   # another deck meets this end
                     continue
                 prev = Q[1] if end == 0 else Q[-2]
                 v = e[:2] - prev[:2]; v = v / (np.hypot(*v) or 1.0); nv = np.array([-v[1], v[0]])

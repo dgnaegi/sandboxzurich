@@ -47,7 +47,10 @@ import join as J  # noqa: E402
 
 STEP = 2.0
 EXT = 80.0          # m: longest continuation beyond an air end
-GRADE_EXT = 20.0    # m: a grade end follows the cadastre structure (edge polygons, walls) this far at most
+LANDING_R = 35.0    # m: graph landing nodes this close to a grade end seed approaches
+GRADE_RUN = 3       # stations at grade in a row that make a landing
+CAD_EXT = 20.0      # m: a grade end follows the cadastre structure (edge polygons, walls) this far at most
+GRADE_EXT = 60.0    # m: a grade end follows the cadastre structure (edge polygons, walls) or a terrain hole this far at most
 SIDE_MAX = 20.0     # m: a cadastre edge further than this from the axis belongs to the main deck (other decks and siblings already cut the slice)
 SIDE_MIN = 1.2
 W_STEP = 4.0        # m per station: width rate limit (the cadastre edge caps it; skewed crossings need fast widening)
@@ -111,6 +114,8 @@ class Build:
             if ends[end] == "grade":   # at grade already: follow the cadastre structure (edge polygons, walls) to its end, at most GRADE_EXT
                 keep = 0
                 for i in range(len(C)):
+                    if t[i] > CAD_EXT:
+                        break
                     nv = self._nrm(C, i)
                     sv = M.structure(M.deck_slices(C[i], nv, self.decks_av))
                     gl, gr = M.nearest_side(M.intervals(C[i], nv, self.wall_u), wl0[end], wr0[end])
@@ -119,7 +124,11 @@ class Build:
                     else:
                         break
                 if keep == 0:
-                    continue
+                    keep = self.hole_run(C, t, float(z0[end]), wl0[end], wr0[end])   # terrain hole beyond the end: follow the LiDAR ground
+                    if keep == 0:
+                        continue
+                    self.lines.append(f"  - grade {'end' if end == -1 else 'start'}: the game terrain beyond lies below the LiDAR ground (terrain hole); "
+                                      f"continued {t[keep - 1]:.0f} m along the road graph on the LiDAR ground until it meets the terrain")
                 C, t = C[:keep], t[:keep]
                 gc = RL.fill_nan(self.R.ground(C[:, 0], C[:, 1]), t)
                 if end == -1:
@@ -137,7 +146,9 @@ class Build:
                 if np.isfinite(zc[i]):
                     zp = zc[i]
             zc = np.maximum(RL.smooth(RL.fill_nan(zc, t), 5), gc)
-            hit = next((i for i in range(len(C)) if zc[i] - gc[i] < AT_GRADE), None)
+            # grade = the surface stays at grade over GRADE_RUN stations (one high terrain sample inside a terrain hole is not a landing)
+            low = (zc - gc) < AT_GRADE
+            hit = next((i for i in range(len(C)) if low[i:i + GRADE_RUN].all() and (i + GRADE_RUN <= len(C) or i == len(C) - 1)), None)
             if hit is None:
                 self.lines.append(f"  - continuation at ({C[0,0]:.0f},{C[0,1]:.0f}): no grade within {EXT:.0f} m, end stays in the air")
                 continue
@@ -153,6 +164,104 @@ class Build:
             self.lines.append(f"  - continuation at {'end' if end == -1 else 'start'}: {t[hit]:.0f} m along the road graph to grade")
         nrm, tan = c.normals(xy)
         return {"xy": xy, "z0": z0, "g": g, "wl0": wl0, "wr0": wr0, "s": s - s[0], "nrm": nrm, "tan": tan}, ends
+
+    def approaches(self, decks):
+        """Approach decks over terrain holes: from every grade end of the site's decks, each road-graph edge leaving a node within
+        LANDING_R that the new decks do not cover (at-grade roads, and OSM deck edges beyond the deck rows) is followed on the LiDAR
+        surface while the game terrain lies more than AT_GRADE below it (Kornhausbrücke: the OSM deck runs on beyond the deck rows
+        over a 3 m terrain hole). Solid, at most GRADE_EXT m long."""
+        import shapely
+        roads = self.R.roads if self.R.roads is not None else RL.Roads()
+        self.R.roads = roads
+        cover = shapely.union_all([J.footprint(np.array(d["p"], float)[:, :2], np.array(d["wl"], float), np.array(d["wr"], float)) for d in decks]).buffer(0.5)
+        out = []
+        for d in list(decks):
+            for end, kind in d["_ends"].items():
+                if kind != "grade":
+                    continue
+                e = np.array(d["p"][0 if end == 0 else -1], float)
+                dn = np.hypot(roads.nodes[:, 0] - e[0], roads.nodes[:, 1] - e[1])
+                is_deck = lambda i: bool(roads.edges[i].get("z")) and any(v is not None for v in roads.edges[i]["z"])
+                # the graph's landing nodes near this end: the node at the end, or nodes within LANDING_R where a deck edge meets an
+                # at-grade edge (the OSM deck often runs on beyond the deck rows, Kornhausbrücke 20 m)
+                seeds = [int(n) for n in np.argsort(dn) if dn[n] <= LANDING_R]
+                for node in seeds:
+                    lead = [] if dn[node] <= 3.0 else [roads.nodes[node].tolist()]
+                    for i in roads.adj.get(node, []):
+                        edge = roads.edges[i]
+                        P = roads.pts(i, node)
+                        if len(P) < 2 or self.covered(P, cover):
+                            continue                                    # the new decks carry this edge (or it runs under them)
+                        v = np.array(P[1], float) - np.array(P[0], float); v = v / (np.linalg.norm(v) or 1.0)
+                        cont = roads.continue_from(roads.nodes[node], v, GRADE_EXT)
+                        if not cont:
+                            continue
+                        C, t = RL.resample(np.vstack([e[None, :2]] + ([np.array(lead, float)] if lead else []) + [np.array(cont, float)]), STEP)
+                        w = max(1.6, float(edge.get("w") or 6.0) / 2)
+                        from shapely.geometry import Point
+                        if np.mean([cover.contains(Point(*q)) for q in C]) > 0.4:
+                            continue                                    # mostly on the new decks: the bridge's own edge
+                        zs, gs, zp = [], [], float(e[2])
+                        for k in range(len(C)):                         # LiDAR surface along the path; ground class only (bridge class = a deck)
+                            zl, fl = M.lidar_strip(C[k], self._nrm(C, k), w, w, zp)
+                            gq = float(self.R.ground(C[k:k + 1, 0], C[k:k + 1, 1])[0])
+                            if not np.isfinite(zl) or not np.isfinite(gq) or fl != 2:
+                                break
+                            if zs:
+                                zl = max(min(zl, zp + MAX_SLOPE * STEP), zp - MAX_SLOPE * STEP)
+                            zp = zl; zs.append(zl); gs.append(gq)
+                        diff = np.array(zs) - np.array(gs) if zs else np.zeros(0)
+                        h = next((k for k in range(len(diff)) if diff[k] > AT_GRADE), None)
+                        if h is None:
+                            continue
+                        k0 = max(0, h - 1)
+                        k1 = next((k for k in range(h + 1, len(diff)) if (diff[k:k + GRADE_RUN] <= AT_GRADE).all()), None)
+                        if k1 is None or k1 - k0 < 2:
+                            continue                                    # the hole does not close within GRADE_EXT: terrain pass
+                        C, t = C[k0:k1 + 1], t[k0:k1 + 1] - t[k0]; zs, gs = zs[k0:k1 + 1], gs[k0:k1 + 1]
+                        n = len(zs); Q = C[:n]; gg = np.array(gs)
+                        zz = np.maximum(np.array(zs), gg)
+                        flush = [1 if t[k] <= END_FLUSH else 0 for k in range(n)]
+                        out.append({"p": [[round(float(x), 2), round(float(y), 2), round(float(z), 2)] for (x, y), z in zip(Q, zz)],
+                                    "g": [round(float(v), 2) for v in gg], "b": [round(float(v), 2) for v in gg], "w": round(2 * w, 1),
+                                    "wl": [round(w, 2)] * n, "wr": [round(w, 2)] * n, "ol": flush, "or": list(flush), "kind": "road",
+                                    "name": d["name"], "site": self.cfg["name"], "_kind": np.ones(n, int), "_mode": np.zeros(n, int),
+                                    "_flag": np.full(n, 2), "_thick": 1.0, "_ends": {0: "joint", -1: "grade"}, "_s": t[:n], "_tan": self._tans(Q)})
+                        poly = __import__("shapely.geometry", fromlist=["LineString"]).LineString(Q)
+                        if any(poly.hausdorff_distance(__import__("shapely.geometry", fromlist=["LineString"]).LineString(np.array(a["p"])[:, :2])) < 4.0 for a in out[:-1]):
+                            out.pop(); continue                         # the same road as car and bike edge
+                        self.lines.append(f"  - approach over a terrain hole from ({e[0]:.0f},{e[1]:.0f}): {t[n - 1]:.0f} m along an at-grade road on the LiDAR ground, "
+                                          f"up to {float(np.max(zz - gg)):.1f} m above the game terrain")
+        return out
+
+    @staticmethod
+    def covered(P, cover, probe=8.0):
+        """Is the first `probe` m of polyline P (from its start node) inside the new decks' footprint?"""
+        from shapely.geometry import LineString
+        ln = LineString(P)
+        pts = [ln.interpolate(min(x, ln.length)) for x in (2.0, 4.0, 6.0, probe)]
+        return sum(cover.contains(q) for q in pts) >= 3
+
+    @staticmethod
+    def _tans(Q):
+        T = np.zeros((len(Q), 2))
+        for i in range(len(Q)):
+            a = Q[max(i - 1, 0)]; b = Q[min(i + 1, len(Q) - 1)]; v = b - a; T[i] = v / (np.linalg.norm(v) or 1.0)
+        return T
+
+    def hole_run(self, C, t, z_end, wl, wr):
+        """Number of continuation stations (along C) on which the LiDAR ground stays above the game terrain by more than
+        AT_GRADE, starting right after a grade end; 0 when the terrain is fine there. Includes the first station at grade."""
+        zp = z_end; n = 0
+        for i in range(len(C)):
+            zl, _ = M.lidar_strip(C[i], self._nrm(C, i), wl, wr, zp)
+            gq = float(self.R.ground(C[i:i + 1, 0], C[i:i + 1, 1])[0])
+            if not np.isfinite(zl) or not np.isfinite(gq):
+                return 0 if n == 0 else n
+            n = i + 1; zp = zl
+            if zl - gq <= AT_GRADE:
+                return 0 if i == 0 else n
+        return n
 
     @staticmethod
     def _nrm(C, i):
@@ -306,6 +415,7 @@ class Build:
                               f"cadastre edges at {int((mode > 0).sum()) * STEP:.0f} m (edge pairs {int((mode == 2).sum()) * STEP:.0f} m); flush left/right {int(fl.sum()) * STEP:.0f}/{int(fr.sum()) * STEP:.0f} m; "
                               f"grade/solid/deck {int((kind == 0).sum()) * STEP:.0f}/{int((kind == 1).sum()) * STEP:.0f}/{int((kind == 2).sum()) * STEP:.0f} m; "
                               f"ends {ends[0]}/{ends[-1]} at {z[0] - st['g'][0]:+.1f}/{z[-1] - st['g'][-1]:+.1f} m above ground; max slope {np.max(np.abs(np.diff(z)) / STEP) * 100:.0f} % at s {st['s'][int(np.argmax(np.abs(np.diff(z))))]:.0f}")
+        decks += self.approaches(decks)
         piers, dropped = self.piers(decks)
         self.lines.append(f"- piers: {len(piers)} from the cadastre under elevated deck sections, {dropped} live rule-spaced piers dropped")
         drop = self.footways(decks)
