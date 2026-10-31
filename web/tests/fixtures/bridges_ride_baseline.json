@@ -1,0 +1,499 @@
+{
+ "updated": "2026-10-31",
+ "label": "base",
+ "summary": {
+  "problems": 48,
+  "hard": 19,
+  "stuck": 14,
+  "fell": 2,
+  "crash": 3,
+  "error": 0
+ },
+ "rides": {
+  "car|Hohlstrasse|238,-413": {
+   "status": "stuck",
+   "progress": 133,
+   "len": 298
+  },
+  "car|Stauffacherbr\u00fccke|998,-1328": {
+   "status": "raw",
+   "progress": 149,
+   "len": 155
+  },
+  "car|Schanzengrabenpromenade|1096,-1226": {
+   "status": "raw",
+   "progress": 127,
+   "len": 132
+  },
+  "car|Gessnerbr\u00fccke|1536,-904": {
+   "status": "stuck",
+   "progress": 11,
+   "len": 133
+  },
+  "car|Kornhausbr\u00fccke|1448,416": {
+   "status": "jump",
+   "progress": 63,
+   "len": 189
+  },
+  "car|Stauffacherstrasse|139,-557": {
+   "status": "fell",
+   "progress": 218,
+   "len": 249
+  },
+  "car|Hardbr\u00fccke|630,1125": {
+   "status": "jump",
+   "progress": 328,
+   "len": 1393
+  },
+  "car|cars 1756,-566|1585,-473": {
+   "status": "ok",
+   "progress": 132,
+   "len": 137
+  },
+  "car|Walchebr\u00fccke|1612,-398": {
+   "status": "ok",
+   "progress": 104,
+   "len": 386
+  },
+  "car|Wipkingerbr\u00fccke|605,1030": {
+   "status": "crash",
+   "progress": 114,
+   "len": 120
+  },
+  "car|Duttweilerbr\u00fccke|-590,85": {
+   "status": "raw",
+   "progress": 183,
+   "len": 638
+  },
+  "car|Kalkbreitestrasse|387,-1060": {
+   "status": "crash",
+   "progress": 225,
+   "len": 231
+  },
+  "car|cars 1354,-1538|1254,-1625": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "car|Hardbr\u00fccke|492,737": {
+   "status": "raw",
+   "progress": 111,
+   "len": 117
+  },
+  "car|Badenerstrasse|104,-976": {
+   "status": "raw",
+   "progress": 168,
+   "len": 173
+  },
+  "car|Schanzengrabenpromenade|1597,-863": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "car|Zweierstrasse|360,-1398": {
+   "status": "raw",
+   "progress": 210,
+   "len": 215
+  },
+  "car|cars 624,1150|652,1183": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "car|Schanzengrabenpromenade|1212,-1200": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "car|Sihlbr\u00fccke|1309,-1241": {
+   "status": "fell",
+   "progress": 133,
+   "len": 139
+  },
+  "car|cars 677,1120|782,1135": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "car|cars 1613,-1682|1462,-1774": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "car|Kanzleistrasse|314,-804": {
+   "status": "ok",
+   "progress": 65,
+   "len": 269
+  },
+  "bike|Stauffacherbr\u00fccke|1001,-1327": {
+   "status": "ok",
+   "progress": 28,
+   "len": 158
+  },
+  "bike|Schanzengrabenpromenade|1095,-1224": {
+   "status": "jump",
+   "progress": 131,
+   "len": 137
+  },
+  "bike|Gessnerbr\u00fccke|1534,-907": {
+   "status": "ok",
+   "progress": 11,
+   "len": 153
+  },
+  "bike|Kornhausbr\u00fccke|1450,415": {
+   "status": "ok",
+   "progress": 64,
+   "len": 189
+  },
+  "bike|Stauffacherstrasse|140,-555": {
+   "status": "jump",
+   "progress": 174,
+   "len": 253
+  },
+  "bike|bikes 1757,-563|1587,-471": {
+   "status": "ok",
+   "progress": 9,
+   "len": 77
+  },
+  "bike|HB Perron 18|1608,-397": {
+   "status": "ok",
+   "progress": 109,
+   "len": 443
+  },
+  "bike|Hohlstrasse|312,-455": {
+   "status": "stuck",
+   "progress": 96,
+   "len": 130
+  },
+  "bike|Wipkingerbr\u00fccke|606,1030": {
+   "status": "crash",
+   "progress": 41,
+   "len": 124
+  },
+  "bike|Duttweilerbr\u00fccke|-588,85": {
+   "status": "ok",
+   "progress": 187,
+   "len": 643
+  },
+  "bike|Kalkbreitestrasse|440,-1071": {
+   "status": "jump",
+   "progress": 288,
+   "len": 294
+  },
+  "bike|bikes 1355,-1545|1253,-1624": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "bike|Hardbr\u00fccke|491,735": {
+   "status": "raw",
+   "progress": 114,
+   "len": 120
+  },
+  "bike|Walchebr\u00fccke|2000,-537": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "bike|Walchebr\u00fccke|1883,-651": {
+   "status": "ok",
+   "progress": 18,
+   "len": 23
+  },
+  "bike|Gessnerbr\u00fccke|1313,-1066": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "bike|Zweierstrasse|437,-1343": {
+   "status": "jump",
+   "progress": 115,
+   "len": 121
+  },
+  "bike|Badenerstrasse|187,-997": {
+   "status": "jump",
+   "progress": 81,
+   "len": 86
+  },
+  "bike|Bahnhofbr\u00fccke|1923,-752": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "bike|bikes 641,1142|507,1264": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "bike|bikes 1808,-1003|1803,-1098": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "bike|bikes 1929,-1046|1827,-1051": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "bike|Schanzengrabenpromenade|1599,-863": {
+   "status": "ok",
+   "progress": 11,
+   "len": 41
+  },
+  "bike|Sihlquai-Nordrampe|972,416": {
+   "status": "ok",
+   "progress": 289,
+   "len": 678
+  },
+  "bike|Sihlbr\u00fccke|1309,-1242": {
+   "status": "jump",
+   "progress": 117,
+   "len": 123
+  },
+  "bike|bikes 655,1125|781,1133": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "bike|Sihlquai-Nordrampe|966,410": {
+   "status": "ok",
+   "progress": 288,
+   "len": 762
+  },
+  "bike|Bahnhofbr\u00fccke|2013,-788": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "bike|HB Perron 3|1418,-767": {
+   "status": "stuck",
+   "progress": 0,
+   "len": 83
+  },
+  "bike|bikes 1586,-1849|1633,-1824": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "bike|bikes 1610,-1679|1461,-1770": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "bike|Kornhausbr\u00fccke|1164,58": {
+   "status": "raw",
+   "progress": 199,
+   "len": 204
+  },
+  "bike|Kanzleistrasse|313,-806": {
+   "status": "ok",
+   "progress": 67,
+   "len": 267
+  },
+  "bike|bikes 1930,-1560|2010,-1543": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "bike|Europabr\u00fccke|-1865,698": {
+   "status": "jump",
+   "progress": 258,
+   "len": 264
+  },
+  "bike|B\u00e4ndlistrasse|-1791,1078": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "bike|W\u00fcrzgrabenstrasse|-1787,1006": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "foot|Stauffacherbr\u00fccke|1001,-1327": {
+   "status": "raw",
+   "progress": 152,
+   "len": 158
+  },
+  "foot|Schanzengrabenpromenade|1095,-1224": {
+   "status": "jump",
+   "progress": 131,
+   "len": 137
+  },
+  "foot|Gessnerbr\u00fccke|1534,-907": {
+   "status": "stuck",
+   "progress": 11,
+   "len": 153
+  },
+  "foot|Kornhausbr\u00fccke|1450,415": {
+   "status": "stuck",
+   "progress": 64,
+   "len": 189
+  },
+  "foot|Stauffacherstrasse|140,-555": {
+   "status": "stuck",
+   "progress": 175,
+   "len": 253
+  },
+  "foot|bikes 1757,-563|1587,-471": {
+   "status": "stuck",
+   "progress": 11,
+   "len": 77
+  },
+  "foot|HB Perron 18|1608,-397": {
+   "status": "stuck",
+   "progress": 109,
+   "len": 443
+  },
+  "foot|Hohlstrasse|312,-455": {
+   "status": "jump",
+   "progress": 125,
+   "len": 130
+  },
+  "foot|Wipkingerbr\u00fccke|606,1030": {
+   "status": "jump",
+   "progress": 119,
+   "len": 124
+  },
+  "foot|Duttweilerbr\u00fccke|-588,85": {
+   "status": "stuck",
+   "progress": 57,
+   "len": 643
+  },
+  "foot|Kalkbreitestrasse|440,-1071": {
+   "status": "jump",
+   "progress": 288,
+   "len": 294
+  },
+  "foot|bikes 1355,-1545|1253,-1624": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "foot|Hardbr\u00fccke|491,735": {
+   "status": "raw",
+   "progress": 114,
+   "len": 120
+  },
+  "foot|Walchebr\u00fccke|2000,-537": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "foot|Walchebr\u00fccke|1883,-651": {
+   "status": "ok",
+   "progress": 18,
+   "len": 23
+  },
+  "foot|Gessnerbr\u00fccke|1313,-1066": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "foot|Zweierstrasse|437,-1343": {
+   "status": "jump",
+   "progress": 115,
+   "len": 121
+  },
+  "foot|Badenerstrasse|187,-997": {
+   "status": "jump",
+   "progress": 81,
+   "len": 86
+  },
+  "foot|Bahnhofbr\u00fccke|1923,-752": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "foot|bikes 641,1142|507,1264": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "foot|bikes 1808,-1003|1803,-1098": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "foot|bikes 1929,-1046|1827,-1051": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "foot|Schanzengrabenpromenade|1599,-863": {
+   "status": "stuck",
+   "progress": 11,
+   "len": 41
+  },
+  "foot|Sihlquai-Nordrampe|972,416": {
+   "status": "stuck",
+   "progress": 289,
+   "len": 678
+  },
+  "foot|Sihlbr\u00fccke|1309,-1242": {
+   "status": "jump",
+   "progress": 117,
+   "len": 123
+  },
+  "foot|bikes 655,1125|781,1133": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "foot|Sihlquai-Nordrampe|966,410": {
+   "status": "stuck",
+   "progress": 288,
+   "len": 762
+  },
+  "foot|Bahnhofbr\u00fccke|2013,-788": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "foot|HB Perron 3|1418,-767": {
+   "status": "stuck",
+   "progress": 0,
+   "len": 83
+  },
+  "foot|bikes 1586,-1849|1633,-1824": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "foot|bikes 1610,-1679|1461,-1770": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "foot|Kornhausbr\u00fccke|1164,58": {
+   "status": "raw",
+   "progress": 199,
+   "len": 204
+  },
+  "foot|Kanzleistrasse|313,-806": {
+   "status": "raw",
+   "progress": 262,
+   "len": 267
+  },
+  "foot|bikes 1930,-1560|2010,-1543": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "foot|Europabr\u00fccke|-1865,698": {
+   "status": "jump",
+   "progress": 258,
+   "len": 264
+  },
+  "foot|B\u00e4ndlistrasse|-1791,1078": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  },
+  "foot|W\u00fcrzgrabenstrasse|-1787,1006": {
+   "status": "ok",
+   "progress": 0,
+   "len": 2
+  }
+ }
+}

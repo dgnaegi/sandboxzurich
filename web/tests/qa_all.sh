@@ -5,5 +5,5 @@ cd "$(dirname "$0")/.."
 for t in gameplay touch drive transit_drive scooter_ride crash knock traffic_legal move_quality qa_spawn qa_leak mem_phone perf; do
   echo "== $t"; node tests/$t.mjs http://localhost:5173 2>&1 | tail -15; echo "rc $?"
 done
-echo "== bridges_ride"; node tests/bridges_ride.mjs qa 2>&1 | tail -6
+echo "== bridges_ride"; node tests/bridges_ride.mjs qa --gate > ../logs/bridges_ride_qa.log 2>&1; rc=$?; tail -8 ../logs/bridges_ride_qa.log; echo "rc $rc (gate: 1 = regression against tests/fixtures/bridges_ride_baseline.json)"
 echo QA_DONE
