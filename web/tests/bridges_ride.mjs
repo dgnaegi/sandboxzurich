@@ -1,12 +1,17 @@
 // Bridge ride quality: drive the real player car / ride the real bike / walk over every bridge route (pipeline/bridge_routes.py)
 // with a deterministic 60 Hz loop (main loop paused) and measure vertical jumps, stalls, falls and rail hits.
-//   node tests/bridges_ride.mjs [label=now] [filter-substring] [modes=car,bike,foot] [base-url]
+//   node tests/bridges_ride.mjs [label=now] [filter-substring] [modes=car,bike,foot] [base-url] [--gate | --accept]
 // Fails (exit code 1) if any route has a jump > 0.1 m/frame, a stall, a fall or a crash.
+// Release gate: `--gate` compares the run with tests/fixtures/bridges_ride_baseline.json (per-ride status, counts of stuck / fell /
+// crashes / rides with problems) and fails only on a regression, so the known backlog does not hide new breakage. `--accept` writes
+// the current run as the new baseline: do that together with the fix that improved it and commit the fixture.
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 
-const label = process.argv[2] ?? 'now', filt = process.argv[3] ?? '', modes = (process.argv[4] ?? 'car,bike,foot').split(',');
-const BASE = process.argv[5] ?? 'http://localhost:5173';
+const flags = new Set(process.argv.slice(2).filter((a) => a.startsWith('--')));
+const args = process.argv.slice(2).filter((a) => !a.startsWith('--'));
+const label = args[0] ?? 'now', filt = args[1] ?? '', modes = (args[2] ?? 'car,bike,foot').split(',');
+const BASE = args[3] ?? 'http://localhost:5173';
 const routes = JSON.parse(fs.readFileSync(new URL('../../logs/bridge_routes.json', import.meta.url), 'utf8'))
   .filter((r) => !filt || r.name.includes(filt) || `${Math.round(r.pts[0][0])}` === filt);
 const browser = await chromium.launch({ args: ['--use-gl=angle'] });
@@ -29,12 +34,13 @@ await page.evaluate(() => { window.sbxMap.open = true; });
 const SIM = async ({ route, mode }) => {
   const P = window.sbxPlayer, T = window.sbxTiles, cam = window.sbxCamera;
   const actions = window.sbxActions;
-  let pts = route.pts;
+  let pts = route.pts, clipped = false;
   { // keep the longest run inside the playable area (fence at the map border)
     const dense = []; for (let i = 0; i + 1 < pts.length; i++) { const n = Math.ceil(Math.hypot(pts[i + 1][0] - pts[i][0], pts[i + 1][1] - pts[i][1]) / 2); for (let k = 0; k < n; k++) dense.push([pts[i][0] + (pts[i + 1][0] - pts[i][0]) * k / n, pts[i][1] + (pts[i + 1][1] - pts[i][1]) * k / n]); }
     dense.push(pts[pts.length - 1]);
     let best = [0, 0], st = -1;
     dense.forEach((q, i) => { const ok = P.tiles.inPlay(q[0], q[1]); if (ok && st < 0) st = i; if ((!ok || i === dense.length - 1) && st >= 0) { const en = ok ? i : i - 1; if (en - st > best[1] - best[0]) best = [st, en]; st = -1; } });
+    clipped = best[0] > 0;
     pts = dense.slice(best[0] + 3, Math.max(best[0] + 5, best[1] - 3));
   }
   const cum = [0];
@@ -56,8 +62,15 @@ const SIM = async ({ route, mode }) => {
     if (mode === 'foot' && P.riding) { P.riding = null; P.rig.hide(); }
   }
   await T.update(x0, y0);
-  if (mode !== 'car') { P.teleport(x0, y0, h0); P.heading = h0; P.z = T.groundAt(x0, y0, T.ground(x0, y0)); }
-  else { car.z = T.groundAt(x0, y0, T.ground(x0, y0)); P.x = x0; P.y = y0; }
+  // a route clipped at the play-area fence can start mid-bridge: spawn on the deck when the first 12 m of the route lie on one
+  // continuous deck (otherwise the rider starts on the terrain under it, Kornhausbrücke); unclipped routes start at grade
+  let zHint = T.ground(x0, y0);
+  if (clipped) {
+    const hs = [0, 6, 12].map((s) => { const q = at(s); return T.bridges.heightAt(q[0], q[1], 1e4, 2e4, 0); });
+    if (hs.every((h) => h !== null) && Math.abs(hs[0] - hs[2]) < 12 * 0.15 && hs[0] > zHint + 1) zHint = hs[0];
+  }
+  if (mode !== 'car') { P.teleport(x0, y0, h0); P.heading = h0; P.z = T.groundAt(x0, y0, zHint); }
+  else { car.z = T.groundAt(x0, y0, zHint); P.x = x0; P.y = y0; }
   let crashes = 0; if (car) car.onCrash = (c) => { if (onDeck(car)) { crashes++; r.crashAt = r.crashAt || `${c.px.toFixed(1)},${c.py.toFixed(1)} n=${c.nx.toFixed(2)},${c.ny.toFixed(2)} v=${c.strength.toFixed(1)} car=${car.x.toFixed(1)},${car.y.toFixed(1)} z=${car.z.toFixed(2)}`; } else r.crashOff = (r.crashOff || 0) + 1; };
   const ent = () => (mode === 'car' ? car : P);
   const dt = 1 / 60; P.fallT = 0;
@@ -130,4 +143,27 @@ fs.writeFileSync(new URL(`../../logs/bridges_ride_${label}.json`, import.meta.ur
 const sum = (k) => out.reduce((a, b) => a + (b[k] || 0), 0);
 console.log(`SUMMARY ${label}: ${out.length} rides, ${bad} with problems; jump frames ${sum('jumps')} (max ${Math.max(0, ...out.map((o) => o.maxJump || 0)).toFixed(2)} m), raw-height jumps ${sum('rawJumps')} (max ${Math.max(0, ...out.map((o) => o.maxRaw || 0)).toFixed(2)} m), stuck ${out.filter((o) => o.stuck).length}, fell ${out.filter((o) => o.fell).length}, crashes ${sum('crashes')}`);
 if (bad) process.exitCode = 1;
+
+// --- release gate against the committed baseline (see header) ---
+const FIX = new URL('./fixtures/bridges_ride_baseline.json', import.meta.url);
+const key = (o) => `${o.mode}|${o.name}|${Math.round(o.start[0])},${Math.round(o.start[1])}`;
+const status = (o) => (o.error ? 'error' : o.stuck ? 'stuck' : o.fell ? 'fell' : o.crashes ? 'crash' : o.jumps ? 'jump' : o.rawJumps ? 'raw' : 'ok');
+const HARD = new Set(['error', 'stuck', 'fell', 'crash']);   // the ride did not get across; jump / raw are comfort problems
+const tally = (statuses) => { const t = { problems: 0, hard: 0, stuck: 0, fell: 0, crash: 0, error: 0 }; for (const s of statuses) { if (s !== 'ok') t.problems++; if (HARD.has(s)) { t.hard++; t[s]++; } } return t; };
+if (flags.has('--accept')) {
+  const rides = Object.fromEntries(out.map((o) => [key(o), { status: status(o), progress: o.progress ?? 0, len: o.len ?? 0 }]));
+  fs.writeFileSync(FIX, JSON.stringify({ updated: new Date().toISOString().slice(0, 10), label, summary: tally(Object.values(rides).map((r) => r.status)), rides }, null, 1) + '\n');
+  console.log(`BASELINE written: ${out.length} rides -> ${FIX.pathname}`);
+} else if (flags.has('--gate')) {
+  const base = JSON.parse(fs.readFileSync(FIX, 'utf8'));
+  const ran = out.filter((o) => base.rides[key(o)]);   // only rides the baseline knows (filters, route changes); new routes are listed
+  const was = ran.map((o) => base.rides[key(o)].status), now = ran.map((o) => status(o));
+  const a = tally(was), b = tally(now);
+  const worse = ran.filter((o, i) => HARD.has(now[i]) && !HARD.has(was[i])).map((o, i) => `${o.mode} ${o.name} at ${Math.round(o.start[0])},${Math.round(o.start[1])}: ${base.rides[key(o)].status} -> ${status(o)}`);
+  const fresh = out.length - ran.length, missing = Object.keys(base.rides).length - ran.length;
+  const fail = b.hard > a.hard || b.stuck > a.stuck || b.problems > a.problems || worse.length > 0;
+  console.log(`GATE ${fail ? 'FAIL' : 'PASS'} vs baseline ${base.updated} (${base.label}): problems ${a.problems} -> ${b.problems}, not across ${a.hard} -> ${b.hard} (stuck ${a.stuck} -> ${b.stuck}, fell ${a.fell} -> ${b.fell}, crash ${a.crash} -> ${b.crash}, error ${a.error} -> ${b.error})${fresh ? `, ${fresh} rides not in the baseline` : ''}${missing ? `, ${missing} baseline rides not run` : ''}`);
+  for (const w of worse) console.log('  regression:', w);
+  process.exitCode = fail ? 1 : 0;
+}
 await browser.close();
