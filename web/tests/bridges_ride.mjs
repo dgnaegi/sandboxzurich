@@ -63,7 +63,13 @@ const SIM = async ({ route, mode }) => {
   await T.update(x0, y0);
   if (mode !== 'car') { P.teleport(x0, y0, h0); P.heading = h0; P.z = T.groundAt(x0, y0, T.ground(x0, y0)); }
   else { car.z = T.groundAt(x0, y0, T.ground(x0, y0)); P.x = x0; P.y = y0; }
-  let crashes = 0; if (car) car.onCrash = (c) => { if (onDeck(car)) { crashes++; r.crashAt = r.crashAt || `${c.px.toFixed(1)},${c.py.toFixed(1)} n=${c.nx.toFixed(2)},${c.ny.toFixed(2)} v=${c.strength.toFixed(1)} car=${car.x.toFixed(1)},${car.y.toFixed(1)} z=${car.z.toFixed(2)}`; } else r.crashOff = (r.crashOff || 0) + 1; };
+  let crashes = 0; if (car) car.onCrash = (c) => {
+    // diagnostic: which collider class acted (same frame state): elevated deck?, railing push and footprint push at the body circles
+    const fx = Math.sin(car.h), fy = Math.cos(car.h), rx = fy, ry = -fx, rad = car.radius;
+    const circ = (car.circles ?? []).map((q) => { const cx = car.x + fx * q.o + rx * q.l, cy = car.y + fy * q.o + ry * q.l; const el = T.onElevatedDeck(cx, cy, car.z); const [px, py] = T.bridges.railPush(cx, cy, car.z, rad); const [fx2, fy2] = el ? [cx, cy] : T.colliders.resolve(cx, cy, rad); return `${el ? 'E' : 'g'}r${Math.hypot(px - cx, py - cy).toFixed(2)}f${Math.hypot(fx2 - cx, fy2 - cy).toFixed(2)}`; });
+    const s = `${c.px.toFixed(1)},${c.py.toFixed(1)} n=${c.nx.toFixed(2)},${c.ny.toFixed(2)} v=${c.strength.toFixed(1)} car=${car.x.toFixed(1)},${car.y.toFixed(1)} z=${car.z.toFixed(2)} h=${car.h.toFixed(2)} circles=${circ.join(' ')}`;
+    if (onDeck(car)) { crashes++; r.crashAt = r.crashAt || s; if ((r.crashList ??= []).length < 8) r.crashList.push(s); } else r.crashOff = (r.crashOff || 0) + 1;
+  };
   const ent = () => (mode === 'car' ? car : P);
   const dt = 1 / 60; P.fallT = 0;
   const onDeck = (e) => T.bridges.heightAt(e.x, e.y, e.z, 2.5) !== null;
@@ -101,7 +107,7 @@ const SIM = async ({ route, mode }) => {
     r.vmax = Math.max(r.vmax, Math.abs(e.speed ?? 0)); r.zmax = Math.max(r.zmax, z);
     r.maxOff = Math.max(r.maxOff, best); if (best > 6) r.off++;
     zPrev = z; gPrev = g; dkPrev = dkNow;
-    if (frames % 45 === 0) (r.trace ??= []).push(`${s.toFixed(0)}:${z.toFixed(1)}/${T.ground(e.x, e.y).toFixed(1)}/${dkNow ? 'D' : '-'}`);
+    if (frames % 45 === 0) (r.trace ??= []).push(`${s.toFixed(0)}:${z.toFixed(1)}/${T.ground(e.x, e.y).toFixed(1)}/${dkNow ? 'D' : '-'}@${e.x.toFixed(0)},${e.y.toFixed(0)}`);
     if (mode !== 'car' && P.fallT > 0) { if (onDeck(e)) r.crashes++; else r.crashOff = (r.crashOff || 0) + 1; r.at = `${e.x.toFixed(0)},${e.y.toFixed(0)}`; break; }
     if (frames % 150 === 0) { // stall check + stream tiles
       if (s - lastProg < 0.8 && frames > 400) { r.stuck = onDeck(e) || !r.crashOff; r.stuckOff = !r.stuck; r.at = r.at || `${e.x.toFixed(0)},${e.y.toFixed(0)}`; break; }

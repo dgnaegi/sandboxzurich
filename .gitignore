@@ -47,3 +47,6 @@ research/posters/raw/
 # wrangler local state
 .wrangler/
 !web/public/models/trees/leaves.webp
+
+# local copies of rewritten tiles (pipeline/ramp_lidar.py)
+web/public/tiles_orig/
