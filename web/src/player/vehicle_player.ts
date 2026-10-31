@@ -18,6 +18,7 @@ const BASE_FOV = 60;
 
 export function enterDrive(p: Player, car: Driven) {
   p.driving = car; p.riding = null;
+  p.rig.hide(); p.scooter.hide();   // never carry a bike or scooter model into the car (CarUse dismounts first; this is the belt to its braces)
   p.body.root.visible = false;
   p.x = car.x; p.y = car.y; p.z = car.z; p.heading = car.h; p.speed = car.speed;
   p.drive.stopPending = false; p.drive.camDist = car.cam.dist - 1; p.drive.fov = BASE_FOV;

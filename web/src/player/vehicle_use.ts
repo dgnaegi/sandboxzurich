@@ -3,21 +3,25 @@ import type { Tiles } from '../engine/tiles';
 import type { HumanLib, Human } from '../world/humans';
 import type { Traffic } from '../world/traffic';
 import { parkedCars, carLength, type CarSlot } from '../world/parkedcars';
-import { buildRig, initCarEnvironment } from './vehicle_model';
+import { buildRig, initCarEnvironment, preloadModel } from './vehicle_model';
 import { DriveCar, type Obb, type Crash } from './drive';
 import { CrashFx, bubble } from './crash_fx';
 import { Wreck } from './crash_wreck';
 import { enterDrive, exitDrive } from './vehicle_player';
+import { StuckGuard, freeSpotFor } from './stuck';
+import { actions } from '../input/actions';
 import type { Player } from './player';
 import type { Audio } from '../engine/audio';
 
 /**
  * Taking and leaving cars: nearest parked car or car in traffic within reach, E to get in. The driver of a
  * moving car just gets out and walks off (no violence). Wiring for the later wanted stars: `onTheft`.
+ * Also runs the stuck guard (player/stuck.ts) for the driven car.
  */
-type Target = { kind: 'parked'; d: number; slot: CarSlot } | { kind: 'traffic'; d: number };
+type Target = { kind: 'parked'; d: number; slot: CarSlot } | { kind: 'traffic'; d: number; type: string };
 
 export const REACH = 3.2;
+const touch = () => document.body.classList.contains('touch');
 
 export class CarUse {
   /** Hook for the wanted system (not active in the map phase): called with 'parked' or 'traffic' on every theft. */
@@ -25,7 +29,16 @@ export class CarUse {
   onTheft: ((kind: 'parked' | 'traffic') => void) | null = null;
   /** Set by TransitUse: leaving a tram/bus is handled there. */
   transitExit: (() => void) | null = null;
+  /** Set by main.ts: the bike or scooter the player was still on when the car became ready is left standing here. */
+  onDismount: ((left: { x: number; y: number; z: number; h: number; color: THREE.Color; type: string }) => void) | null = null;
+  /** Set by main.ts: legal ground for a car at (x, y) (fence, buildings, rails, water, landmarks); the stuck failsafe uses it. */
+  legal: ((x: number, y: number) => boolean) | null = null;
+  /** How often the stuck failsafe has moved the car (tests, stats). */
+  rescues = 0;
   private busy = false;
+  private guard = new StuckGuard();
+  /** Drive model still downloading after E (the prompt says so). */
+  get loading() { return this.busy; }
   private leavers: { h: Human; t: number; dx: number; dy: number; x: number; y: number; b?: THREE.Sprite }[] = [];
   /** Crashed cars standing around (shoved NPC/parked cars, abandoned wrecks); removed once far away. */
   wrecks: Wreck[] = [];
@@ -55,36 +68,69 @@ export class CarUse {
     const slot = parkedCars.nearest(x, y, REACH);
     const t = this.traffic.findCar(x, y, REACH);
     const sd = slot ? Math.hypot(slot.x - x, slot.y - y) : Infinity;
-    if (t && (!slot || t.d < sd - 1)) return { kind: 'traffic', d: t.d };
-    return slot ? { kind: 'parked', d: sd, slot } : null;
+    const pick: Target | null = t && (!slot || t.d < sd - 1) ? { kind: 'traffic', d: t.d, type: t.type } : slot ? { kind: 'parked', d: sd, slot } : null;
+    if (pick) void preloadModel(pick.kind === 'parked' ? pick.slot.type : pick.type);   // warm the cache while the prompt shows, so E is instant on most connections
+    return pick;
   }
 
+  /**
+   * E on a car. The drive model may still have to come over the network (seconds on a slow connection), so the
+   * order is: wait for the model, then take the car and sit down in one go. Until then the car stays where it is
+   * and the player keeps walking; if they moved out of reach, got into a tram or bus, or the car drove off, nothing
+   * happens. (Before, the car vanished at once and the player was teleported back onto it when the download
+   * finished; a scooter mounted in between stayed glued to the figure.)
+   */
   async enter(t: Target) {
-    if (this.busy) return;
+    if (this.busy || this.player.driving) return;
     this.busy = true;
     try {
-      let type: string, color: THREE.Color, x: number, y: number, h: number, v = 0;
-      if (t.kind === 'parked') {
-        ({ type, color, x, y, h } = t.slot);
-        parkedCars.take(t.slot);
-      } else {
-        const c = this.traffic.findCar(this.player.x, this.player.y, REACH, true);
-        if (!c) return;
-        ({ type, color, x, y, h, v } = c);
-        this.spawnLeaver(x, y, h);
+      const p = this.player;
+      let type = t.kind === 'parked' ? t.slot.type : t.type;
+      for (let round = 0; round < 3; round++) {
+        await preloadModel(type);   // the only real wait
+        if (p.driving) return;
+        const far = (x: number, y: number) => Math.hypot(x - p.x, y - p.y) > REACH + 1.2;
+        let color: THREE.Color, x: number, y: number, h: number, v = 0;
+        if (t.kind === 'parked') {
+          const s = t.slot;
+          if (s.taken || far(s.x, s.y)) return;   // walked away, or the car was shoved meanwhile
+          ({ color, x, y, h } = s);
+          parkedCars.take(s);
+        } else {
+          const c = this.traffic.findCar(p.x, p.y, REACH + 1.2);
+          if (!c) return;   // drove off
+          if (c.type !== type) { type = c.type; continue; }   // another car is the nearest now: its model first
+          this.traffic.findCar(p.x, p.y, REACH + 1.2, true);
+          ({ color, x, y, h, v } = c);
+          this.spawnLeaver(x, y, h);
+        }
+        // from here on no frame passes: the model is cached, buildRig only awaits a resolved promise
+        const rig = await buildRig(type, color);
+        this.scene.add(rig.group);
+        const car = new DriveCar(this.tiles, rig, type, color, x, y, h, v);
+        car.onImpact = (s) => { this.guard.impact(); this.audio.carCrash(Math.min(1, s / 14), car.dead); };
+        car.onCrash = (c) => this.crashed(car, c);
+        this.lampsOut = false;
+        if (p.riding) { const left = p.dismount(); if (left) this.onDismount?.(left); }   // got onto a bike/scooter while the model loaded: leave it standing here
+        this.guard.reset();
+        enterDrive(p, car);
+        this.audio.carDoor();
+        this.onTheft?.(t.kind);
+        // parked in a row: the next car is right in front -> tell about reverse gear
+        if (t.kind === 'parked' && parkedCars.near(x + Math.sin(h) * 3.6, y + Math.cos(h) * 3.6, 1.3).some((c) => c !== t.slot)) this.onHint?.(touch() ? 'Vorne blockiert: Stick nach unten = rückwärts' : 'Vorne blockiert: S / ↓ = rückwärts');
+        return;
       }
-      const rig = await buildRig(type, color);
-      this.scene.add(rig.group);
-      const car = new DriveCar(this.tiles, rig, type, color, x, y, h, v);
-      car.onImpact = (s) => this.audio.carCrash(Math.min(1, s / 14), car.dead);
-      car.onCrash = (c) => this.crashed(car, c);
-      this.lampsOut = false;
-      enterDrive(this.player, car);
-      this.audio.carDoor();
-      this.onTheft?.(t.kind);
-      // parked in a row: the next car is right in front -> tell about reverse gear
-      if (t.kind === 'parked' && parkedCars.near(x + Math.sin(h) * 3.6, y + Math.cos(h) * 3.6, 1.3).some((c) => c !== t.slot)) this.onHint?.(document.body.classList.contains('touch') ? 'Vorne blockiert: Stick nach unten = rückwärts' : 'Vorne blockiert: S / ↓ = rückwärts');
     } finally { this.busy = false; }
+  }
+
+  /** Stuck failsafe (player/stuck.ts): set the car down on the nearest free legal spot, facing away from the trap. */
+  private rescue(car: DriveCar) {
+    const spot = freeSpotFor(car, this.tiles, (x, y) => this.legal?.(x, y) ?? this.tiles.inPlay(x, y));
+    if (!spot) { this.onHint?.(touch() ? 'Festgefahren: E = aussteigen' : 'Festgefahren: E zum Aussteigen'); return; }
+    car.place(spot.x, spot.y, spot.h);
+    this.player.yaw = spot.h;
+    this.rescues++;
+    this.onHint?.('Freigestellt.');
   }
 
   /** E while driving: brake to a halt first if still rolling, then get out. */
@@ -195,6 +241,12 @@ export class CarUse {
     }
     const car = this.player.driving;
     if (car) this.audio.engine(car.rpm, Math.max(0, car.throttle), Math.abs(car.slip) + (car.braking ? Math.abs(car.speed) * 0.06 : 0), !car.dead, car.speed);
+    // stuck guard: throttle held, no progress, in contact -> hint, then set the car free (trams run on rails, dead cars say "aussteigen" already)
+    if (car && !car.isTram && !car.dead) {
+      const r = this.guard.update(dt, car, Math.abs(actions.kb.y || actions.move.y) > 0.3);
+      if (r === 'warn') this.onHint?.(touch() ? 'Festgefahren? Stick nach unten = rückwärts. Sonst stellen wir dich gleich frei.' : 'Festgefahren? S / ↓ = rückwärts. Sonst stellen wir dich gleich frei.');
+      else if (r === 'rescue') this.rescue(car);
+    } else this.guard.reset();
     // smoke from the bonnet: light from ~50 %, heavy from ~85 %
     if (car && car.rig && car.type !== 'bus') {
       const lvl = car.damage < 0.5 ? 0 : car.damage < 0.85 ? 0.4 : 1, hz = -car.rig.hood.z, f = Math.sin(car.h), g = Math.cos(car.h);

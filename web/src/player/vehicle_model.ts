@@ -57,6 +57,9 @@ function loadModel(type: string): Promise<THREE.Object3D | null> {
   return p;
 }
 
+/** Start (or reuse) the download of a drive model; resolves when it is cached. CarUse calls it while the "E = Auto nehmen" prompt shows. */
+export function preloadModel(type: string): Promise<unknown> { return loadModel(type); }
+
 /** Surface classes encoded in `_paint` by pipeline/cars/build_car.py: 1 lacquer, 0.3 glass, 0.15 chrome/alloy, 0 matte. */
 type Surf = 'paint' | 'glass' | 'chrome' | 'matte';
 const surfOf = (v: number): Surf => (v > 0.5 ? 'paint' : v > 0.22 ? 'glass' : v > 0.08 ? 'chrome' : 'matte');

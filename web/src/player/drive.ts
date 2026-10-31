@@ -41,6 +41,9 @@ export class DriveCar {
   onCrash: ((c: Crash) => void) | null = null;
   /** 0 = new, 1 = wrecked; engine dies at 1. yawKick = angular velocity from an off-centre hit (rad/s, compass sense). */
   damage = 0; dead = false; private yawKick = 0; private hitCool = 0;
+  /** Contact this frame: `touching` = something pushed the body (wall, post, tree, car, fence); `pinned` = pushes from
+   *  opposite sides cancelled out (wedged). Read by the stuck guard (player/stuck.ts). */
+  touching = false; pinned = false;
   readonly half: { l: number; w: number };
   /** Chase camera: distance behind and height of the look-at point. */
   cam = { dist: 9, h: 1.25 };
@@ -76,8 +79,17 @@ export class DriveCar {
     return Math.min(this.tune.steer, Math.atan((wb * ALAT) / Math.max(av * av, 1e-3)));
   }
 
+  /** Set the car down somewhere else (stuck failsafe): standing still, body on the ground there. */
+  place(x: number, y: number, h: number) {
+    this.x = x; this.y = y; this.h = h;
+    this.vx = this.vy = this.speed = this.slip = this.yawRate = this.yawKick = this.steer = 0;
+    this.z = this.tiles.groundAt(x, y, this.z); this.zV = 0;
+    this.touching = this.pinned = false;
+  }
+
   update(dt: number, inp: DriveInput, obstacles: Obb[] | null, nearParked: (x: number, y: number, r: number) => Obb[]) {
     this.hitCool -= dt;
+    this.touching = this.pinned = false;
     const steps = Math.ceil(dt / 0.017);
     for (let i = 0; i < steps; i++) this.step(dt / steps, inp, obstacles, nearParked);
     this.impact *= Math.exp(-dt * 5);
@@ -103,8 +115,11 @@ export class DriveCar {
     // drag also above vmax (turbo ended)
     if (vl > vmax) a -= (vl - vmax) * 0.8;
     const vlNew = vl + a * dt;
-    // coming to a stop from braking: do not flip sign through zero
-    vl = (vl > 0 && vlNew < 0 && t <= 0.05 || vl < 0 && vlNew > 0 && t >= -0.05) ? 0 : vlNew;
+    // coming to a stop from braking: do not flip sign through zero. Only for a real rolling speed (> 2 cm/s): after a
+    // bump the lateral residue and the yaw kick leave a velocity of ~1e-6 m/s against the car's new heading, and
+    // treating that as "rolling backwards" zeroed the throttle every frame; the car stood frozen at full throttle.
+    const rolling = Math.abs(vl) > 0.02;
+    vl = rolling && (vl > 0 && vlNew < 0 && t <= 0.05 || vl < 0 && vlNew > 0 && t >= -0.05) ? 0 : vlNew;
     this.oldAcc += ((vlNew - this.speed) / dt - this.oldAcc) * Math.min(1, dt * 8);
 
     // steering: wheel angle follows the input at a finite rate (slower the faster we go)
@@ -133,7 +148,13 @@ export class DriveCar {
       this.x += (this.vx * dt) / n; this.y += (this.vy * dt) / n;
       this.collide(obstacles, nearParked);
     }
-    if (!this.tiles.inPlay(this.x, this.y)) { this.x = ox; this.y = oy; this.vx *= -0.3; this.vy *= -0.3; this.speed *= -0.3; }
+    if (!this.tiles.inPlay(this.x, this.y)) {   // fence at the edge of the map: slide along it instead of undoing the whole step (that pinned cars against it)
+      if (this.tiles.inPlay(this.x, oy)) { this.y = oy; this.vy *= -0.3; }
+      else if (this.tiles.inPlay(ox, this.y)) { this.x = ox; this.vx *= -0.3; }
+      else { this.x = ox; this.y = oy; this.vx *= -0.3; this.vy *= -0.3; }
+      this.speed = this.vx * fx + this.vy * fy;
+      this.touching = true;
+    }
 
     // engine model for sound and lights: simple 5-speed gearbox
     const sp = Math.abs(this.speed) * this.tune.gear, tops = [6, 11, 16, 22, 40];
@@ -185,6 +206,9 @@ export class DriveCar {
         }
       }
       const m = Math.hypot(px, py);
+      // a car pressing against a wall at standstill only sinks in by millimetres per sub-step, so any push counts as contact
+      if (cw > 1e-4) this.touching = true;
+      if (cw > 1e-3 && m < 0.35 * cw) this.pinned = true;   // wedged: pushes from opposite sides cancel out (flag only; the stuck guard reads it)
       if (m < 1e-4) break;
       const soft = Math.hypot(softX, softY) > 0.8 * m;   // move2: only thin posts pushed
       const lim = Math.min(m, 1.2), k = lim / m;
