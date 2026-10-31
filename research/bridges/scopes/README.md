@@ -30,6 +30,7 @@ acceptance style, and this follows it: numbers per ramp, overlays for the eye, a
 | Footway decks beside rebuilt decks | implemented: trimmed where the new deck carries them, solid on embankments, air ends continued along the LiDAR ground | `footways.py` |
 | Approaches over terrain holes | implemented: from each grade end, road-graph edges the new decks do not cover are followed on the LiDAR ground where the game terrain lies below it; width from the cadastre carriageway; no parapet | `ramp_build.Build.approaches` |
 | Ride harness: clipped routes spawn on their deck | implemented (also in PR #4) | `web/tests/bridges_ride.mjs` |
+| Top-down check of the drawn decks (first part of Scope C): orthographic render of what the client draws and walks on, against the cadastre bridge outline, the LiDAR surface and SWISSIMAGE; holes, missing approaches, steps, invisible walls, sinking; gates the city verdict | implemented 2026-10-31 after playtest feedback (holes the scorer did not see); first run: all four checked sites FAIL | `web/tests/deck_top.mjs`, `pipeline/scopes/topcheck.py`, `topcheck_find.py`, `topcheck.md` |
 | Scope C: imagery + vision helper for the lane / footway split and semantics | documented proposal (`scopes_plan.md` §2); not needed for the two sites | — |
 | Site discovery (every elevated road chain instead of a hand list) | vision | — |
 | Maintainer integration as a pipeline stage after `bridges.py` | vision | — |
@@ -108,6 +109,7 @@ python3 pipeline/scopes/ride_delta.py logs/bridges_ride_<label>.log      # rides
 python3 pipeline/scopes/lidar_for_sites.py --tiles <E_N,...>             # LiDAR tiles discover.py --lidar lists as missing
 python3 pipeline/scopes/discover.py                                      # automatic sites for every elevated road chain group
 python3 pipeline/scopes/city.py                                          # every site built and scored on its own -> city.md
+python3 pipeline/scopes/topcheck.py gerold,duttweiler [--base http://localhost:5190]   # drawn decks from above (dev server running) -> topcheck.md
 cd web && VITE_WORLD_PROXY=https://sandboxzurich.sandboxzurich-web.workers.dev npx vite --port 5190   # dev server
 cd web && node tests/ramp_shots.mjs v2 "" http://localhost:5190  # before/after viewpoints
 cd web && node tests/bridges_ride.mjs v2 "" car,bike,foot http://localhost:5190 --gate
@@ -116,6 +118,8 @@ Python is the anaconda `python3` (3.8); images stay out of git.
 
 ## How to continue, in order
 
+0. Fix what `topcheck.py` finds (holes, missing approaches, invisible walls) until the checked sites PASS; the scorer's PASS
+   alone did not mean the ramp is closed.
 1. Terrain pass from LiDAR around bridge heads (the approaches only bridge the holes along roads).
 2. Integration as a pipeline stage after `bridges.py` in the maintainer's full build (both scopes are there), the reports as
    `research/bridges/scopes/<site>.md`, the gate baseline accepted with the new rows.

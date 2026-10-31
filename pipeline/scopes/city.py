@@ -102,8 +102,19 @@ def f1(v):
     return "–" if v is None or v != v else f"{v:.2f}" if abs(v) < 2 else f"{v:.1f}"
 
 
+def top_down(name):
+    """Last top-down check of the integrated tiles (pipeline/scopes/topcheck.py), or None if it was not run for the site."""
+    f = os.path.join(ROOT, "data", "build", "scopes", "topcheck", f"{name}.json")
+    return __import__("json").load(open(f)) if os.path.exists(f) else None
+
+
 def write_summary(out):
     import collections
+    for r in out:                                  # the scorer's PASS needs the top-down check of the drawn decks too
+        t = top_down(r["site"])
+        r["top"] = "–" if t is None else t["verdict"] + (f" ({', '.join(t['fails'])})" if t["fails"] else "")
+        if t is not None and t["verdict"] == "FAIL" and r["verdict"] == "PASS":
+            r["verdict"] = "FAIL (top-down)"
     cnt = collections.Counter(r["verdict"] for r in out)
     lines = ["# City-wide run of the ramp builder", "",
              f"Generated {time.strftime('%Y-%m-%d')} by `pipeline/scopes/city.py`: every site built and scored on its own against the live "
@@ -111,15 +122,17 @@ def write_summary(out):
              "`data/build/scopes/city/reports/` (not in git; rerun to regenerate).", "",
              "Count: " + ", ".join(f"{k} {v}" for k, v in cnt.most_common()) + f" of {len(out)} sites"
              + (f"; REVIEW at helices (parking-garage spirals, out of scope for a bridge-ramp builder): {sum(1 for r in out if r.get('shape') == 'helix' and r['verdict'] == 'REVIEW')}" ) + ".", "",
-             "| Site | kind | verdict | outline IoU live → v2 | width live → v2 (cadastre) | piers modelled / under deck | height p95 | failing checks |",
-             "|---|---|---|---|---|---|---|---|"]
+             "Top-down: `pipeline/scopes/topcheck.py` on the integrated dev tiles (holes against the cadastre bridge outline, steps, "
+             "invisible walls, sinking); – = not run for the site.", "",
+             "| Site | kind | verdict | outline IoU live → v2 | width live → v2 (cadastre) | piers modelled / under deck | height p95 | top-down | failing checks |",
+             "|---|---|---|---|---|---|---|---|---|"]
     for r in out:
         kind = ("hand" if r["site"] in SITES else "auto") + (", helix" if r.get("shape") == "helix" else "")
         if "iou" in r:
             lines.append(f"| {site_cfg(r['site'])['title']} (`{r['site']}`) | {kind} | {r['verdict']} | {f1(r['iou'][0])} → {f1(r['iou'][1])} | "
-                         f"{f1(r['width'][0])} → {f1(r['width'][1])} ({f1(r['width'][2])}) m | {r['piers'][0]} / {r['piers'][1]} | {f1(r['res'])} m | {'; '.join(r['fails'])} |")
+                         f"{f1(r['width'][0])} → {f1(r['width'][1])} ({f1(r['width'][2])}) m | {r['piers'][0]} / {r['piers'][1]} | {f1(r['res'])} m | {r['top']} | {'; '.join(r['fails'])} |")
         else:
-            lines.append(f"| `{r['site']}` | {kind} | {r['verdict']} | | | | | {'; '.join(r['fails'])[:160]} |")
+            lines.append(f"| `{r['site']}` | {kind} | {r['verdict']} | | | | | {r['top']} | {'; '.join(r['fails'])[:160]} |")
     fnd = [(r["site"], x) for r in out for x in r.get("findings", [])]
     if fnd:
         lines += ["", "## Findings for other decks (not the ramp's error)", ""] + [f"- `{s_}`: {x}" for s_, x in fnd]
