@@ -300,29 +300,20 @@ async function main() {
     jump(STATION.x, STATION.y);
   };
 
-  // speech bubbles: after a short pause the next passer-by within reach speaks up (from farther away when you pass on wheels);
-  // the same person does not talk twice in a row
+  // speech bubbles: passers-by greet now and then
   let honkT = 0, laneTipShown = false;
-  let bubbleT = 3, bubbleObj: THREE.Object3D | null = null, bubbleLeft = 0, bubbleScan = 0, quiet = 0;
-  const spoke: THREE.Object3D[] = [];
+  let bubbleT = 4, bubbleObj: THREE.Object3D | null = null, bubbleLeft = 0;
   const bubble = $('bubble');
   const vproj = new THREE.Vector3();
   const updateBubble = (dt: number) => {
-    bubbleT -= dt; bubbleLeft -= dt; bubbleScan -= dt;
-    if (bubbleT <= 0) quiet += dt;
-    if (bubbleT <= 0 && bubbleScan <= 0) {
-      bubbleScan = 0.25;
-      const mode = player.driving ? (player.driving.isTram || player.driving.type === 'bus' ? 'transit' : 'car') : player.riding ? (player.onScooter ? 'scooter' : 'bike') : Math.abs(player.speed) > 3 ? 'run' : 'foot';
-      // the longer it stays quiet, the farther a voice carries (4 m per second, up to 35 m more): in thin crowds someone still speaks
-      const reach = (mode === 'car' || mode === 'transit' ? 22 : mode === 'bike' || mode === 'scooter' ? 18 : 15) + Math.min(35, quiet * 4);
-      for (const n of crowd.around(player.x, player.y, reach)) {   // nearest walker or person on a bench / at a bar you can see
-        if (spoke.includes(n.obj)) continue;
-        vproj.setFromMatrixPosition(n.obj.matrixWorld); vproj.y += 2.1; vproj.project(camera);
-        if (vproj.z >= 1 || Math.abs(vproj.x) > 0.9 || Math.abs(vproj.y) > 0.9) continue;
+    bubbleT -= dt; bubbleLeft -= dt;
+    if (bubbleT <= 0) {
+      bubbleT = 6 + Math.random() * 8;
+      const n = crowd.nearest(player.x, player.y);
+      if (n && n.d < 5) {
+        const mode = player.driving ? (player.driving.isTram || player.driving.type === 'bus' ? 'transit' : 'car') : player.riding ? (player.onScooter ? 'scooter' : 'bike') : Math.abs(player.speed) > 3 ? 'run' : 'foot';
         bubble.textContent = chatLine({ place: locator.square(player.x, player.y) ?? locator.street(player.x, player.y) ?? '', min: clk.min, day: clk.day, night: daytime.night > 0.5, mode });
-        bubbleObj = n.obj; bubbleLeft = 3.5; bubbleT = 4 + Math.random() * 4; quiet = 0;
-        spoke.push(n.obj); if (spoke.length > 4) spoke.shift();
-        break;
+        bubbleObj = n.obj; bubbleLeft = 2.5;
       }
     }
     if (bubbleObj && bubbleLeft > 0) {
