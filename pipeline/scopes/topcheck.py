@@ -7,6 +7,7 @@ height) and samples the client's collision functions at every cell; topcheck_fin
 sinking). Verdict PASS when no finding passes the gate (topcheck_find.GATE).
 
   python3 pipeline/scopes/topcheck.py [<site>[,<site>...]] [--base http://localhost:5190] [--res 0.5] [--no-render] [--game <url>]
+  python3 pipeline/scopes/topcheck.py <site> --box x0,y0,x1,y1 --tag <tag> --res 0.25     (close-up -> <site>_<tag>)
 needs the dev server with the built tiles (cd web && npm run dev, or the VITE_WORLD_PROXY variant); no site = all sites.
 Output: data/build/scopes/topcheck/<site>.png (SWISSIMAGE | game | findings) and <site>.json; summary table
 research/bridges/scopes/topcheck.md; review page preview/topcheck/index.html (topcheck_page.py, untracked; --game = the dev
@@ -187,6 +188,9 @@ def main():
         av = scope_av.load(name)
         x0, y0, x1, y1 = (float(v) for v in site_cfg(name)["view"])
         box = (x0 - MARGIN, y0 - MARGIN, x1 + MARGIN, y1 + MARGIN)
+        if opt("--box", None):                     # a close-up inside the site (cadastre of the site): results as <site>_<tag>
+            box = tuple(float(v) for v in opt("--box", None).split(","))
+            name = f"{name}_{opt('--tag', 'box')}"
         if "--no-render" in sys.argv:
             cl, wh = chunks(box, res)
             ids = {f"{name}_{i}_{j}" for i, j, _ in cl if os.path.exists(os.path.join(RAW, f"{name}_{i}_{j}.json"))}
