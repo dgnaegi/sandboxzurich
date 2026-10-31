@@ -311,7 +311,8 @@ async function main() {
       bubbleT = 6 + Math.random() * 8;
       const n = crowd.nearest(player.x, player.y);
       if (n && n.d < 5) {
-        bubble.textContent = chatLine({ place: locator.square(player.x, player.y) ?? locator.street(player.x, player.y) ?? '', min: clk.min, day: clk.day, night: daytime.night > 0.5 });
+        const mode = player.driving ? (player.driving.isTram || player.driving.type === 'bus' ? 'transit' : 'car') : player.riding ? (player.onScooter ? 'scooter' : 'bike') : Math.abs(player.speed) > 3 ? 'run' : 'foot';
+        bubble.textContent = chatLine({ place: locator.square(player.x, player.y) ?? locator.street(player.x, player.y) ?? '', min: clk.min, day: clk.day, night: daytime.night > 0.5, mode });
         bubbleObj = n.obj; bubbleLeft = 2.5;
       }
     }
