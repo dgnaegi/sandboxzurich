@@ -11,13 +11,13 @@ Objects in the fetch box: carriageway 6, deck 13, footway 6, island 8, path 4, p
 | Chains / stations in window | 3 / 144 | 3 / 147 | 2 m stations of the modelled axes inside the window |
 | Footprint IoU vs AV ramp outline | 0.37 | 0.98 | per ramp station the modelled cross-section against the slice available to this ramp, overlaps over unions; 1 = identical outline |
 | Footprint IoU / precision / recall vs all AV bridge polygons | 0.14 / 0.77 / 0.15 | 0.25 / 0.61 / 0.30 | polygons within 25 m of the modelled axes, main deck included; precision = share of the modelled footprint over a real deck |
-| Footprint area model / AV outline / AV polygons (m²) | 1031 / 2357 / 5411 | 2633 / 2444 / 5411 |  |
+| Footprint area model / AV outline / AV polygons (m²) | 1031 / 2357 / 5411 | 2630 / 2444 / 5411 |  |
 | Structure length model / AV (m) | 282 / 288 | 282 / 294 | along the axis; model = elevated or solid stations, AV = axis inside a bridge polygon or between two thin bridge edge polygons |
 | of which both / model only / AV only (m) | 282 / 0 / 6 | 282 / 0 / 12 | model only = modelled structure where AV has no bridge object (embankment, or an error); AV only = real structure modelled at grade |
 | AV structure as edge polygons only (m) | 74 | 80 | axis between two thin «Brücke» polygons (< 1.5 m): ramp on fill between edge structures |
 | AV structure width p50 (m, ramp stations) | 8.0 m | 8.1 m | stations where the slice available to this ramp (cadastre slice minus other road / foot rows) is 2–24 m wide (live 128, v2 131); slices crossed by another deck's axis: live 31, v2 32 |
 | Modelled width p50 (m, same stations) | 3.2 m | 8.1 m | wl + wr (live rows: w) |
-| Width error p50 / p95 |err| (m) | -4.4 m / 10.7 m | +0.0 m / 1.2 m | model minus AV structure width |
+| Width error p50 / p95 |err| (m) | -4.4 m / 10.7 m | +0.0 m / 1.0 m | model minus AV structure width |
 | Axis offset to AV centre line p50 / p95 (m) | 1.1 m / 3.5 m | 1.1 m / 3.5 m | distance between the modelled axis and the middle of the AV structure at the station |
 | Edge overshoot p50 / p95 (m) | -1.5 m / +1.1 m | +0.0 m / +0.0 m | how far the wider modelled edge reaches beyond the AV edge (negative = inside) |
 | Uncovered AV width p50 / p95 (m) | 4.4 m / 10.7 m | 0.0 m / 0.5 m | metres of the AV structure across the station covered by no deck row at all (this ramp or any other deck) |
@@ -33,8 +33,8 @@ Objects in the fetch box: carriageway 6, deck 13, footway 6, island 8, path 4, p
 
 | rows | chain | end | modelled structure ends | AV structure ends | flanking walls end | end above game ground | end above LiDAR ground | terrain game − LiDAR at end |
 |---|---|---|---|---|---|---|---|---|
-| live | road (91,198)->(243,182) 162 m [junction/grade] | grade | -5.0 m | +7.0 m | – | +0.1 m | +0.0 m | -0.1 m |
-| v2 | road (91,198)->(249,180) 168 m [junction/grade] | grade | -11.0 m | +1.0 m | – | +0.0 m | -0.0 m | -0.0 m |
+| live | road (91,198)->(243,182) 162 m [junction/grade] | grade | -5.0 m | -5.0 m | – | +0.1 m | +0.0 m | -0.1 m |
+| v2 | road (91,198)->(249,180) 168 m [junction/grade] | grade | -11.0 m | -11.0 m | – | +0.0 m | -0.0 m | -0.0 m |
 
 Metres past the chain end along the road graph (negative = before the end; continuation 60 m). The AV structure ends where the axis leaves the last bridge polygon or edge-polygon pair; walls end where no «Mauer» lies within 10 m of the axis any more.
 
@@ -65,7 +65,7 @@ Metres past the chain end along the road graph (negative = before the end; conti
 | uncovered width p95 (m, any deck row counts) | 0.5 | <= 2.0 | yes |
 | height residual p95 (m, bridge class) | 0.2 | <= 0.3 | yes |
 | cadastre piers under the deck with a modelled pier | 11/11 | all | yes |
-| landing road (91,198)->(249,180) 168 (grade): cadastre / wall end beyond the modelled structure (m) | 1.0 | <= 5.0 | yes |
+| landing road (91,198)->(249,180) 168 (grade): cadastre / wall end beyond the modelled structure (m) | 0.0 | <= 5.0 | yes |
 
 Thresholds from `README.md`; the ride gate is run separately. REVIEW names the measures to look at, nothing more.
 

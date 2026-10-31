@@ -55,9 +55,11 @@ class Other:
         return float(np.interp(s, self.cum, self.P[:, 2]))
 
 
-def join(decks, rows, site_keys):
-    """decks: new deck dicts (p, wl, wr, ol, or, kind); rows: rows.Rows (live metadata); site_keys: (tile, k) of the site's own
-    rows. Flags the new decks in place; returns {(tile, k): modified row} for the other decks and a list of report lines."""
+def join(decks, rows, site_keys, extra=(), base=None):
+    """decks: new deck dicts (p, wl, wr, ol, or, kind); rows: rows.Rows (live metadata); site_keys: (tile, k) of the live rows
+    that are rebuilt (this site's, or every site's in a multi-site run). `extra`: new deck dicts of other sites, joined like live
+    decks and modified in place; `base`: {(tile, k): row} already modified by an earlier join (openings accumulate).
+    Flags the new decks in place; returns {(tile, k): modified row} for the other live decks and a list of report lines."""
     import shapely
     from shapely.geometry import LineString, Point
     lines = []
@@ -68,10 +70,14 @@ def join(decks, rows, site_keys):
     for t, k, r in rows.decks():
         if (t, k) in site_keys or r["kind"] not in ("road", "tram"):
             continue
+        r = (base or {}).get((t, k), r)
         Q = np.array(r["p"], float)
         if allfp.distance(LineString(Q[:, :2])) > NEAR:
             continue
         others.append(Other(t, k, r))
+    for d in extra:                                   # other sites' new decks (multi-site run)
+        if d["kind"] in ("road", "tram") and allfp.distance(LineString(np.array(d["p"], float)[:, :2])) <= NEAR:
+            o = Other("", -1, d); o.deck = d; others.append(o)
     # 1. ramp vertices on another deck: flush
     n_flush = 0
     for d, P, wl, wr in new:
@@ -107,8 +113,12 @@ def join(decks, rows, site_keys):
     # 2. other decks: open the mouth where a new ramp footprint covers their edge
     modified = {}
     for o in others:
-        if open_mouths(o, allfp, new, lines, f"{o.row.get('name') or o.row['kind']} ({o.tile} row {o.k})"):
-            modified[(o.tile, o.k)] = o.row
+        if open_mouths(o, allfp, new, lines, f"{o.row.get('name') or o.row['kind']} ({o.tile or 'new'} row {o.k})"):
+            if getattr(o, "deck", None) is not None:
+                for key in ("p", "g", "b", "wl", "wr", "ol", "or"):
+                    o.deck[key] = o.row[key]
+            else:
+                modified[(o.tile, o.k)] = o.row
     # 2b. the site's own chains: a sibling's footprint over a chain's edge (a branch leaving the main chain) opens that stretch
     n_mouth = 0
     for idx, (d, P, wl, wr) in enumerate(new):

@@ -3,6 +3,17 @@
 Kept for the PR text. Ride lines come from `python3 pipeline/scopes/ride_delta.py` (gate log against the committed baseline);
 scope numbers from the site reports. Newest first.
 
+## 2026-11-01 · city-wide: discovery, 30 sites, 28 PASS
+- Site discovery covers all 66 elevated road chains (5 hand sites, 25 automatic); every site built and scored on its own:
+  PASS 28, REVIEW 2 of 30 sites; REVIEW at helices (parking-garage spirals, out of scope for a bridge-ramp builder): 2.
+- Builder and scorer rules from the city run (all generic): cadastre edge as hard cap, landings and walls only over a raised
+  LiDAR surface, junctions on the side of another deck, slope-limited junction blends, off-LiDAR junction partners reported,
+  short piers modelled, half-width limit 12 → 20 m, faster widening at skewed crossings, parallel chains merged, helices flagged.
+- Ride gate with all 30 sites in one tile set: GATE FAIL vs baseline 2026-10-31 (base): problems 42 -> 37, not across 17 -> 14 (stuck 14 -> 11, fell 2 -> 2, crash 1 -> 1, error 0 -> 0), 10 rides not in the baseline, 8 baseline rides not run
+- Better rides: Kalkbreitestrasse (car crash → ok, bike and foot jump → ok), Zweierstrasse (car, bike, foot → ok), Kanzleistrasse
+  foot and Kornhausbrücke foot → ok, Wipkingerbrücke car crash → raw, plus the earlier ones (Duttweilerbrücke, Hohlstrasse,
+  Stauffacherstrasse, Wipkingerbrücke bike). Worse: Kornhausbrücke car and bike, now reaching a live footway that ends in the air.
+
 ## 2026-11-01 · five sites PASS, fork gore closed, Pfingstweid ramp and Hardbrücke Nord added
 - Geroldrampe: sibling chains split the shared slice at the Voronoi boundary, merge lanes reach the carriageway edge, the fork
   gore is gone (3 m² uncovered left at the nose); both uphill car routes 0 crashes, raw steps 0.45 → 0.24 m; verdict PASS.
@@ -40,15 +51,28 @@ scope numbers from the site reports. Newest first.
 - Widths from the LiDAR bridge class, continuation to grade; "only slightly better" (axis jitter, landings along the road
   graph), kept: central-strip heights, solid skirts, per-vertex `wl`/`wr`, the ride gate and the shot tooling.
 
-## Rides vs the gate baseline, current run
-Rides vs baseline base (2026-10-31): 5 better, 0 worse, 2 new
+## Rides vs the gate baseline, current run (all 30 sites)
+Rides vs baseline base (2026-10-31): 14 better, 2 worse, 2 new
 
 Better:
 - Duttweilerbrücke (car): raw → raw, progress 183 → 632 of 638 m
 - Hohlstrasse (bike): stuck → jump, progress 96 → 125 of 130 m
-- Hohlstrasse (car): stuck → raw, progress 133 → 293 of 298 m
+- Hohlstrasse (car): stuck → crash, progress 133 → 293 of 298 m
+- Kalkbreitestrasse (bike): jump → ok, progress 288 → 288 of 294 m
+- Kalkbreitestrasse (car): crash → ok, progress 225 → 225 of 231 m
+- Kalkbreitestrasse (foot): jump → ok, progress 288 → 288 of 294 m
+- Kanzleistrasse (foot): raw → ok, progress 262 → 262 of 267 m
+- Kornhausbrücke (foot): raw → ok, progress 199 → 199 of 204 m
 - Stauffacherstrasse (car): fell → raw, progress 218 → 173 of 249 m
 - Wipkingerbrücke (bike): crash → jump, progress 41 → 119 of 124 m
+- Wipkingerbrücke (car): crash → raw, progress 114 → 114 of 120 m
+- Zweierstrasse (bike): jump → ok, progress 115 → 115 of 121 m
+- Zweierstrasse (car): raw → ok, progress 210 → 210 of 215 m
+- Zweierstrasse (foot): jump → ok, progress 115 → 115 of 121 m
+
+Worse:
+- Kornhausbrücke (bike): raw → jump, progress 199 → 199 of 204 m
+- Kornhausbrücke (car): jump → fell, progress 63 → 183 of 189 m
 
 New:
 - Geroldrampe up via the north branch (car): raw, progress 257 of 262 m (new route)

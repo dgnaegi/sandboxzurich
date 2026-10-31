@@ -59,9 +59,10 @@ def run_end(T, mask, j_end, step_dir, gap=1, look=50):
 
 def landing(T, end):
     j = np.flatnonzero(T["is_model"])[end]; d = 1 if end == -1 else -1
-    raised = np.isfinite(T["av_w"]) & (np.nan_to_num(T["lz"] - T["g"], nan=0.0) > 0.3)   # cadastre structure whose surface is above the terrain
+    raised = np.isfinite(T["av_w"]) & (np.nan_to_num(T["lz"] - T["lg"], nan=0.0) > 0.3)   # LiDAR surface over LiDAR ground: a too-low game terrain is not a missing landing   # cadastre structure whose surface is above the terrain
     return {"model_end": run_end(T, T["kind"] > 0, j, d, gap=0), "av_deck_end": run_end(T, raised, j, d), "row_end": 0.0,
-            "wall_end": run_end(T, T["wall_flank"], j, d, gap=3), "end_el_game": float(T["z"][j] - T["g"][j]),
+            "wall_end": run_end(T, T["wall_flank"] & (np.nan_to_num(T["lz"] - T["lg"], nan=0.0) > 0.3), j, d, gap=3),   # walls along an at-grade street are not a landing
+            "end_el_game": float(T["z"][j] - T["g"][j]),
             "end_el_lidar": float(T["z"][j] - T["lg"][j]), "end_terr": float(T["terr"][j])}
 
 

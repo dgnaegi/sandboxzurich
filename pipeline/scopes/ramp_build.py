@@ -48,9 +48,9 @@ import join as J  # noqa: E402
 STEP = 2.0
 EXT = 80.0          # m: longest continuation beyond an air end
 GRADE_EXT = 20.0    # m: a grade end follows the cadastre structure (edge polygons, walls) this far at most
-SIDE_MAX = 12.0     # m: a cadastre edge further than this from the axis belongs to the main deck
+SIDE_MAX = 20.0     # m: a cadastre edge further than this from the axis belongs to the main deck (other decks and siblings already cut the slice)
 SIDE_MIN = 1.2
-W_STEP = 2.0        # m per station: width rate limit (the cadastre edges are exact; this only tames slice toggling)
+W_STEP = 4.0        # m per station: width rate limit (the cadastre edge caps it; skewed crossings need fast widening)
 MAX_SLOPE = 0.12
 AT_GRADE = 0.3
 BLEND = 10.0        # m: height blend at junction / fork ends
@@ -58,7 +58,8 @@ END_FLUSH = 6.0     # m: within this of a fork / junction end both sides are flu
 EDGE_TOL = 0.3      # m: smoothing may not push a deck edge further than this beyond the measured cadastre edge
 COPLANAR = 8.0      # m: a branch this close to the main chain's axis takes its height (one surface where a car changes lanes)
 # sibling chains split their shared cadastre slice at the Voronoi boundary (metrics.voronoi_cap): no gore, no overlap
-PIER_MIN_EL = 2.2
+PIER_MIN_EL = 0.8      # m: a cadastre pier under a deck at least this high is modelled (short piers are real too)
+PARTNER_TOL = 1.0      # m: a junction partner further than this off the LiDAR surface is reported, not followed
 THICK = {"road": 1.0, "tram": 1.0, "foot": 0.5}
 
 
@@ -92,7 +93,7 @@ class Build:
         self.site_keys = {(t, k) for c in self.chains for t, k, _ in c.rows}
         self.decks_av, self.wall_u = self.av.geoms("deck"), self.av.union("wall")
         self.taken = M.deck_cover(self.R, self.cfg["fetch"], kinds=("road",), exclude=lambda t, k, d: (t, k) in self.site_keys)
-        self.lines = []
+        self.lines = []; self.findings = []
 
     def stations(self, c):
         """Live stations plus continuations beyond air ends; returns dict of arrays and the end kinds."""
@@ -213,7 +214,14 @@ class Build:
             j = 0 if end == 0 else n - 1
             if kind in ("junction", "fork") and np.isfinite(st["z0"][j]):
                 target = st["z0"][j] if kind == "junction" else self.fork_z(st["xy"][j], c)
-                k = np.clip(1 - np.abs(s - s[j]) / BLEND, 0, 1); z = z + (target - z[j]) * k
+                off = target - z[j]
+                if kind == "junction" and abs(off) > PARTNER_TOL:   # the connecting deck is off the LiDAR surface: its error, not ours
+                    self.lines.append(f"  - FINDING: junction partner at ({st['xy'][j][0]:.0f},{st['xy'][j][1]:.0f}) lies {off:+.1f} m off the LiDAR deck "
+                                      f"surface; ramp kept on LiDAR, the partner deck needs its own fix")
+                    self.findings.append((self.cfg["name"], float(st["xy"][j][0]), float(st["xy"][j][1]), round(float(off), 1)))
+                    continue
+                L = max(BLEND, abs(off) / (MAX_SLOPE * 0.6))           # the blend itself respects the slope limit
+                k = np.clip(1 - np.abs(s - s[j]) / L, 0, 1); z = z + off * k
             elif kind == "grade":
                 e = z[j] - g[j]
                 if 0 < e <= 1.5:
@@ -276,7 +284,7 @@ class Build:
         b = np.where(kind == 0, g - 0.25, np.where(kind == 1, g, z - thick))
         return kind, b
 
-    def build(self):
+    def build(self, do_join=True):
         self.built = {}
         axes = {c: __import__("shapely.geometry", fromlist=["LineString"]).LineString(c.P[:, :2]) for c in self.chains}
         decks = []
@@ -303,8 +311,10 @@ class Build:
         drop = self.footways(decks)
         if drop:
             self.lines.append(f"- footway rows inside the new footprint dropped: {len(drop)}")
-        self.modified, jl = J.join(decks, self.R, self.sel)
-        self.lines += jl
+        self.decks = decks
+        if do_join:
+            self.modified, jl = J.join(decks, self.R, self.sel)
+            self.lines += jl
         return decks, piers, drop
 
     def piers(self, decks):
@@ -398,10 +408,22 @@ def cut_rows(deck, tiles):
 def run(tiles_dir, sites, write=False, report=None):
     lines = ["# Builder v2 (pipeline/scopes/ramp_build.py): rows from cadastre edges and LiDAR heights", ""]
     changed = {}
-    for name in sites:
+    built = []
+    for name in sites:                                   # pass 1: every site's decks
         B = Build(name, tiles_dir)
+        res = B.build(do_join=len(sites) == 1)
+        built.append((name, B, res))
+    if len(sites) > 1:                                   # pass 2: joins see the other sites' new decks; openings accumulate
+        all_keys = set().union(*(B.sel for _, B, _ in built))
+        mods = {}
+        for name, B, res in built:
+            extra = [d for n2, B2, _ in built if B2 is not B for d in B2.decks]
+            B.modified, jl = J.join(B.decks, B.R, all_keys, extra=extra, base=mods)
+            mods.update(B.modified); B.lines += jl
+        for _, B, _ in built:
+            B.modified = {k: v for k, v in mods.items() if k in B.modified}
+    for name, B, (decks, piers, drop) in built:
         lines.append(f"## {name} ('{B.cfg['match']}')")
-        decks, piers, drop = B.build()
         lines += B.lines + [""]
         if not write:
             continue

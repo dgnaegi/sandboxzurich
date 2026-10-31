@@ -25,6 +25,7 @@ MAIN_DECK = 24.0  # m: an AV structure wider than this at a station is the main 
 WALL_NEAR = 2.5   # m: a wall whose inner face is within this of the modelled edge flanks the modelled structure
 WALL_SIDE = 10.0  # m: a wall within this of the axis counts as flanking the (unmodelled) ramp
 AT_GRADE = 0.3
+SIDE_MIN_LANE = 1.2   # m: the builder's minimum half width
 SOLID = 0.3       # m: underside within this of the game ground = solid
 
 
@@ -300,8 +301,10 @@ def measure(chain, av, rows, step=2.0, box=None, ext=(), others=(), cover=None, 
     out["av_off"] = 0.5 * (out["av_hi"] + out["av_lo"])        # + : the AV structure's centre lies left of the modelled axis
     out["road_w"] = out["road_hi"] - out["road_lo"]
     out["ramp"] = np.isfinite(out["av_w"]) & (out["av_w"] <= MAIN_DECK) & (out["av_w"] >= 2.0) & ~out["on_other"]   # the slice available to this ramp; not on another deck
-    out["excess_l"] = np.where(ol, np.nan, wl - out["av_hi"])   # + : modelled left edge beyond the AV edge; a flush side has no edge
-    out["excess_r"] = np.where(orr, np.nan, wr + out["av_lo"])
+    # + : modelled edge beyond the AV edge; a flush side has no edge, and a side whose share is narrower than a minimum lane
+    # (the axis grazing the structure's end edge at a skewed crossing) is the structure's end, not an edge
+    out["excess_l"] = np.where(ol | (out["av_hi"] < SIDE_MIN_LANE), np.nan, wl - out["av_hi"])
+    out["excess_r"] = np.where(orr | (-out["av_lo"] < SIDE_MIN_LANE), np.nan, wr + out["av_lo"])
     out["ol"], out["or"] = ol, orr
     out["wall_l"] = np.abs(out["wall_gl"]) <= WALL_NEAR
     out["wall_r"] = np.abs(out["wall_gr"]) <= WALL_NEAR

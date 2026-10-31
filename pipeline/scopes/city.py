@@ -41,24 +41,28 @@ def scratch(src):
     return tdir
 
 
-def has_lidar(cfg):
-    x0, y0, x1, y1 = cfg["fetch"]
-    for X in range(int((x0 + OX) // T * T), int(x1 + OX) + 1, T):
-        for Y in range(int((y0 + OY) // T * T), int(y1 + OY) + 1, T):
-            if not os.path.exists(os.path.join(ROOT, "data", "build", "lidar", f"g_{X}_{Y}.npz")):
-                return False
-    return True
+def has_lidar(cfg, tdir):
+    """LiDAR grids exist for every tile under the site's rows (with a 40 m margin), not for its whole bounding box."""
+    from rows import Rows
+    need = set()
+    for c in Rows(tdir, "live").site_chains(cfg):
+        for x, y in c.P[:, :2]:
+            for dx in (-40, 40):
+                for dy in (-40, 40):
+                    need.add((int((x + dx + OX) // T * T), int((y + dy + OY) // T * T)))
+    return all(os.path.exists(os.path.join(ROOT, "data", "build", "lidar", f"g_{X}_{Y}.npz")) for X, Y in need)
 
 
 def run_site(name, tdir):
     cfg = site_cfg(name)
-    if not has_lidar(cfg):
+    if not has_lidar(cfg, tdir):
         return {"site": name, "verdict": "no LiDAR", "fails": []}
     buf = io.StringIO()
     with contextlib.redirect_stdout(buf):
         ramp_build.run(tdir, [name], write=True)
         cfg, av, res = score.score_site(name, tdir, "v2")
         f = score.report(name, cfg, av, res, os.path.join(CITY, "reports"))
+    findings = [ln.split("FINDING:", 1)[1].strip() for ln in buf.getvalue().splitlines() if "FINDING:" in ln]
     txt = open(f).read()
     m = re.search(r"## Verdict for the v2 rows: (\w+)", txt)
     if m and m.group(1) != "PASS" or "--overlays" in sys.argv:      # the picture for every site a person has to look at
@@ -69,7 +73,8 @@ def run_site(name, tdir):
     L, P = res["live"]["sum"], res["current"]["sum"]
     return {"site": name, "verdict": m.group(1) if m else "?", "fails": fails, "iou": (L["areas"]["outline_iou"], P["areas"]["outline_iou"]),
             "width": (L["model_w"]["p50"], P["model_w"]["p50"], P["av_w"]["p50"]), "chains": len(res["current"]["chains"]),
-            "piers": (P["piers"]["av_matched"], P["piers"]["under_deck"]), "res": P["res_b"]["abs95"]}
+            "piers": (P["piers"]["av_matched"], P["piers"]["under_deck"]), "res": P["res_b"]["abs95"], "findings": findings,
+            "shape": cfg.get("shape", "ramp")}
 
 
 def main():
@@ -103,16 +108,20 @@ def write_summary(out):
              f"Generated {time.strftime('%Y-%m-%d')} by `pipeline/scopes/city.py`: every site built and scored on its own against the live "
              "world (scratch copy of the tiles); automatic sites from `pipeline/scopes/discover.py`. Full reports in "
              "`data/build/scopes/city/reports/` (not in git; rerun to regenerate).", "",
-             "Count: " + ", ".join(f"{k} {v}" for k, v in cnt.most_common()) + f" of {len(out)} sites.", "",
+             "Count: " + ", ".join(f"{k} {v}" for k, v in cnt.most_common()) + f" of {len(out)} sites"
+             + (f"; REVIEW at helices (parking-garage spirals, out of scope for a bridge-ramp builder): {sum(1 for r in out if r.get('shape') == 'helix' and r['verdict'] == 'REVIEW')}" ) + ".", "",
              "| Site | kind | verdict | outline IoU live → v2 | width live → v2 (cadastre) | piers modelled / under deck | height p95 | failing checks |",
              "|---|---|---|---|---|---|---|---|"]
     for r in out:
-        kind = "hand" if r["site"] in SITES else "auto"
+        kind = ("hand" if r["site"] in SITES else "auto") + (", helix" if r.get("shape") == "helix" else "")
         if "iou" in r:
             lines.append(f"| {site_cfg(r['site'])['title']} (`{r['site']}`) | {kind} | {r['verdict']} | {f1(r['iou'][0])} → {f1(r['iou'][1])} | "
                          f"{f1(r['width'][0])} → {f1(r['width'][1])} ({f1(r['width'][2])}) m | {r['piers'][0]} / {r['piers'][1]} | {f1(r['res'])} m | {'; '.join(r['fails'])} |")
         else:
             lines.append(f"| `{r['site']}` | {kind} | {r['verdict']} | | | | | {'; '.join(r['fails'])[:160]} |")
+    fnd = [(r["site"], x) for r in out for x in r.get("findings", [])]
+    if fnd:
+        lines += ["", "## Findings for other decks (not the ramp's error)", ""] + [f"- `{s_}`: {x}" for s_, x in fnd]
     f = os.path.join(ROOT, "research", "bridges", "scopes", "city.md")
     open(f, "w").write("\n".join(lines) + "\n")
     print(f)

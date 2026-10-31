@@ -26,6 +26,8 @@ acceptance style, and this follows it: numbers per ramp, overlays for the eye, a
 | Transfer to more ramps (phase 4) | three done: Hohlstrasse / Brauerstrasse and the Pfingstweid ramp without a builder change, Hardbrücke Nord with two rules; all PASS | `pipeline/scopes/ramp_sites.py`, `lidar_for_sites.py`, `overlay.py --rows` |
 | Improvements log and ride delta against the gate baseline | implemented | `improvements.md`, `pipeline/scopes/ride_delta.py` |
 | Pull requests: gate + proxy (#4), scopes as draft (#5) | open on the maintainer's repository | `research/bridges/pr_drafts.md` |
+| Site discovery and city-wide run | implemented: 25 automatic sites plus 5 hand sites, all 66 elevated road chains covered; 28 PASS, 2 REVIEW (both parking-garage helices) | `discover.py`, `city.py`, `city.md` |
+| Footway decks along rebuilt bridges | open: the builder rebuilds road rows only; a live footway beside the Kornhausbrücke ends 2.4 m in the air (the gate's one regression) | — |
 | Scope C: imagery + vision helper for the lane / footway split and semantics | documented proposal (`scopes_plan.md` §2); not needed for the two sites | — |
 | Site discovery (every elevated road chain instead of a hand list) | vision | — |
 | Maintainer integration as a pipeline stage after `bridges.py` | vision | — |
@@ -55,21 +57,21 @@ cadastre structure but air in reality (left empty, correctly).
 
 ## Where this stands on the spectrum «handles every ramp» … «promising on the sample»
 
-Position after five sites: past the middle. Every site passes the thresholds; three of the five were run as transfer sites
-with the builder otherwise untouched.
+Position after the city-wide run: near the «handles every ramp» end for road ramps and road bridges, with named limits.
 
-- Rules added while looking at results: eight on the two pilot sites, none on the Hohlstrasse bridge, none on the Pfingstweid
-  ramp, two on Hardbrücke Nord (a sibling's height is adopted only where the LiDAR on the own axis agrees; other road decks cut a
-  ramp's slice at their edge, which also closed the Geroldrampe's fork gore). Five scorer rules changed on transfer sites
-  (available slice, station-wise IoU, flush sides without an edge, uncovered on the own share, junction stations excluded).
-  The scorer, not the builder, is where the transfer sites cost rules.
-- Five of five PASS; the ride gate improved city-wide at every step and never regressed (see `improvements.md`). Two uphill
-  routes over the Geroldrampe reach the Hardbrücke without a crash.
-- Still a hand list: `ramp_sites.py` holds five sites (name match or a seed point for unnamed rows); `overlay.py <site> --rows`
-  draws the map to define the next one. Data coverage: all five sites have complete cadastre objects; a ramp without any falls
-  back to the live width plus LiDAR heights.
-- Not proven: ramps whose cadastre polygon merges with a neighbour at a different level, tram ramps, stairs, the terrain under
-  fills and landings (reported, not fixed).
+- Every elevated road chain in the play area is a site (5 by hand, 25 discovered); PASS 28, REVIEW 2 of 30 sites; REVIEW at helices (parking-garage spirals, out of scope for a bridge-ramp builder): 2. The two REVIEW sites are
+  parking-garage helices, which the scorer is right to flag; helices are classified automatically.
+- Rules: eight on the two pilot sites, two on Hardbrücke Nord, then nine more on the city run (all generic: cadastre edge as a
+  hard cap, landings and walls only over a raised LiDAR surface, junctions on the side of a deck, slope-limited junction blends,
+  off-LiDAR junction partners reported instead of followed, short piers modelled, wider half-width limit, faster widening at
+  skewed crossings, parallel chains merged into one site). The rule set grew on the first city pass and was stable on the
+  second: the last full run changed no verdict on any site that had passed.
+- One finding for another deck: the «Hardbrücke West» connector at (−58, −30) lies 4.3 m below the LiDAR deck (an open item in
+  the maintainer's handoff); the ramp beside it stays on LiDAR and the report names the connector.
+- Ride gate with all 30 sites in one tile set: 14 rides better, 2 worse; rides with problems 42 → 37, stuck 14 → 11. The worse
+  rides are on the Kornhausbrücke, where the car now gets far enough to reach a live footway deck that ends in the air over a
+  terrain hole: outside the builder's scope (footways, terrain), not hidden by a new baseline.
+- Not covered: footway and tram decks, stairs, the terrain under fills and landings (reported, not fixed), helices.
 
 ## Deterministic vs interpreted
 
@@ -100,6 +102,9 @@ python3 pipeline/scopes/overlay.py <site> --rows                 # map of all de
 python3 pipeline/scopes/ramp_build.py gerold,duttweiler,brauer,pfingstweid,wipkingen --write   # rows into web/public/tiles (always all sites)
 python3 pipeline/scopes/score.py gerold,duttweiler,brauer,pfingstweid,wipkingen --label v2     # reports with verdicts, station tables, overlays
 python3 pipeline/scopes/ride_delta.py logs/bridges_ride_<label>.log      # rides that changed status against the gate baseline
+python3 pipeline/scopes/lidar_for_sites.py --tiles <E_N,...>             # LiDAR tiles discover.py --lidar lists as missing
+python3 pipeline/scopes/discover.py                                      # automatic sites for every elevated road chain group
+python3 pipeline/scopes/city.py                                          # every site built and scored on its own -> city.md
 cd web && VITE_WORLD_PROXY=https://sandboxzurich.sandboxzurich-web.workers.dev npx vite --port 5190   # dev server
 cd web && node tests/ramp_shots.mjs v2 "" http://localhost:5190  # before/after viewpoints
 cd web && node tests/bridges_ride.mjs v2 "" car,bike,foot http://localhost:5190 --gate
@@ -108,8 +113,8 @@ Python is the anaconda `python3` (3.8); images stay out of git.
 
 ## How to continue, in order
 
-1. Site discovery: every road / tram deck chain with an elevated end or a cadastre bridge object under it, instead of the list;
-   run the whole city, count PASS / REVIEW.
+1. Footway decks beside rebuilt road decks: trim the part inside the new footprint, continue air ends to grade like road chains
+   (fixes the Kornhausbrücke regression).
 2. Integration as a pipeline stage after `bridges.py` in the maintainer's full build (both scopes are there), the reports as
    `research/bridges/scopes/<site>.md`, the gate baseline accepted with the new rows.
 3. Terrain pass for fills and landings (the residuals are in every report).

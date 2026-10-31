@@ -9,15 +9,15 @@ Objects in the fetch box: carriageway 9, deck 12, footway 17, island 15, path 11
 | Measure | live rows | v2 rows | reading |
 |---|---|---|---|
 | Chains / stations in window | 3 / 269 | 3 / 269 | 2 m stations of the modelled axes inside the window |
-| Footprint IoU vs AV ramp outline | 0.45 | 0.98 | per ramp station the modelled cross-section against the slice available to this ramp, overlaps over unions; 1 = identical outline |
+| Footprint IoU vs AV ramp outline | 0.45 | 0.99 | per ramp station the modelled cross-section against the slice available to this ramp, overlaps over unions; 1 = identical outline |
 | Footprint IoU / precision / recall vs all AV bridge polygons | 0.15 / 0.60 / 0.16 | 0.33 / 0.67 / 0.40 | polygons within 25 m of the modelled axes, main deck included; precision = share of the modelled footprint over a real deck |
-| Footprint area model / AV outline / AV polygons (m²) | 1700 / 3364 / 6180 | 3678 / 3364 / 6180 |  |
+| Footprint area model / AV outline / AV polygons (m²) | 1700 / 3364 / 6180 | 3646 / 3364 / 6180 |  |
 | Structure length model / AV (m) | 510 / 524 | 508 / 524 | along the axis; model = elevated or solid stations, AV = axis inside a bridge polygon or between two thin bridge edge polygons |
 | of which both / model only / AV only (m) | 510 / 0 / 14 | 508 / 0 / 16 | model only = modelled structure where AV has no bridge object (embankment, or an error); AV only = real structure modelled at grade |
 | AV structure as edge polygons only (m) | 204 | 204 | axis between two thin «Brücke» polygons (< 1.5 m): ramp on fill between edge structures |
 | AV structure width p50 (m, ramp stations) | 6.5 m | 6.5 m | stations where the slice available to this ramp (cadastre slice minus other road / foot rows) is 2–24 m wide (live 243, v2 243); slices crossed by another deck's axis: live 55, v2 55 |
 | Modelled width p50 (m, same stations) | 3.2 m | 6.5 m | wl + wr (live rows: w) |
-| Width error p50 / p95 |err| (m) | -3.3 m / 6.6 m | +0.0 m / 0.4 m | model minus AV structure width |
+| Width error p50 / p95 |err| (m) | -3.3 m / 6.6 m | +0.0 m / 0.2 m | model minus AV structure width |
 | Axis offset to AV centre line p50 / p95 (m) | 0.2 m / 1.9 m | 0.2 m / 1.9 m | distance between the modelled axis and the middle of the AV structure at the station |
 | Edge overshoot p50 / p95 (m) | -1.5 m / -1.2 m | +0.0 m / +0.1 m | how far the wider modelled edge reaches beyond the AV edge (negative = inside) |
 | Uncovered AV width p50 / p95 (m) | 3.3 m / 6.6 m | 0.0 m / 0.1 m | metres of the AV structure across the station covered by no deck row at all (this ramp or any other deck) |
@@ -33,12 +33,12 @@ Objects in the fetch box: carriageway 9, deck 12, footway 17, island 15, path 11
 
 | rows | chain | end | modelled structure ends | AV structure ends | flanking walls end | end above game ground | end above LiDAR ground | terrain game − LiDAR at end |
 |---|---|---|---|---|---|---|---|---|
-| live | road (409,697)->(584,732) 189 m [junction/grade] | grade | -5.0 m | -3.0 m | – | +0.1 m | +0.0 m | -0.1 m |
-| live | road (461,795)->(301,793) 174 m [junction/grade] | grade | -11.0 m | -3.0 m | – | +0.1 m | +0.0 m | -0.0 m |
-| live | road (602,731)->(478,805) 169 m [grade/junction] | grade | -9.0 m | -5.0 m | – | +0.1 m | +0.0 m | -0.1 m |
-| v2 | road (409,697)->(584,732) 189 m [junction/grade] | grade | -7.0 m | -3.0 m | – | +0.0 m | -0.1 m | -0.1 m |
-| v2 | road (461,795)->(301,793) 174 m [junction/grade] | grade | -11.0 m | -3.0 m | – | +0.0 m | -0.0 m | -0.0 m |
-| v2 | road (602,731)->(478,805) 169 m [grade/junction] | grade | -9.0 m | -5.0 m | – | +0.0 m | -0.1 m | -0.1 m |
+| live | road (409,697)->(584,732) 189 m [junction/grade] | grade | -5.0 m | -5.0 m | – | +0.1 m | +0.0 m | -0.1 m |
+| live | road (461,795)->(301,793) 174 m [junction/grade] | grade | -11.0 m | -11.0 m | – | +0.1 m | +0.0 m | -0.0 m |
+| live | road (602,731)->(478,805) 169 m [grade/junction] | grade | -9.0 m | -9.0 m | – | +0.1 m | +0.0 m | -0.1 m |
+| v2 | road (409,697)->(584,732) 189 m [junction/grade] | grade | -7.0 m | -5.0 m | – | +0.0 m | -0.1 m | -0.1 m |
+| v2 | road (461,795)->(301,793) 174 m [junction/grade] | grade | -11.0 m | -11.0 m | – | +0.0 m | -0.0 m | -0.0 m |
+| v2 | road (602,731)->(478,805) 169 m [grade/junction] | grade | -9.0 m | -9.0 m | – | +0.0 m | -0.1 m | -0.1 m |
 
 Metres past the chain end along the road graph (negative = before the end; continuation 60 m). The AV structure ends where the axis leaves the last bridge polygon or edge-polygon pair; walls end where no «Mauer» lies within 10 m of the axis any more.
 
@@ -56,15 +56,15 @@ Metres past the chain end along the road graph (negative = before the end; conti
 - live: road (409,697)->(584,732) 189 m [junction/grade]; in window 192 m; outline IoU 0.44; uncovered p95 7.8 m; AV ramp width p50 6.3 m, modelled 3.2 m; axis offset p50 0.2 m, max 4.1 m; kinds grade/solid/deck 6/64/122 m; terrain -3.4 m low at s 122–157
 - live: road (461,795)->(301,793) 174 m [junction/grade]; in window 176 m; outline IoU 0.42; uncovered p95 6.4 m; AV ramp width p50 6.8 m, modelled 3.2 m; axis offset p50 0.3 m, max 3.4 m; kinds grade/solid/deck 12/44/120 m; terrain -3.6 m low at s 116–150
 - live: road (602,731)->(478,805) 169 m [grade/junction]; in window 170 m; outline IoU 0.44; uncovered p95 4.3 m; AV ramp width p50 6.5 m, modelled 3.2 m; axis offset p50 0.3 m, max 2.9 m; kinds grade/solid/deck 10/58/102 m; terrain -4.5 m low at s 26–86
-- v2: road (409,697)->(584,732) 189 m [junction/grade]; in window 192 m; outline IoU 0.90; uncovered p95 0.0 m; AV ramp width p50 6.3 m, modelled 6.3 m; axis offset p50 0.2 m, max 4.1 m; kinds grade/solid/deck 8/62/122 m; terrain -3.4 m low at s 122–157
-- v2: road (461,795)->(301,793) 174 m [junction/grade]; in window 176 m; outline IoU 0.92; uncovered p95 0.1 m; AV ramp width p50 6.8 m, modelled 6.9 m; axis offset p50 0.3 m, max 3.4 m; kinds grade/solid/deck 12/48/116 m; terrain -3.6 m low at s 116–150
+- v2: road (409,697)->(584,732) 189 m [junction/grade]; in window 192 m; outline IoU 0.91; uncovered p95 0.0 m; AV ramp width p50 6.3 m, modelled 6.3 m; axis offset p50 0.2 m, max 4.1 m; kinds grade/solid/deck 8/62/122 m; terrain -3.4 m low at s 122–157
+- v2: road (461,795)->(301,793) 174 m [junction/grade]; in window 176 m; outline IoU 0.93; uncovered p95 0.1 m; AV ramp width p50 6.8 m, modelled 6.9 m; axis offset p50 0.3 m, max 3.4 m; kinds grade/solid/deck 12/48/116 m; terrain -3.6 m low at s 116–150
 - v2: road (602,731)->(478,805) 169 m [grade/junction]; in window 170 m; outline IoU 0.89; uncovered p95 0.2 m; AV ramp width p50 6.5 m, modelled 6.5 m; axis offset p50 0.3 m, max 2.9 m; kinds grade/solid/deck 10/78/82 m; terrain -4.5 m low at s 26–86
 
 ## Verdict for the v2 rows: PASS
 
 | Check | value | limit | ok |
 |---|---|---|---|
-| outline IoU | 0.98 | >= 0.8 | yes |
+| outline IoU | 0.99 | >= 0.8 | yes |
 | edge overshoot p95 (m) | 0.1 | <= 0.5 | yes |
 | uncovered width p95 (m, any deck row counts) | 0.1 | <= 2.0 | yes |
 | height residual p95 (m, bridge class) | 0.0 | <= 0.3 | yes |

@@ -123,12 +123,22 @@ class Rows:
             rows = keep
         sel = {(t, k) for t, k, _ in rows}
         others = np.array([p[:2] for t, k, d in self.decks() if (t, k) not in sel and d["kind"] != "rail" for p in d["p"]], float)
+        from shapely.geometry import LineString, Point
+        other_rows = [(LineString(np.array(d["p"], float)[:, :2]), d) for t, k, d in self.decks()
+                      if (t, k) not in sel and d["kind"] in ("road", "tram", "foot") and len(d["p"]) > 1]
         chains = []
         for ch in ramp_lidar.chains_of(rows):
             c = Chain(ch, ch[0][2]["kind"], ch[0][2].get("name", ""))
             g = self.ground(c.P[:, 0], c.P[:, 1])
             for end in (0, -1):
                 dj = np.hypot(others[:, 0] - c.P[end, 0], others[:, 1] - c.P[end, 1]).min() if len(others) else 1e9
+                if dj >= JUNCTION:     # an end on the side of another deck (not at one of its vertices) at the same height is a junction too
+                    pe = Point(c.P[end, 0], c.P[end, 1])
+                    for ax, d in other_rows:
+                        if ax.distance(pe) <= max(d.get("wl") or [d["w"] / 2]) + 1.0:
+                            Q = np.array(d["p"], float); j = int(np.hypot(Q[:, 0] - pe.x, Q[:, 1] - pe.y).argmin())
+                            if abs(Q[j, 2] - c.P[end, 2]) < 1.5:
+                                dj = 0.0; break
                 el = c.P[end, 2] - (g[end] if not np.isnan(g[end]) else c.G[end])
                 c.ends[end] = "junction" if dj < JUNCTION else ("grade" if el < AT_GRADE + 0.1 else "air")
             chains.append(c)

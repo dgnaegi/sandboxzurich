@@ -33,6 +33,15 @@ def slug(s):
     return re.sub(r"[^a-z0-9]+", "_", s).strip("_") or "unnamed"
 
 
+def turning(P):
+    """Total absolute heading change along a polyline, degrees (a parking-garage helix turns > 300)."""
+    v = np.diff(P, axis=0); v = v[np.hypot(v[:, 0], v[:, 1]) > 0.3]
+    if len(v) < 2:
+        return 0.0
+    a = np.unwrap(np.arctan2(v[:, 1], v[:, 0]))
+    return float(np.degrees(np.abs(np.diff(a)).sum()))
+
+
 def main():
     tiles = sys.argv[sys.argv.index("--tiles") + 1] if "--tiles" in sys.argv else os.path.join(ROOT, "web", "public", "tiles")
     min_el = float(sys.argv[sys.argv.index("--min-el") + 1]) if "--min-el" in sys.argv else 2.0
@@ -99,7 +108,8 @@ def main():
                    "match": name, "kinds": ["road"], "names": names, "sigs": [list(row_sig(d)) for x in g for _, _, d in x["rows"]],
                    "fetch": [round(x0 - 40), round(y0 - 40), round(x1 + 40), round(y1 + 40)],
                    "view": [round(x0 - 20), round(y0 - 20), round(x1 + 20), round(y1 + 20)],
-                   "max_el": round(max(x["el"] for x in g), 1), "length": round(sum(x["len"] for x in g))}
+                   "max_el": round(max(x["el"] for x in g), 1), "length": round(sum(x["len"] for x in g)),
+                   "shape": "helix" if max(turning(x["P"][:, :2]) for x in g) > 300 else "ramp"}
     os.makedirs(os.path.dirname(AUTO), exist_ok=True)
     json.dump(out, open(AUTO, "w"), ensure_ascii=False, indent=1)
     print(f"{len(out)} automatic sites (hand sites {len(SITES)} cover {len(taken)} rows) -> {AUTO}")
