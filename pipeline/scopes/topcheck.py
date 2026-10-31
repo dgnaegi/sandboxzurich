@@ -6,10 +6,11 @@ height) and samples the client's collision functions at every cell; topcheck_fin
 (holes against the AV bridge outline, drawn surface below the LiDAR surface on traffic areas, steps, invisible walls,
 sinking). Verdict PASS when no finding passes the gate (topcheck_find.GATE).
 
-  python3 pipeline/scopes/topcheck.py [<site>[,<site>...]] [--base http://localhost:5190] [--res 0.5] [--no-render]
+  python3 pipeline/scopes/topcheck.py [<site>[,<site>...]] [--base http://localhost:5190] [--res 0.5] [--no-render] [--game <url>]
 needs the dev server with the built tiles (cd web && npm run dev, or the VITE_WORLD_PROXY variant); no site = all sites.
 Output: data/build/scopes/topcheck/<site>.png (SWISSIMAGE | game | findings) and <site>.json; summary table
-research/bridges/scopes/topcheck.md.
+research/bridges/scopes/topcheck.md; review page preview/topcheck/index.html (topcheck_page.py, untracked; --game = the dev
+server its links open).
 """
 from __future__ import annotations
 
@@ -202,6 +203,8 @@ def main():
         print(f"{name}: {R['verdict']}  AV covered {R['av_covered']:.0%}, LiDAR on {R['lidar_share']:.0%} of the traffic area; "
               + "; ".join(f"{k} {' '.join(v[:6])}" for k, v in G.items() if v)
               + (f"  MISSING TILES {' '.join(missing)}" if missing else ""), flush=True)
+    import topcheck_page
+    print("page", topcheck_page.build(opt("--game", "http://localhost:5191")))
 
 
 if __name__ == "__main__":
