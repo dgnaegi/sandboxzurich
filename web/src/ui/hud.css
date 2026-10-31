@@ -66,7 +66,7 @@ body.touch #touchbtns { display: flex; }
 .m-page button { display: block; width: 260px; margin: 10px auto; padding: 12px; font: 22px Anton, sans-serif; color: #fff; background: #000a; border: 2px solid #fff5; border-radius: 8px; cursor: pointer; }
 .m-page button:hover { border-color: #f5c518; color: #f5c518; }
 @media (max-width: 900px), (max-height: 500px) { #bigtext-title { font-size: 38px; } #mission { font-size: 16px; } #btn-menu { top: calc(100px + env(safe-area-inset-top)); } }
-#bubble { position: fixed; display: none; transform: translate(-50%, -100%); background: #fff; color: #111; font: 700 14px Barlow, sans-serif; padding: 5px 10px; border-radius: 12px; pointer-events: none; box-shadow: 0 2px 6px #0006; white-space: nowrap; }
+#bubble { position: fixed; display: none; transform: translate(-50%, -100%); background: #fff; color: #111; font: 700 14px/1.25 Barlow, sans-serif; padding: 5px 10px; border-radius: 12px; pointer-events: none; box-shadow: 0 2px 6px #0006; width: max-content; max-width: min(300px, 78vw); text-align: center; }   /* long dialect lines wrap onto a second line instead of leaving the screen (max-content: the 50 % left offset must not squeeze the box) */
 #bubble::after { content: ''; position: absolute; left: 50%; bottom: -6px; border: 6px solid transparent; border-top-color: #fff; border-bottom: 0; transform: translateX(-50%); }
 /* city map v3: GTA pause-map look */
 #bigmap { background: #26343b; --ink: #15110c; --cream: #ecdfb4; }
