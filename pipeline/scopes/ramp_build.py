@@ -554,7 +554,12 @@ def run(tiles_dir, sites, write=False, report=None):
     ours = [d for _, B, _ in built for d in B.decks] + [d for rs in foot_new.values() for d in rs]
     gone = skip | set(foot_new)
     mods = {k: v for _, B, _ in built for k, v in getattr(B, "modified", {}).items()}
-    fl += G.close(ours, [mods.get((t, k), d) for t, k, d in R0.decks() if (t, k) not in gone] + ours)
+    import surface as SF
+    others = [mods.get((t, k), d) for t, k, d in R0.decks() if (t, k) not in gone] + ours
+    fl += SF.shared(ours)                                # one height surface per structure, then the joints between rows
+    fl += SF.foot_on_road(ours, others)
+    fl += SF.to_edge(ours)
+    fl += G.close(ours, others)
     for name, B, (decks, piers, drop) in built:
         lines.append(f"## {name} ('{B.cfg['match']}')")
         lines += B.lines + [""]
