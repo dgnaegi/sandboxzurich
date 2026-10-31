@@ -5,7 +5,7 @@ Ein Open-World-Spiel im Browser in einem möglichst originalgetreuen Zürich (Kr
 **Spielen:** https://sandboxzurich.sandboxzurich-web.workers.dev
 
 ## Fehler melden
-Fehler und Ideen werden als [GitHub Issues](https://github.com/dgnaegi/sandboxzurich/issues) gesammelt. Am einfachsten direkt im Spiel: Menü (☰ oder Esc) → **Fehler melden**. Das öffnet ein vorausgefülltes Issue mit Ort (inkl. Sprunglink `?at=…`), Fahrzeug, Gerät, Grafikstufe und Build; du siehst vorher, was drinsteht, und kannst alles ändern. Ohne GitHub-Konto geht derselbe Bericht per E-Mail. Das Spiel sendet nichts von selbst.
+Fehler und Ideen werden als [GitHub Issues](https://github.com/dgnaegi/sandboxzurich/issues) gesammelt. Am einfachsten direkt im Spiel: Menü (☰ oder Esc) → **Fehler melden**. Das öffnet ein vorausgefülltes Issue mit Ort (inkl. Sprunglink `?at=…`), Fahrzeug, Gerät, Grafikstufe und Build; du siehst vorher, was drinsteht, und kannst alles ändern. Das Spiel sendet nichts von selbst. Ohne GitHub-Konto: Menü → Kontakt.
 
 ## Credits
 - Kartendaten © OpenStreetMap-Mitwirkende (ODbL)

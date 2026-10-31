@@ -1,6 +1,6 @@
 // QA: «Fehler melden» page (ui/report.ts). PC + phone landscape/portrait: page opens from the menu, context block shows
-// place/position/build, GitHub link carries template, label, title, body with position, deep link and the typed text,
-// mail link is a mailto; typing P/M in the box keeps the menu open and the map closed; Escape leaves the box first,
+// place/position/build, GitHub link carries template, label, title, body with position, deep link and the typed text;
+// typing P/M in the box keeps the menu open and the map closed; Escape leaves the box first,
 // the second Escape closes the menu. Screenshots -> preview/report_ui_<vp>.jpg. Usage: node tests/report_ui.mjs [base]
 import { launch, open, OUT } from './qa_lib.mjs';
 const BASE = process.argv[2] ?? 'http://localhost:5173';
@@ -23,7 +23,6 @@ for (const vp of ['pc', 'phoneL', 'phoneP']) {
   check(`${vp} github url`, u.hostname === 'github.com' && u.pathname === '/dgnaegi/sandboxzurich/issues/new' && u.searchParams.get('template') === 'bug_report.md' && u.searchParams.get('labels') === 'bug' && /^Fehler: /.test(u.searchParams.get('title') ?? ''), u.searchParams.get('title'));
   const body = u.searchParams.get('body') ?? '';
   check(`${vp} body: text, position, deep link`, body.includes('Auto verschwunden pm') && /x 789\.0, y -873\.0/.test(body) && /\?at=789\.0,-873\.0,0\.30,/.test(body) && /Build:/.test(body), `${u.href.length} chars`);
-  check(`${vp} mailto`, /^mailto:[^?]+\?subject=Fehler.+&body=/.test(await page.getAttribute('#r-mail', 'href')));
   await page.keyboard.press('Escape'); await page.waitForTimeout(150);
   check(`${vp} Escape leaves the box, menu stays`, (await shown(page, 'menu')) && (await page.evaluate(() => document.activeElement?.id !== 'r-text')));
   await page.screenshot({ path: `${OUT}report_ui_${vp}.jpg`, type: 'jpeg', quality: 60 });

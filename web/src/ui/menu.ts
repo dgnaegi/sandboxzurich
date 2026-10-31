@@ -22,7 +22,7 @@ export class Menu {
     bindSettingsPage(this.el.querySelector<HTMLElement>('[data-page="settings"]')!, { onMute: (m) => this.onMute(m), onMusic: () => this.onMusic(settings.music, settings.musicVol) });
     $('m-settings').addEventListener('click', () => this.page('settings'));
     $('m-contact').addEventListener('click', () => { location.href = `mailto:${CONTACT}`; });
-    const report = bindReportPage(this.el.querySelector<HTMLElement>('[data-page="report"]')!, { contact: CONTACT, info: () => this.onReport() });
+    const report = bindReportPage(this.el.querySelector<HTMLElement>('[data-page="report"]')!, () => this.onReport());
     $('m-report').addEventListener('click', () => { this.page('report'); report.refresh(); });
     for (const id of ['m-credits', 'm-imprint']) $(id).addEventListener('click', () => this.page(id === 'm-credits' ? 'credits' : 'imprint'));
     for (const b of document.querySelectorAll('.m-back')) b.addEventListener('click', () => this.page('main'));

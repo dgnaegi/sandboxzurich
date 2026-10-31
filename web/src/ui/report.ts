@@ -1,9 +1,9 @@
 import { BUILD } from '../engine/assetver';
 
 /**
- * «Fehler melden»: a pre-filled GitHub issue (or e-mail) with what the player saw, where they stood and what the
- * device was. Nothing leaves the browser until the player submits the issue on GitHub or sends the mail: static
- * site, no server, no token (docs/DECISIONS.md #80). The issue tracker is https://github.com/<REPO>/issues.
+ * «Fehler melden»: a pre-filled GitHub issue with what the player saw, where they stood and what the device was.
+ * Nothing leaves the browser until the player submits the issue on GitHub: static site, no server, no token
+ * (docs/DECISIONS.md #80). The issue tracker is https://github.com/<REPO>/issues.
  * The module also keeps the last console errors so a report can include them (installed at import time).
  */
 export const REPO = 'dgnaegi/sandboxzurich';
@@ -81,27 +81,20 @@ export function report(i: ReportInfo, what: string): Report {
 const enc = encodeURIComponent;
 /** GitHub pre-fills title and body from the query; the template supplies the label and the headings for issues opened by hand. */
 export const issueUrl = (r: Report) => `https://github.com/${REPO}/issues/new?template=${TEMPLATE}&labels=bug&title=${enc(r.title)}&body=${enc(r.body)}`;
-export const mailUrl = (to: string, r: Report) => `mailto:${to}?subject=${enc(r.title)}&body=${enc(r.body)}`;
 
 // --- menu page ---------------------------------------------------------------------------------------------
 /** Fills the «Fehler melden» page of the menu; call `refresh()` when the page opens. */
-export function bindReportPage(page: HTMLElement, opts: { contact: string; info: () => ReportInfo | null }) {
+export function bindReportPage(page: HTMLElement, info: () => ReportInfo | null) {
   const q = <T extends HTMLElement>(s: string) => page.querySelector<T>(s)!;
-  const what = q<HTMLTextAreaElement>('#r-text'), info = q<HTMLPreElement>('#r-info');
-  const github = q<HTMLAnchorElement>('#r-github'), mail = q<HTMLAnchorElement>('#r-mail');
+  const what = q<HTMLTextAreaElement>('#r-text'), pre = q<HTMLPreElement>('#r-info'), github = q<HTMLAnchorElement>('#r-github');
   let snap: ReportInfo | null = null;
-  const links = () => {
-    if (!snap) return;
-    const r = report(snap, what.value);
-    github.href = issueUrl(r);
-    mail.href = mailUrl(opts.contact, r);
-  };
+  const link = () => { if (snap) github.href = issueUrl(report(snap, what.value)); };
   const refresh = () => {
-    snap = opts.info();
-    info.textContent = snap ? context(snap).replace(/\*\*/g, '') : 'Das Spiel ist noch nicht geladen.';
-    links();
+    snap = info();
+    pre.textContent = snap ? context(snap).replace(/\*\*/g, '') : 'Das Spiel ist noch nicht geladen.';
+    link();
   };
   what.maxLength = MAX_TEXT;
-  what.addEventListener('input', links);
+  what.addEventListener('input', link);
   return { refresh };
 }
