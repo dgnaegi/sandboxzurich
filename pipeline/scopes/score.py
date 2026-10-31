@@ -59,7 +59,8 @@ def run_end(T, mask, j_end, step_dir, gap=1, look=50):
 
 def landing(T, end):
     j = np.flatnonzero(T["is_model"])[end]; d = 1 if end == -1 else -1
-    return {"model_end": run_end(T, T["kind"] > 0, j, d, gap=0), "av_deck_end": run_end(T, np.isfinite(T["av_w"]), j, d), "row_end": 0.0,
+    raised = np.isfinite(T["av_w"]) & (np.nan_to_num(T["lz"] - T["g"], nan=0.0) > 0.3)   # cadastre structure whose surface is above the terrain
+    return {"model_end": run_end(T, T["kind"] > 0, j, d, gap=0), "av_deck_end": run_end(T, raised, j, d), "row_end": 0.0,
             "wall_end": run_end(T, T["wall_flank"], j, d, gap=3), "end_el_game": float(T["z"][j] - T["g"][j]),
             "end_el_lidar": float(T["z"][j] - T["lg"][j]), "end_terr": float(T["terr"][j])}
 
@@ -103,7 +104,9 @@ THRESH = {"outline_iou": 0.80, "overshoot_p95": 0.5, "uncovered_p95": 2.0, "res_
 
 def verdict(S, landings):
     """PASS / REVIEW of the current rows against the README thresholds; returns (ok, list of (measure, value, limit, ok))."""
-    checks = [("outline IoU", f"{S['areas']['outline_iou']:.2f}", f">= {THRESH['outline_iou']}", S["areas"]["outline_iou"] >= THRESH["outline_iou"]),
+    has_ramp = S["len"]["ramp_stations"] > 0
+    checks = [("outline IoU", f"{S['areas']['outline_iou']:.2f}" if has_ramp else "n/a (no ramp station: the chain lies on another deck)", f">= {THRESH['outline_iou']}",
+               not has_ramp or S["areas"]["outline_iou"] >= THRESH["outline_iou"]),
               ("edge overshoot p95 (m)", S["excess"]["p95"], f"<= {THRESH['overshoot_p95']}", not np.isfinite(S["excess"]["p95"]) or S["excess"]["p95"] <= THRESH["overshoot_p95"]),
               ("uncovered width p95 (m, any deck row counts)", S["uncovered"]["p95"], f"<= {THRESH['uncovered_p95']}", not np.isfinite(S["uncovered"]["p95"]) or S["uncovered"]["p95"] <= THRESH["uncovered_p95"]),
               ("height residual p95 (m, bridge class)", S["res_b"]["abs95"], f"<= {THRESH['res_p95']}", not np.isfinite(S["res_b"]["abs95"]) or S["res_b"]["abs95"] <= THRESH["res_p95"]),

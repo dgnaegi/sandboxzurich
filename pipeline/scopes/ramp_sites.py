@@ -5,6 +5,9 @@ them; "" with a `seed` (x, y, r) selects the chains passing within r of the seed
 cadastre and imagery are fetched for (whole structure incl. landings), `view` the box the overlay shows and the scores are
 computed in (the ramp part of the site). `python3 pipeline/scopes/overlay.py <site> --rows` draws the rows to pick from.
 """
+import json
+import os
+
 SITES = {
     "gerold": {
         "title": "Geroldrampe (Hardbrücke to Geroldstrasse, by the Freitag tower)",
@@ -28,7 +31,23 @@ SITES = {
 }
 
 
+AUTO = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "data", "build", "scopes", "auto_sites.json")
+
+
+def auto_sites():
+    """Sites found by pipeline/scopes/discover.py (every elevated road chain group no hand site covers)."""
+    if not os.path.exists(AUTO):
+        return {}
+    out = {}
+    for k, v in json.load(open(AUTO)).items():
+        v = dict(v); v["kinds"] = tuple(v["kinds"]); v["fetch"] = tuple(v["fetch"]); v["view"] = tuple(v["view"])
+        v["sigs"] = {tuple(x) for x in v["sigs"]}
+        out[k] = v
+    return out
+
+
 def site(name):
-    if name not in SITES:
-        raise SystemExit(f"unknown site {name!r}; known: {', '.join(SITES)}")
-    return dict(SITES[name], name=name)
+    S = SITES if name in SITES else auto_sites()
+    if name not in S:
+        raise SystemExit(f"unknown site {name!r}; known: {', '.join(SITES)} and {len(auto_sites())} automatic sites")
+    return dict(S[name], name=name)

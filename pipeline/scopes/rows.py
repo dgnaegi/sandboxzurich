@@ -157,10 +157,21 @@ class Rows:
         return [q for q in self.piers() if any(ax.distance(Point(q[0], q[1])) < dist for ax in axes)]
 
 
+def row_sig(d):
+    """Identity of a live deck row independent of the loaded instance: first and last vertex, 0.1 m."""
+    p = d["p"]
+    return (round(p[0][0], 1), round(p[0][1], 1), round(p[-1][0], 1), round(p[-1][1], 1))
+
+
 def is_site_row(cfg, d):
-    """Does deck row d belong to the site? name match (substring or tuple of substrings; "" = any) and kind."""
+    """Does deck row d belong to the site? Rows written by the builder carry `site`; live rows match by signature (automatic
+    sites, pipeline/scopes/discover.py) or by name (substring or tuple of substrings; "" = any) and kind."""
     if d["kind"] not in cfg["kinds"]:
         return False
+    if d.get("site"):
+        return d["site"] == cfg.get("name")
+    if cfg.get("sigs"):
+        return row_sig(d) in cfg["sigs"]
     m = cfg["match"]; name = d.get("name") or ""
     return any(x in name for x in m) if isinstance(m, tuple) else (m in name)
 

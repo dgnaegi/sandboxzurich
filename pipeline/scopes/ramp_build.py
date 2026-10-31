@@ -55,6 +55,7 @@ MAX_SLOPE = 0.12
 AT_GRADE = 0.3
 BLEND = 10.0        # m: height blend at junction / fork ends
 END_FLUSH = 6.0     # m: within this of a fork / junction end both sides are flush (no railing piece at the nose)
+EDGE_TOL = 0.3      # m: smoothing may not push a deck edge further than this beyond the measured cadastre edge
 COPLANAR = 8.0      # m: a branch this close to the main chain's axis takes its height (one surface where a car changes lanes)
 # sibling chains split their shared cadastre slice at the Voronoi boundary (metrics.voronoi_cap): no gore, no overlap
 PIER_MIN_EL = 2.2
@@ -170,6 +171,7 @@ class Build:
                 lo, hi, mode[i] = sv
                 lo, hi, on_other = M.cut_by_taken(p, nv, lo, hi, self.taken)     # other road decks: the slice ends at their edge
                 L, Rr = hi, -lo
+                cap_l[i] = min(cap_l[i], L + EDGE_TOL); cap_r[i] = min(cap_r[i], Rr + EDGE_TOL)   # the cadastre edge is a hard limit
                 if on_other:                                                      # on the main deck itself: a lane, flush both sides
                     L = min(L, st["wl0"][i] + 1.5); Rr = min(Rr, st["wr0"][i] + 1.5); fl[i] = fr[i] = 1
                     cap_l[i] = min(cap_l[i], L); cap_r[i] = min(cap_r[i], Rr)
@@ -289,7 +291,7 @@ class Build:
             d = {"p": [[round(float(x), 2), round(float(y), 2), round(float(v), 2)] for (x, y), v in zip(st["xy"], z)],
                  "g": [round(float(v), 2) for v in st["g"]], "b": [round(float(v), 2) for v in b], "w": round(float(np.median(wl + wr)), 1),
                  "wl": [round(float(v), 2) for v in wl], "wr": [round(float(v), 2) for v in wr], "ol": fl.tolist(), "or": fr.tolist(),
-                 "kind": c.kind, "name": c.name, "_kind": kind, "_mode": mode, "_flag": flag, "_thick": thick, "_ends": ends, "_s": st["s"], "_tan": st["tan"]}
+                 "kind": c.kind, "name": c.name, "site": self.cfg["name"], "_kind": kind, "_mode": mode, "_flag": flag, "_thick": thick, "_ends": ends, "_s": st["s"], "_tan": st["tan"]}
             self.built[c] = d; decks.append(d)
             w = wl + wr; L = len(kind) * STEP
             self.lines.append(f"  - {L:.0f} m, width {w.min():.1f}/{np.median(w):.1f}/{w.max():.1f} m (min/med/max; live {c.P.shape[0]} vertices, {np.median(c.WL + c.WR):.1f} m); "
@@ -383,6 +385,8 @@ def cut_rows(deck, tiles):
     for t, r in runs:
         row = {k: [deck[k][i] for i in r] for k in ("p", "g", "b", "wl", "wr", "ol", "or")}
         row.update({"w": deck["w"], "kind": deck["kind"], "name": deck["name"]})
+        if deck.get("site"):
+            row["site"] = deck["site"]
         if r[0] > 0:
             row["pa"] = p[r[0] - 1][:2]
         if r[-1] < len(p) - 1:

@@ -1,6 +1,7 @@
 """Fetch and rasterise the LiDAR tiles a ramp site needs (pipeline/lidar_fetch.py order flow, pipeline/lidar_grid.py grids).
 
   python3 pipeline/scopes/lidar_for_sites.py <site>[,<site>] [--dry]
+  python3 pipeline/scopes/lidar_for_sites.py --tiles 2679000_1248500,... [--dry]
 Tiles (500 m, LV95 lower-left corner) covering the site's fetch box that are missing under data/raw/lidar/ are ordered from the
 Stadt Zürich OGD geoportal (anonymous, CC0, whole tiles delivered) one column at a time, then g_<E>_<N>.npz grids are built.
 """
@@ -29,7 +30,10 @@ def tiles_for_box(box):
 
 def main():
     names = [a for a in sys.argv[1:] if not a.startswith("--")]
-    need = sorted({t for n in names[0].split(",") for t in tiles_for_box(site_cfg(n)["fetch"])})
+    if "--tiles" in sys.argv:   # explicit list E_N,E_N,... (pipeline/scopes/discover.py --lidar prints it)
+        need = sorted(tuple(int(v) for v in t.split("_")) for t in sys.argv[sys.argv.index("--tiles") + 1].split(","))
+    else:
+        need = sorted({t for n in names[0].split(",") for t in tiles_for_box(site_cfg(n)["fetch"])})
     LF.OUT.mkdir(parents=True, exist_ok=True)
     missing = [t for t in need if not (LF.OUT / f"{t[0]}_{t[1]}.laz").exists()]
     print(f"tiles needed {need}, missing {missing}", flush=True)
