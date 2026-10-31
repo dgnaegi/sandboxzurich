@@ -4,12 +4,13 @@ import * as THREE from 'three';
  *  so after a deploy old tiles could mix with a new landmarks.json. Every request for those paths gets ?v=<build>,
  *  which changes with each deploy (GITHUB_SHA at build time) and stays stable between deploys. Import first in main.ts. */
 declare const __BUILD__: string;
-const V = typeof __BUILD__ === 'string' ? __BUILD__ : 'dev';
+/** Build id (12 chars of the commit SHA on CI, timestamp locally, 'dev' without Vite); also shown in bug reports. */
+export const BUILD = typeof __BUILD__ === 'string' ? __BUILD__ : 'dev';
 const VERSIONED = /^\/(tiles|data|models|tex|map)\//;
 
 export function ver(url: string): string {
   if (!VERSIONED.test(url) || /[?&]v=/.test(url)) return url;
-  return url + (url.includes('?') ? '&' : '?') + 'v=' + V;
+  return url + (url.includes('?') ? '&' : '?') + 'v=' + BUILD;
 }
 
 THREE.DefaultLoadingManager.setURLModifier(ver);

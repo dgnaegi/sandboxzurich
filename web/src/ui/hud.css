@@ -177,3 +177,14 @@ body.stick-right #touchbtns { right: auto; left: calc(18px + env(safe-area-inset
 #transithud small { display: block; font-weight: 600; opacity: .85; font-size: 13px; }
 #btn-bell { display: none; }
 body.transit-drive #btn-bell { display: block; }
+
+/* «Fehler melden» page (ui/report.ts): text box, the automatic context block, GitHub / mail links styled as menu buttons */
+.m-page[data-page="report"] { max-height: 100dvh; overflow-y: auto; }
+.m-page .r-lead { margin: 0 0 10px; }
+#r-text { display: block; width: 100%; box-sizing: border-box; min-height: 92px; padding: 10px 12px; border-radius: 8px; border: 2px solid #fff5; background: #000a; color: #fff; font: 600 15px/1.4 Barlow, system-ui, sans-serif; resize: vertical; user-select: text; -webkit-user-select: text; touch-action: auto; }
+#r-text:focus { outline: none; border-color: #f5c518; }
+#r-info { margin: 10px 0; padding: 8px 10px; border-radius: 8px; background: #0008; text-align: left; font: 11px/1.45 ui-monospace, Menlo, monospace; white-space: pre-wrap; word-break: break-word; max-height: 28dvh; overflow: auto; opacity: .85; user-select: text; -webkit-user-select: text; touch-action: auto; }
+.m-page .m-btn { display: block; width: 260px; margin: 10px auto; padding: 12px; box-sizing: content-box; font: 22px Anton, sans-serif; color: #fff; background: #000a; border: 2px solid #fff5; border-radius: 8px; text-decoration: none; cursor: pointer; }
+.m-page .m-btn:hover { border-color: #f5c518; color: #f5c518; }
+.m-page .r-note { display: block; opacity: .65; font-size: 12px; line-height: 1.35; margin: 2px 0 6px; }
+@media (max-height: 500px) { #r-text { height: 58px; min-height: 58px; font-size: 14px; } #r-info { max-height: 22dvh; font-size: 10px; margin: 6px 0; } .m-page .m-btn { margin: 6px auto; padding: 8px; font-size: 18px; } .m-page .r-lead { margin-bottom: 6px; font-size: 14px; } .m-page .r-note { margin: 0 0 4px; } }

@@ -327,6 +327,14 @@ async function main() {
   const clk = new GameClock(startMinutes(), Number(params.get('day') ?? 4) % 7, params.has('t') || params.has('day'));
   bindClockPanel(clk);
   (window as unknown as { sbxClock: GameClock }).sbxClock = clk;
+  // «Fehler melden»: snapshot for the pre-filled GitHub issue (ui/report.ts)
+  let fps = 0, calls = 0;
+  menu.onReport = () => ({
+    x: player.x, y: player.y, z: player.z, yaw: player.yaw, speed: Math.abs(player.speed), mobile, fps, calls, time: clk.time(), day: clk.day,
+    mode: player.driving ? (player.driving.isTram ? 'Tram' : player.driving.type === 'bus' ? 'Bus' : `Auto (${player.driving.type}${player.driving.dead ? ', kaputt' : ''})`)
+      : player.riding ? (player.riding.type === 'scooter' ? 'Trottinett' : `Velo (${player.riding.type})`) : 'zu Fuss',
+    quality: `q${quality.level}, Post ${post && quality.post ? 'an' : 'aus'}, ${quality.pixelRatio}x`,
+  });
   let transitMin = clk.min;
   const clock = new THREE.Clock();
   let frames = 0, acc = 0, lastStream = 0, lastStats = 0, lastSave = 0;
@@ -427,7 +435,8 @@ async function main() {
     if (++frames % 30 === 0) {
       const i = renderer.info.render, near = map.nearestPlace(player.x, player.y);
       const mem = (performance as unknown as { memory?: { usedJSHeapSize: number } }).memory?.usedJSHeapSize ?? 0;
-      $('stats').textContent = `${Math.round(30 / (acc - lastStats))} fps · ${i.calls} calls · ${(i.triangles / 1000).toFixed(0)}k tris · q${quality.level} · ${(mem / 1e6) | 0} MB JS`;
+      fps = Math.round(30 / (acc - lastStats)); calls = i.calls;
+      $('stats').textContent = `${fps} fps · ${calls} calls · ${(i.triangles / 1000).toFixed(0)}k tris · q${quality.level} · ${(mem / 1e6) | 0} MB JS`;
       const nearPlace = near && Math.hypot(near.x - player.x, near.y - player.y) < 70 ? near.name : null;
       $('place-name').textContent = locator.square(player.x, player.y) ?? locator.street(player.x, player.y, 14) ?? nearPlace ?? locator.street(player.x, player.y) ?? near?.name ?? '';
       $('place-kreis').textContent = locator.kreis(player.x, player.y) ?? map.kreisAt(player.x, player.y);

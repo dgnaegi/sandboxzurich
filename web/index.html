@@ -28,8 +28,16 @@
     <div class="m-page" data-page="main">
       <h1><b>ZÜRICH</b></h1>
       <button id="m-continue">Weiter</button><button id="m-map">Karte</button><button id="m-settings">Einstellungen</button><button id="m-contact">Kontakt</button>
-      <button id="m-credits">Credits</button><button id="m-imprint">Impressum</button>
+      <button id="m-report">Fehler melden</button><button id="m-credits">Credits</button><button id="m-imprint">Impressum</button>
     </div>
+    <div class="m-page" data-page="report"><h2>Fehler melden</h2>
+      <p class="r-lead">Was hast du gesehen? Ort, Gerät und Build hängen wir automatisch an. Du kannst vor dem Absenden alles noch ändern.</p>
+      <textarea id="r-text" rows="4" placeholder="Was ist passiert? Was hast du erwartet?" autocomplete="off" spellcheck="true"></textarea>
+      <pre id="r-info"></pre>
+      <a id="r-github" class="m-btn" href="https://github.com/dgnaegi/sandboxzurich/issues/new" target="_blank" rel="noopener">Auf GitHub melden</a>
+      <a id="r-mail" class="m-btn" href="mailto:daniel@gnaegi.me">Per E-Mail melden</a>
+      <small class="r-note">GitHub öffnet sich in einem neuen Tab (GitHub-Konto nötig). Gesendet wird erst, wenn du es dort abschickst.</small>
+      <button class="m-back">Zurück</button></div>
     <div class="m-page" data-page="settings"><h2>Einstellungen</h2>
       <div class="s-row"><label for="s-sens">Kamera-Empfindlichkeit</label><input id="s-sens" type="range" min="0.4" max="2.5" step="0.1" value="1" /></div>
       <div class="s-row"><button id="s-sound"></button><button id="s-music"></button></div>
@@ -53,7 +61,7 @@
     <div class="m-page" data-page="imprint"><h2>Impressum</h2>
       <p>Verantwortlich: Daniel Gnägi, <a href="mailto:daniel.gnaegi@protonmail.com">daniel.gnaegi@protonmail.com</a>. Alle Figuren, Firmen und Ereignisse im Spiel sind erfunden, ausser realen Orten und Läden als neutrale Kulisse. Kein Tracking.</p>
       <h3>Datenschutz</h3>
-      <p>Keine Cookies, keine Werbung, kein Konto. Einstellungen und Spielstand bleiben nur in deinem Browser (localStorage). Die Seite wird über Cloudflare ausgeliefert; dabei fallen technisch nötige Server-Logs an (z.&nbsp;B. IP-Adresse, Zeitpunkt), die wir nicht auswerten. Für eine anonyme Besucherstatistik nutzen wir Cloudflare Web Analytics: ohne Cookies, ohne Fingerprinting und ohne Profilbildung über Websites hinweg. Erfasst werden nur aggregierte Angaben wie aufgerufene Seite, Herkunftsseite, Land, Browser und Ladezeiten. Wenn du uns per E-Mail schreibst, nutzen wir die Angaben nur für die Antwort. Fragen: siehe E-Mail oben.</p>
+      <p>Keine Cookies, keine Werbung, kein Konto. Einstellungen und Spielstand bleiben nur in deinem Browser (localStorage). Die Seite wird über Cloudflare ausgeliefert; dabei fallen technisch nötige Server-Logs an (z.&nbsp;B. IP-Adresse, Zeitpunkt), die wir nicht auswerten. Für eine anonyme Besucherstatistik nutzen wir Cloudflare Web Analytics: ohne Cookies, ohne Fingerprinting und ohne Profilbildung über Websites hinweg. Erfasst werden nur aggregierte Angaben wie aufgerufene Seite, Herkunftsseite, Land, Browser und Ladezeiten. Wenn du uns per E-Mail schreibst, nutzen wir die Angaben nur für die Antwort. «Fehler melden» öffnet ein vorausgefülltes Formular auf GitHub (dort gelten die Bedingungen von GitHub); das Spiel sendet nichts von selbst, und du siehst vorher, was drinsteht. Fragen: siehe E-Mail oben.</p>
       <button class="m-back">Zurück</button></div>
   </div>
   <div id="toast"><div id="toast-kicker"></div><div id="toast-title"></div><div id="toast-text"></div></div>

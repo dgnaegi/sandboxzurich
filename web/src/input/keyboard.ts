@@ -1,6 +1,9 @@
 import { actions } from './actions';
 import { settings } from '../ui/settings';
 
+/** True while a key event targets a form field (bug-report box, sliders): the game must not read it as input. */
+export const typing = (e: Event) => e.target instanceof HTMLElement && /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName);
+
 /** Keyboard (WASD/arrows, Shift) and mouse drag / pointer lock for the camera. */
 export function initKeyboardMouse(canvas: HTMLCanvasElement) {
   const down = new Set<string>();
@@ -14,6 +17,7 @@ export function initKeyboardMouse(canvas: HTMLCanvasElement) {
     actions.run = down.has('ShiftLeft') || down.has('ShiftRight');
   };
   window.addEventListener('keydown', (e) => {
+    if (typing(e)) return;
     if ((e.code === 'KeyE' || e.code === 'KeyF') && !e.repeat) actions.use = true;
     if (e.code === 'KeyH' && !e.repeat) actions.bell = true;
     down.add(e.code); sync();
