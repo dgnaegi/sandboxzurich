@@ -73,6 +73,14 @@ export class Pedestrians {
 
   addPaths(paths: number[][][]) { for (const p of paths) if (p.length >= 2) this.paths.push(...clipPath(p)); }   // never across railway land
 
+  /** Walkers and people on spots within r of (x, y), nearest first (speech bubbles). */
+  around(x: number, y: number, r: number): { obj: THREE.Object3D; d: number }[] {
+    const out: { obj: THREE.Object3D; d: number }[] = [];
+    for (const p of this.peds) { const d = Math.hypot(p.x - x, p.y - y); if (d < r) out.push({ obj: p.h.root, d }); }
+    for (const o of this.spots.people()) { const e = o.matrixWorld.elements, d = Math.hypot(e[12] - x, -e[14] - y); if (d < r) out.push({ obj: o, d }); }
+    return out.sort((a, b) => a.d - b.d);
+  }
+
   nearest(x: number, y: number): { obj: THREE.Object3D; d: number } | null {
     let best: { obj: THREE.Object3D; d: number } | null = null;
     for (const p of this.peds) { const d = Math.hypot(p.x - x, p.y - y); if (!best || d < best.d) best = { obj: p.h.root, d }; }

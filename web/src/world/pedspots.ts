@@ -60,6 +60,9 @@ export class PedSpots {
     for (const [x, y, z, yaw] of meta.workers ?? []) mk(x, y, z, face(Math.cos(yaw), Math.sin(yaw)), 1, 0, 'work', hash(x, y));
   }
 
+  /** People currently sitting or standing on spots (speech bubbles). */
+  people(): THREE.Object3D[] { return this.live.flatMap((s) => s.people.map((h) => h.root)); }
+
   private active(s: Spot): boolean {
     const h = this.hour, night = h >= 22 || h < 6, p = s.k % 100;
     switch (s.kind) {

@@ -312,12 +312,15 @@ async function main() {
     if (bubbleT <= 0 && bubbleScan <= 0) {
       bubbleScan = 0.25;
       const mode = player.driving ? (player.driving.isTram || player.driving.type === 'bus' ? 'transit' : 'car') : player.riding ? (player.onScooter ? 'scooter' : 'bike') : Math.abs(player.speed) > 3 ? 'run' : 'foot';
-      const reach = mode === 'car' || mode === 'transit' ? 14 : mode === 'foot' ? 7 : 10;
-      const n = crowd.nearest(player.x, player.y);
-      if (n && n.d < reach && !spoke.includes(n.obj)) {
+      const reach = mode === 'car' || mode === 'transit' ? 22 : mode === 'bike' || mode === 'scooter' ? 18 : 15;
+      for (const n of crowd.around(player.x, player.y, reach)) {   // nearest walker or person on a bench / at a bar you can see
+        if (spoke.includes(n.obj)) continue;
+        vproj.setFromMatrixPosition(n.obj.matrixWorld); vproj.y += 2.1; vproj.project(camera);
+        if (vproj.z >= 1 || Math.abs(vproj.x) > 0.9 || Math.abs(vproj.y) > 0.9) continue;
         bubble.textContent = chatLine({ place: locator.square(player.x, player.y) ?? locator.street(player.x, player.y) ?? '', min: clk.min, day: clk.day, night: daytime.night > 0.5, mode });
         bubbleObj = n.obj; bubbleLeft = 3.5; bubbleT = 5 + Math.random() * 5;
         spoke.push(n.obj); if (spoke.length > 4) spoke.shift();
+        break;
       }
     }
     if (bubbleObj && bubbleLeft > 0) {
