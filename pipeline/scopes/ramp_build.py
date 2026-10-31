@@ -422,6 +422,15 @@ def run(tiles_dir, sites, write=False, report=None):
             mods.update(B.modified); B.lines += jl
         for _, B, _ in built:
             B.modified = {k: v for k, v in mods.items() if k in B.modified}
+    # pass 3: footway rows beside the new decks (trim, continue air ends along the LiDAR ground, solid on embankments)
+    import footways as FW
+    R0 = built[0][1].R
+    skip = set().union(*(B.sel | res[2] for _, B, res in built))
+    foot_new, fl = FW.rebuild([d for _, B, _ in built for d in B.decks], R0, skip, lambda x, y: float(R0.ground(np.array([x]), np.array([y]))[0]))
+    for _, B, res in built:
+        B.foot = {}
+    for (t, k), rs in foot_new.items():
+        built[0][1].foot[(t, k)] = rs
     for name, B, (decks, piers, drop) in built:
         lines.append(f"## {name} ('{B.cfg['match']}')")
         lines += B.lines + [""]
@@ -438,6 +447,11 @@ def run(tiles_dir, sites, write=False, report=None):
             changed.setdefault(T.name_at(q[0], q[1]), {"drop": set(), "add": [], "decks": [], "piers": []})["piers"].append(q)
         for (t, k), row in B.modified.items():
             changed.setdefault(t, {"drop": set(), "add": [], "decks": [], "piers": []}).setdefault("mod", {})[k] = row
+        for (t, k), rs in B.foot.items():
+            changed.setdefault(t, {"drop": set(), "add": [], "decks": [], "piers": []})["drop"].add(k)
+            for d in rs:
+                for t2, rows2 in cut_rows(d, T).items():
+                    changed.setdefault(t2, {"drop": set(), "add": [], "decks": [], "piers": []})["add"] += rows2
         for t, ch in changed.items():
             ch.setdefault("dropped_piers", set()).update(B.dropped_piers)
     if write:
@@ -462,6 +476,7 @@ def run(tiles_dir, sites, write=False, report=None):
             nc = drop_colliders(m, ch["decks"])
             json.dump(m, open(f, "w"), separators=(",", ":"))
             lines.append(f"- wrote {t}: dropped {len(ch['drop'])} rows, added {len(ch['add'])}, opened {len(mod)}, piers +{len(ch['piers'])}, props removed under the new decks {np_}, static colliders {nc}")
+    lines += [""] + fl
     text = "\n".join(lines)
     print(text)
     if report:
